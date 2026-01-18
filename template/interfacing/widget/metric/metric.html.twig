@@ -1,0 +1,18 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div style="background:#fff;border:1px solid #e6e6e6;border-radius:14px;padding:12px;">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;">
+    <div style="font-weight:700;">Metric</div>
+    <button type="button" data-action="live#action" data-live-action-param="refresh" style="padding:8px 12px;border-radius:10px;border:1px solid #ddd;background:#fff;">Refresh</button>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;">
+    {% for m in this.metricList %}
+      <div style="border:1px solid #eee;border-radius:14px;padding:10px;">
+        <div style="font-size:12px;opacity:.75;">{{ m.title }}</div>
+        <div style="font-size:22px;font-weight:800;margin-top:4px;">{{ m.value }} <span style="font-size:12px;opacity:.7;">{{ m.unit }}</span></div>
+        {% if m.delta is not null %}
+          <div style="font-size:12px;opacity:.7;margin-top:4px;">Δ {{ m.delta }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,13 @@
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  SmartResponsor\Interfacing\:
+    resource: '../src/'
+
+  SmartResponsor\Interfacing\Service\Interfacing\Registry\ScreenCatalog: ~
+  SmartResponsor\Interfacing\Service\Interfacing\Registry\ActionCatalog: ~
+  SmartResponsor\Interfacing\Service\Interfacing\Runtime\ActionRunner: ~

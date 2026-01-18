@@ -1,0 +1,82 @@
+<?php
+declare(strict_types=1);
+
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ */
+namespace App\Service\Interfacing\Layout;
+
+use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
+use App\Domain\Interfacing\Model\ScreenId;
+use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
+use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+
+final class LayoutCatalog implements LayoutCatalogInterface
+{
+    /** @var array<string, LayoutScreenSpecInterface> */
+    private array $specBySlug = [];
+
+    public function __construct()
+    {
+        $this->registerDefault();
+    }
+
+    private function registerDefault(): void
+    {
+        $this->register(
+            LayoutScreenSpec::create(
+                'home',
+                'Home',
+                'tool',
+                ScreenId::fromString('screen-home'),
+                null,
+                []
+            )
+        );
+
+        $this->register(
+            LayoutScreenSpec::create(
+                'health',
+                'Health',
+                'tool',
+                ScreenId::fromString('screen-health'),
+                null,
+                []
+            )
+        );
+
+        $this->register(
+            LayoutScreenSpec::create(
+                'empty',
+                'Empty',
+                'tool',
+                ScreenId::fromString('screen-empty'),
+                null,
+                []
+            )
+        );
+    }
+
+    public function register(LayoutScreenSpecInterface $spec): void
+    {
+        $this->specBySlug[$spec->getSlug()] = $spec;
+    }
+
+    public function hasSlug(string $slug): bool
+    {
+        return isset($this->specBySlug[$slug]);
+    }
+
+    public function getBySlug(string $slug): LayoutScreenSpecInterface
+    {
+        if (!isset($this->specBySlug[$slug])) {
+            throw new \RuntimeException('Unknown layout slug: ' . $slug);
+        }
+        return $this->specBySlug[$slug];
+    }
+
+    public function all(): array
+    {
+        return array_values($this->specBySlug);
+    }
+}

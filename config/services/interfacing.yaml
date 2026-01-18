@@ -1,0 +1,17 @@
+services:
+  App\:
+    resource: '../src/'
+    exclude:
+      - '../src/Kernel.php'
+
+  App\Infra\Interfacing\Security\InterfacingPermissionVoter:
+    tags:
+      - { name: security.voter }
+
+  App\Service\Interfacing\Tenant\DefaultTenantResolver:
+    arguments:
+      $defaultTenantId: '%env(string:SR_TENANT_DEFAULT)%'
+
+  App\Service\Interfacing\Audit\MonologAuditSink:
+    arguments:
+      $logger: '@monolog.logger.interfacing'

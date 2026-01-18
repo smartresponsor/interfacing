@@ -1,0 +1,79 @@
+
+{# 
+Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+#}
+<div>
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;">
+    <div style="font-weight:600;">DataGrid</div>
+    <div style="opacity:.7;font-size:12px;">provider: {{ this.providerKey }}</div>
+  </div>
+
+  {% if this.flash %}
+    <div style="margin-bottom:10px;padding:8px 10px;border:1px solid #ddd;border-radius:8px;">
+      {{ this.flash }}
+    </div>
+  {% endif %}
+
+  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;">
+    <input type="text" placeholder="Search..." value="{{ this.search }}" data-model="search" style="padding:6px 8px;min-width:240px;">
+    <button type="button" data-action="live#action" data-live-action-param="clearSearch" style="padding:6px 10px;">Clear</button>
+
+    <div style="flex:1;"></div>
+
+    <button type="button" data-action="live#action" data-live-action-param="selectPage" style="padding:6px 10px;">Select page</button>
+    <button type="button" data-action="live#action" data-live-action-param="clearSelect" style="padding:6px 10px;">Clear select</button>
+
+    <select data-model="bulkActionId" style="padding:6px 8px;min-width:180px;">
+      {% for a in this.bulkActionList %}
+        <option value="{{ a.id }}">{{ a.title }}</option>
+      {% endfor %}
+    </select>
+    <button type="button" data-action="live#action" data-live-action-param="runBulk" style="padding:6px 10px;">Run</button>
+  </div>
+
+  {% set r = this.result %}
+  <div style="opacity:.75;font-size:12px;margin-bottom:6px;">
+    total: {{ r.total }} | page: {{ r.page }} | size: {{ r.pageSize }} | selected: {{ this.selectedId|length }}
+  </div>
+
+  <table style="width:100%;border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th style="text-align:left;border-bottom:1px solid #ddd;padding:8px;">sel</th>
+        <th style="text-align:left;border-bottom:1px solid #ddd;padding:8px;">
+          <a href="#" data-action="live#action" data-live-action-param="setSort" data-live-key-param="id">id</a>
+          {% if this.sortKey == 'id' %}<span style="opacity:.6;">({{ this.sortDir }})</span>{% endif %}
+        </th>
+        <th style="text-align:left;border-bottom:1px solid #ddd;padding:8px;">
+          <a href="#" data-action="live#action" data-live-action-param="setSort" data-live-key-param="name">name</a>
+          {% if this.sortKey == 'name' %}<span style="opacity:.6;">({{ this.sortDir }})</span>{% endif %}
+        </th>
+        <th style="text-align:left;border-bottom:1px solid #ddd;padding:8px;">
+          <a href="#" data-action="live#action" data-live-action-param="setSort" data-live-key-param="status">status</a>
+          {% if this.sortKey == 'status' %}<span style="opacity:.6;">({{ this.sortDir }})</span>{% endif %}
+        </th>
+        <th style="text-align:left;border-bottom:1px solid #ddd;padding:8px;">updatedAt</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in r.row %}
+        {% set isDone = this.isDone(row.id) %}
+        <tr {% if isDone %}style="opacity:.75;"{% endif %}>
+          <td style="border-bottom:1px solid #eee;padding:8px;">
+            <input type="checkbox" {% if this.isSelected(row.id) %}checked{% endif %}
+                   data-action="live#action" data-live-action-param="toggleSelect" data-live-id-param="{{ row.id }}">
+          </td>
+          <td style="border-bottom:1px solid #eee;padding:8px;">{{ row.cell.id }}</td>
+          <td style="border-bottom:1px solid #eee;padding:8px;">{{ row.cell.name }}</td>
+          <td style="border-bottom:1px solid #eee;padding:8px;">{% if isDone %}done{% else %}{{ row.cell.status }}{% endif %}</td>
+          <td style="border-bottom:1px solid #eee;padding:8px;">{{ row.cell.updatedAt }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div style="display:flex;gap:8px;align-items:center;margin-top:10px;">
+    <button type="button" data-action="live#action" data-live-action-param="prev" {% if not r.hasPrev %}disabled{% endif %} style="padding:6px 10px;">Prev</button>
+    <button type="button" data-action="live#action" data-live-action-param="next" {% if not r.hasNext %}disabled{% endif %} style="padding:6px 10px;">Next</button>
+  </div>
+</div>

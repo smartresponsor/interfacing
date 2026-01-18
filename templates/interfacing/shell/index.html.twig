@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Interfacing</title>
+</head>
+<body>
+<div style="display:flex; gap:16px; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;">
+  <aside style="min-width: 220px; border-right:1px solid #ddd; padding-right:12px;">
+    <div style="margin-bottom:12px;">
+      <a href="/interfacing" style="text-decoration:none;">Interfacing</a>
+    </div>
+
+    {% for g in navGroupList %}
+      <div style="margin: 12px 0 6px; color:#555;">{{ g.label }}</div>
+      <ul style="list-style:none; padding:0; margin:0;">
+        {% for i in g.itemList %}
+          {% set active = (i.screenId.toString == activeScreenId) %}
+          <li style="margin:4px 0;">
+            <a href="/interfacing/screen/{{ i.screenId.toString }}" style="text-decoration:none; {{ active ? 'font-weight:600;' : '' }}">
+              {{ i.label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </aside>
+
+  <main style="flex:1;">
+    {% include activeViewId ~ '.html.twig' with {'payload': payload} %}
+  </main>
+</div>
+</body>
+</html>

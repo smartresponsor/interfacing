@@ -1,0 +1,19 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'base.html.twig' %}
+{% block body %}
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+    <div>
+      <div style="font-weight:600;">Interfacing</div>
+      <div style="opacity:.7;font-size:12px;margin-top:4px;">Server-driven UI (LiveComponent). Choose a screen.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+    {% for s in screenList %}
+      <a href="/interfacing/{{ s.id }}" style="display:block;border:1px solid #ddd;border-radius:12px;padding:10px 12px;text-decoration:none;color:inherit;">
+        <div style="font-weight:600;">{{ s.title }}</div>
+        <div style="opacity:.65;font-size:12px;margin-top:2px;">/interfacing/{{ s.id }}</div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}

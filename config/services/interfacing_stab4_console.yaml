@@ -1,0 +1,11 @@
+parameters:
+  interfacing.screens:
+    - { id: 'billing-meter', route: 'interfacing_billing_meter', domain: 'billing', notes: 'Billing meter grid' }
+    - { id: 'order-summary', route: 'interfacing_order_summary', domain: 'order', notes: 'Order summary grid' }
+
+services:
+  App\Infra\Interfacing\Console\InterfacingScreenDumpCommand:
+    tags: ['console.command']
+
+  App\Infra\Interfacing\Console\InterfacingScreenValidateCommand:
+    tags: ['console.command']

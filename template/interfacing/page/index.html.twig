@@ -1,0 +1,32 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set shell = interfacing_shell() %}
+
+  <div style="background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:14px 14px;">
+    <div style="font-weight:700;">Interfacing shell</div>
+    <div style="opacity:.7; font-size:12px; margin-top:4px;">
+      Pick a screen from the left navigation.
+      {% if shell.query %}
+        Filter: "{{ shell.query }}"
+      {% endif %}
+    </div>
+  </div>
+
+  <div style="margin-top:12px; display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px;">
+    {% for g in shell.group %}
+      <div style="background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:12px 12px;">
+        <div style="font-weight:700; font-size:13px; margin-bottom:8px;">{{ g.title }}</div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          {% for it in g.item %}
+            <a href="{{ it.url }}" style="display:block; border:1px solid #eee; border-radius:12px; padding:8px 10px; text-decoration:none; color:inherit;">
+              <div style="font-weight:600; font-size:13px;">{{ it.title }}</div>
+              <div style="opacity:.6; font-size:12px; margin-top:2px;">{{ it.url }}</div>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

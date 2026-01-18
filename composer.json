@@ -1,0 +1,31 @@
+{
+  "name": "smartresponsor/interfacing",
+  "type": "library",
+  "description": "SmartResponsor Interfacing (server-driven UI primitives + UX LiveComponent runtime) for internal tools",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.2",
+    "symfony/http-foundation": "^6.4 || ^7.0",
+    "symfony/http-kernel": "^6.4 || ^7.0",
+    "symfony/routing": "^6.4 || ^7.0",
+    "symfony/console": "^6.4 || ^7.0",
+    "twig/twig": "^3.0",
+    "symfony/ux-live-component": "^2.0",
+    "symfony/ux-twig-component": "^2.0",
+    "symfony/http-client": "^6.4 || ^7.0",
+    "psr/log": "^3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SmartResponsor\\Interfacing\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SmartResponsor\\Interfacing\\Test\\": "test/"
+    }
+  }
+}

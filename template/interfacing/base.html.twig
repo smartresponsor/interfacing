@@ -1,0 +1,53 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% set shell = interfacing_shell() %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title|default('Interfacing') }}</title>
+</head>
+<body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; margin:0; background:#f7f7f7;">
+  <div style="display:flex; min-height:100vh;">
+    <aside style="width:280px; background:#fff; border-right:1px solid #e6e6e6;">
+      <div style="padding:14px 14px 10px 14px; border-bottom:1px solid #f0f0f0;">
+        <div style="font-weight:700;">Interfacing</div>
+        <div style="opacity:.7; font-size:12px; margin-top:4px;">Server-driven UI</div>
+
+        <form method="get" action="{{ path('interfacing_index') }}" style="margin-top:10px;">
+          <input name="q" value="{{ shell.query }}" placeholder="Search screens..." style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:10px;">
+        </form>
+
+        <div style="opacity:.55; font-size:12px; margin-top:8px;">
+          {{ shell.itemTotal }} screen{{ shell.itemTotal == 1 ? '' : 's' }}
+        </div>
+      </div>
+
+      <div style="padding:10px 8px; display:flex; flex-direction:column; gap:10px;">
+        {% for g in shell.group %}
+          <div>
+            <div style="padding:6px 8px; font-size:12px; opacity:.7; text-transform:uppercase; letter-spacing:.04em;">
+              {{ g.title }}
+            </div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              {% for it in g.item %}
+                {% set active = shell.activeId and (shell.activeId == it.id) %}
+                <a href="{{ it.url }}" style="display:block; padding:8px 10px; border-radius:10px; text-decoration:none; color:inherit; background:{{ active ? '#efefef' : 'transparent' }};">
+                  <div style="font-weight:600; font-size:13px;">{{ it.title }}</div>
+                  <div style="opacity:.6; font-size:12px; margin-top:2px;">{{ it.id }}</div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </aside>
+
+    <main style="flex:1; padding:18px;">
+      <div style="max-width:1040px; margin:0 auto;">
+        {% block body %}{% endblock %}
+      </div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% set _msgs = app.request and app.request.hasSession ? app.session.flashBag.get('interfacing_message') : [] %}
+{% if _msgs is not empty %}
+  <div style="margin: 0 0 12px 0;">
+    {% for row in _msgs %}
+      {% set type = row.type|default('info') %}
+      {% set text = row.text|default('') %}
+      <div style="padding: 10px 12px; border-radius: 10px; border: 1px solid #ddd; margin: 0 0 8px 0;">
+        <span style="font-weight: 600;">{{ type|upper }}</span>
+        <span style="margin-left: 8px;">{{ text }}</span>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

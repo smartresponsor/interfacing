@@ -1,0 +1,30 @@
+<?php
+declare(strict_types=1);
+
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
+namespace SmartResponsor\Interfacing\Service\Interfacing\Context;
+
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Context\BaseContextAssemblerInterface;
+
+final class BaseContextAssembler implements BaseContextAssemblerInterface
+{
+    /** @param iterable<BaseContextProviderInterface> $provider */
+    public function __construct(private readonly iterable $provider) {}
+
+    /** @return array<string, mixed> */
+    public function assemble(): array
+    {
+        $ctx = [];
+        foreach ($this->provider as $p) {
+            $data = $p->provide();
+            foreach ($data as $k => $v) {
+                $ctx[(string)$k] = $v;
+            }
+        }
+        return $ctx;
+    }
+}

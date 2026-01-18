@@ -1,0 +1,94 @@
+<div>
+  {% if this.message is not empty %}
+    <div style="margin: 8px 0;">
+      {% for m in this.message %}
+        <div style="padding:6px 8px; margin:4px 0; border:1px solid #ddd;">
+          <span style="color:#555;">{{ m.level }}</span> — {{ m.text }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div style="display:flex; gap:16px; align-items:flex-start;">
+    <div style="flex:1;">
+      <div style="margin-bottom: 8px;">
+        <input type="text" value="{{ this.q }}" data-model="q" placeholder="Search..." style="width: 280px; padding:6px;"/>
+        <button data-action="live#action" data-live-name="refresh" style="padding:6px 10px;">Search</button>
+      </div>
+
+      <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse; width:100%;">
+        <thead><tr><th>id</th><th>slug</th><th>name</th><th>locale</th><th>status</th><th></th></tr></thead>
+        <tbody>
+          {% for c in this.item %}
+            <tr>
+              <td><code>{{ c.id }}</code></td>
+              <td>{{ c.slug }}</td>
+              <td>{{ c.name }}</td>
+              <td>{{ c.locale }}</td>
+              <td>{{ c.status }}</td>
+              <td>
+                <button data-action="live#action" data-live-name="open" data-live-id-param="{{ c.id }}" style="padding:4px 8px;">Open</button>
+              </td>
+            </tr>
+          {% endfor %}
+          {% if this.item is empty %}
+            <tr><td colspan="6" style="color:#666;">No data (or API not configured).</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+
+      {% if this.nextCursor %}
+        <div style="margin-top: 8px;">
+          <button data-action="live#action" data-live-name="loadNext" style="padding:6px 10px;">Load next</button>
+        </div>
+      {% endif %}
+    </div>
+
+    <div style="width: 340px;">
+      <div style="border:1px solid #ddd; padding: 10px;">
+        <div style="margin-bottom:8px; color:#555;">Edit</div>
+
+        {% macro errFor(field, error) %}
+          {% for x in error %}
+            {% if x.field == field %}
+              <div style="color:#b00; font-size: 12px;">{{ x.message }}</div>
+            {% endif %}
+          {% endfor %}
+        {% endmacro %}
+
+        <div style="margin-bottom:8px;">
+          <div style="font-size:12px; color:#666;">id</div>
+          <input type="text" value="{{ this.form.id }}" data-model="form[id]" style="width: 100%; padding:6px;" readonly/>
+        </div>
+
+        <div style="margin-bottom:8px;">
+          <div style="font-size:12px; color:#666;">slug</div>
+          <input type="text" value="{{ this.form.slug }}" data-model="form[slug]" style="width: 100%; padding:6px;"/>
+          {{ _self.errFor('slug', this.error) }}
+        </div>
+
+        <div style="margin-bottom:8px;">
+          <div style="font-size:12px; color:#666;">name</div>
+          <input type="text" value="{{ this.form.name }}" data-model="form[name]" style="width: 100%; padding:6px;"/>
+          {{ _self.errFor('name', this.error) }}
+        </div>
+
+        <div style="margin-bottom:8px;">
+          <div style="font-size:12px; color:#666;">locale</div>
+          <input type="text" value="{{ this.form.locale }}" data-model="form[locale]" style="width: 100%; padding:6px;"/>
+          {{ _self.errFor('locale', this.error) }}
+        </div>
+
+        <div style="margin-bottom:8px;">
+          <div style="font-size:12px; color:#666;">status</div>
+          <input type="text" value="{{ this.form.status }}" data-model="form[status]" style="width: 100%; padding:6px;"/>
+          {{ _self.errFor('status', this.error) }}
+        </div>
+
+        <div style="display:flex; gap:8px;">
+          <button data-action="live#action" data-live-name="save" style="padding:6px 10px;">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
