@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\InfraInterface\Interfacing\Twig;
+namespace SmartResponsor\Interfacing\InfraInterface\Interfacing\Twig;
 
 interface ClassNameTwigExtensionInterface
 {

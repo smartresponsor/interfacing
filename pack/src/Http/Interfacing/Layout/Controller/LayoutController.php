@@ -4,13 +4,13 @@ declare(strict_types=1);
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  */
-namespace App\Http\Interfacing\Layout\Controller;
+namespace SmartResponsor\Interfacing\Http\Interfacing\Layout\Controller;
 
-use App\HttpInterface\Interfacing\Layout\Controller\LayoutControllerInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
-use App\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
+use SmartResponsor\Interfacing\HttpInterface\Interfacing\Layout\Controller\LayoutControllerInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

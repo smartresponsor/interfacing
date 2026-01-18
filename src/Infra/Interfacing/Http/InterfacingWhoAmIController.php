@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Infra\Interfacing\Http;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Http;
 
-use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;

@@ -5,10 +5,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Http\Interfacing\Live;
+namespace SmartResponsor\Interfacing\Http\Interfacing\Live;
 
-use App\Domain\Interfacing\Ui\UiErrorBag;
-use App\Domain\Interfacing\Ui\UiMessageBag;
+use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiErrorBag;
+use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessageBag;
 
 trait LiveFeedbackTrait
 {

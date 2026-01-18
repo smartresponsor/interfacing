@@ -1,12 +1,11 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Query;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\BillingMeterPage;
-use App\Domain\Interfacing\Query\BillingMeterRow;
-use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterRow;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class HttpBillingMeterQueryService implements BillingMeterQueryServiceInterface

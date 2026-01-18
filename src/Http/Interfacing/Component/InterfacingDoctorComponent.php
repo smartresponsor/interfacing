@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Http\Interfacing\Component;
+namespace SmartResponsor\Interfacing\Http\Interfacing\Component;
 
-use SmartResponsor\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
@@ -22,7 +22,7 @@ final class InterfacingDoctorComponent
 
     public function __construct(private readonly InterfacingDoctorServiceInterface $service) {}
 
-    public function report(): \SmartResponsor\DomainInterface\Interfacing\Doctor\DoctorReportInterface
+    public function report(): \SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor\DoctorReportInterface
     {
         return $this->service->report();
     }

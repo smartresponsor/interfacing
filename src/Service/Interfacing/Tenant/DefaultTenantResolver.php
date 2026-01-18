@@ -1,16 +1,15 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Tenant;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Tenant;
 
-use App\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 final class DefaultTenantResolver implements TenantResolverInterface
 {
-    public const string HeaderTenant = 'X-SR-Tenant';
+    public const HeaderTenant = 'X-SR-Tenant';
 
     public function __construct(
         private readonly string $defaultTenantId = 'default',

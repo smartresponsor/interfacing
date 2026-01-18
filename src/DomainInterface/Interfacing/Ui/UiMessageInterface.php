@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\DomainInterface\Interfacing\Ui;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui;
 
 interface UiMessageInterface
 {

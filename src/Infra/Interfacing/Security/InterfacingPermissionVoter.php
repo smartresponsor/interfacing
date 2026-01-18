@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Infra\Interfacing\Security;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Security;
 
-use App\Domain\Interfacing\Runtime\InterfacingPermission;
+use SmartResponsor\Interfacing\Domain\Interfacing\Runtime\InterfacingPermission;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 

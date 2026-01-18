@@ -5,11 +5,11 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Service\Interfacing\Demo;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Demo;
 
-use SmartResponsor\Domain\Interfacing\Layout\LayoutId;
-use SmartResponsor\Domain\Interfacing\Layout\LayoutSpec;
-use SmartResponsor\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Layout\LayoutId;
+use SmartResponsor\Interfacing\Domain\Interfacing\Layout\LayoutSpec;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
 
 final class DemoLayoutProvider implements LayoutProviderInterface
 {

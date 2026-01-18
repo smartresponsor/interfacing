@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\HttpInterface\Interfacing\Console;
+namespace SmartResponsor\Interfacing\HttpInterface\Interfacing\Console;
 
 interface InterfacingDoctorCommandInterface
 {

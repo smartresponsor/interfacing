@@ -3,6 +3,6 @@ services:
     autowire: true
     autoconfigure: true
 
-  App\Http\Interfacing\Health\Controller\InterfacingHealthController:
+  SmartResponsor\Interfacing\Http\Interfacing\Health\Controller\InterfacingHealthController:
     arguments:
       $kernelEnvironment: '%kernel.environment%'

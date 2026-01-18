@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Http\Interfacing\Console;
+namespace SmartResponsor\Interfacing\Http\Interfacing\Console;
 
-use SmartResponsor\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

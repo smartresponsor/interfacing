@@ -17,7 +17,7 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
-#[AsLiveComponent('InterfacingCategoryAdmin')]
+#[AsLiveComponent('InterfacingCategoryAdmin', template: 'component/InterfacingCategoryAdmin.html.twig')]
 final class CategoryAdminLive
 {
     #[LiveProp(writable: true)]

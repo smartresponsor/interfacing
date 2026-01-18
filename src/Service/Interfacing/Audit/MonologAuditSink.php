@@ -1,11 +1,10 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Audit;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Audit;
 
-use App\DomainInterface\Interfacing\Audit\AuditSinkInterface;
-use App\Domain\Interfacing\Audit\AuditEvent;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Audit\AuditSinkInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEvent;
 use Psr\Log\LoggerInterface;
 
 final class MonologAuditSink implements AuditSinkInterface

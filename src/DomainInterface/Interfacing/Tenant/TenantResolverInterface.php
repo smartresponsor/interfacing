@@ -1,8 +1,7 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\DomainInterface\Interfacing\Tenant;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Tenant;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;

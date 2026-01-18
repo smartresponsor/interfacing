@@ -1,11 +1,10 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Security;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Security;
 
-use App\Domain\Interfacing\Runtime\InterfacingPermission;
-use App\DomainInterface\Interfacing\Security\PermissionNamerInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Runtime\InterfacingPermission;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Security\PermissionNamerInterface;
 
 final class InterfacingPermissionNamer implements PermissionNamerInterface
 {

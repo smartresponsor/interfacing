@@ -1,8 +1,7 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\DomainInterface\Interfacing\Security;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Security;
 
 interface PermissionNamerInterface
 {

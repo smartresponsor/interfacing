@@ -4,11 +4,11 @@ declare(strict_types=1);
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  */
-namespace App\Service\Interfacing\Runtime;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Runtime;
 
-use App\Domain\Interfacing\Model\WidgetId;
-use App\DomainInterface\Interfacing\Model\WidgetIdInterface;
-use App\ServiceInterface\Interfacing\Runtime\WidgetRegistryInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\WidgetId;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\WidgetRegistryInterface;
 
 final class WidgetRegistry implements WidgetRegistryInterface
 {

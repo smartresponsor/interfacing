@@ -5,11 +5,11 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Ui;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Ui;
 
-use App\Domain\Interfacing\Ui\UiErrorBag;
-use App\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface;
-use App\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiErrorBag;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class SymfonyValidationRunner implements ValidationRunnerInterface

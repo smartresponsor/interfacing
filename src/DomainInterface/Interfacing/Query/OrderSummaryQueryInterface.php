@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\DomainInterface\Interfacing\Query;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\OrderSummaryPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
 
 interface OrderSummaryQueryInterface
 {

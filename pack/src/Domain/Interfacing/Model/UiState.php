@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  */
-namespace App\Domain\Interfacing\Model;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Model;
 
-use App\DomainInterface\Interfacing\Model\UiStateInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface;
 
 final class UiState implements UiStateInterface
 {

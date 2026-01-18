@@ -5,21 +5,21 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Http\Interfacing\Live;
+namespace SmartResponsor\Interfacing\Http\Interfacing\Live;
 
-use App\Domain\Interfacing\Demo\DemoUserProfileInput;
-use App\Domain\Interfacing\Error\DomainOperationFailed;
-use App\Domain\Interfacing\Ui\UiMessage;
-use App\Domain\Interfacing\Ui\UiMessageBag;
-use App\InfraInterface\Interfacing\Demo\DemoUserProfileStoreInterface;
-use App\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
-use App\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
-use App\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Demo\DemoUserProfileInput;
+use SmartResponsor\Interfacing\Domain\Interfacing\Error\DomainOperationFailed;
+use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessageBag;
+use SmartResponsor\Interfacing\InfraInterface\Interfacing\Demo\DemoUserProfileStoreInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
-#[AsLiveComponent('interfacing_demo_user_profile_form')]
+#[AsLiveComponent('interfacing_demo_user_profile_form', template: 'component/interfacing_demo_user_profile_form.html.twig')]
 final class InterfacingDemoUserProfileForm
 {
     use LiveFeedbackTrait;

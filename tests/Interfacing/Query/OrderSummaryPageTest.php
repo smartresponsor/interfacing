@@ -1,11 +1,10 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Query;
+namespace SmartResponsor\Interfacing\Tests\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\OrderSummaryPage;
-use App\Domain\Interfacing\Query\OrderSummaryRow;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryRow;
 use PHPUnit\Framework\TestCase;
 
 final class OrderSummaryPageTest extends TestCase

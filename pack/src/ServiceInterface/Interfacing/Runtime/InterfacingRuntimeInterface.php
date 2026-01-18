@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  */
-namespace App\ServiceInterface\Interfacing\Runtime;
+namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime;
 
-use App\DomainInterface\Interfacing\Model\ScreenIdInterface;
-use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
 interface InterfacingRuntimeInterface
 {

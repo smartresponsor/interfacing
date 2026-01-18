@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Http\Interfacing\Controller;
+namespace SmartResponsor\Interfacing\Http\Interfacing\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

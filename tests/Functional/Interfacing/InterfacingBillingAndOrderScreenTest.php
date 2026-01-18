@@ -5,25 +5,25 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Tests\Functional\Interfacing;
+namespace SmartResponsor\Interfacing\Tests\Functional\Interfacing;
 
-use App\Domain\Interfacing\Access\AccessDecision;
-use App\Domain\Interfacing\Query\BillingMeterPage;
-use App\Domain\Interfacing\Query\BillingMeterRow;
-use App\Domain\Interfacing\Query\OrderSummaryPage;
-use App\Domain\Interfacing\Query\OrderSummaryRow;
-use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
-use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
-use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessDecision;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterRow;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryRow;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Access\AccessResolverInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-#[CoversClass(\App\Infra\Interfacing\Http\BillingMeterScreenController::class)]
-#[CoversClass(\App\Infra\Interfacing\Http\OrderSummaryScreenController::class)]
+#[CoversClass(\SmartResponsor\Interfacing\Infra\Interfacing\Http\BillingMeterScreenController::class)]
+#[CoversClass(\SmartResponsor\Interfacing\Infra\Interfacing\Http\OrderSummaryScreenController::class)]
 final class InterfacingBillingAndOrderScreenTest extends WebTestCase
 {
     public function testBillingMeterScreenRendersWithStubData(): void
@@ -71,8 +71,8 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(AccessResolverInterface::class, $accessResolver);
         }
 
-        if ($container->has('App\\Service\\Interfacing\\Access\\SymfonyAccessResolver')) {
-            $container->set('App\\Service\\Interfacing\\Access\\SymfonyAccessResolver', $accessResolver);
+        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Access\\SymfonyAccessResolver')) {
+            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Access\\SymfonyAccessResolver', $accessResolver);
         }
 
         // Context: stable tenant/user for tests, so no env or security dependency.
@@ -82,8 +82,8 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(BaseContextProviderInterface::class, $baseContextProvider);
         }
 
-        if ($container->has('App\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider')) {
-            $container->set('App\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider', $baseContextProvider);
+        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider')) {
+            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider', $baseContextProvider);
         }
 
         // Billing & order query services: provide in-memory pages instead of HTTP calls.
@@ -94,16 +94,16 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(BillingMeterQueryServiceInterface::class, $billingQuery);
         }
 
-        if ($container->has('App\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService')) {
-            $container->set('App\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService', $billingQuery);
+        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService')) {
+            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService', $billingQuery);
         }
 
         if ($container->has(OrderSummaryQueryServiceInterface::class)) {
             $container->set(OrderSummaryQueryServiceInterface::class, $orderQuery);
         }
 
-        if ($container->has('App\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService')) {
-            $container->set('App\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService', $orderQuery);
+        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService')) {
+            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService', $orderQuery);
         }
 
         return $client;

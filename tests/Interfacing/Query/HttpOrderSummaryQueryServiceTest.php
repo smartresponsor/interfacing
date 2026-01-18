@@ -1,12 +1,11 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Query;
+namespace SmartResponsor\Interfacing\Tests\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\OrderSummaryPage;
-use App\Domain\Interfacing\Query\OrderSummaryRow;
-use App\Service\Interfacing\Query\HttpOrderSummaryQueryService;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryRow;
+use SmartResponsor\Interfacing\Service\Interfacing\Query\HttpOrderSummaryQueryService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

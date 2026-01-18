@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Security;
+namespace SmartResponsor\Interfacing\Tests\Interfacing\Security;
 
-use App\Infra\Interfacing\Security\InterfacingPermissionVoter;
+use SmartResponsor\Interfacing\Infra\Interfacing\Security\InterfacingPermissionVoter;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

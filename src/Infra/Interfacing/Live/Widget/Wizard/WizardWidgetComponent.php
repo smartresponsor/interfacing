@@ -4,12 +4,12 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Infra\Interfacing\Live\Widget\Wizard;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Live\Widget\Wizard;
 
-use App\Domain\Interfacing\Model\Wizard\WizardProgress;
-use App\Domain\Interfacing\Model\Wizard\WizardSpec;
-use App\Domain\Interfacing\Model\Wizard\WizardStepSpec;
-use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Wizard\WizardProgress;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Wizard\WizardSpec;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Wizard\WizardStepSpec;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;

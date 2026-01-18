@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\HttpInterface\Interfacing\Controller;
+namespace SmartResponsor\Interfacing\HttpInterface\Interfacing\Controller;
 
 interface InterfacingDoctorControllerInterface
 {

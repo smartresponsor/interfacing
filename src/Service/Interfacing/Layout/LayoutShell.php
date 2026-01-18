@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Layout;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Layout;
 
-use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
-use App\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
 
 final class LayoutShell implements LayoutShellInterface
 {

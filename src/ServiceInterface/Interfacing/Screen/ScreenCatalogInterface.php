@@ -5,10 +5,10 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\ServiceInterface\Interfacing\Screen;
+namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Screen;
 
-use SmartResponsor\DomainInterface\Interfacing\Screen\ScreenIdInterface;
-use SmartResponsor\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen\ScreenIdInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
 
 interface ScreenCatalogInterface
 {

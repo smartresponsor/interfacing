@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\ServiceInterface\Interfacing;
+namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing;
 
 /**
  * Marker package for Interfacing service interfaces.

@@ -1,11 +1,10 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Query;
+namespace SmartResponsor\Interfacing\Tests\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\BillingMeterPage;
-use App\Domain\Interfacing\Query\BillingMeterRow;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterRow;
 use PHPUnit\Framework\TestCase;
 
 final class BillingMeterPageTest extends TestCase

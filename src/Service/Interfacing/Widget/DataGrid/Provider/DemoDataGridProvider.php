@@ -4,13 +4,13 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Widget\DataGrid\Provider;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\DataGrid\Provider;
 
-use App\Domain\Interfacing\Model\DataGrid\DataGridColumnSpec;
-use App\Domain\Interfacing\Model\DataGrid\DataGridQuery;
-use App\Domain\Interfacing\Model\DataGrid\DataGridResult;
-use App\Domain\Interfacing\Model\DataGrid\DataGridRow;
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridColumnSpec;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridQuery;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridResult;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridRow;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
 
 final class DemoDataGridProvider implements DataGridProviderInterface
 {

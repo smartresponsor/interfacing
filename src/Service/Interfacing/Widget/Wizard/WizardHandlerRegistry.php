@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Widget\Wizard;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\Wizard;
 
-use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
-use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
 
 final class WizardHandlerRegistry implements WizardHandlerRegistryInterface
 {

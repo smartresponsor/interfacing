@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Domain\Interfacing\Doctor;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Doctor;
 
-use SmartResponsor\DomainInterface\Interfacing\Doctor\DoctorIssueInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor\DoctorIssueInterface;
 
 final class DoctorIssue implements DoctorIssueInterface
 {

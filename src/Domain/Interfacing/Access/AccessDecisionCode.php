@@ -1,8 +1,7 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Domain\Interfacing\Access;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Access;
 
 enum AccessDecisionCode: string
 {

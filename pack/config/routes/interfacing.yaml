@@ -1,13 +1,13 @@
 interfacing_health:
   path: /interfacing/health
-  controller: App\Http\Interfacing\Health\Controller\InterfacingHealthController::health
+  controller: SmartResponsor\Interfacing\Http\Interfacing\Health\Controller\InterfacingHealthController::health
 
 interfacing_home:
   path: /interfacing
-  controller: App\Http\Interfacing\Layout\Controller\LayoutController::home
+  controller: SmartResponsor\Interfacing\Http\Interfacing\Layout\Controller\LayoutController::home
 
 interfacing_layout:
   path: /interfacing/{slug}
-  controller: App\Http\Interfacing\Layout\Controller\LayoutController::screen
+  controller: SmartResponsor\Interfacing\Http\Interfacing\Layout\Controller\LayoutController::screen
   requirements:
     slug: '[a-z0-9]+(?:-[a-z0-9]+)*'

@@ -5,15 +5,15 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Service\Interfacing\Action;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Action;
 
-use SmartResponsor\Domain\Interfacing\Action\ActionRuntime;
-use SmartResponsor\Domain\Interfacing\Action\ActionResult;
-use SmartResponsor\Domain\Interfacing\Ui\UiError;
-use SmartResponsor\DomainInterface\Interfacing\Action\ActionIdInterface;
-use SmartResponsor\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
-use SmartResponsor\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
-use SmartResponsor\ServiceInterface\Interfacing\Action\InterfacingActionRunnerInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionRuntime;
+use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionResult;
+use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiError;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionIdInterface;
+use SmartResponsor\Interfacing\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\InterfacingActionRunnerInterface;
 
 final class InterfacingActionRunner implements InterfacingActionRunnerInterface
 {
@@ -22,7 +22,7 @@ final class InterfacingActionRunner implements InterfacingActionRunnerInterface
         private readonly InterfacingTelemetryInterface $telemetry,
     ) {}
 
-    public function run(ActionIdInterface $id, array $input): \SmartResponsor\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface
+    public function run(ActionIdInterface $id, array $input): \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface
     {
         $start = microtime(true);
         $runtime = new ActionRuntime();

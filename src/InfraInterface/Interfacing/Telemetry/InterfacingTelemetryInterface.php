@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\InfraInterface\Interfacing\Telemetry;
+namespace SmartResponsor\Interfacing\InfraInterface\Interfacing\Telemetry;
 
 interface InterfacingTelemetryInterface
 {

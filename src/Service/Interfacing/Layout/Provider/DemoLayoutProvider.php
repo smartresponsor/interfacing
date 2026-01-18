@@ -4,11 +4,11 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Layout\Provider;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Layout\Provider;
 
-use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
-use App\Domain\Interfacing\Value\ScreenId;
-use App\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
+use SmartResponsor\Interfacing\Domain\Interfacing\Value\ScreenId;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
 
 final class DemoLayoutProvider implements LayoutProviderInterface
 {

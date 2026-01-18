@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\ServiceInterface\Interfacing\Layout;
+namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout;
 
-use SmartResponsor\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
 
 interface LayoutProviderInterface
 {

@@ -1,8 +1,7 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Infra\Interfacing\Console;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Console;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

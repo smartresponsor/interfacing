@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Domain\Interfacing\Model\Shell;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Shell;
 
-use App\DomainInterface\Interfacing\Model\Shell\ShellViewInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Shell\ShellViewInterface;
 
 final class ShellView implements ShellViewInterface
 {

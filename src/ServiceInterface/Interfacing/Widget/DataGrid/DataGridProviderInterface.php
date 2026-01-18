@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\ServiceInterface\Interfacing\Widget\DataGrid;
+namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid;
 
-use App\Domain\Interfacing\Model\DataGrid\DataGridQuery;
-use App\Domain\Interfacing\Model\DataGrid\DataGridResult;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridQuery;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridResult;
 
 interface DataGridProviderInterface
 {

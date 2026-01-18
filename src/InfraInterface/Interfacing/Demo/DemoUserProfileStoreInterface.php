@@ -5,9 +5,9 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\InfraInterface\Interfacing\Demo;
+namespace SmartResponsor\Interfacing\InfraInterface\Interfacing\Demo;
 
-use App\Domain\Interfacing\Error\DomainOperationFailed;
+use SmartResponsor\Interfacing\Domain\Interfacing\Error\DomainOperationFailed;
 
 interface DemoUserProfileStoreInterface
 {

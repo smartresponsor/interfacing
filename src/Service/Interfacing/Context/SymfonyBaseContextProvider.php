@@ -1,11 +1,10 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Context;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Context;
 
-use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use App\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

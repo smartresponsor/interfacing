@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Infra\Interfacing\Live\Widget\Form;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Live\Widget\Form;
 
-use App\Domain\Interfacing\Model\Form\FormSpec;
-use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Form\FormSpec;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;

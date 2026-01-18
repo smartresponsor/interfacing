@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Security;
+namespace SmartResponsor\Interfacing\Tests\Interfacing\Security;
 
-use App\Service\Interfacing\Security\InterfacingPermissionNamer;
+use SmartResponsor\Interfacing\Service\Interfacing\Security\InterfacingPermissionNamer;
 use PHPUnit\Framework\TestCase;
 
 final class InterfacingPermissionNamerTest extends TestCase

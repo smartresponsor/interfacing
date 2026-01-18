@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Runtime\Context;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Runtime\Context;
 
-use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenContextResolverInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextResolverInterface;
 
 final class DemoScreenContextResolver implements ScreenContextResolverInterface
 {

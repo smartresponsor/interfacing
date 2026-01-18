@@ -1,12 +1,11 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Query;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\OrderSummaryPage;
-use App\Domain\Interfacing\Query\OrderSummaryRow;
-use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
+use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryRow;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class HttpOrderSummaryQueryService implements OrderSummaryQueryServiceInterface

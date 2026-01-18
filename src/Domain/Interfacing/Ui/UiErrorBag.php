@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Domain\Interfacing\Ui;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Ui;
 
 final class UiErrorBag
 {

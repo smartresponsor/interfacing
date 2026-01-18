@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Widget\DataGrid;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\DataGrid;
 
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
 
 final class DataGridProviderRegistry implements DataGridProviderRegistryInterface
 {

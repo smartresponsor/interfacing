@@ -4,11 +4,11 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Widget\BulkAction;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\BulkAction;
 
-use App\Domain\Interfacing\Model\BulkAction\BulkActionSpec;
-use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
-use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\BulkAction\BulkActionSpec;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
 
 final class BulkActionRegistry implements BulkActionRegistryInterface
 {

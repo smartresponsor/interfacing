@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\DomainInterface\Interfacing\Action;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Action;
 
 interface ActionIdInterface
 {

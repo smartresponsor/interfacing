@@ -5,11 +5,11 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Domain\Interfacing\Action;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Action;
 
-use SmartResponsor\DomainInterface\Interfacing\Action\ActionRuntimeInterface;
-use SmartResponsor\DomainInterface\Interfacing\Ui\UiErrorInterface;
-use SmartResponsor\DomainInterface\Interfacing\Ui\UiMessageInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionRuntimeInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiErrorInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiMessageInterface;
 
 final class ActionRuntime implements ActionRuntimeInterface
 {

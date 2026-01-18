@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  */
-namespace App\Infra\Interfacing\Turbo;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Turbo;
 
-use App\InfraInterface\Interfacing\Turbo\StreamPublisherInterface;
+use SmartResponsor\Interfacing\InfraInterface\Interfacing\Turbo\StreamPublisherInterface;
 
 final class StreamPublisher implements StreamPublisherInterface
 {

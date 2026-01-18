@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  */
-namespace App\Service\Interfacing\Layout;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Layout;
 
-use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final class LayoutGuard implements LayoutGuardInterface

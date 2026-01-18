@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\DomainInterface\Interfacing\Layout;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Layout;
 
 interface LayoutSpecInterface
 {

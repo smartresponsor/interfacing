@@ -4,11 +4,11 @@ declare(strict_types=1);
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  */
-namespace App\Domain\Interfacing\Model\Screen;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Screen;
 
-use App\Domain\Interfacing\Model\ScreenId;
-use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
-use App\DomainInterface\Interfacing\Model\ScreenIdInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface;
 
 final class ScreenSpec implements ScreenSpecInterface
 {

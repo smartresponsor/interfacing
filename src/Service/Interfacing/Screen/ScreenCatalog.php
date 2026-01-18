@@ -5,12 +5,12 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Service\Interfacing\Screen;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Screen;
 
-use SmartResponsor\DomainInterface\Interfacing\Screen\ScreenIdInterface;
-use SmartResponsor\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
-use SmartResponsor\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
-use SmartResponsor\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen\ScreenIdInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
 
 final class ScreenCatalog implements ScreenCatalogInterface
 {

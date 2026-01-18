@@ -4,17 +4,17 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Http\Interfacing\Controller;
+namespace SmartResponsor\Interfacing\Http\Interfacing\Controller;
 
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-final class InterfacingController extends AbstractController implements \App\HttpInterface\Interfacing\Controller\InterfacingControllerInterface
+final class InterfacingController extends AbstractController implements \SmartResponsor\Interfacing\HttpInterface\Interfacing\Controller\InterfacingControllerInterface
 {
     public function __construct(
         private LayoutCatalogInterface $layout,

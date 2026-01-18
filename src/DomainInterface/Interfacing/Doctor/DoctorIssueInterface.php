@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\DomainInterface\Interfacing\Doctor;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor;
 
 interface DoctorIssueInterface
 {

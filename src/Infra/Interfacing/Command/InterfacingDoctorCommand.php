@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Infra\Interfacing\Command;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Command;
 
-use App\DomainInterface\Interfacing\Security\PermissionNamerInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Security\PermissionNamerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

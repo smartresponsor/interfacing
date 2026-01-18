@@ -4,12 +4,12 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Widget\Form\Demo;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\Form\Demo;
 
-use App\Domain\Interfacing\Model\Form\FormFieldSpec;
-use App\Domain\Interfacing\Model\Form\FormSpec;
-use App\Domain\Interfacing\Model\Form\FormSubmitResult;
-use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Form\FormFieldSpec;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Form\FormSpec;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\Form\FormSubmitResult;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
 
 final class DemoProfileFormHandler implements FormHandlerInterface
 {

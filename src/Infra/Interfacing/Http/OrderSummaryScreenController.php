@@ -1,16 +1,15 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Infra\Interfacing\Http;
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Http;
 
-use App\Domain\Interfacing\Access\AccessDecisionCode;
-use App\Domain\Interfacing\Audit\AuditEvent;
-use App\Domain\Interfacing\Audit\AuditEventType;
-use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
-use App\DomainInterface\Interfacing\Audit\AuditSinkInterface;
-use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessDecisionCode;
+use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEvent;
+use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEventType;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Access\AccessResolverInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Audit\AuditSinkInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +18,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 final class OrderSummaryScreenController extends AbstractController
 {
-    private const string ScreenId = 'order-summary';
+    private const ScreenId = 'order-summary';
 
     public function __construct(
         private readonly TokenStorageInterface $tokenStorage,

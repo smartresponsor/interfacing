@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Widget\BulkAction\Demo;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\BulkAction\Demo;
 
-use App\Domain\Interfacing\Model\BulkAction\BulkActionResult;
-use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\BulkAction\BulkActionResult;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
 
 final class DemoDeleteBulkActionHandler implements BulkActionHandlerInterface
 {

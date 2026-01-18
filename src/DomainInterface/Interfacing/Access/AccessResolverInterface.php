@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\DomainInterface\Interfacing\Access;
+namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Access;
 
-use App\Domain\Interfacing\Access\AccessDecision;
+use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessDecision;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

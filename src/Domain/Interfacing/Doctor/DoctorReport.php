@@ -5,13 +5,13 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Domain\Interfacing\Doctor;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Doctor;
 
-use SmartResponsor\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use SmartResponsor\DomainInterface\Interfacing\Doctor\DoctorIssueInterface;
-use SmartResponsor\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
-use SmartResponsor\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
-use SmartResponsor\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionEndpointInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor\DoctorIssueInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
 
 final class DoctorReport implements DoctorReportInterface
 {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace App\Service\Interfacing\Shell;
+namespace SmartResponsor\Interfacing\Service\Interfacing\Shell;
 
-use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final class SymfonyAccessResolver implements AccessResolverInterface

@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Domain\Interfacing\Layout;
+namespace SmartResponsor\Interfacing\Domain\Interfacing\Layout;
 
-use SmartResponsor\DomainInterface\Interfacing\Layout\LayoutIdInterface;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Layout\LayoutIdInterface;
 
 final class LayoutId implements LayoutIdInterface
 {

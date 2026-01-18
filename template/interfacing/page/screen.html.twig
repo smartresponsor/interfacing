@@ -1,22 +1,12 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'interfacing/base.html.twig' %}
-
+{% extends 'base.html.twig' %}
 {% block body %}
-  <div style="background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:14px 14px; margin-bottom:12px;">
-    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-      <div>
-        <div style="font-weight:700;">{{ spec.title }}</div>
-        <div style="opacity:.7; font-size:12px; margin-top:4px;">{{ path('interfacing_screen', {id: spec.id}) }}</div>
-      </div>
-      <a href="{{ path('interfacing_index', shell.query ? {q: shell.query} : {}) }}" style="text-decoration:none; opacity:.7;">Home</a>
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;">
+    <div>
+      <div style="font-weight:600;">{{ spec.title }}</div>
+      <div style="opacity:.65;font-size:12px;margin-top:2px;">/interfacing/{{ spec.id }}</div>
     </div>
-  </div>
-
-  <div style="background:#fff; border:1px solid #e6e6e6; border-radius:14px; padding:10px 12px; margin-bottom:12px;">
-    <div style="font-weight:700; font-size:12px; opacity:.7; margin-bottom:6px;">Context</div>
-    <div style="font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:12px; white-space:pre-wrap; opacity:.75;">
-      {{ context|json_encode(constant('JSON_PRETTY_PRINT')) }}
-    </div>
+    <a href="/interfacing" style="text-decoration:none;opacity:.75;">Back</a>
   </div>
 
   {{ live_component(component, { context: context }) }}

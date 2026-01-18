@@ -1,10 +1,9 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 <?php
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Tenant;
+namespace SmartResponsor\Interfacing\Tests\Interfacing\Tenant;
 
-use App\Service\Interfacing\Tenant\DefaultTenantResolver;
+use SmartResponsor\Interfacing\Service\Interfacing\Tenant\DefaultTenantResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
