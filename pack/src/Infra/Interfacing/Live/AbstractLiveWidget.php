@@ -19,6 +19,5 @@ abstract class AbstractLiveWidget implements AbstractLiveWidgetInterface
 
     public function fromUiState(UiStateInterface $state): void
     {
-        (void) $state;
     }
 }

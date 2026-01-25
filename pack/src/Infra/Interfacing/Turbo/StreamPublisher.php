@@ -12,7 +12,6 @@ final class StreamPublisher implements StreamPublisherInterface
 {
     public function publish(string $target, string $html): void
     {
-        (void) $target;
-        (void) $html;
+
     }
 }

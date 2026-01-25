@@ -17,8 +17,11 @@ abstract class AbstractLiveScreen implements AbstractLiveScreenInterface
         return UiState::fromArray([]);
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface $state
+     * @return void
+     */
     public function fromUiState(UiStateInterface $state): void
     {
-        (void) $state;
     }
 }
