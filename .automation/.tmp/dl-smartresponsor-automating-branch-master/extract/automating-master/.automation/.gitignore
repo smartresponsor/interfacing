@@ -1,0 +1,9 @@
+# Local secrets, caches
+.dev.vars
+.dev.vars.*
+node_modules/
+.wrangler/
+dist/
+tmp/
+.tmp/
+.cache/
