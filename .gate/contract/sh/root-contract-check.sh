@@ -50,6 +50,8 @@ for rf in "${required[@]}"; do
 done
 
 if [[ ${#bad[@]} -gt 0 ]]; then
+  mkdir -p "$REPO_ROOT/.report"
+  : > "$REPO_ROOT/.report/gate-flag-root-contract.fail"
   echo ""
   echo "Root contract FAILED:" >&2
   for b in "${bad[@]}"; do

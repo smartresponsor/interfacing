@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ ubuntu-latest, windows-latest ]
 
     steps:
       - uses: actions/checkout@v4
@@ -39,7 +39,7 @@ jobs:
         shell: bash
         run: |
           chmod +x ./.gate/contract/fix.sh || true
-          ./.gate/contract/fix.sh . .report/gate-fix-proposal.ndjson print || true
+          ./.gate/contract/sh/fail-fixer-run.sh . .report/gate-fix-proposal.ndjson print || true
 
       - name: Run owner gate (Windows)
         if: runner.os == 'Windows'
