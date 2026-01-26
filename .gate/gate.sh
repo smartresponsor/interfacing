@@ -4,8 +4,22 @@ set -euo pipefail
 REPO_ROOT="${1:-$(pwd)}"
 QUALITY="${QUALITY:-0}"
 
+MODE="consumer"
+if [[ "${GITHUB_REPOSITORY:-}" == */canonization ]]; then
+  MODE="canon"
+fi
+
+echo "[gate] repo=${GITHUB_REPOSITORY:-local} mode=$MODE root=$REPO_ROOT"
+
 # Contract
-bash "$REPO_ROOT/.gate/contract/sh/root-contract-check.sh" "$REPO_ROOT"
+# root-contract => ONLY for canonization repo
+if [[ "$MODE" == "canon" ]]; then
+  bash "$REPO_ROOT/.gate/contract/sh/root-contract-check.sh" "$REPO_ROOT"
+else
+  echo "[gate] skip root-contract-check (consumer repo)"
+fi
+
+# gitignore template check => OK for everyone
 bash "$REPO_ROOT/.gate/contract/sh/gitignore-template-check.sh" "$REPO_ROOT"
 
 # Linting (fast checks) - JS checks require node

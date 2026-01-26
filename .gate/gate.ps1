@@ -5,8 +5,20 @@ param(
 
 $ErrorActionPreference = "Stop"
 
+$mode = "consumer"
+if ($env:GITHUB_REPOSITORY -match "/canonization$") { $mode = "canon" }
+
+Write-Host "[gate] repo=$env:GITHUB_REPOSITORY mode=$mode root=$RepoRoot"
+
 # Contract (repo invariants)
-& (Join-Path $RepoRoot ".gate/contract/ps1/root-contract-check.ps1") -RepoRoot $RepoRoot
+# root-contract => ONLY for canonization repo
+if ($mode -eq "canon") {
+  & (Join-Path $RepoRoot ".gate/contract/ps1/root-contract-check.ps1") -RepoRoot $RepoRoot
+} else {
+  Write-Host "[gate] skip root-contract-check (consumer repo)"
+}
+
+# gitignore template check => OK for everyone
 & (Join-Path $RepoRoot ".gate/contract/ps1/gitignore-template-check.ps1") -RepoRoot $RepoRoot
 
 # Linting (fast checks)
