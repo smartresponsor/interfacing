@@ -1,8 +1,8 @@
-name: owner-gate
+name: gate
 
 on:
   push:
-    branches: ["master"]
+    branches: [ "master" ]
   pull_request:
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ ubuntu-latest, windows-latest ]
 
     steps:
       - name: Checkout
@@ -38,11 +38,11 @@ jobs:
         if: runner.os != 'Windows'
         shell: bash
         run: |
-          chmod +x ./gate.sh
-          ./gate.sh .
+          chmod +x ./.gate/gate.sh
+          ./.gate/gate.sh .
 
       - name: Run owner gate (Windows)
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          ./gate.ps1 -Path .
+          ./.gate/gate.ps1 -Path .
