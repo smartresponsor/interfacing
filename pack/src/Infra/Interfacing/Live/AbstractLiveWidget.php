@@ -10,6 +10,9 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Model\UiState;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface;
 use SmartResponsor\Interfacing\InfraInterface\Interfacing\Live\AbstractLiveWidgetInterface;
 
+/**
+ *
+ */
 abstract class AbstractLiveWidget implements AbstractLiveWidgetInterface
 {
     public function toUiState(): UiStateInterface
