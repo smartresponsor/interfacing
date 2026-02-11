@@ -31,7 +31,17 @@ function report(string $file, string $msg): void {
     fwrite(STDERR, $file.": ".$msg.PHP_EOL);
 }
 
+$requiredNamespacePrefix = 'namespace App\\';
+
 $forbiddenNamespace = [
+    // Canon: no SmartResponsor/SR prefixes inside component namespaces.
+    'namespace SmartResponsor\\',
+    'namespace SR\\',
+    'use SmartResponsor\\',
+    'use SR\\',
+    'SmartResponsor\\',
+    'SR\\',
+
     // Interfacing must not depend on domain logic from other components.
     'SmartResponsor\\Domain\\',
     'SmartResponsor\\Governance\\',
@@ -71,6 +81,12 @@ foreach ($files as $file) {
     }
 
     $txt = (string)\file_get_contents($file);
+
+    // Enforce Symfony-standard App\ namespace for component code.
+    if (\strpos($txt, $requiredNamespacePrefix) === false) {
+        $fail++;
+        report($file, "missing required namespace prefix: App\\");
+    }
 
     // RVE-B6: detect obvious route-path collisions within Interfacing boundary.
     // We only scan attribute-style routes: #[Route(path: '...')] or #[Route('...')].
