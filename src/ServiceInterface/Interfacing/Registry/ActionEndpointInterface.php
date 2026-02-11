@@ -8,16 +8,39 @@
     use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
 use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
-interface ActionEndpointInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface ActionEndpointInterface
 {
+    /**
+     * @return string
+     */
     public function screenId(): string;
 
+    /**
+     * @return string
+     */
     public function actionId(): string;
 
+    /**
+     * @return string
+     */
     public function title(): string;
 
+    /**
+     * @return int
+     */
     public function order(): int;
 
+    /**
+     * @param \App\ServiceInterface\Interfacing\Runtime\ActionRequest $request
+     * @return \App\ServiceInterface\Interfacing\Runtime\ActionResult
+     */
     public function handle(ActionRequest $request): ActionResult;
 }
 

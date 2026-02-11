@@ -7,16 +7,31 @@
 
     use Attribute;
 
-#[Attribute(Attribute::TARGET_CLASS)]
-final class AsInterfacingScreen
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    #[Attribute(Attribute::TARGET_CLASS)]
+final readonly class AsInterfacingScreen
 {
+    /**
+     * @param string $id
+     * @param string $title
+     * @param string|null $navGroup
+     * @param string|null $navIcon
+     * @param int $navOrder
+     * @param bool $isVisible
+     */
     public function __construct(
-        public readonly string $id,
-        public readonly string $title,
-        public readonly ?string $navGroup = null,
-        public readonly ?string $navIcon = null,
-        public readonly int $navOrder = 0,
-        public readonly bool $isVisible = true,
+        public string  $id,
+        public string  $title,
+        public ?string $navGroup = null,
+        public ?string $navIcon = null,
+        public int     $navOrder = 0,
+        public bool    $isVisible = true,
     ) {
     }
 }

@@ -15,14 +15,29 @@ use App\DomainInterface\Interfacing\Action\ActionIdInterface;
 use App\DomainInterface\Interfacing\Action\ActionResultInterface;
 use App\DomainInterface\Interfacing\Action\ActionRuntimeInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoPingActionEndpoint implements ActionEndpointInterface
 {
-    public function id(): ActionIdInterface
+    /**
+     * @return \App\Domain\Interfacing\Action\ActionId
+     */
+    public function id(): ActionId
     {
         return new ActionId('interfacing_demo_ping');
     }
 
-    public function run(array $input, ActionRuntimeInterface $runtime): ActionResultInterface
+    /**
+     * @param array $input
+     * @param \App\DomainInterface\Interfacing\Action\ActionRuntimeInterface $runtime
+     * @return \App\Domain\Interfacing\Action\ActionResult
+     */
+    public function run(array $input, ActionRuntimeInterface $runtime): ActionResult
     {
         $runtime->addMessage(new UiMessage('info', 'pong', 'pong'));
         return ActionResult::ok(['pong' => true]);

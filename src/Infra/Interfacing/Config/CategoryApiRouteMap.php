@@ -5,11 +5,36 @@ declare(strict_types=1);
 
 namespace App\Infra\Interfacing\Config;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class CategoryApiRouteMap
 {
-    public function __construct(private string $listPath, private string $readPath, private string $savePath) {}
+    /**
+     * @param string $listPath
+     * @param string $readPath
+     * @param string $savePath
+     */
+    public function __construct(private readonly string $listPath, private readonly string $readPath, private readonly string $savePath) {}
 
+    /**
+     * @return string
+     */
     public function listPath(): string { return $this->listPath; }
+
+    /**
+     * @param string $id
+     * @return string
+     */
     public function readPath(string $id): string { return str_replace('{id}', rawurlencode($id), $this->readPath); }
+
+    /**
+     * @param string $id
+     * @return string
+     */
     public function savePath(string $id): string { return str_replace('{id}', rawurlencode($id), $this->savePath); }
 }

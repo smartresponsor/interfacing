@@ -7,6 +7,13 @@
 
 namespace App\InfraInterface\Interfacing\Twig;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ClassNameTwigExtensionInterface
 {
 }

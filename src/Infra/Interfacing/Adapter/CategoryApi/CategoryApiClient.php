@@ -11,12 +11,24 @@ use App\Infra\Interfacing\Config\InterfacingConfig;
 use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class CategoryApiClient implements CategoryApiClientInterface
 {
+    /**
+     * @param \Symfony\Contracts\HttpClient\HttpClientInterface $httpClient
+     * @param \App\Infra\Interfacing\Config\InterfacingConfig $config
+     * @param \App\Infra\Interfacing\Config\CategoryApiRouteMap $route
+     */
     public function __construct(
-        private HttpClientInterface $httpClient,
-        private InterfacingConfig $config,
-        private CategoryApiRouteMap $route
+        private readonly HttpClientInterface $httpClient,
+        private readonly InterfacingConfig   $config,
+        private readonly CategoryApiRouteMap $route
     ) {}
 
     public function list(string $query, ?string $cursor, int $limit): array
@@ -49,6 +61,15 @@ final class CategoryApiClient implements CategoryApiClientInterface
         return ['item' => $item, 'nextCursor' => isset($data['nextCursor']) ? (string)$data['nextCursor'] : null];
     }
 
+    /**
+     * @param string $id
+     * @return array|mixed[]
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function read(string $id): array
     {
         $this->assertConfigured();
@@ -65,6 +86,16 @@ final class CategoryApiClient implements CategoryApiClientInterface
         return $data;
     }
 
+    /**
+     * @param string $id
+     * @param array $payload
+     * @return array
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function save(string $id, array $payload): array
     {
         $this->assertConfigured();
@@ -82,6 +113,9 @@ final class CategoryApiClient implements CategoryApiClientInterface
         return $data;
     }
 
+    /**
+     * @return void
+     */
     private function assertConfigured(): void
     {
         if ($this->config->categoryApiBaseUrl() === '') {

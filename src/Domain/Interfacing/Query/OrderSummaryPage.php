@@ -6,15 +6,15 @@ namespace App\Domain\Interfacing\Query;
 /**
  * @psalm-immutable
  */
-final class OrderSummaryPage
+final readonly class OrderSummaryPage
 {
     /**
      * @param list<OrderSummaryRow> $items
      */
     public function __construct(
-        public readonly array $items,
-        public readonly int $total,
-        public readonly int $page,
-        public readonly int $pageSize,
+        public array $items,
+        public int   $total,
+        public int   $page,
+        public int   $pageSize,
     ) {}
 }

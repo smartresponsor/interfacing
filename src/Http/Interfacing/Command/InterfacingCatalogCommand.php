@@ -13,9 +13,20 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-#[AsCommand(name: 'interfacing:catalog', description: 'List Interfacing screens and actions')]
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    #[AsCommand(name: 'interfacing:catalog', description: 'List Interfacing screens and actions')]
 final class InterfacingCatalogCommand extends Command implements InterfacingCatalogCommandInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface $screenCatalog
+     * @param \App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface $actionCatalog
+     */
     public function __construct(
         private readonly ScreenCatalogInterface $screenCatalog,
         private readonly ActionCatalogInterface $actionCatalog,
@@ -23,6 +34,11 @@ final class InterfacingCatalogCommand extends Command implements InterfacingCata
         parent::__construct();
     }
 
+    /**
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         foreach ($this->screenCatalog->all() as $screen) {

@@ -9,17 +9,40 @@ namespace App\Domain\Interfacing\Doctor;
 
 use App\DomainInterface\Interfacing\Doctor\DoctorIssueInterface;
 
-final class DoctorIssue implements DoctorIssueInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class DoctorIssue implements DoctorIssueInterface
 {
-    public function __construct(private readonly string $level, private readonly string $text, private readonly string $code)
+    /**
+     * @param string $level
+     * @param string $text
+     * @param string $code
+     */
+    public function __construct(private string $level, private string $text, private string $code)
     {
         if ($level === '' || $text === '' || $code === '') {
             throw new \InvalidArgumentException('DoctorIssue field must not be empty.');
         }
     }
 
+    /**
+     * @return string
+     */
     public function level(): string { return $this->level; }
+
+    /**
+     * @return string
+     */
     public function text(): string { return $this->text; }
+
+    /**
+     * @return string
+     */
     public function code(): string { return $this->code; }
 }
 

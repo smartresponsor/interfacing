@@ -13,11 +13,24 @@ use App\Domain\Interfacing\Screen\ScreenSpec;
 use App\DomainInterface\Interfacing\Screen\ScreenProviderInterface;
 use App\Service\Interfacing\Screen\ScreenRegistry;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenRegistryTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testItBuildsSortedMap(): void
     {
         $p = new class implements ScreenProviderInterface {
+            /**
+             * @return \App\Domain\Interfacing\Screen\ScreenSpec[]
+             */
             public function provide(): array
             {
                 return [
@@ -34,9 +47,15 @@ final class ScreenRegistryTest extends TestCase
         self::assertSame('A', $reg->get(new ScreenId('a-screen'))->title());
     }
 
+    /**
+     * @return void
+     */
     public function testItRejectsDuplicate(): void
     {
         $p = new class implements ScreenProviderInterface {
+            /**
+             * @return \App\Domain\Interfacing\Screen\ScreenSpec[]
+             */
             public function provide(): array
             {
                 return [

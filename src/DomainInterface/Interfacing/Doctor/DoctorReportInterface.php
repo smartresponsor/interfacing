@@ -11,6 +11,13 @@ use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
 use App\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
 use App\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface DoctorReportInterface
 {
     /** @return array<int, ScreenSpecInterface> */

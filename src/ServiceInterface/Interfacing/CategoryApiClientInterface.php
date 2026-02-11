@@ -7,6 +7,13 @@ namespace App\ServiceInterface\Interfacing;
 
 use App\Domain\Interfacing\Model\CategoryItemView;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface CategoryApiClientInterface
 {
     /** @return array{item:list<CategoryItemView>, nextCursor:?string} */

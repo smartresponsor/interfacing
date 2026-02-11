@@ -7,6 +7,13 @@
 
 namespace App\InfraInterface\Interfacing\Telemetry;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingTelemetryInterface
 {
     /** @param array<string, string|int|float|bool> $meta */

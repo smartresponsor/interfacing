@@ -5,6 +5,13 @@ declare(strict_types=1);
 
 namespace App\ServiceInterface\Interfacing;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface BaseContextProviderInterface
 {
     /** @return array<string,mixed> */

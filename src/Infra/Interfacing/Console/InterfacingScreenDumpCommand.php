@@ -9,18 +9,33 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsCommand(
     name: 'interfacing:screen:dump',
     description: 'Show registered Interfacing screens and their routes.',
 )]
 final class InterfacingScreenDumpCommand extends Command
 {
+    /**
+     * @param \Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface $parameters
+     */
     public function __construct(
         private readonly ParameterBagInterface $parameters,
     ) {
         parent::__construct();
     }
 
+    /**
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $value = $this->parameters->get('interfacing.screens');

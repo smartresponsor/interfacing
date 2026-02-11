@@ -16,16 +16,35 @@ use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class CategorySaveEndpoint implements ActionEndpointInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\CategoryApiClientInterface $api
+     * @param \Symfony\Component\Validator\Validator\ValidatorInterface $validator
+     * @param \App\Service\Interfacing\Validator\ValidatorErrorMapper $mapper
+     */
     public function __construct(
-        private CategoryApiClientInterface $api,
-        private ValidatorInterface $validator,
-        private ValidatorErrorMapper $mapper
+        private readonly CategoryApiClientInterface $api,
+        private readonly ValidatorInterface         $validator,
+        private readonly ValidatorErrorMapper       $mapper
     ) {}
 
+    /**
+     * @return \App\Domain\Interfacing\Value\ActionId
+     */
     public function id(): ActionId { return ActionId::of('category.save'); }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\ActionRequest $request
+     * @return \App\Domain\Interfacing\Model\ActionResult
+     */
     public function handle(ActionRequest $request): ActionResult
     {
         $payload = $request->payload()['payload'] ?? [];

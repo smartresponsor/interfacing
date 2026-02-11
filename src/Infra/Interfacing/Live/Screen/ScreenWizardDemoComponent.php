@@ -9,6 +9,13 @@ namespace App\Infra\Interfacing\Live\Screen;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_screen_wizard_demo', template: 'interfacing/screen/wizard-demo.html.twig')]
 final class ScreenWizardDemoComponent
 {

@@ -5,6 +5,13 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class CategoryFormModel
 {
     public string $id = '';

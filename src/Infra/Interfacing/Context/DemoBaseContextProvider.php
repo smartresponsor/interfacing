@@ -9,8 +9,18 @@ namespace App\Infra\Interfacing\Context;
 
 use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoBaseContextProvider implements BaseContextProviderInterface
 {
+    /**
+     * @return string[]
+     */
     public function provide(): array
     {
         return [

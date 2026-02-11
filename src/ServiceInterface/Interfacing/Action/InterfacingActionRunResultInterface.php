@@ -11,8 +11,18 @@ use App\DomainInterface\Interfacing\Action\ActionResultInterface;
 use App\DomainInterface\Interfacing\Ui\UiErrorInterface;
 use App\DomainInterface\Interfacing\Ui\UiMessageInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingActionRunResultInterface
 {
+    /**
+     * @return \App\DomainInterface\Interfacing\Action\ActionResultInterface
+     */
     public function result(): ActionResultInterface;
 
     /** @return array<int, UiErrorInterface> */

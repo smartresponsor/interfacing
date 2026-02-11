@@ -7,14 +7,27 @@
 
     use Attribute;
 
-#[Attribute(Attribute::TARGET_CLASS)]
-final class AsInterfacingAction
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    #[Attribute(Attribute::TARGET_CLASS)]
+final readonly class AsInterfacingAction
 {
+    /**
+     * @param string $screenId
+     * @param string $id
+     * @param string $title
+     * @param int $order
+     */
     public function __construct(
-        public readonly string $screenId,
-        public readonly string $id,
-        public readonly string $title,
-        public readonly int $order = 0,
+        public string $screenId,
+        public string $id,
+        public string $title,
+        public int    $order = 0,
     ) {
     }
 }

@@ -10,8 +10,18 @@ use App\Domain\Interfacing\Model\ShellNavItem;
 use App\Domain\Interfacing\Value\ScreenId;
 use App\ServiceInterface\Interfacing\ShellNavProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ShellNavProvider implements ShellNavProviderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Model\ShellNavGroup[]
+     */
     public function provide(): array
     {
         return [

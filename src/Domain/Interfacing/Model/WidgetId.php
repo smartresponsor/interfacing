@@ -8,10 +8,24 @@ namespace App\Domain\Interfacing\Model;
 
 use App\DomainInterface\Interfacing\Model\WidgetIdInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class WidgetId implements WidgetIdInterface
 {
-    private function __construct(private string $value) {}
+    /**
+     * @param string $value
+     */
+    private function __construct(private readonly string $value) {}
 
+    /**
+     * @param string $value
+     * @return self
+     */
     public static function fromString(string $value): self
     {
         $value = trim($value);
@@ -22,6 +36,9 @@ final class WidgetId implements WidgetIdInterface
         return new self($value);
     }
 
+    /**
+     * @return string
+     */
     public function toString(): string
     {
         return $this->value;

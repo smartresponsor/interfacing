@@ -8,17 +8,34 @@ namespace App\Http\Interfacing\Controller;
 use App\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
-final class DoctorController
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class DoctorController
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface $reportBuilder
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface $normalizer
+     * @param \Twig\Environment $twig
+     */
     public function __construct(
-        private readonly DoctorReportBuilderInterface $reportBuilder,
-        private readonly DoctorReportNormalizerInterface $normalizer,
-        private readonly Environment $twig
+        private DoctorReportBuilderInterface    $reportBuilder,
+        private DoctorReportNormalizerInterface $normalizer,
+        private Environment                     $twig
     ) {}
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function __invoke(): Response
     {
         $raw = $this->reportBuilder->build();

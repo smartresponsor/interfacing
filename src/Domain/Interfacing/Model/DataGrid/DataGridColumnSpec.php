@@ -8,12 +8,24 @@ namespace App\Domain\Interfacing\Model\DataGrid;
 
 use App\DomainInterface\Interfacing\Model\DataGrid\DataGridColumnSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DataGridColumnSpec implements DataGridColumnSpecInterface
 {
+    /**
+     * @param string $key
+     * @param string $title
+     * @param bool $sortable
+     */
     public function __construct(
-        private string $key,
-        private string $title,
-        private bool $sortable = true,
+        private string        $key,
+        private string        $title,
+        private readonly bool $sortable = true,
     ) {
         $this->key = trim($this->key);
         if ($this->key === '') {
@@ -25,16 +37,25 @@ final class DataGridColumnSpec implements DataGridColumnSpecInterface
         }
     }
 
+    /**
+     * @return string
+     */
     public function key(): string
     {
         return $this->key;
     }
 
+    /**
+     * @return string
+     */
     public function title(): string
     {
         return $this->title;
     }
 
+    /**
+     * @return bool
+     */
     public function sortable(): bool
     {
         return $this->sortable;

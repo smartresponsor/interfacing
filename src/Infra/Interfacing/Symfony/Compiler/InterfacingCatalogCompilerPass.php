@@ -11,8 +11,19 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-final class InterfacingCatalogCompilerPass implements CompilerPassInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class InterfacingCatalogCompilerPass implements CompilerPassInterface
 {
+    /**
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @return void
+     */
     public function process(ContainerBuilder $container): void
     {
         if (!$container->hasDefinition(ScreenCatalog::class) || !$container->hasDefinition(ActionCatalog::class)) {

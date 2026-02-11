@@ -11,39 +11,61 @@
     use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
-final class ScreenSpec implements ScreenSpecInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class ScreenSpec implements ScreenSpecInterface
 {
     /** @param array<int, string> $requireRole
      *  @param array<string, mixed> $defaultState
      */
     public function __construct(
-        private readonly string $id,
-        private readonly string $title,
-        private readonly LayoutScreenSpecInterface $layout,
-        private readonly array $defaultState = [],
-        private readonly array $requireRole = [],
+        private string                    $id,
+        private string                    $title,
+        private LayoutScreenSpecInterface $layout,
+        private array                     $defaultState = [],
+        private array                     $requireRole = [],
     ) {}
 
+    /**
+     * @return string
+     */
     public function id(): string
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function title(): string
     {
         return $this->title;
     }
 
+    /**
+     * @return string[]
+     */
     public function requireRole(): array
     {
         return $this->requireRole;
     }
 
+    /**
+     * @return \App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface
+     */
     public function layout(): LayoutScreenSpecInterface
     {
         return $this->layout;
     }
 
+    /**
+     * @return mixed[]
+     */
     public function defaultState(): array
     {
         return $this->defaultState;

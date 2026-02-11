@@ -11,8 +11,20 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Error\UiErrorCode;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\UiErrorMapperInterface;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class UiErrorMapper implements UiErrorMapperInterface
 {
+    /**
+     * @param \Throwable $e
+     * @param string|null $traceId
+     * @return array
+     */
     public function map(\Throwable $e, ?string $traceId = null): array
     {
         if ($e instanceof ScreenNotFound) {
@@ -43,6 +55,14 @@ final class UiErrorMapper implements UiErrorMapperInterface
         return $this->out(500, UiErrorCode::UNEXPECTED, 'Unexpected error', 'Unexpected failure', $traceId);
     }
 
+    /**
+     * @param int $status
+     * @param string $code
+     * @param string $title
+     * @param string $detail
+     * @param string|null $traceId
+     * @return array
+     */
     private function out(int $status, string $code, string $title, string $detail, ?string $traceId): array
     {
         return [

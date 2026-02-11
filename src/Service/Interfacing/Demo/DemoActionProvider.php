@@ -9,10 +9,23 @@ namespace App\Service\Interfacing\Demo;
 
 use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 
-final class DemoActionProvider implements ActionProviderInterface
-{
-    public function __construct(private readonly DemoPingActionEndpoint $ping) {}
+/**
+ *
+ */
 
+/**
+ *
+ */
+final readonly class DemoActionProvider implements ActionProviderInterface
+{
+    /**
+     * @param \App\Service\Interfacing\Demo\DemoPingActionEndpoint $ping
+     */
+    public function __construct(private DemoPingActionEndpoint $ping) {}
+
+    /**
+     * @return \App\Service\Interfacing\Demo\DemoPingActionEndpoint[]
+     */
     public function provide(): array
     {
         return [$this->ping];

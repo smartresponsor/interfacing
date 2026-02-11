@@ -10,8 +10,18 @@ use App\Domain\Interfacing\Model\ScreenSpec;
 use App\Domain\Interfacing\Value\ScreenId;
 use App\ServiceInterface\Interfacing\ScreenProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DoctorScreenProvider implements ScreenProviderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Model\ScreenSpec[]
+     */
     public function provide(): array
     {
         return [

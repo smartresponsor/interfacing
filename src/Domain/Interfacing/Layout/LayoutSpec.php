@@ -7,15 +7,22 @@ declare(strict_types=1);
  */
 namespace App\Domain\Interfacing\Layout;
 
-final class LayoutSpec
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class LayoutSpec
 {
     /**
      * @param array<int, array<string, mixed>> $block
      */
     public function __construct(
-        private readonly string $layoutKey,
-        private readonly string $shellTitle,
-        private readonly array $block
+        private string $layoutKey,
+        private string $shellTitle,
+        private array  $block
     ) {
         $k = trim($this->layoutKey);
         if ($k === '' || strlen($k) > 190) {
@@ -29,11 +36,17 @@ final class LayoutSpec
         $this->shellTitle = $t;
     }
 
+    /**
+     * @return string
+     */
     public function layoutKey(): string
     {
         return $this->layoutKey;
     }
 
+    /**
+     * @return string
+     */
     public function shellTitle(): string
     {
         return $this->shellTitle;

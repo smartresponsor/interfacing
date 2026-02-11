@@ -14,15 +14,32 @@ use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegist
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface;
 
-final class ScreenViewBuilder implements ScreenViewBuilderInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class ScreenViewBuilder implements ScreenViewBuilderInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layout
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screen
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface $context
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface $access
+     */
     public function __construct(
-        private readonly LayoutCatalogInterface $layout,
-        private readonly ScreenRegistryInterface $screen,
-        private readonly ScreenContextAssemblerInterface $context,
-        private readonly AccessResolverInterface $access,
+        private LayoutCatalogInterface          $layout,
+        private ScreenRegistryInterface         $screen,
+        private ScreenContextAssemblerInterface $context,
+        private AccessResolverInterface         $access,
     ) {}
 
+    /**
+     * @param string $layoutId
+     * @return array
+     */
     public function build(string $layoutId): array
     {
         $spec = $this->layout->find($layoutId);

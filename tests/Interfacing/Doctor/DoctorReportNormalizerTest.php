@@ -8,8 +8,18 @@ namespace Tests\Interfacing\Doctor;
 use PHPUnit\Framework\TestCase;
 use SmartResponsor\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DoctorReportNormalizerTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function parameter is either empty or invalid.nism(): void
     {
         $n = new DoctorReportNormalizer();

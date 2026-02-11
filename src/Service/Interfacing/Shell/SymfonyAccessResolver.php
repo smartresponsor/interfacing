@@ -9,12 +9,27 @@ namespace App\Service\Interfacing\Shell;
 use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class SymfonyAccessResolver implements AccessResolverInterface
 {
-    public function __construct(private ?AuthorizationCheckerInterface $auth = null)
+    /**
+     * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface|null $auth
+     */
+    public function __construct(private readonly ?AuthorizationCheckerInterface $auth = null)
     {
     }
 
+    /**
+     * @param string $capability
+     * @param array $context
+     * @return bool
+     */
     public function allow(string $capability, array $context = []): bool
     {
         $capability = trim($capability);

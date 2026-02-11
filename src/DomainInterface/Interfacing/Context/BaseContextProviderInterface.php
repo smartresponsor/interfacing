@@ -6,6 +6,13 @@ namespace App\DomainInterface\Interfacing\Context;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface BaseContextProviderInterface
 {
     /**

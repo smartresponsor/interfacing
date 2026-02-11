@@ -7,12 +7,25 @@ namespace SmartResponsor\Interfacing\Http\Interfacing\Controller;
 
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
-final class InterfacingMetricController
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class InterfacingMetricController
 {
-    public function __construct(private readonly UiMetricInterface $metric) {}
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface $metric
+     */
+    public function __construct(private UiMetricInterface $metric) {}
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/interfacing/metrics', name: 'interfacing_metrics', methods: ['GET'])]
     public function metrics(): Response
     {

@@ -12,10 +12,24 @@ use App\Domain\Interfacing\Model\Wizard\WizardSpec;
 use App\Domain\Interfacing\Model\Wizard\WizardStepSpec;
 use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoOnboardingWizardHandler implements WizardHandlerInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string { return 'demo-onboarding'; }
 
+    /**
+     * @param array $context
+     * @return \App\Domain\Interfacing\Model\Wizard\WizardSpec
+     */
     public function spec(array $context = []): WizardSpec
     {
         $regionDefault = 'us';
@@ -53,6 +67,10 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
         );
     }
 
+    /**
+     * @param array $context
+     * @return array|mixed[]
+     */
     public function initialValue(array $context = []): array
     {
         $region = 'us';
@@ -71,6 +89,12 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
         ];
     }
 
+    /**
+     * @param string $stepId
+     * @param array $value
+     * @param array $context
+     * @return \App\Domain\Interfacing\Model\Form\FormSubmitResult
+     */
     public function validateStep(string $stepId, array $value, array $context = []): FormSubmitResult
     {
         $value = $this->normalize($value);
@@ -97,6 +121,11 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
         return new FormSubmitResult(true, 'OK', [], $value);
     }
 
+    /**
+     * @param array $value
+     * @param array $context
+     * @return \App\Domain\Interfacing\Model\Form\FormSubmitResult
+     */
     public function finish(array $value, array $context = []): FormSubmitResult
     {
         $value = $this->normalize($value);
@@ -109,8 +138,8 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
         }
 
         $msg = 'Created tenant: '.trim((string)($value['company'] ?? ''));
-        $msg .= ' | plan '.(string)($value['plan'] ?? '');
-        $msg .= ' | region '.(string)($value['region'] ?? '');
+        $msg .= ' | plan '. ($value['plan'] ?? '');
+        $msg .= ' | region '. ($value['region'] ?? '');
         $msg .= ' | contact '.$email;
 
         return new FormSubmitResult(true, $msg, [], $value);

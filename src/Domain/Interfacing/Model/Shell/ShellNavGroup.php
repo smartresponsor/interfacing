@@ -8,15 +8,22 @@ namespace App\Domain\Interfacing\Model\Shell;
 
 use App\DomainInterface\Interfacing\Model\Shell\ShellNavGroupInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ShellNavGroup implements ShellNavGroupInterface
 {
     /**
      * @param list<ShellNavItem> $item
      */
     public function __construct(
-        private string $id,
-        private string $title,
-        private array $item,
+        private string          $id,
+        private readonly string $title,
+        private readonly array  $item,
     ) {
         $this->id = trim($this->id);
         if ($this->id === '') {
@@ -24,7 +31,14 @@ final class ShellNavGroup implements ShellNavGroupInterface
         }
     }
 
+    /**
+     * @return string
+     */
     public function id(): string { return $this->id; }
+
+    /**
+     * @return string
+     */
     public function title(): string { return $this->title; }
 
     /**

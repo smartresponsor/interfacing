@@ -14,19 +14,36 @@ use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-final class InterfacingDoctorController extends AbstractController
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class InterfacingDoctorController extends AbstractController
 {
+    /**
+     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
+     * @param \App\DomainInterface\Interfacing\Context\BaseContextProviderInterface $baseContext
+     * @param \App\DomainInterface\Interfacing\Access\AccessResolverInterface $access
+     * @param \App\DomainInterface\Interfacing\Security\PermissionNamerInterface $permission
+     * @param \App\DomainInterface\Interfacing\Audit\AuditSinkInterface $audit
+     */
     public function __construct(
-        private readonly TokenStorageInterface $tokenStorage,
-        private readonly BaseContextProviderInterface $baseContext,
-        private readonly AccessResolverInterface $access,
-        private readonly PermissionNamerInterface $permission,
-        private readonly AuditSinkInterface $audit,
+        private TokenStorageInterface        $tokenStorage,
+        private BaseContextProviderInterface $baseContext,
+        private AccessResolverInterface      $access,
+        private PermissionNamerInterface     $permission,
+        private AuditSinkInterface           $audit,
     ) {}
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route(path: '/interfacing/doctor/infra', name: 'interfacing_doctor_infra', methods: ['GET'])]
     public function index(Request $request): Response
     {

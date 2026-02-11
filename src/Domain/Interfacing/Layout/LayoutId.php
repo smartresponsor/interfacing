@@ -9,18 +9,35 @@ namespace App\Domain\Interfacing\Layout;
 
 use App\DomainInterface\Interfacing\Layout\LayoutIdInterface;
 
-final class LayoutId implements LayoutIdInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class LayoutId implements LayoutIdInterface
 {
-    public function __construct(private readonly string $value)
+    /**
+     * @param string $value
+     */
+    public function __construct(private string $value)
     {
         $this->assert($value);
     }
 
+    /**
+     * @return string
+     */
     public function value(): string
     {
         return $this->value;
     }
 
+    /**
+     * @param string $value
+     * @return void
+     */
     private function assert(string $value): void
     {
         if ($value === '') {

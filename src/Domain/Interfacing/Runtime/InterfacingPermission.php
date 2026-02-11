@@ -3,6 +3,13 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Runtime;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class InterfacingPermission
 {
     public const PrefixScreen = 'interfacing.screen.';

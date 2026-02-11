@@ -9,8 +9,19 @@ use App\Domain\Interfacing\Model\UiError;
 use App\Domain\Interfacing\Model\UiErrorBag;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ValidatorErrorMapper
 {
+    /**
+     * @param \Symfony\Component\Validator\ConstraintViolationListInterface $list
+     * @return \App\Domain\Interfacing\Model\UiErrorBag
+     */
     public function map(ConstraintViolationListInterface $list): UiErrorBag
     {
         $bag = new UiErrorBag();

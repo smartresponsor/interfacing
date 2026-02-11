@@ -8,14 +8,40 @@ use App\Domain\Interfacing\Query\OrderSummaryRow;
 use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-final class HttpOrderSummaryQueryService implements OrderSummaryQueryServiceInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class HttpOrderSummaryQueryService implements OrderSummaryQueryServiceInterface
 {
+    /**
+     * @param \Symfony\Contracts\HttpClient\HttpClientInterface $client
+     * @param string $baseUrl
+     * @param string $path
+     */
     public function __construct(
-        private readonly HttpClientInterface $client,
-        private readonly string $baseUrl,
-        private readonly string $path,
+        private HttpClientInterface $client,
+        private string              $baseUrl,
+        private string              $path,
     ) {}
 
+    /**
+     * @param string $tenantId
+     * @param int $page
+     * @param int $pageSize
+     * @param string|null $status
+     * @param string|null $createdFromIso
+     * @param string|null $createdToIso
+     * @return \App\Domain\Interfacing\Query\OrderSummaryPage
+     * @throws \JsonException
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function fetchPage(
         string $tenantId,
         int $page,

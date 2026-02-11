@@ -9,10 +9,20 @@ namespace App\Infra\Interfacing\Live\Screen;
 use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_screen_home', template: 'interfacing/screen/home.html.twig')]
 final class ScreenHomeComponent implements ScreenHomeComponentInterface
 {
-    public function __construct(private LayoutCatalogInterface $catalog)
+    /**
+     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $catalog
+     */
+    public function __construct(private readonly LayoutCatalogInterface $catalog)
     {
     }
 

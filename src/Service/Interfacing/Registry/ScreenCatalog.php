@@ -8,16 +8,30 @@
     use App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
 use App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
 
-final class ScreenCatalog implements ScreenCatalogInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class ScreenCatalog implements ScreenCatalogInterface
 {
     /** @var array<string, ScreenDescriptorInterface> */
     private array $screen = [];
 
+    /**
+     * @param \App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface $descriptor
+     * @return void
+     */
     public function add(ScreenDescriptorInterface $descriptor): void
     {
         $this->screen[$descriptor->screenId()] = $descriptor;
     }
 
+    /**
+     * @return array|\App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface[]
+     */
     public function all(): array
     {
         $list = array_values($this->screen);
@@ -27,6 +41,10 @@ final class ScreenCatalog implements ScreenCatalogInterface
         return $list;
     }
 
+    /**
+     * @param string $screenId
+     * @return \App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface
+     */
     public function get(string $screenId): ScreenDescriptorInterface
     {
         if (!isset($this->screen[$screenId])) {

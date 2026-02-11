@@ -6,8 +6,19 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\Domain\Interfacing\Model\Metric;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class MetricQuery
 {
+    /**
+     * @param string $range
+     * @param string $timezone
+     */
     public function __construct(
         private string $range = '24h',
         private string $timezone = 'UTC',
@@ -16,16 +27,26 @@ final class MetricQuery
         $this->timezone = trim($this->timezone) !== '' ? trim($this->timezone) : 'UTC';
     }
 
+    /**
+     * @return string
+     */
     public function range(): string
     {
         return $this->range;
     }
 
+    /**
+     * @return string
+     */
     public function timezone(): string
     {
         return $this->timezone;
     }
 
+    /**
+     * @param string $range
+     * @return string
+     */
     private function normalizeRange(string $range): string
     {
         $range = strtolower(trim($range));

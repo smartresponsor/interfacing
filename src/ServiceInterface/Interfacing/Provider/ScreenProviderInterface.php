@@ -10,7 +10,14 @@
 
     use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
-interface ScreenProviderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface ScreenProviderInterface
 {
     /** @return array<int, ScreenSpecInterface> */
     public function provide(): array;

@@ -3,14 +3,29 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Query;
 
-final class OrderSummaryRow
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class OrderSummaryRow
 {
+    /**
+     * @param string $id
+     * @param string $status
+     * @param string $createdAtIso
+     * @param float $totalGross
+     * @param string $currencyCode
+     * @param string|null $customerEmail
+     */
     public function __construct(
-        public readonly string $id,
-        public readonly string $status,
-        public readonly string $createdAtIso,
-        public readonly float $totalGross,
-        public readonly string $currencyCode,
-        public readonly ?string $customerEmail,
+        public string  $id,
+        public string  $status,
+        public string  $createdAtIso,
+        public float   $totalGross,
+        public string  $currencyCode,
+        public ?string $customerEmail,
     ) {}
 }

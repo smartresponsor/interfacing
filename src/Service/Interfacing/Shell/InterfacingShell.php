@@ -15,16 +15,32 @@ use App\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class InterfacingShell implements InterfacingShellInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layout
+     * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+     * @param \Symfony\Component\Routing\Generator\UrlGeneratorInterface $url
+     * @param \App\ServiceInterface\Interfacing\Shell\AccessResolverInterface $access
+     */
     public function __construct(
-        private LayoutCatalogInterface $layout,
-        private RequestStack $requestStack,
-        private UrlGeneratorInterface $url,
-        private AccessResolverInterface $access,
+        private readonly LayoutCatalogInterface  $layout,
+        private readonly RequestStack            $requestStack,
+        private readonly UrlGeneratorInterface   $url,
+        private readonly AccessResolverInterface $access,
     ) {
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Model\Shell\ShellView
+     */
     public function view(): ShellView
     {
         $req = $this->requestStack->getCurrentRequest();
@@ -33,7 +49,7 @@ final class InterfacingShell implements InterfacingShellInterface
 
         if ($req !== null) {
             $query = (string)$req->query->get('q', '');
-            $rid = $req->attributes->get('_route', null);
+            $rid = $req->attributes->get('_route');
             if ($rid === 'interfacing_screen') {
                 $activeId = (string)$req->attributes->get('id', '');
                 $activeId = trim($activeId) !== '' ? trim($activeId) : null;
@@ -96,6 +112,10 @@ final class InterfacingShell implements InterfacingShellInterface
         return new ShellView($activeId, $queryNorm, $group, $total);
     }
 
+    /**
+     * @param string $id
+     * @return string
+     */
     private function titleize(string $id): string
     {
         $id = str_replace(['_', '-'], ' ', $id);

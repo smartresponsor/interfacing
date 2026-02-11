@@ -8,8 +8,18 @@ namespace App\ServiceInterface\Interfacing\Widget\BulkAction;
 
 use App\Domain\Interfacing\Model\BulkAction\BulkActionResult;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface BulkActionHandlerInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string;
 
     /**

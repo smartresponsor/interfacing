@@ -8,13 +8,29 @@
 
     namespace App\DomainInterface\Interfacing\Model\Context;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface ScreenContextInterface
 {
-    public function tenantId(): ?string;
+        /**
+         * @return string|null
+         */
+        public function tenantId(): ?string;
 
-    public function userId(): ?string;
+        /**
+         * @return string|null
+         */
+        public function userId(): ?string;
 
-    public function locale(): ?string;
+        /**
+         * @return string|null
+         */
+        public function locale(): ?string;
 
     /** @return array<string, mixed> */
     public function extra(): array;

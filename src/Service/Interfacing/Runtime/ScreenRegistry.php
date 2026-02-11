@@ -11,6 +11,13 @@ use App\ServiceInterface\Interfacing\Runtime\ScreenCatalogInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInterface
 {
     /**
@@ -43,11 +50,19 @@ final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInte
         }
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Value\ScreenId $id
+     * @return bool
+     */
     public function has(ScreenId $id): bool
     {
         return isset($this->map[$id->toString()]);
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Value\ScreenId $id
+     * @return string
+     */
     public function componentName(ScreenId $id): string
     {
         $k = $id->toString();
@@ -58,6 +73,9 @@ final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInte
         return $this->map[$k];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function idList(): array
     {
         $id = array_keys($this->map);

@@ -9,6 +9,13 @@ use App\Domain\Interfacing\Value\ActionId;
 use App\ServiceInterface\Interfacing\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\ActionEndpointInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ActionCatalog implements ActionCatalogInterface
 {
     /** @var list<ActionEndpointInterface> */
@@ -16,6 +23,9 @@ final class ActionCatalog implements ActionCatalogInterface
     /** @var array<string, ActionEndpointInterface>|null */
     private ?array $cache = null;
 
+    /**
+     * @param iterable $endpoint
+     */
     public function __construct(iterable $endpoint)
     {
         $this->endpoint = [];
@@ -26,11 +36,18 @@ final class ActionCatalog implements ActionCatalogInterface
         }
     }
 
+    /**
+     * @return array|\App\ServiceInterface\Interfacing\ActionEndpointInterface[]
+     */
     public function all(): array
     {
         return array_values($this->build());
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Value\ActionId $id
+     * @return \App\ServiceInterface\Interfacing\ActionEndpointInterface
+     */
     public function get(ActionId $id): ActionEndpointInterface
     {
         $map = $this->build();

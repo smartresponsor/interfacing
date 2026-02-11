@@ -6,7 +6,17 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\InfraInterface\Interfacing\Live\Screen;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ScreenHealthComponentInterface
 {
+    /**
+     * @return string
+     */
     public function env(): string;
 }

@@ -10,12 +10,24 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenSpec implements ScreenSpecInterface
 {
     private ScreenId $id;
     private string $title;
     private string $template;
 
+    /**
+     * @param \SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId $id
+     * @param string $title
+     * @param string $template
+     */
     private function __construct(ScreenId $id, string $title, string $template)
     {
         $title = trim($title);
@@ -33,21 +45,36 @@ final class ScreenSpec implements ScreenSpecInterface
         $this->template = $template;
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId $id
+     * @param string $title
+     * @param string $template
+     * @return self
+     */
     public static function create(ScreenId $id, string $title, string $template): self
     {
         return new self($id, $title, $template);
     }
 
+    /**
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface
+     */
     public function getId(): ScreenIdInterface
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getTemplate(): string
     {
         return $this->template;

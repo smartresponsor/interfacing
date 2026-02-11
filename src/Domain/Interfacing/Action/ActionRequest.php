@@ -9,24 +9,37 @@ namespace App\Domain\Interfacing\Action;
 
 use App\Domain\Interfacing\Screen\ScreenId;
 
-final class ActionRequest
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class ActionRequest
 {
     /**
      * @param array<string, mixed> $payload
      * @param array<string, mixed> $context
      */
     public function __construct(
-        private readonly ScreenId $screenId,
-        private readonly ActionId $actionId,
-        private readonly array $payload,
-        private readonly array $context
+        private ScreenId $screenId,
+        private ActionId $actionId,
+        private array    $payload,
+        private array    $context
     ) {}
 
+    /**
+     * @return \App\Domain\Interfacing\Screen\ScreenId
+     */
     public function screenId(): ScreenId
     {
         return $this->screenId;
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Action\ActionId
+     */
     public function actionId(): ActionId
     {
         return $this->actionId;

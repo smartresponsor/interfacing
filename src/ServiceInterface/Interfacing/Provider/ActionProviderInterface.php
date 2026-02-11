@@ -10,7 +10,14 @@
 
     use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 
-interface ActionProviderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface ActionProviderInterface
 {
     /** @return array<int, ActionEndpointInterface> */
     public function provide(): array;

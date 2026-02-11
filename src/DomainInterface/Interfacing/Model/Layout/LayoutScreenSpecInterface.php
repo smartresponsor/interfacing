@@ -8,6 +8,13 @@
 
     namespace App\DomainInterface\Interfacing\Model\Layout;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface LayoutScreenSpecInterface
 {
     /** @return array<int, LayoutBlockSpecInterface> */

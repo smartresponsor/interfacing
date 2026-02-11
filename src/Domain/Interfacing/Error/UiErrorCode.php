@@ -5,6 +5,13 @@ declare(strict_types=1);
 
 namespace SmartResponsor\Interfacing\Domain\Interfacing\Error;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class UiErrorCode
 {
     public const VALIDATION = 'ui.validation';

@@ -6,10 +6,25 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\ServiceInterface\Interfacing\Widget\Metric;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface MetricProviderRegistryInterface
 {
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function has(string $id): bool;
 
+    /**
+     * @param string $id
+     * @return \App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface
+     */
     public function get(string $id): MetricProviderInterface;
 
     /**

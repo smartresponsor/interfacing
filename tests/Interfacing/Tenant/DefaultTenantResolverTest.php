@@ -7,8 +7,18 @@ use App\Service\Interfacing\Tenant\DefaultTenantResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DefaultTenantResolverTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testResolveFromHeader(): void
     {
         $r = new Request();
@@ -18,6 +28,9 @@ final class DefaultTenantResolverTest extends TestCase
         self::assertSame('demo', $resolver->resolveTenantId($r, null));
     }
 
+    /**
+     * @return void
+     */
     public function testResolveFromAttribute(): void
     {
         $r = new Request();
@@ -27,6 +40,9 @@ final class DefaultTenantResolverTest extends TestCase
         self::assertSame('t1', $resolver->resolveTenantId($r, null));
     }
 
+    /**
+     * @return void
+     */
     public function testResolveDefault(): void
     {
         $r = new Request();

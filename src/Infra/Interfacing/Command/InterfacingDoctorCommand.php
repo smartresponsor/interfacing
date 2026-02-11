@@ -11,18 +11,33 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsCommand(
     name: 'interfacing:permission-sample',
     description: 'Print Interfacing permission naming samples and conventions.'
 )]
 final class InterfacingDoctorCommand extends Command
 {
+    /**
+     * @param \App\DomainInterface\Interfacing\Security\PermissionNamerInterface $permission
+     */
     public function __construct(
         private readonly PermissionNamerInterface $permission,
     ) {
         parent::__construct();
     }
 
+    /**
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $samples = [

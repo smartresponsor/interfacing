@@ -15,13 +15,29 @@ use App\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
 use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\Action\InterfacingActionRunnerInterface;
 
-final class InterfacingActionRunner implements InterfacingActionRunnerInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class InterfacingActionRunner implements InterfacingActionRunnerInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Action\ActionCatalogInterface $catalog
+     * @param \App\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface $telemetry
+     */
     public function __construct(
-        private readonly ActionCatalogInterface $catalog,
-        private readonly InterfacingTelemetryInterface $telemetry,
+        private ActionCatalogInterface        $catalog,
+        private InterfacingTelemetryInterface $telemetry,
     ) {}
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
+     * @param array $input
+     * @return \App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface
+     */
     public function run(ActionIdInterface $id, array $input): \App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface
     {
         $start = microtime(true);

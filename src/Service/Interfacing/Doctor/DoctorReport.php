@@ -8,9 +8,20 @@ namespace App\Service\Interfacing\Doctor;
 use App\ServiceInterface\Interfacing\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DoctorReport
 {
-    public function __construct(private ScreenCatalogInterface $screenCatalog, private ActionCatalogInterface $actionCatalog) {}
+    /**
+     * @param \App\ServiceInterface\Interfacing\ScreenCatalogInterface $screenCatalog
+     * @param \App\ServiceInterface\Interfacing\ActionCatalogInterface $actionCatalog
+     */
+    public function __construct(private readonly ScreenCatalogInterface $screenCatalog, private readonly ActionCatalogInterface $actionCatalog) {}
 
     /** @return array<string,mixed> */
     public function build(): array

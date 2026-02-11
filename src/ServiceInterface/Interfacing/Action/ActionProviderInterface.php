@@ -9,6 +9,13 @@ namespace App\ServiceInterface\Interfacing\Action;
 
 use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ActionProviderInterface
 {
     /** @return array<int, ActionEndpointInterface> */

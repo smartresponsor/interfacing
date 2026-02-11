@@ -13,8 +13,18 @@ use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
 use App\Domain\Interfacing\Model\Screen\ScreenSpec;
 use App\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 
-final class DemoScreenProvider implements ScreenProviderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class DemoScreenProvider implements ScreenProviderInterface
 {
+    /**
+     * @return array|\App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface[]
+     */
     public function provide(): array
     {
         $formLayout = new LayoutScreenSpec([

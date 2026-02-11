@@ -13,13 +13,27 @@ use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class OrderSummaryScreenController extends AbstractController
 {
     private const ScreenId = 'order-summary';
 
+    /**
+     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
+     * @param \App\DomainInterface\Interfacing\Context\BaseContextProviderInterface $baseContext
+     * @param \App\DomainInterface\Interfacing\Access\AccessResolverInterface $access
+     * @param \App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface $orders
+     * @param \App\DomainInterface\Interfacing\Audit\AuditSinkInterface $audit
+     */
     public function __construct(
         private readonly TokenStorageInterface $tokenStorage,
         private readonly BaseContextProviderInterface $baseContext,
@@ -28,6 +42,10 @@ final class OrderSummaryScreenController extends AbstractController
         private readonly AuditSinkInterface $audit,
     ) {}
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route(path: '/interfacing/order/summary', name: 'interfacing_order_summary', methods: ['GET'])]
     public function index(Request $request): Response
     {

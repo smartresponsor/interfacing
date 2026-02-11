@@ -10,6 +10,13 @@ use App\Domain\Interfacing\Value\ScreenId;
 use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
 use App\ServiceInterface\Interfacing\ScreenProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenCatalog implements ScreenCatalogInterface
 {
     /** @var list<ScreenProviderInterface> */
@@ -17,6 +24,9 @@ final class ScreenCatalog implements ScreenCatalogInterface
     /** @var array<string, ScreenSpec>|null */
     private ?array $cache = null;
 
+    /**
+     * @param iterable $provider
+     */
     public function __construct(iterable $provider)
     {
         $this->provider = [];
@@ -27,11 +37,18 @@ final class ScreenCatalog implements ScreenCatalogInterface
         }
     }
 
+    /**
+     * @return array|\App\Domain\Interfacing\Model\ScreenSpec[]
+     */
     public function all(): array
     {
         return array_values($this->build());
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Value\ScreenId $id
+     * @return \App\Domain\Interfacing\Model\ScreenSpec
+     */
     public function get(ScreenId $id): ScreenSpec
     {
         $map = $this->build();

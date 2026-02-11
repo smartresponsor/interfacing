@@ -10,8 +10,18 @@ use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
 use App\Domain\Interfacing\Value\ScreenId;
 use App\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoLayoutProvider implements LayoutProviderInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string
     {
         return 'demo';

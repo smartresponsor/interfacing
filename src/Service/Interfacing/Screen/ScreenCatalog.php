@@ -12,6 +12,13 @@ use App\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
 use App\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
 use App\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenCatalog implements ScreenCatalogInterface
 {
     /** @var array<string, ScreenSpecInterface> */
@@ -31,8 +38,15 @@ final class ScreenCatalog implements ScreenCatalogInterface
         }
     }
 
+    /**
+     * @return array|\App\DomainInterface\Interfacing\Screen\ScreenSpecInterface[]
+     */
     public function all(): array { return array_values($this->map); }
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Screen\ScreenIdInterface $id
+     * @return \App\DomainInterface\Interfacing\Screen\ScreenSpecInterface
+     */
     public function get(ScreenIdInterface $id): ScreenSpecInterface
     {
         $key = $id->value();

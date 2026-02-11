@@ -7,6 +7,13 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\Domain\Interfacing\Ui;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class UiErrorBag
 {
     /** @var UiError[] */
@@ -15,17 +22,29 @@ final class UiErrorBag
     /** @var array<string, UiError[]> */
     private array $field = [];
 
+    /**
+     * @param \App\Domain\Interfacing\Ui\UiError $error
+     * @return void
+     */
     public function addGlobal(UiError $error): void
     {
         $this->global[] = $error;
     }
 
+    /**
+     * @param string $field
+     * @param \App\Domain\Interfacing\Ui\UiError $error
+     * @return void
+     */
     public function addField(string $field, UiError $error): void
     {
         $this->field[$field] ??= [];
         $this->field[$field][] = $error;
     }
 
+    /**
+     * @return bool
+     */
     public function hasAny(): bool
     {
         return $this->global !== [] || $this->field !== [];

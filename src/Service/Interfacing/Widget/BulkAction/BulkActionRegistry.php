@@ -10,6 +10,13 @@ use App\Domain\Interfacing\Model\BulkAction\BulkActionSpec;
 use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
 use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class BulkActionRegistry implements BulkActionRegistryInterface
 {
     /**
@@ -46,11 +53,19 @@ final class BulkActionRegistry implements BulkActionRegistryInterface
         return $out;
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function has(string $id): bool
     {
         return isset($this->handler[$id]);
     }
 
+    /**
+     * @param string $id
+     * @return \App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface
+     */
     public function handler(string $id): BulkActionHandlerInterface
     {
         if (!isset($this->handler[$id])) {

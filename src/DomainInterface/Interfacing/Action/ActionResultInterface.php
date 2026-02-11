@@ -7,8 +7,18 @@
 
 namespace App\DomainInterface\Interfacing\Action;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ActionResultInterface
 {
+    /**
+     * @return string
+     */
     public function kind(): string;
     /** @return array<int, mixed> */
     public function payload(): array;

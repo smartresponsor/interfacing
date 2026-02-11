@@ -8,6 +8,13 @@ namespace App\Infra\Interfacing\Live\Screen;
 
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_screen_empty', template: 'interfacing/screen/empty.html.twig')]
 final class ScreenEmptyComponent implements ScreenEmptyComponentInterface
 {

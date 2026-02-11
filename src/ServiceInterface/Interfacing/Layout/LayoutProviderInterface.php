@@ -9,6 +9,13 @@ namespace App\ServiceInterface\Interfacing\Layout;
 
 use App\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface LayoutProviderInterface
 {
     /** @return array<int, LayoutSpecInterface> */

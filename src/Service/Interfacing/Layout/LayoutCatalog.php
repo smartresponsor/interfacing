@@ -11,6 +11,13 @@ use App\Domain\Interfacing\Layout\LayoutSpec;
 use App\DomainInterface\Interfacing\Layout\LayoutProviderInterface;
 use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutCatalog implements LayoutCatalogInterface
 {
     /** @var array<string, LayoutSpec>|null */
@@ -42,6 +49,10 @@ final class LayoutCatalog implements LayoutCatalogInterface
         return $map;
     }
 
+    /**
+     * @param string $layoutKey
+     * @return \App\Domain\Interfacing\Layout\LayoutSpec
+     */
     public function get(string $layoutKey): LayoutSpec
     {
         $k = trim($layoutKey);

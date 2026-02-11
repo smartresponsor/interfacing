@@ -8,16 +8,31 @@
     use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 
-final class ActionCatalog implements ActionCatalogInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class ActionCatalog implements ActionCatalogInterface
 {
     /** @var array<string, array<string, ActionEndpointInterface>> */
     private array $action = [];
 
+    /**
+     * @param \App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface $endpoint
+     * @return void
+     */
     public function add(ActionEndpointInterface $endpoint): void
     {
         $this->action[$endpoint->screenId()][$endpoint->actionId()] = $endpoint;
     }
 
+    /**
+     * @param string $screenId
+     * @return array|\App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface[]
+     */
     public function allForScreen(string $screenId): array
     {
         $list = array_values($this->action[$screenId] ?? []);
@@ -27,6 +42,11 @@ final class ActionCatalog implements ActionCatalogInterface
         return $list;
     }
 
+    /**
+     * @param string $screenId
+     * @param string $actionId
+     * @return \App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface
+     */
     public function get(string $screenId, string $actionId): ActionEndpointInterface
     {
         if (!isset($this->action[$screenId][$actionId])) {

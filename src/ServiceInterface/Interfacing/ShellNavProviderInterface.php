@@ -7,6 +7,13 @@ namespace App\ServiceInterface\Interfacing;
 
 use App\Domain\Interfacing\Model\ShellNavGroup;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ShellNavProviderInterface
 {
     /** @return list<ShellNavGroup> */

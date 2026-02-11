@@ -8,6 +8,13 @@ namespace SmartResponsor\Interfacing\Domain\Interfacing\Model;
 
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class UiState implements UiStateInterface
 {
     /** @var array<string,mixed> */
@@ -37,6 +44,9 @@ final class UiState implements UiStateInterface
         return $this->value;
     }
 
+    /**
+     * @return bool
+     */
     public function isEmpty(): bool
     {
         return $this->value === [];

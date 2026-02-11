@@ -17,6 +17,13 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('InterfacingCategoryAdmin', template: 'component/InterfacingCategoryAdmin.html.twig')]
 final class CategoryAdminLive
 {
@@ -45,20 +52,40 @@ final class CategoryAdminLive
     #[LiveProp]
     public array $form = ['id' => '', 'slug' => '', 'name' => '', 'locale' => 'en', 'status' => 'active'];
 
-    public function __construct(private ActionRunner $runner, private BaseContextProviderInterface $contextProvider) {}
+    /**
+     * @param \App\Service\Interfacing\ActionRunner $runner
+     * @param \App\ServiceInterface\Interfacing\BaseContextProviderInterface $contextProvider
+     */
+    public function __construct(private readonly ActionRunner $runner, private readonly BaseContextProviderInterface $contextProvider) {}
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function refresh(): void { $this->runList(); }
 
+    /**
+     * @param string $id
+     * @return void
+     */
     #[LiveAction]
     public function open(string $id): void { $this->selectedId = $id; $this->runOpen($id); }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function save(): void { $this->runSave(); $this->runList(); }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function loadNext(): void { $this->cursor = $this->nextCursor; $this->runList(); }
 
+    /**
+     * @return void
+     */
     private function runList(): void
     {
         $res = $this->runner->run(ScreenId::of('category-admin'), ActionId::of('category.list'),
@@ -72,6 +99,10 @@ final class CategoryAdminLive
         }
     }
 
+    /**
+     * @param string $id
+     * @return void
+     */
     private function runOpen(string $id): void
     {
         $res = $this->runner->run(ScreenId::of('category-admin'), ActionId::of('category.open'),
@@ -87,6 +118,9 @@ final class CategoryAdminLive
         }
     }
 
+    /**
+     * @return void
+     */
     private function runSave(): void
     {
         $res = $this->runner->run(ScreenId::of('category-admin'), ActionId::of('category.save'),
@@ -103,6 +137,10 @@ final class CategoryAdminLive
         }
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\ActionResult $res
+     * @return void
+     */
     private function applyResult(ActionResult $res): void
     {
         $this->message = array_map(static fn(UiMessage $m): array => ['level' => $m->level(), 'text' => $m->text()], $res->messageList());

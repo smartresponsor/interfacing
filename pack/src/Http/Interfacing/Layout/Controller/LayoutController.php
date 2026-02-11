@@ -17,21 +17,43 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-final class LayoutController extends AbstractController implements LayoutControllerInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class LayoutController extends AbstractController implements LayoutControllerInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $catalog
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutGuardInterface $guard
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface $shell
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface $runtime
+     */
     public function __construct(
-        private readonly LayoutCatalogInterface $catalog,
-        private readonly LayoutGuardInterface $guard,
-        private readonly LayoutShellInterface $shell,
-        private readonly InterfacingRuntimeInterface $runtime,
+        private LayoutCatalogInterface      $catalog,
+        private LayoutGuardInterface        $guard,
+        private LayoutShellInterface        $shell,
+        private InterfacingRuntimeInterface $runtime,
     ) {
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function home(Request $request): Response
     {
         return $this->screen($request, 'home');
     }
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param string $slug
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function screen(Request $request, string $slug): Response
     {
         $slug = trim($slug);

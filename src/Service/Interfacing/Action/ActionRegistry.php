@@ -12,7 +12,14 @@
 use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
 use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
 
-final class ActionRegistry implements ActionRegistryInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class ActionRegistry implements ActionRegistryInterface
 {
     /** @var array<string, ActionEndpointInterface> */
     private array $map = [];
@@ -28,11 +35,20 @@ final class ActionRegistry implements ActionRegistryInterface
         }
     }
 
+    /**
+     * @param string $screenId
+     * @param string $actionId
+     * @return bool
+     */
     public function has(string $screenId, string $actionId): bool
     {
         return isset($this->map[$this->key($screenId, $actionId)]);
     }
 
+    /**
+     * @param string $screenId
+     * @return array|array[]
+     */
     public function listForScreen(string $screenId): array
     {
         $out = [];
@@ -48,6 +64,11 @@ final class ActionRegistry implements ActionRegistryInterface
         return $out;
     }
 
+    /**
+     * @param string $screenId
+     * @param string $actionId
+     * @return \App\ServiceInterface\Interfacing\Action\ActionEndpointInterface
+     */
     public function resolve(string $screenId, string $actionId): ActionEndpointInterface
     {
         $k = $this->key($screenId, $actionId);
@@ -57,6 +78,11 @@ final class ActionRegistry implements ActionRegistryInterface
         return $this->map[$k];
     }
 
+    /**
+     * @param string $screenId
+     * @param string $actionId
+     * @return string
+     */
     private function key(string $screenId, string $actionId): string
     {
         return $screenId . '::' . $actionId;

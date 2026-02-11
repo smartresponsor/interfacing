@@ -10,14 +10,27 @@ namespace App\Infra\Interfacing\Demo;
 use App\Domain\Interfacing\Error\DomainOperationFailed;
 use App\InfraInterface\Interfacing\Demo\DemoUserProfileStoreInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoUserProfileStore implements DemoUserProfileStoreInterface
 {
     private const BLOCKED_EMAIL = 'blocked@example.com';
 
+    /**
+     * @param string $path
+     */
     public function __construct(private readonly string $path)
     {
     }
 
+    /**
+     * @return string[]
+     */
     public function load(): array
     {
         if (!is_file($this->path)) {
@@ -40,6 +53,11 @@ final class DemoUserProfileStore implements DemoUserProfileStoreInterface
         ];
     }
 
+    /**
+     * @param string $name
+     * @param string $email
+     * @return void
+     */
     public function save(string $name, string $email): void
     {
         if (mb_strtolower(trim($email)) === self::BLOCKED_EMAIL) {

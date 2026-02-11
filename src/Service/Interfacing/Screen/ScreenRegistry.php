@@ -12,6 +12,13 @@ use App\Domain\Interfacing\Screen\ScreenSpec;
 use App\DomainInterface\Interfacing\Screen\ScreenProviderInterface;
 use App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenRegistry implements ScreenRegistryInterface
 {
     /** @var array<string, ScreenSpec>|null */
@@ -43,6 +50,10 @@ final class ScreenRegistry implements ScreenRegistryInterface
         return $map;
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Screen\ScreenId $screenId
+     * @return \App\Domain\Interfacing\Screen\ScreenSpec
+     */
     public function get(ScreenId $screenId): ScreenSpec
     {
         $id = $screenId->value();

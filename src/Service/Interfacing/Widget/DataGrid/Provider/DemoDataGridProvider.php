@@ -12,13 +12,27 @@ use App\Domain\Interfacing\Model\DataGrid\DataGridResult;
 use App\Domain\Interfacing\Model\DataGrid\DataGridRow;
 use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoDataGridProvider implements DataGridProviderInterface
 {
+    /**
+     * @return string
+     */
     public function alias(): string
     {
         return 'demo';
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\DataGrid\DataGridQuery $query
+     * @return \App\Domain\Interfacing\Model\DataGrid\DataGridResult
+     */
     public function provide(DataGridQuery $query): DataGridResult
     {
         $column = [
@@ -73,7 +87,7 @@ final class DemoDataGridProvider implements DataGridProviderInterface
             ]);
         }
 
-        return new DataGridResult($column, $row, $query->pageIndex(), $query->pageSize(), $total);
+        return new DataGridResult($column, (int)$row, $query->pageIndex(), $query->pageSize(), $total);
     }
 
     /**

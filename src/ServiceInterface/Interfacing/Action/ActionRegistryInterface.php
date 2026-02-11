@@ -8,13 +8,30 @@
 
     namespace App\ServiceInterface\Interfacing\Action;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface ActionRegistryInterface
 {
-    public function has(string $screenId, string $actionId): bool;
+        /**
+         * @param string $screenId
+         * @param string $actionId
+         * @return bool
+         */
+        public function has(string $screenId, string $actionId): bool;
 
     /** @return array<int, array{actionId:string, title:string}> */
     public function listForScreen(string $screenId): array;
 
-    public function resolve(string $screenId, string $actionId): ActionEndpointInterface;
+        /**
+         * @param string $screenId
+         * @param string $actionId
+         * @return \App\ServiceInterface\Interfacing\Action\ActionEndpointInterface
+         */
+        public function resolve(string $screenId, string $actionId): ActionEndpointInterface;
 }
 

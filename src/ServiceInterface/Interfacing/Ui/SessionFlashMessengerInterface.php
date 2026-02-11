@@ -10,8 +10,19 @@ namespace App\ServiceInterface\Interfacing\Ui;
 use App\Domain\Interfacing\Ui\UiMessage;
 use App\Domain\Interfacing\Ui\UiMessageBag;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface SessionFlashMessengerInterface
 {
+    /**
+     * @param \App\Domain\Interfacing\Ui\UiMessage $message
+     * @return void
+     */
     public function push(UiMessage $message): void;
 
     /**

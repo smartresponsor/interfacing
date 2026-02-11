@@ -10,13 +10,28 @@ namespace App\ServiceInterface\Interfacing\Action;
 use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
 use App\DomainInterface\Interfacing\Action\ActionIdInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ActionCatalogInterface
 {
     /** @return array<int, ActionEndpointInterface> */
     public function all(): array;
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
+     * @return bool
+     */
     public function has(ActionIdInterface $id): bool;
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
+     * @return \App\DomainInterface\Interfacing\Action\ActionEndpointInterface
+     */
     public function get(ActionIdInterface $id): ActionEndpointInterface;
 }
 

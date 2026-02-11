@@ -11,11 +11,22 @@ use App\Domain\Interfacing\Attribute\AsInterfacingScreen;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-final class InterfacingAttributeTagCompilerPass implements CompilerPassInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class InterfacingAttributeTagCompilerPass implements CompilerPassInterface
 {
     public const TAG_SCREEN = 'interfacing.screen';
     public const TAG_ACTION = 'interfacing.action';
 
+    /**
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @return void
+     */
     public function process(ContainerBuilder $container): void
     {
         foreach ($container->getDefinitions() as $serviceId => $definition) {

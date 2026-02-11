@@ -5,16 +5,26 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ShellNavGroup
 {
     /** @param list<ShellNavItem> $item */
-    public function __construct(private string $label, private array $item)
+    public function __construct(private readonly string $label, private readonly array $item)
     {
         if ($label === '') {
             throw new \InvalidArgumentException('Nav group label must not be empty.');
         }
     }
 
+    /**
+     * @return string
+     */
     public function label(): string { return $this->label; }
     /** @return list<ShellNavItem> */
     public function itemList(): array { return $this->item; }

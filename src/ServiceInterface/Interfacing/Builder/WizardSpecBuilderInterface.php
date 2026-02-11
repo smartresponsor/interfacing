@@ -7,8 +7,18 @@
 
     use App\Domain\Interfacing\Spec\WizardSpec;
 
-interface WizardSpecBuilderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface WizardSpecBuilderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Spec\WizardSpec
+     */
     public function build(): WizardSpec;
 }
 

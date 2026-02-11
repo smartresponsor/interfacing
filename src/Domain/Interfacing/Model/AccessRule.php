@@ -5,11 +5,21 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class AccessRule
 {
     /** @var list<string> */
     private array $requireRole;
 
+    /**
+     * @param array $requireRole
+     */
     private function __construct(array $requireRole)
     {
         $this->requireRole = array_values(array_unique(array_filter($requireRole, static fn($v): bool => is_string($v) && $v !== '')));

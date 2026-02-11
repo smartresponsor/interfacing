@@ -16,12 +16,30 @@ use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
 use App\Service\Interfacing\Action\ActionRunner;
 use App\Service\Interfacing\Telemetry\NullTelemetry;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ActionRunnerTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testItRunsEndpointAndEmitsOk(): void
     {
         $endpoint = new class implements ActionEndpointInterface {
+            /**
+             * @return string
+             */
             public function actionId(): string { return 'ping'; }
+
+            /**
+             * @param \App\Domain\Interfacing\Action\ActionRequest $request
+             * @return \App\Domain\Interfacing\Action\ActionResult
+             */
             public function handle(ActionRequest $request): ActionResult
             {
                 return ActionResult::ok(['pong' => true]);
@@ -40,10 +58,21 @@ final class ActionRunnerTest extends TestCase
         self::assertTrue($res->data()['pong']);
     }
 
+    /**
+     * @return void
+     */
     public function testItMapsExceptionToFail(): void
     {
         $endpoint = new class implements ActionEndpointInterface {
+            /**
+             * @return string
+             */
             public function actionId(): string { return 'boom'; }
+
+            /**
+             * @param \App\Domain\Interfacing\Action\ActionRequest $request
+             * @return \App\Domain\Interfacing\Action\ActionResult
+             */
             public function handle(ActionRequest $request): ActionResult
             {
                 throw new \RuntimeException('nope');

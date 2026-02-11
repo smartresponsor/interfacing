@@ -9,13 +9,28 @@ namespace App\Service\Interfacing\Widget\BulkAction\Demo;
 use App\Domain\Interfacing\Model\BulkAction\BulkActionResult;
 use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoMarkDoneBulkActionHandler implements BulkActionHandlerInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string
     {
         return 'demo-mark-done';
     }
 
+    /**
+     * @param array $id
+     * @param array $context
+     * @return \App\Domain\Interfacing\Model\BulkAction\BulkActionResult
+     */
     public function execute(array $id, array $context = []): BulkActionResult
     {
         $id = array_values(array_unique(array_filter($id, static fn($x): bool => is_string($x) && $x !== '')));

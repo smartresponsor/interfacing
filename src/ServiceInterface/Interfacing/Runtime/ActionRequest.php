@@ -7,16 +7,23 @@
 
     use Symfony\Component\HttpFoundation\Request;
 
-final class ActionRequest
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class ActionRequest
 {
     /**
      * @param array<string, mixed> $payload
      */
     public function __construct(
-        public readonly string $screenId,
-        public readonly string $actionId,
-        public readonly array $payload,
-        public readonly Request $request,
+        public string  $screenId,
+        public string  $actionId,
+        public array   $payload,
+        public Request $request,
     ) {
     }
 }

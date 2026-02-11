@@ -7,6 +7,13 @@ declare(strict_types=1);
  */
 namespace App\ServiceInterface\Interfacing\Context;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface BaseContextAssemblerInterface
 {
     /** @return array<string, mixed> */

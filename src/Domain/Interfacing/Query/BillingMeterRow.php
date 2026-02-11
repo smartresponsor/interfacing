@@ -3,13 +3,27 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Query;
 
-final class BillingMeterRow
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class BillingMeterRow
 {
+    /**
+     * @param string $id
+     * @param string $status
+     * @param float $amount
+     * @param string $periodFromIso
+     * @param string $periodToIso
+     */
     public function __construct(
-        public readonly string $id,
-        public readonly string $status,
-        public readonly float $amount,
-        public readonly string $periodFromIso,
-        public readonly string $periodToIso,
+        public string $id,
+        public string $status,
+        public float  $amount,
+        public string $periodFromIso,
+        public string $periodToIso,
     ) {}
 }

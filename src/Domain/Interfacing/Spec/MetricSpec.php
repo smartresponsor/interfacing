@@ -5,13 +5,26 @@
 
     namespace App\Domain\Interfacing\Spec;
 
-    final class MetricSpec
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class MetricSpec
 {
-    public function __construct(
-        public readonly string $id,
-        public readonly string $title,
-        public readonly string $value,
-        public readonly ?string $hint = null,
+        /**
+         * @param string $id
+         * @param string $title
+         * @param string $value
+         * @param string|null $hint
+         */
+        public function __construct(
+        public string  $id,
+        public string  $title,
+        public string  $value,
+        public ?string $hint = null,
     ) {
     }
 }

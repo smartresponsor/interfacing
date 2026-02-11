@@ -10,6 +10,13 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Model\WidgetId;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\WidgetRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class WidgetRegistry implements WidgetRegistryInterface
 {
     /** @var array<string, array{class:string, option:array<string,mixed>}> */
@@ -20,6 +27,12 @@ final class WidgetRegistry implements WidgetRegistryInterface
         $this->definitionById = [];
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface $id
+     * @param string $class
+     * @param array $option
+     * @return void
+     */
     public function register(WidgetIdInterface $id, string $class, array $option = []): void
     {
         $this->definitionById[$id->toString()] = [
@@ -28,11 +41,19 @@ final class WidgetRegistry implements WidgetRegistryInterface
         ];
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface $id
+     * @return bool
+     */
     public function has(WidgetIdInterface $id): bool
     {
         return isset($this->definitionById[$id->toString()]);
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface $id
+     * @return array
+     */
     public function get(WidgetIdInterface $id): array
     {
         $key = $id->toString();
@@ -42,6 +63,9 @@ final class WidgetRegistry implements WidgetRegistryInterface
         return $this->definitionById[$key];
     }
 
+    /**
+     * @return array|\SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface[]
+     */
     public function allId(): array
     {
         return array_map(static fn(string $id) => WidgetId::fromString($id), array_keys($this->definitionById));

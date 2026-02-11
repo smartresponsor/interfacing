@@ -13,23 +13,43 @@ use App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
 use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
 use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 
-final class DemoWizardNextActionEndpoint implements ActionEndpointInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class DemoWizardNextActionEndpoint implements ActionEndpointInterface
 {
+    /**
+     * @return string
+     */
     public function screenId(): string
     {
         return 'demo.wizard';
     }
 
+    /**
+     * @return string
+     */
     public function actionId(): string
     {
         return 'wizard-next';
     }
 
+    /**
+     * @return string
+     */
     public function title(): string
     {
         return 'Next';
     }
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface $request
+     * @return \App\DomainInterface\Interfacing\Model\Action\ActionResultInterface
+     */
     public function handle(ActionRequestInterface $request): ActionResultInterface
     {
         $state = $request->state();

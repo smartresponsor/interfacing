@@ -6,9 +6,23 @@ declare(strict_types=1);
  */
 namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface WidgetIdInterface
 {
+    /**
+     * @return string
+     */
     public function toString(): string;
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface $other
+     * @return bool
+     */
     public function equals(self $other): bool;
 }

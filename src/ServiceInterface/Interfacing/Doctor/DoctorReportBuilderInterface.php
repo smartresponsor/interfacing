@@ -7,6 +7,13 @@ declare(strict_types=1);
  */
 namespace App\ServiceInterface\Interfacing\Doctor;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface DoctorReportBuilderInterface
 {
     /** @return array<string, mixed> */

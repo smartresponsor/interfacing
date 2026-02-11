@@ -8,8 +8,20 @@ namespace App\Service\Interfacing\Shell;
 
 use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class AllowAllAccessResolver implements AccessResolverInterface
 {
+    /**
+     * @param string $capability
+     * @param array $context
+     * @return bool
+     */
     public function allow(string $capability, array $context = []): bool
     {
         return true;

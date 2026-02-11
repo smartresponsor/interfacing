@@ -22,6 +22,11 @@ Drift guard (RVE-A6):
 - Forbidden: Domain rules, policy decisions, cross-domain coupling.
 - Gate: CI can run `php tools/interfacing-drift-check.php`.
 
+Namespace canon (RVE-B12):
+- Symfony-standard namespace prefix is App\\ for this repo.
+- Forbidden: SmartResponsor\\* and SR\\* prefixes in namespaces/imports.
+- Drift guard enforces App\\ usage in Interfacing boundary files.
+
 Drift guard (RVE-A6):
 - tools/interfacing-drift-check.php enforces Interfacing boundaries.
 - Forbidden: Domain rules, policy decisions, cross-domain coupling.

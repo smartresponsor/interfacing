@@ -9,6 +9,13 @@ namespace App\Service\Interfacing\Widget\Metric;
 use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
 use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class MetricProviderRegistry implements MetricProviderRegistryInterface
 {
     /**
@@ -26,11 +33,19 @@ final class MetricProviderRegistry implements MetricProviderRegistryInterface
         }
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function has(string $id): bool
     {
         return isset($this->map[$id]);
     }
 
+    /**
+     * @param string $id
+     * @return \App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface
+     */
     public function get(string $id): MetricProviderInterface
     {
         if (!isset($this->map[$id])) {
@@ -40,6 +55,9 @@ final class MetricProviderRegistry implements MetricProviderRegistryInterface
         return $this->map[$id];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function idList(): array
     {
         $id = array_keys($this->map);

@@ -12,15 +12,30 @@ use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegist
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-final class InterfacingHealthController implements InterfacingHealthControllerInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class InterfacingHealthController implements InterfacingHealthControllerInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screenRegistry
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layoutCatalog
+     * @param string $kernelEnvironment
+     */
     public function __construct(
-        private readonly ScreenRegistryInterface $screenRegistry,
-        private readonly LayoutCatalogInterface $layoutCatalog,
-        private readonly string $kernelEnvironment,
+        private ScreenRegistryInterface $screenRegistry,
+        private LayoutCatalogInterface  $layoutCatalog,
+        private string                  $kernelEnvironment,
     ) {
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function health(): Response
     {
         $payload = [

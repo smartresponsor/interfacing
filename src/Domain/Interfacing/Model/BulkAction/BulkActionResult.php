@@ -6,6 +6,13 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\Domain\Interfacing\Model\BulkAction;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class BulkActionResult
 {
     /**
@@ -13,12 +20,15 @@ final class BulkActionResult
      * @param list<string> $updatedId
      */
     public function __construct(
-        private string $message,
-        private array $removedId = [],
-        private array $updatedId = [],
+        private readonly string $message,
+        private readonly array  $removedId = [],
+        private readonly array  $updatedId = [],
     ) {
     }
 
+    /**
+     * @return string
+     */
     public function message(): string
     {
         return $this->message;

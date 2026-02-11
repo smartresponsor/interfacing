@@ -5,8 +5,24 @@ namespace App\DomainInterface\Interfacing\Query;
 
 use App\Domain\Interfacing\Query\BillingMeterPage;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface BillingMeterQueryInterface
 {
+    /**
+     * @param string $tenantId
+     * @param int $page
+     * @param int $pageSize
+     * @param string|null $status
+     * @param string|null $periodFromIso
+     * @param string|null $periodToIso
+     * @return \App\Domain\Interfacing\Query\BillingMeterPage
+     */
     public function fetchPage(
         string $tenantId,
         int $page,

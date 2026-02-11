@@ -7,6 +7,13 @@
 
 namespace App\HttpInterface\Interfacing\Console;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingDoctorCommandInterface
 {
 }

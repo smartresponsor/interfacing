@@ -10,8 +10,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class InterfacingHealthController extends AbstractController implements InterfacingHealthControllerInterface
 {
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function show(Request $request): JsonResponse
     {
         return new JsonResponse([

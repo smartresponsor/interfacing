@@ -11,13 +11,28 @@ use App\Domain\Interfacing\Model\DataGrid\DataGridResult;
 use App\Domain\Interfacing\Model\DataGrid\DataGridRow;
 use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoDataGridProvider implements DataGridProviderInterface
 {
+    /**
+     * @return string
+     */
     public function key(): string
     {
         return 'demo';
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\DataGrid\DataGridQuery $query
+     * @param array $context
+     * @return \App\Domain\Interfacing\Model\DataGrid\DataGridResult
+     */
     public function fetch(DataGridQuery $query, array $context = []): DataGridResult
     {
         $item = $this->seed();
@@ -59,6 +74,8 @@ final class DemoDataGridProvider implements DataGridProviderInterface
 
     /**
      * @return list<array{id:string,name:string,status:string,updatedAt:string}>
+     * @throws \DateInvalidOperationException
+     * @throws \DateInvalidOperationException
      */
     private function seed(): array
     {

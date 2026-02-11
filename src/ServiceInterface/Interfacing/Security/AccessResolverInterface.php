@@ -10,8 +10,19 @@
 
     use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
-interface AccessResolverInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface AccessResolverInterface
 {
+    /**
+     * @param \App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface $screen
+     * @return bool
+     */
     public function isAllowed(ScreenSpecInterface $screen): bool;
 }
 

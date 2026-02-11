@@ -6,6 +6,13 @@ declare(strict_types=1);
  */
 namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface UiStateInterface
 {
     /**
@@ -13,5 +20,8 @@ interface UiStateInterface
      */
     public function toArray(): array;
 
+    /**
+     * @return bool
+     */
     public function isEmpty(): bool;
 }

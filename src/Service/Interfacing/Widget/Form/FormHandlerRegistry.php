@@ -9,6 +9,13 @@ namespace App\Service\Interfacing\Widget\Form;
 use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
 use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class FormHandlerRegistry implements FormHandlerRegistryInterface
 {
     /** @var array<string,FormHandlerInterface> */
@@ -22,8 +29,16 @@ final class FormHandlerRegistry implements FormHandlerRegistryInterface
         }
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function has(string $id): bool { return isset($this->map[$id]); }
 
+    /**
+     * @param string $id
+     * @return \App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface
+     */
     public function get(string $id): FormHandlerInterface
     {
         if (!isset($this->map[$id])) {
@@ -32,6 +47,9 @@ final class FormHandlerRegistry implements FormHandlerRegistryInterface
         return $this->map[$id];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function idList(): array
     {
         $id = array_keys($this->map);

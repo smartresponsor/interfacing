@@ -12,12 +12,26 @@
 use App\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
 use App\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
 
-final class ScreenContextAssembler implements ScreenContextAssemblerInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class ScreenContextAssembler implements ScreenContextAssemblerInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Context\BaseContextProviderInterface $baseContextProvider
+     */
     public function __construct(
-        private readonly BaseContextProviderInterface $baseContextProvider,
+        private BaseContextProviderInterface $baseContextProvider,
     ) {}
 
+    /**
+     * @param string $screenId
+     * @return \App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface
+     */
     public function assemble(string $screenId): ScreenContextInterface
     {
         return $this->baseContextProvider->provide();

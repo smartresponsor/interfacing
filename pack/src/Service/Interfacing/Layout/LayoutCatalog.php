@@ -11,6 +11,13 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutCatalog implements LayoutCatalogInterface
 {
     /** @var array<string, LayoutScreenSpecInterface> */
@@ -21,6 +28,9 @@ final class LayoutCatalog implements LayoutCatalogInterface
         $this->registerDefault();
     }
 
+    /**
+     * @return void
+     */
     private function registerDefault(): void
     {
         $this->register(
@@ -28,9 +38,7 @@ final class LayoutCatalog implements LayoutCatalogInterface
                 'home',
                 'Home',
                 'tool',
-                ScreenId::fromString('screen-home'),
-                null,
-                []
+                ScreenId::fromString('screen-home')
             )
         );
 
@@ -39,9 +47,7 @@ final class LayoutCatalog implements LayoutCatalogInterface
                 'health',
                 'Health',
                 'tool',
-                ScreenId::fromString('screen-health'),
-                null,
-                []
+                ScreenId::fromString('screen-health')
             )
         );
 
@@ -50,23 +56,33 @@ final class LayoutCatalog implements LayoutCatalogInterface
                 'empty',
                 'Empty',
                 'tool',
-                ScreenId::fromString('screen-empty'),
-                null,
-                []
+                ScreenId::fromString('screen-empty')
             )
         );
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface $spec
+     * @return void
+     */
     public function register(LayoutScreenSpecInterface $spec): void
     {
         $this->specBySlug[$spec->getSlug()] = $spec;
     }
 
+    /**
+     * @param string $slug
+     * @return bool
+     */
     public function hasSlug(string $slug): bool
     {
         return isset($this->specBySlug[$slug]);
     }
 
+    /**
+     * @param string $slug
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface
+     */
     public function getBySlug(string $slug): LayoutScreenSpecInterface
     {
         if (!isset($this->specBySlug[$slug])) {
@@ -75,6 +91,9 @@ final class LayoutCatalog implements LayoutCatalogInterface
         return $this->specBySlug[$slug];
     }
 
+    /**
+     * @return array|\SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface[]
+     */
     public function all(): array
     {
         return array_values($this->specBySlug);

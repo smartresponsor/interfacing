@@ -10,6 +10,13 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutScreenSpec implements LayoutScreenSpecInterface
 {
     private string $slug;
@@ -55,26 +62,41 @@ final class LayoutScreenSpec implements LayoutScreenSpecInterface
         return new self($slug, $title, $navGroup, $screenId, $guardKey, $context);
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getNavGroup(): string
     {
         return $this->navGroup;
     }
 
+    /**
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface
+     */
     public function getScreenId(): ScreenIdInterface
     {
         return $this->screenId;
     }
 
+    /**
+     * @return string|null
+     */
     public function getGuardKey(): ?string
     {
         return $this->guardKey;

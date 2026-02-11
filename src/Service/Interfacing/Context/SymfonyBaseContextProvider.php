@@ -8,12 +8,27 @@ use App\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-final class SymfonyBaseContextProvider implements BaseContextProviderInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class SymfonyBaseContextProvider implements BaseContextProviderInterface
 {
+    /**
+     * @param \App\DomainInterface\Interfacing\Tenant\TenantResolverInterface $tenantResolver
+     */
     public function __construct(
-        private readonly TenantResolverInterface $tenantResolver,
+        private TenantResolverInterface $tenantResolver,
     ) {}
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
+     * @return array|mixed[]
+     */
     public function provide(Request $request, ?TokenInterface $token): array
     {
         $tenantId = $this->tenantResolver->resolveTenantId($request, $token);

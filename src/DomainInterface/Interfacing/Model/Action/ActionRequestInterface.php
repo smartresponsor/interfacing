@@ -10,15 +10,31 @@
 
     use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
 
-interface ActionRequestInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface ActionRequestInterface
 {
+    /**
+     * @return string
+     */
     public function screenId(): string;
 
+    /**
+     * @return string
+     */
     public function actionId(): string;
 
     /** @return array<string, mixed> */
     public function payload(): array;
 
+    /**
+     * @return \App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface
+     */
     public function context(): ScreenContextInterface;
 
     /** @return array<string, mixed> */

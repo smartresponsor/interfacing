@@ -22,10 +22,20 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[CoversClass(\App\Infra\Interfacing\Http\BillingMeterScreenController::class)]
 #[CoversClass(\App\Infra\Interfacing\Http\OrderSummaryScreenController::class)]
 final class InterfacingBillingAndOrderScreenTest extends WebTestCase
 {
+    /**
+     * @return void
+     */
     public function testBillingMeterScreenRendersWithStubData(): void
     {
         $client = $this->createClientWithStubs();
@@ -42,6 +52,9 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('closed', $content);
     }
 
+    /**
+     * @return void
+     */
     public function testOrderSummaryScreenRendersWithStubData(): void
     {
         $client = $this->createClientWithStubs();
@@ -57,12 +70,15 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('customer@example.test', $content);
     }
 
+    /**
+     * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
+     */
     private function createClientWithStubs(): KernelBrowser
     {
         self::ensureKernelShutdown();
 
-        $client = static::createClient();
-        $container = static::getContainer();
+        $client = InterfacingBillingAndOrderScreenTest::createClient();
+        $container = InterfacingBillingAndOrderScreenTest::getContainer();
 
         // Access: always allow in tests.
         $accessResolver = new TestAllowAllAccessResolver();
@@ -115,11 +131,24 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
  */
 final class TestAllowAllAccessResolver implements AccessResolverInterface
 {
+    /**
+     * @param string $screenId
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
+     * @return \App\Domain\Interfacing\Access\AccessDecision
+     */
     public function canOpenScreen(string $screenId, Request $request, ?TokenInterface $token): AccessDecision
     {
         return AccessDecision::allow('test-open:' . $screenId);
     }
 
+    /**
+     * @param string $screenId
+     * @param string $actionId
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
+     * @return \App\Domain\Interfacing\Access\AccessDecision
+     */
     public function canRunAction(string $screenId, string $actionId, Request $request, ?TokenInterface $token): AccessDecision
     {
         return AccessDecision::allow('test-action:' . $screenId . '#' . $actionId);
@@ -131,6 +160,11 @@ final class TestAllowAllAccessResolver implements AccessResolverInterface
  */
 final class TestBaseContextProvider implements BaseContextProviderInterface
 {
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
+     * @return array|mixed[]
+     */
     public function provide(Request $request, ?TokenInterface $token): array
     {
         $userId = $token?->getUserIdentifier() ?? 'interfacing-test-user';
@@ -149,6 +183,15 @@ final class TestBaseContextProvider implements BaseContextProviderInterface
  */
 final class TestBillingMeterQueryService implements BillingMeterQueryServiceInterface
 {
+    /**
+     * @param string $tenantId
+     * @param int $page
+     * @param int $pageSize
+     * @param string|null $status
+     * @param string|null $periodFromIso
+     * @param string|null $periodToIso
+     * @return \App\Domain\Interfacing\Query\BillingMeterPage
+     */
     public function fetchPage(
         string $tenantId,
         int $page,
@@ -176,6 +219,15 @@ final class TestBillingMeterQueryService implements BillingMeterQueryServiceInte
  */
 final class TestOrderSummaryQueryService implements OrderSummaryQueryServiceInterface
 {
+    /**
+     * @param string $tenantId
+     * @param int $page
+     * @param int $pageSize
+     * @param string|null $status
+     * @param string|null $createdFromIso
+     * @param string|null $createdToIso
+     * @return \App\Domain\Interfacing\Query\OrderSummaryPage
+     */
     public function fetchPage(
         string $tenantId,
         int $page,

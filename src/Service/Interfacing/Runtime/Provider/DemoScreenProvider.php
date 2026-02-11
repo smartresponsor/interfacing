@@ -8,13 +8,26 @@ namespace App\Service\Interfacing\Runtime\Provider;
 
 use App\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoScreenProvider implements ScreenProviderInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string
     {
         return 'demo';
     }
 
+    /**
+     * @return string[]
+     */
     public function map(): array
     {
         return [

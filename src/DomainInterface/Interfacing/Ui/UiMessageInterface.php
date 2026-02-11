@@ -7,10 +7,28 @@
 
 namespace App\DomainInterface\Interfacing\Ui;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface UiMessageInterface
 {
+    /**
+     * @return string
+     */
     public function type(): string;
+
+    /**
+     * @return string
+     */
     public function text(): string;
+
+    /**
+     * @return string|null
+     */
     public function code(): ?string;
 }
 

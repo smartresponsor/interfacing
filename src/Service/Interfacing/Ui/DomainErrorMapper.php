@@ -12,8 +12,19 @@ use App\Domain\Interfacing\Ui\UiError;
 use App\Domain\Interfacing\Ui\UiErrorBag;
 use App\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DomainErrorMapper implements DomainErrorMapperInterface
 {
+    /**
+     * @param \App\Domain\Interfacing\Error\DomainOperationFailed $error
+     * @return \App\Domain\Interfacing\Ui\UiErrorBag
+     */
     public function fromDomainOperationFailed(DomainOperationFailed $error): UiErrorBag
     {
         $bag = new UiErrorBag();

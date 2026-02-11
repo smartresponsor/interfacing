@@ -8,8 +8,20 @@ namespace SmartResponsor\Interfacing\Infra\Interfacing\Turbo;
 
 use SmartResponsor\Interfacing\InfraInterface\Interfacing\Turbo\StreamPublisherInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class StreamPublisher implements StreamPublisherInterface
 {
+    /**
+     * @param string $target
+     * @param string $html
+     * @return void
+     */
     public function publish(string $target, string $html): void
     {
 

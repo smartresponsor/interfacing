@@ -7,8 +7,18 @@
 
 namespace App\DomainInterface\Interfacing\Screen;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ScreenIdInterface
 {
+    /**
+     * @return string
+     */
     public function value(): string;
 }
 

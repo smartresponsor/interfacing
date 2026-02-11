@@ -7,8 +7,18 @@ use App\Domain\Interfacing\Query\OrderSummaryPage;
 use App\Domain\Interfacing\Query\OrderSummaryRow;
 use PHPUnit\Framework\TestCase;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class OrderSummaryPageTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testCreatePage(): void
     {
         $row = new OrderSummaryRow('ord_1', 'paid', '2025-01-01T10:00:00Z', 199.99, 'USD', 'buyer@example.com');

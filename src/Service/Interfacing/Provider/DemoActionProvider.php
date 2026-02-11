@@ -14,8 +14,18 @@ use App\Service\Interfacing\Provider\DemoAction\DemoWizardBackActionEndpoint;
 use App\Service\Interfacing\Provider\DemoAction\DemoWizardNextActionEndpoint;
 use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
 
-final class DemoActionProvider implements ActionProviderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class DemoActionProvider implements ActionProviderInterface
 {
+    /**
+     * @return array|\App\ServiceInterface\Interfacing\Action\ActionEndpointInterface[]
+     */
     public function provide(): array
     {
         return [

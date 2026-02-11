@@ -8,6 +8,13 @@ namespace App\ServiceInterface\Interfacing\Runtime;
 
 use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ScreenContextAssemblerInterface
 {
     /**

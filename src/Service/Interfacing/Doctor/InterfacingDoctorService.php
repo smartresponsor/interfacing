@@ -16,15 +16,31 @@ use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
 use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
 
-final class InterfacingDoctorService implements InterfacingDoctorServiceInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class InterfacingDoctorService implements InterfacingDoctorServiceInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface $screenCatalog
+     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layoutCatalog
+     * @param \App\ServiceInterface\Interfacing\Action\ActionCatalogInterface $actionCatalog
+     * @param \App\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface $telemetry
+     */
     public function __construct(
-        private readonly ScreenCatalogInterface $screenCatalog,
-        private readonly LayoutCatalogInterface $layoutCatalog,
-        private readonly ActionCatalogInterface $actionCatalog,
-        private readonly InterfacingTelemetryInterface $telemetry,
+        private ScreenCatalogInterface        $screenCatalog,
+        private LayoutCatalogInterface        $layoutCatalog,
+        private ActionCatalogInterface        $actionCatalog,
+        private InterfacingTelemetryInterface $telemetry,
     ) {}
 
+    /**
+     * @return \App\DomainInterface\Interfacing\Doctor\DoctorReportInterface
+     */
     public function report(): DoctorReportInterface
     {
         $start = microtime(true);

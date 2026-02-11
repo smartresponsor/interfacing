@@ -5,17 +5,24 @@
 
     namespace App\Domain\Interfacing\Spec;
 
-    final class FormSpec
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class FormSpec
 {
     /** @var list<FormFieldSpec> */
-    public readonly array $field;
+    public array $field;
 
     /**
      * @param list<FormFieldSpec> $field
      */
     public function __construct(
-        public readonly string $id,
-        array $field,
+        public string $id,
+        array         $field,
     ) {
         $this->field = $field;
     }

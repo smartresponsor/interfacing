@@ -11,13 +11,27 @@ use App\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
 use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
 
-final class DoctorReportBuilder implements DoctorReportBuilderInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class DoctorReportBuilder implements DoctorReportBuilderInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface $screenRegistry
+     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layoutCatalog
+     */
     public function __construct(
-        private readonly ScreenRegistryInterface $screenRegistry,
-        private readonly LayoutCatalogInterface $layoutCatalog
+        private ScreenRegistryInterface $screenRegistry,
+        private LayoutCatalogInterface  $layoutCatalog
     ) {}
 
+    /**
+     * @return array[]
+     */
     public function build(): array
     {
         $screen = [];

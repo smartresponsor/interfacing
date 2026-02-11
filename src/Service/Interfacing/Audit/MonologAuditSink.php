@@ -7,12 +7,26 @@ use App\DomainInterface\Interfacing\Audit\AuditSinkInterface;
 use App\Domain\Interfacing\Audit\AuditEvent;
 use Psr\Log\LoggerInterface;
 
-final class MonologAuditSink implements AuditSinkInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class MonologAuditSink implements AuditSinkInterface
 {
+    /**
+     * @param \Psr\Log\LoggerInterface $logger
+     */
     public function __construct(
-        private readonly LoggerInterface $logger,
+        private LoggerInterface $logger,
     ) {}
 
+    /**
+     * @param \App\Domain\Interfacing\Audit\AuditEvent $event
+     * @return void
+     */
     public function record(AuditEvent $event): void
     {
         $this->logger->info('interfacing.audit', [

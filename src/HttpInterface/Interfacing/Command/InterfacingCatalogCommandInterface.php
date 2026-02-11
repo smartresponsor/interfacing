@@ -5,6 +5,13 @@
 
     namespace App\HttpInterface\Interfacing\Command;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface InterfacingCatalogCommandInterface
 {
 }

@@ -7,9 +7,19 @@ declare(strict_types=1);
  */
 namespace App\Domain\Interfacing\Action;
 
-final class ActionId
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class ActionId
 {
-    public function __construct(private readonly string $value)
+    /**
+     * @param string $value
+     */
+    public function __construct(private string $value)
     {
         $v = trim($this->value);
         if ($v === '' || !preg_match('/^[a-z0-9][a-z0-9\-\.]{1,127}$/', $v)) {
@@ -18,6 +28,9 @@ final class ActionId
         $this->value = $v;
     }
 
+    /**
+     * @return string
+     */
     public function value(): string
     {
         return $this->value;

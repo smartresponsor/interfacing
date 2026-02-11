@@ -7,10 +7,28 @@
 
 namespace App\DomainInterface\Interfacing\Doctor;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface DoctorIssueInterface
 {
+    /**
+     * @return string
+     */
     public function level(): string;
+
+    /**
+     * @return string
+     */
     public function text(): string;
+
+    /**
+     * @return string
+     */
     public function code(): string;
 }
 

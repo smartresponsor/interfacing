@@ -11,13 +11,27 @@ use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSp
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 
-final class InterfacingRuntime implements InterfacingRuntimeInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class InterfacingRuntime implements InterfacingRuntimeInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screenRegistry
+     */
     public function __construct(
-        private readonly ScreenRegistryInterface $screenRegistry,
+        private ScreenRegistryInterface $screenRegistry,
     ) {
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface $id
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface
+     */
     public function resolveScreen(ScreenIdInterface $id): ScreenSpecInterface
     {
         return $this->screenRegistry->get($id);

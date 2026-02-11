@@ -8,16 +8,23 @@ namespace App\Domain\Interfacing\Model\Shell;
 
 use App\DomainInterface\Interfacing\Model\Shell\ShellViewInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ShellView implements ShellViewInterface
 {
     /**
      * @param list<ShellNavGroup> $group
      */
     public function __construct(
-        private ?string $activeId,
-        private string $query,
-        private array $group,
-        private int $itemTotal,
+        private ?string        $activeId,
+        private string         $query,
+        private readonly array $group,
+        private int            $itemTotal,
     ) {
         $this->query = trim($this->query);
         $this->itemTotal = max(0, $this->itemTotal);
@@ -26,7 +33,14 @@ final class ShellView implements ShellViewInterface
         }
     }
 
+    /**
+     * @return string|null
+     */
     public function activeId(): ?string { return $this->activeId; }
+
+    /**
+     * @return string
+     */
     public function query(): string { return $this->query; }
 
     /**
@@ -34,5 +48,8 @@ final class ShellView implements ShellViewInterface
      */
     public function group(): array { return $this->group; }
 
+    /**
+     * @return int
+     */
     public function itemTotal(): int { return $this->itemTotal; }
 }

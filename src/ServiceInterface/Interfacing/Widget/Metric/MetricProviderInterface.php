@@ -8,8 +8,18 @@ namespace App\ServiceInterface\Interfacing\Widget\Metric;
 
 use App\Domain\Interfacing\Model\Metric\MetricDatum;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface MetricProviderInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string;
 
     /**

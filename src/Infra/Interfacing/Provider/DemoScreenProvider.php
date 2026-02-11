@@ -11,8 +11,18 @@ use App\Domain\Interfacing\Screen\ScreenId;
 use App\Domain\Interfacing\Screen\ScreenSpec;
 use App\DomainInterface\Interfacing\Screen\ScreenProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoScreenProvider implements ScreenProviderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Screen\ScreenSpec[]
+     */
     public function provide(): array
     {
         return [

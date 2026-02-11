@@ -11,8 +11,23 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Symfony\Contracts\HttpClient\ResponseStreamInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class HttpOrderSummaryQueryServiceTest extends TestCase
 {
+    /**
+     * @return void
+     * @throws \JsonException
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function testFetchPageBuildsQueryAndParsesResponse(): void
     {
         $payload = [
@@ -69,6 +84,14 @@ final class HttpOrderSummaryQueryServiceTest extends TestCase
         self::assertSame('2025-01-31', $query['createdTo']);
     }
 
+    /**
+     * @return void
+     * @throws \JsonException
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function testNon200ResponseThrows(): void
     {
         $client = new FakeOrderHttpClient(503, ['error' => 'maintenance']);
@@ -126,18 +149,39 @@ final class FakeOrderHttpClient implements HttpClientInterface
         return new FakeOrderResponse($this->statusCode, $this->payload);
     }
 
+    /**
+     * @param $responses
+     * @param float|null $timeout
+     * @return \Symfony\Contracts\HttpClient\ResponseStreamInterface
+     */
+    /**
+     * @param $responses
+     * @param float|null $timeout
+     * @return \Symfony\Contracts\HttpClient\ResponseStreamInterface
+     */
     public function stream($responses, float $timeout = null): ResponseStreamInterface
     {
         throw new \RuntimeException('Not implemented for FakeOrderHttpClient.');
     }
 
-    public function withOptions(array $options): static
+    /**
+     * @param array $options
+     * @return $this
+     */
+    public function withOptions(array $options): FakeOrderHttpClient
     {
         // Options are not used in this simple fake.
         return $this;
     }
 }
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class FakeOrderResponse implements ResponseInterface
 {
     /** @var array<string,mixed> */
@@ -153,31 +197,54 @@ final class FakeOrderResponse implements ResponseInterface
         $this->payload = $payload;
     }
 
+    /**
+     * @return int
+     */
     public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
+    /**
+     * @param bool $throw
+     * @return array|\string[][]
+     */
     public function getHeaders(bool $throw = true): array
     {
         return [];
     }
 
+    /**
+     * @param bool $throw
+     * @return string
+     * @throws \JsonException
+     */
     public function getContent(bool $throw = true): string
     {
         return json_encode($this->payload, JSON_THROW_ON_ERROR);
     }
 
+    /**
+     * @param bool $throw
+     * @return mixed[]
+     */
     public function toArray(bool $throw = true): array
     {
         return $this->payload;
     }
 
+    /**
+     * @return void
+     */
     public function cancel(): void
     {
         // Nothing to cancel in this fake.
     }
 
+    /**
+     * @param string|null $type
+     * @return mixed
+     */
     public function getInfo(string $type = null): mixed
     {
         return null;

@@ -6,6 +6,13 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\Domain\Interfacing\Model\Form;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class FormSubmitResult
 {
     /**
@@ -13,14 +20,21 @@ final class FormSubmitResult
      * @param array<string,mixed> $value
      */
     public function __construct(
-        private bool $ok,
-        private string $message,
-        private array $fieldError = [],
-        private array $value = [],
+        private readonly bool   $ok,
+        private readonly string $message,
+        private readonly array  $fieldError = [],
+        private readonly array  $value = [],
     ) {
     }
 
+    /**
+     * @return bool
+     */
     public function ok(): bool { return $this->ok; }
+
+    /**
+     * @return string
+     */
     public function message(): string { return $this->message; }
 
     /** @return array<string,string> */

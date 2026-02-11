@@ -15,19 +15,38 @@ use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterfac
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class InterfacingDoctor implements InterfacingDoctorInterface
 {
+    /**
+     * @param \Symfony\Component\Routing\RouterInterface $router
+     * @param \Twig\Environment $twig
+     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layout
+     * @param \App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screen
+     * @param \App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface $metric
+     * @param \App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface $form
+     * @param \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface $wizard
+     */
     public function __construct(
-        private RouterInterface $router,
-        private Environment $twig,
-        private LayoutCatalogInterface $layout,
-        private ScreenRegistryInterface $screen,
-        private MetricProviderRegistryInterface $metric,
-        private FormHandlerRegistryInterface $form,
-        private WizardHandlerRegistryInterface $wizard,
+        private readonly RouterInterface                 $router,
+        private readonly Environment                     $twig,
+        private readonly LayoutCatalogInterface          $layout,
+        private readonly ScreenRegistryInterface         $screen,
+        private readonly MetricProviderRegistryInterface $metric,
+        private readonly FormHandlerRegistryInterface    $form,
+        private readonly WizardHandlerRegistryInterface  $wizard,
     ) {
     }
 
+    /**
+     * @return array
+     */
     public function check(): array
     {
         $item = [];
@@ -58,6 +77,11 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         return ['ok' => $ok, 'item' => $item];
     }
 
+    /**
+     * @param string $code
+     * @param string $class
+     * @return array
+     */
     private function checkClass(string $code, string $class): array
     {
         return [
@@ -67,6 +91,11 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         ];
     }
 
+    /**
+     * @param string $code
+     * @param string $name
+     * @return array
+     */
     private function checkRoute(string $code, string $name): array
     {
         $route = $this->router->getRouteCollection()->get($name);
@@ -78,6 +107,11 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         ];
     }
 
+    /**
+     * @param string $code
+     * @param string $name
+     * @return array
+     */
     private function checkTwig(string $code, string $name): array
     {
         $exists = $this->twig->getLoader()->exists($name);
@@ -89,6 +123,9 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         ];
     }
 
+    /**
+     * @return array
+     */
     private function checkRegistryCoherence(): array
     {
         foreach ($this->layout->list() as $spec) {
@@ -104,13 +141,16 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         return ['code' => 'screen_registry', 'ok' => true, 'message' => 'ok'];
     }
 
+    /**
+     * @return array
+     */
     private function checkMetricProvider(): array
     {
         if (!$this->metric->has('demo')) {
             return ['code' => 'metric_provider', 'ok' => false, 'message' => 'missing metric provider: demo'];
         }
 
-        $list = $this->metric->get('demo')->list([]);
+        $list = $this->metric->get('demo')->list();
         if ($list === []) {
             return ['code' => 'metric_provider', 'ok' => false, 'message' => 'metric provider demo returned empty list'];
         }
@@ -118,6 +158,9 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         return ['code' => 'metric_provider', 'ok' => true, 'message' => 'ok'];
     }
 
+    /**
+     * @return array
+     */
     private function checkFormHandler(): array
     {
         if (!$this->form->has('demo-profile')) {
@@ -125,9 +168,9 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         }
 
         $h = $this->form->get('demo-profile');
-        $spec = $h->spec([]);
-        $val = $h->initialValue([]);
-        $res = $h->submit($val, []);
+        $spec = $h->spec();
+        $val = $h->initialValue();
+        $res = $h->submit($val);
 
         if ($spec->field() === []) {
             return ['code' => 'form_handler', 'ok' => false, 'message' => 'form spec has no field'];
@@ -140,6 +183,9 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         return ['code' => 'form_handler', 'ok' => true, 'message' => 'ok'];
     }
 
+    /**
+     * @return array
+     */
     private function checkWizardHandler(): array
     {
         if (!$this->wizard->has('demo-onboarding')) {
@@ -147,14 +193,14 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
         }
 
         $h = $this->wizard->get('demo-onboarding');
-        $spec = $h->spec([]);
+        $spec = $h->spec();
         if ($spec->step() === []) {
             return ['code' => 'wizard_handler', 'ok' => false, 'message' => 'wizard spec has no step'];
         }
 
-        $val = $h->initialValue([]);
+        $val = $h->initialValue();
         $first = $spec->step()[0];
-        $r = $h->validateStep($first->id(), $val, []);
+        $r = $h->validateStep($first->id(), $val);
         if (!$r->ok()) {
             return ['code' => 'wizard_handler', 'ok' => false, 'message' => 'wizard step validation failed on initialValue'];
         }

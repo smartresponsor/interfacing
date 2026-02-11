@@ -7,8 +7,18 @@
 
     use App\Domain\Interfacing\Spec\MetricSpec;
 
-interface MetricSpecBuilderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface MetricSpecBuilderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Spec\MetricSpec
+     */
     public function build(): MetricSpec;
 }
 

@@ -8,8 +8,19 @@ namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime;
 
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface WidgetRegistryInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\WidgetIdInterface $id
+     * @return bool
+     */
     public function has(WidgetIdInterface $id): bool;
 
     /**

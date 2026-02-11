@@ -5,16 +5,26 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ActionResult
 {
     /** @param list<UiMessage> $message @param array<string,mixed> $data */
     private function __construct(
-        private bool $ok,
-        private ?UiErrorBag $error,
-        private array $message,
-        private array $data,
-        private ?string $redirectTo
-    ) {}
+        private readonly bool        $ok,
+        private readonly ?UiErrorBag $error,
+        private readonly array       $message,
+        private readonly array       $data,
+        private readonly ?string     $redirectTo
+    ) {
+        $redirectTo = null;
+        $redirectTo = null;
+    }
 
     /** @param list<UiMessage> $message @param array<string,mixed> $data */
     public static function ok(array $message = [], array $data = []): self
@@ -34,11 +44,22 @@ final class ActionResult
         return new self(false, null, $message, $data, null);
     }
 
+    /**
+     * @return bool
+     */
     public function isOk(): bool { return $this->ok; }
+
+    /**
+     * @return \App\Domain\Interfacing\Model\UiErrorBag|null
+     */
     public function error(): ?UiErrorBag { return $this->error; }
     /** @return list<UiMessage> */
     public function messageList(): array { return $this->message; }
     /** @return array<string,mixed> */
     public function data(): array { return $this->data; }
+
+    /**
+     * @return string|null
+     */
     public function redirectTo(): ?string { return $this->redirectTo; }
 }

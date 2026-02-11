@@ -5,16 +5,38 @@
 
     namespace App\ServiceInterface\Interfacing\Registry;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface ScreenDescriptorInterface
 {
-    public function screenId(): string;
+        /**
+         * @return string
+         */
+        public function screenId(): string;
 
-    public function title(): string;
+        /**
+         * @return string
+         */
+        public function title(): string;
 
-    public function navGroup(): ?string;
+        /**
+         * @return string|null
+         */
+        public function navGroup(): ?string;
 
-    public function navOrder(): int;
+        /**
+         * @return int
+         */
+        public function navOrder(): int;
 
-    public function isVisible(): bool;
+        /**
+         * @return bool
+         */
+        public function isVisible(): bool;
 }
 

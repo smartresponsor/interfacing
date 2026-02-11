@@ -9,6 +9,13 @@ namespace App\ServiceInterface\Interfacing\Action;
 
 use App\DomainInterface\Interfacing\Action\ActionIdInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingActionRunnerInterface
 {
     /** @param array<string, mixed> $input */

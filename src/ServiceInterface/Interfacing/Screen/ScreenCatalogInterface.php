@@ -10,11 +10,22 @@ namespace App\ServiceInterface\Interfacing\Screen;
 use App\DomainInterface\Interfacing\Screen\ScreenIdInterface;
 use App\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ScreenCatalogInterface
 {
     /** @return array<int, ScreenSpecInterface> */
     public function all(): array;
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Screen\ScreenIdInterface $id
+     * @return \App\DomainInterface\Interfacing\Screen\ScreenSpecInterface
+     */
     public function get(ScreenIdInterface $id): ScreenSpecInterface;
 }
 

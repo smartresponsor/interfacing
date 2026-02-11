@@ -13,13 +13,26 @@ use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class BillingMeterScreenController extends AbstractController
 {
     private const ScreenId = 'billing-meter';
 
+    /**
+     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
+     * @param \App\DomainInterface\Interfacing\Context\BaseContextProviderInterface $baseContext
+     * @param \App\DomainInterface\Interfacing\Access\AccessResolverInterface $access
+     * @param \App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface $billing
+     * @param \App\DomainInterface\Interfacing\Audit\AuditSinkInterface $audit
+     */
     public function __construct(
         private readonly TokenStorageInterface $tokenStorage,
         private readonly BaseContextProviderInterface $baseContext,
@@ -28,6 +41,10 @@ final class BillingMeterScreenController extends AbstractController
         private readonly AuditSinkInterface $audit,
     ) {}
 
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route(path: '/interfacing/billing/meter', name: 'interfacing_billing_meter', methods: ['GET'])]
     public function index(Request $request): Response
     {

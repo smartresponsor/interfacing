@@ -12,12 +12,29 @@ use App\Domain\Interfacing\Value\ActionId;
 use App\ServiceInterface\Interfacing\ActionEndpointInterface;
 use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class CategoryOpenEndpoint implements ActionEndpointInterface
 {
-    public function __construct(private CategoryApiClientInterface $api) {}
+    /**
+     * @param \App\ServiceInterface\Interfacing\CategoryApiClientInterface $api
+     */
+    public function __construct(private readonly CategoryApiClientInterface $api) {}
 
+    /**
+     * @return \App\Domain\Interfacing\Value\ActionId
+     */
     public function id(): ActionId { return ActionId::of('category.open'); }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\ActionRequest $request
+     * @return \App\Domain\Interfacing\Model\ActionResult
+     */
     public function handle(ActionRequest $request): ActionResult
     {
         $id = (string)($request->payload()['id'] ?? '');

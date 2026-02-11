@@ -8,6 +8,13 @@ namespace App\ServiceInterface\Interfacing\Widget\BulkAction;
 
 use App\Domain\Interfacing\Model\BulkAction\BulkActionSpec;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface BulkActionRegistryInterface
 {
     /**
@@ -15,7 +22,15 @@ interface BulkActionRegistryInterface
      */
     public function list(): array;
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function has(string $id): bool;
 
+    /**
+     * @param string $id
+     * @return \App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface
+     */
     public function handler(string $id): BulkActionHandlerInterface;
 }

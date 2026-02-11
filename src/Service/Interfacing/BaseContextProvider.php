@@ -9,10 +9,24 @@ use App\ServiceInterface\Interfacing\BaseContextProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class BaseContextProvider implements BaseContextProviderInterface
 {
-    public function __construct(private RequestStack $requestStack, private TokenStorageInterface $tokenStorage) {}
+    /**
+     * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
+     */
+    public function __construct(private readonly RequestStack $requestStack, private readonly TokenStorageInterface $tokenStorage) {}
 
+    /**
+     * @return array|mixed[]
+     */
     public function provide(): array
     {
         $req = $this->requestStack->getCurrentRequest();

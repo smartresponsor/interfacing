@@ -10,7 +10,14 @@ use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
 use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
-#[AsInterfacingAction(
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    #[AsInterfacingAction(
     screenId: 'interfacing.doctor',
     id: 'ping',
     title: 'Ping',
@@ -18,26 +25,42 @@ use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 )]
 final class DemoPingAction implements ActionEndpointInterface
 {
+    /**
+     * @return string
+     */
     public function screenId(): string
     {
         return 'interfacing.doctor';
     }
 
+    /**
+     * @return string
+     */
     public function actionId(): string
     {
         return 'ping';
     }
 
+    /**
+     * @return string
+     */
     public function title(): string
     {
         return 'Ping';
     }
 
+    /**
+     * @return int
+     */
     public function order(): int
     {
         return 1;
     }
 
+    /**
+     * @param \App\ServiceInterface\Interfacing\Runtime\ActionRequest $request
+     * @return \App\ServiceInterface\Interfacing\Runtime\ActionResult
+     */
     public function handle(ActionRequest $request): ActionResult
     {
         return ActionResult::ok([

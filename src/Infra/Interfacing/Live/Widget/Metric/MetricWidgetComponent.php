@@ -12,6 +12,13 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_widget_metric', template: 'interfacing/widget/metric/metric.html.twig')]
 final class MetricWidgetComponent
 {
@@ -24,7 +31,10 @@ final class MetricWidgetComponent
     #[LiveProp(writable: true)]
     public int $tick = 0;
 
-    public function __construct(private MetricProviderRegistryInterface $registry)
+    /**
+     * @param \App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface $registry
+     */
+    public function __construct(private readonly MetricProviderRegistryInterface $registry)
     {
     }
 
@@ -34,6 +44,9 @@ final class MetricWidgetComponent
         return $this->registry->get($this->providerId)->list($this->context);
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function refresh(): void
     {

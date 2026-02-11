@@ -16,7 +16,14 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
-#[AsLiveComponent('interfacing_screen', template: 'interfacing/live/screen.html.twig')]
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    #[AsLiveComponent('interfacing_screen', template: 'interfacing/live/screen.html.twig')]
 final class ScreenLiveComponent
 {
     #[LiveProp]
@@ -41,11 +48,18 @@ final class ScreenLiveComponent
     #[LiveProp(writable: true)]
     public ?string $domainError = null;
 
+    /**
+     * @param \App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface $screenRegistry
+     * @param \App\ServiceInterface\Interfacing\Action\ActionDispatcherInterface $actionDispatcher
+     */
     public function __construct(
         private readonly ScreenRegistryInterface $screenRegistry,
         private readonly ActionDispatcherInterface $actionDispatcher,
     ) {}
 
+    /**
+     * @return void
+     */
     public function mount(): void
     {
         if ($this->state !== []) {
@@ -59,11 +73,19 @@ final class ScreenLiveComponent
         $this->globalError = (array) ($this->state['globalError'] ?? []);
     }
 
+    /**
+     * @return \App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface
+     */
     public function screen(): ScreenSpecInterface
     {
         return $this->screenRegistry->get($this->screenId);
     }
 
+    /**
+     * @param string $actionId
+     * @param array $payload
+     * @return void
+     */
     #[LiveAction]
     public function invokeAction(string $actionId, array $payload = []): void
     {
@@ -100,8 +122,7 @@ final class ScreenLiveComponent
         }
 
         if ($result->type() === ActionResult::TYPE_REDIRECT) {
-            $this->domainError = 'Redirect requested: ' . (string) ($result->payload()['url'] ?? '');
-            return;
+            $this->domainError = 'Redirect requested: ' . ($result->payload()['url'] ?? '');
         }
     }
 

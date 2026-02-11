@@ -15,6 +15,13 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_widget_data_grid', template: 'interfacing/widget/data-grid/data-grid.html.twig')]
 final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
 {
@@ -54,12 +61,19 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
     #[LiveProp]
     public array $context = [];
 
+    /**
+     * @param \App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface $registry
+     * @param \App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface $bulkRegistry
+     */
     public function __construct(
-        private DataGridProviderRegistryInterface $registry,
-        private BulkActionRegistryInterface $bulkRegistry,
+        private readonly DataGridProviderRegistryInterface $registry,
+        private readonly BulkActionRegistryInterface       $bulkRegistry,
     ) {
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Model\DataGrid\DataGridResult
+     */
     public function result(): DataGridResult
     {
         $query = new DataGridQuery(
@@ -82,33 +96,54 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
         return $result;
     }
 
+    /**
+     * @return array
+     */
     public function bulkActionList(): array
     {
         return $this->bulkRegistry->list();
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function isSelected(string $id): bool
     {
         return in_array($id, $this->selectedId, true);
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
     public function isDone(string $id): bool
     {
         return in_array($id, $this->doneId, true);
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function next(): void
     {
         $this->page += 1;
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function prev(): void
     {
         $this->page = max(1, $this->page - 1);
     }
 
+    /**
+     * @param string $key
+     * @return void
+     */
     #[LiveAction]
     public function setSort(string $key): void
     {
@@ -121,6 +156,9 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
         $this->page = 1;
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function clearSearch(): void
     {
@@ -128,6 +166,10 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
         $this->page = 1;
     }
 
+    /**
+     * @param string $id
+     * @return void
+     */
     #[LiveAction]
     public function toggleSelect(string $id): void
     {
@@ -144,12 +186,18 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
         $this->selectedId = array_values(array_unique($this->selectedId));
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function clearSelect(): void
     {
         $this->selectedId = [];
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function selectPage(): void
     {
@@ -160,6 +208,9 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
         $this->selectedId = array_values(array_unique(array_merge($this->selectedId, $id)));
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function runBulk(): void
     {
@@ -175,6 +226,10 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
         $this->applyBulkResult($result);
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\BulkAction\BulkActionResult $result
+     * @return void
+     */
     private function applyBulkResult(BulkActionResult $result): void
     {
         $this->flash = $result->message();

@@ -6,6 +6,13 @@ declare(strict_types=1);
  */
 namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface LayoutNavSpecInterface
 {
     /**
@@ -13,5 +20,8 @@ interface LayoutNavSpecInterface
      */
     public function getGroupItem(): array;
 
+    /**
+     * @return string
+     */
     public function getActiveSlug(): string;
 }

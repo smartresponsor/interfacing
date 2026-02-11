@@ -13,23 +13,43 @@ use App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
 use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
 use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 
-final class DemoSaveProfileActionEndpoint implements ActionEndpointInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class DemoSaveProfileActionEndpoint implements ActionEndpointInterface
 {
+    /**
+     * @return string
+     */
     public function screenId(): string
     {
         return 'demo.form';
     }
 
+    /**
+     * @return string
+     */
     public function actionId(): string
     {
         return 'save-profile';
     }
 
+    /**
+     * @return string
+     */
     public function title(): string
     {
         return 'Save profile';
     }
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface $request
+     * @return \App\DomainInterface\Interfacing\Model\Action\ActionResultInterface
+     */
     public function handle(ActionRequestInterface $request): ActionResultInterface
     {
         $payload = $request->payload();

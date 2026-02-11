@@ -7,8 +7,20 @@ use App\Domain\Interfacing\Runtime\InterfacingPermission;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class InterfacingPermissionVoter extends Voter
 {
+    /**
+     * @param string $attribute
+     * @param mixed $subject
+     * @return bool
+     */
     protected function supports(string $attribute, mixed $subject): bool
     {
         if ($attribute === InterfacingPermission::RoleAdmin) {
@@ -19,6 +31,12 @@ final class InterfacingPermissionVoter extends Voter
             || str_starts_with($attribute, InterfacingPermission::PrefixAction);
     }
 
+    /**
+     * @param string $attribute
+     * @param mixed $subject
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface $token
+     * @return bool
+     */
     protected function voteOnAttribute(string $attribute, mixed $subject, TokenInterface $token): bool
     {
         $roles = $token->getRoleNames();
@@ -32,6 +50,10 @@ final class InterfacingPermissionVoter extends Voter
         return $mappedRole !== null && in_array($mappedRole, $roles, true);
     }
 
+    /**
+     * @param string $attribute
+     * @return string|null
+     */
     private function mapAttributeToRole(string $attribute): ?string
     {
         $attribute = strtolower(trim($attribute));
@@ -54,6 +76,10 @@ final class InterfacingPermissionVoter extends Voter
         return null;
     }
 
+    /**
+     * @param string $value
+     * @return string
+     */
     private function toUpperSnake(string $value): string
     {
         $value = preg_replace('/[^a-z0-9]+/i', '_', $value) ?? $value;

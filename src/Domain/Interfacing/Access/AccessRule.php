@@ -7,11 +7,22 @@ declare(strict_types=1);
  */
 namespace App\Domain\Interfacing\Access;
 
-final class AccessRule
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class AccessRule
 {
+    /**
+     * @param string $permission
+     * @param bool $isRequired
+     */
     public function __construct(
-        private readonly string $permission,
-        private readonly bool $isRequired = true
+        private string $permission,
+        private bool   $isRequired = true
     ) {
         $p = trim($this->permission);
         if ($p === '' || strlen($p) > 190) {
@@ -20,11 +31,17 @@ final class AccessRule
         $this->permission = $p;
     }
 
+    /**
+     * @return string
+     */
     public function permission(): string
     {
         return $this->permission;
     }
 
+    /**
+     * @return bool
+     */
     public function isRequired(): bool
     {
         return $this->isRequired;

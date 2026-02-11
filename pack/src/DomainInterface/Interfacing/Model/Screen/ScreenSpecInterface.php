@@ -8,11 +8,27 @@ namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen;
 
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ScreenSpecInterface
 {
+    /**
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface
+     */
     public function getId(): ScreenIdInterface;
 
+    /**
+     * @return string
+     */
     public function getTitle(): string;
 
+    /**
+     * @return string
+     */
     public function getTemplate(): string;
 }

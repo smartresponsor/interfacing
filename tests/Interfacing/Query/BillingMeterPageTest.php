@@ -7,8 +7,18 @@ use App\Domain\Interfacing\Query\BillingMeterPage;
 use App\Domain\Interfacing\Query\BillingMeterRow;
 use PHPUnit\Framework\TestCase;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class BillingMeterPageTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testCreatePage(): void
     {
         $row = new BillingMeterRow('mtr_1', 'active', 10.5, '2025-01-01', '2025-01-31');

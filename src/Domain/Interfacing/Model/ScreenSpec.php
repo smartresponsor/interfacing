@@ -7,6 +7,13 @@ namespace App\Domain\Interfacing\Model;
 
 use App\Domain\Interfacing\Value\ScreenId;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenSpec
 {
     private ScreenId $id;
@@ -15,6 +22,13 @@ final class ScreenSpec
     private string $viewId;
     private AccessRule $accessRule;
 
+    /**
+     * @param \App\Domain\Interfacing\Value\ScreenId $id
+     * @param string $title
+     * @param string $description
+     * @param string $viewId
+     * @param \App\Domain\Interfacing\Model\AccessRule $accessRule
+     */
     public function __construct(ScreenId $id, string $title, string $description, string $viewId, AccessRule $accessRule)
     {
         if ($title === '' || $viewId === '') {
@@ -27,9 +41,28 @@ final class ScreenSpec
         $this->accessRule = $accessRule;
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Value\ScreenId
+     */
     public function id(): ScreenId { return $this->id; }
+
+    /**
+     * @return string
+     */
     public function title(): string { return $this->title; }
+
+    /**
+     * @return string
+     */
     public function description(): string { return $this->description; }
+
+    /**
+     * @return string
+     */
     public function viewId(): string { return $this->viewId; }
+
+    /**
+     * @return \App\Domain\Interfacing\Model\AccessRule
+     */
     public function accessRule(): AccessRule { return $this->accessRule; }
 }

@@ -17,16 +17,36 @@ use App\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
 use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
 use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 
-final class ActionDispatcher implements ActionDispatcherInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class ActionDispatcher implements ActionDispatcherInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface $screenRegistry
+     * @param \App\ServiceInterface\Interfacing\Action\ActionRegistryInterface $actionRegistry
+     * @param \App\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface $contextAssembler
+     * @param \App\ServiceInterface\Interfacing\Security\AccessResolverInterface $accessResolver
+     */
     public function __construct(
-        private readonly ScreenRegistryInterface $screenRegistry,
-        private readonly ActionRegistryInterface $actionRegistry,
-        private readonly ScreenContextAssemblerInterface $contextAssembler,
-        private readonly AccessResolverInterface $accessResolver,
+        private ScreenRegistryInterface         $screenRegistry,
+        private ActionRegistryInterface         $actionRegistry,
+        private ScreenContextAssemblerInterface $contextAssembler,
+        private AccessResolverInterface         $accessResolver,
     ) {}
 
-    public function dispatch(string $screenId, string $actionId, array $payload, array $state): ActionResultInterface
+    /**
+     * @param string $screenId
+     * @param string $actionId
+     * @param array $payload
+     * @param array $state
+     * @return \App\Domain\Interfacing\Action\ActionResult
+     */
+    public function dispatch(string $screenId, string $actionId, array $payload, array $state): \App\Domain\Interfacing\Action\ActionResult
     {
         try {
             $screen = $this->screenRegistry->get($screenId);

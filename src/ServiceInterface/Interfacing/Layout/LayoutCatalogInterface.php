@@ -9,10 +9,21 @@ namespace App\ServiceInterface\Interfacing\Layout;
 
 use App\Domain\Interfacing\Layout\LayoutSpec;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface LayoutCatalogInterface
 {
     /** @return array<string, LayoutSpec> */
     public function all(): array;
 
+    /**
+     * @param string $layoutKey
+     * @return \App\Domain\Interfacing\Layout\LayoutSpec
+     */
     public function get(string $layoutKey): LayoutSpec;
 }

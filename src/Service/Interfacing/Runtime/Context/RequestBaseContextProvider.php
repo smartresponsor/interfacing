@@ -10,14 +10,28 @@ use App\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class RequestBaseContextProvider implements BaseContextProviderInterface
 {
+    /**
+     * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+     * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface|null $tokenStorage
+     */
     public function __construct(
-        private RequestStack $requestStack,
-        private ?TokenStorageInterface $tokenStorage = null,
+        private readonly RequestStack           $requestStack,
+        private readonly ?TokenStorageInterface $tokenStorage = null,
     ) {
     }
 
+    /**
+     * @return array|mixed[]
+     */
     public function context(): array
     {
         $req = $this->requestStack->getCurrentRequest();
@@ -49,6 +63,14 @@ final class RequestBaseContextProvider implements BaseContextProviderInterface
         return $ctx;
     }
 
+    /**
+     * @param $user
+     * @return array|null[]|string[]
+     */
+    /**
+     * @param $user
+     * @return array|null[]|string[]
+     */
     private function normalizeUser($user): array
     {
         if ($user === null) {

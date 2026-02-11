@@ -9,6 +9,13 @@ namespace App\Domain\Interfacing\Error;
 
 use RuntimeException;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DomainOperationFailed extends RuntimeException
 {
     /** @var array<string, string> */

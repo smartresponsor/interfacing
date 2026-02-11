@@ -9,7 +9,18 @@ namespace App\Http\Interfacing\Health\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingHealthControllerInterface
 {
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function show(Request $request): JsonResponse;
 }

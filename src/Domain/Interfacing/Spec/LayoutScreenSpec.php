@@ -5,17 +5,24 @@
 
     namespace App\Domain\Interfacing\Spec;
 
-    final class LayoutScreenSpec
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class LayoutScreenSpec
 {
     /** @var list<array{type:string, id:string, title?:string}> */
-    public readonly array $block;
+    public array $block;
 
     /**
      * @param list<array{type:string, id:string, title?:string}> $block
      */
     public function __construct(
-        public readonly string $id,
-        array $block,
+        public string $id,
+        array         $block,
     ) {
         $this->block = $block;
     }

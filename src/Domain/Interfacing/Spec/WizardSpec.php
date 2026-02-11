@@ -5,18 +5,25 @@
 
     namespace App\Domain\Interfacing\Spec;
 
-    final class WizardSpec
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class WizardSpec
 {
     /** @var list<WizardStepSpec> */
-    public readonly array $step;
+    public array $step;
 
     /**
      * @param list<WizardStepSpec> $step
      */
     public function __construct(
-        public readonly string $id,
-        public readonly string $title,
-        array $step,
+        public string $id,
+        public string $title,
+        array         $step,
     ) {
         $this->step = $step;
     }

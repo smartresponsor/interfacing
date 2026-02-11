@@ -6,12 +6,24 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\Domain\Interfacing\Model\BulkAction;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class BulkActionSpec
 {
+    /**
+     * @param string $id
+     * @param string $title
+     * @param bool $confirm
+     */
     public function __construct(
-        private string $id,
-        private string $title,
-        private bool $confirm = true,
+        private string          $id,
+        private readonly string $title,
+        private readonly bool   $confirm = true,
     ) {
         $this->id = trim($this->id);
         if ($this->id === '') {
@@ -19,16 +31,25 @@ final class BulkActionSpec
         }
     }
 
+    /**
+     * @return string
+     */
     public function id(): string
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function title(): string
     {
         return $this->title;
     }
 
+    /**
+     * @return bool
+     */
     public function confirm(): bool
     {
         return $this->confirm;

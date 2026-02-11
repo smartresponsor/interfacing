@@ -10,8 +10,18 @@
 
     use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
 
-interface BaseContextProviderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface BaseContextProviderInterface
 {
+    /**
+     * @return \App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface
+     */
     public function provide(): ScreenContextInterface;
 }
 

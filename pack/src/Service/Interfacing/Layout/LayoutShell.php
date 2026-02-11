@@ -12,13 +12,27 @@ use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutSc
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
 
-final class LayoutShell implements LayoutShellInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class LayoutShell implements LayoutShellInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $catalog
+     */
     public function __construct(
-        private readonly LayoutCatalogInterface $catalog,
+        private LayoutCatalogInterface $catalog,
     ) {
     }
 
+    /**
+     * @param string $activeSlug
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutNavSpecInterface
+     */
     public function buildNav(string $activeSlug): LayoutNavSpecInterface
     {
         $groupItem = [];
@@ -41,6 +55,10 @@ final class LayoutShell implements LayoutShellInterface
         return LayoutNavSpec::create($groupItem, $activeSlug);
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface $active
+     * @return array
+     */
     public function build(LayoutScreenSpecInterface $active): array
     {
         return [

@@ -7,8 +7,18 @@
 
     use App\Domain\Interfacing\Spec\FormSpec;
 
-interface FormSpecBuilderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface FormSpecBuilderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Spec\FormSpec
+     */
     public function build(): FormSpec;
 }
 

@@ -12,14 +12,30 @@ use App\ServiceInterface\Interfacing\ShellNavProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenController extends AbstractController
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\ScreenCatalogInterface $screenCatalog
+     * @param \App\ServiceInterface\Interfacing\ShellNavProviderInterface $navProvider
+     * @param \App\ServiceInterface\Interfacing\AccessResolverInterface $accessResolver
+     */
     public function __construct(
-        private ScreenCatalogInterface $screenCatalog,
-        private ShellNavProviderInterface $navProvider,
-        private AccessResolverInterface $accessResolver
+        private readonly ScreenCatalogInterface    $screenCatalog,
+        private readonly ShellNavProviderInterface $navProvider,
+        private readonly AccessResolverInterface   $accessResolver
     ) {}
 
+    /**
+     * @param string $screenId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function show(string $screenId): Response
     {
         $spec = $this->screenCatalog->get(ScreenId::of($screenId));

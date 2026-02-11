@@ -8,11 +8,24 @@
 
     namespace App\DomainInterface\Interfacing\Model\Layout;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface LayoutBlockSpecInterface
 {
-    public function type(): string;
+        /**
+         * @return string
+         */
+        public function type(): string;
 
-    public function key(): string;
+        /**
+         * @return string
+         */
+        public function key(): string;
 
     /** @return array<string, mixed> */
     public function props(): array;

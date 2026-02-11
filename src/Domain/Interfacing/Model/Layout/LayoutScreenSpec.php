@@ -11,13 +11,23 @@
     use App\DomainInterface\Interfacing\Model\Layout\LayoutBlockSpecInterface;
 use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 
-final class LayoutScreenSpec implements LayoutScreenSpecInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class LayoutScreenSpec implements LayoutScreenSpecInterface
 {
     /** @param array<int, LayoutBlockSpecInterface> $block */
     public function __construct(
-        private readonly array $block,
+        private array $block,
     ) {}
 
+    /**
+     * @return \App\DomainInterface\Interfacing\Model\Layout\LayoutBlockSpecInterface[]
+     */
     public function block(): array
     {
         return $this->block;

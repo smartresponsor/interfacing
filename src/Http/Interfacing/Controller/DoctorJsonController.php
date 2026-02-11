@@ -8,12 +8,25 @@ namespace SmartResponsor\Interfacing\Http\Interfacing\Controller;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
-final class DoctorJsonController
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class DoctorJsonController
 {
-    public function __construct(private readonly DoctorReportBuilderInterface $reportBuilder) {}
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface $reportBuilder
+     */
+    public function __construct(private DoctorReportBuilderInterface $reportBuilder) {}
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     #[Route(path: '/interfacing/doctor.json', name: 'interfacing_doctor_json', methods: ['GET'])]
     public function __invoke(): JsonResponse
     {

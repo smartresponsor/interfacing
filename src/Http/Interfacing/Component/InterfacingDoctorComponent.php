@@ -11,6 +11,13 @@ use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_doctor', template: 'interfacing/doctor/component.html.twig')]
 final class InterfacingDoctorComponent
 {
@@ -20,13 +27,23 @@ final class InterfacingDoctorComponent
     #[LiveProp(writable: true)]
     public bool $onlyIssue = false;
 
+    /**
+     * @param \App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface $service
+     */
     public function __construct(private readonly InterfacingDoctorServiceInterface $service) {}
 
+    /**
+     * @return \App\DomainInterface\Interfacing\Doctor\DoctorReportInterface
+     */
     public function report(): \App\DomainInterface\Interfacing\Doctor\DoctorReportInterface
     {
         return $this->service->report();
     }
 
+    /**
+     * @param string $value
+     * @return bool
+     */
     public function match(string $value): bool
     {
         $q = trim($this->query);

@@ -7,11 +7,22 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 namespace App\Domain\Interfacing\Ui;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class UiMessageBag
 {
     /** @var UiMessage[] */
     private array $item = [];
 
+    /**
+     * @param \App\Domain\Interfacing\Ui\UiMessage $message
+     * @return void
+     */
     public function add(UiMessage $message): void
     {
         $this->item[] = $message;
@@ -23,6 +34,9 @@ final class UiMessageBag
         return $this->item;
     }
 
+    /**
+     * @return bool
+     */
     public function hasAny(): bool
     {
         return $this->item !== [];

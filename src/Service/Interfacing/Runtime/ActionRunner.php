@@ -11,13 +11,30 @@ use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 use App\ServiceInterface\Interfacing\Runtime\ActionRunnerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-final class ActionRunner implements ActionRunnerInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class ActionRunner implements ActionRunnerInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface $actionCatalog
+     */
     public function __construct(
-        private readonly ActionCatalogInterface $actionCatalog,
+        private ActionCatalogInterface $actionCatalog,
     ) {
     }
 
+    /**
+     * @param string $screenId
+     * @param string $actionId
+     * @param array $payload
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return \App\ServiceInterface\Interfacing\Runtime\ActionResult
+     */
     public function run(string $screenId, string $actionId, array $payload, Request $request): ActionResult
     {
         $endpoint = $this->actionCatalog->get($screenId, $actionId);

@@ -9,7 +9,18 @@ namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingRuntimeInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\ScreenIdInterface $id
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface
+     */
     public function resolveScreen(ScreenIdInterface $id): ScreenSpecInterface;
 }

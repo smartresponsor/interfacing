@@ -7,7 +7,14 @@
 
     use Symfony\Component\HttpFoundation\Request;
 
-interface ActionRunnerInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface ActionRunnerInterface
 {
     /**
      * @param array<string, mixed> $payload

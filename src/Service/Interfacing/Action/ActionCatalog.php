@@ -12,6 +12,13 @@ use App\DomainInterface\Interfacing\Action\ActionIdInterface;
 use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ActionCatalog implements ActionCatalogInterface
 {
     /** @var array<string, ActionEndpointInterface> */
@@ -31,9 +38,21 @@ final class ActionCatalog implements ActionCatalogInterface
         }
     }
 
+    /**
+     * @return array|\App\DomainInterface\Interfacing\Action\ActionEndpointInterface[]
+     */
     public function all(): array { return array_values($this->map); }
+
+    /**
+     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
+     * @return bool
+     */
     public function has(ActionIdInterface $id): bool { return isset($this->map[$id->value()]); }
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
+     * @return \App\DomainInterface\Interfacing\Action\ActionEndpointInterface
+     */
     public function get(ActionIdInterface $id): ActionEndpointInterface
     {
         $key = $id->value();

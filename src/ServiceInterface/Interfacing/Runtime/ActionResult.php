@@ -5,14 +5,21 @@
 
     namespace App\ServiceInterface\Interfacing\Runtime;
 
-    final class ActionResult
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class ActionResult
 {
     /**
      * @param array<string, mixed> $data
      */
     private function __construct(
-        public readonly string $type,
-        public readonly array $data = [],
+        public string $type,
+        public array  $data = [],
     ) {
     }
 
@@ -32,12 +39,20 @@
         return new self('validation-error', ['error' => $error]);
     }
 
-    public static function domainError(string $message): self
+        /**
+         * @param string $message
+         * @return self
+         */
+        public static function domainError(string $message): self
     {
         return new self('domain-error', ['message' => $message]);
     }
 
-    public static function redirect(string $url): self
+        /**
+         * @param string $url
+         * @return self
+         */
+        public static function redirect(string $url): self
     {
         return new self('redirect', ['url' => $url]);
     }

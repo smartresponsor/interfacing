@@ -10,7 +10,14 @@
 
     use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
 
-final class ActionResult implements ActionResultInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class ActionResult implements ActionResultInterface
 {
     public const TYPE_OK = 'ok';
     public const TYPE_VALIDATION_ERROR = 'validation_error';
@@ -42,6 +49,11 @@ final class ActionResult implements ActionResultInterface
         ]);
     }
 
+    /**
+     * @param string $code
+     * @param string $message
+     * @return self
+     */
     public static function domainError(string $code, string $message): self
     {
         return new self(self::TYPE_DOMAIN_ERROR, [
@@ -50,6 +62,10 @@ final class ActionResult implements ActionResultInterface
         ]);
     }
 
+    /**
+     * @param string $url
+     * @return self
+     */
     public static function redirect(string $url): self
     {
         return new self(self::TYPE_REDIRECT, [
@@ -57,16 +73,25 @@ final class ActionResult implements ActionResultInterface
         ]);
     }
 
+    /**
+     * @return self
+     */
     public static function reload(): self
     {
         return new self(self::TYPE_RELOAD, []);
     }
 
+    /**
+     * @return string
+     */
     public function type(): string
     {
         return $this->type;
     }
 
+    /**
+     * @return mixed[]
+     */
     public function payload(): array
     {
         return $this->payload;

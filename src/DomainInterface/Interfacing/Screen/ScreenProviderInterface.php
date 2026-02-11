@@ -9,6 +9,13 @@ namespace App\DomainInterface\Interfacing\Screen;
 
 use App\Domain\Interfacing\Screen\ScreenSpec;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ScreenProviderInterface
 {
     /** @return ScreenSpec[] */

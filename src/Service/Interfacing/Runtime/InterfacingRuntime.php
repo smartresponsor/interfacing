@@ -10,12 +10,26 @@ use App\Domain\Interfacing\Model\ScreenId;
 use App\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class InterfacingRuntime implements InterfacingRuntimeInterface
 {
-    public function __construct(private ScreenRegistryInterface $screenRegistry)
+    /**
+     * @param \App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screenRegistry
+     */
+    public function __construct(private readonly ScreenRegistryInterface $screenRegistry)
     {
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\ScreenId $screenId
+     * @return string
+     */
     public function resolveScreenComponentName(ScreenId $screenId): string
     {
         return $this->screenRegistry->resolveComponentName($screenId);

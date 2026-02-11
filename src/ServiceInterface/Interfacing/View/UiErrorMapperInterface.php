@@ -5,6 +5,13 @@ declare(strict_types=1);
 
 namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\View;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface UiErrorMapperInterface
 {
     /**

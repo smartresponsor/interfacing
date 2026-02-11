@@ -7,8 +7,18 @@
 
 namespace App\DomainInterface\Interfacing\Action;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ActionIdInterface
 {
+    /**
+     * @return string
+     */
     public function value(): string;
 }
 

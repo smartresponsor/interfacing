@@ -5,21 +5,35 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class TelemetryEvent
 {
     /** @param array<string,string|int|float|bool> $tag */
     public function __construct(
-        private string $name,
-        private array $tag,
-        private float $durationMs
+        private readonly string $name,
+        private readonly array  $tag,
+        private readonly float  $durationMs
     ) {
         if ($name === '') {
             throw new \InvalidArgumentException('Telemetry event name must not be empty.');
         }
     }
 
+    /**
+     * @return string
+     */
     public function name(): string { return $this->name; }
     /** @return array<string,string|int|float|bool> */
     public function tag(): array { return $this->tag; }
+
+    /**
+     * @return float
+     */
     public function durationMs(): float { return $this->durationMs; }
 }

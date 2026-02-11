@@ -10,8 +10,20 @@ namespace App\Service\Interfacing\Access;
 use App\Domain\Interfacing\Screen\ScreenSpec;
 use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class AllowAllAccessResolver implements AccessResolverInterface
 {
+    /**
+     * @param \App\Domain\Interfacing\Screen\ScreenSpec $screenSpec
+     * @param array $baseContext
+     * @return bool
+     */
     public function isGranted(ScreenSpec $screenSpec, array $baseContext): bool
     {
         return true;

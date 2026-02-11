@@ -8,7 +8,18 @@ namespace App\ServiceInterface\Interfacing\Runtime;
 
 use App\Domain\Interfacing\Model\ScreenId;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingRuntimeInterface
 {
+    /**
+     * @param \App\Domain\Interfacing\Model\ScreenId $screenId
+     * @return string
+     */
     public function resolveScreenComponentName(ScreenId $screenId): string;
 }

@@ -11,8 +11,23 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
 use Symfony\Contracts\HttpClient\ResponseStreamInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class HttpBillingMeterQueryServiceTest extends TestCase
 {
+    /**
+     * @return void
+     * @throws \JsonException
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function testFetchPageBuildsQueryAndParsesResponse(): void
     {
         $payload = [
@@ -67,6 +82,14 @@ final class HttpBillingMeterQueryServiceTest extends TestCase
         self::assertSame('2025-01-31', $query['periodTo']);
     }
 
+    /**
+     * @return void
+     * @throws \JsonException
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     */
     public function testNon200ResponseThrows(): void
     {
         $client = new FakeHttpClient(500, ['error' => 'fail']);
@@ -124,18 +147,39 @@ final class FakeHttpClient implements HttpClientInterface
         return new FakeResponse($this->statusCode, $this->payload);
     }
 
+    /**
+     * @param $responses
+     * @param float|null $timeout
+     * @return \Symfony\Contracts\HttpClient\ResponseStreamInterface
+     */
+    /**
+     * @param $responses
+     * @param float|null $timeout
+     * @return \Symfony\Contracts\HttpClient\ResponseStreamInterface
+     */
     public function stream($responses, float $timeout = null): ResponseStreamInterface
     {
         throw new \RuntimeException('Not implemented for FakeHttpClient.');
     }
 
-    public function withOptions(array $options): static
+    /**
+     * @param array $options
+     * @return $this
+     */
+    public function withOptions(array $options): FakeHttpClient
     {
         // Options are not used in this simple fake.
         return $this;
     }
 }
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class FakeResponse implements ResponseInterface
 {
     /** @var array<string,mixed> */
@@ -151,31 +195,54 @@ final class FakeResponse implements ResponseInterface
         $this->payload = $payload;
     }
 
+    /**
+     * @return int
+     */
     public function getStatusCode(): int
     {
         return $this->statusCode;
     }
 
+    /**
+     * @param bool $throw
+     * @return array|\string[][]
+     */
     public function getHeaders(bool $throw = true): array
     {
         return [];
     }
 
+    /**
+     * @param bool $throw
+     * @return string
+     * @throws \JsonException
+     */
     public function getContent(bool $throw = true): string
     {
         return json_encode($this->payload, JSON_THROW_ON_ERROR);
     }
 
+    /**
+     * @param bool $throw
+     * @return mixed[]
+     */
     public function toArray(bool $throw = true): array
     {
         return $this->payload;
     }
 
+    /**
+     * @return void
+     */
     public function cancel(): void
     {
         // Nothing to cancel in this fake.
     }
 
+    /**
+     * @param string|null $type
+     * @return mixed
+     */
     public function getInfo(string $type = null): mixed
     {
         return null;

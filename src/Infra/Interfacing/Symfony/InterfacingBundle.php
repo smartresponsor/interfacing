@@ -10,8 +10,19 @@ use App\Infra\Interfacing\Symfony\Compiler\InterfacingCatalogCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class InterfacingBundle extends Bundle
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class InterfacingBundle extends Bundle
 {
+    /**
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @return void
+     */
     public function build(ContainerBuilder $container): void
     {
         parent::build($container);

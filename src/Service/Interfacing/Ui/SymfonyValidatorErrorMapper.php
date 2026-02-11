@@ -13,8 +13,19 @@ use App\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class SymfonyValidatorErrorMapper implements UiErrorMapperInterface
 {
+    /**
+     * @param \Symfony\Component\Validator\ConstraintViolationListInterface $violation
+     * @return \App\Domain\Interfacing\Ui\UiErrorBag
+     */
     public function fromViolationList(ConstraintViolationListInterface $violation): UiErrorBag
     {
         $bag = new UiErrorBag();

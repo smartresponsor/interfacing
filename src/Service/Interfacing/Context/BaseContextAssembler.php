@@ -10,10 +10,17 @@ namespace App\Service\Interfacing\Context;
 use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
 use App\ServiceInterface\Interfacing\Context\BaseContextAssemblerInterface;
 
-final class BaseContextAssembler implements BaseContextAssemblerInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class BaseContextAssembler implements BaseContextAssemblerInterface
 {
     /** @param iterable<BaseContextProviderInterface> $provider */
-    public function __construct(private readonly iterable $provider) {}
+    public function __construct(private iterable $provider) {}
 
     /** @return array<string, mixed> */
     public function assemble(): array

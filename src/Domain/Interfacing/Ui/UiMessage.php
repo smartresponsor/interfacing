@@ -9,12 +9,24 @@ namespace App\Domain\Interfacing\Ui;
 
 use App\DomainInterface\Interfacing\Ui\UiMessageInterface;
 
-final class UiMessage implements UiMessageInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class UiMessage implements UiMessageInterface
 {
+    /**
+     * @param string $type
+     * @param string $text
+     * @param string|null $code
+     */
     public function __construct(
-        private readonly string $type,
-        private readonly string $text,
-        private readonly ?string $code = null,
+        private string  $type,
+        private string  $text,
+        private ?string $code = null,
     ) {
         if ($type === '') {
             throw new \InvalidArgumentException('UiMessage type must not be empty.');
@@ -24,8 +36,19 @@ final class UiMessage implements UiMessageInterface
         }
     }
 
+    /**
+     * @return string
+     */
     public function type(): string { return $this->type; }
+
+    /**
+     * @return string
+     */
     public function text(): string { return $this->text; }
+
+    /**
+     * @return string|null
+     */
     public function code(): ?string { return $this->code; }
 }
 

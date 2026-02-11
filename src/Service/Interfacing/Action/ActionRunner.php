@@ -15,6 +15,13 @@ use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
 use App\DomainInterface\Interfacing\Telemetry\TelemetryInterface;
 use App\ServiceInterface\Interfacing\Action\ActionRunnerInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ActionRunner implements ActionRunnerInterface
 {
     /** @var array<string, ActionEndpointInterface>|null */
@@ -26,6 +33,10 @@ final class ActionRunner implements ActionRunnerInterface
         private readonly TelemetryInterface $telemetry
     ) {}
 
+    /**
+     * @param \App\Domain\Interfacing\Action\ActionRequest $request
+     * @return \App\Domain\Interfacing\Action\ActionResult
+     */
     public function run(ActionRequest $request): ActionResult
     {
         $id = $request->actionId()->value();
@@ -56,6 +67,10 @@ final class ActionRunner implements ActionRunnerInterface
         }
     }
 
+    /**
+     * @param string $actionId
+     * @return \App\DomainInterface\Interfacing\Action\ActionEndpointInterface
+     */
     private function getEndpoint(string $actionId): ActionEndpointInterface
     {
         $map = $this->index();

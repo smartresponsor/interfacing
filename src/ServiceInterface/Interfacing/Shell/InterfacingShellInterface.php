@@ -8,7 +8,17 @@ namespace App\ServiceInterface\Interfacing\Shell;
 
 use App\Domain\Interfacing\Model\Shell\ShellView;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingShellInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Model\Shell\ShellView
+     */
     public function view(): ShellView;
 }

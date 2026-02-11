@@ -14,6 +14,13 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_widget_wizard', template: 'interfacing/widget/wizard/wizard.html.twig')]
 final class WizardWidgetComponent
 {
@@ -35,27 +42,42 @@ final class WizardWidgetComponent
     #[LiveProp(writable: true)]
     public int $stepIndex = 0;
 
-    public function __construct(private WizardHandlerRegistryInterface $registry)
+    /**
+     * @param \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface $registry
+     */
+    public function __construct(private readonly WizardHandlerRegistryInterface $registry)
     {
     }
 
+    /**
+     * @return void
+     */
     public function mount(): void
     {
         if ($this->value !== []) { return; }
         $this->value = $this->handler()->initialValue($this->context);
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Model\Wizard\WizardSpec
+     */
     public function spec(): WizardSpec
     {
         return $this->handler()->spec($this->context);
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Model\Wizard\WizardProgress
+     */
     public function progress(): WizardProgress
     {
         $spec = $this->spec();
         return new WizardProgress($this->stepIndex, count($spec->step()));
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Model\Wizard\WizardStepSpec
+     */
     public function step(): WizardStepSpec
     {
         $spec = $this->spec();
@@ -63,12 +85,19 @@ final class WizardWidgetComponent
         return $spec->step()[$idx];
     }
 
+    /**
+     * @param string $id
+     * @return string
+     */
     public function fieldErrorFor(string $id): string
     {
         $msg = $this->fieldError[$id] ?? '';
         return is_string($msg) ? $msg : '';
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function next(): void
     {
@@ -85,6 +114,9 @@ final class WizardWidgetComponent
         $this->fieldError = [];
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function back(): void
     {
@@ -93,6 +125,9 @@ final class WizardWidgetComponent
         $this->stepIndex = max(0, $this->stepIndex - 1);
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function finish(): void
     {
@@ -111,6 +146,9 @@ final class WizardWidgetComponent
         $this->flash = $res->message();
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function reset(): void
     {
@@ -120,7 +158,13 @@ final class WizardWidgetComponent
         $this->value = $this->handler()->initialValue($this->context);
     }
 
-    private function handler()
+    /**
+     * @return \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface
+     */
+    /**
+     * @return \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface
+     */
+    private function handler(): \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface
     {
         return $this->registry->get($this->handlerId);
     }

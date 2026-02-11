@@ -9,8 +9,20 @@ namespace App\Service\Interfacing\Telemetry;
 
 use App\DomainInterface\Interfacing\Telemetry\TelemetryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class NullTelemetry implements TelemetryInterface
 {
+    /**
+     * @param string $name
+     * @param array $meta
+     * @return void
+     */
     public function event(string $name, array $meta = []): void
     {
         // no-op

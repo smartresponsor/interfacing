@@ -9,8 +9,18 @@ namespace App\Service\Interfacing\Widget\Metric\Demo;
 use App\Domain\Interfacing\Model\Metric\MetricDatum;
 use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoMetricProvider implements MetricProviderInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string
     {
         return 'demo';

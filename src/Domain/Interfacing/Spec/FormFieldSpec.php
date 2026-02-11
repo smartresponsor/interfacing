@@ -5,18 +5,25 @@
 
     namespace App\Domain\Interfacing\Spec;
 
-    final class FormFieldSpec
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class FormFieldSpec
 {
     /**
      * @param array<string, scalar|null> $option
      */
     public function __construct(
-        public readonly string $name,
-        public readonly string $type,
-        public readonly string $label,
-        public readonly bool $required = false,
-        public readonly ?string $placeholder = null,
-        public readonly array $option = [],
+        public string  $name,
+        public string  $type,
+        public string  $label,
+        public bool    $required = false,
+        public ?string $placeholder = null,
+        public array   $option = [],
     ) {
     }
 }

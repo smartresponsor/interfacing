@@ -10,6 +10,13 @@ namespace App\Domain\Interfacing\Action;
 use App\Domain\Interfacing\Error\UiError;
 use App\Domain\Interfacing\Error\UiMessage;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ActionResult
 {
     /** @var UiError[] */
@@ -26,6 +33,10 @@ final class ActionResult
         private readonly array $data = []
     ) {}
 
+    /**
+     * @param array $data
+     * @return self
+     */
     public static function ok(array $data = []): self
     {
         return new self('ok', $data);
@@ -43,6 +54,10 @@ final class ActionResult
         return $r;
     }
 
+    /**
+     * @param string $url
+     * @return self
+     */
     public static function redirect(string $url): self
     {
         $u = trim($url);
@@ -52,6 +67,9 @@ final class ActionResult
         return new self('redirect', ['url' => $u]);
     }
 
+    /**
+     * @return string
+     */
     public function type(): string
     {
         return $this->type;

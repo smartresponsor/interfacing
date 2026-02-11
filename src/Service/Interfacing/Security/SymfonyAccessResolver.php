@@ -12,12 +12,26 @@
 use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-final class SymfonyAccessResolver implements AccessResolverInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class SymfonyAccessResolver implements AccessResolverInterface
 {
+    /**
+     * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $authorizationChecker
+     */
     public function __construct(
-        private readonly AuthorizationCheckerInterface $authorizationChecker,
+        private AuthorizationCheckerInterface $authorizationChecker,
     ) {}
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface $screen
+     * @return bool
+     */
     public function isAllowed(ScreenSpecInterface $screen): bool
     {
         $roles = $screen->requireRole();

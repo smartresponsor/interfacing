@@ -8,14 +8,21 @@ namespace App\Domain\Interfacing\Model\Wizard;
 
 use App\Domain\Interfacing\Model\Form\FormFieldSpec;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class WizardStepSpec
 {
     /** @param list<FormFieldSpec> $field */
     public function __construct(
-        private string $id,
-        private string $title,
-        private array $field,
-        private string $hint = '',
+        private string          $id,
+        private readonly string $title,
+        private readonly array  $field,
+        private string          $hint = '',
     ) {
         $this->id = trim($this->id);
         if ($this->id === '') { throw new \InvalidArgumentException('WizardStepSpec id must be non-empty.'); }
@@ -23,8 +30,19 @@ final class WizardStepSpec
         $this->hint = trim($this->hint);
     }
 
+    /**
+     * @return string
+     */
     public function id(): string { return $this->id; }
+
+    /**
+     * @return string
+     */
     public function title(): string { return $this->title; }
+
+    /**
+     * @return string
+     */
     public function hint(): string { return $this->hint; }
 
     /** @return list<FormFieldSpec> */

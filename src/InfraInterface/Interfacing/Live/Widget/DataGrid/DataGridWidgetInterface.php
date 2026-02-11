@@ -8,7 +8,17 @@ namespace App\InfraInterface\Interfacing\Live\Widget\DataGrid;
 
 use App\Domain\Interfacing\Model\DataGrid\DataGridResult;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface DataGridWidgetInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Model\DataGrid\DataGridResult
+     */
     public function result(): DataGridResult;
 }

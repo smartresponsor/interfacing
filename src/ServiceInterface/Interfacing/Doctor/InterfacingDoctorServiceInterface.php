@@ -9,8 +9,18 @@ namespace App\ServiceInterface\Interfacing\Doctor;
 
 use App\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingDoctorServiceInterface
 {
+    /**
+     * @return \App\DomainInterface\Interfacing\Doctor\DoctorReportInterface
+     */
     public function report(): DoctorReportInterface;
 }
 

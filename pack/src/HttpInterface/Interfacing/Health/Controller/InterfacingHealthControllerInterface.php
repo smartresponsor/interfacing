@@ -8,7 +8,17 @@ namespace SmartResponsor\Interfacing\HttpInterface\Interfacing\Health\Controller
 
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingHealthControllerInterface
 {
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function health(): Response;
 }

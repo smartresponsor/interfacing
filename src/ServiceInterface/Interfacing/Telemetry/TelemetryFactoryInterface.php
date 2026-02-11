@@ -9,7 +9,17 @@ namespace App\ServiceInterface\Interfacing\Telemetry;
 
 use App\DomainInterface\Interfacing\Telemetry\TelemetryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface TelemetryFactoryInterface
 {
+    /**
+     * @return \App\DomainInterface\Interfacing\Telemetry\TelemetryInterface
+     */
     public function create(): TelemetryInterface;
 }

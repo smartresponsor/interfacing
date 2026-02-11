@@ -15,6 +15,13 @@ use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_widget_data_grid', template: 'interfacing/widget/data-grid/data-grid.html.twig')]
 final class DataGridWidget implements DataGridWidgetInterface
 {
@@ -36,10 +43,16 @@ final class DataGridWidget implements DataGridWidgetInterface
     #[LiveProp(writable: true)]
     public string $sortDir = 'asc';
 
-    public function __construct(private DataGridProviderRegistryInterface $registry)
+    /**
+     * @param \App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface $registry
+     */
+    public function __construct(private readonly DataGridProviderRegistryInterface $registry)
     {
     }
 
+    /**
+     * @return \App\Domain\Interfacing\Model\DataGrid\DataGridResult
+     */
     public function result(): DataGridResult
     {
         $query = new DataGridQuery(
@@ -71,6 +84,10 @@ final class DataGridWidget implements DataGridWidgetInterface
         return $res;
     }
 
+    /**
+     * @param string $search
+     * @return void
+     */
     #[LiveAction]
     public function setSearch(#[LiveArg] string $search): void
     {
@@ -78,6 +95,10 @@ final class DataGridWidget implements DataGridWidgetInterface
         $this->pageIndex = 0;
     }
 
+    /**
+     * @param int $pageSize
+     * @return void
+     */
     #[LiveAction]
     public function setPageSize(#[LiveArg] int $pageSize): void
     {
@@ -85,6 +106,10 @@ final class DataGridWidget implements DataGridWidgetInterface
         $this->pageIndex = 0;
     }
 
+    /**
+     * @param string $key
+     * @return void
+     */
     #[LiveAction]
     public function sort(#[LiveArg] string $key): void
     {
@@ -103,12 +128,18 @@ final class DataGridWidget implements DataGridWidgetInterface
         $this->pageIndex = 0;
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function nextPage(): void
     {
         $this->pageIndex = max(0, $this->pageIndex + 1);
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function prevPage(): void
     {

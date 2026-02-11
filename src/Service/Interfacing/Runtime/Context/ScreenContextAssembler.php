@@ -11,17 +11,28 @@ use App\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenContextResolverInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenContextAssembler implements ScreenContextAssemblerInterface
 {
     /**
      * @param iterable<ScreenContextResolverInterface> $resolver
      */
     public function __construct(
-        private BaseContextProviderInterface $base,
-        private iterable $resolver,
+        private readonly BaseContextProviderInterface $base,
+        private readonly iterable                     $resolver,
     ) {
     }
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface $spec
+     * @return array|mixed[]
+     */
     public function contextFor(LayoutScreenSpecInterface $spec): array
     {
         $ctx = $this->base->context();

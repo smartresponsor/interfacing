@@ -10,7 +10,14 @@
 
     use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
 
-interface ActionDispatcherInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface ActionDispatcherInterface
 {
     /** @param array<string, mixed> $payload
      *  @param array<string, mixed> $state

@@ -8,6 +8,13 @@ namespace App\InfraInterface\Interfacing\Live\Widget\Metric;
 
 use App\Domain\Interfacing\Model\Metric\MetricDatum;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface MetricWidgetComponentInterface
 {
     /**

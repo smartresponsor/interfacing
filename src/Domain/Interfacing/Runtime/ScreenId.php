@@ -3,10 +3,20 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Runtime;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ScreenId
 {
     private string $value;
 
+    /**
+     * @param string $value
+     */
     public function __construct(string $value)
     {
         $value = trim($value);
@@ -16,11 +26,17 @@ final class ScreenId
         $this->value = $value;
     }
 
+    /**
+     * @return string
+     */
     public function value(): string
     {
         return $this->value;
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return $this->value;

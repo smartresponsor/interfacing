@@ -40,7 +40,7 @@ final class CategoryAdminSaveAction implements ActionEndpointInterface
   }
 }
 
-2) Builders
+1) Builders
 Use builders to produce specs:
 
 $form = FormSpecBuilder::create('category.edit')
@@ -50,7 +50,7 @@ $form = FormSpecBuilder::create('category.edit')
   ->submit('save', label: 'Save')
   ->build();
 
-3) Catalog bootstrap
+1) Catalog bootstrap
 InterfacingCatalogCompilerPass collects:
 - services annotated with AsInterfacingScreen and registers them into ScreenCatalog
 - services annotated with AsInterfacingAction and registers them into ActionCatalog

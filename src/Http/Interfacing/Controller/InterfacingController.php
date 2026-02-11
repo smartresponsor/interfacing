@@ -12,24 +12,44 @@ use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegist
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class InterfacingController extends AbstractController implements \SmartResponsor\Interfacing\HttpInterface\Interfacing\Controller\InterfacingControllerInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layout
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screen
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface $context
+     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface $access
+     */
     public function __construct(
-        private LayoutCatalogInterface $layout,
-        private ScreenRegistryInterface $screen,
-        private ScreenContextAssemblerInterface $context,
-        private AccessResolverInterface $access,
+        private readonly LayoutCatalogInterface          $layout,
+        private readonly ScreenRegistryInterface         $screen,
+        private readonly ScreenContextAssemblerInterface $context,
+        private readonly AccessResolverInterface         $access,
     ) {
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/interfacing', name: 'interfacing_index', methods: ['GET'])]
     public function index(): Response
     {
         return $this->render('interfacing/page/index.html.twig');
     }
 
+    /**
+     * @param string $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/interfacing/{id}', name: 'interfacing_screen', methods: ['GET'])]
     public function screen(string $id): Response
     {

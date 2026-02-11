@@ -12,14 +12,30 @@ use App\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface;
 use App\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-final class SymfonyValidationRunner implements ValidationRunnerInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class SymfonyValidationRunner implements ValidationRunnerInterface
 {
+    /**
+     * @param \Symfony\Component\Validator\Validator\ValidatorInterface $validator
+     * @param \App\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface $errorMapper
+     */
     public function __construct(
-        private readonly ValidatorInterface $validator,
-        private readonly UiErrorMapperInterface $errorMapper,
+        private ValidatorInterface     $validator,
+        private UiErrorMapperInterface $errorMapper,
     ) {
     }
 
+    /**
+     * @param object $input
+     * @param array|null $group
+     * @return \App\Domain\Interfacing\Ui\UiErrorBag
+     */
     public function validate(object $input, ?array $group = null): UiErrorBag
     {
         $violations = $this->validator->validate($input, null, $group);

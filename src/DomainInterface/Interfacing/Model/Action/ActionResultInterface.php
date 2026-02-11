@@ -8,9 +8,19 @@
 
     namespace App\DomainInterface\Interfacing\Model\Action;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface ActionResultInterface
 {
-    public function type(): string;
+        /**
+         * @return string
+         */
+        public function type(): string;
 
     /** @return array<string, mixed> */
     public function payload(): array;

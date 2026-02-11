@@ -9,6 +9,13 @@ namespace App\ServiceInterface\Interfacing\Ui;
 
 use App\Domain\Interfacing\Ui\UiErrorBag;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ValidationRunnerInterface
 {
     /**

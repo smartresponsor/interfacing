@@ -19,6 +19,13 @@ use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsLiveComponent('interfacing_demo_user_profile_form', template: 'component/interfacing_demo_user_profile_form.html.twig')]
 final class InterfacingDemoUserProfileForm
 {
@@ -30,6 +37,12 @@ final class InterfacingDemoUserProfileForm
     #[LiveProp(writable: true)]
     public string $email = '';
 
+    /**
+     * @param \App\InfraInterface\Interfacing\Demo\DemoUserProfileStoreInterface $store
+     * @param \App\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface $validationRunner
+     * @param \App\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface $domainErrorMapper
+     * @param \App\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface $flash
+     */
     public function __construct(
         private readonly DemoUserProfileStoreInterface $store,
         private readonly ValidationRunnerInterface $validationRunner,
@@ -38,6 +51,9 @@ final class InterfacingDemoUserProfileForm
     ) {
     }
 
+    /**
+     * @return void
+     */
     public function mount(): void
     {
         $data = $this->store->load();
@@ -46,6 +62,9 @@ final class InterfacingDemoUserProfileForm
         $this->clearUiFeedback();
     }
 
+    /**
+     * @return void
+     */
     #[LiveAction]
     public function save(): void
     {

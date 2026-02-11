@@ -7,10 +7,28 @@
 
 namespace App\DomainInterface\Interfacing\Layout;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface LayoutSpecInterface
 {
+    /**
+     * @return \App\DomainInterface\Interfacing\Layout\LayoutIdInterface
+     */
     public function id(): LayoutIdInterface;
+
+    /**
+     * @return string
+     */
     public function title(): string;
+
+    /**
+     * @return string
+     */
     public function twigPath(): string;
 }
 

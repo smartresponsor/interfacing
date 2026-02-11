@@ -9,8 +9,20 @@ namespace App\Service\Interfacing\Layout;
 use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
 use App\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutShell implements LayoutShellInterface
 {
+    /**
+     * @param \App\Domain\Interfacing\Model\Layout\LayoutScreenSpec $activeSpec
+     * @param array $allSpec
+     * @return array|mixed[]
+     */
     public function build(LayoutScreenSpec $activeSpec, array $allSpec): array
     {
         $navGroupTitle = [

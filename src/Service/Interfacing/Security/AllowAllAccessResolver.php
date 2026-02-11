@@ -11,8 +11,19 @@
     use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 
-final class AllowAllAccessResolver implements AccessResolverInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final class AllowAllAccessResolver implements AccessResolverInterface
 {
+    /**
+     * @param \App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface $screen
+     * @return bool
+     */
     public function isAllowed(ScreenSpecInterface $screen): bool
     {
         return true;

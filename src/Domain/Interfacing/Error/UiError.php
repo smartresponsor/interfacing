@@ -7,12 +7,24 @@ declare(strict_types=1);
  */
 namespace App\Domain\Interfacing\Error;
 
-final class UiError
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class UiError
 {
+    /**
+     * @param string $code
+     * @param string $message
+     * @param string|null $field
+     */
     public function __construct(
-        private readonly string $code,
-        private readonly string $message,
-        private readonly ?string $field = null
+        private string  $code,
+        private string  $message,
+        private ?string $field = null
     ) {
         $c = trim($this->code);
         if ($c === '' || strlen($c) > 64) {
@@ -26,7 +38,18 @@ final class UiError
         $this->message = $m;
     }
 
+    /**
+     * @return string
+     */
     public function code(): string { return $this->code; }
+
+    /**
+     * @return string
+     */
     public function message(): string { return $this->message; }
+
+    /**
+     * @return string|null
+     */
     public function field(): ?string { return $this->field; }
 }

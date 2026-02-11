@@ -11,10 +11,24 @@ use App\Domain\Interfacing\Model\Form\FormSpec;
 use App\Domain\Interfacing\Model\Form\FormSubmitResult;
 use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoProfileFormHandler implements FormHandlerInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string { return 'demo-profile'; }
 
+    /**
+     * @param array $context
+     * @return \App\Domain\Interfacing\Model\Form\FormSpec
+     */
     public function spec(array $context = []): FormSpec
     {
         $who = (string)($context['user']['label'] ?? '');
@@ -42,6 +56,10 @@ final class DemoProfileFormHandler implements FormHandlerInterface
         );
     }
 
+    /**
+     * @param array $context
+     * @return array|mixed[]
+     */
     public function initialValue(array $context = []): array
     {
         return [
@@ -53,6 +71,11 @@ final class DemoProfileFormHandler implements FormHandlerInterface
         ];
     }
 
+    /**
+     * @param array $value
+     * @param array $context
+     * @return \App\Domain\Interfacing\Model\Form\FormSubmitResult
+     */
     public function submit(array $value, array $context = []): FormSubmitResult
     {
         $fieldError = [];

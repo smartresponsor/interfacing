@@ -7,8 +7,18 @@
 
     use App\Domain\Interfacing\Spec\LayoutScreenSpec;
 
-interface LayoutScreenSpecBuilderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    interface LayoutScreenSpecBuilderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Spec\LayoutScreenSpec
+     */
     public function build(): LayoutScreenSpec;
 }
 

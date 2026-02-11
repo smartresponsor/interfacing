@@ -9,6 +9,13 @@ namespace App\InfraInterface\Interfacing\Demo;
 
 use App\Domain\Interfacing\Error\DomainOperationFailed;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface DemoUserProfileStoreInterface
 {
     /** @return array{name: string, email: string} */

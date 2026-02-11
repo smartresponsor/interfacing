@@ -8,6 +8,13 @@
 
     namespace App\ServiceInterface\Interfacing\View;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface ShellViewBuilderInterface
 {
     /** @return array<string, mixed> */

@@ -11,14 +11,30 @@ use PHPUnit\Framework\TestCase;
 use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
 use App\Service\Interfacing\Context\BaseContextAssembler;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class BaseContextAssemblerTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testItMergesProviderData(): void
     {
         $a = new class implements BaseContextProviderInterface {
+            /**
+             * @return array
+             */
             public function provide(): array { return ['tenantId' => 't1', 'x' => 1]; }
         };
         $b = new class implements BaseContextProviderInterface {
+            /**
+             * @return array
+             */
             public function provide(): array { return ['userId' => 'u1', 'x' => 2]; }
         };
 

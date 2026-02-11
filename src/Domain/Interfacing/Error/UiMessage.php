@@ -7,6 +7,13 @@ declare(strict_types=1);
  */
 namespace App\Domain\Interfacing\Error;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class UiMessage
 {
     public const LEVEL_INFO = 'info';
@@ -14,6 +21,10 @@ final class UiMessage
     public const LEVEL_WARN = 'warn';
     public const LEVEL_ERROR = 'error';
 
+    /**
+     * @param string $level
+     * @param string $text
+     */
     public function __construct(
         private readonly string $level,
         private readonly string $text
@@ -30,6 +41,13 @@ final class UiMessage
         $this->text = $t;
     }
 
+    /**
+     * @return string
+     */
     public function level(): string { return $this->level; }
+
+    /**
+     * @return string
+     */
     public function text(): string { return $this->text; }
 }

@@ -8,10 +8,24 @@ namespace App\ServiceInterface\Interfacing\Runtime;
 
 use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface ScreenContextResolverInterface
 {
+    /**
+     * @return string
+     */
     public function id(): string;
 
+    /**
+     * @param \App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface $spec
+     * @return bool
+     */
     public function supports(LayoutScreenSpecInterface $spec): bool;
 
     /**

@@ -7,6 +7,13 @@ declare(strict_types=1);
  */
 namespace App\DomainInterface\Interfacing\Telemetry;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface TelemetryInterface
 {
     /** @param array<string, mixed> $meta */

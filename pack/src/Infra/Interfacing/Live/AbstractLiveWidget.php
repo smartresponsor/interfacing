@@ -15,11 +15,18 @@ use SmartResponsor\Interfacing\InfraInterface\Interfacing\Live\AbstractLiveWidge
  */
 abstract class AbstractLiveWidget implements AbstractLiveWidgetInterface
 {
+    /**
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface
+     */
     public function toUiState(): UiStateInterface
     {
         return UiState::fromArray([]);
     }
 
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface $state
+     * @return void
+     */
     public function fromUiState(UiStateInterface $state): void
     {
     }

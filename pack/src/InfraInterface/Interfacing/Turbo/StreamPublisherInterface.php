@@ -6,7 +6,19 @@ declare(strict_types=1);
  */
 namespace SmartResponsor\Interfacing\InfraInterface\Interfacing\Turbo;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface StreamPublisherInterface
 {
+    /**
+     * @param string $target
+     * @param string $html
+     * @return void
+     */
     public function publish(string $target, string $html): void;
 }

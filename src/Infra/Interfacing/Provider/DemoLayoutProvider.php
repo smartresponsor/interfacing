@@ -10,8 +10,18 @@ namespace App\Infra\Interfacing\Provider;
 use App\Domain\Interfacing\Layout\LayoutSpec;
 use App\DomainInterface\Interfacing\Layout\LayoutProviderInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DemoLayoutProvider implements LayoutProviderInterface
 {
+    /**
+     * @return \App\Domain\Interfacing\Layout\LayoutSpec[]
+     */
     public function provide(): array
     {
         return [

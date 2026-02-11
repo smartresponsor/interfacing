@@ -7,6 +7,13 @@
 
 namespace App\HttpInterface\Interfacing\Controller;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface InterfacingDoctorControllerInterface
 {
 }

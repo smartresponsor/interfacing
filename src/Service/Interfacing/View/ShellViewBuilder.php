@@ -12,13 +12,28 @@
 use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
 use App\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
 
-final class ShellViewBuilder implements ShellViewBuilderInterface
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class ShellViewBuilder implements ShellViewBuilderInterface
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface $screenRegistry
+     * @param \App\ServiceInterface\Interfacing\Action\ActionRegistryInterface $actionRegistry
+     */
     public function __construct(
-        private readonly ScreenRegistryInterface $screenRegistry,
-        private readonly ActionRegistryInterface $actionRegistry,
+        private ScreenRegistryInterface $screenRegistry,
+        private ActionRegistryInterface $actionRegistry,
     ) {}
 
+    /**
+     * @param string $activeScreenId
+     * @return array|mixed[]
+     */
     public function build(string $activeScreenId): array
     {
         $screenList = [];

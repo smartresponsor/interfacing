@@ -12,17 +12,35 @@ use App\DomainInterface\Interfacing\Ui\UiErrorInterface;
 use App\DomainInterface\Interfacing\Ui\UiMessageInterface;
 use App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface;
 
-final class InterfacingActionRunResult implements InterfacingActionRunResultInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class InterfacingActionRunResult implements InterfacingActionRunResultInterface
 {
     /** @param array<int, UiErrorInterface> $errorItem @param array<int, UiMessageInterface> $messageItem */
     public function __construct(
-        private readonly ActionResultInterface $result,
-        private readonly array $errorItem,
-        private readonly array $messageItem,
+        private ActionResultInterface $result,
+        private array                 $errorItem,
+        private array                 $messageItem,
     ) {}
 
+    /**
+     * @return \App\DomainInterface\Interfacing\Action\ActionResultInterface
+     */
     public function result(): ActionResultInterface { return $this->result; }
+
+    /**
+     * @return \App\DomainInterface\Interfacing\Ui\UiErrorInterface[]
+     */
     public function errorItem(): array { return $this->errorItem; }
+
+    /**
+     * @return array|\App\DomainInterface\Interfacing\Ui\UiMessageInterface[]
+     */
     public function messageItem(): array { return $this->messageItem; }
 }
 

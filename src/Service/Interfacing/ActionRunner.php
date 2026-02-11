@@ -13,11 +13,22 @@ use App\Domain\Interfacing\Value\ScreenId;
 use App\ServiceInterface\Interfacing\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\TelemetryBridgeInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class ActionRunner
 {
+    /**
+     * @param \App\ServiceInterface\Interfacing\ActionCatalogInterface $actionCatalog
+     * @param \App\ServiceInterface\Interfacing\TelemetryBridgeInterface $telemetry
+     */
     public function __construct(
-        private ActionCatalogInterface $actionCatalog,
-        private TelemetryBridgeInterface $telemetry
+        private readonly ActionCatalogInterface   $actionCatalog,
+        private readonly TelemetryBridgeInterface $telemetry
     ) {}
 
     /** @param array<string,mixed> $payload @param array<string,mixed> $context */

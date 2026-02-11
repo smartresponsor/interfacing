@@ -8,8 +8,19 @@ namespace App\Service\Interfacing\Layout;
 
 use App\ServiceInterface\Interfacing\Layout\LayoutSlugPolicyInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutSlugPolicy implements LayoutSlugPolicyInterface
 {
+    /**
+     * @param string $slug
+     * @return void
+     */
     public function assertSlug(string $slug): void
     {
         $slug = trim($slug);
@@ -26,6 +37,11 @@ final class LayoutSlugPolicy implements LayoutSlugPolicyInterface
         }
     }
 
+    /**
+     * @param string|null $guardKey
+     * @param string $slug
+     * @return void
+     */
     public function assertGuardKey(?string $guardKey, string $slug): void
     {
         if ($guardKey === null) {

@@ -8,7 +8,18 @@ namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout;
 
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface LayoutGuardInterface
 {
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface $spec
+     * @return bool
+     */
     public function canView(LayoutScreenSpecInterface $spec): bool;
 }

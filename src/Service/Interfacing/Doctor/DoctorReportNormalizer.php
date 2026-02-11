@@ -7,8 +7,19 @@ namespace SmartResponsor\Interfacing\Service\Interfacing\Doctor;
 
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
 {
+    /**
+     * @param array $raw
+     * @return array
+     */
     public function normalize(array $raw): array
     {
         $meta = $this->arrayOrEmpty($raw['meta'] ?? []);
@@ -39,6 +50,10 @@ final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
         ];
     }
 
+    /**
+     * @param mixed $v
+     * @return array
+     */
     private function arrayOrEmpty(mixed $v): array
     {
         return \is_array($v) ? $v : [];

@@ -5,14 +5,28 @@ declare(strict_types=1);
 
 namespace App\Domain\Interfacing\Model;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class CategoryItemView
 {
+    /**
+     * @param string $id
+     * @param string $slug
+     * @param string $name
+     * @param string $locale
+     * @param string $status
+     */
     public function __construct(
-        private string $id,
-        private string $slug,
-        private string $name,
-        private string $locale,
-        private string $status
+        private readonly string $id,
+        private readonly string $slug,
+        private readonly string $name,
+        private readonly string $locale,
+        private readonly string $status
     ) {
         if ($id === '' || $slug === '' || $name === '' || $locale === '') {
             throw new \InvalidArgumentException('CategoryItemView fields must not be empty.');

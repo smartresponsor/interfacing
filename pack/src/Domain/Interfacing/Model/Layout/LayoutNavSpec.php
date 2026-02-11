@@ -8,6 +8,13 @@ namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Layout;
 
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutNavSpecInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutNavSpec implements LayoutNavSpecInterface
 {
     /** @var array<string, list<array{slug:string,title:string,active:bool}>> */
@@ -39,6 +46,9 @@ final class LayoutNavSpec implements LayoutNavSpecInterface
         return $this->groupItem;
     }
 
+    /**
+     * @return string
+     */
     public function getActiveSlug(): string
     {
         return $this->activeSlug;

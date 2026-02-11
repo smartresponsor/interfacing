@@ -5,6 +5,13 @@ declare(strict_types=1);
 
 namespace SmartResponsor\Interfacing\Domain\Interfacing\Layout;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutSlot
 {
     public const HEADER = 'header';

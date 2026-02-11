@@ -5,12 +5,24 @@
 
     namespace App\Domain\Interfacing\Spec;
 
-    final class WizardStepSpec
+    /**
+     *
+     */
+
+    /**
+     *
+     */
+    final readonly class WizardStepSpec
 {
-    public function __construct(
-        public readonly string $id,
-        public readonly string $title,
-        public readonly FormSpec $form,
+        /**
+         * @param string $id
+         * @param string $title
+         * @param \App\Domain\Interfacing\Spec\FormSpec $form
+         */
+        public function __construct(
+        public string   $id,
+        public string   $title,
+        public FormSpec $form,
     ) {
     }
 }

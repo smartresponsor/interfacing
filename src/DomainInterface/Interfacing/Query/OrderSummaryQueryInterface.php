@@ -5,8 +5,24 @@ namespace App\DomainInterface\Interfacing\Query;
 
 use App\Domain\Interfacing\Query\OrderSummaryPage;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface OrderSummaryQueryInterface
 {
+    /**
+     * @param string $tenantId
+     * @param int $page
+     * @param int $pageSize
+     * @param string|null $status
+     * @param string|null $createdFromIso
+     * @param string|null $createdToIso
+     * @return \App\Domain\Interfacing\Query\OrderSummaryPage
+     */
     public function fetchPage(
         string $tenantId,
         int $page,

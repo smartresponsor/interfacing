@@ -7,9 +7,19 @@ declare(strict_types=1);
  */
 namespace App\Domain\Interfacing\Screen;
 
-final class ScreenId
+/**
+ *
+ */
+
+/**
+ *
+ */
+final readonly class ScreenId
 {
-    public function __construct(private readonly string $value)
+    /**
+     * @param string $value
+     */
+    public function __construct(private string $value)
     {
         $v = trim($this->value);
         if ($v === '' || !preg_match('/^[a-z0-9][a-z0-9\-\.]{1,127}$/', $v)) {
@@ -18,11 +28,18 @@ final class ScreenId
         $this->value = $v;
     }
 
+    /**
+     * @return string
+     */
     public function value(): string
     {
         return $this->value;
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Screen\ScreenId $other
+     * @return bool
+     */
     public function equals(ScreenId $other): bool
     {
         return $this->value === $other->value;

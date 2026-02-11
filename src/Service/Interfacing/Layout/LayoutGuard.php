@@ -11,12 +11,27 @@ use App\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class LayoutGuard implements LayoutGuardInterface
 {
-    public function __construct(private AuthorizationCheckerInterface $checker)
+    /**
+     * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $checker
+     */
+    public function __construct(private readonly AuthorizationCheckerInterface $checker)
     {
     }
 
+    /**
+     * @param \App\Domain\Interfacing\Model\Layout\LayoutScreenSpec $spec
+     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
+     * @return bool
+     */
     public function canView(LayoutScreenSpec $spec, ?TokenInterface $token): bool
     {
         $guardKey = $spec->guardKey();

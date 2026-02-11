@@ -8,6 +8,13 @@ namespace App\ServiceInterface\Interfacing\Layout;
 
 use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface LayoutShellInterface
 {
     /**

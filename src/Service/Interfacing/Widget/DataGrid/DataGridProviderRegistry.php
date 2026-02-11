@@ -9,6 +9,13 @@ namespace App\Service\Interfacing\Widget\DataGrid;
 use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
 use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 final class DataGridProviderRegistry implements DataGridProviderRegistryInterface
 {
     /**
@@ -26,11 +33,19 @@ final class DataGridProviderRegistry implements DataGridProviderRegistryInterfac
         }
     }
 
+    /**
+     * @param string $key
+     * @return bool
+     */
     public function has(string $key): bool
     {
         return isset($this->map[$key]);
     }
 
+    /**
+     * @param string $key
+     * @return \App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface
+     */
     public function get(string $key): DataGridProviderInterface
     {
         if (!isset($this->map[$key])) {
@@ -40,6 +55,9 @@ final class DataGridProviderRegistry implements DataGridProviderRegistryInterfac
         return $this->map[$key];
     }
 
+    /**
+     * @return array|string[]
+     */
     public function keyList(): array
     {
         $keys = array_keys($this->map);

@@ -7,8 +7,18 @@
 
 namespace App\DomainInterface\Interfacing\Layout;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 interface LayoutIdInterface
 {
+    /**
+     * @return string
+     */
     public function value(): string;
 }
 

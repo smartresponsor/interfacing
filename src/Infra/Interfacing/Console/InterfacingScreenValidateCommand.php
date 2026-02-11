@@ -10,12 +10,23 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Routing\RouterInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 #[AsCommand(
     name: 'interfacing:screen:validate',
     description: 'Validate Interfacing screen configuration against Symfony routes.',
 )]
 final class InterfacingScreenValidateCommand extends Command
 {
+    /**
+     * @param \Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface $parameters
+     * @param \Symfony\Component\Routing\RouterInterface $router
+     */
     public function __construct(
         private readonly ParameterBagInterface $parameters,
         private readonly RouterInterface $router,
@@ -23,6 +34,11 @@ final class InterfacingScreenValidateCommand extends Command
         parent::__construct();
     }
 
+    /**
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $value = $this->parameters->get('interfacing.screens');

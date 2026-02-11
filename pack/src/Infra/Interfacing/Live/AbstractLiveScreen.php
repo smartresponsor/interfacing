@@ -10,8 +10,18 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Model\UiState;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface;
 use SmartResponsor\Interfacing\InfraInterface\Interfacing\Live\AbstractLiveScreenInterface;
 
+/**
+ *
+ */
+
+/**
+ *
+ */
 abstract class AbstractLiveScreen implements AbstractLiveScreenInterface
 {
+    /**
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface
+     */
     public function toUiState(): UiStateInterface
     {
         return UiState::fromArray([]);

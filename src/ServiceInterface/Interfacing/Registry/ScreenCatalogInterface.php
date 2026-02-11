@@ -5,6 +5,13 @@
 
     namespace App\ServiceInterface\Interfacing\Registry;
 
+    /**
+     *
+     */
+
+    /**
+     *
+     */
     interface ScreenCatalogInterface
 {
     /**
@@ -12,6 +19,10 @@
      */
     public function all(): array;
 
-    public function get(string $screenId): ScreenDescriptorInterface;
+        /**
+         * @param string $screenId
+         * @return \App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface
+         */
+        public function get(string $screenId): ScreenDescriptorInterface;
 }
 
