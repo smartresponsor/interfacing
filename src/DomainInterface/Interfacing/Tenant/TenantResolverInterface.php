@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Tenant;
+namespace App\DomainInterface\Interfacing\Tenant;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;

@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Registry;
+    namespace App\Service\Interfacing\Registry;
 
-    use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+    use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 
 final class ActionCatalog implements ActionCatalogInterface
 {

@@ -3,11 +3,11 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Infra\Interfacing\Symfony\Compiler;
+    namespace App\Infra\Interfacing\Symfony\Compiler;
 
     use ReflectionClass;
-use SmartResponsor\Interfacing\Domain\Interfacing\Attribute\AsInterfacingAction;
-use SmartResponsor\Interfacing\Domain\Interfacing\Attribute\AsInterfacingScreen;
+use App\Domain\Interfacing\Attribute\AsInterfacingAction;
+use App\Domain\Interfacing\Attribute\AsInterfacingScreen;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

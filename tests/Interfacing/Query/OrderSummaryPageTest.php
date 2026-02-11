@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Tests\Interfacing\Query;
+namespace App\Tests\Interfacing\Query;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryRow;
+use App\Domain\Interfacing\Query\OrderSummaryPage;
+use App\Domain\Interfacing\Query\OrderSummaryRow;
 use PHPUnit\Framework\TestCase;
 
 final class OrderSummaryPageTest extends TestCase

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query;
+namespace App\ServiceInterface\Interfacing\Query;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterPage;
+use App\Domain\Interfacing\Query\BillingMeterPage;
 
 interface BillingMeterQueryServiceInterface
 {

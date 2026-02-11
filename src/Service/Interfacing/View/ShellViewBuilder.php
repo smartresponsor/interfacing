@@ -6,11 +6,11 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\View;
+    namespace App\Service\Interfacing\View;
 
-    use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
+    use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
+use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
+use App\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
 
 final class ShellViewBuilder implements ShellViewBuilderInterface
 {

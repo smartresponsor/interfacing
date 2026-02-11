@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Tests\Interfacing\Query;
+namespace App\Tests\Interfacing\Query;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterPage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterRow;
+use App\Domain\Interfacing\Query\BillingMeterPage;
+use App\Domain\Interfacing\Query\BillingMeterRow;
 use PHPUnit\Framework\TestCase;
 
 final class BillingMeterPageTest extends TestCase

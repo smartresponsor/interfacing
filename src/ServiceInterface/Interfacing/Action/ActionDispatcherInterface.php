@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action;
+    namespace App\ServiceInterface\Interfacing\Action;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
+    use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
 
 interface ActionDispatcherInterface
 {

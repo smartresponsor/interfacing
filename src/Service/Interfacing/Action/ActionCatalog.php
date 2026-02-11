@@ -5,12 +5,12 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Action;
+namespace App\Service\Interfacing\Action;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionIdInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionProviderInterface;
+use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
+use App\DomainInterface\Interfacing\Action\ActionIdInterface;
+use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 
 final class ActionCatalog implements ActionCatalogInterface
 {

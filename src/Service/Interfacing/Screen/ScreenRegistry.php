@@ -5,12 +5,12 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Screen;
+namespace App\Service\Interfacing\Screen;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Screen\ScreenId;
-use SmartResponsor\Interfacing\Domain\Interfacing\Screen\ScreenSpec;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen\ScreenProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
+use App\Domain\Interfacing\Screen\ScreenId;
+use App\Domain\Interfacing\Screen\ScreenSpec;
+use App\DomainInterface\Interfacing\Screen\ScreenProviderInterface;
+use App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
 
 final class ScreenRegistry implements ScreenRegistryInterface
 {

@@ -6,11 +6,11 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Context;
+    namespace App\Service\Interfacing\Context;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
+    use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
+use App\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
 
 final class ScreenContextAssembler implements ScreenContextAssemblerInterface
 {

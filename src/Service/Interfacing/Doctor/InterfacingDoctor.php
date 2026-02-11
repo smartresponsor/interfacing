@@ -4,14 +4,14 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Doctor;
+namespace App\Service\Interfacing\Doctor;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
+use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorInterface;
+use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
+use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
+use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 

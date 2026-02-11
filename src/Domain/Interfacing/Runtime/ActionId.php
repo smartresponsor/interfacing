@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Runtime;
+namespace App\Domain\Interfacing\Runtime;
 
 final class ActionId
 {

@@ -4,13 +4,13 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\Wizard\Demo;
+namespace App\Service\Interfacing\Widget\Wizard\Demo;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Form\FormFieldSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Form\FormSubmitResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Wizard\WizardSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Wizard\WizardStepSpec;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
+use App\Domain\Interfacing\Model\Form\FormFieldSpec;
+use App\Domain\Interfacing\Model\Form\FormSubmitResult;
+use App\Domain\Interfacing\Model\Wizard\WizardSpec;
+use App\Domain\Interfacing\Model\Wizard\WizardStepSpec;
+use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
 
 final class DemoOnboardingWizardHandler implements WizardHandlerInterface
 {

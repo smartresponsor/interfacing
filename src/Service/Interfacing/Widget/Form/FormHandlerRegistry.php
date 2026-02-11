@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\Form;
+namespace App\Service\Interfacing\Widget\Form;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
+use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
+use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
 
 final class FormHandlerRegistry implements FormHandlerRegistryInterface
 {

@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Metric;
+namespace App\ServiceInterface\Interfacing\Widget\Metric;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Metric\MetricDatum;
+use App\Domain\Interfacing\Model\Metric\MetricDatum;
 
 interface MetricProviderInterface
 {

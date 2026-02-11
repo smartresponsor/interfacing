@@ -6,10 +6,10 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Screen;
+    namespace App\Domain\Interfacing\Model\Screen;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+    use App\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
+use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
 final class ScreenSpec implements ScreenSpecInterface
 {

@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Access;
+namespace App\Service\Interfacing\Access;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessDecision;
-use SmartResponsor\Interfacing\Domain\Interfacing\Runtime\InterfacingPermission;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Access\AccessResolverInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Security\PermissionNamerInterface;
+use App\Domain\Interfacing\Access\AccessDecision;
+use App\Domain\Interfacing\Runtime\InterfacingPermission;
+use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
+use App\DomainInterface\Interfacing\Security\PermissionNamerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;

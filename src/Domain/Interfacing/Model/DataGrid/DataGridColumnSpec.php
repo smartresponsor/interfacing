@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid;
+namespace App\Domain\Interfacing\Model\DataGrid;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\DataGrid\DataGridColumnSpecInterface;
+use App\DomainInterface\Interfacing\Model\DataGrid\DataGridColumnSpecInterface;
 
 final class DataGridColumnSpec implements DataGridColumnSpecInterface
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Form;
+namespace App\ServiceInterface\Interfacing\Widget\Form;
 
 interface FormHandlerRegistryInterface
 {

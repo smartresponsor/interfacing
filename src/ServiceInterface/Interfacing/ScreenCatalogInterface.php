@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing;
+namespace App\ServiceInterface\Interfacing;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ScreenId;
+use App\Domain\Interfacing\Model\ScreenSpec;
+use App\Domain\Interfacing\Value\ScreenId;
 
 interface ScreenCatalogInterface
 {

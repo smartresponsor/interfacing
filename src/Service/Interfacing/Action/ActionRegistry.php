@@ -6,11 +6,11 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Action;
+    namespace App\Service\Interfacing\Action;
 
-    use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
+    use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
+use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
 
 final class ActionRegistry implements ActionRegistryInterface
 {

@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\Metric;
+namespace App\Service\Interfacing\Widget\Metric;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
+use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
+use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
 
 final class MetricProviderRegistry implements MetricProviderRegistryInterface
 {

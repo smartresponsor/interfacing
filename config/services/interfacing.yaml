@@ -1,17 +1,41 @@
 services:
-  SmartResponsor\Interfacing\:
+  App\:
     resource: '../src/'
     exclude:
       - '../src/Kernel.php'
 
-  SmartResponsor\Interfacing\Infra\Interfacing\Security\InterfacingPermissionVoter:
+  # RVE-A2: enforce thin controllers by delegating orchestration to a view builder (service layer).
+  SmartResponsor\Interfacing\Service\Interfacing\View\ScreenViewBuilder: ~
+
+  SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface:
+    alias: SmartResponsor\Interfacing\Service\Interfacing\View\ScreenViewBuilder
+
+  SmartResponsor\Interfacing\Service\Interfacing\View\UiErrorMapper: ~
+
+  SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\UiErrorMapperInterface:
+    alias: SmartResponsor\Interfacing\Service\Interfacing\View\UiErrorMapper
+
+  SmartResponsor\Interfacing\Service\Interfacing\Metric\InMemoryUiMetric: ~
+
+  SmartResponsor\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface:
+    alias: SmartResponsor\Interfacing\Service\Interfacing\Metric\InMemoryUiMetric
+
+  SmartResponsor\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer: ~
+
+  SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface:
+    alias: SmartResponsor\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer
+
+  # Ensure JSON doctor uses the same builder contract aliasing.
+  SmartResponsor\Interfacing\Http\Interfacing\Command\DoctorCommand: ~
+
+  App\Infra\Interfacing\Security\InterfacingPermissionVoter:
     tags:
       - { name: security.voter }
 
-  SmartResponsor\Interfacing\Service\Interfacing\Tenant\DefaultTenantResolver:
+  App\Service\Interfacing\Tenant\DefaultTenantResolver:
     arguments:
       $defaultTenantId: '%env(string:SR_TENANT_DEFAULT)%'
 
-  SmartResponsor\Interfacing\Service\Interfacing\Audit\MonologAuditSink:
+  App\Service\Interfacing\Audit\MonologAuditSink:
     arguments:
       $logger: '@monolog.logger.interfacing'

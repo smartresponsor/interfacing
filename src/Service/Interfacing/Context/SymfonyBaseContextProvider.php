@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Context;
+namespace App\Service\Interfacing\Context;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
+use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

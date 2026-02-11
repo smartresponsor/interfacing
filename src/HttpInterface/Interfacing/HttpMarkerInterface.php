@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\HttpInterface\Interfacing;
+    namespace App\HttpInterface\Interfacing;
 
     /** Marker interface for Interfacing Http layer. */
 interface HttpMarkerInterface

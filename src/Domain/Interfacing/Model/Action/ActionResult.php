@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Action;
+    namespace App\Domain\Interfacing\Model\Action;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
+    use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
 
 final class ActionResult implements ActionResultInterface
 {

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Access;
+namespace App\Domain\Interfacing\Access;
 
 enum AccessDecisionCode: string
 {

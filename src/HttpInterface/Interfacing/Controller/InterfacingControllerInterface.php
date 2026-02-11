@@ -4,7 +4,7 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\HttpInterface\Interfacing\Controller;
+namespace App\HttpInterface\Interfacing\Controller;
 
 interface InterfacingControllerInterface
 {

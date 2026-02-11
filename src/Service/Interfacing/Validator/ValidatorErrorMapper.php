@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Validator;
+namespace App\Service\Interfacing\Validator;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\UiError;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\UiErrorBag;
+use App\Domain\Interfacing\Model\UiError;
+use App\Domain\Interfacing\Model\UiErrorBag;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 final class ValidatorErrorMapper

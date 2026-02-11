@@ -6,12 +6,12 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Http\Interfacing\Live;
+    namespace App\Http\Interfacing\Live;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Model\Action\ActionResult;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
+    use App\Domain\Interfacing\Model\Action\ActionResult;
+use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+use App\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
+use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;

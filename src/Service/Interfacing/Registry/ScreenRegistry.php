@@ -6,11 +6,11 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Registry;
+    namespace App\Service\Interfacing\Registry;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
+    use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+use App\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
+use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
 
 final class ScreenRegistry implements ScreenRegistryInterface
 {

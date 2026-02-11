@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing;
+namespace App\Service\Interfacing;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\BaseContextProviderInterface;
+use App\ServiceInterface\Interfacing\BaseContextProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 

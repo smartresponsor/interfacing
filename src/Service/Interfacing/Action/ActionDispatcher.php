@@ -6,16 +6,16 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Action;
+    namespace App\Service\Interfacing\Action;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Model\Action\ActionRequest;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Action\ActionResult;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
+    use App\Domain\Interfacing\Model\Action\ActionRequest;
+use App\Domain\Interfacing\Model\Action\ActionResult;
+use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
+use App\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
+use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
+use App\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
+use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
+use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 
 final class ActionDispatcher implements ActionDispatcherInterface
 {

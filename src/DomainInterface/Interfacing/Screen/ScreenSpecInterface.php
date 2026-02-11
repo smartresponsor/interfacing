@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen;
+namespace App\DomainInterface\Interfacing\Screen;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Layout\LayoutIdInterface;
+use App\DomainInterface\Interfacing\Layout\LayoutIdInterface;
 
 interface ScreenSpecInterface
 {

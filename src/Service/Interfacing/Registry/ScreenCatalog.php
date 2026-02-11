@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Registry;
+    namespace App\Service\Interfacing\Registry;
 
-    use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
+    use App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
+use App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
 
 final class ScreenCatalog implements ScreenCatalogInterface
 {

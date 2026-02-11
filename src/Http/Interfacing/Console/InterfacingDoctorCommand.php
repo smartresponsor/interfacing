@@ -1,13 +1,11 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- * Proprietary and confidential.
- */
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Http\Interfacing\Console;
+namespace App\Http\Interfacing\Console;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

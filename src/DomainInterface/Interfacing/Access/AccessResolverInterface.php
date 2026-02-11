@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Access;
+namespace App\DomainInterface\Interfacing\Access;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessDecision;
+use App\Domain\Interfacing\Access\AccessDecision;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

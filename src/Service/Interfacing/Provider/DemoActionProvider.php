@@ -6,13 +6,13 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Provider;
+    namespace App\Service\Interfacing\Provider;
 
-    use SmartResponsor\Interfacing\Service\Interfacing\Provider\DemoAction\DemoRefreshMetricActionEndpoint;
-use SmartResponsor\Interfacing\Service\Interfacing\Provider\DemoAction\DemoSaveProfileActionEndpoint;
-use SmartResponsor\Interfacing\Service\Interfacing\Provider\DemoAction\DemoWizardBackActionEndpoint;
-use SmartResponsor\Interfacing\Service\Interfacing\Provider\DemoAction\DemoWizardNextActionEndpoint;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
+    use App\Service\Interfacing\Provider\DemoAction\DemoRefreshMetricActionEndpoint;
+use App\Service\Interfacing\Provider\DemoAction\DemoSaveProfileActionEndpoint;
+use App\Service\Interfacing\Provider\DemoAction\DemoWizardBackActionEndpoint;
+use App\Service\Interfacing\Provider\DemoAction\DemoWizardNextActionEndpoint;
+use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
 
 final class DemoActionProvider implements ActionProviderInterface
 {

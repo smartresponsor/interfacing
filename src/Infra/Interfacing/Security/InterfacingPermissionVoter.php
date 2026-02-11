@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Security;
+namespace App\Infra\Interfacing\Security;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Runtime\InterfacingPermission;
+use App\Domain\Interfacing\Runtime\InterfacingPermission;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 

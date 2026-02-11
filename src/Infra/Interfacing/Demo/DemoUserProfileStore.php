@@ -5,10 +5,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Demo;
+namespace App\Infra\Interfacing\Demo;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Error\DomainOperationFailed;
-use SmartResponsor\Interfacing\InfraInterface\Interfacing\Demo\DemoUserProfileStoreInterface;
+use App\Domain\Interfacing\Error\DomainOperationFailed;
+use App\InfraInterface\Interfacing\Demo\DemoUserProfileStoreInterface;
 
 final class DemoUserProfileStore implements DemoUserProfileStoreInterface
 {

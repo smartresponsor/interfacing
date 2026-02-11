@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Runtime\Provider;
+namespace App\Service\Interfacing\Runtime\Provider;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
+use App\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
 
 final class DemoScreenProvider implements ScreenProviderInterface
 {

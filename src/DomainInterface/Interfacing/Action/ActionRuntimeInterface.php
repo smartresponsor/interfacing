@@ -5,10 +5,10 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Action;
+namespace App\DomainInterface\Interfacing\Action;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiErrorInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiMessageInterface;
+use App\DomainInterface\Interfacing\Ui\UiErrorInterface;
+use App\DomainInterface\Interfacing\Ui\UiMessageInterface;
 
 interface ActionRuntimeInterface
 {

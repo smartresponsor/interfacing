@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Tests\Interfacing\Tenant;
+namespace App\Tests\Interfacing\Tenant;
 
-use SmartResponsor\Interfacing\Service\Interfacing\Tenant\DefaultTenantResolver;
+use App\Service\Interfacing\Tenant\DefaultTenantResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 

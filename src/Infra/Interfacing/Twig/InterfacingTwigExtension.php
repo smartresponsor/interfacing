@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Twig;
+namespace App\Infra\Interfacing\Twig;
 
-use SmartResponsor\Interfacing\InfraInterface\Interfacing\Twig\InterfacingTwigExtensionInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
+use App\InfraInterface\Interfacing\Twig\InterfacingTwigExtensionInterface;
+use App\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 

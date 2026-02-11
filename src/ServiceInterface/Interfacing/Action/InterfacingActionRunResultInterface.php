@@ -5,11 +5,11 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action;
+namespace App\ServiceInterface\Interfacing\Action;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionResultInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiErrorInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiMessageInterface;
+use App\DomainInterface\Interfacing\Action\ActionResultInterface;
+use App\DomainInterface\Interfacing\Ui\UiErrorInterface;
+use App\DomainInterface\Interfacing\Ui\UiMessageInterface;
 
 interface InterfacingActionRunResultInterface
 {

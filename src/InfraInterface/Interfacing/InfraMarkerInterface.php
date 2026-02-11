@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\InfraInterface\Interfacing;
+    namespace App\InfraInterface\Interfacing;
 
     /** Marker interface for Interfacing Infra layer. */
 interface InfraMarkerInterface

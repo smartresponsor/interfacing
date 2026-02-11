@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Query;
+namespace App\Service\Interfacing\Query;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryRow;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
+use App\Domain\Interfacing\Query\OrderSummaryPage;
+use App\Domain\Interfacing\Query\OrderSummaryRow;
+use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class HttpOrderSummaryQueryService implements OrderSummaryQueryServiceInterface

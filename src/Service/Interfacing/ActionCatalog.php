@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing;
+namespace App\Service\Interfacing;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ActionId;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\ActionEndpointInterface;
+use App\Domain\Interfacing\Value\ActionId;
+use App\ServiceInterface\Interfacing\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\ActionEndpointInterface;
 
 final class ActionCatalog implements ActionCatalogInterface
 {

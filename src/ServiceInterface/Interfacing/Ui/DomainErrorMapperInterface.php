@@ -5,10 +5,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui;
+namespace App\ServiceInterface\Interfacing\Ui;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Error\DomainOperationFailed;
-use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiErrorBag;
+use App\Domain\Interfacing\Error\DomainOperationFailed;
+use App\Domain\Interfacing\Ui\UiErrorBag;
 
 interface DomainErrorMapperInterface
 {

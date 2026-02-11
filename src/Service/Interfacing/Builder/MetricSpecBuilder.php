@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Builder;
+    namespace App\Service\Interfacing\Builder;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Spec\MetricSpec;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Builder\MetricSpecBuilderInterface;
+    use App\Domain\Interfacing\Spec\MetricSpec;
+use App\ServiceInterface\Interfacing\Builder\MetricSpecBuilderInterface;
 
 final class MetricSpecBuilder implements MetricSpecBuilderInterface
 {

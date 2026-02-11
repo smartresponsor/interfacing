@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Http\Interfacing\Controller;
+namespace App\Http\Interfacing\Controller;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ScreenId;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\ShellNavProviderInterface;
+use App\Domain\Interfacing\Value\ScreenId;
+use App\ServiceInterface\Interfacing\AccessResolverInterface;
+use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
+use App\ServiceInterface\Interfacing\ShellNavProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 

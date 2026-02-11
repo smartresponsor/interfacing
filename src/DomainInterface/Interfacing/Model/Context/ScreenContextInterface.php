@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Context;
+    namespace App\DomainInterface\Interfacing\Model\Context;
 
     interface ScreenContextInterface
 {

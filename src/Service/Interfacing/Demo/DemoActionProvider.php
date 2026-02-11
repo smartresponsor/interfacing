@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Demo;
+namespace App\Service\Interfacing\Demo;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionProviderInterface;
+use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 
 final class DemoActionProvider implements ActionProviderInterface
 {

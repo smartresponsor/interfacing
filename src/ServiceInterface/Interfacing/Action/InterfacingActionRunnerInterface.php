@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action;
+namespace App\ServiceInterface\Interfacing\Action;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionIdInterface;
+use App\DomainInterface\Interfacing\Action\ActionIdInterface;
 
 interface InterfacingActionRunnerInterface
 {

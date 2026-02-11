@@ -4,14 +4,14 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Shell;
+namespace App\Service\Interfacing\Shell;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Shell\ShellNavGroup;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Shell\ShellNavItem;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Shell\ShellView;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
+use App\Domain\Interfacing\Model\Shell\ShellNavGroup;
+use App\Domain\Interfacing\Model\Shell\ShellNavItem;
+use App\Domain\Interfacing\Model\Shell\ShellView;
+use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 

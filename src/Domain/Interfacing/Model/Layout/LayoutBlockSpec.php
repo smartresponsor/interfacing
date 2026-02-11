@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Layout;
+    namespace App\Domain\Interfacing\Model\Layout;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutBlockSpecInterface;
+    use App\DomainInterface\Interfacing\Model\Layout\LayoutBlockSpecInterface;
 
 final class LayoutBlockSpec implements LayoutBlockSpecInterface
 {

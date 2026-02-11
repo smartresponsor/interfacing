@@ -2,6 +2,8 @@ $ErrorActionPreference = "Stop"
 
 php -v | Out-Null
 
+php tools/interfacing/namespace-guard.php | Out-Null
+
 if (Test-Path "bin/console") {
   php bin/console cache:warmup | Out-Null
   php bin/console interfacing:doctor | Out-Null

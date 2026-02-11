@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Audit;
+namespace App\DomainInterface\Interfacing\Audit;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEvent;
+use App\Domain\Interfacing\Audit\AuditEvent;
 
 interface AuditSinkInterface
 {

@@ -6,10 +6,10 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Security;
+    namespace App\Service\Interfacing\Security;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
+    use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 
 final class AllowAllAccessResolver implements AccessResolverInterface
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Audit;
+namespace App\Service\Interfacing\Audit;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Audit\AuditSinkInterface;
-use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEvent;
+use App\DomainInterface\Interfacing\Audit\AuditSinkInterface;
+use App\Domain\Interfacing\Audit\AuditEvent;
 use Psr\Log\LoggerInterface;
 
 final class MonologAuditSink implements AuditSinkInterface

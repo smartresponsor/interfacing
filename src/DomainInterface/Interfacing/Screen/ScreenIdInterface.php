@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen;
+namespace App\DomainInterface\Interfacing\Screen;
 
 interface ScreenIdInterface
 {

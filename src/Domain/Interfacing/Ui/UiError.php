@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Ui;
+namespace App\Domain\Interfacing\Ui;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiErrorInterface;
+use App\DomainInterface\Interfacing\Ui\UiErrorInterface;
 
 final class UiError implements UiErrorInterface
 {

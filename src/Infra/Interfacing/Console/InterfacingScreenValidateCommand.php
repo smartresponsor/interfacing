@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Console;
+namespace App\Infra\Interfacing\Console;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;

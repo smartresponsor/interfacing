@@ -5,9 +5,9 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Screen;
+namespace App\Domain\Interfacing\Screen;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessRule;
+use App\Domain\Interfacing\Access\AccessRule;
 
 final class ScreenSpec
 {

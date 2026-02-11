@@ -5,12 +5,12 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Action;
+namespace App\Service\Interfacing\Action;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionResultInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiErrorInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiMessageInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface;
+use App\DomainInterface\Interfacing\Action\ActionResultInterface;
+use App\DomainInterface\Interfacing\Ui\UiErrorInterface;
+use App\DomainInterface\Interfacing\Ui\UiMessageInterface;
+use App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface;
 
 final class InterfacingActionRunResult implements InterfacingActionRunResultInterface
 {

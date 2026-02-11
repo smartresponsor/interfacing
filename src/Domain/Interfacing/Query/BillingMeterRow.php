@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Query;
+namespace App\Domain\Interfacing\Query;
 
 final class BillingMeterRow
 {

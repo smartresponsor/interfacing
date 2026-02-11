@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Provider;
+    namespace App\ServiceInterface\Interfacing\Provider;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+    use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
 interface ScreenProviderInterface
 {

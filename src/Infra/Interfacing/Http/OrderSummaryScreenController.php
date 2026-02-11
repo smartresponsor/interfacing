@@ -1,15 +1,15 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Http;
+namespace App\Infra\Interfacing\Http;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessDecisionCode;
-use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEvent;
-use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEventType;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Access\AccessResolverInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Audit\AuditSinkInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
+use App\Domain\Interfacing\Access\AccessDecisionCode;
+use App\Domain\Interfacing\Audit\AuditEvent;
+use App\Domain\Interfacing\Audit\AuditEventType;
+use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
+use App\DomainInterface\Interfacing\Audit\AuditSinkInterface;
+use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

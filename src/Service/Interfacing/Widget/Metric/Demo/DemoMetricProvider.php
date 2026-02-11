@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\Metric\Demo;
+namespace App\Service\Interfacing\Widget\Metric\Demo;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Metric\MetricDatum;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
+use App\Domain\Interfacing\Model\Metric\MetricDatum;
+use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
 
 final class DemoMetricProvider implements MetricProviderInterface
 {

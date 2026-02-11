@@ -6,12 +6,12 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Provider;
+    namespace App\Service\Interfacing\Provider;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Model\Layout\LayoutBlockSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Screen\ScreenSpec;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
+    use App\Domain\Interfacing\Model\Layout\LayoutBlockSpec;
+use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
+use App\Domain\Interfacing\Model\Screen\ScreenSpec;
+use App\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 
 final class DemoScreenProvider implements ScreenProviderInterface
 {

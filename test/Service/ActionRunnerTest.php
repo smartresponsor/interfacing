@@ -5,16 +5,16 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Test\Service;
+namespace App\Test\Service;
 
 use PHPUnit\Framework\TestCase;
-use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionId;
-use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionRequest;
-use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Screen\ScreenId;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use SmartResponsor\Interfacing\Service\Interfacing\Action\ActionRunner;
-use SmartResponsor\Interfacing\Service\Interfacing\Telemetry\NullTelemetry;
+use App\Domain\Interfacing\Action\ActionId;
+use App\Domain\Interfacing\Action\ActionRequest;
+use App\Domain\Interfacing\Action\ActionResult;
+use App\Domain\Interfacing\Screen\ScreenId;
+use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
+use App\Service\Interfacing\Action\ActionRunner;
+use App\Service\Interfacing\Telemetry\NullTelemetry;
 
 final class ActionRunnerTest extends TestCase
 {

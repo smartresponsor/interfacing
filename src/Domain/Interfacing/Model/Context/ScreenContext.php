@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Context;
+    namespace App\Domain\Interfacing\Model\Context;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
+    use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
 
 final class ScreenContext implements ScreenContextInterface
 {

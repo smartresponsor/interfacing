@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Query;
+namespace App\DomainInterface\Interfacing\Query;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
+use App\Domain\Interfacing\Query\OrderSummaryPage;
 
 interface OrderSummaryQueryInterface
 {

@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Adapter\CategoryApi;
+namespace App\Infra\Interfacing\Adapter\CategoryApi;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\CategoryItemView;
-use SmartResponsor\Interfacing\Infra\Interfacing\Config\CategoryApiRouteMap;
-use SmartResponsor\Interfacing\Infra\Interfacing\Config\InterfacingConfig;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\CategoryApiClientInterface;
+use App\Domain\Interfacing\Model\CategoryItemView;
+use App\Infra\Interfacing\Config\CategoryApiRouteMap;
+use App\Infra\Interfacing\Config\InterfacingConfig;
+use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class CategoryApiClient implements CategoryApiClientInterface

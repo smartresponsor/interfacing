@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action;
+    namespace App\DomainInterface\Interfacing\Model\Action;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
+    use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
 
 interface ActionRequestInterface
 {

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Security;
+namespace App\Service\Interfacing\Security;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Runtime\InterfacingPermission;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Security\PermissionNamerInterface;
+use App\Domain\Interfacing\Runtime\InterfacingPermission;
+use App\DomainInterface\Interfacing\Security\PermissionNamerInterface;
 
 final class InterfacingPermissionNamer implements PermissionNamerInterface
 {

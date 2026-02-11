@@ -5,11 +5,11 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Test\Service;
+namespace App\Test\Service;
 
 use PHPUnit\Framework\TestCase;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use SmartResponsor\Interfacing\Service\Interfacing\Context\BaseContextAssembler;
+use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\Service\Interfacing\Context\BaseContextAssembler;
 
 final class BaseContextAssemblerTest extends TestCase
 {

@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Doctor;
+namespace App\Service\Interfacing\Doctor;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
+use App\ServiceInterface\Interfacing\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
 
 final class DoctorReport
 {

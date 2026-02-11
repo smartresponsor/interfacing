@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Provider;
+    namespace App\ServiceInterface\Interfacing\Provider;
 
-    use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+    use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 
 interface ActionProviderInterface
 {

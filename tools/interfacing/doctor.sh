@@ -6,4 +6,6 @@ if [ ! -f "bin/console" ]; then
   exit 1
 fi
 
+php tools/interfacing/namespace-guard.php
+
 php bin/console interfacing:doctor

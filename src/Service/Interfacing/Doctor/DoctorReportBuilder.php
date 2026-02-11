@@ -5,11 +5,11 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Doctor;
+namespace App\Service\Interfacing\Doctor;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
+use App\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
+use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
 
 final class DoctorReportBuilder implements DoctorReportBuilderInterface
 {

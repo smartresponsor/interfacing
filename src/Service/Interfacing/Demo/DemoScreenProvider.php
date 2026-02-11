@@ -5,12 +5,12 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Demo;
+namespace App\Service\Interfacing\Demo;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Layout\LayoutId;
-use SmartResponsor\Interfacing\Domain\Interfacing\Screen\ScreenId;
-use SmartResponsor\Interfacing\Domain\Interfacing\Screen\ScreenSpec;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
+use App\Domain\Interfacing\Layout\LayoutId;
+use App\Domain\Interfacing\Screen\ScreenId;
+use App\Domain\Interfacing\Screen\ScreenSpec;
+use App\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
 
 final class DemoScreenProvider implements ScreenProviderInterface
 {

@@ -4,12 +4,12 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Widget\DataGrid\Demo;
+namespace App\Service\Interfacing\Widget\DataGrid\Demo;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridQuery;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridRow;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
+use App\Domain\Interfacing\Model\DataGrid\DataGridQuery;
+use App\Domain\Interfacing\Model\DataGrid\DataGridResult;
+use App\Domain\Interfacing\Model\DataGrid\DataGridRow;
+use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
 
 final class DemoDataGridProvider implements DataGridProviderInterface
 {

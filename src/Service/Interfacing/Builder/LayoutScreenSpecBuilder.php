@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Builder;
+    namespace App\Service\Interfacing\Builder;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Spec\LayoutScreenSpec;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Builder\LayoutScreenSpecBuilderInterface;
+    use App\Domain\Interfacing\Spec\LayoutScreenSpec;
+use App\ServiceInterface\Interfacing\Builder\LayoutScreenSpecBuilderInterface;
 
 final class LayoutScreenSpecBuilder implements LayoutScreenSpecBuilderInterface
 {

@@ -3,11 +3,11 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Http\Interfacing\Command;
+    namespace App\Http\Interfacing\Command;
 
-    use SmartResponsor\Interfacing\HttpInterface\Interfacing\Command\InterfacingCatalogCommandInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
+    use App\HttpInterface\Interfacing\Command\InterfacingCatalogCommandInterface;
+use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

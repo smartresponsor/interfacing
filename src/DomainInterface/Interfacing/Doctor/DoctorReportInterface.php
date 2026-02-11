@@ -5,11 +5,11 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor;
+namespace App\DomainInterface\Interfacing\Doctor;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
+use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
+use App\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
+use App\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
 
 interface DoctorReportInterface
 {

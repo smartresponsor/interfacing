@@ -5,16 +5,16 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Doctor;
+namespace App\Service\Interfacing\Doctor;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Doctor\DoctorIssue;
-use SmartResponsor\Interfacing\Domain\Interfacing\Doctor\DoctorReport;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
-use SmartResponsor\Interfacing\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
+use App\Domain\Interfacing\Doctor\DoctorIssue;
+use App\Domain\Interfacing\Doctor\DoctorReport;
+use App\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
+use App\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
+use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
 
 final class InterfacingDoctorService implements InterfacingDoctorServiceInterface
 {

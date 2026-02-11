@@ -5,15 +5,15 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Demo;
+namespace App\Service\Interfacing\Demo;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionId;
-use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessage;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionIdInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionResultInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionRuntimeInterface;
+use App\Domain\Interfacing\Action\ActionId;
+use App\Domain\Interfacing\Action\ActionResult;
+use App\Domain\Interfacing\Ui\UiMessage;
+use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
+use App\DomainInterface\Interfacing\Action\ActionIdInterface;
+use App\DomainInterface\Interfacing\Action\ActionResultInterface;
+use App\DomainInterface\Interfacing\Action\ActionRuntimeInterface;
 
 final class DemoPingActionEndpoint implements ActionEndpointInterface
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\HttpInterface\Interfacing\Command;
+namespace App\HttpInterface\Interfacing\Command;
 
 interface InterfacingDoctorCommandInterface
 {

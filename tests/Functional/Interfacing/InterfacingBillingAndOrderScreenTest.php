@@ -5,25 +5,25 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace SmartResponsor\Interfacing\Tests\Functional\Interfacing;
+namespace App\Tests\Functional\Interfacing;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Access\AccessDecision;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterPage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterRow;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryPage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\OrderSummaryRow;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Access\AccessResolverInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
+use App\Domain\Interfacing\Access\AccessDecision;
+use App\Domain\Interfacing\Query\BillingMeterPage;
+use App\Domain\Interfacing\Query\BillingMeterRow;
+use App\Domain\Interfacing\Query\OrderSummaryPage;
+use App\Domain\Interfacing\Query\OrderSummaryRow;
+use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
+use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
+use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-#[CoversClass(\SmartResponsor\Interfacing\Infra\Interfacing\Http\BillingMeterScreenController::class)]
-#[CoversClass(\SmartResponsor\Interfacing\Infra\Interfacing\Http\OrderSummaryScreenController::class)]
+#[CoversClass(\App\Infra\Interfacing\Http\BillingMeterScreenController::class)]
+#[CoversClass(\App\Infra\Interfacing\Http\OrderSummaryScreenController::class)]
 final class InterfacingBillingAndOrderScreenTest extends WebTestCase
 {
     public function testBillingMeterScreenRendersWithStubData(): void

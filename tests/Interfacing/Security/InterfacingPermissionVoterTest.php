@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Tests\Interfacing\Security;
+namespace App\Tests\Interfacing\Security;
 
-use SmartResponsor\Interfacing\Infra\Interfacing\Security\InterfacingPermissionVoter;
+use App\Infra\Interfacing\Security\InterfacingPermissionVoter;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Infra\Interfacing\Symfony;
+    namespace App\Infra\Interfacing\Symfony;
 
-    use SmartResponsor\Interfacing\Infra\Interfacing\Symfony\Compiler\InterfacingAttributeTagCompilerPass;
-use SmartResponsor\Interfacing\Infra\Interfacing\Symfony\Compiler\InterfacingCatalogCompilerPass;
+    use App\Infra\Interfacing\Symfony\Compiler\InterfacingAttributeTagCompilerPass;
+use App\Infra\Interfacing\Symfony\Compiler\InterfacingCatalogCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

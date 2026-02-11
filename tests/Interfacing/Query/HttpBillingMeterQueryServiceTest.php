@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Tests\Interfacing\Query;
+namespace App\Tests\Interfacing\Query;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterPage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Query\BillingMeterRow;
-use SmartResponsor\Interfacing\Service\Interfacing\Query\HttpBillingMeterQueryService;
+use App\Domain\Interfacing\Query\BillingMeterPage;
+use App\Domain\Interfacing\Query\BillingMeterRow;
+use App\Service\Interfacing\Query\HttpBillingMeterQueryService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

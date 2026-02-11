@@ -4,10 +4,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Live\Widget\Metric;
+namespace App\Infra\Interfacing\Live\Widget\Metric;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\Metric\MetricDatum;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
+use App\Domain\Interfacing\Model\Metric\MetricDatum;
+use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;

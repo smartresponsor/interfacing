@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Http;
+namespace App\Infra\Interfacing\Http;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;

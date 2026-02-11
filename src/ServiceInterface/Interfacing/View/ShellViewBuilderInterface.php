@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\View;
+    namespace App\ServiceInterface\Interfacing\View;
 
     interface ShellViewBuilderInterface
 {

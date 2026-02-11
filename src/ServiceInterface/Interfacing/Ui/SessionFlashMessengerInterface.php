@@ -5,10 +5,10 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui;
+namespace App\ServiceInterface\Interfacing\Ui;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessageBag;
+use App\Domain\Interfacing\Ui\UiMessage;
+use App\Domain\Interfacing\Ui\UiMessageBag;
 
 interface SessionFlashMessengerInterface
 {

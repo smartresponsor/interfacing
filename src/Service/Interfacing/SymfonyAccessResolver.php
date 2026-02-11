@@ -3,10 +3,10 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing;
+namespace App\Service\Interfacing;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\AccessRule;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface;
+use App\Domain\Interfacing\Model\AccessRule;
+use App\ServiceInterface\Interfacing\AccessResolverInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final class SymfonyAccessResolver implements AccessResolverInterface

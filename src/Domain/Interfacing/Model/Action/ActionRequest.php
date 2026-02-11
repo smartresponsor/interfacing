@@ -6,10 +6,10 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Action;
+    namespace App\Domain\Interfacing\Model\Action;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
+    use App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
+use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
 
 final class ActionRequest implements ActionRequestInterface
 {

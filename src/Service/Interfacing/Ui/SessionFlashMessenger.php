@@ -5,11 +5,11 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Ui;
+namespace App\Service\Interfacing\Ui;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Ui\UiMessageBag;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
+use App\Domain\Interfacing\Ui\UiMessage;
+use App\Domain\Interfacing\Ui\UiMessageBag;
+use App\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final class SessionFlashMessenger implements SessionFlashMessengerInterface

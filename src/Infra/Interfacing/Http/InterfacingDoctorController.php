@@ -1,14 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Http;
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEvent;
-use SmartResponsor\Interfacing\Domain\Interfacing\Audit\AuditEventType;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Audit\AuditSinkInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Security\PermissionNamerInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Access\AccessResolverInterface;
+namespace App\Infra\Interfacing\Http;
+
+use App\Domain\Interfacing\Audit\AuditEvent;
+use App\Domain\Interfacing\Audit\AuditEventType;
+use App\DomainInterface\Interfacing\Audit\AuditSinkInterface;
+use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\DomainInterface\Interfacing\Security\PermissionNamerInterface;
+use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +27,7 @@ final class InterfacingDoctorController extends AbstractController
         private readonly AuditSinkInterface $audit,
     ) {}
 
-    #[Route(path: '/interfacing/doctor', name: 'interfacing_doctor', methods: ['GET'])]
+    #[Route(path: '/interfacing/doctor/infra', name: 'interfacing_doctor_infra', methods: ['GET'])]
     public function index(Request $request): Response
     {
         $token = $this->tokenStorage->getToken();

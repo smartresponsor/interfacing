@@ -5,7 +5,7 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui;
+namespace App\DomainInterface\Interfacing\Ui;
 
 interface UiErrorInterface
 {

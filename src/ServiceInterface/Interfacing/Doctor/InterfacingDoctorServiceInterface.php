@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor;
+namespace App\ServiceInterface\Interfacing\Doctor;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
+use App\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
 
 interface InterfacingDoctorServiceInterface
 {

@@ -3,6 +3,8 @@ set -euo pipefail
 
 php -v >/dev/null
 
+php tools/interfacing/namespace-guard.php
+
 if [ -f "bin/console" ]; then
   php bin/console cache:warmup >/dev/null
   php bin/console interfacing:doctor >/dev/null

@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Ui;
+namespace App\Domain\Interfacing\Ui;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Ui\UiMessageInterface;
+use App\DomainInterface\Interfacing\Ui\UiMessageInterface;
 
 final class UiMessage implements UiMessageInterface
 {

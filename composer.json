@@ -20,12 +20,12 @@
   },
   "autoload": {
     "psr-4": {
-      "SmartResponsor\\Interfacing\\": "src/"
+      "App\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "SmartResponsor\\Interfacing\\Test\\": "test/"
+      "App\\Test\\": "test/"
     }
   }
 }

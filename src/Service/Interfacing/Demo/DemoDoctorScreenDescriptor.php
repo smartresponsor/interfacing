@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Demo;
+    namespace App\Service\Interfacing\Demo;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Attribute\AsInterfacingScreen;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
+    use App\Domain\Interfacing\Attribute\AsInterfacingScreen;
+use App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
 
 #[AsInterfacingScreen(
     id: 'interfacing.doctor',

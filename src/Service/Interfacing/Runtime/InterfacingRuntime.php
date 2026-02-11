@@ -4,11 +4,11 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Runtime;
+namespace App\Service\Interfacing\Runtime;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use App\Domain\Interfacing\Model\ScreenId;
+use App\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
+use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 
 final class InterfacingRuntime implements InterfacingRuntimeInterface
 {

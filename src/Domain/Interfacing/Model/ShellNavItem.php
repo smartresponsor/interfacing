@@ -3,9 +3,9 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Model;
+namespace App\Domain\Interfacing\Model;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ScreenId;
+use App\Domain\Interfacing\Value\ScreenId;
 
 final class ShellNavItem
 {

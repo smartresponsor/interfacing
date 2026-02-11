@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing;
+    namespace App\ServiceInterface\Interfacing;
 
     /** Marker interface for Interfacing Service layer. */
 interface ServiceMarkerInterface

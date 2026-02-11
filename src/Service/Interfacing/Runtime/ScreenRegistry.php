@@ -4,12 +4,12 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Runtime;
+namespace App\Service\Interfacing\Runtime;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ScreenId;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use App\Domain\Interfacing\Value\ScreenId;
+use App\ServiceInterface\Interfacing\Runtime\ScreenCatalogInterface;
+use App\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
+use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 
 final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInterface
 {

@@ -3,12 +3,12 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Builder;
+    namespace App\Service\Interfacing\Builder;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Spec\FormSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Spec\WizardSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Spec\WizardStepSpec;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Builder\WizardSpecBuilderInterface;
+    use App\Domain\Interfacing\Spec\FormSpec;
+use App\Domain\Interfacing\Spec\WizardSpec;
+use App\Domain\Interfacing\Spec\WizardStepSpec;
+use App\ServiceInterface\Interfacing\Builder\WizardSpecBuilderInterface;
 
 final class WizardSpecBuilder implements WizardSpecBuilderInterface
 {

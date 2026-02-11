@@ -3,15 +3,15 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing;
+namespace App\Service\Interfacing;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\ActionRequest;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\ActionResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\TelemetryEvent;
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ActionId;
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ScreenId;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\TelemetryBridgeInterface;
+use App\Domain\Interfacing\Model\ActionRequest;
+use App\Domain\Interfacing\Model\ActionResult;
+use App\Domain\Interfacing\Model\TelemetryEvent;
+use App\Domain\Interfacing\Value\ActionId;
+use App\Domain\Interfacing\Value\ScreenId;
+use App\ServiceInterface\Interfacing\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\TelemetryBridgeInterface;
 
 final class ActionRunner
 {

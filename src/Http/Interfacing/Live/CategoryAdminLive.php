@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Http\Interfacing\Live;
+namespace App\Http\Interfacing\Live;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\ActionResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\CategoryFormModel;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\UiErrorBag;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\UiMessage;
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ActionId;
-use SmartResponsor\Interfacing\Domain\Interfacing\Value\ScreenId;
-use SmartResponsor\Interfacing\Service\Interfacing\ActionRunner;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\BaseContextProviderInterface;
+use App\Domain\Interfacing\Model\ActionResult;
+use App\Domain\Interfacing\Model\CategoryFormModel;
+use App\Domain\Interfacing\Model\UiErrorBag;
+use App\Domain\Interfacing\Model\UiMessage;
+use App\Domain\Interfacing\Value\ActionId;
+use App\Domain\Interfacing\Value\ScreenId;
+use App\Service\Interfacing\ActionRunner;
+use App\ServiceInterface\Interfacing\BaseContextProviderInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;

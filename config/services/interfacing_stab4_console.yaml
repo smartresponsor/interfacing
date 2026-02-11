@@ -4,8 +4,8 @@ parameters:
     - { id: 'order-summary', route: 'interfacing_order_summary', domain: 'order', notes: 'Order summary grid' }
 
 services:
-  SmartResponsor\Interfacing\Infra\Interfacing\Console\InterfacingScreenDumpCommand:
+  App\Infra\Interfacing\Console\InterfacingScreenDumpCommand:
     tags: ['console.command']
 
-  SmartResponsor\Interfacing\Infra\Interfacing\Console\InterfacingScreenValidateCommand:
+  App\Infra\Interfacing\Console\InterfacingScreenValidateCommand:
     tags: ['console.command']

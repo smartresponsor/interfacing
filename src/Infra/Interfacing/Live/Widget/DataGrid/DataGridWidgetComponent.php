@@ -4,13 +4,13 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Live\Widget\DataGrid;
+namespace App\Infra\Interfacing\Live\Widget\DataGrid;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\BulkAction\BulkActionResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridQuery;
-use SmartResponsor\Interfacing\Domain\Interfacing\Model\DataGrid\DataGridResult;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
+use App\Domain\Interfacing\Model\BulkAction\BulkActionResult;
+use App\Domain\Interfacing\Model\DataGrid\DataGridQuery;
+use App\Domain\Interfacing\Model\DataGrid\DataGridResult;
+use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
+use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;

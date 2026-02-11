@@ -5,10 +5,10 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Telemetry;
+namespace App\Infra\Interfacing\Telemetry;
 
 use Psr\Log\LoggerInterface;
-use SmartResponsor\Interfacing\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
+use App\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
 
 final class InterfacingTelemetry implements InterfacingTelemetryInterface

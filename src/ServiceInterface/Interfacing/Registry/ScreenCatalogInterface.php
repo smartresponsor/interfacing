@@ -3,7 +3,7 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry;
+    namespace App\ServiceInterface\Interfacing\Registry;
 
     interface ScreenCatalogInterface
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Model\Form;
+namespace App\Domain\Interfacing\Model\Form;
 
 final class FormSpec
 {

@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Context;
+    namespace App\ServiceInterface\Interfacing\Context;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
+    use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
 
 interface ScreenContextAssemblerInterface
 {

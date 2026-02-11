@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action;
+    namespace App\DomainInterface\Interfacing\Model\Action;
 
     interface ActionResultInterface
 {

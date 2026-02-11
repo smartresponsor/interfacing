@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Security;
+    namespace App\ServiceInterface\Interfacing\Security;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+    use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
 interface AccessResolverInterface
 {

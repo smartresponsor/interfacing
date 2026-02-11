@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Infra\Interfacing\Symfony\Compiler;
+    namespace App\Infra\Interfacing\Symfony\Compiler;
 
-    use SmartResponsor\Interfacing\Service\Interfacing\Registry\ActionCatalog;
-use SmartResponsor\Interfacing\Service\Interfacing\Registry\ScreenCatalog;
+    use App\Service\Interfacing\Registry\ActionCatalog;
+use App\Service\Interfacing\Registry\ScreenCatalog;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;

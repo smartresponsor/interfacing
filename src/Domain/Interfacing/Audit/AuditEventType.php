@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Audit;
+namespace App\Domain\Interfacing\Audit;
 
 enum AuditEventType: string
 {

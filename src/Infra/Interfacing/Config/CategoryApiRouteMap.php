@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Config;
+namespace App\Infra\Interfacing\Config;
 
 final class CategoryApiRouteMap
 {

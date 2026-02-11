@@ -3,11 +3,11 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Builder;
+    namespace App\Service\Interfacing\Builder;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Spec\FormFieldSpec;
-use SmartResponsor\Interfacing\Domain\Interfacing\Spec\FormSpec;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Builder\FormSpecBuilderInterface;
+    use App\Domain\Interfacing\Spec\FormFieldSpec;
+use App\Domain\Interfacing\Spec\FormSpec;
+use App\ServiceInterface\Interfacing\Builder\FormSpecBuilderInterface;
 
 final class FormSpecBuilder implements FormSpecBuilderInterface
 {

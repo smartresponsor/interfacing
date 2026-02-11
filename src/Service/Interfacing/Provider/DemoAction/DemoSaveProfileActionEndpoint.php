@@ -6,12 +6,12 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Provider\DemoAction;
+    namespace App\Service\Interfacing\Provider\DemoAction;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Model\Action\ActionResult;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+    use App\Domain\Interfacing\Model\Action\ActionResult;
+use App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
+use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
+use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 
 final class DemoSaveProfileActionEndpoint implements ActionEndpointInterface
 {

@@ -3,10 +3,10 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry;
+    namespace App\ServiceInterface\Interfacing\Registry;
 
-    use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
+    use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
 interface ActionEndpointInterface
 {

@@ -5,9 +5,9 @@
  * Proprietary and confidential.
  */
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Twig;
+namespace App\Infra\Interfacing\Twig;
 
-use SmartResponsor\Interfacing\InfraInterface\Interfacing\Twig\ClassNameTwigExtensionInterface;
+use App\InfraInterface\Interfacing\Twig\ClassNameTwigExtensionInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 

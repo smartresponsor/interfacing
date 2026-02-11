@@ -1,17 +1,19 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Infra\Interfacing\Command;
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Security\PermissionNamerInterface;
+namespace App\Infra\Interfacing\Command;
+
+use App\DomainInterface\Interfacing\Security\PermissionNamerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 #[AsCommand(
-    name: 'interfacing:doctor',
-    description: 'Print Interfacing permission samples and conventions.'
+    name: 'interfacing:permission-sample',
+    description: 'Print Interfacing permission naming samples and conventions.'
 )]
 final class InterfacingDoctorCommand extends Command
 {

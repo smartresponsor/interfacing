@@ -6,9 +6,9 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry;
+    namespace App\ServiceInterface\Interfacing\Registry;
 
-    use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+    use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
 
 interface ScreenRegistryInterface
 {

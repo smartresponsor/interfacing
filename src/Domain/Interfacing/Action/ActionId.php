@@ -5,7 +5,7 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Domain\Interfacing\Action;
+namespace App\Domain\Interfacing\Action;
 
 final class ActionId
 {

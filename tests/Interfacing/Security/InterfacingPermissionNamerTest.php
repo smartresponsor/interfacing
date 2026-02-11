@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\Tests\Interfacing\Security;
+namespace App\Tests\Interfacing\Security;
 
-use SmartResponsor\Interfacing\Service\Interfacing\Security\InterfacingPermissionNamer;
+use App\Service\Interfacing\Security\InterfacingPermissionNamer;
 use PHPUnit\Framework\TestCase;
 
 final class InterfacingPermissionNamerTest extends TestCase

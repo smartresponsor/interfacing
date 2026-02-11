@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SmartResponsor\Interfacing\DomainInterface\Interfacing\Security;
+namespace App\DomainInterface\Interfacing\Security;
 
 interface PermissionNamerInterface
 {

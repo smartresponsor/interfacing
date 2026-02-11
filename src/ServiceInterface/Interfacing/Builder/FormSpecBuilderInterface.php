@@ -3,9 +3,9 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Builder;
+    namespace App\ServiceInterface\Interfacing\Builder;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Spec\FormSpec;
+    use App\Domain\Interfacing\Spec\FormSpec;
 
 interface FormSpecBuilderInterface
 {

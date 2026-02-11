@@ -5,15 +5,15 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Action;
+namespace App\Service\Interfacing\Action;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionRequest;
-use SmartResponsor\Interfacing\Domain\Interfacing\Action\ActionResult;
-use SmartResponsor\Interfacing\Domain\Interfacing\Error\UiError;
-use SmartResponsor\Interfacing\Domain\Interfacing\Error\UiMessage;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Telemetry\TelemetryInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action\ActionRunnerInterface;
+use App\Domain\Interfacing\Action\ActionRequest;
+use App\Domain\Interfacing\Action\ActionResult;
+use App\Domain\Interfacing\Error\UiError;
+use App\Domain\Interfacing\Error\UiMessage;
+use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
+use App\DomainInterface\Interfacing\Telemetry\TelemetryInterface;
+use App\ServiceInterface\Interfacing\Action\ActionRunnerInterface;
 
 final class ActionRunner implements ActionRunnerInterface
 {

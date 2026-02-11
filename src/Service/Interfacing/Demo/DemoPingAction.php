@@ -3,12 +3,12 @@
 
     /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    namespace SmartResponsor\Interfacing\Service\Interfacing\Demo;
+    namespace App\Service\Interfacing\Demo;
 
-    use SmartResponsor\Interfacing\Domain\Interfacing\Attribute\AsInterfacingAction;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
+    use App\Domain\Interfacing\Attribute\AsInterfacingAction;
+use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
 #[AsInterfacingAction(
     screenId: 'interfacing.doctor',

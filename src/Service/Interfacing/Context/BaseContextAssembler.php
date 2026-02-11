@@ -5,10 +5,10 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Context;
+namespace App\Service\Interfacing\Context;
 
-use SmartResponsor\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Context\BaseContextAssemblerInterface;
+use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\ServiceInterface\Interfacing\Context\BaseContextAssemblerInterface;
 
 final class BaseContextAssembler implements BaseContextAssemblerInterface
 {

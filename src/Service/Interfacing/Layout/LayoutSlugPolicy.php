@@ -4,9 +4,9 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
-namespace SmartResponsor\Interfacing\Service\Interfacing\Layout;
+namespace App\Service\Interfacing\Layout;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutSlugPolicyInterface;
+use App\ServiceInterface\Interfacing\Layout\LayoutSlugPolicyInterface;
 
 final class LayoutSlugPolicy implements LayoutSlugPolicyInterface
 {

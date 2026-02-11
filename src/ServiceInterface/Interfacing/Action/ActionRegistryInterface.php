@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\ServiceInterface\Interfacing\Action;
+    namespace App\ServiceInterface\Interfacing\Action;
 
     interface ActionRegistryInterface
 {

@@ -6,7 +6,7 @@
      * Proprietary and confidential.
      */
 
-    namespace SmartResponsor\Interfacing\DomainInterface\Interfacing;
+    namespace App\DomainInterface\Interfacing;
 
     /** Marker interface for Interfacing Domain layer. */
 interface DomainMarkerInterface
