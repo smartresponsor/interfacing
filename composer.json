@@ -1,43 +1,64 @@
 {
-  "name": "smartresponsor/interfacing",
-  "type": "library",
-  "description": "SmartResponsor Interfacing — Symfony-oriented interface runtime, Twig/UX LiveComponent shell, and governed UI platform upstream for ecosystem consumers",
+  "name": "app/interfacing",
+  "description": "Interfacing Symfony 8 application",
+  "type": "project",
   "license": "proprietary",
+  "minimum-stability": "stable",
+  "prefer-stable": true,
   "require": {
     "php": "^8.4",
     "ext-ctype": "*",
     "ext-iconv": "*",
-    "ext-json": "*",
-    "ext-mbstring": "*",
-    "ext-xml": "*",
-    "psr/log": "^3.0",
-    "symfony/console": "^8.0",
-    "symfony/dependency-injection": "^8.0",
-    "symfony/filesystem": "^8.0",
-    "symfony/finder": "^8.0",
-    "symfony/framework-bundle": "^8.0",
-    "symfony/http-client": "^8.0",
-    "symfony/http-foundation": "^8.0",
-    "symfony/http-kernel": "^8.0",
-    "symfony/routing": "^8.0",
-    "symfony/security-bundle": "^8.0",
-    "symfony/stimulus-bundle": "^2.31",
-    "symfony/string": "^8.0",
-    "symfony/twig-bundle": "^8.0",
-    "symfony/ux-live-component": "^2.31",
-    "symfony/ux-twig-component": "^2.31",
-    "symfony/validator": "^8.0",
-    "symfony/yaml": "^8.0",
-    "twig/twig": "^3.24"
+    "composer-runtime-api": "^2.2",
+    "doctrine/dbal": "^4.2",
+    "doctrine/doctrine-bundle": "^2.13 || ^3.0",
+    "doctrine/doctrine-migrations-bundle": "^3.4",
+    "doctrine/orm": "^3.3",
+    "symfony/asset": "8.0.*",
+    "symfony/asset-mapper": "8.0.*",
+    "symfony/console": "8.0.*",
+    "symfony/dependency-injection": "8.0.*",
+    "symfony/dotenv": "8.0.*",
+    "symfony/expression-language": "8.0.*",
+    "symfony/form": "8.0.*",
+    "symfony/framework-bundle": "8.0.*",
+    "symfony/http-client": "8.0.*",
+    "symfony/intl": "8.0.*",
+    "symfony/mailer": "8.0.*",
+    "symfony/mime": "8.0.*",
+    "symfony/property-access": "8.0.*",
+    "symfony/property-info": "8.0.*",
+    "symfony/runtime": "8.0.*",
+    "symfony/security-bundle": "8.0.*",
+    "symfony/serializer": "8.0.*",
+    "symfony/stimulus-bundle": "^2.34",
+    "symfony/string": "8.0.*",
+    "symfony/twig-bundle": "8.0.*",
+    "symfony/uid": "8.0.*",
+    "symfony/ux-live-component": "^2.34",
+    "symfony/validator": "8.0.*",
+    "symfony/yaml": "8.0.*",
+    "twig/extra-bundle": "^3.0",
+    "twig/twig": "^3.0"
   },
   "require-dev": {
+    "doctrine/doctrine-fixtures-bundle": "^4.1",
+    "fakerphp/faker": "^1.24",
     "friendsofphp/php-cs-fixer": "^3.75",
-    "phpmd/phpmd": "^2.15",
-    "phpstan/phpstan": "^1.12",
+    "phpstan/extension-installer": "^1.4",
+    "phpstan/phpstan": "^2.1",
+    "phpstan/phpstan-phpunit": "^2.0",
+    "phpstan/phpstan-symfony": "^2.0",
     "phpunit/phpunit": "^11.5",
-    "symfony/browser-kit": "^8.0",
-    "symfony/css-selector": "^8.0",
-    "symfony/phpunit-bridge": "^8.0"
+    "symfony/browser-kit": "8.0.*",
+    "symfony/css-selector": "8.0.*",
+    "symfony/debug-bundle": "8.0.*",
+    "symfony/dom-crawler": "8.0.*",
+    "symfony/maker-bundle": "^1.64",
+    "symfony/panther": "^2.2",
+    "symfony/profiler-pack": "^1.0",
+    "symfony/stopwatch": "8.0.*",
+    "symfony/web-profiler-bundle": "8.0.*"
   },
   "autoload": {
     "psr-4": {
@@ -46,31 +67,60 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "App\\Tests\\": "tests/",
-      "App\\Test\\": "test/"
+      "App\\Tests\\": "tests/"
     }
   },
-  "minimum-stability": "stable",
-  "prefer-stable": true,
+  "replace": {
+    "symfony/polyfill-ctype": "*",
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-php84": "*"
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true,
+      "symfony/flex": true,
+      "symfony/runtime": true
+    },
+    "bump-after-update": true,
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
   "scripts": {
-    "lint:php": "php tools/qa/php-lint.php src tests test tools",
-    "cs:check": "php-cs-fixer fix --dry-run --diff --config=.php-cs-fixer.dist.php",
-    "cs:fix": "php-cs-fixer fix --config=.php-cs-fixer.dist.php",
-    "stan": "phpstan analyse -c phpstan.neon.dist",
-    "md": "phpmd src,text phpmd.xml",
-    "test": "phpunit -c phpunit.xml.dist",
-    "doctor": "php tools/interfacing/doctor.php",
-    "pipeline:local": [
+    "post-install-cmd": [
+      "@auto-scripts"
+    ],
+    "post-update-cmd": [
+      "@auto-scripts"
+    ],
+    "auto-scripts": {
+      "cache:clear": "symfony-cmd",
+      "assets:install %PUBLIC_DIR%": "symfony-cmd"
+    },
+    "lint": "php tools/qa/php-lint.php",
+    "lint:yaml": "php bin/console lint:yaml config src tests",
+    "lint:container": "php bin/console lint:container",
+    "lint:twig": "php bin/console lint:twig templates src",
+    "cs:check": "php-cs-fixer fix --dry-run --diff --verbose",
+    "cs:fix": "php-cs-fixer fix --verbose",
+    "stan": "phpstan analyse --memory-limit=1G",
+    "test": "phpunit",
+    "test:unit": "phpunit --testsuite unit",
+    "test:integration": "phpunit --testsuite integration",
+    "test:functional": "phpunit --testsuite functional",
+    "fixtures:load": "php bin/console doctrine:fixtures:load --no-interaction",
+    "db:migrate": "php bin/console doctrine:migrations:migrate --no-interaction",
+    "pipeline:local:full": [
+      "@lint",
+      "@lint:yaml",
+      "@lint:container",
+      "@lint:twig",
       "@cs:check",
       "@stan",
       "@test"
     ]
-  },
-  "config": {
-    "sort-packages": true,
-    "allow-plugins": {
-      "symfony/flex": true
-    }
   },
   "extra": {
     "symfony": {
