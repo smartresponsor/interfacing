@@ -1,9 +1,4 @@
 services:
-  App\:
-    resource: '../src/'
-    exclude:
-      - '../src/Kernel.php'
-
   # RVE-A2: enforce thin controllers by delegating orchestration to a view builder (service layer).
   App\Service\Interfacing\View\ScreenViewBuilder: ~
 
@@ -38,4 +33,4 @@ services:
 
   App\Service\Interfacing\Audit\MonologAuditSink:
     arguments:
-      $logger: '@monolog.logger.interfacing'
+      $logger: '@Psr\Log\NullLogger'

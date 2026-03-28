@@ -14,6 +14,7 @@ use App\Contract\Dto\BillingMeterRow;
 use App\Contract\Dto\OrderSummaryPage;
 use App\Contract\Dto\OrderSummaryRow;
 use App\ServiceInterface\Interfacing\Access\AccessResolverInterface;
+use App\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
 use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
 use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -61,7 +62,10 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
     {
         self::ensureKernelShutdown();
 
-        $client = self::createClient();
+        $client = self::createClient([
+            'environment' => 'test',
+            'debug' => true,
+        ]);
         $container = self::getContainer();
 
         // Access: always allow in tests.
@@ -71,19 +75,11 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(AccessResolverInterface::class, $accessResolver);
         }
 
-        if ($container->has('App\\Service\\Interfacing\\Access\\SymfonyAccessResolver')) {
-            $container->set('App\\Service\\Interfacing\\Access\\SymfonyAccessResolver', $accessResolver);
-        }
-
         // Context: stable tenant/user for tests, so no env or security dependency.
         $baseContextProvider = new TestBaseContextProvider();
 
-        if ($container->has(BaseContextProviderInterface::class)) {
-            $container->set(BaseContextProviderInterface::class, $baseContextProvider);
-        }
-
-        if ($container->has('App\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider')) {
-            $container->set('App\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider', $baseContextProvider);
+        if ($container->has(RequestBaseContextProviderInterface::class)) {
+            $container->set(RequestBaseContextProviderInterface::class, $baseContextProvider);
         }
 
         // Billing & order query services: provide in-memory pages instead of HTTP calls.
@@ -94,16 +90,8 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(BillingMeterQueryServiceInterface::class, $billingQuery);
         }
 
-        if ($container->has('App\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService')) {
-            $container->set('App\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService', $billingQuery);
-        }
-
         if ($container->has(OrderSummaryQueryServiceInterface::class)) {
             $container->set(OrderSummaryQueryServiceInterface::class, $orderQuery);
-        }
-
-        if ($container->has('App\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService')) {
-            $container->set('App\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService', $orderQuery);
         }
 
         return $client;
@@ -129,7 +117,7 @@ final class TestAllowAllAccessResolver implements AccessResolverInterface
 /**
  * Test-only context provider with a fixed tenant and synthetic user.
  */
-final class TestBaseContextProvider implements BaseContextProviderInterface
+final class TestBaseContextProvider implements RequestBaseContextProviderInterface
 {
     /**
      * @return array|mixed[]

@@ -1,24 +1,25 @@
 <?php
-    declare(strict_types=1);
 
-    /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Runtime;
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
+namespace App\Service\Interfacing\Runtime;
+
+use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
 use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 use App\ServiceInterface\Interfacing\Runtime\ActionRunnerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-    /**
-     *
-     */
+/**
+ *
+ */
 
-    /**
-     *
-     */
-    final readonly class ActionRunner implements ActionRunnerInterface
+/**
+ *
+ */
+final readonly class ActionRunner implements ActionRunnerInterface
 {
     /**
      * @param \App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface $actionCatalog
@@ -41,4 +42,3 @@ use Symfony\Component\HttpFoundation\Request;
         return $endpoint->handle(new ActionRequest($screenId, $actionId, $payload, $request));
     }
 }
-

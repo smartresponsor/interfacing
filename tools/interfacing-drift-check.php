@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -16,12 +17,17 @@ $routePathSeen = [];
 $routePathFile = [];
 
 /** @return string[] */
-function phpFiles(string $dir): array {
+function phpFiles(string $dir): array
+{
     $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir));
     $out = [];
     foreach ($it as $f) {
-        if (!$f->isFile()) { continue; }
-        if (\substr($f->getFilename(), -4) !== '.php') { continue; }
+        if (!$f->isFile()) {
+            continue;
+        }
+        if (\substr($f->getFilename(), -4) !== '.php') {
+            continue;
+        }
         $out[] = $f->getPathname();
     }
     return $out;
@@ -32,8 +38,9 @@ function phpFiles(string $dir): array {
  * @param string $msg
  * @return void
  */
-function report(string $file, string $msg): void {
-    fwrite(STDERR, $file.": ".$msg.PHP_EOL);
+function report(string $file, string $msg): void
+{
+    fwrite(STDERR, $file.': '.$msg.PHP_EOL);
 }
 
 $requiredNamespacePrefix = 'namespace App\\';
@@ -78,7 +85,10 @@ $files = phpFiles($src);
 foreach ($files as $file) {
     $ok = false;
     foreach ($allowedPrefix as $p) {
-        if (\str_starts_with($file, $p)) { $ok = true; break; }
+        if (\str_starts_with($file, $p)) {
+            $ok = true;
+            break;
+        }
     }
     if (!$ok) {
         // Not a failure: Interfacing repo may contain other domains; we scan Interfacing-boundary files only.
@@ -90,7 +100,7 @@ foreach ($files as $file) {
     // Enforce Symfony-standard App\ namespace for component code.
     if (\strpos($txt, $requiredNamespacePrefix) === false) {
         $fail++;
-        report($file, "missing required namespace prefix: App\\");
+        report($file, 'missing required namespace prefix: App\\');
     }
 
     // RVE-B6: detect obvious route-path collisions within Interfacing boundary.
@@ -104,7 +114,7 @@ foreach ($files as $file) {
                 }
                 if (isset($routePathSeen[$k]) && ($routePathFile[$k] ?? '') !== $file) {
                     $fail++;
-                    report($file, "route path collision: ".$k." already in ".$routePathFile[$k]);
+                    report($file, 'route path collision: '.$k.' already in '.$routePathFile[$k]);
                 } else {
                     $routePathSeen[$k] = 1;
                     $routePathFile[$k] = $file;
@@ -116,21 +126,21 @@ foreach ($files as $file) {
     foreach ($forbiddenNamespace as $needle) {
         if (\strpos($txt, $needle) !== false) {
             $fail++;
-            report($file, "forbidden reference: ".$needle);
+            report($file, 'forbidden reference: '.$needle);
         }
     }
     foreach ($forbiddenToken as $needle) {
         if (\strpos($txt, $needle) !== false) {
             $fail++;
-            report($file, "suspicious domain token: ".$needle);
+            report($file, 'suspicious domain token: '.$needle);
         }
     }
 }
 
 if ($fail > 0) {
-    fwrite(STDERR, "DRIFT_CHECK_FAILED: ".$fail.PHP_EOL);
+    fwrite(STDERR, 'DRIFT_CHECK_FAILED: '.$fail.PHP_EOL);
     exit(2);
 }
 
-fwrite(STDOUT, "DRIFT_CHECK_OK".PHP_EOL);
+fwrite(STDOUT, 'DRIFT_CHECK_OK'.PHP_EOL);
 exit(0);

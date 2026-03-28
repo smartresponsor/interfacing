@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-final readonly class InterfacingDoctorInfraController extends AbstractController
+final class InterfacingDoctorInfraController extends AbstractController
 {
     /**
      * @param \App\ServiceInterface\Interfacing\Context\RequestRequestBaseContextProviderInterface $baseContext

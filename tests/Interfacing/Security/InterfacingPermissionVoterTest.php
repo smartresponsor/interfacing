@@ -7,6 +7,7 @@ namespace App\Tests\Interfacing\Security;
 use App\Application\Security\InterfacingPermissionVoter;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 final class InterfacingPermissionVoterTest extends TestCase
 {
@@ -83,7 +84,7 @@ final class TestToken implements TokenInterface
         return null;
     }
 
-    public function getUser(): mixed
+    public function getUser(): ?UserInterface
     {
         return null;
     }
@@ -93,6 +94,11 @@ final class TestToken implements TokenInterface
     }
 
     public function getUsername(): string
+    {
+        return '';
+    }
+
+    public function getUserIdentifier(): string
     {
         return '';
     }
@@ -145,5 +151,10 @@ final class TestToken implements TokenInterface
 
     public function __unserialize(array $data): void
     {
+    }
+
+    public function __toString(): string
+    {
+        return '';
     }
 }

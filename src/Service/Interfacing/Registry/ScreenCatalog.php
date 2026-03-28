@@ -1,21 +1,22 @@
 <?php
-    declare(strict_types=1);
 
-    /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Registry;
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    use App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
+namespace App\Service\Interfacing\Registry;
+
+use App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
 use App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
 
-    /**
-     *
-     */
+/**
+ *
+ */
 
-    /**
-     *
-     */
-    final class ScreenCatalog implements ScreenCatalogInterface
+/**
+ *
+ */
+final class ScreenCatalog implements ScreenCatalogInterface
 {
     /** @var array<string, ScreenDescriptorInterface> */
     private array $screen = [];
@@ -53,4 +54,3 @@ use App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
         return $this->screen[$screenId];
     }
 }
-

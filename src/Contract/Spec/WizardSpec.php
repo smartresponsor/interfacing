@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace App\Contract\Spec;
 
-    final readonly class WizardSpec
+final readonly class WizardSpec
 {
     /** @var list<WizardStepSpec> */
     public array $step;

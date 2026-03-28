@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -22,7 +23,9 @@ final class BaseContextProvider implements BaseContextProviderInterface
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
      * @param \Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface $tokenStorage
      */
-    public function __construct(private readonly RequestStack $requestStack, private readonly TokenStorageInterface $tokenStorage) {}
+    public function __construct(private readonly RequestStack $requestStack, private readonly TokenStorageInterface $tokenStorage)
+    {
+    }
 
     /**
      * @return array|mixed[]

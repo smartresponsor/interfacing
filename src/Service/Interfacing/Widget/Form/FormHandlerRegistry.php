@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
+
 namespace App\Service\Interfacing\Widget\Form;
 
 use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
@@ -33,7 +35,10 @@ final class FormHandlerRegistry implements FormHandlerRegistryInterface
      * @param string $id
      * @return bool
      */
-    public function has(string $id): bool { return isset($this->map[$id]); }
+    public function has(string $id): bool
+    {
+        return isset($this->map[$id]);
+    }
 
     /**
      * @param string $id

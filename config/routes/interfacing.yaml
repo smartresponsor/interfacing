@@ -1,2 +1,9 @@
-# Routes use PHP attributes on controllers in this sketch.
-# Import controllers if you use a custom resource setup.
+interfacing_billing_meter:
+  path: /interfacing/billing/meter
+  controller: App\Presentation\Controller\Interfacing\BillingMeterScreenController::index
+  methods: [GET]
+
+interfacing_order_summary:
+  path: /interfacing/order/summary
+  controller: App\Presentation\Controller\Interfacing\OrderSummaryScreenController::index
+  methods: [GET]

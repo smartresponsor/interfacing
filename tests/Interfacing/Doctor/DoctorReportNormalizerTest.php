@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace Tests\Interfacing\Doctor;
+namespace App\Tests\Interfacing\Doctor;
 
 use App\Service\Interfacing\Doctor\DoctorReportNormalizer;
 use PHPUnit\Framework\TestCase;

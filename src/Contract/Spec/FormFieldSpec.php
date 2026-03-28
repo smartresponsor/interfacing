@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace App\Contract\Spec;
 
-    final readonly class FormFieldSpec
+final readonly class FormFieldSpec
 {
     /**
      * @param array<string, scalar|null> $option

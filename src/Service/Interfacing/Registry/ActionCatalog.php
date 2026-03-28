@@ -1,21 +1,22 @@
 <?php
-    declare(strict_types=1);
 
-    /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Registry;
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
+namespace App\Service\Interfacing\Registry;
+
+use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 
-    /**
-     *
-     */
+/**
+ *
+ */
 
-    /**
-     *
-     */
-    final class ActionCatalog implements ActionCatalogInterface
+/**
+ *
+ */
+final class ActionCatalog implements ActionCatalogInterface
 {
     /** @var array<string, array<string, ActionEndpointInterface>> */
     private array $action = [];
@@ -55,4 +56,3 @@ use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
         return $this->action[$screenId][$actionId];
     }
 }
-

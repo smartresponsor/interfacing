@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -21,7 +23,9 @@ final readonly class DemoActionProvider implements ActionProviderInterface
     /**
      * @param \App\Service\Interfacing\Demo\DemoPingActionEndpoint $ping
      */
-    public function __construct(private DemoPingActionEndpoint $ping) {}
+    public function __construct(private DemoPingActionEndpoint $ping)
+    {
+    }
 
     /**
      * @return \App\Service\Interfacing\Demo\DemoPingActionEndpoint[]
@@ -31,4 +35,3 @@ final readonly class DemoActionProvider implements ActionProviderInterface
         return [$this->ping];
     }
 }
-

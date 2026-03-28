@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -62,7 +63,7 @@ foreach ($scanDir as $path) {
 if ($hit !== []) {
     fwrite(STDERR, "Namespace guard: FAIL\n");
     foreach ($hit as [$file, $needle]) {
-        fwrite(STDERR, "- " . $file . " contains: " . $needle . "\n");
+        fwrite(STDERR, '- ' . $file . ' contains: ' . $needle . "\n");
     }
     exit(2);
 }

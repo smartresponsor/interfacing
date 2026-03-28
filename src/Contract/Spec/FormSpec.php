@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace App\Contract\Spec;
 
-    final readonly class FormSpec
+final readonly class FormSpec
 {
     /** @var list<FormFieldSpec> */
     public array $field;

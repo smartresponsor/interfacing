@@ -1,28 +1,28 @@
 <?php
-    declare(strict_types=1);
 
-    /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Registry;
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    /**
-     *
-     */
+namespace App\ServiceInterface\Interfacing\Registry;
 
-    /**
-     *
-     */
-    interface ScreenCatalogInterface
+/**
+ *
+ */
+
+/**
+ *
+ */
+interface ScreenCatalogInterface
 {
     /**
      * @return list<ScreenDescriptorInterface>
      */
     public function all(): array;
 
-        /**
-         * @param string $screenId
-         * @return \App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface
-         */
-        public function get(string $screenId): ScreenDescriptorInterface;
+    /**
+     * @param string $screenId
+     * @return \App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface
+     */
+    public function get(string $screenId): ScreenDescriptorInterface;
 }
-

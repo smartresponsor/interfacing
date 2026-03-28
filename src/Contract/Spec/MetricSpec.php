@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace App\Contract\Spec;
 
-    final readonly class MetricSpec
+final readonly class MetricSpec
 {
     public function __construct(
         public string $id,

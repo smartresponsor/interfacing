@@ -1,8 +1,0 @@
-monolog:
-  channels: ['interfacing']
-  handlers:
-    interfacing:
-      type: stream
-      path: '%kernel.logs_dir%/interfacing.log'
-      level: info
-      channels: ['interfacing']

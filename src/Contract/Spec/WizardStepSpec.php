@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace App\Contract\Spec;
 
-    final readonly class WizardStepSpec
+final readonly class WizardStepSpec
 {
     public function __construct(
         public string $id,

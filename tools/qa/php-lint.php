@@ -40,5 +40,5 @@ if ($failed) {
     exit(1);
 }
 
-fwrite(STDOUT, sprintf("PHP lint passed for %d files.
-", count($files)));
+fwrite(STDOUT, sprintf('PHP lint passed for %d files.
+', count($files)));

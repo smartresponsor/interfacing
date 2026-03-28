@@ -1,21 +1,22 @@
 <?php
-    declare(strict_types=1);
 
-    /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Registry;
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
+namespace App\ServiceInterface\Interfacing\Registry;
+
+use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
 use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
-    /**
-     *
-     */
+/**
+ *
+ */
 
-    /**
-     *
-     */
-    interface ActionEndpointInterface
+/**
+ *
+ */
+interface ActionEndpointInterface
 {
     /**
      * @return string
@@ -43,4 +44,3 @@ use App\ServiceInterface\Interfacing\Runtime\ActionResult;
      */
     public function handle(ActionRequest $request): ActionResult;
 }
-

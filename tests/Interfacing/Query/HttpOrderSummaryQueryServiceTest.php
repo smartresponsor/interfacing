@@ -146,10 +146,7 @@ final class FakeOrderHttpClient implements HttpClientInterface
         throw new \RuntimeException('Not implemented for FakeOrderHttpClient.');
     }
 
-    /**
-     * @return $this
-     */
-    public function withOptions(array $options): self
+    public function withOptions(array $options): static
     {
         // Options are not used in this simple fake.
         return $this;

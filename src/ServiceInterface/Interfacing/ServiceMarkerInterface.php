@@ -1,15 +1,15 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    /** Marker interface for Interfacing Service layer. */
+namespace App\ServiceInterface\Interfacing;
+
+/** Marker interface for Interfacing Service layer. */
 interface ServiceMarkerInterface
 {
 }
-

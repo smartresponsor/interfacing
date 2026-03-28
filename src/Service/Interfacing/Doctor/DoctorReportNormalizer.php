@@ -28,6 +28,9 @@ final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
             $issue = $this->arrayOrEmpty($raw['check']['issue']);
         }
 
+        usort($screen, static fn (array $a, array $b): int => ((string) ($a['id'] ?? '')) <=> ((string) ($b['id'] ?? '')));
+        usort($layout, static fn (array $a, array $b): int => ((string) ($a['id'] ?? '')) <=> ((string) ($b['id'] ?? '')));
+
         $meta += [
             'schema' => 'smartresponsor.interfacing.doctor-report.v1',
         ];
@@ -43,5 +46,54 @@ final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
     private function arrayOrEmpty(mixed $v): array
     {
         return \is_array($v) ? $v : [];
+    }
+
+    /**
+     * @return list<array{level:string,code:string,text:string}>
+     */
+    private function normalizeIssue(mixed $value): array
+    {
+        if (!\is_array($value)) {
+            return [];
+        }
+
+        $issue = [];
+
+        foreach ($value as $item) {
+            if (\is_array($item) && isset($item['level'], $item['code'], $item['text'])) {
+                $issue[] = [
+                    'level' => (string) $item['level'],
+                    'code' => (string) $item['code'],
+                    'text' => (string) $item['text'],
+                ];
+
+                continue;
+            }
+
+            if (\is_array($item) && isset($item[0], $item[1], $item[2])) {
+                $issue[] = [
+                    'level' => (string) $item[0],
+                    'code' => (string) $item[1],
+                    'text' => (string) $item[2],
+                ];
+
+                continue;
+            }
+
+            $text = trim((string) $item);
+            if ('' === $text) {
+                continue;
+            }
+
+            $issue[] = [
+                'level' => 'info',
+                'code' => 'note',
+                'text' => $text,
+            ];
+        }
+
+        usort($issue, static fn (array $a, array $b): int => [$a['level'], $a['code'], $a['text']] <=> [$b['level'], $b['code'], $b['text']]);
+
+        return $issue;
     }
 }

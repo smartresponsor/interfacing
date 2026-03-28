@@ -1,25 +1,26 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\View;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
+namespace App\Service\Interfacing\View;
+
+use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
 use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
 use App\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
 
-    /**
-     *
-     */
+/**
+ *
+ */
 
-    /**
-     *
-     */
-    final readonly class ShellViewBuilder implements ShellViewBuilderInterface
+/**
+ *
+ */
+final readonly class ShellViewBuilder implements ShellViewBuilderInterface
 {
     /**
      * @param \App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface $screenRegistry
@@ -28,7 +29,8 @@ use App\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
     public function __construct(
         private ScreenRegistryInterface $screenRegistry,
         private ActionRegistryInterface $actionRegistry,
-    ) {}
+    ) {
+    }
 
     /**
      * @param string $activeScreenId
@@ -55,4 +57,3 @@ use App\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
         ];
     }
 }
-

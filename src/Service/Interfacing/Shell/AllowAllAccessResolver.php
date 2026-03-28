@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
+
 namespace App\Service\Interfacing\Shell;
 
 use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;

@@ -1,5 +1,10 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% set shell = interfacing_shell() %}
+{% set shell = shell|default({
+  query: '',
+  itemTotal: 0,
+  group: [],
+  activeId: null
+}) %}
 <!doctype html>
 <html>
 <head>

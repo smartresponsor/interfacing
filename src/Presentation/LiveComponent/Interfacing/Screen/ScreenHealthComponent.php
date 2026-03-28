@@ -10,10 +10,13 @@ namespace App\Presentation\LiveComponent\Interfacing\Screen;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
+use Symfony\UX\LiveComponent\DefaultActionTrait;
 
 #[AsLiveComponent('interfacing_screen_health', template: 'interfacing/screen/health.html.twig')]
 final class ScreenHealthComponent implements ScreenHealthComponentInterface
 {
+    use DefaultActionTrait;
+
     public function __construct(private readonly ParameterBagInterface $parameter)
     {
     }

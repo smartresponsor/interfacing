@@ -10,10 +10,13 @@ namespace App\Presentation\LiveComponent\Interfacing\Screen;
 
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
+use Symfony\UX\LiveComponent\DefaultActionTrait;
 
 #[AsLiveComponent('interfacing_screen_metric_demo', template: 'interfacing/screen/metric-demo.html.twig')]
 final class ScreenMetricDemoComponent
 {
+    use DefaultActionTrait;
+
     #[LiveProp]
     public array $context = [];
 }
