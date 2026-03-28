@@ -1,22 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
+
 namespace App\Service\Interfacing\Widget\BulkAction;
 
-use App\Domain\Interfacing\Model\BulkAction\BulkActionSpec;
+use App\Contract\View\BulkActionSpec;
 use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
 use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class BulkActionRegistry implements BulkActionRegistryInterface
 {
     /**
@@ -38,34 +33,27 @@ final class BulkActionRegistry implements BulkActionRegistryInterface
     {
         $out = [];
         foreach ($this->handler as $id => $h) {
-            if ($id === 'demo-delete') {
+            if ('demo-delete' === $id) {
                 $out[] = new BulkActionSpec($id, 'Delete', true);
                 continue;
             }
-            if ($id === 'demo-mark-done') {
+            if ('demo-mark-done' === $id) {
                 $out[] = new BulkActionSpec($id, 'Mark done', false);
                 continue;
             }
             $out[] = new BulkActionSpec($id, $id, true);
         }
 
-        usort($out, static fn(BulkActionSpec $a, BulkActionSpec $b): int => strcmp($a->title(), $b->title()));
+        usort($out, static fn (BulkActionSpec $a, BulkActionSpec $b): int => strcmp($a->title(), $b->title()));
+
         return $out;
     }
 
-    /**
-     * @param string $id
-     * @return bool
-     */
     public function has(string $id): bool
     {
         return isset($this->handler[$id]);
     }
 
-    /**
-     * @param string $id
-     * @return \App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface
-     */
     public function handler(string $id): BulkActionHandlerInterface
     {
         if (!isset($this->handler[$id])) {

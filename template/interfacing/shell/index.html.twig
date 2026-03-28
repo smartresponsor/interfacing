@@ -12,13 +12,13 @@
     </div>
 
     {% for g in navGroupList %}
-      <div style="margin: 12px 0 6px; color:#555;">{{ g.label }}</div>
+      <div style="margin: 12px 0 6px; color:#555;">{{ g.title }}</div>
       <ul style="list-style:none; padding:0; margin:0;">
-        {% for i in g.itemList %}
-          {% set active = (i.screenId.toString == activeScreenId) %}
+        {% for i in g.item %}
+          {% set active = (i.id == activeScreenId) %}
           <li style="margin:4px 0;">
-            <a href="/interfacing/screen/{{ i.screenId.toString }}" style="text-decoration:none; {{ active ? 'font-weight:600;' : '' }}">
-              {{ i.label }}
+            <a href="{{ i.url }}" style="text-decoration:none; {{ active ? 'font-weight:600;' : '' }}">
+              {{ i.title }}
             </a>
           </li>
         {% endfor %}

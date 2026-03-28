@@ -1,41 +1,29 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Security;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+namespace App\Service\Interfacing\Security;
+
+use App\Contract\View\ScreenSpecInterface;
 use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-    /**
-     *
-     */
-
-    /**
-     *
-     */
-    final readonly class SymfonyAccessResolver implements AccessResolverInterface
+final readonly class SymfonyAccessResolver implements AccessResolverInterface
 {
-    /**
-     * @param \Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface $authorizationChecker
-     */
     public function __construct(
         private AuthorizationCheckerInterface $authorizationChecker,
-    ) {}
+    ) {
+    }
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface $screen
-     * @return bool
-     */
     public function isAllowed(ScreenSpecInterface $screen): bool
     {
         $roles = $screen->requireRole();
-        if ($roles === []) {
+        if ([] === $roles) {
             return true;
         }
         foreach ($roles as $role) {
@@ -43,7 +31,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
                 return false;
             }
         }
+
         return true;
     }
 }
-

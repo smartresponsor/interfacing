@@ -2,42 +2,30 @@
 
 declare(strict_types=1);
 
-/*
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-*/
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+
 namespace App\Service\Interfacing\Ui;
 
-use App\Domain\Interfacing\Error\DomainOperationFailed;
-use App\Domain\Interfacing\Ui\UiError;
-use App\Domain\Interfacing\Ui\UiErrorBag;
+use App\Contract\Error\DomainOperationFailed;
+use App\Contract\Ui\UiError;
+use App\Contract\Ui\UiErrorBag;
 use App\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class DomainErrorMapper implements DomainErrorMapperInterface
 {
-    /**
-     * @param \App\Domain\Interfacing\Error\DomainOperationFailed $error
-     * @return \App\Domain\Interfacing\Ui\UiErrorBag
-     */
     public function fromDomainOperationFailed(DomainOperationFailed $error): UiErrorBag
     {
         $bag = new UiErrorBag();
 
         $bag->addGlobal(new UiError(
             'domain',
-            $error->getMessage(),
             null,
-            ['code' => $error->getCode()],
+            $error->getMessage(),
+            0 !== $error->getCode() ? (string) $error->getCode() : null,
         ));
 
         foreach ($error->fieldMessage() as $field => $message) {
-            $bag->addField($field, new UiError('domain', $message, $field));
+            $bag->addField((string) $field, new UiError('domain', (string) $field, (string) $message));
         }
 
         return $bag;

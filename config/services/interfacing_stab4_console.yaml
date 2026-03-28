@@ -4,8 +4,11 @@ parameters:
     - { id: 'order-summary', route: 'interfacing_order_summary', domain: 'order', notes: 'Order summary grid' }
 
 services:
-  App\Infra\Interfacing\Console\InterfacingScreenDumpCommand:
+  App\Support\Console\InterfacingScreenDumpCommand:
     tags: ['console.command']
 
-  App\Infra\Interfacing\Console\InterfacingScreenValidateCommand:
+  App\Support\Console\InterfacingScreenValidateCommand:
+    tags: ['console.command']
+
+  App\Support\Console\InterfacingPermissionSampleCommand:
     tags: ['console.command']

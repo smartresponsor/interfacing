@@ -1,19 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
 namespace App\ServiceInterface\Interfacing;
 
-use App\Domain\Interfacing\Model\CategoryItemView;
+use App\Contract\Dto\CategoryItemView;
 
-/**
- *
- */
-
-/**
- *
- */
 interface CategoryApiClientInterface
 {
     /** @return array{item:list<CategoryItemView>, nextCursor:?string} */

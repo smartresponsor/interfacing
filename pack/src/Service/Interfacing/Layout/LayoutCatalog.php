@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- */
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+
 namespace SmartResponsor\Interfacing\Service\Interfacing\Layout;
 
 use SmartResponsor\Interfacing\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
@@ -11,13 +10,7 @@ use SmartResponsor\Interfacing\Domain\Interfacing\Model\ScreenId;
 use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface;
 use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 
-/**
- *
- */
 
-/**
- *
- */
 final class LayoutCatalog implements LayoutCatalogInterface
 {
     /** @var array<string, LayoutScreenSpecInterface> */
@@ -61,28 +54,16 @@ final class LayoutCatalog implements LayoutCatalogInterface
         );
     }
 
-    /**
-     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface $spec
-     * @return void
-     */
     public function register(LayoutScreenSpecInterface $spec): void
     {
         $this->specBySlug[$spec->getSlug()] = $spec;
     }
 
-    /**
-     * @param string $slug
-     * @return bool
-     */
     public function hasSlug(string $slug): bool
     {
         return isset($this->specBySlug[$slug]);
     }
 
-    /**
-     * @param string $slug
-     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface
-     */
     public function getBySlug(string $slug): LayoutScreenSpecInterface
     {
         if (!isset($this->specBySlug[$slug])) {
@@ -91,9 +72,6 @@ final class LayoutCatalog implements LayoutCatalogInterface
         return $this->specBySlug[$slug];
     }
 
-    /**
-     * @return array|\SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\Layout\LayoutScreenSpecInterface[]
-     */
     public function all(): array
     {
         return array_values($this->specBySlug);

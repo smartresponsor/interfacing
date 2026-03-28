@@ -1,58 +1,42 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Action;
 
-use App\Domain\Interfacing\Model\ActionRequest;
-use App\Domain\Interfacing\Model\ActionResult;
-use App\Domain\Interfacing\Model\CategoryFormModel;
-use App\Domain\Interfacing\Model\UiMessage;
-use App\Domain\Interfacing\Value\ActionId;
+use App\Contract\Action\ActionRequest;
+use App\Contract\Action\ActionResult;
+use App\Contract\Dto\CategoryFormInput;
+use App\Contract\Ui\UiMessage;
+use App\Contract\ValueObject\ActionId;
 use App\Service\Interfacing\Validator\ValidatorErrorMapper;
 use App\ServiceInterface\Interfacing\ActionEndpointInterface;
 use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class CategorySaveEndpoint implements ActionEndpointInterface
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\CategoryApiClientInterface $api
-     * @param \Symfony\Component\Validator\Validator\ValidatorInterface $validator
-     * @param \App\Service\Interfacing\Validator\ValidatorErrorMapper $mapper
-     */
     public function __construct(
         private readonly CategoryApiClientInterface $api,
-        private readonly ValidatorInterface         $validator,
-        private readonly ValidatorErrorMapper       $mapper
-    ) {}
+        private readonly ValidatorInterface $validator,
+        private readonly ValidatorErrorMapper $mapper,
+    ) {
+    }
 
-    /**
-     * @return \App\Domain\Interfacing\Value\ActionId
-     */
-    public function id(): ActionId { return ActionId::of('category.save'); }
+    public function id(): ActionId
+    {
+        return ActionId::of('category.save');
+    }
 
-    /**
-     * @param \App\Domain\Interfacing\Model\ActionRequest $request
-     * @return \App\Domain\Interfacing\Model\ActionResult
-     */
     public function handle(ActionRequest $request): ActionResult
     {
         $payload = $request->payload()['payload'] ?? [];
         if (!is_array($payload)) {
-            return ActionResult::domainError([UiMessage::warning('Invalid payload.')]);
+            return ActionResult::domainError('invalid_payload', 'Invalid payload.');
         }
 
-        $model = new CategoryFormModel();
+        $model = new CategoryFormInput();
         $model->fillFromArray($payload);
 
         $violations = $this->validator->validate($model, new Assert\Collection([
@@ -68,15 +52,15 @@ final class CategorySaveEndpoint implements ActionEndpointInterface
         ]));
 
         if (count($violations) > 0) {
-            return ActionResult::validationError($this->mapper->map($violations), [UiMessage::warning('Fix validation errors.')]);
+            return ActionResult::validationError($this->mapper->map($violations), [new UiMessage('warning', 'Fix validation errors.')]);
         }
 
-        $id = $model->id !== '' ? $model->id : 'new';
+        $id = '' !== $model->id ? $model->id : 'new';
 
         try {
-            return ActionResult::ok([UiMessage::success('Saved.')], ['category' => $this->api->save($id, $model->toPayload())]);
+            return ActionResult::ok(['category' => $this->api->save($id, $model->toPayload())]);
         } catch (\Throwable $e) {
-            return ActionResult::domainError([UiMessage::error('Save failed: '.$e->getMessage())]);
+            return ActionResult::domainError('save_failed', 'Save failed: '.$e->getMessage());
         }
     }
 }

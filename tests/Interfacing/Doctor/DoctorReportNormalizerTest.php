@@ -1,26 +1,17 @@
 <?php
+
 declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
 namespace Tests\Interfacing\Doctor;
 
+use App\Service\Interfacing\Doctor\DoctorReportNormalizer;
 use PHPUnit\Framework\TestCase;
-use SmartResponsor\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer;
 
-/**
- *
- */
-
-/**
- *
- */
 final class DoctorReportNormalizerTest extends TestCase
 {
-    /**
-     * @return void
-     */
-    public function parameter is either empty or invalid.nism(): void
+    public function testNormalize(): void
     {
         $n = new DoctorReportNormalizer();
 

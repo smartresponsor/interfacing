@@ -1,51 +1,38 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Action;
 
-use App\Domain\Interfacing\Model\ActionRequest;
-use App\Domain\Interfacing\Model\ActionResult;
-use App\Domain\Interfacing\Model\UiMessage;
-use App\Domain\Interfacing\Value\ActionId;
+use App\Contract\Action\ActionRequest;
+use App\Contract\Action\ActionResult;
+use App\Contract\Ui\UiMessage;
+use App\Contract\ValueObject\ActionId;
 use App\ServiceInterface\Interfacing\ActionEndpointInterface;
 use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class CategoryOpenEndpoint implements ActionEndpointInterface
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\CategoryApiClientInterface $api
-     */
-    public function __construct(private readonly CategoryApiClientInterface $api) {}
+    public function __construct(private readonly CategoryApiClientInterface $api)
+    {
+    }
 
-    /**
-     * @return \App\Domain\Interfacing\Value\ActionId
-     */
-    public function id(): ActionId { return ActionId::of('category.open'); }
+    public function id(): ActionId
+    {
+        return ActionId::of('category.open');
+    }
 
-    /**
-     * @param \App\Domain\Interfacing\Model\ActionRequest $request
-     * @return \App\Domain\Interfacing\Model\ActionResult
-     */
     public function handle(ActionRequest $request): ActionResult
     {
-        $id = (string)($request->payload()['id'] ?? '');
-        if ($id === '') {
-            return ActionResult::domainError([UiMessage::warning('Missing category id.')]);
+        $id = (string) ($request->payload()['id'] ?? '');
+        if ('' === $id) {
+            return ActionResult::fail([], [new UiMessage('warning', 'Missing category id.')]);
         }
 
         try {
-            return ActionResult::ok([], ['category' => $this->api->read($id)]);
+            return ActionResult::ok(['category' => $this->api->read($id)]);
         } catch (\Throwable $e) {
-            return ActionResult::domainError([UiMessage::error('Category read failed: '.$e->getMessage())]);
+            return ActionResult::fail([], [new UiMessage('error', 'Category read failed: '.$e->getMessage())]);
         }
     }
 }

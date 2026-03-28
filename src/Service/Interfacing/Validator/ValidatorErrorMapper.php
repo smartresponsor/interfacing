@@ -1,33 +1,28 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Validator;
 
-use App\Domain\Interfacing\Model\UiError;
-use App\Domain\Interfacing\Model\UiErrorBag;
+use App\Contract\Ui\UiError;
+use App\Contract\Ui\UiErrorBag;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class ValidatorErrorMapper
 {
-    /**
-     * @param \Symfony\Component\Validator\ConstraintViolationListInterface $list
-     * @return \App\Domain\Interfacing\Model\UiErrorBag
-     */
-    public function map(ConstraintViolationListInterface $list): UiErrorBag
+    public function map(ConstraintViolationListInterface $violations): UiErrorBag
     {
         $bag = new UiErrorBag();
-        foreach ($list as $v) {
-            $bag->add(new UiError((string)$v->getPropertyPath(), (string)$v->getMessage()));
+        foreach ($violations as $violation) {
+            $field = trim((string) $violation->getPropertyPath());
+            $error = new UiError('validation', '' !== $field ? $field : null, (string) $violation->getMessage(), 'validation');
+            if ('' === $field) {
+                $bag->addGlobal($error);
+            } else {
+                $bag->addField($field, $error);
+            }
         }
+
         return $bag;
     }
 }

@@ -1,9 +1,8 @@
 <?php
 declare(strict_types=1);
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- */
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+
 namespace SmartResponsor\Interfacing\Http\Interfacing\Health\Controller;
 
 use SmartResponsor\Interfacing\HttpInterface\Interfacing\Health\Controller\InterfacingHealthControllerInterface;
@@ -12,20 +11,9 @@ use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegist
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- *
- */
 
-/**
- *
- */
 final readonly class InterfacingHealthController implements InterfacingHealthControllerInterface
 {
-    /**
-     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screenRegistry
-     * @param \SmartResponsor\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layoutCatalog
-     * @param string $kernelEnvironment
-     */
     public function __construct(
         private ScreenRegistryInterface $screenRegistry,
         private LayoutCatalogInterface  $layoutCatalog,
@@ -33,9 +21,6 @@ final readonly class InterfacingHealthController implements InterfacingHealthCon
     ) {
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function health(): Response
     {
         $payload = [

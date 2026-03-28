@@ -2,21 +2,16 @@
 
 declare(strict_types=1);
 
-/*
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-*/
 namespace App\ServiceInterface\Interfacing\Action;
 
-use App\Domain\Interfacing\Action\ActionResult;
+use App\Contract\Action\ActionResult;
+use App\Contract\Action\ActionRuntimeInterface;
+use App\Contract\ValueObject\ActionId;
 
-/**
- * An action endpoint is a thin handler for a UI action (save, delete, sync, etc.).
- * It returns ActionResult which can update UI state without a SPA.
- */
 interface ActionEndpointInterface
 {
-    /**
-     * @param array<string, mixed> $payload
-     */
-    public function handle(array $payload): ActionResult;
+    public function id(): ActionId;
+
+    /** @param array<string, mixed> $input */
+    public function run(array $input, ActionRuntimeInterface $runtime): ActionResult;
 }

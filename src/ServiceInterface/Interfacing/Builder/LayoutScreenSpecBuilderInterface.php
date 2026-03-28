@@ -1,24 +1,14 @@
 <?php
-    declare(strict_types=1);
 
-    /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Builder;
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    use App\Domain\Interfacing\Spec\LayoutScreenSpec;
+namespace App\ServiceInterface\Interfacing\Builder;
 
-    /**
-     *
-     */
+use App\Contract\View\LayoutScreenSpec;
 
-    /**
-     *
-     */
-    interface LayoutScreenSpecBuilderInterface
+interface LayoutScreenSpecBuilderInterface
 {
-    /**
-     * @return \App\Domain\Interfacing\Spec\LayoutScreenSpec
-     */
     public function build(): LayoutScreenSpec;
 }
-

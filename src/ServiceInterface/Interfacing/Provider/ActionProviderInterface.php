@@ -1,25 +1,13 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Provider;
+namespace App\ServiceInterface\Interfacing\Provider;
 
-    use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 
-    /**
-     *
-     */
-
-    /**
-     *
-     */
-    interface ActionProviderInterface
+interface ActionProviderInterface
 {
     /** @return array<int, ActionEndpointInterface> */
     public function provide(): array;
 }
-

@@ -1,24 +1,13 @@
-<?php declare(strict_types=1);
+<?php
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- * Proprietary and confidential.
- */
+declare(strict_types=1);
 
 namespace App\ServiceInterface\Interfacing\Action;
 
-use App\DomainInterface\Interfacing\Action\ActionIdInterface;
+use App\Contract\ValueObject\ActionIdInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface InterfacingActionRunnerInterface
 {
     /** @param array<string, mixed> $input */
     public function run(ActionIdInterface $id, array $input): InterfacingActionRunResultInterface;
 }
-

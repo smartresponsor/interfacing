@@ -1,30 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\View;
+namespace App\Service\Interfacing\View;
 
-use SmartResponsor\Interfacing\Domain\Interfacing\Error\ScreenForbidden;
-use SmartResponsor\Interfacing\Domain\Interfacing\Error\ScreenNotFound;
-use SmartResponsor\Interfacing\Domain\Interfacing\Error\UiErrorCode;
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\UiErrorMapperInterface;
+use App\Contract\Error\ScreenForbidden;
+use App\Contract\Error\ScreenNotFound;
+use App\Contract\Error\UiErrorCode;
+use App\ServiceInterface\Interfacing\View\UiErrorMapperInterface;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class UiErrorMapper implements UiErrorMapperInterface
 {
-    /**
-     * @param \Throwable $e
-     * @param string|null $traceId
-     * @return array
-     */
     public function map(\Throwable $e, ?string $traceId = null): array
     {
         if ($e instanceof ScreenNotFound) {
@@ -35,19 +24,19 @@ final class UiErrorMapper implements UiErrorMapperInterface
         }
         if ($e instanceof HttpExceptionInterface) {
             $status = $e->getStatusCode();
-            if ($status === 422) {
+            if (422 === $status) {
                 return $this->out(422, UiErrorCode::VALIDATION, 'Validation failed', $e->getMessage(), $traceId);
             }
-            if ($status === 503) {
+            if (503 === $status) {
                 return $this->out(503, UiErrorCode::UNAVAILABLE, 'Service unavailable', $e->getMessage(), $traceId);
             }
-            if ($status === 504) {
+            if (504 === $status) {
                 return $this->out(504, UiErrorCode::TIMEOUT, 'Timeout', $e->getMessage(), $traceId);
             }
-            if ($status === 404) {
+            if (404 === $status) {
                 return $this->out(404, UiErrorCode::NOT_FOUND, 'Not found', $e->getMessage(), $traceId);
             }
-            if ($status === 403) {
+            if (403 === $status) {
                 return $this->out(403, UiErrorCode::FORBIDDEN, 'Forbidden', $e->getMessage(), $traceId);
             }
         }
@@ -55,14 +44,6 @@ final class UiErrorMapper implements UiErrorMapperInterface
         return $this->out(500, UiErrorCode::UNEXPECTED, 'Unexpected error', 'Unexpected failure', $traceId);
     }
 
-    /**
-     * @param int $status
-     * @param string $code
-     * @param string $title
-     * @param string $detail
-     * @param string|null $traceId
-     * @return array
-     */
     private function out(int $status, string $code, string $title, string $detail, ?string $traceId): array
     {
         return [

@@ -1,29 +1,20 @@
 <?php
+
 declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
+
 namespace App\ServiceInterface\Interfacing\Layout;
 
-use App\Domain\Interfacing\Layout\LayoutSpec;
+use App\Contract\View\LayoutScreenSpecInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface LayoutCatalogInterface
 {
-    /** @return array<string, LayoutSpec> */
+    /** @return array<string, LayoutScreenSpecInterface> */
     public function all(): array;
 
-    /**
-     * @param string $layoutKey
-     * @return \App\Domain\Interfacing\Layout\LayoutSpec
-     */
-    public function get(string $layoutKey): LayoutSpec;
+    public function get(string $layoutKey): LayoutScreenSpecInterface;
 }

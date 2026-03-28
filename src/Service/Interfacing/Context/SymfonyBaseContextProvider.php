@@ -1,32 +1,22 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\Interfacing\Context;
 
-use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use App\DomainInterface\Interfacing\Tenant\TenantResolverInterface;
+use App\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
+use App\ServiceInterface\Interfacing\Tenant\TenantResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-/**
- *
- */
-
-/**
- *
- */
-final readonly class SymfonyBaseContextProvider implements BaseContextProviderInterface
+final readonly class SymfonyBaseContextProvider implements RequestBaseContextProviderInterface
 {
-    /**
-     * @param \App\DomainInterface\Interfacing\Tenant\TenantResolverInterface $tenantResolver
-     */
     public function __construct(
         private TenantResolverInterface $tenantResolver,
-    ) {}
+    ) {
+    }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
      * @return array|mixed[]
      */
     public function provide(Request $request, ?TokenInterface $token): array
@@ -34,7 +24,7 @@ final readonly class SymfonyBaseContextProvider implements BaseContextProviderIn
         $tenantId = $this->tenantResolver->resolveTenantId($request, $token);
 
         $userId = null;
-        if ($token !== null) {
+        if (null !== $token) {
             $user = $token->getUser();
             if (is_object($user) && method_exists($user, 'getUserIdentifier')) {
                 $userId = (string) $user->getUserIdentifier();

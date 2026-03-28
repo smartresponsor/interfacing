@@ -1,41 +1,30 @@
 <?php
+
 declare(strict_types=1);
 
-/*
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-*/
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+
 namespace App\Service\Interfacing\Widget\Wizard\Demo;
 
-use App\Domain\Interfacing\Model\Form\FormFieldSpec;
-use App\Domain\Interfacing\Model\Form\FormSubmitResult;
-use App\Domain\Interfacing\Model\Wizard\WizardSpec;
-use App\Domain\Interfacing\Model\Wizard\WizardStepSpec;
+use App\Contract\Dto\FormSubmitResult;
+use App\Contract\View\FormFieldSpec;
+use App\Contract\View\WizardSpec;
+use App\Contract\View\WizardStepSpec;
 use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class DemoOnboardingWizardHandler implements WizardHandlerInterface
 {
-    /**
-     * @return string
-     */
-    public function id(): string { return 'demo-onboarding'; }
+    public function id(): string
+    {
+        return 'demo-onboarding';
+    }
 
-    /**
-     * @param array $context
-     * @return \App\Domain\Interfacing\Model\Wizard\WizardSpec
-     */
     public function spec(array $context = []): WizardSpec
     {
         $regionDefault = 'us';
         $q = $context['query'] ?? [];
         if (is_array($q) && isset($q['region']) && is_string($q['region'])) {
-            $regionDefault = in_array($q['region'], ['us','eu'], true) ? $q['region'] : 'us';
+            $regionDefault = in_array($q['region'], ['us', 'eu'], true) ? $q['region'] : 'us';
         }
 
         return new WizardSpec(
@@ -68,7 +57,6 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
     }
 
     /**
-     * @param array $context
      * @return array|mixed[]
      */
     public function initialValue(array $context = []): array
@@ -76,7 +64,7 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
         $region = 'us';
         $q = $context['query'] ?? [];
         if (is_array($q) && isset($q['region']) && is_string($q['region'])) {
-            $region = in_array($q['region'], ['us','eu'], true) ? $q['region'] : 'us';
+            $region = in_array($q['region'], ['us', 'eu'], true) ? $q['region'] : 'us';
         }
 
         return [
@@ -89,57 +77,62 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
         ];
     }
 
-    /**
-     * @param string $stepId
-     * @param array $value
-     * @param array $context
-     * @return \App\Domain\Interfacing\Model\Form\FormSubmitResult
-     */
     public function validateStep(string $stepId, array $value, array $context = []): FormSubmitResult
     {
         $value = $this->normalize($value);
         $err = [];
 
-        if ($stepId === 'account') {
-            if (trim((string)($value['company'] ?? '')) === '') { $err['company'] = 'Company is required.'; }
-            if (!in_array((string)($value['plan'] ?? ''), ['free','pro','ent'], true)) { $err['plan'] = 'Plan is invalid.'; }
+        if ('account' === $stepId) {
+            if ('' === trim((string) ($value['company'] ?? ''))) {
+                $err['company'] = 'Company is required.';
+            }
+            if (!in_array((string) ($value['plan'] ?? ''), ['free', 'pro', 'ent'], true)) {
+                $err['plan'] = 'Plan is invalid.';
+            }
         }
 
-        if ($stepId === 'contact') {
-            if (trim((string)($value['name'] ?? '')) === '') { $err['name'] = 'Name is required.'; }
-            $email = trim((string)($value['email'] ?? ''));
-            if ($email === '') { $err['email'] = 'Email is required.'; }
-            elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) { $err['email'] = 'Email is invalid.'; }
+        if ('contact' === $stepId) {
+            if ('' === trim((string) ($value['name'] ?? ''))) {
+                $err['name'] = 'Name is required.';
+            }
+            $email = trim((string) ($value['email'] ?? ''));
+            if ('' === $email) {
+                $err['email'] = 'Email is required.';
+            } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                $err['email'] = 'Email is invalid.';
+            }
         }
 
-        if ($stepId === 'policy') {
-            if (!in_array((string)($value['region'] ?? ''), ['us','eu'], true)) { $err['region'] = 'Region is invalid.'; }
-            if (empty($value['agree'])) { $err['agree'] = 'You must accept policy.'; }
+        if ('policy' === $stepId) {
+            if (!in_array((string) ($value['region'] ?? ''), ['us', 'eu'], true)) {
+                $err['region'] = 'Region is invalid.';
+            }
+            if (empty($value['agree'])) {
+                $err['agree'] = 'You must accept policy.';
+            }
         }
 
-        if ($err !== []) { return new FormSubmitResult(false, 'Please fix validation errors.', $err, $value); }
+        if ([] !== $err) {
+            return new FormSubmitResult(false, 'Please fix validation errors.', $err, $value);
+        }
+
         return new FormSubmitResult(true, 'OK', [], $value);
     }
 
-    /**
-     * @param array $value
-     * @param array $context
-     * @return \App\Domain\Interfacing\Model\Form\FormSubmitResult
-     */
     public function finish(array $value, array $context = []): FormSubmitResult
     {
         $value = $this->normalize($value);
-        $email = trim((string)($value['email'] ?? ''));
-        if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $email = trim((string) ($value['email'] ?? ''));
+        if ('' === $email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return new FormSubmitResult(false, 'Email is invalid.', ['email' => 'Email is invalid.'], $value);
         }
         if (empty($value['agree'])) {
             return new FormSubmitResult(false, 'You must accept policy.', ['agree' => 'You must accept policy.'], $value);
         }
 
-        $msg = 'Created tenant: '.trim((string)($value['company'] ?? ''));
-        $msg .= ' | plan '. ($value['plan'] ?? '');
-        $msg .= ' | region '. ($value['region'] ?? '');
+        $msg = 'Created tenant: '.trim((string) ($value['company'] ?? ''));
+        $msg .= ' | plan '.($value['plan'] ?? '');
+        $msg .= ' | region '.($value['region'] ?? '');
         $msg .= ' | contact '.$email;
 
         return new FormSubmitResult(true, $msg, [], $value);
@@ -149,13 +142,14 @@ final class DemoOnboardingWizardHandler implements WizardHandlerInterface
     private function normalize(array $value): array
     {
         $out = [];
-        $out['company'] = is_scalar($value['company'] ?? null) ? (string)$value['company'] : '';
-        $out['plan'] = is_scalar($value['plan'] ?? null) ? (string)$value['plan'] : 'free';
-        $out['name'] = is_scalar($value['name'] ?? null) ? (string)$value['name'] : '';
-        $out['email'] = is_scalar($value['email'] ?? null) ? (string)$value['email'] : '';
-        $out['region'] = is_scalar($value['region'] ?? null) ? (string)$value['region'] : 'us';
+        $out['company'] = is_scalar($value['company'] ?? null) ? (string) $value['company'] : '';
+        $out['plan'] = is_scalar($value['plan'] ?? null) ? (string) $value['plan'] : 'free';
+        $out['name'] = is_scalar($value['name'] ?? null) ? (string) $value['name'] : '';
+        $out['email'] = is_scalar($value['email'] ?? null) ? (string) $value['email'] : '';
+        $out['region'] = is_scalar($value['region'] ?? null) ? (string) $value['region'] : 'us';
         $a = $value['agree'] ?? null;
-        $out['agree'] = ($a === true) || ($a === '1') || ($a === 1) || ($a === 'on');
+        $out['agree'] = (true === $a) || ('1' === $a) || (1 === $a) || ('on' === $a);
+
         return $out;
     }
 }

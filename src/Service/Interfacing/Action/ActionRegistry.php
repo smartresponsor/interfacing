@@ -1,25 +1,19 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Action;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+namespace App\Service\Interfacing\Action;
+
 use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
 use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
+use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 
-    /**
-     *
-     */
-
-    /**
-     *
-     */
-    final class ActionRegistry implements ActionRegistryInterface
+final class ActionRegistry implements ActionRegistryInterface
 {
     /** @var array<string, ActionEndpointInterface> */
     private array $map = [];
@@ -35,18 +29,12 @@ use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
         }
     }
 
-    /**
-     * @param string $screenId
-     * @param string $actionId
-     * @return bool
-     */
     public function has(string $screenId, string $actionId): bool
     {
         return isset($this->map[$this->key($screenId, $actionId)]);
     }
 
     /**
-     * @param string $screenId
      * @return array|array[]
      */
     public function listForScreen(string $screenId): array
@@ -60,32 +48,23 @@ use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
                 ];
             }
         }
-        usort($out, static fn(array $a, array $b): int => strcmp($a['actionId'], $b['actionId']));
+        usort($out, static fn (array $a, array $b): int => strcmp($a['actionId'], $b['actionId']));
+
         return $out;
     }
 
-    /**
-     * @param string $screenId
-     * @param string $actionId
-     * @return \App\ServiceInterface\Interfacing\Action\ActionEndpointInterface
-     */
     public function resolve(string $screenId, string $actionId): ActionEndpointInterface
     {
         $k = $this->key($screenId, $actionId);
         if (!isset($this->map[$k])) {
             throw new \InvalidArgumentException(sprintf('Unknown action: %s/%s', $screenId, $actionId));
         }
+
         return $this->map[$k];
     }
 
-    /**
-     * @param string $screenId
-     * @param string $actionId
-     * @return string
-     */
     private function key(string $screenId, string $actionId): string
     {
-        return $screenId . '::' . $actionId;
+        return $screenId.'::'.$actionId;
     }
 }
-

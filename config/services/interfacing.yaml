@@ -5,30 +5,30 @@ services:
       - '../src/Kernel.php'
 
   # RVE-A2: enforce thin controllers by delegating orchestration to a view builder (service layer).
-  SmartResponsor\Interfacing\Service\Interfacing\View\ScreenViewBuilder: ~
+  App\Service\Interfacing\View\ScreenViewBuilder: ~
 
-  SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface:
-    alias: SmartResponsor\Interfacing\Service\Interfacing\View\ScreenViewBuilder
+  App\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface:
+    alias: App\Service\Interfacing\View\ScreenViewBuilder
 
-  SmartResponsor\Interfacing\Service\Interfacing\View\UiErrorMapper: ~
+  App\Service\Interfacing\View\UiErrorMapper: ~
 
-  SmartResponsor\Interfacing\ServiceInterface\Interfacing\View\UiErrorMapperInterface:
-    alias: SmartResponsor\Interfacing\Service\Interfacing\View\UiErrorMapper
+  App\ServiceInterface\Interfacing\View\UiErrorMapperInterface:
+    alias: App\Service\Interfacing\View\UiErrorMapper
 
-  SmartResponsor\Interfacing\Service\Interfacing\Metric\InMemoryUiMetric: ~
+  App\Service\Interfacing\Metric\InMemoryUiMetric: ~
 
-  SmartResponsor\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface:
-    alias: SmartResponsor\Interfacing\Service\Interfacing\Metric\InMemoryUiMetric
+  App\ServiceInterface\Interfacing\Metric\UiMetricInterface:
+    alias: App\Service\Interfacing\Metric\InMemoryUiMetric
 
-  SmartResponsor\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer: ~
+  App\Service\Interfacing\Doctor\DoctorReportNormalizer: ~
 
-  SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface:
-    alias: SmartResponsor\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer
+  App\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface:
+    alias: App\Service\Interfacing\Doctor\DoctorReportNormalizer
 
   # Ensure JSON doctor uses the same builder contract aliasing.
-  SmartResponsor\Interfacing\Http\Interfacing\Command\DoctorCommand: ~
+  App\Support\Console\InterfacingDoctorJsonCommand: ~
 
-  App\Infra\Interfacing\Security\InterfacingPermissionVoter:
+  App\Application\Security\InterfacingPermissionVoter:
     tags:
       - { name: security.voter }
 

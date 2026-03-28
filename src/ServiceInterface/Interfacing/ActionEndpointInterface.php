@@ -1,31 +1,16 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\ServiceInterface\Interfacing;
 
-use App\Domain\Interfacing\Model\ActionRequest;
-use App\Domain\Interfacing\Model\ActionResult;
-use App\Domain\Interfacing\Value\ActionId;
+use App\Contract\Action\ActionRequest;
+use App\Contract\Action\ActionResult;
+use App\Contract\ValueObject\ActionId;
 
-/**
- *
- */
-
-/**
- *
- */
 interface ActionEndpointInterface
 {
-    /**
-     * @return \App\Domain\Interfacing\Value\ActionId
-     */
     public function id(): ActionId;
 
-    /**
-     * @param \App\Domain\Interfacing\Model\ActionRequest $request
-     * @return \App\Domain\Interfacing\Model\ActionResult
-     */
     public function handle(ActionRequest $request): ActionResult;
 }

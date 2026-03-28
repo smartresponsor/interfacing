@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -7,18 +9,10 @@
 
 namespace App\ServiceInterface\Interfacing\Layout;
 
-use App\DomainInterface\Interfacing\Layout\LayoutSpecInterface;
+use App\Contract\View\LayoutScreenSpecInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface LayoutProviderInterface
 {
-    /** @return array<int, LayoutSpecInterface> */
+    /** @return array<int, LayoutScreenSpecInterface> */
     public function provide(): array;
 }
-

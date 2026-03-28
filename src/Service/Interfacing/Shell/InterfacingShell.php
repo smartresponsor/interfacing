@@ -1,58 +1,44 @@
 <?php
+
 declare(strict_types=1);
 
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
+
 namespace App\Service\Interfacing\Shell;
 
-use App\Domain\Interfacing\Model\Shell\ShellNavGroup;
-use App\Domain\Interfacing\Model\Shell\ShellNavItem;
-use App\Domain\Interfacing\Model\Shell\ShellView;
+use App\Contract\View\ShellNavGroup;
+use App\Contract\View\ShellNavItem;
+use App\Contract\View\ShellView;
 use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 use App\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class InterfacingShell implements InterfacingShellInterface
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layout
-     * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
-     * @param \Symfony\Component\Routing\Generator\UrlGeneratorInterface $url
-     * @param \App\ServiceInterface\Interfacing\Shell\AccessResolverInterface $access
-     */
     public function __construct(
-        private readonly LayoutCatalogInterface  $layout,
-        private readonly RequestStack            $requestStack,
-        private readonly UrlGeneratorInterface   $url,
+        private readonly LayoutCatalogInterface $layout,
+        private readonly RequestStack $requestStack,
+        private readonly UrlGeneratorInterface $url,
         private readonly AccessResolverInterface $access,
     ) {
     }
 
-    /**
-     * @return \App\Domain\Interfacing\Model\Shell\ShellView
-     */
     public function view(): ShellView
     {
         $req = $this->requestStack->getCurrentRequest();
         $activeId = null;
         $query = '';
 
-        if ($req !== null) {
-            $query = (string)$req->query->get('q', '');
+        if (null !== $req) {
+            $query = (string) $req->query->get('q', '');
             $rid = $req->attributes->get('_route');
-            if ($rid === 'interfacing_screen') {
-                $activeId = (string)$req->attributes->get('id', '');
-                $activeId = trim($activeId) !== '' ? trim($activeId) : null;
+            if ('interfacing_screen' === $rid) {
+                $activeId = (string) $req->attributes->get('id', '');
+                $activeId = '' !== trim($activeId) ? trim($activeId) : null;
             }
         }
 
@@ -62,12 +48,12 @@ final class InterfacingShell implements InterfacingShellInterface
         $itemList = [];
         foreach ($specList as $spec) {
             $cap = $spec->capability();
-            if ($cap !== null && !$this->access->allow($cap, ['layoutId' => $spec->id(), 'screenId' => $spec->screenId()->toString()])) {
+            if (null !== $cap && !$this->access->allow($cap, ['layoutId' => $spec->id(), 'screenId' => $spec->screenId()->toString()])) {
                 continue;
             }
 
             $url = $this->url->generate('interfacing_screen', ['id' => $spec->id()]);
-            if ($queryNorm !== '') {
+            if ('' !== $queryNorm) {
                 $url .= '?q='.rawurlencode($queryNorm);
             }
 
@@ -81,7 +67,7 @@ final class InterfacingShell implements InterfacingShellInterface
             );
         }
 
-        if ($queryNorm !== '') {
+        if ('' !== $queryNorm) {
             $q = mb_strtolower($queryNorm);
             $itemList = array_values(array_filter($itemList, static function (ShellNavItem $it) use ($q): bool {
                 return str_contains(mb_strtolower($it->title()), $q) || str_contains(mb_strtolower($it->id()), $q);
@@ -102,7 +88,10 @@ final class InterfacingShell implements InterfacingShellInterface
         foreach ($groupMap as $gid => $list) {
             usort($list, static function (ShellNavItem $a, ShellNavItem $b): int {
                 $o = $a->order() <=> $b->order();
-                if ($o !== 0) { return $o; }
+                if (0 !== $o) {
+                    return $o;
+                }
+
                 return $a->title() <=> $b->title();
             });
             $total += count($list);
@@ -112,15 +101,11 @@ final class InterfacingShell implements InterfacingShellInterface
         return new ShellView($activeId, $queryNorm, $group, $total);
     }
 
-    /**
-     * @param string $id
-     * @return string
-     */
     private function titleize(string $id): string
     {
         $id = str_replace(['_', '-'], ' ', $id);
         $id = trim($id);
-        if ($id === '') {
+        if ('' === $id) {
             return 'Tool';
         }
 

@@ -1,30 +1,21 @@
 <?php
+
 declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
+
 namespace App\ServiceInterface\Interfacing\Screen;
 
-use App\Domain\Interfacing\Screen\ScreenId;
-use App\Domain\Interfacing\Screen\ScreenSpec;
+use App\Contract\ValueObject\ScreenIdInterface;
+use App\Contract\View\ScreenSpecInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface ScreenRegistryInterface
 {
-    /** @return array<string, ScreenSpec> */
+    /** @return array<string, ScreenSpecInterface> */
     public function all(): array;
 
-    /**
-     * @param \App\Domain\Interfacing\Screen\ScreenId $screenId
-     * @return \App\Domain\Interfacing\Screen\ScreenSpec
-     */
-    public function get(ScreenId $screenId): ScreenSpec;
+    public function get(ScreenIdInterface $screenId): ScreenSpecInterface;
 }

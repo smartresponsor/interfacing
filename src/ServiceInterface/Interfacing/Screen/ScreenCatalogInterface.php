@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -7,25 +9,13 @@
 
 namespace App\ServiceInterface\Interfacing\Screen;
 
-use App\DomainInterface\Interfacing\Screen\ScreenIdInterface;
-use App\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
+use App\Contract\ValueObject\ScreenIdInterface;
+use App\Contract\View\ScreenSpecInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface ScreenCatalogInterface
 {
     /** @return array<int, ScreenSpecInterface> */
     public function all(): array;
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Screen\ScreenIdInterface $id
-     * @return \App\DomainInterface\Interfacing\Screen\ScreenSpecInterface
-     */
     public function get(ScreenIdInterface $id): ScreenSpecInterface;
 }
-

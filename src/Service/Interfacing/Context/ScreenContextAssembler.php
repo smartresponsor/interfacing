@@ -1,40 +1,23 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Context;
+namespace App\Service\Interfacing\Context;
 
-    use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
 use App\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
 use App\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
 
-    /**
-     *
-     */
-
-    /**
-     *
-     */
-    final readonly class ScreenContextAssembler implements ScreenContextAssemblerInterface
+final readonly class ScreenContextAssembler implements ScreenContextAssemblerInterface
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\Context\BaseContextProviderInterface $baseContextProvider
-     */
-    public function __construct(
-        private BaseContextProviderInterface $baseContextProvider,
-    ) {}
-
-    /**
-     * @param string $screenId
-     * @return \App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface
-     */
-    public function assemble(string $screenId): ScreenContextInterface
+    public function __construct(private BaseContextProviderInterface $baseContextProvider)
     {
-        return $this->baseContextProvider->provide();
+    }
+
+    public function assemble(string $screenId): array
+    {
+        $context = $this->baseContextProvider->provide();
+        $context['screenId'] = $screenId;
+
+        return $context;
     }
 }
-

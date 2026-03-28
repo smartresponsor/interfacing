@@ -1,52 +1,39 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Action;
 
-use App\Domain\Interfacing\Model\ActionRequest;
-use App\Domain\Interfacing\Model\ActionResult;
-use App\Domain\Interfacing\Model\UiMessage;
-use App\Domain\Interfacing\Value\ActionId;
+use App\Contract\Action\ActionRequest;
+use App\Contract\Action\ActionResult;
+use App\Contract\Ui\UiMessage;
+use App\Contract\ValueObject\ActionId;
 use App\ServiceInterface\Interfacing\ActionEndpointInterface;
 use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class CategoryListEndpoint implements ActionEndpointInterface
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\CategoryApiClientInterface $api
-     */
-    public function __construct(private readonly CategoryApiClientInterface $api) {}
+    public function __construct(private readonly CategoryApiClientInterface $api)
+    {
+    }
 
-    /**
-     * @return \App\Domain\Interfacing\Value\ActionId
-     */
-    public function id(): ActionId { return ActionId::of('category.list'); }
+    public function id(): ActionId
+    {
+        return ActionId::of('category.list');
+    }
 
-    /**
-     * @param \App\Domain\Interfacing\Model\ActionRequest $request
-     * @return \App\Domain\Interfacing\Model\ActionResult
-     */
     public function handle(ActionRequest $request): ActionResult
     {
-        $q = (string)($request->payload()['q'] ?? '');
+        $q = (string) ($request->payload()['q'] ?? '');
         $cursor = $request->payload()['cursor'] ?? null;
-        $limit = (int)($request->payload()['limit'] ?? 25);
+        $limit = (int) ($request->payload()['limit'] ?? 25);
 
         try {
             $out = $this->api->list($q, is_string($cursor) ? $cursor : null, max(1, min(100, $limit)));
-            $item = array_map(static fn($v) => $v->toArray(), $out['item']);
-            return ActionResult::ok([], ['item' => $item, 'nextCursor' => $out['nextCursor']]);
+
+            return ActionResult::ok(['item' => array_map(static fn ($v) => $v->toArray(), $out['item']), 'nextCursor' => $out['nextCursor']]);
         } catch (\Throwable $e) {
-            return ActionResult::domainError([UiMessage::error('Category list failed: '.$e->getMessage())]);
+            return ActionResult::fail([], [new UiMessage('error', 'Category list failed: '.$e->getMessage())]);
         }
     }
 }

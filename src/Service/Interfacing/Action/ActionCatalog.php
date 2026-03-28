@@ -1,24 +1,14 @@
-<?php declare(strict_types=1);
+<?php
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- * Proprietary and confidential.
- */
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Action;
 
-use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use App\DomainInterface\Interfacing\Action\ActionIdInterface;
+use App\Contract\ValueObject\ActionIdInterface;
 use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
+use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class ActionCatalog implements ActionCatalogInterface
 {
     /** @var array<string, ActionEndpointInterface> */
@@ -31,33 +21,30 @@ final class ActionCatalog implements ActionCatalogInterface
             foreach ($item->provide() as $endpoint) {
                 $key = $endpoint->id()->value();
                 if (isset($this->map[$key])) {
-                    throw new \RuntimeException('Duplicate action id: ' . $key);
+                    throw new \RuntimeException('Duplicate action id: '.$key);
                 }
                 $this->map[$key] = $endpoint;
             }
         }
     }
 
-    /**
-     * @return array|\App\DomainInterface\Interfacing\Action\ActionEndpointInterface[]
-     */
-    public function all(): array { return array_values($this->map); }
+    public function all(): array
+    {
+        return array_values($this->map);
+    }
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
-     * @return bool
-     */
-    public function has(ActionIdInterface $id): bool { return isset($this->map[$id->value()]); }
+    public function has(ActionIdInterface $id): bool
+    {
+        return isset($this->map[$id->value()]);
+    }
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
-     * @return \App\DomainInterface\Interfacing\Action\ActionEndpointInterface
-     */
     public function get(ActionIdInterface $id): ActionEndpointInterface
     {
         $key = $id->value();
-        if (!isset($this->map[$key])) { throw new \RuntimeException('Unknown action id: ' . $key); }
+        if (!isset($this->map[$key])) {
+            throw new \RuntimeException('Unknown action id: '.$key);
+        }
+
         return $this->map[$key];
     }
 }
-

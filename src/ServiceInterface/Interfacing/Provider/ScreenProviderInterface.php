@@ -1,25 +1,18 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Provider;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface;
+namespace App\ServiceInterface\Interfacing\Provider;
 
-    /**
-     *
-     */
+use App\Contract\View\ScreenSpecInterface;
 
-    /**
-     *
-     */
-    interface ScreenProviderInterface
+interface ScreenProviderInterface
 {
     /** @return array<int, ScreenSpecInterface> */
     public function provide(): array;
 }
-

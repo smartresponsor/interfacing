@@ -1,32 +1,20 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\Interfacing\Audit;
 
-use App\DomainInterface\Interfacing\Audit\AuditSinkInterface;
-use App\Domain\Interfacing\Audit\AuditEvent;
+use App\ServiceInterface\Support\Audit\AuditSinkInterface;
+use App\Support\Audit\AuditEvent;
 use Psr\Log\LoggerInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final readonly class MonologAuditSink implements AuditSinkInterface
 {
-    /**
-     * @param \Psr\Log\LoggerInterface $logger
-     */
     public function __construct(
         private LoggerInterface $logger,
-    ) {}
+    ) {
+    }
 
-    /**
-     * @param \App\Domain\Interfacing\Audit\AuditEvent $event
-     * @return void
-     */
     public function record(AuditEvent $event): void
     {
         $this->logger->info('interfacing.audit', [

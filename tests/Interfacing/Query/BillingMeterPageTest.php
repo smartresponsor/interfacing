@@ -1,24 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Tests\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\BillingMeterPage;
-use App\Domain\Interfacing\Query\BillingMeterRow;
+use App\Contract\Dto\BillingMeterPage;
+use App\Contract\Dto\BillingMeterRow;
 use PHPUnit\Framework\TestCase;
 
-/**
- *
- */
-
-/**
- *
- */
 final class BillingMeterPageTest extends TestCase
 {
-    /**
-     * @return void
-     */
     public function testCreatePage(): void
     {
         $row = new BillingMeterRow('mtr_1', 'active', 10.5, '2025-01-01', '2025-01-31');

@@ -2,30 +2,18 @@
 
 declare(strict_types=1);
 
-/*
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-*/
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+
 namespace App\Service\Interfacing\Ui;
 
-use App\Domain\Interfacing\Ui\UiError;
-use App\Domain\Interfacing\Ui\UiErrorBag;
+use App\Contract\Ui\UiError;
+use App\Contract\Ui\UiErrorBag;
 use App\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class SymfonyValidatorErrorMapper implements UiErrorMapperInterface
 {
-    /**
-     * @param \Symfony\Component\Validator\ConstraintViolationListInterface $violation
-     * @return \App\Domain\Interfacing\Ui\UiErrorBag
-     */
     public function fromViolationList(ConstraintViolationListInterface $violation): UiErrorBag
     {
         $bag = new UiErrorBag();
@@ -34,13 +22,16 @@ final class SymfonyValidatorErrorMapper implements UiErrorMapperInterface
         foreach ($violation as $v) {
             $path = (string) $v->getPropertyPath();
             $message = (string) $v->getMessage();
-            $code = (string) ($v->getCode() ?? 'validation');
+            $code = null !== $v->getCode() ? (string) $v->getCode() : null;
 
-            $error = new UiError($code, $message, $path !== '' ? $path : null, [
-                'invalid' => is_scalar($v->getInvalidValue()) ? $v->getInvalidValue() : null,
-            ]);
+            $error = new UiError(
+                'validation',
+                '' !== $path ? $path : null,
+                $message,
+                $code,
+            );
 
-            if ($path !== '') {
+            if ('' !== $path) {
                 $bag->addField($path, $error);
             } else {
                 $bag->addGlobal($error);

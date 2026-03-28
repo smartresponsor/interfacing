@@ -1,28 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
+
 namespace App\Service\Interfacing\Telemetry;
 
-use App\DomainInterface\Interfacing\Telemetry\TelemetryInterface;
+use App\ServiceInterface\Interfacing\Telemetry\TelemetryInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class NullTelemetry implements TelemetryInterface
 {
-    /**
-     * @param string $name
-     * @param array $meta
-     * @return void
-     */
     public function event(string $name, array $meta = []): void
     {
         // no-op

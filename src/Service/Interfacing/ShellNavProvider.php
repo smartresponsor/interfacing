@@ -1,35 +1,23 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\Service\Interfacing;
 
-use App\Domain\Interfacing\Model\ShellNavGroup;
-use App\Domain\Interfacing\Model\ShellNavItem;
-use App\Domain\Interfacing\Value\ScreenId;
+use App\Contract\View\ShellNavGroup;
+use App\Contract\View\ShellNavItem;
 use App\ServiceInterface\Interfacing\ShellNavProviderInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class ShellNavProvider implements ShellNavProviderInterface
 {
-    /**
-     * @return \App\Domain\Interfacing\Model\ShellNavGroup[]
-     */
     public function provide(): array
     {
         return [
-            new ShellNavGroup('Interfacing', [
-                new ShellNavItem(ScreenId::of('interfacing-doctor'), 'Doctor'),
+            new ShellNavGroup('interfacing', 'Interfacing', [
+                new ShellNavItem('interfacing-doctor', 'Doctor', '/interfacing/screen/interfacing-doctor', 'interfacing'),
             ]),
-            new ShellNavGroup('Component', [
-                new ShellNavItem(ScreenId::of('category-admin'), 'Category Admin'),
+            new ShellNavGroup('component', 'Component', [
+                new ShellNavItem('category-admin', 'Category Admin', '/interfacing/screen/category-admin', 'component'),
             ]),
         ];
     }

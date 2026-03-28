@@ -1,41 +1,24 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\OrderSummaryPage;
-use App\Domain\Interfacing\Query\OrderSummaryRow;
+use App\Contract\Dto\OrderSummaryPage;
+use App\Contract\Dto\OrderSummaryRow;
 use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final readonly class HttpOrderSummaryQueryService implements OrderSummaryQueryServiceInterface
 {
-    /**
-     * @param \Symfony\Contracts\HttpClient\HttpClientInterface $client
-     * @param string $baseUrl
-     * @param string $path
-     */
     public function __construct(
         private HttpClientInterface $client,
-        private string              $baseUrl,
-        private string              $path,
-    ) {}
+        private string $baseUrl,
+        private string $path,
+    ) {
+    }
 
     /**
-     * @param string $tenantId
-     * @param int $page
-     * @param int $pageSize
-     * @param string|null $status
-     * @param string|null $createdFromIso
-     * @param string|null $createdToIso
-     * @return \App\Domain\Interfacing\Query\OrderSummaryPage
      * @throws \JsonException
      * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
@@ -55,17 +38,17 @@ final readonly class HttpOrderSummaryQueryService implements OrderSummaryQuerySe
             'pageSize' => $pageSize,
         ];
 
-        if ($status !== null && $status !== '') {
+        if (null !== $status && '' !== $status) {
             $query['status'] = $status;
         }
-        if ($createdFromIso !== null && $createdFromIso !== '') {
+        if (null !== $createdFromIso && '' !== $createdFromIso) {
             $query['createdFrom'] = $createdFromIso;
         }
-        if ($createdToIso !== null && $createdToIso !== '') {
+        if (null !== $createdToIso && '' !== $createdToIso) {
             $query['createdTo'] = $createdToIso;
         }
 
-        $response = $this->client->request('GET', rtrim($this->baseUrl, '/') . '/' . ltrim($this->path, '/'), [
+        $response = $this->client->request('GET', rtrim($this->baseUrl, '/').'/'.ltrim($this->path, '/'), [
             'query' => $query,
             'headers' => [
                 'X-SR-Tenant' => $tenantId,
@@ -74,8 +57,8 @@ final readonly class HttpOrderSummaryQueryService implements OrderSummaryQuerySe
         ]);
 
         $statusCode = $response->getStatusCode();
-        if ($statusCode !== 200) {
-            throw new \RuntimeException('Order API responded with status ' . $statusCode);
+        if (200 !== $statusCode) {
+            throw new \RuntimeException('Order API responded with status '.$statusCode);
         }
 
         $data = json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
@@ -103,11 +86,11 @@ final readonly class HttpOrderSummaryQueryService implements OrderSummaryQuerySe
             $totalGrossValue = (float) ($row['totalGross'] ?? 0.0);
             $currency = (string) ($row['currency'] ?? '');
             $email = $row['customerEmail'] ?? null;
-            if ($email !== null) {
+            if (null !== $email) {
                 $email = (string) $email;
             }
 
-            if ($id === '' || $createdIso === '' || $currency === '') {
+            if ('' === $id || '' === $createdIso || '' === $currency) {
                 continue;
             }
 

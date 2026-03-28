@@ -1,34 +1,24 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Doctor;
 
 use App\ServiceInterface\Interfacing\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class DoctorReport
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\ScreenCatalogInterface $screenCatalog
-     * @param \App\ServiceInterface\Interfacing\ActionCatalogInterface $actionCatalog
-     */
-    public function __construct(private readonly ScreenCatalogInterface $screenCatalog, private readonly ActionCatalogInterface $actionCatalog) {}
+    public function __construct(private readonly ScreenCatalogInterface $screenCatalog, private readonly ActionCatalogInterface $actionCatalog)
+    {
+    }
 
     /** @return array<string,mixed> */
     public function build(): array
     {
         $screen = [];
         foreach ($this->screenCatalog->all() as $s) {
-            $screen[] = ['id' => $s->id()->toString(), 'title' => $s->title(), 'viewId' => $s->viewId()];
+            $screen[] = ['id' => $s->id(), 'title' => $s->title(), 'viewId' => $s->viewId()];
         }
 
         $action = [];

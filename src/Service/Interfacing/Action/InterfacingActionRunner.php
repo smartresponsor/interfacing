@@ -1,44 +1,27 @@
-<?php declare(strict_types=1);
+<?php
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- * Proprietary and confidential.
- */
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Action;
 
-use App\Domain\Interfacing\Action\ActionRuntime;
-use App\Domain\Interfacing\Action\ActionResult;
-use App\Domain\Interfacing\Ui\UiError;
-use App\DomainInterface\Interfacing\Action\ActionIdInterface;
-use App\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface;
+use App\Contract\Action\ActionResult;
+use App\Contract\Action\ActionRuntime;
+use App\Contract\Ui\UiError;
+use App\Contract\ValueObject\ActionIdInterface;
 use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
 use App\ServiceInterface\Interfacing\Action\InterfacingActionRunnerInterface;
+use App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface;
+use App\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final readonly class InterfacingActionRunner implements InterfacingActionRunnerInterface
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\Action\ActionCatalogInterface $catalog
-     * @param \App\InfraInterface\Interfacing\Telemetry\InterfacingTelemetryInterface $telemetry
-     */
     public function __construct(
-        private ActionCatalogInterface        $catalog,
+        private ActionCatalogInterface $catalog,
         private InterfacingTelemetryInterface $telemetry,
-    ) {}
+    ) {
+    }
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
-     * @param array $input
-     * @return \App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface
-     */
-    public function run(ActionIdInterface $id, array $input): \App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface
+    public function run(ActionIdInterface $id, array $input): InterfacingActionRunResultInterface
     {
         $start = microtime(true);
         $runtime = new ActionRuntime();
@@ -47,8 +30,10 @@ final readonly class InterfacingActionRunner implements InterfacingActionRunnerI
             $endpoint = $this->catalog->get($id);
             $result = $endpoint->run($input, $runtime);
         } catch (\Throwable $e) {
-            $runtime->addError(new UiError('action', null, 'Action failed: ' . $e->getMessage(), 'action_failed'));
-            $result = ActionResult::fail(['actionId' => $id->value()]);
+            $runtime->addError(new UiError('action', null, 'Action failed: '.$e->getMessage(), 'action_failed'));
+            $result = ActionResult::fail([
+                new UiError('action', null, 'Action failed: '.$e->getMessage(), 'action_failed'),
+            ]);
         } finally {
             $ms = (microtime(true) - $start) * 1000.0;
             $this->telemetry->timing('action.run', $ms, ['actionId' => $id->value()]);
@@ -57,4 +42,3 @@ final readonly class InterfacingActionRunner implements InterfacingActionRunnerI
         return new InterfacingActionRunResult($result, $runtime->errorItem(), $runtime->messageItem());
     }
 }
-

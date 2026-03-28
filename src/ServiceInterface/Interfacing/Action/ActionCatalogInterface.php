@@ -1,37 +1,17 @@
-<?php declare(strict_types=1);
+<?php
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- * Proprietary and confidential.
- */
+declare(strict_types=1);
 
 namespace App\ServiceInterface\Interfacing\Action;
 
-use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use App\DomainInterface\Interfacing\Action\ActionIdInterface;
+use App\Contract\ValueObject\ActionIdInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface ActionCatalogInterface
 {
     /** @return array<int, ActionEndpointInterface> */
     public function all(): array;
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
-     * @return bool
-     */
     public function has(ActionIdInterface $id): bool;
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Action\ActionIdInterface $id
-     * @return \App\DomainInterface\Interfacing\Action\ActionEndpointInterface
-     */
     public function get(ActionIdInterface $id): ActionEndpointInterface;
 }
-

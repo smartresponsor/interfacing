@@ -1,57 +1,44 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Provider\DemoAction;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\Domain\Interfacing\Model\Action\ActionResult;
-use App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
-use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
-use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+namespace App\Service\Interfacing\Provider\DemoAction;
 
-    /**
-     *
-     */
+use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
-    /**
-     *
-     */
-    final class DemoRefreshMetricActionEndpoint implements ActionEndpointInterface
+final class DemoRefreshMetricActionEndpoint implements ActionEndpointInterface
 {
-    /**
-     * @return string
-     */
     public function screenId(): string
     {
         return 'demo.metric';
     }
 
-    /**
-     * @return string
-     */
     public function actionId(): string
     {
         return 'refresh';
     }
 
-    /**
-     * @return string
-     */
     public function title(): string
     {
         return 'Refresh';
     }
 
+    public function order(): int
+    {
+        return 100;
+    }
+
     /**
-     * @param \App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface $request
-     * @return \App\DomainInterface\Interfacing\Model\Action\ActionResultInterface
      * @throws \Random\RandomException
      */
-    public function handle(ActionRequestInterface $request): ActionResultInterface
+    public function handle(ActionRequest $request): ActionResult
     {
         $v = random_int(0, 100);
         $patch = [
@@ -66,4 +53,3 @@ use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
         ]);
     }
 }
-

@@ -1,29 +1,23 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Provider;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\Domain\Interfacing\Model\Layout\LayoutBlockSpec;
-use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
-use App\Domain\Interfacing\Model\Screen\ScreenSpec;
+namespace App\Service\Interfacing\Provider;
+
+use App\Contract\View\LayoutBlockSpec;
+use App\Contract\View\LayoutScreenSpec;
+use App\Contract\View\ScreenSpec;
 use App\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 
-    /**
-     *
-     */
-
-    /**
-     *
-     */
-    final class DemoScreenProvider implements ScreenProviderInterface
+final class DemoScreenProvider implements ScreenProviderInterface
 {
     /**
-     * @return array|\App\DomainInterface\Interfacing\Model\Screen\ScreenSpecInterface[]
+     * @return array|\App\Contract\View\ScreenSpecInterface[]
      */
     public function provide(): array
     {
@@ -77,4 +71,3 @@ use App\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
         ];
     }
 }
-

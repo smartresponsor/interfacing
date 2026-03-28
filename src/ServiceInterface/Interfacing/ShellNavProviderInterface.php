@@ -1,21 +1,13 @@
 <?php
-declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+declare(strict_types=1);
 
 namespace App\ServiceInterface\Interfacing;
 
-use App\Domain\Interfacing\Model\ShellNavGroup;
+use App\Contract\View\ShellNavGroupInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface ShellNavProviderInterface
 {
-    /** @return list<ShellNavGroup> */
+    /** @return list<ShellNavGroupInterface> */
     public function provide(): array;
 }

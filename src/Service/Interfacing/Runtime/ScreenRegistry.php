@@ -1,23 +1,16 @@
 <?php
+
 declare(strict_types=1);
 
-/*
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-*/
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+
 namespace App\Service\Interfacing\Runtime;
 
-use App\Domain\Interfacing\Value\ScreenId;
+use App\Contract\ValueObject\ScreenId;
 use App\ServiceInterface\Interfacing\Runtime\ScreenCatalogInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInterface
 {
     /**
@@ -32,13 +25,13 @@ final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInte
     {
         foreach ($provider as $p) {
             foreach ($p->map() as $screenId => $component) {
-                $sid = trim((string)$screenId);
-                $cmp = trim((string)$component);
+                $sid = trim($screenId);
+                $cmp = trim($component);
 
-                if ($sid === '') {
+                if ('' === $sid) {
                     throw new \InvalidArgumentException('ScreenProvider '.$p->id().' produced empty screenId.');
                 }
-                if ($cmp === '') {
+                if ('' === $cmp) {
                     throw new \InvalidArgumentException('ScreenProvider '.$p->id().' produced empty component for '.$sid.'.');
                 }
                 if (isset($this->map[$sid])) {
@@ -50,19 +43,11 @@ final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInte
         }
     }
 
-    /**
-     * @param \App\Domain\Interfacing\Value\ScreenId $id
-     * @return bool
-     */
     public function has(ScreenId $id): bool
     {
         return isset($this->map[$id->toString()]);
     }
 
-    /**
-     * @param \App\Domain\Interfacing\Value\ScreenId $id
-     * @return string
-     */
     public function componentName(ScreenId $id): string
     {
         $k = $id->toString();
@@ -80,6 +65,7 @@ final class ScreenRegistry implements ScreenRegistryInterface, ScreenCatalogInte
     {
         $id = array_keys($this->map);
         sort($id);
+
         return $id;
     }
 }

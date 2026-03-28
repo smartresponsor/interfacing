@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -7,18 +9,10 @@
 
 namespace App\ServiceInterface\Interfacing\Screen;
 
-use App\DomainInterface\Interfacing\Screen\ScreenSpecInterface;
+use App\Contract\View\ScreenSpecInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface ScreenProviderInterface
 {
     /** @return array<int, ScreenSpecInterface> */
     public function provide(): array;
 }
-

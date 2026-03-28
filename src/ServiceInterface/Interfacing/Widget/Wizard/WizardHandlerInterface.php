@@ -1,32 +1,20 @@
 <?php
+
 declare(strict_types=1);
 
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
+
 namespace App\ServiceInterface\Interfacing\Widget\Wizard;
 
-use App\Domain\Interfacing\Model\Wizard\WizardSpec;
-use App\Domain\Interfacing\Model\Form\FormSubmitResult;
+use App\Contract\Dto\FormSubmitResult;
+use App\Contract\View\WizardSpec;
 
-/**
- *
- */
-
-/**
- *
- */
 interface WizardHandlerInterface
 {
-    /**
-     * @return string
-     */
     public function id(): string;
 
-    /**
-     * @param array $context
-     * @return \App\Domain\Interfacing\Model\Wizard\WizardSpec
-     */
     public function spec(array $context = []): WizardSpec;
 
     /** @return array<string,mixed> */

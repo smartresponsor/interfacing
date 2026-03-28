@@ -1,26 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
+
 namespace App\Service\Interfacing\Layout;
 
-use App\Domain\Interfacing\Model\Layout\LayoutScreenSpec;
+use App\Contract\View\LayoutScreenSpec;
 use App\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class LayoutShell implements LayoutShellInterface
 {
     /**
-     * @param \App\Domain\Interfacing\Model\Layout\LayoutScreenSpec $activeSpec
-     * @param array $allSpec
      * @return array|mixed[]
      */
     public function build(LayoutScreenSpec $activeSpec, array $allSpec): array
@@ -43,7 +36,7 @@ final class LayoutShell implements LayoutShellInterface
 
         ksort($groups);
         foreach ($groups as $k => $items) {
-            usort($items, static fn(LayoutScreenSpec $a, LayoutScreenSpec $b): int => strcmp($a->title(), $b->title()));
+            usort($items, static fn (LayoutScreenSpec $a, LayoutScreenSpec $b): int => strcmp($a->title(), $b->title()));
             $groups[$k] = $items;
         }
 

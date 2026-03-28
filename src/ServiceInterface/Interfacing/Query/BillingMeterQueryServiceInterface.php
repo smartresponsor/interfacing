@@ -1,28 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\ServiceInterface\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\BillingMeterPage;
+use App\Contract\Dto\BillingMeterPage;
 
-/**
- *
- */
-
-/**
- *
- */
 interface BillingMeterQueryServiceInterface
 {
-    /**
-     * @param string $tenantId
-     * @param int $page
-     * @param int $pageSize
-     * @param string|null $status
-     * @param string|null $periodFromIso
-     * @param string|null $periodToIso
-     * @return \App\Domain\Interfacing\Query\BillingMeterPage
-     */
     public function fetchPage(
         string $tenantId,
         int $page,

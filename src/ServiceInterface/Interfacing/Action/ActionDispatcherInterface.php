@@ -1,27 +1,16 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Action;
+namespace App\ServiceInterface\Interfacing\Action;
 
-    use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
+use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
-    /**
-     *
-     */
-
-    /**
-     *
-     */
-    interface ActionDispatcherInterface
+interface ActionDispatcherInterface
 {
-    /** @param array<string, mixed> $payload
-     *  @param array<string, mixed> $state
+    /**
+     * @param array<string, mixed> $payload
+     * @param array<string, mixed> $state
      */
-    public function dispatch(string $screenId, string $actionId, array $payload, array $state): ActionResultInterface;
+    public function dispatch(string $screenId, string $actionId, array $payload, array $state): ActionResult;
 }
-

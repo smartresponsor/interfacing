@@ -5,24 +5,14 @@ declare(strict_types=1);
 /*
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
+
 namespace App\ServiceInterface\Interfacing\Ui;
 
-use App\Domain\Interfacing\Ui\UiMessage;
-use App\Domain\Interfacing\Ui\UiMessageBag;
+use App\Contract\Ui\UiMessage;
+use App\Contract\Ui\UiMessageBag;
 
-/**
- *
- */
-
-/**
- *
- */
 interface SessionFlashMessengerInterface
 {
-    /**
-     * @param \App\Domain\Interfacing\Ui\UiMessage $message
-     * @return void
-     */
     public function push(UiMessage $message): void;
 
     /**

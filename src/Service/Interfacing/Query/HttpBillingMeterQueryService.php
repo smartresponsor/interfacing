@@ -1,41 +1,24 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Service\Interfacing\Query;
 
-use App\Domain\Interfacing\Query\BillingMeterPage;
-use App\Domain\Interfacing\Query\BillingMeterRow;
+use App\Contract\Dto\BillingMeterPage;
+use App\Contract\Dto\BillingMeterRow;
 use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final readonly class HttpBillingMeterQueryService implements BillingMeterQueryServiceInterface
 {
-    /**
-     * @param \Symfony\Contracts\HttpClient\HttpClientInterface $client
-     * @param string $baseUrl
-     * @param string $path
-     */
     public function __construct(
         private HttpClientInterface $client,
-        private string              $baseUrl,
-        private string              $path,
-    ) {}
+        private string $baseUrl,
+        private string $path,
+    ) {
+    }
 
     /**
-     * @param string $tenantId
-     * @param int $page
-     * @param int $pageSize
-     * @param string|null $status
-     * @param string|null $periodFromIso
-     * @param string|null $periodToIso
-     * @return \App\Domain\Interfacing\Query\BillingMeterPage
      * @throws \JsonException
      * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
      * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
@@ -55,17 +38,17 @@ final readonly class HttpBillingMeterQueryService implements BillingMeterQuerySe
             'pageSize' => $pageSize,
         ];
 
-        if ($status !== null && $status !== '') {
+        if (null !== $status && '' !== $status) {
             $query['status'] = $status;
         }
-        if ($periodFromIso !== null && $periodFromIso !== '') {
+        if (null !== $periodFromIso && '' !== $periodFromIso) {
             $query['periodFrom'] = $periodFromIso;
         }
-        if ($periodToIso !== null && $periodToIso !== '') {
+        if (null !== $periodToIso && '' !== $periodToIso) {
             $query['periodTo'] = $periodToIso;
         }
 
-        $response = $this->client->request('GET', rtrim($this->baseUrl, '/') . '/' . ltrim($this->path, '/'), [
+        $response = $this->client->request('GET', rtrim($this->baseUrl, '/').'/'.ltrim($this->path, '/'), [
             'query' => $query,
             'headers' => [
                 'X-SR-Tenant' => $tenantId,
@@ -74,8 +57,8 @@ final readonly class HttpBillingMeterQueryService implements BillingMeterQuerySe
         ]);
 
         $statusCode = $response->getStatusCode();
-        if ($statusCode !== 200) {
-            throw new \RuntimeException('Billing API responded with status ' . $statusCode);
+        if (200 !== $statusCode) {
+            throw new \RuntimeException('Billing API responded with status '.$statusCode);
         }
 
         $data = json_decode($response->getContent(), true, 512, JSON_THROW_ON_ERROR);
@@ -103,7 +86,7 @@ final readonly class HttpBillingMeterQueryService implements BillingMeterQuerySe
             $fromIso = (string) ($row['periodFrom'] ?? '');
             $toIso = (string) ($row['periodTo'] ?? '');
 
-            if ($id === '' || $fromIso === '' || $toIso === '') {
+            if ('' === $id || '' === $fromIso || '' === $toIso) {
                 continue;
             }
 

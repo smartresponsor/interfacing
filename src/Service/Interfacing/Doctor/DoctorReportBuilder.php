@@ -1,33 +1,25 @@
 <?php
+
 declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
+
 namespace App\Service\Interfacing\Doctor;
 
 use App\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
 use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final readonly class DoctorReportBuilder implements DoctorReportBuilderInterface
 {
-    /**
-     * @param \App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface $screenRegistry
-     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layoutCatalog
-     */
     public function __construct(
         private ScreenRegistryInterface $screenRegistry,
-        private LayoutCatalogInterface  $layoutCatalog
-    ) {}
+        private LayoutCatalogInterface $layoutCatalog,
+    ) {
+    }
 
     /**
      * @return array[]
@@ -39,16 +31,16 @@ final readonly class DoctorReportBuilder implements DoctorReportBuilderInterface
             $screen[] = [
                 'screenId' => $id,
                 'title' => $spec->title(),
-                'layoutKey' => $spec->layoutKey(),
-                'accessCount' => count($spec->accessRule()),
+                'layoutId' => $spec->layoutId(),
+                'accessCount' => count($spec->requireRole()),
             ];
         }
 
         $layout = [];
         foreach ($this->layoutCatalog->all() as $key => $spec) {
             $layout[] = [
-                'layoutKey' => $key,
-                'shellTitle' => $spec->shellTitle(),
+                'layoutId' => $key,
+                'shellTitle' => $spec->title(),
                 'blockCount' => count($spec->block()),
             ];
         }

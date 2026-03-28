@@ -1,33 +1,35 @@
-<?php declare(strict_types=1);
+<?php
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- * Proprietary and confidential.
- */
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Demo;
 
-use App\Domain\Interfacing\Layout\LayoutId;
-use App\Domain\Interfacing\Layout\LayoutSpec;
+use App\Contract\ValueObject\LayoutSlot;
+use App\Contract\View\LayoutBlockSpec;
+use App\Contract\View\LayoutScreenSpec;
 use App\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class DemoLayoutProvider implements LayoutProviderInterface
 {
-    /**
-     * @return \App\Domain\Interfacing\Layout\LayoutSpec[]
-     */
     public function provide(): array
     {
         return [
-            new LayoutSpec(new LayoutId('interfacing_doctor_layout'), 'Doctor layout', 'interfacing/doctor/page.html.twig'),
+            new LayoutScreenSpec(
+                block: [
+                    new LayoutBlockSpec(
+                        'twig',
+                        LayoutSlot::MAIN,
+                        [
+                            'twigPath' => 'interfacing/doctor/page.html.twig',
+                            'contextKey' => 'doctor',
+                        ],
+                    ),
+                ],
+                id: 'interfacing_doctor_layout',
+                title: 'Doctor layout',
+                navGroup: 'tool',
+                routePath: 'interfacing/doctor/page',
+            ),
         ];
     }
 }
-

@@ -1,34 +1,35 @@
-<?php declare(strict_types=1);
+<?php
 
-/*
- * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
- * Proprietary and confidential.
- */
+declare(strict_types=1);
 
 namespace App\Service\Interfacing\Demo;
 
-use App\Domain\Interfacing\Layout\LayoutId;
-use App\Domain\Interfacing\Screen\ScreenId;
-use App\Domain\Interfacing\Screen\ScreenSpec;
+use App\Contract\View\LayoutBlockSpec;
+use App\Contract\View\LayoutScreenSpec;
+use App\Contract\View\ScreenSpec;
 use App\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class DemoScreenProvider implements ScreenProviderInterface
 {
-    /**
-     * @return \App\Domain\Interfacing\Screen\ScreenSpec[]
-     */
     public function provide(): array
     {
+        $layout = new LayoutScreenSpec(
+            block: [
+                new LayoutBlockSpec('twig', 'main', [
+                    'twigPath' => 'interfacing/doctor/page.html.twig',
+                    'contextKey' => 'doctor',
+                ]),
+            ],
+            id: 'interfacing_doctor_layout',
+            title: 'Doctor layout',
+            navGroup: 'tool',
+            routePath: 'interfacing/doctor/page',
+        );
+
         return [
-            new ScreenSpec(new ScreenId('interfacing_doctor'), 'Interfacing Doctor', new LayoutId('interfacing_doctor_layout'), '/interfacing/doctor', 'tool'),
+            new ScreenSpec('interfacing_doctor', 'Interfacing Doctor', $layout, [
+                'doctor' => ['status' => 'ok'],
+            ]),
         ];
     }
 }
-

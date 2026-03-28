@@ -1,25 +1,15 @@
 <?php
+
 declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace SmartResponsor\Interfacing\Service\Interfacing\Doctor;
+namespace App\Service\Interfacing\Doctor;
 
-use SmartResponsor\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
+use App\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
 {
-    /**
-     * @param array $raw
-     * @return array
-     */
     public function normalize(array $raw): array
     {
         $meta = $this->arrayOrEmpty($raw['meta'] ?? []);
@@ -28,13 +18,13 @@ final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
         $issue = $this->normalizeIssue($raw['issue'] ?? $raw['issues'] ?? []);
 
         // Back-compat: some builders provide nested report structures.
-        if ($screen === [] && isset($raw['registry']['screen'])) {
+        if ([] === $screen && isset($raw['registry']['screen'])) {
             $screen = $this->arrayOrEmpty($raw['registry']['screen']);
         }
-        if ($layout === [] && isset($raw['registry']['layout'])) {
+        if ([] === $layout && isset($raw['registry']['layout'])) {
             $layout = $this->arrayOrEmpty($raw['registry']['layout']);
         }
-        if ($issue === [] && isset($raw['check']['issue'])) {
+        if ([] === $issue && isset($raw['check']['issue'])) {
             $issue = $this->arrayOrEmpty($raw['check']['issue']);
         }
 
@@ -50,10 +40,6 @@ final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
         ];
     }
 
-    /**
-     * @param mixed $v
-     * @return array
-     */
     private function arrayOrEmpty(mixed $v): array
     {
         return \is_array($v) ? $v : [];

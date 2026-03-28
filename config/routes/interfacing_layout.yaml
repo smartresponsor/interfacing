@@ -1,12 +1,12 @@
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 interfacing_layout_index:
   path: /interfacing
-  controller: App\Http\Interfacing\Layout\Controller\LayoutController::show
+  controller: App\Presentation\Controller\Interfacing\LayoutController::show
   defaults:
     slug: home
 
 interfacing_layout_show:
   path: /interfacing/{slug}
-  controller: App\Http\Interfacing\Layout\Controller\LayoutController::show
+  controller: App\Presentation\Controller\Interfacing\LayoutController::show
   requirements:
     slug: '[a-z0-9][a-z0-9\-]{0,47}'

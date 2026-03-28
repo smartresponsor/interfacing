@@ -1,27 +1,11 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Context;
+namespace App\ServiceInterface\Interfacing\Context;
 
-    use App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface;
-
-    /**
-     *
-     */
-
-    /**
-     *
-     */
-    interface BaseContextProviderInterface
+interface BaseContextProviderInterface
 {
-    /**
-     * @return \App\DomainInterface\Interfacing\Model\Context\ScreenContextInterface
-     */
-    public function provide(): ScreenContextInterface;
+    /** @return array<string, mixed> */
+    public function provide(): array;
 }
-

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -7,13 +8,12 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
 namespace App\Tests\Functional\Interfacing;
 
-use App\Domain\Interfacing\Access\AccessDecision;
-use App\Domain\Interfacing\Query\BillingMeterPage;
-use App\Domain\Interfacing\Query\BillingMeterRow;
-use App\Domain\Interfacing\Query\OrderSummaryPage;
-use App\Domain\Interfacing\Query\OrderSummaryRow;
-use App\DomainInterface\Interfacing\Access\AccessResolverInterface;
-use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\Contract\Access\AccessDecision;
+use App\Contract\Dto\BillingMeterPage;
+use App\Contract\Dto\BillingMeterRow;
+use App\Contract\Dto\OrderSummaryPage;
+use App\Contract\Dto\OrderSummaryRow;
+use App\ServiceInterface\Interfacing\Access\AccessResolverInterface;
 use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
 use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -22,20 +22,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
-/**
- *
- */
-
-/**
- *
- */
-#[CoversClass(\App\Infra\Interfacing\Http\BillingMeterScreenController::class)]
-#[CoversClass(\App\Infra\Interfacing\Http\OrderSummaryScreenController::class)]
+#[CoversClass(\App\Presentation\Controller\Interfacing\BillingMeterScreenController::class)]
+#[CoversClass(\App\Presentation\Controller\Interfacing\OrderSummaryScreenController::class)]
 final class InterfacingBillingAndOrderScreenTest extends WebTestCase
 {
-    /**
-     * @return void
-     */
     public function testBillingMeterScreenRendersWithStubData(): void
     {
         $client = $this->createClientWithStubs();
@@ -52,9 +42,6 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('closed', $content);
     }
 
-    /**
-     * @return void
-     */
     public function testOrderSummaryScreenRendersWithStubData(): void
     {
         $client = $this->createClientWithStubs();
@@ -70,15 +57,12 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('customer@example.test', $content);
     }
 
-    /**
-     * @return \Symfony\Bundle\FrameworkBundle\KernelBrowser
-     */
     private function createClientWithStubs(): KernelBrowser
     {
         self::ensureKernelShutdown();
 
-        $client = InterfacingBillingAndOrderScreenTest::createClient();
-        $container = InterfacingBillingAndOrderScreenTest::getContainer();
+        $client = self::createClient();
+        $container = self::getContainer();
 
         // Access: always allow in tests.
         $accessResolver = new TestAllowAllAccessResolver();
@@ -87,8 +71,8 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(AccessResolverInterface::class, $accessResolver);
         }
 
-        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Access\\SymfonyAccessResolver')) {
-            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Access\\SymfonyAccessResolver', $accessResolver);
+        if ($container->has('App\\Service\\Interfacing\\Access\\SymfonyAccessResolver')) {
+            $container->set('App\\Service\\Interfacing\\Access\\SymfonyAccessResolver', $accessResolver);
         }
 
         // Context: stable tenant/user for tests, so no env or security dependency.
@@ -98,8 +82,8 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(BaseContextProviderInterface::class, $baseContextProvider);
         }
 
-        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider')) {
-            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider', $baseContextProvider);
+        if ($container->has('App\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider')) {
+            $container->set('App\\Service\\Interfacing\\Context\\SymfonyBaseContextProvider', $baseContextProvider);
         }
 
         // Billing & order query services: provide in-memory pages instead of HTTP calls.
@@ -110,16 +94,16 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
             $container->set(BillingMeterQueryServiceInterface::class, $billingQuery);
         }
 
-        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService')) {
-            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService', $billingQuery);
+        if ($container->has('App\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService')) {
+            $container->set('App\\Service\\Interfacing\\Query\\HttpBillingMeterQueryService', $billingQuery);
         }
 
         if ($container->has(OrderSummaryQueryServiceInterface::class)) {
             $container->set(OrderSummaryQueryServiceInterface::class, $orderQuery);
         }
 
-        if ($container->has('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService')) {
-            $container->set('SmartResponsor\Interfacing\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService', $orderQuery);
+        if ($container->has('App\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService')) {
+            $container->set('App\\Service\\Interfacing\\Query\\HttpOrderSummaryQueryService', $orderQuery);
         }
 
         return $client;
@@ -131,27 +115,14 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
  */
 final class TestAllowAllAccessResolver implements AccessResolverInterface
 {
-    /**
-     * @param string $screenId
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
-     * @return \App\Domain\Interfacing\Access\AccessDecision
-     */
     public function canOpenScreen(string $screenId, Request $request, ?TokenInterface $token): AccessDecision
     {
-        return AccessDecision::allow('test-open:' . $screenId);
+        return AccessDecision::allow('test-open:'.$screenId);
     }
 
-    /**
-     * @param string $screenId
-     * @param string $actionId
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
-     * @return \App\Domain\Interfacing\Access\AccessDecision
-     */
     public function canRunAction(string $screenId, string $actionId, Request $request, ?TokenInterface $token): AccessDecision
     {
-        return AccessDecision::allow('test-action:' . $screenId . '#' . $actionId);
+        return AccessDecision::allow('test-action:'.$screenId.'#'.$actionId);
     }
 }
 
@@ -161,8 +132,6 @@ final class TestAllowAllAccessResolver implements AccessResolverInterface
 final class TestBaseContextProvider implements BaseContextProviderInterface
 {
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Symfony\Component\Security\Core\Authentication\Token\TokenInterface|null $token
      * @return array|mixed[]
      */
     public function provide(Request $request, ?TokenInterface $token): array
@@ -183,15 +152,6 @@ final class TestBaseContextProvider implements BaseContextProviderInterface
  */
 final class TestBillingMeterQueryService implements BillingMeterQueryServiceInterface
 {
-    /**
-     * @param string $tenantId
-     * @param int $page
-     * @param int $pageSize
-     * @param string|null $status
-     * @param string|null $periodFromIso
-     * @param string|null $periodToIso
-     * @return \App\Domain\Interfacing\Query\BillingMeterPage
-     */
     public function fetchPage(
         string $tenantId,
         int $page,
@@ -219,15 +179,6 @@ final class TestBillingMeterQueryService implements BillingMeterQueryServiceInte
  */
 final class TestOrderSummaryQueryService implements OrderSummaryQueryServiceInterface
 {
-    /**
-     * @param string $tenantId
-     * @param int $page
-     * @param int $pageSize
-     * @param string|null $status
-     * @param string|null $createdFromIso
-     * @param string|null $createdToIso
-     * @return \App\Domain\Interfacing\Query\OrderSummaryPage
-     */
     public function fetchPage(
         string $tenantId,
         int $page,
@@ -263,4 +214,3 @@ final class TestOrderSummaryQueryService implements OrderSummaryQueryServiceInte
         );
     }
 }
-

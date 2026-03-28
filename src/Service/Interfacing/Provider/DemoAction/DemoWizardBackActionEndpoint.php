@@ -1,58 +1,43 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Provider\DemoAction;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\Domain\Interfacing\Model\Action\ActionResult;
-use App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
-use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
-use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+namespace App\Service\Interfacing\Provider\DemoAction;
 
-    /**
-     *
-     */
+use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
-    /**
-     *
-     */
-    final class DemoWizardBackActionEndpoint implements ActionEndpointInterface
+final class DemoWizardBackActionEndpoint implements ActionEndpointInterface
 {
-    /**
-     * @return string
-     */
     public function screenId(): string
     {
         return 'demo.wizard';
     }
 
-    /**
-     * @return string
-     */
     public function actionId(): string
     {
         return 'wizard-back';
     }
 
-    /**
-     * @return string
-     */
     public function title(): string
     {
         return 'Back';
     }
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface $request
-     * @return \App\DomainInterface\Interfacing\Model\Action\ActionResultInterface
-     */
-    public function handle(ActionRequestInterface $request): ActionResultInterface
+    public function order(): int
     {
-        $state = $request->state();
+        return 100;
+    }
+
+    public function handle(ActionRequest $request): ActionResult
+    {
+        $state = $request->state;
         $step = (int) ($state['wizard']['step'] ?? 0);
         $prev = max($step - 1, 0);
 
@@ -61,4 +46,3 @@ use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
         ]);
     }
 }
-

@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /*
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
@@ -7,20 +9,9 @@
 
 namespace App\ServiceInterface\Interfacing\Doctor;
 
-use App\DomainInterface\Interfacing\Doctor\DoctorReportInterface;
+use App\Support\Doctor\DoctorReportInterface;
 
-/**
- *
- */
-
-/**
- *
- */
 interface InterfacingDoctorServiceInterface
 {
-    /**
-     * @return \App\DomainInterface\Interfacing\Doctor\DoctorReportInterface
-     */
     public function report(): DoctorReportInterface;
 }
-

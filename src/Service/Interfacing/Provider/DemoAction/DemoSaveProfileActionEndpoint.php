@@ -1,56 +1,41 @@
 <?php
-    declare(strict_types=1);
 
-    /*
-     * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-     * Proprietary and confidential.
-     */
+declare(strict_types=1);
 
-    namespace App\Service\Interfacing\Provider\DemoAction;
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ * Proprietary and confidential.
+ */
 
-    use App\Domain\Interfacing\Model\Action\ActionResult;
-use App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface;
-use App\DomainInterface\Interfacing\Model\Action\ActionResultInterface;
-use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+namespace App\Service\Interfacing\Provider\DemoAction;
 
-    /**
-     *
-     */
+use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\ServiceInterface\Interfacing\Runtime\ActionResult;
 
-    /**
-     *
-     */
-    final class DemoSaveProfileActionEndpoint implements ActionEndpointInterface
+final class DemoSaveProfileActionEndpoint implements ActionEndpointInterface
 {
-    /**
-     * @return string
-     */
     public function screenId(): string
     {
         return 'demo.form';
     }
 
-    /**
-     * @return string
-     */
     public function actionId(): string
     {
         return 'save-profile';
     }
 
-    /**
-     * @return string
-     */
     public function title(): string
     {
         return 'Save profile';
     }
 
-    /**
-     * @param \App\DomainInterface\Interfacing\Model\Action\ActionRequestInterface $request
-     * @return \App\DomainInterface\Interfacing\Model\Action\ActionResultInterface
-     */
-    public function handle(ActionRequestInterface $request): ActionResultInterface
+    public function order(): int
+    {
+        return 100;
+    }
+
+    public function handle(ActionRequest $request): ActionResult
     {
         $payload = $request->payload();
         $name = isset($payload['name']) ? trim((string) $payload['name']) : '';
@@ -59,16 +44,16 @@ use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
         $fieldError = [];
         $globalError = [];
 
-        if ($name === '') {
+        if ('' === $name) {
             $fieldError['name'] = 'Name is required.';
         }
-        if ($email === '') {
+        if ('' === $email) {
             $fieldError['email'] = 'Email is required.';
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $fieldError['email'] = 'Email is invalid.';
         }
 
-        if ($fieldError !== []) {
+        if ([] !== $fieldError) {
             return ActionResult::validationError($fieldError, $globalError);
         }
 
@@ -83,4 +68,3 @@ use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
         ]);
     }
 }
-

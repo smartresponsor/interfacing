@@ -1,24 +1,14 @@
 <?php
-    declare(strict_types=1);
 
-    /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+declare(strict_types=1);
 
-    namespace App\ServiceInterface\Interfacing\Builder;
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-    use App\Domain\Interfacing\Spec\WizardSpec;
+namespace App\ServiceInterface\Interfacing\Builder;
 
-    /**
-     *
-     */
+use App\Contract\Spec\WizardSpec;
 
-    /**
-     *
-     */
-    interface WizardSpecBuilderInterface
+interface WizardSpecBuilderInterface
 {
-    /**
-     * @return \App\Domain\Interfacing\Spec\WizardSpec
-     */
     public function build(): WizardSpec;
 }
-
