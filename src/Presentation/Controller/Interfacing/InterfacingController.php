@@ -12,6 +12,7 @@ use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
 use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\ServiceInterface\Interfacing\View\InterfacingIndexViewBuilderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -23,30 +24,14 @@ final class InterfacingController extends AbstractController
         private readonly ScreenRegistryInterface $screen,
         private readonly ScreenContextAssemblerInterface $context,
         private readonly AccessResolverInterface $access,
+        private readonly InterfacingIndexViewBuilderInterface $indexBuilder,
     ) {
     }
 
     #[Route('/interfacing', name: 'interfacing_index', methods: ['GET'])]
     public function index(): Response
     {
-        $screenList = [];
-        foreach ($this->layout->list() as $spec) {
-            $cap = $spec->capability();
-            if (null !== $cap && !$this->access->allow($cap, ['layoutId' => $spec->id(), 'screenId' => $spec->screenId()->toString()])) {
-                continue;
-            }
-
-            $screenList[] = [
-                'id' => $spec->id(),
-                'title' => $spec->title(),
-            ];
-        }
-
-        usort($screenList, static fn (array $a, array $b): int => $a['title'] <=> $b['title']);
-
-        return $this->render('interfacing/page/index.html.twig', [
-            'screenList' => $screenList,
-        ]);
+        return $this->render('interfacing/page/index.html.twig', $this->indexBuilder->build());
     }
 
     #[Route('/interfacing/{id}', name: 'interfacing_screen', methods: ['GET'])]
