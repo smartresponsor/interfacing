@@ -1,4 +1,0 @@
-twig:
-  paths:
-    '%kernel.project_dir%/template': ''
-    '%kernel.project_dir%/templates': ''

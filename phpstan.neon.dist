@@ -1,8 +1,10 @@
 parameters:
-  level: 5
-  paths:
-    - src
-    - tests
-    - test
-  tmpDir: var/phpstan
-  treatPhpDocTypesAsCertain: false
+    level: 5
+    paths:
+        - src
+        - tests
+    inferPrivatePropertyTypeFromConstructor: true
+    checkMissingIterableValueType: false
+
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
