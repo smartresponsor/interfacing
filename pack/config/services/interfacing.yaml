@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  SmartResponsor\Interfacing\Http\Interfacing\Health\Controller\InterfacingHealthController:
+    arguments:
+      $kernelEnvironment: '%kernel.environment%'

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Interfacing Doctor</title>
+    <style>
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 16px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+        th, td { border: 1px solid #ddd; padding: 8px; font-size: 13px; }
+        th { background: #f3f3f3; text-align: left; }
+        .muted { color: #666; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .card { border: 1px solid #ddd; border-radius: 12px; padding: 12px; }
+    </style>
+</head>
+<body>
+    <h2>Interfacing Doctor</h2>
+    <p class="muted">Registered screen and layout.</p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Screen ({{ report.screen|length }})</h3>
+            <table>
+                <thead><tr><th>screenId</th><th>title</th><th>layoutKey</th><th>access</th></tr></thead>
+                <tbody>
+                {% for s in report.screen %}
+                    <tr>
+                        <td>{{ s.screenId }}</td>
+                        <td>{{ s.title }}</td>
+                        <td>{{ s.layoutKey }}</td>
+                        <td>{{ s.accessCount }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Layout ({{ report.layout|length }})</h3>
+            <table>
+                <thead><tr><th>layoutKey</th><th>shellTitle</th><th>block</th></tr></thead>
+                <tbody>
+                {% for l in report.layout %}
+                    <tr>
+                        <td>{{ l.layoutKey }}</td>
+                        <td>{{ l.shellTitle }}</td>
+                        <td>{{ l.blockCount }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

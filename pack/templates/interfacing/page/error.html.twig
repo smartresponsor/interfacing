@@ -1,0 +1,23 @@
+{# Interfacing error page (RVE-A4)
+   - unified error semantics for UI
+   - do not leak domain details
+#}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="sr-error">
+    <h2 class="sr-error__title">{{ title }}</h2>
+    <div class="sr-error__meta">
+      <span class="sr-error__status">HTTP {{ status }}</span>
+      <span class="sr-error__code">{{ code }}</span>
+    </div>
+    <p class="sr-error__detail">{{ detail }}</p>
+    {% if traceId is not empty %}
+      <p class="sr-error__trace">Trace: {{ traceId }}</p>
+    {% endif %}
+    <div class="sr-error__action">
+      <a href="/interfacing" class="sr-link">Back to Interfacing</a>
+    </div>
+  </div>
+{% endblock %}

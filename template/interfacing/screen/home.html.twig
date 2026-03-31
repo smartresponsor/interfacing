@@ -1,0 +1,12 @@
+{# 
+Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+#}
+<div>
+  <div style="font-weight:600;margin-bottom:8px;">Home</div>
+  <div style="opacity:.8;margin-bottom:10px;">Available screens</div>
+  <ul style="margin:0;padding-left:16px;">
+    {% for x in this.link %}
+      <li><a href="/interfacing/{{ x.slug }}">{{ x.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>

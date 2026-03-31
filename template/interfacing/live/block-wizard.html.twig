@@ -1,0 +1,40 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+
+<div class="card" style="margin-bottom:12px;">
+  <div style="font-weight:700;margin-bottom:10px;">{{ block.props.title }}</div>
+
+  {% set step = component.state.wizard.step ?? 0 %}
+  {% set steps = block.props.steps %}
+  {% set active = steps[step] ?? steps[0] %}
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+    {% for s in steps %}
+      <div class="chip" style="{{ loop.index0 == step ? 'background:#f3f4f6;font-weight:700;' : '' }}">
+        {{ loop.index }}. {{ s.title }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="msg">
+    <div style="font-weight:700;">{{ active.title }}</div>
+    <div>{{ active.content }}</div>
+  </div>
+
+  <div style="display:flex;gap:8px;margin-top:12px;">
+    <button
+      class="btn"
+      data-action="live#action"
+      data-live-action-param="invokeAction"
+      data-live-action-arg-actionId="{{ block.props.actionBack }}"
+      data-live-action-arg-payload='{}'
+    >Back</button>
+
+    <button
+      class="btn"
+      data-action="live#action"
+      data-live-action-param="invokeAction"
+      data-live-action-arg-actionId="{{ block.props.actionNext }}"
+      data-live-action-arg-payload='{}'
+    >Next</button>
+  </div>
+</div>

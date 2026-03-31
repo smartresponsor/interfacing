@@ -1,0 +1,40 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+
+<div class="card" style="margin-bottom:12px;">
+  <div style="font-weight:700;margin-bottom:10px;">{{ block.props.title }}</div>
+
+  {% if component.globalError is not empty %}
+    <div class="msg" style="border-color:#fecaca;margin-bottom:10px;">
+      {% for e in component.globalError %}
+        <div class="err">{{ e }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="grid">
+    {% for f in block.props.fields %}
+      <div>
+        <label>{{ f.label }}</label>
+        <input
+          type="{{ f.type }}"
+          value="{{ component.state.form[f.name] ?? '' }}"
+          data-model="state.form.{{ f.name }}"
+          data-action="input->live#update"
+        >
+        {% if component.fieldError[f.name] is defined %}
+          <div class="err">{{ component.fieldError[f.name] }}</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div style="margin-top:12px;">
+    <button
+      class="btn"
+      data-action="live#action"
+      data-live-action-param="invokeAction"
+      data-live-action-arg-actionId="{{ block.props.actionId }}"
+      data-live-action-arg-payload='{{ component.state.form|json_encode|e('html_attr') }}'
+    >Save</button>
+  </div>
+</div>

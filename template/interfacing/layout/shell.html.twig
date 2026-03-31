@@ -19,7 +19,7 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
           <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;">
             {% for s in items %}
               <li style="list-style:disc;">
-                <a href="{{ path('interfacing_layout_show', { slug: s.slug }) }}"
+                <a href="/interfacing/{{ s.slug }}"
                    style="{% if s.slug == layout.active.slug %}font-weight:600;{% else %}text-decoration:none;{% endif %}">
                   {{ s.title }}
                 </a>

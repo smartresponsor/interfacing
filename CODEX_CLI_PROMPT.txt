@@ -1,0 +1,38 @@
+You are working inside the current slice of the Interfacing repository.
+
+Read first:
+- MANIFEST.md
+- ARCHITECTURE_MANIFEST.md
+- PRODUCT_MANIFEST.md
+- docs/interfacing/OWNER_MOTIFS_ADAPTED.md
+- docs/interfacing/CANONICAL_TARGET_TREE.md
+- docs/interfacing/MIGRATION_MAP.md
+- docs/interfacing/ui-contract.yaml
+- branch MANIFEST.md files in the touched area
+
+Rules:
+- Use only this current slice as truth.
+- Keep namespace `App\` only with `App\ => src/`.
+- Do not introduce Port/Adapter naming.
+- Do not create new `src/Domain`, `src/DomainInterface`, `src/HttpInterface`, `src/Infra`, or `src/InfraInterface` feature growth.
+- Do not use `infra` as a new canonical branch name.
+- Preserve and use mirrored `src/Service/*` and `src/ServiceInterface/*` trees for service implementation/contract symmetry.
+- Prefer the canonical target trees under `src/Application`, `src/Presentation`, `src/Persistence`, `src/Service`, `src/ServiceInterface`, `src/Contract`, `src/Integration`, `src/Support`.
+- Preserve the existing Symfony + Twig + UX LiveComponent runtime.
+- Treat admin as a privileged zone inside Interfacing, not a separate UI domain.
+- PrimeReact owns facade/shell richness; Ant Design + ProComponents own workbench/entity surfaces.
+- New UI code must flow through wrappers, zone contracts, and manifests.
+- Prefer DTO + Form + Validator flow where data crosses controller, CLI, live component, or application boundaries.
+- Use ValueObjects where they clarify real meaning; do not introduce decorative abstraction.
+- Keep repositories focused on persistence and retrieval.
+- Keep controllers thin.
+- Use Bootstrap/Twig cleanly for Symfony-driven management UI.
+- Strengthen CLI, fixtures, tests, and local quality gates only when the work is grounded in the repository evidence.
+- Avoid format churn.
+
+Expected outputs when developing:
+- concrete code in canonical trees;
+- fixed references after moves/renames;
+- updated manifests when responsibility changes;
+- minimal drift;
+- no speculative restructuring beyond repository evidence.

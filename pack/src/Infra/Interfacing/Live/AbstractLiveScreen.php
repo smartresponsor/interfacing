@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+/*
+ * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+ */
+namespace SmartResponsor\Interfacing\Infra\Interfacing\Live;
+
+use SmartResponsor\Interfacing\Domain\Interfacing\Model\UiState;
+use SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface;
+use SmartResponsor\Interfacing\InfraInterface\Interfacing\Live\AbstractLiveScreenInterface;
+
+/**
+ *
+ */
+
+/**
+ *
+ */
+abstract class AbstractLiveScreen implements AbstractLiveScreenInterface
+{
+    /**
+     * @return \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface
+     */
+    public function toUiState(): UiStateInterface
+    {
+        return UiState::fromArray([]);
+    }
+
+    /**
+     * @param \SmartResponsor\Interfacing\DomainInterface\Interfacing\Model\UiStateInterface $state
+     * @return void
+     */
+    public function fromUiState(UiStateInterface $state): void
+    {
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "artifact": "interfacing-sketch-01-runtime-kernel.zip",
+  "content": {
+    "screenId": [
+      "screen-empty",
+      "screen-home",
+      "screen-health"
+    ],
+    "slug": [
+      "home",
+      "health",
+      "empty"
+    ],
+    "route": [
+      "/interfacing",
+      "/interfacing/{slug}",
+      "/interfacing/health"
+    ]
+  }
+}

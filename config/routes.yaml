@@ -1,0 +1,7 @@
+interfacing_billing_controller:
+  resource: '../src/Presentation/Controller/Interfacing/BillingMeterScreenController.php'
+  type: attribute
+
+interfacing_order_controller:
+  resource: '../src/Presentation/Controller/Interfacing/OrderSummaryScreenController.php'
+  type: attribute
