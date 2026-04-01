@@ -1,0 +1,8 @@
+# Optional opt-in: use SymfonyAccessResolver
+# To enable, import this file after interfacing.yaml (or merge into it).
+
+services:
+  App\Service\Interfacing\Shell\SymfonyAccessResolver: ~
+
+  App\ServiceInterface\Interfacing\Shell\AccessResolverInterface:
+    alias: App\Service\Interfacing\Shell\SymfonyAccessResolver

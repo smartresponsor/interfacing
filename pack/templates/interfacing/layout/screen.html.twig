@@ -1,0 +1,4 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div id="interfacing-screen" data-screen-id="{{ screenSpec.id.toString|default(screenSpec.id)|e }}">
+  {% include screenSpec.template with { layoutSpec: layoutSpec, screenSpec: screenSpec, context: context } %}
+</div>

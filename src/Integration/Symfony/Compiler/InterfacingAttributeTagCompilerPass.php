@@ -1,0 +1,56 @@
+<?php
+
+declare(strict_types=1);
+
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+
+namespace App\Integration\Symfony\Compiler;
+
+use App\Integration\Symfony\Attribute\AsInterfacingAction;
+use App\Integration\Symfony\Attribute\AsInterfacingScreen;
+use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
+final class InterfacingAttributeTagCompilerPass implements CompilerPassInterface
+{
+    public const TAG_SCREEN = 'interfacing.screen';
+    public const TAG_ACTION = 'interfacing.action';
+
+    public function process(ContainerBuilder $container): void
+    {
+        foreach ($container->getDefinitions() as $definition) {
+            $class = $definition->getClass();
+            if (!is_string($class) || '' === $class) {
+                continue;
+            }
+
+            if (!class_exists($class)) {
+                continue;
+            }
+
+            $ref = new \ReflectionClass($class);
+
+            foreach ($ref->getAttributes(AsInterfacingScreen::class) as $attr) {
+                $meta = $attr->newInstance();
+                $definition->addTag(self::TAG_SCREEN, [
+                    'id' => $meta->id,
+                    'title' => $meta->title,
+                    'navGroup' => $meta->navGroup,
+                    'navIcon' => $meta->navIcon,
+                    'navOrder' => $meta->navOrder,
+                    'isVisible' => $meta->isVisible,
+                ]);
+            }
+
+            foreach ($ref->getAttributes(AsInterfacingAction::class) as $attr) {
+                $meta = $attr->newInstance();
+                $definition->addTag(self::TAG_ACTION, [
+                    'screenId' => $meta->screenId,
+                    'id' => $meta->id,
+                    'title' => $meta->title,
+                    'order' => $meta->order,
+                ]);
+            }
+        }
+    }
+}
