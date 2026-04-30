@@ -55,32 +55,18 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('Showing 2 of 2 meter readings in the current operational window', $content);
         self::assertStringContainsString('Reading route context', $content);
         self::assertStringContainsString('Reading command form', $content);
-        self::assertStringContainsString('Transaction-safe request vocabulary for filters, columns, and command forms.', $content);
-        self::assertStringContainsString('Downstream settlement marker for the current reading.', $content);
+        self::assertStringContainsString('Measurement-safe vocabulary for readings, windows, and settlement cues.', $content);
+        self::assertStringContainsString('Host-facing CRUD path semantics stay stable whether the resource is category, vendor, user, meter, or something else.', $content);
         self::assertStringContainsString('template intent: workbench.index', $content);
         self::assertStringContainsString('access mode: interactive', $content);
-        self::assertStringContainsString('Meter readings browse capability', $content);
+        self::assertStringContainsString('Meters browse capability', $content);
         self::assertStringContainsString('Reading state', $content);
         self::assertStringContainsString('Window from', $content);
         self::assertStringContainsString('Window to', $content);
         self::assertStringContainsString('Meter ref', $content);
         self::assertStringContainsString('Billed amount', $content);
         self::assertStringContainsString('Settlement state', $content);
-        self::assertStringContainsString('Measurement-safe vocabulary for readings, windows, and settlement cues.', $content);
         self::assertStringContainsString('resource tone: Reading and measurement lifecycle copy', $content);
-        self::assertStringContainsString('Reading state', $content);
-        self::assertStringContainsString('Window from', $content);
-        self::assertStringContainsString('Window to', $content);
-        self::assertStringContainsString('Meter ref', $content);
-        self::assertStringContainsString('Billed amount', $content);
-        self::assertStringContainsString('Measurement-safe vocabulary for readings, windows, and settlement cues.', $content);
-        self::assertStringContainsString('Showing 2 of 2 meter readings in the current operational window', $content);
-        self::assertStringContainsString('Reading route context', $content);
-        self::assertStringContainsString('Reading command form', $content);
-        self::assertStringContainsString('Downstream settlement marker for the current reading.', $content);
-        self::assertStringContainsString('template intent: workbench.index', $content);
-        self::assertStringContainsString('access mode: interactive', $content);
-        self::assertStringContainsString('Meter readings browse capability', $content);
     }
 
     public function testBillingMeterScreenLegacyRouteRendersWithStubData(): void
@@ -139,7 +125,7 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('Request route context', $content);
         self::assertStringContainsString('Order command form', $content);
         self::assertStringContainsString('Transaction-safe request vocabulary for filters, columns, and command forms.', $content);
-        self::assertStringContainsString('Internal reference for order routing.', $content);
+        self::assertStringContainsString('Public surface keeps this sidebar lighter and avoids operator-heavy cues.', $content);
         self::assertStringContainsString('template intent: workbench.index', $content);
         self::assertStringContainsString('Orders browse capability', $content);
     }
@@ -156,7 +142,6 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('CRUD Workbench · Sales / Order', $content);
         self::assertStringContainsString('sales/order', $content);
     }
-
 
     public function testOrderSummaryScreenSupportsFormModePreviewOverrides(): void
     {
@@ -205,7 +190,6 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringNotContainsString('Next reading step', $content);
     }
 
-
     public function testOrderSummaryScreenSupportsPublicFormModePreviewOverrides(): void
     {
         $client = $this->createClientWithStubs();
@@ -244,7 +228,6 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('meter retirement', $content);
         self::assertStringNotContainsString('Only destructive-safe actions stay visible in this mode.', $content);
     }
-
 
     public function testOrderSummaryScreenSupportsSlugAddressingPreviewOverrides(): void
     {
