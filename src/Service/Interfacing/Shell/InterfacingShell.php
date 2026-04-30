@@ -47,7 +47,7 @@ final class InterfacingShell implements InterfacingShellInterface
         $specList = $this->layout->list();
         $itemList = [];
         foreach ($specList as $spec) {
-            $cap = $spec->capability();
+            $cap = $spec->guardKey();
             if (null !== $cap && !$this->access->allow($cap, ['layoutId' => $spec->id(), 'screenId' => $spec->screenId()->toString()])) {
                 continue;
             }
@@ -61,9 +61,9 @@ final class InterfacingShell implements InterfacingShellInterface
                 id: $spec->id(),
                 title: $spec->title(),
                 url: $url,
-                group: $spec->group(),
+                group: $spec->navGroup(),
                 icon: $spec->icon(),
-                order: $spec->order(),
+                order: $spec->navOrder(),
             );
         }
 

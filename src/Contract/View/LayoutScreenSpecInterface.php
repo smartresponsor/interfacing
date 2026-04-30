@@ -15,6 +15,8 @@ interface LayoutScreenSpecInterface
 
     public function title(): string;
 
+    public function description(): string;
+
     public function navGroup(): string;
 
     public function screenId(): ScreenIdInterface;

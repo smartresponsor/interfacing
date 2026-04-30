@@ -9,10 +9,10 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing\Doctor;
 
-use App\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
 use App\Interfacing\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
 use App\Interfacing\Support\Doctor\DoctorIssue;
 use App\Interfacing\Support\Doctor\DoctorReport;
@@ -34,19 +34,14 @@ final readonly class InterfacingDoctorService implements InterfacingDoctorServic
 
         $screenItem = $this->screenCatalog->all();
         $layoutItem = $this->layoutCatalog->all();
-        $actionItem = $this->actionCatalog->all();
-
-        $issueItem = [];
-
+        $actionItem = [];
         foreach ($screenItem as $screen) {
-            if (!$this->layoutCatalog->has($screen->layoutId())) {
-                $issueItem[] = new DoctorIssue(
-                    'error',
-                    'Screen "'.$screen->id()->value().'" references missing layout "'.$screen->layoutId()->value().'".',
-                    'missing_layout',
-                );
+            foreach ($this->actionCatalog->allForScreen($screen->id()) as $action) {
+                $actionItem[] = $action;
             }
         }
+
+        $issueItem = [];
 
         if (0 === count($screenItem)) {
             $issueItem[] = new DoctorIssue('warn', 'No screen registered.', 'empty_screen');

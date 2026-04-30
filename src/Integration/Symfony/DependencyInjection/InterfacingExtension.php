@@ -17,12 +17,9 @@ final class InterfacingExtension extends Extension implements PrependExtensionIn
         $projectDir = dirname(__DIR__, 4);
 
         if ($container->hasExtension('twig')) {
-            $container->prependExtensionConfig('twig', [
-                'paths' => [
-                    $projectDir.'/template' => '',
-                    $projectDir.'/templates' => '',
-                ],
-            ]);
+            $templateDir = $projectDir.'/template';
+            $container->prependExtensionConfig('twig', ['paths' => [$templateDir => 'Interfacing']]);
+            $container->prependExtensionConfig('twig', ['paths' => [$templateDir => 'interfacing']]);
         }
     }
 
@@ -35,9 +32,5 @@ final class InterfacingExtension extends Extension implements PrependExtensionIn
         $loader = new YamlFileLoader($container, new FileLocator($configDir));
 
         $loader->load('services.yaml');
-
-        foreach (glob($configDir.'/services/*.yaml') ?: [] as $serviceFile) {
-            $loader->load('services/'.basename($serviceFile));
-        }
     }
 }

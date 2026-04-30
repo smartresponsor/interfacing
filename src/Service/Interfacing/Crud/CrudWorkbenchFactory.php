@@ -376,7 +376,7 @@ final readonly class CrudWorkbenchFactory
                 ]
                 : [
                     new CrudAction($routeContext->showActionLabel(), $this->showHref($routeContext, $screenContext, $selectedIdentifier), 'primary'),
-                    new CrudAction($routeContext->nextActionLabel(), $this->nextHref($routeContext, [], $selectedIdentifier)),
+                    new CrudAction($routeContext->nextActionLabel(), $this->nextHref($routeContext, $screenContext, [], $selectedIdentifier)),
                 ],
             default => $routeContext->isAdminSurface()
                 ? [
@@ -386,7 +386,7 @@ final readonly class CrudWorkbenchFactory
                 ]
                 : [
                     new CrudAction($routeContext->showActionLabel(), $this->showHref($routeContext, $screenContext, $selectedIdentifier), 'primary'),
-                    new CrudAction($routeContext->nextActionLabel(), $this->nextHref($routeContext, [], $selectedIdentifier)),
+                    new CrudAction($routeContext->nextActionLabel(), $this->nextHref($routeContext, $screenContext, [], $selectedIdentifier)),
                 ],
         };
     }

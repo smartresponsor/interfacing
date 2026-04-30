@@ -1,9 +1,9 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 
 <div>
-  {% if component.flash is not empty %}
+  {% if this.flash is not empty %}
     <div class="flash">
-      {% for m in component.flash %}
+      {% for m in this.flash %}
         <div class="msg">
           <div style="font-weight:600;">{{ m.type|upper }}</div>
           <div>{{ m.message }}</div>
@@ -12,22 +12,22 @@
     </div>
   {% endif %}
 
-  {% if component.domainError %}
+  {% if this.domainError %}
     <div class="msg" style="border-color:#fecaca;">
       <div style="font-weight:600;color:#b91c1c;">ERROR</div>
-      <div style="color:#7f1d1d;">{{ component.domainError }}</div>
+      <div style="color:#7f1d1d;">{{ this.domainError }}</div>
     </div>
   {% endif %}
 
-  {% for b in component.screen.layout.block %}
+  {% for b in this.screen().layout.block %}
     {% if b.type == 'form' %}
-      {% include 'interfacing/live/block-form.html.twig' with { block: b, component: component } %}
+      {% include 'interfacing/live/block-form.html.twig' with { block: b, component: this } %}
     {% elseif b.type == 'metric' %}
-      {% include 'interfacing/live/block-metric.html.twig' with { block: b, component: component } %}
+      {% include 'interfacing/live/block-metric.html.twig' with { block: b, component: this } %}
     {% elseif b.type == 'collection' %}
-      {% include 'interfacing/live/block-collection.html.twig' with { block: b, component: component } %}
+      {% include 'interfacing/live/block-collection.html.twig' with { block: b, component: this } %}
     {% elseif b.type == 'wizard' %}
-      {% include 'interfacing/live/block-wizard.html.twig' with { block: b, component: component } %}
+      {% include 'interfacing/live/block-wizard.html.twig' with { block: b, component: this } %}
     {% else %}
       <div class="card">Unknown block type: {{ b.type }}</div>
     {% endif %}

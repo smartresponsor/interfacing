@@ -32,7 +32,7 @@ final readonly class ScreenViewBuilder implements ScreenViewBuilderInterface
             throw ScreenNotFound::forLayoutId($layoutId);
         }
 
-        $cap = $spec->capability();
+        $cap = $spec->guardKey();
         if (null !== $cap && !$this->access->allow($cap, [
             'layoutId' => $spec->id(),
             'screenId' => $spec->screenId()->toString(),

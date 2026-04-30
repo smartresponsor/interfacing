@@ -12,7 +12,7 @@ use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
 
 #[AsInterfacingAction(
-    screenId: 'interfacing.doctor',
+    screenId: 'interfacing-doctor',
     id: 'ping',
     title: 'Ping',
     order: 1,
@@ -21,7 +21,7 @@ final class DemoPingAction implements ActionEndpointInterface
 {
     public function screenId(): string
     {
-        return 'interfacing.doctor';
+        return 'interfacing-doctor';
     }
 
     public function actionId(): string

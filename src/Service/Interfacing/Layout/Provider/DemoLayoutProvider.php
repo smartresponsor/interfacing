@@ -2,10 +2,6 @@
 
 declare(strict_types=1);
 
-/*
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-*/
-
 namespace App\Interfacing\Service\Interfacing\Layout\Provider;
 
 use App\Interfacing\Contract\ValueObject\ScreenId;
@@ -22,9 +18,33 @@ final class DemoLayoutProvider implements LayoutProviderInterface
     public function provide(): array
     {
         return [
-            new LayoutScreenSpec('metrics-demo', 'Metrics demo', 'tool', ScreenId::fromString('screen-metric-demo'), null, null, 10),
-            new LayoutScreenSpec('form-demo', 'Form demo', 'tool', ScreenId::fromString('screen-form-demo'), null, null, 20),
-            new LayoutScreenSpec('wizard-demo', 'Wizard demo', 'tool', ScreenId::fromString('screen-wizard-demo'), null, null, 30),
+            new LayoutScreenSpec(
+                block: [],
+                id: 'metrics-demo',
+                title: 'Metrics demo',
+                navGroup: 'tool',
+                screenId: ScreenId::fromString('screen-metric-demo'),
+                routePath: null,
+                navOrder: 10,
+            ),
+            new LayoutScreenSpec(
+                block: [],
+                id: 'form-demo',
+                title: 'Form demo',
+                navGroup: 'tool',
+                screenId: ScreenId::fromString('screen-form-demo'),
+                routePath: null,
+                navOrder: 20,
+            ),
+            new LayoutScreenSpec(
+                block: [],
+                id: 'wizard-demo',
+                title: 'Wizard demo',
+                navGroup: 'tool',
+                screenId: ScreenId::fromString('screen-wizard-demo'),
+                routePath: null,
+                navOrder: 30,
+            ),
         ];
     }
 }

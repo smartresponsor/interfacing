@@ -50,6 +50,23 @@ final class LayoutCatalog implements LayoutCatalogInterface
         return $map;
     }
 
+    /** @return array<string, LayoutScreenSpecInterface> */
+    public function list(): array
+    {
+        return $this->all();
+    }
+
+    public function has(string $layoutKey): bool
+    {
+        return null !== $this->find($layoutKey);
+    }
+
+    public function find(string $layoutKey): ?LayoutScreenSpecInterface
+    {
+        $k = trim($layoutKey);
+        return $this->all()[$k] ?? null;
+    }
+
     public function get(string $layoutKey): LayoutScreenSpecInterface
     {
         $k = trim($layoutKey);

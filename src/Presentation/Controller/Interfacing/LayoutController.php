@@ -12,6 +12,7 @@ use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,6 +24,7 @@ final class LayoutController extends AbstractController
         private readonly LayoutGuardInterface $guard,
         private readonly LayoutShellInterface $shell,
         private readonly InterfacingRuntimeInterface $runtime,
+        private readonly ShellChromeProviderInterface $shellChromeProvider,
     ) {
     }
 
@@ -33,7 +35,7 @@ final class LayoutController extends AbstractController
             throw $this->createNotFoundException('Unknown layout slug.');
         }
 
-        if (!$this->guard->canView($spec, $this($this->container->has('security.token_storage') ? $this->container->get('security.token_storage')->getToken() : null))) {
+        if (!$this->guard->canView($spec, ($this->container->has('security.token_storage') ? $this->container->get('security.token_storage')->getToken() : null))) {
             throw $this->createAccessDeniedException('Access denied.');
         }
 
@@ -43,6 +45,7 @@ final class LayoutController extends AbstractController
             'layout' => $this->shell->build($spec, $this->catalog->list()),
             'screenComponent' => $componentName,
             'screenContext' => $spec->context(),
+            'shell' => $this->shellChromeProvider->provide($spec->id()),
         ]);
     }
 }

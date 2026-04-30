@@ -1,13 +1,19 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'base.html.twig' %}
+{% extends 'interfacing/base.html.twig' %}
 {% block body %}
-  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px;">
-    <div>
-      <div style="font-weight:600;">{{ spec.title }}</div>
-      <div style="opacity:.65;font-size:12px;margin-top:2px;">/interfacing/{{ spec.id }}</div>
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px 12px; margin-bottom:14px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px;">
+      <div>
+        <div style="font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">{{ spec.group|default('Workspace') }}</div>
+        <h1 style="margin:6px 0 0; font-size:28px; line-height:1.05; letter-spacing:-.03em;">{{ spec.title }}</h1>
+        <div style="margin-top:8px; font-size:13px; color:#64748b;">{{ spec.description ?: '/interfacing/' ~ spec.id }}</div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end;">
+        <a href="{{ path('interfacing_index') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">All sections</a>
+        <a href="#support" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#2563eb; color:#fff; font-weight:700; font-size:12px;">Support</a>
+      </div>
     </div>
-    <a href="/interfacing" style="text-decoration:none;opacity:.75;">Back</a>
-  </div>
+  </section>
 
-  {{ component(component, { context: context }) }}
+  {{ component('interfacing_screen', { screenId: spec.id }) }}
 {% endblock %}

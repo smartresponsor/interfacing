@@ -1,36 +1,20 @@
-{# 
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-#}
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>{{ layout.active.title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <div style="display:flex;gap:16px;min-height:100vh;">
-      <aside style="min-width:240px;padding:12px 10px;border-right:1px solid #ddd;">
-        <div style="font-weight:600;margin-bottom:10px;">Interfacing</div>
-        {% for key, items in layout.navGroup %}
-          <div style="margin:14px 0 6px 0;opacity:.75;font-size:12px;text-transform:uppercase;">
-            {{ layout.navGroupTitle[key]|default(key) }}
-          </div>
-          <ul style="margin:0;padding-left:16px;display:flex;flex-direction:column;gap:6px;">
-            {% for s in items %}
-              <li style="list-style:disc;">
-                <a href="/interfacing/{{ s.slug }}"
-                   style="{% if s.slug == layout.active.slug %}font-weight:600;{% else %}text-decoration:none;{% endif %}">
-                  {{ s.title }}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        {% endfor %}
-      </aside>
-      <main style="flex:1;padding:14px 16px;">
-        {{ component(screenComponent, { context: screenContext }) }}
-      </main>
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  <div title="{{ shell.slotMap['shell.content.header']|default('Content header') }}" style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;">
+    <div>
+      <div style="font-size:12px; opacity:.58; text-transform:uppercase; letter-spacing:.04em;">{{ layout.active.navGroup }}</div>
+      <div style="font-size:24px; font-weight:700; line-height:1.1; margin-top:3px;">{{ layout.active.title }}</div>
+      <div style="font-size:12px; opacity:.68; margin-top:4px;">{{ layout.active.slug }}</div>
     </div>
-  </body>
-</html>
+    <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+      <a href="{{ path('interfacing_layout_index') }}" style="text-decoration:none; color:#111827; border:1px solid #d7dde5; background:#fff; border-radius:8px; padding:7px 10px; font-size:12px;">Workspace</a>
+      <a href="{{ path('interfacing_health') }}" style="text-decoration:none; color:#111827; border:1px solid #d7dde5; background:#fff; border-radius:8px; padding:7px 10px; font-size:12px;">Health</a>
+    </div>
+  </div>
+
+  <div style="border:1px solid #e5e7eb; border-radius:14px; background:#fff; padding:14px;">
+    {{ component(screenComponent, { context: screenContext }) }}
+  </div>
+{% endblock %}

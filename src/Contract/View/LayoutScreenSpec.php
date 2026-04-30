@@ -7,7 +7,7 @@ namespace App\Interfacing\Contract\View;
 use App\Interfacing\Contract\ValueObject\ScreenId;
 use App\Interfacing\Contract\ValueObject\ScreenIdInterface;
 
-final readonly class LayoutScreenSpec implements LayoutScreenSpecInterface
+final class LayoutScreenSpec implements LayoutScreenSpecInterface
 {
     /** @var array<int, LayoutBlockSpecInterface> */
     private array $block;
@@ -19,6 +19,7 @@ final readonly class LayoutScreenSpec implements LayoutScreenSpecInterface
         array $block = [],
         private string $id = 'layout',
         private string $title = 'Layout',
+        private string $description = '',
         private string $navGroup = 'tool',
         private ?ScreenIdInterface $screenId = null,
         private ?string $guardKey = null,
@@ -42,6 +43,11 @@ final readonly class LayoutScreenSpec implements LayoutScreenSpecInterface
     public function title(): string
     {
         return $this->title;
+    }
+
+    public function description(): string
+    {
+        return $this->description;
     }
 
     public function navGroup(): string

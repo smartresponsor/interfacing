@@ -6,7 +6,7 @@ namespace App\Interfacing\Service\Interfacing\Provider;
 
 use App\Interfacing\Contract\View\LayoutScreenSpec;
 use App\Interfacing\Contract\View\ScreenSpec;
-use App\Interfacing\ServiceInterface\Interfacing\ScreenProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 
 final class CategoryAdminScreenProvider implements ScreenProviderInterface
 {

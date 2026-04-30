@@ -1,9 +1,13 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% set shell = shell|default({
   query: '',
-  itemTotal: 0,
-  group: [],
-  activeId: null
+  activeId: null,
+  activeSection: 'workspace',
+  topLink: [],
+  primaryGroup: [],
+  sectionGroup: [],
+  footerGroup: [],
+  slotMap: {}
 }) %}
 <!doctype html>
 <html>
@@ -12,47 +16,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title|default('Interfacing') }}</title>
 </head>
-<body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; margin:0; background:#f7f7f7;">
-  <div style="display:flex; min-height:100vh;">
-    <aside style="width:280px; background:#fff; border-right:1px solid #e6e6e6;">
-      <div style="padding:14px 14px 10px 14px; border-bottom:1px solid #f0f0f0;">
-        <div style="font-weight:700;">Interfacing</div>
-        <div style="opacity:.7; font-size:12px; margin-top:4px;">Server-driven UI</div>
-
-        <form method="get" action="{{ path('interfacing_index') }}" style="margin-top:10px;">
-          <input name="q" value="{{ shell.query }}" placeholder="Search screens..." style="width:100%; padding:8px 10px; border:1px solid #ddd; border-radius:10px;">
-        </form>
-
-        <div style="opacity:.55; font-size:12px; margin-top:8px;">
-          {{ shell.itemTotal }} screen{{ shell.itemTotal == 1 ? '' : 's' }}
-        </div>
-      </div>
-
-      <div style="padding:10px 8px; display:flex; flex-direction:column; gap:10px;">
-        {% for g in shell.group %}
+<body style="font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu; margin:0; background:#f3f4f6; color:#111827;">
+  <div style="min-height:100vh; display:grid; grid-template-rows:auto 1fr auto;">
+    <header style="border-bottom:1px solid #dbe1e8; background:#fff;">
+      <div style="max-width:1440px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 14px;">
+        <div title="{{ shell.slotMap['shell.topbar.left']|default('Top bar left') }}" style="display:flex; align-items:center; gap:14px; min-width:0;">
           <div>
-            <div style="padding:6px 8px; font-size:12px; opacity:.7; text-transform:uppercase; letter-spacing:.04em;">
-              {{ g.title }}
-            </div>
+            <div style="font-weight:700; font-size:14px;">Smart Responsor</div>
+            <div style="font-size:11px; opacity:.65;">Interfacing platform shell</div>
+          </div>
+          <form method="get" action="{{ path('interfacing_index') }}" style="display:flex; align-items:center; min-width:260px;">
+            <input name="q" value="{{ shell.query }}" placeholder="Search screens, rooms, threads, workbenches..." style="width:100%; padding:7px 10px; border:1px solid #cfd6df; border-radius:8px; font-size:12px;">
+          </form>
+        </div>
+        <nav title="{{ shell.slotMap['shell.topbar.right']|default('Top bar right') }}" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+          {% for it in shell.topLink %}
+            <a href="{{ it.url }}" style="text-decoration:none; color:#111827; border:1px solid #d7dde5; background:#f8fafc; border-radius:8px; padding:6px 9px; font-size:12px;">{{ it.title }}</a>
+          {% endfor %}
+        </nav>
+      </div>
+    </header>
+
+    <div style="display:grid; grid-template-columns:260px 220px minmax(0, 1fr); gap:0; min-height:0;">
+      <aside title="{{ shell.slotMap['shell.nav.primary']|default('Primary navigation') }}" style="background:#fff; border-right:1px solid #e5e7eb; padding:12px 10px; overflow:auto;">
+        {% for g in shell.primaryGroup %}
+          <div style="margin-bottom:12px;">
+            <div style="padding:4px 8px; font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.7;">{{ g.title }}</div>
             <div style="display:flex; flex-direction:column; gap:4px;">
               {% for it in g.item %}
-                {% set active = shell.activeId and (shell.activeId == it.id) %}
-                <a href="{{ it.url }}" style="display:block; padding:8px 10px; border-radius:10px; text-decoration:none; color:inherit; background:{{ active ? '#efefef' : 'transparent' }};">
-                  <div style="font-weight:600; font-size:13px;">{{ it.title }}</div>
-                  <div style="opacity:.6; font-size:12px; margin-top:2px;">{{ it.id }}</div>
+                {% set active = shell.activeSection and (shell.activeSection in it.id or shell.activeId == it.id) %}
+                <a href="{{ it.url }}" style="display:block; text-decoration:none; color:#111827; border-radius:8px; padding:7px 9px; background:{{ active ? '#eef2ff' : 'transparent' }}; font-size:13px;">
+                  <div style="font-weight:600;">{{ it.title }}</div>
                 </a>
               {% endfor %}
             </div>
           </div>
         {% endfor %}
-      </div>
-    </aside>
+      </aside>
 
-    <main style="flex:1; padding:18px;">
-      <div style="max-width:1040px; margin:0 auto;">
-        {% block body %}{% endblock %}
+      <aside title="{{ shell.slotMap['shell.nav.section']|default('Section navigation') }}" style="background:#fbfcfd; border-right:1px solid #e5e7eb; padding:12px 10px; overflow:auto;">
+        {% for g in shell.sectionGroup %}
+          <div style="margin-bottom:12px;">
+            <div style="padding:4px 8px; font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.72;">{{ g.title }}</div>
+            <div style="display:flex; flex-direction:column; gap:4px;">
+              {% for it in g.item %}
+                {% set active = shell.activeId and shell.activeId == it.id %}
+                <a href="{{ it.url }}" style="display:block; text-decoration:none; color:#111827; border-radius:8px; padding:7px 9px; background:{{ active ? '#eaf7ef' : 'transparent' }}; font-size:12px;">
+                  <div style="font-weight:600;">{{ it.title }}</div>
+                  <div style="opacity:.55; font-size:11px; margin-top:1px;">{{ it.id }}</div>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </aside>
+
+      <main title="{{ shell.slotMap['shell.content.body']|default('Content body') }}" style="min-width:0; padding:14px 16px 18px 16px; overflow:auto;">
+        <div style="max-width:1280px; margin:0 auto;">
+          {% block body %}{% endblock %}
+        </div>
+      </main>
+    </div>
+
+    <footer style="border-top:1px solid #dbe1e8; background:#fff;">
+      <div style="max-width:1440px; margin:0 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; padding:12px 14px;">
+        {% for g in shell.footerGroup %}
+          <div title="{{ loop.first ? shell.slotMap['shell.footer.primary']|default('Footer primary') : shell.slotMap['shell.footer.secondary']|default('Footer secondary') }}">
+            <div style="font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.68; margin-bottom:6px;">{{ g.title }}</div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px 12px;">
+              {% for link in g.link %}
+                <a href="{{ link.url }}" style="text-decoration:none; color:#111827; opacity:.82; font-size:12px;">{{ link.title }}</a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
-    </main>
+    </footer>
   </div>
 </body>
 </html>

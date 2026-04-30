@@ -12,6 +12,7 @@ use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -23,16 +24,20 @@ final class InterfacingController extends AbstractController
         private readonly ScreenRegistryInterface $screen,
         private readonly ScreenContextAssemblerInterface $context,
         private readonly AccessResolverInterface $access,
+        private readonly ShellChromeProviderInterface $shellChromeProvider,
     ) {
     }
 
     #[Route('/interfacing', name: 'interfacing_index', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->render('interfacing/page/index.html.twig');
+        return $this->render('interfacing/page/index.html.twig', [
+            'shell' => $this->shellChromeProvider->provide(),
+        ]);
     }
 
     #[Route('/interfacing/{id}', name: 'interfacing_screen', methods: ['GET'])]
+    #[Route('/interfacing/screen/{id}', name: 'interfacing_screen_legacy', methods: ['GET'])]
     public function screen(string $id): Response
     {
         $spec = $this->layout->find($id);
@@ -40,7 +45,7 @@ final class InterfacingController extends AbstractController
             throw $this->createNotFoundException('Unknown interfacing screen: '.$id);
         }
 
-        $cap = $spec->capability();
+        $cap = $spec->guardKey();
         if (null !== $cap && !$this->access->allow($cap, ['layoutId' => $spec->id(), 'screenId' => $spec->screenId()->toString()])) {
             throw $this->createAccessDeniedException('Access denied for screen: '.$id);
         }
@@ -53,6 +58,7 @@ final class InterfacingController extends AbstractController
             'component' => $component,
             'context' => $context,
             'title' => $spec->title(),
+            'shell' => $this->shellChromeProvider->provide($spec->id()),
         ]);
     }
 }

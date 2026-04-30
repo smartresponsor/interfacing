@@ -14,14 +14,24 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final readonly class SymfonyAccessResolver implements AccessResolverInterface
 {
+    /** @var list<string> */
+    private const PUBLIC_SCREEN_IDS = [
+        'billing-meter',
+        'order-summary',
+    ];
+
     public function __construct(
-        private ?AuthorizationCheckerInterface $auth = null,
         private PermissionNamerInterface $permission,
+        private ?AuthorizationCheckerInterface $auth = null,
     ) {
     }
 
     public function canOpenScreen(string $screenId, Request $request, ?TokenInterface $token): AccessDecision
     {
+        if (in_array($screenId, self::PUBLIC_SCREEN_IDS, true)) {
+            return AccessDecision::allow('public');
+        }
+
         $attribute = $this->permission->screen($screenId);
 
         if ($this->auth?->isGranted(InterfacingPermission::RoleAdmin) ?? false) {
