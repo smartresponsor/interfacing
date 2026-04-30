@@ -7,9 +7,9 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing\Layout;
+namespace App\Interfacing\ServiceInterface\Interfacing\Layout;
 
-use App\Contract\View\LayoutScreenSpecInterface;
+use App\Interfacing\Contract\View\LayoutScreenSpecInterface;
 
 interface LayoutCatalogInterface
 {

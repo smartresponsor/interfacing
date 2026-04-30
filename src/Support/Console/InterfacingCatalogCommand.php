@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Console;
+namespace App\Interfacing\Support\Console;
 
-use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

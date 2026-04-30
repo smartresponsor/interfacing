@@ -5,13 +5,13 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace App\Test\Service;
+namespace App\Interfacing\Test\Service;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\Interfacing\Screen\ScreenId;
-use App\Domain\Interfacing\Screen\ScreenSpec;
-use App\DomainInterface\Interfacing\Screen\ScreenProviderInterface;
-use App\Service\Interfacing\Screen\ScreenRegistry;
+use App\Interfacing\Domain\Interfacing\Screen\ScreenId;
+use App\Interfacing\Domain\Interfacing\Screen\ScreenSpec;
+use App\Interfacing\DomainInterface\Interfacing\Screen\ScreenProviderInterface;
+use App\Interfacing\Service\Interfacing\Screen\ScreenRegistry;
 
 /**
  *
@@ -29,7 +29,7 @@ final class ScreenRegistryTest extends TestCase
     {
         $p = new class implements ScreenProviderInterface {
             /**
-             * @return \App\Domain\Interfacing\Screen\ScreenSpec[]
+             * @return \App\Interfacing\Domain\Interfacing\Screen\ScreenSpec[]
              */
             public function provide(): array
             {
@@ -54,7 +54,7 @@ final class ScreenRegistryTest extends TestCase
     {
         $p = new class implements ScreenProviderInterface {
             /**
-             * @return \App\Domain\Interfacing\Screen\ScreenSpec[]
+             * @return \App\Interfacing\Domain\Interfacing\Screen\ScreenSpec[]
              */
             public function provide(): array
             {

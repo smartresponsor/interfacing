@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing;
+namespace App\Interfacing\Service\Interfacing;
 
-use App\Contract\View\ScreenSpecInterface;
-use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
-use App\ServiceInterface\Interfacing\ScreenProviderInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ScreenProviderInterface;
 
 final class ScreenCatalog implements ScreenCatalogInterface
 {

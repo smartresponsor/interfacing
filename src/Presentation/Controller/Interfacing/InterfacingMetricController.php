@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\ServiceInterface\Interfacing\Metric\UiMetricInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 

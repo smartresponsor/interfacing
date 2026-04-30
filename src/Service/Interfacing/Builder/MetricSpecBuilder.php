@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Builder;
+namespace App\Interfacing\Service\Interfacing\Builder;
 
-use App\Contract\Spec\MetricSpec;
-use App\ServiceInterface\Interfacing\Builder\MetricSpecBuilderInterface;
+use App\Interfacing\Contract\Spec\MetricSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Builder\MetricSpecBuilderInterface;
 
 final class MetricSpecBuilder implements MetricSpecBuilderInterface
 {

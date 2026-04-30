@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing\Doctor;
+namespace App\Interfacing\ServiceInterface\Interfacing\Doctor;
 
 /**
  *

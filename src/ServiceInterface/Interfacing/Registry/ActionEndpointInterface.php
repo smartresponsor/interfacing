@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\ServiceInterface\Interfacing\Registry;
+namespace App\Interfacing\ServiceInterface\Interfacing\Registry;
 
-use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
-use App\ServiceInterface\Interfacing\Runtime\ActionResult;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
 
 /**
  *
@@ -39,8 +39,8 @@ interface ActionEndpointInterface
     public function order(): int;
 
     /**
-     * @param \App\ServiceInterface\Interfacing\Runtime\ActionRequest $request
-     * @return \App\ServiceInterface\Interfacing\Runtime\ActionResult
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest $request
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult
      */
     public function handle(ActionRequest $request): ActionResult;
 }

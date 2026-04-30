@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Security;
+namespace App\Interfacing\ServiceInterface\Interfacing\Security;
 
 interface PermissionNamerInterface
 {

@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing\Action;
+namespace App\Interfacing\ServiceInterface\Interfacing\Action;
 
 /**
  *
@@ -31,7 +31,7 @@ interface ActionRegistryInterface
     /**
      * @param string $screenId
      * @param string $actionId
-     * @return \App\ServiceInterface\Interfacing\Action\ActionEndpointInterface
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface
      */
     public function resolve(string $screenId, string $actionId): ActionEndpointInterface;
 }

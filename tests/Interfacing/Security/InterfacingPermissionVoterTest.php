@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Security;
+namespace App\Interfacing\Tests\Interfacing\Security;
 
-use App\Application\Security\InterfacingPermissionVoter;
+use App\Interfacing\Application\Security\InterfacingPermissionVoter;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\User\UserInterface;

@@ -6,9 +6,9 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Runtime\Provider;
+namespace App\Interfacing\Service\Interfacing\Runtime\Provider;
 
-use App\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface;
 
 /**
  *

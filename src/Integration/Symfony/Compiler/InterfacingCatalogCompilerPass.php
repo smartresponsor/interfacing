@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Integration\Symfony\Compiler;
+namespace App\Interfacing\Integration\Symfony\Compiler;
 
-use App\Service\Interfacing\Registry\ActionCatalog;
-use App\Service\Interfacing\Registry\ScreenCatalog;
+use App\Interfacing\Service\Interfacing\Registry\ActionCatalog;
+use App\Interfacing\Service\Interfacing\Registry\ScreenCatalog;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;

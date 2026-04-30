@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Audit;
+namespace App\Interfacing\Service\Interfacing\Audit;
 
-use App\ServiceInterface\Support\Audit\AuditSinkInterface;
-use App\Support\Audit\AuditEvent;
+use App\Interfacing\ServiceInterface\Support\Audit\AuditSinkInterface;
+use App\Interfacing\Support\Audit\AuditEvent;
 use Psr\Log\LoggerInterface;
 
 final readonly class MonologAuditSink implements AuditSinkInterface

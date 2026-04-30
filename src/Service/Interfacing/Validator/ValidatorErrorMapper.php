@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Validator;
+namespace App\Interfacing\Service\Interfacing\Validator;
 
-use App\Contract\Ui\UiError;
-use App\Contract\Ui\UiErrorBag;
+use App\Interfacing\Contract\Ui\UiError;
+use App\Interfacing\Contract\Ui\UiErrorBag;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 final class ValidatorErrorMapper

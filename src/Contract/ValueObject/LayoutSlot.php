@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Contract\ValueObject;
+namespace App\Interfacing\Contract\ValueObject;
 
 /**
  * Canonical layout slot names shared by shell/layout presentation flows.

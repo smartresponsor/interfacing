@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing;
 
-use App\Contract\Ui\UiErrorBag;
-use App\Contract\Ui\UiMessageBag;
+use App\Interfacing\Contract\Ui\UiErrorBag;
+use App\Interfacing\Contract\Ui\UiMessageBag;
 
 trait LiveFeedbackTrait
 {

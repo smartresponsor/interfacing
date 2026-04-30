@@ -7,9 +7,9 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Support\Telemetry;
+namespace App\Interfacing\Support\Telemetry;
 
-use App\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
+use App\Interfacing\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
 

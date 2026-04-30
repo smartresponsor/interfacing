@@ -6,9 +6,9 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing\Widget\Form;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Widget\Form;
 
-use App\Contract\View\FormSpec;
+use App\Interfacing\Contract\View\FormSpec;
 
 interface FormWidgetComponentInterface
 {

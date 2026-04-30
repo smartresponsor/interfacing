@@ -6,16 +6,16 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing;
 
-use App\Contract\Dto\DemoUserProfileInput;
-use App\Contract\Error\DomainOperationFailed;
-use App\Contract\Ui\UiMessage;
-use App\Contract\Ui\UiMessageBag;
-use App\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
-use App\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
-use App\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
-use App\ServiceInterface\Support\Demo\DemoUserProfileStoreInterface;
+use App\Interfacing\Contract\Dto\DemoUserProfileInput;
+use App\Interfacing\Contract\Error\DomainOperationFailed;
+use App\Interfacing\Contract\Ui\UiMessage;
+use App\Interfacing\Contract\Ui\UiMessageBag;
+use App\Interfacing\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
+use App\Interfacing\ServiceInterface\Support\Demo\DemoUserProfileStoreInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -37,6 +37,10 @@ final class InterfacingDemoUserProfileForm
         private readonly DomainErrorMapperInterface $domainErrorMapper,
         private readonly SessionFlashMessengerInterface $flash,
     ) {
+    }
+
+    public function __invoke(): void
+    {
     }
 
     public function mount(): void

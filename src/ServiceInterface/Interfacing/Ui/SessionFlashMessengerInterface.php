@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Interfacing\Ui;
+namespace App\Interfacing\ServiceInterface\Interfacing\Ui;
 
-use App\Contract\Ui\UiMessage;
-use App\Contract\Ui\UiMessageBag;
+use App\Interfacing\Contract\Ui\UiMessage;
+use App\Interfacing\Contract\Ui\UiMessageBag;
 
 interface SessionFlashMessengerInterface
 {

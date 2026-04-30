@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Support\Demo;
+namespace App\Interfacing\Support\Demo;
 
-use App\Contract\Error\DomainOperationFailed;
-use App\ServiceInterface\Support\Demo\DemoUserProfileStoreInterface;
+use App\Interfacing\Contract\Error\DomainOperationFailed;
+use App\Interfacing\ServiceInterface\Support\Demo\DemoUserProfileStoreInterface;
 
 final class DemoUserProfileStore implements DemoUserProfileStoreInterface
 {

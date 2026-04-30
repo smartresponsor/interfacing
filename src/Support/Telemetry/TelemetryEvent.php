@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Support\Telemetry;
+namespace App\Interfacing\Support\Telemetry;
 
 final class TelemetryEvent
 {

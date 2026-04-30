@@ -1,0 +1,23 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div class="if-field">
+  <label class="if-label" for="filter-{{ field.name }}">{{ field.label }}</label>
+  {% if field.type == 'select' %}
+    <select class="if-select" id="filter-{{ field.name }}" name="{{ field.name }}">
+      {% for option in field.options %}
+        <option value="{{ option.value }}"{% if option.value == field.value %} selected{% endif %}>{{ option.label }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <input
+      class="if-input"
+      id="filter-{{ field.name }}"
+      name="{{ field.name }}"
+      type="{{ field.type }}"
+      value="{{ field.value }}"
+      placeholder="{{ field.placeholder }}"
+    >
+  {% endif %}
+  {% if field.helpText %}
+    <div class="if-section-hint" style="margin-top: 6px;">{{ field.helpText }}</div>
+  {% endif %}
+</div>

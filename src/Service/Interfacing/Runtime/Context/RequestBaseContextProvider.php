@@ -6,9 +6,9 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Runtime\Context;
+namespace App\Interfacing\Service\Interfacing\Runtime\Context;
 
-use App\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 

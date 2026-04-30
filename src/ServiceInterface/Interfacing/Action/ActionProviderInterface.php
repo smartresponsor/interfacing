@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Action;
+namespace App\Interfacing\ServiceInterface\Interfacing\Action;
 
 interface ActionProviderInterface
 {

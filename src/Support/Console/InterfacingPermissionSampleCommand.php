@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Support\Console;
+namespace App\Interfacing\Support\Console;
 
-use App\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

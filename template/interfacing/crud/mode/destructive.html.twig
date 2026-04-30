@@ -1,0 +1,35 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div class="if-callout if-callout-danger">
+  <div class="if-section-title">{{ workbench.routeContext.isAdminSurface ? 'Delete confirmation surface' : 'Public-safe destructive review surface' }}</div>
+  <p class="if-subtitle" style="margin-top: 8px; max-width: none;">
+    {{ workbench.routeContext.destructiveModeLead }}
+    {% if workbench.routeContext.isAdminSurface %}Destructive mode protects the host flow before executing removal.{% else %}Public surface downgrades destructive intent into a safer review/archive request flow before removal.{% endif %}
+    for <strong>{{ workbench.routeContext.resourceLabel }}</strong>
+    · path <strong>{{ workbench.routeContext.resourcePath }}</strong>
+    · {{ workbench.routeContext.identifierKindLabel }}
+    · resource tone <strong>{{ workbench.routeContext.resourceToneLabel }}</strong>
+    {% if workbench.routeContext.identifierValue is not null %}· {{ workbench.routeContext.identifierField }}=<strong>{{ workbench.routeContext.identifierValue }}</strong>{% endif %}.
+  </p>
+  <div class="if-inline-actions" style="margin-top: 16px;">
+    {% for action in workbench.headerActions %}
+      <a class="if-button{% if action.variant == 'primary' %} if-button-primary{% elseif action.variant == 'danger' %} if-button-danger{% endif %}" href="{{ action.href }}">{{ action.label }}</a>
+    {% endfor %}
+  </div>
+</div>
+{% set previewSection = workbench.sidebarSections[1] ?? workbench.sidebarSections[0] ?? null %}
+<div class="if-note" style="margin-top: 12px;">{% if workbench.routeContext.isAdminSurface %}Only destructive-safe actions stay visible in this mode.{% else %}Public surface keeps only review-safe actions visible in this mode.{% endif %}</div>
+{% if previewSection %}
+  <section class="if-card" style="margin-top: 16px;">
+    <h3 class="if-card-title">{{ workbench.routeContext.destructiveSidebarTitle }}</h3>
+    {% if previewSection.facts is not empty %}
+      <div class="if-description-list">
+        {% for label, value in previewSection.facts %}
+          <div class="if-description-item">
+            <div class="if-description-term">{{ label }}</div>
+            <div>{{ value ?? '—' }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

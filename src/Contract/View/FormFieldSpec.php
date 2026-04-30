@@ -6,7 +6,7 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Contract\View;
+namespace App\Interfacing\Contract\View;
 
 final class FormFieldSpec
 {

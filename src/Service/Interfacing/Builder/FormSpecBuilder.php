@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Builder;
+namespace App\Interfacing\Service\Interfacing\Builder;
 
-use App\Contract\Spec\FormFieldSpec;
-use App\Contract\Spec\FormSpec;
-use App\ServiceInterface\Interfacing\Builder\FormSpecBuilderInterface;
+use App\Interfacing\Contract\Spec\FormFieldSpec;
+use App\Interfacing\Contract\Spec\FormSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Builder\FormSpecBuilderInterface;
 
 final class FormSpecBuilder implements FormSpecBuilderInterface
 {

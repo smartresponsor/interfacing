@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Contract\Action;
+namespace App\Interfacing\Contract\Action;
 
-use App\Contract\Ui\UiErrorInterface;
-use App\Contract\Ui\UiMessageInterface;
+use App\Interfacing\Contract\Ui\UiErrorInterface;
+use App\Interfacing\Contract\Ui\UiMessageInterface;
 
 interface ActionRuntimeInterface
 {

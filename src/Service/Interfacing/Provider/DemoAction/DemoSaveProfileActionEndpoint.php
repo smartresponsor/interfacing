@@ -7,11 +7,11 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Provider\DemoAction;
+namespace App\Interfacing\Service\Interfacing\Provider\DemoAction;
 
-use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
-use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
-use App\ServiceInterface\Interfacing\Runtime\ActionResult;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
 
 final class DemoSaveProfileActionEndpoint implements ActionEndpointInterface
 {

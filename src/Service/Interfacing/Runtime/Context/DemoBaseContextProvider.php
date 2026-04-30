@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Runtime\Context;
+namespace App\Interfacing\Service\Interfacing\Runtime\Context;
 
-use App\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
 
 final class DemoBaseContextProvider implements BaseContextProviderInterface
 {

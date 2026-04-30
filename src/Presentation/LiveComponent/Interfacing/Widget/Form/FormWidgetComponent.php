@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing\Widget\Form;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Widget\Form;
 
-use App\Contract\View\FormSpec;
-use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
+use App\Interfacing\Contract\View\FormSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -33,6 +33,10 @@ final class FormWidgetComponent
     public string $flash = '';
 
     public function __construct(private readonly FormHandlerRegistryInterface $registry)
+    {
+    }
+
+    public function __invoke(): void
     {
     }
 

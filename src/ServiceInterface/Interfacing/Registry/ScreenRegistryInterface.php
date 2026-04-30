@@ -7,9 +7,9 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing\Registry;
+namespace App\Interfacing\ServiceInterface\Interfacing\Registry;
 
-use App\Contract\View\ScreenSpecInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
 
 interface ScreenRegistryInterface
 {

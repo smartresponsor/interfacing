@@ -7,12 +7,12 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Presentation\LiveComponent\Interfacing;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing;
 
-use App\Contract\View\ScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
-use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\Runtime\ActionResult;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -46,6 +46,10 @@ final class ScreenLiveComponent
         private readonly ScreenRegistryInterface $screenRegistry,
         private readonly ActionDispatcherInterface $actionDispatcher,
     ) {
+    }
+
+    public function __invoke(): void
+    {
     }
 
     public function mount(): void

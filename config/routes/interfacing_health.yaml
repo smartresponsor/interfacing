@@ -1,5 +1,5 @@
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 interfacing_health:
   path: /interfacing/health
-  controller: App\Presentation\Controller\Interfacing\InterfacingHealthController::show
+  controller: App\Interfacing\Presentation\Controller\Interfacing\InterfacingHealthController::show
   methods: [GET]

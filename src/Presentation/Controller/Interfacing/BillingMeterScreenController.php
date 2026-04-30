@@ -2,15 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\Contract\Access\AccessDecisionCode;
-use App\ServiceInterface\Interfacing\Access\AccessResolverInterface;
-use App\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
-use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
-use App\ServiceInterface\Support\Audit\AuditSinkInterface;
-use App\Support\Audit\AuditEvent;
-use App\Support\Audit\AuditEventType;
+use App\Interfacing\Contract\Access\AccessDecisionCode;
+use App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
+use App\Interfacing\Service\Interfacing\Crud\CrudRouteContextResolver;
+use App\Interfacing\Service\Interfacing\Crud\CrudWorkbenchFactory;
+use App\Interfacing\Service\Interfacing\Crud\CrudScreenContextResolver;
+use App\Interfacing\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
+use App\Interfacing\ServiceInterface\Support\Audit\AuditSinkInterface;
+use App\Interfacing\Support\Audit\AuditEvent;
+use App\Interfacing\Support\Audit\AuditEventType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,21 +26,25 @@ final class BillingMeterScreenController extends AbstractController
     private const ScreenId = 'billing-meter';
 
     /**
-     * @param \App\ServiceInterface\Interfacing\Context\RequestRequestBaseContextProviderInterface $baseContext
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface $baseContext
      */
     public function __construct(
-        private readonly TokenStorageInterface $tokenStorage,
+        private readonly ?TokenStorageInterface $tokenStorage = null,
         private readonly RequestBaseContextProviderInterface $baseContext,
         private readonly AccessResolverInterface $access,
         private readonly BillingMeterQueryServiceInterface $billing,
+        private readonly CrudRouteContextResolver $routeContextResolver,
+        private readonly CrudWorkbenchFactory $workbenchFactory,
+        private readonly CrudScreenContextResolver $screenContextResolver,
         private readonly AuditSinkInterface $audit,
+        private readonly InterfacingRendererInterface $renderer,
     ) {
     }
 
     #[Route(path: '/interfacing/billing/meter', name: 'interfacing_billing_meter', methods: ['GET'])]
     public function index(Request $request): Response
     {
-        $token = $this->tokenStorage->getToken();
+        $token = $this->tokenStorage?->getToken();
         $ctx = $this->baseContext->provide($request, $token);
 
         $tenantId = (string) ($ctx['tenantId'] ?? 'default');
@@ -91,15 +99,25 @@ final class BillingMeterScreenController extends AbstractController
             ],
         ));
 
-        return $this->render('interfacing/billing/meter.html.twig', [
+        $filters = [
+            'status' => $status,
+            'periodFrom' => $periodFrom,
+            'periodTo' => $periodTo,
+        ];
+
+        $routeContext = $this->routeContextResolver->resolve($request, 'billing/meter');
+        $screenContext = $this->screenContextResolver->resolve($request, $routeContext);
+
+        return $this->renderer->render('interfacing/billing/meter.html.twig', [
             'screenId' => self::ScreenId,
             'ctx' => $ctx,
-            'page' => $pageData,
-            'filters' => [
-                'status' => $status,
-                'periodFrom' => $periodFrom,
-                'periodTo' => $periodTo,
-            ],
+            'workbench' => $this->workbenchFactory->buildBillingMeterView(
+                $pageData,
+                $filters,
+                $ctx,
+                $routeContext,
+                $screenContext,
+            ),
         ]);
     }
 }

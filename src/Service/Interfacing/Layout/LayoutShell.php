@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Layout;
+namespace App\Interfacing\Service\Interfacing\Layout;
 
-use App\Contract\View\LayoutScreenSpec;
-use App\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
 
 final class LayoutShell implements LayoutShellInterface
 {
@@ -20,6 +20,7 @@ final class LayoutShell implements LayoutShellInterface
     {
         $navGroupTitle = [
             'tool' => 'Tool',
+            'message' => 'Messaging',
             'ops' => 'Ops',
             'data' => 'Data',
             'security' => 'Security',

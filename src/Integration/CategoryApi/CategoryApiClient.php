@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Integration\CategoryApi;
+namespace App\Interfacing\Integration\CategoryApi;
 
-use App\Contract\Dto\CategoryItemView;
-use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
-use App\Support\Configuration\CategoryApiRouteMap;
-use App\Support\Configuration\InterfacingConfig;
+use App\Interfacing\Contract\Dto\CategoryItemView;
+use App\Interfacing\ServiceInterface\Interfacing\CategoryApiClientInterface;
+use App\Interfacing\Support\Configuration\CategoryApiRouteMap;
+use App\Interfacing\Support\Configuration\InterfacingConfig;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class CategoryApiClient implements CategoryApiClientInterface

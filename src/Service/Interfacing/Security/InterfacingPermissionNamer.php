@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Security;
+namespace App\Interfacing\Service\Interfacing\Security;
 
-use App\Application\Security\InterfacingPermission;
-use App\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
+use App\Interfacing\Application\Security\InterfacingPermission;
+use App\Interfacing\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
 
 final class InterfacingPermissionNamer implements PermissionNamerInterface
 {

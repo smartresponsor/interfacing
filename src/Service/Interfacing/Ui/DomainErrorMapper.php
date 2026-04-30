@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing\Ui;
+namespace App\Interfacing\Service\Interfacing\Ui;
 
-use App\Contract\Error\DomainOperationFailed;
-use App\Contract\Ui\UiError;
-use App\Contract\Ui\UiErrorBag;
-use App\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
+use App\Interfacing\Contract\Error\DomainOperationFailed;
+use App\Interfacing\Contract\Ui\UiError;
+use App\Interfacing\Contract\Ui\UiErrorBag;
+use App\Interfacing\ServiceInterface\Interfacing\Ui\DomainErrorMapperInterface;
 
 final class DomainErrorMapper implements DomainErrorMapperInterface
 {

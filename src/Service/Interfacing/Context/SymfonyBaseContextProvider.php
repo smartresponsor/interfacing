@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Context;
+namespace App\Interfacing\Service\Interfacing\Context;
 
-use App\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
-use App\ServiceInterface\Interfacing\Tenant\TenantResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Tenant\TenantResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

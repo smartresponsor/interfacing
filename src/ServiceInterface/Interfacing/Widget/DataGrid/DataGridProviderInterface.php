@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Interfacing\Widget\DataGrid;
+namespace App\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid;
 
-use App\Contract\View\DataGridQuery;
-use App\Contract\View\DataGridResult;
+use App\Interfacing\Contract\View\DataGridQuery;
+use App\Interfacing\Contract\View\DataGridResult;
 
 interface DataGridProviderInterface
 {

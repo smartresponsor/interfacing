@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Query;
+namespace App\Interfacing\Tests\Interfacing\Query;
 
-use App\Contract\Dto\BillingMeterPage;
-use App\Contract\Dto\BillingMeterRow;
+use App\Interfacing\Contract\Dto\BillingMeterPage;
+use App\Interfacing\Contract\Dto\BillingMeterRow;
 use PHPUnit\Framework\TestCase;
 
 final class BillingMeterPageTest extends TestCase

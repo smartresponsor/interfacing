@@ -1,0 +1,36 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+
+<div class="card" style="margin-bottom:12px;">
+  <div style="font-weight:700;margin-bottom:10px;">{{ block.props.title }}</div>
+
+  {% if block.props.subtitle is defined and block.props.subtitle is not empty %}
+    <div style="font-size:12px;color:#6b7280;margin-bottom:12px;">{{ block.props.subtitle }}</div>
+  {% endif %}
+
+  {% set items = block.props.items ?? [] %}
+
+  {% if items is empty %}
+    <div class="msg">{{ block.props.emptyText ?? 'No items available.' }}</div>
+  {% else %}
+    <div style="display:grid;gap:10px;">
+      {% for item in items %}
+        <div class="msg">
+          <div style="font-weight:700;">{{ item.title ?? item.name ?? ('Item ' ~ loop.index) }}</div>
+          {% if item.subtitle is defined and item.subtitle is not empty %}
+            <div style="opacity:.75;margin-top:4px;">{{ item.subtitle }}</div>
+          {% elseif item.body is defined and item.body is not empty %}
+            <div style="opacity:.75;margin-top:4px;">{{ item.body }}</div>
+          {% endif %}
+
+          {% if item.meta is defined and item.meta is iterable and item.meta is not empty %}
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:12px;">
+              {% for key, value in item.meta %}
+                <span class="chip">{{ key }}: {{ value }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

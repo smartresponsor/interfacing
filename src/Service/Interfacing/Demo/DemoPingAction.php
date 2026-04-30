@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Demo;
+namespace App\Interfacing\Service\Interfacing\Demo;
 
-use App\Integration\Symfony\Attribute\AsInterfacingAction;
-use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
-use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
-use App\ServiceInterface\Interfacing\Runtime\ActionResult;
+use App\Interfacing\Integration\Symfony\Attribute\AsInterfacingAction;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
 
 #[AsInterfacingAction(
     screenId: 'interfacing.doctor',

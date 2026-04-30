@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing\Ui;
+namespace App\Interfacing\Service\Interfacing\Ui;
 
-use App\Contract\Ui\UiMessage;
-use App\Contract\Ui\UiMessageBag;
-use App\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
+use App\Interfacing\Contract\Ui\UiMessage;
+use App\Interfacing\Contract\Ui\UiMessageBag;
+use App\Interfacing\ServiceInterface\Interfacing\Ui\SessionFlashMessengerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 final class SessionFlashMessenger implements SessionFlashMessengerInterface

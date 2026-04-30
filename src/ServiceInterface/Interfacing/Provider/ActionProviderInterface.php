@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Provider;
+namespace App\Interfacing\ServiceInterface\Interfacing\Provider;
 
-use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 
 interface ActionProviderInterface
 {

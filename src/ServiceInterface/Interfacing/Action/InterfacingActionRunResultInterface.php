@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Action;
+namespace App\Interfacing\ServiceInterface\Interfacing\Action;
 
-use App\Contract\Action\ActionResultInterface;
-use App\Contract\Ui\UiErrorInterface;
-use App\Contract\Ui\UiMessageInterface;
+use App\Interfacing\Contract\Action\ActionResultInterface;
+use App\Interfacing\Contract\Ui\UiErrorInterface;
+use App\Interfacing\Contract\Ui\UiMessageInterface;
 
 interface InterfacingActionRunResultInterface
 {

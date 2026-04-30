@@ -7,10 +7,10 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Security;
+namespace App\Interfacing\Service\Interfacing\Security;
 
-use App\Contract\View\ScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 
 final class AllowAllAccessResolver implements AccessResolverInterface
 {

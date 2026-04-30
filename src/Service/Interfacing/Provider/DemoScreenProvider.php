@@ -7,17 +7,17 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Provider;
+namespace App\Interfacing\Service\Interfacing\Provider;
 
-use App\Contract\View\LayoutBlockSpec;
-use App\Contract\View\LayoutScreenSpec;
-use App\Contract\View\ScreenSpec;
-use App\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
+use App\Interfacing\Contract\View\LayoutBlockSpec;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
+use App\Interfacing\Contract\View\ScreenSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 
 final class DemoScreenProvider implements ScreenProviderInterface
 {
     /**
-     * @return array|\App\Contract\View\ScreenSpecInterface[]
+     * @return array|\App\Interfacing\Contract\View\ScreenSpecInterface[]
      */
     public function provide(): array
     {

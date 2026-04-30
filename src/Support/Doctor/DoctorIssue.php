@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Support\Doctor;
+namespace App\Interfacing\Support\Doctor;
 
 final readonly class DoctorIssue implements DoctorIssueInterface
 {

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Integration\Symfony\Compiler;
+namespace App\Interfacing\Integration\Symfony\Compiler;
 
-use App\Integration\Symfony\Attribute\AsInterfacingAction;
-use App\Integration\Symfony\Attribute\AsInterfacingScreen;
+use App\Interfacing\Integration\Symfony\Attribute\AsInterfacingAction;
+use App\Interfacing\Integration\Symfony\Attribute\AsInterfacingScreen;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 

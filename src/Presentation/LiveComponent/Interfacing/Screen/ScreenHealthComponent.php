@@ -6,7 +6,7 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing\Screen;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Screen;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
@@ -18,6 +18,10 @@ final class ScreenHealthComponent implements ScreenHealthComponentInterface
     use DefaultActionTrait;
 
     public function __construct(private readonly ParameterBagInterface $parameter)
+    {
+    }
+
+    public function __invoke(): void
     {
     }
 

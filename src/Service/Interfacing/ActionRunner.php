@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing;
+namespace App\Interfacing\Service\Interfacing;
 
-use App\Contract\Action\ActionRequest;
-use App\Contract\Action\ActionResult;
-use App\Contract\ValueObject\ActionId;
-use App\Contract\ValueObject\ScreenId;
-use App\ServiceInterface\Interfacing\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\TelemetryBridgeInterface;
-use App\Support\Telemetry\TelemetryEvent;
+use App\Interfacing\Contract\Action\ActionRequest;
+use App\Interfacing\Contract\Action\ActionResult;
+use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\Contract\ValueObject\ScreenId;
+use App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\TelemetryBridgeInterface;
+use App\Interfacing\Support\Telemetry\TelemetryEvent;
 
 final class ActionRunner
 {

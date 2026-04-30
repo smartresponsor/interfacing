@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Context;
+namespace App\Interfacing\ServiceInterface\Interfacing\Context;
 
 interface ScreenContextAssemblerInterface
 {

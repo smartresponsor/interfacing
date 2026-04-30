@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Provider;
+namespace App\Interfacing\Service\Interfacing\Provider;
 
-use App\Contract\View\LayoutScreenSpec;
-use App\Contract\View\ScreenSpec;
-use App\ServiceInterface\Interfacing\ScreenProviderInterface;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
+use App\Interfacing\Contract\View\ScreenSpec;
+use App\Interfacing\ServiceInterface\Interfacing\ScreenProviderInterface;
 
 final class DoctorScreenProvider implements ScreenProviderInterface
 {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Action;
+namespace App\Interfacing\ServiceInterface\Interfacing\Action;
 
-use App\Contract\ValueObject\ActionIdInterface;
+use App\Interfacing\Contract\ValueObject\ActionIdInterface;
 
 interface InterfacingActionRunnerInterface
 {

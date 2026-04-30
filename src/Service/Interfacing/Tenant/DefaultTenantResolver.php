@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Tenant;
+namespace App\Interfacing\Service\Interfacing\Tenant;
 
-use App\ServiceInterface\Interfacing\Tenant\TenantResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Tenant\TenantResolverInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

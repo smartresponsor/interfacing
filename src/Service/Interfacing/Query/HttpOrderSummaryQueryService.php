@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Query;
+namespace App\Interfacing\Service\Interfacing\Query;
 
-use App\Contract\Dto\OrderSummaryPage;
-use App\Contract\Dto\OrderSummaryRow;
-use App\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
+use App\Interfacing\Contract\Dto\OrderSummaryPage;
+use App\Interfacing\Contract\Dto\OrderSummaryRow;
+use App\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final readonly class HttpOrderSummaryQueryService implements OrderSummaryQueryServiceInterface

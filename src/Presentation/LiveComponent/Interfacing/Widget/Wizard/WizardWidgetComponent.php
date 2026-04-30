@@ -6,12 +6,12 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing\Widget\Wizard;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Widget\Wizard;
 
-use App\Contract\View\WizardProgress;
-use App\Contract\View\WizardSpec;
-use App\Contract\View\WizardStepSpec;
-use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
+use App\Interfacing\Contract\View\WizardProgress;
+use App\Interfacing\Contract\View\WizardSpec;
+use App\Interfacing\Contract\View\WizardStepSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -38,6 +38,10 @@ final class WizardWidgetComponent
     public int $stepIndex = 0;
 
     public function __construct(private readonly WizardHandlerRegistryInterface $registry)
+    {
+    }
+
+    public function __invoke(): void
     {
     }
 
@@ -129,7 +133,7 @@ final class WizardWidgetComponent
         $this->value = $this->handler()->initialValue($this->context);
     }
 
-    private function handler(): \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface
+    private function handler(): \App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface
     {
         return $this->registry->get($this->handlerId);
     }

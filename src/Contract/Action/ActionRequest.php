@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Contract\Action;
+namespace App\Interfacing\Contract\Action;
 
-use App\Contract\ValueObject\ActionId;
-use App\Contract\ValueObject\ScreenId;
+use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\Contract\ValueObject\ScreenId;
 
 final readonly class ActionRequest
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Context;
+namespace App\Interfacing\Service\Interfacing\Context;
 
-use App\ServiceInterface\Interfacing\Context\BaseContextAssemblerInterface;
-use App\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextAssemblerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
 
 final readonly class BaseContextAssembler implements BaseContextAssemblerInterface
 {

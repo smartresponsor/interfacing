@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Demo;
+namespace App\Interfacing\Service\Interfacing\Demo;
 
-use App\Integration\Symfony\Attribute\AsInterfacingScreen;
-use App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
+use App\Interfacing\Integration\Symfony\Attribute\AsInterfacingScreen;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
 
 #[AsInterfacingScreen(
     id: 'interfacing.doctor',

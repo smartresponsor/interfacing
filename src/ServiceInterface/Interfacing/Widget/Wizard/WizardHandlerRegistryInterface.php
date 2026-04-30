@@ -6,7 +6,7 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Interfacing\Widget\Wizard;
+namespace App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard;
 
 /**
  *
@@ -25,7 +25,7 @@ interface WizardHandlerRegistryInterface
 
     /**
      * @param string $id
-     * @return \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface
      */
     public function get(string $id): WizardHandlerInterface;
 

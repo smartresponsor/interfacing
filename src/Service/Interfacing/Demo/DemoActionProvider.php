@@ -7,9 +7,9 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Demo;
+namespace App\Interfacing\Service\Interfacing\Demo;
 
-use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 
 /**
  *
@@ -21,14 +21,14 @@ use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 final readonly class DemoActionProvider implements ActionProviderInterface
 {
     /**
-     * @param \App\Service\Interfacing\Demo\DemoPingActionEndpoint $ping
+     * @param \App\Interfacing\Service\Interfacing\Demo\DemoPingActionEndpoint $ping
      */
     public function __construct(private DemoPingActionEndpoint $ping)
     {
     }
 
     /**
-     * @return \App\Service\Interfacing\Demo\DemoPingActionEndpoint[]
+     * @return \App\Interfacing\Service\Interfacing\Demo\DemoPingActionEndpoint[]
      */
     public function provide(): array
     {

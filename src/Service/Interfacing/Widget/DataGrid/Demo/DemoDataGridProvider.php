@@ -6,12 +6,12 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Widget\DataGrid\Demo;
+namespace App\Interfacing\Service\Interfacing\Widget\DataGrid\Demo;
 
-use App\Contract\View\DataGridQuery;
-use App\Contract\View\DataGridResult;
-use App\Contract\View\DataGridRow;
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
+use App\Interfacing\Contract\View\DataGridQuery;
+use App\Interfacing\Contract\View\DataGridResult;
+use App\Interfacing\Contract\View\DataGridRow;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
 
 final class DemoDataGridProvider implements DataGridProviderInterface
 {

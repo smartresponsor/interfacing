@@ -6,11 +6,11 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Layout\Provider;
+namespace App\Interfacing\Service\Interfacing\Layout\Provider;
 
-use App\Contract\ValueObject\ScreenId;
-use App\Contract\View\LayoutScreenSpec;
-use App\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
+use App\Interfacing\Contract\ValueObject\ScreenId;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
 
 final class DemoLayoutProvider implements LayoutProviderInterface
 {
@@ -19,7 +19,7 @@ final class DemoLayoutProvider implements LayoutProviderInterface
         return 'demo';
     }
 
-    public function list(): array
+    public function provide(): array
     {
         return [
             new LayoutScreenSpec('metrics-demo', 'Metrics demo', 'tool', ScreenId::fromString('screen-metric-demo'), null, null, 10),

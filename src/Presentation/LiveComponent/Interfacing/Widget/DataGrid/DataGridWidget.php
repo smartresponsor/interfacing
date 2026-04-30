@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Presentation\LiveComponent\Interfacing\Widget\DataGrid;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Widget\DataGrid;
 
-use App\Contract\View\DataGridQuery;
-use App\Contract\View\DataGridResult;
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
+use App\Interfacing\Contract\View\DataGridQuery;
+use App\Interfacing\Contract\View\DataGridResult;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
@@ -36,6 +36,10 @@ final class DataGridWidget implements DataGridWidgetInterface
     public string $sortDir = 'asc';
 
     public function __construct(private readonly DataGridProviderRegistryInterface $registry)
+    {
+    }
+
+    public function __invoke(): void
     {
     }
 

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Registry;
+namespace App\Interfacing\Service\Interfacing\Registry;
 
-use App\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
-use App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface;
 
 /**
  *
@@ -22,7 +22,7 @@ final class ScreenCatalog implements ScreenCatalogInterface
     private array $screen = [];
 
     /**
-     * @param \App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface $descriptor
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface $descriptor
      * @return void
      */
     public function add(ScreenDescriptorInterface $descriptor): void
@@ -31,7 +31,7 @@ final class ScreenCatalog implements ScreenCatalogInterface
     }
 
     /**
-     * @return array|\App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface[]
+     * @return array|\App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface[]
      */
     public function all(): array
     {
@@ -44,7 +44,7 @@ final class ScreenCatalog implements ScreenCatalogInterface
 
     /**
      * @param string $screenId
-     * @return \App\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface
      */
     public function get(string $screenId): ScreenDescriptorInterface
     {

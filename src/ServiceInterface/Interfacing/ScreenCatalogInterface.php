@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing;
+namespace App\Interfacing\ServiceInterface\Interfacing;
 
-use App\Contract\View\ScreenSpecInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
 
 interface ScreenCatalogInterface
 {

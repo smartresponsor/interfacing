@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Security;
+namespace App\Interfacing\Tests\Interfacing\Security;
 
-use App\Service\Interfacing\Security\InterfacingPermissionNamer;
+use App\Interfacing\Service\Interfacing\Security\InterfacingPermissionNamer;
 use PHPUnit\Framework\TestCase;
 
 /**

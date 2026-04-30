@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Contract\View;
+namespace App\Interfacing\Contract\View;
 
-use App\Contract\ValueObject\ScreenIdInterface;
+use App\Interfacing\Contract\ValueObject\ScreenIdInterface;
 
 interface LayoutScreenSpecInterface
 {

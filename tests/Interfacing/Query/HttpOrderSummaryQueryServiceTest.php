@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Query;
+namespace App\Interfacing\Tests\Interfacing\Query;
 
-use App\Contract\Dto\OrderSummaryPage;
-use App\Contract\Dto\OrderSummaryRow;
-use App\Service\Interfacing\Query\HttpOrderSummaryQueryService;
+use App\Interfacing\Contract\Dto\OrderSummaryPage;
+use App\Interfacing\Contract\Dto\OrderSummaryRow;
+use App\Interfacing\Service\Interfacing\Query\HttpOrderSummaryQueryService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

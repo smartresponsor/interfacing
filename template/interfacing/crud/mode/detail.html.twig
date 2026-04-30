@@ -1,0 +1,35 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div class="if-note" style="margin-bottom: 16px;">
+  Detail mode: entity-focused read surface for <strong>{{ workbench.routeContext.resourceLabel }}</strong>
+  {{ workbench.routeContext.detailModeLead }}
+  Resource-aware row detail facts now drive the selected-record review panel.
+  · path <strong>{{ workbench.routeContext.resourcePath }}</strong>
+  {% if workbench.routeContext.identifierValue is not null %}· {{ workbench.routeContext.identifierField }}=<strong>{{ workbench.routeContext.identifierValue }}</strong>{% endif %}
+  · {{ workbench.routeContext.identifierKindLabel }}
+  · surface <strong>{{ workbench.routeContext.surface }}</strong> · {{ workbench.routeContext.surfaceLabel }}
+  · resource tone <strong>{{ workbench.routeContext.resourceToneLabel }}</strong>
+</div>
+<div class="if-detail-grid">
+  {% for section in workbench.sidebarSections %}
+    <section class="if-card">
+      <h3 class="if-card-title">{{ section.title }}</h3>
+      {% if section.facts is not empty %}
+        <div class="if-description-list">
+          {% for label, value in section.facts %}
+            <div class="if-description-item">
+              <div class="if-description-term">{{ label }}</div>
+              <div>{{ value ?? '—' }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      {% if section.actions is not empty %}
+        <div class="if-row-actions" style="margin-top: 12px;">
+          {% for action in section.actions %}
+            <a class="if-button{% if action.variant == 'primary' %} if-button-primary{% elseif action.variant == 'danger' %} if-button-danger{% endif %}" href="{{ action.href }}">{{ action.label }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </section>
+  {% endfor %}
+</div>

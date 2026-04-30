@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Support\Audit;
+namespace App\Interfacing\ServiceInterface\Support\Audit;
 
-use App\Support\Audit\AuditEvent;
+use App\Interfacing\Support\Audit\AuditEvent;
 
 interface AuditSinkInterface
 {

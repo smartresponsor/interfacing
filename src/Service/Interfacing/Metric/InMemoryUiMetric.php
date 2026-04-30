@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing\Metric;
+namespace App\Interfacing\Service\Interfacing\Metric;
 
-use App\ServiceInterface\Interfacing\Metric\UiMetricInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface;
 
 final class InMemoryUiMetric implements UiMetricInterface
 {

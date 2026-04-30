@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

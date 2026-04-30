@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Builder;
+namespace App\Interfacing\Service\Interfacing\Builder;
 
-use App\Contract\View\LayoutBlockSpec;
-use App\Contract\View\LayoutScreenSpec;
-use App\ServiceInterface\Interfacing\Builder\LayoutScreenSpecBuilderInterface;
+use App\Interfacing\Contract\View\LayoutBlockSpec;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Builder\LayoutScreenSpecBuilderInterface;
 
 final class LayoutScreenSpecBuilder implements LayoutScreenSpecBuilderInterface
 {
@@ -44,6 +44,11 @@ final class LayoutScreenSpecBuilder implements LayoutScreenSpecBuilderInterface
     public function metric(string $id, ?string $title = null): self
     {
         return $this->block('metric', $id, $title);
+    }
+
+    public function collection(string $id, ?string $title = null): self
+    {
+        return $this->block('collection', $id, $title);
     }
 
     public function wizard(string $id, ?string $title = null): self

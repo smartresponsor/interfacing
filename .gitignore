@@ -7,7 +7,8 @@
 
 # Local config See: https://cs.symfony.com/doc/config.html
 .php-cs-fixer.php
-
+/var/
+*.zip
 
 # CMake
 cmake-build-*/

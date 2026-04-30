@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Console;
+namespace App\Interfacing\Support\Console;
 
-use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

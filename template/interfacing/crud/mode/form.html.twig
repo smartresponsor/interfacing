@@ -1,0 +1,51 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div class="if-note" style="margin-bottom: 16px;">
+  Form mode: command-centered edit/new surface for <strong>{{ workbench.routeContext.resourceLabel }}</strong>
+  {{ workbench.routeContext.formModeLead }}
+  · path <strong>{{ workbench.routeContext.resourcePath }}</strong>
+  · operation <strong>{{ workbench.routeContext.operation }}</strong>
+  · surface <strong>{{ workbench.routeContext.surface }}</strong> · {{ workbench.routeContext.surfaceLabel }}
+  · identifier kind <strong>{{ workbench.routeContext.identifierKindLabel }}</strong>
+  · resource tone <strong>{{ workbench.routeContext.resourceToneLabel }}</strong>
+</div>
+<form class="if-form-stack" method="post" action="{{ workbench.headerActions|first ? workbench.headerActions|first.href : app.request.pathInfo }}">
+  {% if workbench.validationSummary is not empty %}
+    <div class="if-callout if-callout-validation">
+      <strong>Validation and section review</strong>
+      <ul class="if-summary-list">
+        {% for line in workbench.validationSummary %}
+          <li>{{ line }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  {% if workbench.formSections is not empty %}
+    <div class="if-section-stack">
+      {% for section in workbench.formSections %}
+        <section class="if-section-card">
+          <div class="if-section-card-head">
+            <h3 class="if-section-card-title">{{ section.title }}</h3>
+            <div class="if-section-hint">{{ section.description }}</div>
+          </div>
+          <div class="if-form-grid">
+            {% for field in section.fields %}
+              {% include 'interfacing/crud/partial/form_field.html.twig' with { field: field } %}
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </div>
+    <div class="if-note" style="margin-top: 12px;">Resource-aware form sections now group field schema and lightweight validation states by CRUD discipline.</div>
+  {% elseif workbench.formFields is not empty %}
+    <div class="if-form-grid">
+      {% for field in workbench.formFields %}
+        {% include 'interfacing/crud/partial/form_field.html.twig' with { field: field } %}
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="if-inline-actions">
+    {% for action in workbench.headerActions %}
+      <a class="if-button{% if action.variant == 'primary' %} if-button-primary{% elseif action.variant == 'danger' %} if-button-danger{% endif %}" href="{{ action.href }}">{{ action.label }}</a>
+    {% endfor %}
+  </div>
+</form>

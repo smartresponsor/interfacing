@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Runtime;
+namespace App\Interfacing\Service\Interfacing\Runtime;
 
-use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
-use App\ServiceInterface\Interfacing\Runtime\ActionResult;
-use App\ServiceInterface\Interfacing\Runtime\ActionRunnerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRunnerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 final readonly class ActionRunner implements ActionRunnerInterface
 {
     /**
-     * @param \App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface $actionCatalog
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface $actionCatalog
      */
     public function __construct(
         private ActionCatalogInterface $actionCatalog,
@@ -34,7 +34,7 @@ final readonly class ActionRunner implements ActionRunnerInterface
      * @param string $actionId
      * @param array $payload
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @return \App\ServiceInterface\Interfacing\Runtime\ActionResult
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult
      */
     public function run(string $screenId, string $actionId, array $payload, Request $request): ActionResult
     {

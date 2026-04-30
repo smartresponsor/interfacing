@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Builder;
+namespace App\Interfacing\Service\Interfacing\Builder;
 
-use App\Contract\Spec\FormSpec;
-use App\Contract\Spec\WizardSpec;
-use App\Contract\Spec\WizardStepSpec;
-use App\ServiceInterface\Interfacing\Builder\WizardSpecBuilderInterface;
+use App\Interfacing\Contract\Spec\FormSpec;
+use App\Interfacing\Contract\Spec\WizardSpec;
+use App\Interfacing\Contract\Spec\WizardStepSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Builder\WizardSpecBuilderInterface;
 
 final class WizardSpecBuilder implements WizardSpecBuilderInterface
 {

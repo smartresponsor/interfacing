@@ -6,7 +6,7 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Interfacing\Widget\Form;
+namespace App\Interfacing\ServiceInterface\Interfacing\Widget\Form;
 
 /**
  *
@@ -25,7 +25,7 @@ interface FormHandlerRegistryInterface
 
     /**
      * @param string $id
-     * @return \App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface
      */
     public function get(string $id): FormHandlerInterface;
 

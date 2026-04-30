@@ -6,7 +6,7 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Integration\Twig;
+namespace App\Interfacing\Integration\Twig;
 
 interface InterfacingTwigExtensionInterface
 {

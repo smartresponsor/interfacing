@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing;
+namespace App\Interfacing\ServiceInterface\Interfacing;
 
 /** Marker interface for Interfacing Service layer. */
 interface ServiceMarkerInterface

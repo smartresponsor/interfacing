@@ -7,16 +7,16 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Security;
+namespace App\Interfacing\Service\Interfacing\Security;
 
-use App\Contract\View\ScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 final readonly class SymfonyAccessResolver implements AccessResolverInterface
 {
     public function __construct(
-        private AuthorizationCheckerInterface $authorizationChecker,
+        private ?AuthorizationCheckerInterface $authorizationChecker = null,
     ) {
     }
 

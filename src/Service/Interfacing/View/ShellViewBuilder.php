@@ -7,11 +7,11 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\View;
+namespace App\Interfacing\Service\Interfacing\View;
 
-use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
-use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
 
 /**
  *
@@ -23,8 +23,8 @@ use App\ServiceInterface\Interfacing\View\ShellViewBuilderInterface;
 final readonly class ShellViewBuilder implements ShellViewBuilderInterface
 {
     /**
-     * @param \App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface $screenRegistry
-     * @param \App\ServiceInterface\Interfacing\Action\ActionRegistryInterface $actionRegistry
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface $screenRegistry
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface $actionRegistry
      */
     public function __construct(
         private ScreenRegistryInterface $screenRegistry,

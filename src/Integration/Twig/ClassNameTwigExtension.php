@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Integration\Twig;
+namespace App\Interfacing\Integration\Twig;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;

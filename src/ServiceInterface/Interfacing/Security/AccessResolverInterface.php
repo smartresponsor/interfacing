@@ -7,9 +7,9 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing\Security;
+namespace App\Interfacing\ServiceInterface\Interfacing\Security;
 
-use App\Contract\View\ScreenSpecInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
 
 interface AccessResolverInterface
 {

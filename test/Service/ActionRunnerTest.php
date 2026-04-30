@@ -5,16 +5,16 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace App\Test\Service;
+namespace App\Interfacing\Test\Service;
 
 use PHPUnit\Framework\TestCase;
-use App\Domain\Interfacing\Action\ActionId;
-use App\Domain\Interfacing\Action\ActionRequest;
-use App\Domain\Interfacing\Action\ActionResult;
-use App\Domain\Interfacing\Screen\ScreenId;
-use App\DomainInterface\Interfacing\Action\ActionEndpointInterface;
-use App\Service\Interfacing\Action\ActionRunner;
-use App\Service\Interfacing\Telemetry\NullTelemetry;
+use App\Interfacing\Domain\Interfacing\Action\ActionId;
+use App\Interfacing\Domain\Interfacing\Action\ActionRequest;
+use App\Interfacing\Domain\Interfacing\Action\ActionResult;
+use App\Interfacing\Domain\Interfacing\Screen\ScreenId;
+use App\Interfacing\DomainInterface\Interfacing\Action\ActionEndpointInterface;
+use App\Interfacing\Service\Interfacing\Action\ActionRunner;
+use App\Interfacing\Service\Interfacing\Telemetry\NullTelemetry;
 
 /**
  *
@@ -37,8 +37,8 @@ final class ActionRunnerTest extends TestCase
             public function actionId(): string { return 'ping'; }
 
             /**
-             * @param \App\Domain\Interfacing\Action\ActionRequest $request
-             * @return \App\Domain\Interfacing\Action\ActionResult
+             * @param \App\Interfacing\Domain\Interfacing\Action\ActionRequest $request
+             * @return \App\Interfacing\Domain\Interfacing\Action\ActionResult
              */
             public function handle(ActionRequest $request): ActionResult
             {
@@ -70,8 +70,8 @@ final class ActionRunnerTest extends TestCase
             public function actionId(): string { return 'boom'; }
 
             /**
-             * @param \App\Domain\Interfacing\Action\ActionRequest $request
-             * @return \App\Domain\Interfacing\Action\ActionResult
+             * @param \App\Interfacing\Domain\Interfacing\Action\ActionRequest $request
+             * @return \App\Interfacing\Domain\Interfacing\Action\ActionResult
              */
             public function handle(ActionRequest $request): ActionResult
             {

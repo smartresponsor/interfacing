@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Widget\Metric\Demo;
+namespace App\Interfacing\Service\Interfacing\Widget\Metric\Demo;
 
-use App\Contract\View\MetricDatum;
-use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
+use App\Interfacing\Contract\View\MetricDatum;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
 
 final class DemoMetricProvider implements MetricProviderInterface
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Support\Console;
+namespace App\Interfacing\Support\Console;
 
-use App\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
-use App\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

@@ -7,11 +7,11 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Layout;
+namespace App\Interfacing\Service\Interfacing\Layout;
 
-use App\Contract\View\LayoutScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
+use App\Interfacing\Contract\View\LayoutScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
 
 final class LayoutCatalog implements LayoutCatalogInterface
 {

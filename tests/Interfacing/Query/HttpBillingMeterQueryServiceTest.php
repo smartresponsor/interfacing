@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Query;
+namespace App\Interfacing\Tests\Interfacing\Query;
 
-use App\Contract\Dto\BillingMeterPage;
-use App\Contract\Dto\BillingMeterRow;
-use App\Service\Interfacing\Query\HttpBillingMeterQueryService;
+use App\Interfacing\Contract\Dto\BillingMeterPage;
+use App\Interfacing\Contract\Dto\BillingMeterRow;
+use App\Interfacing\Service\Interfacing\Query\HttpBillingMeterQueryService;
 use PHPUnit\Framework\TestCase;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;

@@ -3,7 +3,7 @@ Interfacing (sketch-12)
 Goal:
 - Add two missing “production” pieces:
   1) Screen context assembly (request/user/env) with extensible resolvers.
-  2) Security-aware access resolver (Symfony isGranted / voters), still allowing allow-all by default.
+  2) Security-aware access resolver (Symfony isGranted / voters) that consumes host security services.
 
 What you get:
 - BaseContextProviderInterface + RequestBaseContextProvider (request/query/locale + optional security token info).
@@ -14,8 +14,9 @@ What you get:
   - otherwise: treat as attribute directly.
 
 Default behavior:
-- If security bundle is not present (no authorization checker), access falls back to allow-all.
-- You can enforce security by aliasing AccessResolverInterface to SymfonyAccessResolver.
+- Interfacing does not own firewall or access-control configuration.
+- Host application security remains canonical; Interfacing only consumes host security services through access-resolver abstractions.
+- Package-level security.yaml is intentionally absent.
 
 Drift guard (RVE-A6):
 - tools/interfacing-drift-check.php enforces Interfacing boundaries.

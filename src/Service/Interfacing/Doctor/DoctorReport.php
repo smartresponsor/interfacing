@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Doctor;
+namespace App\Interfacing\Service\Interfacing\Doctor;
 
-use App\ServiceInterface\Interfacing\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
 
 final class DoctorReport
 {

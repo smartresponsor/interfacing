@@ -7,9 +7,9 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Telemetry;
+namespace App\Interfacing\Service\Interfacing\Telemetry;
 
-use App\ServiceInterface\Interfacing\Telemetry\TelemetryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Telemetry\TelemetryInterface;
 
 final class NullTelemetry implements TelemetryInterface
 {

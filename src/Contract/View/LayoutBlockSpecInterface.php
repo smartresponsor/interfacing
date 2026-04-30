@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Contract\View;
+namespace App\Interfacing\Contract\View;
 
 interface LayoutBlockSpecInterface
 {

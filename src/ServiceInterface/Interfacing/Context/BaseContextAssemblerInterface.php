@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing\Context;
+namespace App\Interfacing\ServiceInterface\Interfacing\Context;
 
 /**
  *

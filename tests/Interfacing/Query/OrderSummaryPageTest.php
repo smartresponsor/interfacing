@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Query;
+namespace App\Interfacing\Tests\Interfacing\Query;
 
-use App\Contract\Dto\OrderSummaryPage;
-use App\Contract\Dto\OrderSummaryRow;
+use App\Interfacing\Contract\Dto\OrderSummaryPage;
+use App\Interfacing\Contract\Dto\OrderSummaryRow;
 use PHPUnit\Framework\TestCase;
 
 final class OrderSummaryPageTest extends TestCase

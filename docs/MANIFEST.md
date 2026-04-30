@@ -1,11 +1,12 @@
 # Docs Manifest
 
-Docs are normative for Codex CLI in this repository.
+Current normative documentation for this repository:
+- `docs/interfacing.md`
+- `docs/interfacing-quick-start.md`
+- `docs/interfacing-dev-ergonomics.md`
+- `docs/interfacing-category-integration.md`
+- `docs/interfacing-doctor.md`
+- `docs/interfacing-observability.md`
+- `docs/interfacing-renderer-contract.md`
 
-Priority documents:
-- `docs/interfacing/CANONICAL_TARGET_TREE.md`
-- `docs/interfacing/MIGRATION_MAP.md`
-- `docs/interfacing/ui-contract.yaml`
-- `docs/interfacing/layout.md`
-
-When code changes responsibility, update the relevant doc manifest in the same wave.
+Remove stale sketch and stabilization notes instead of treating them as active architecture canon.

@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 /**
  * Interfacing namespace guard (RVE-B11)
- * - Enforce Symfony standard namespace prefix: App\
+ * - Enforce Symfony standard namespace prefix: App\Interfacing\
  * - Forbid legacy vendor prefix: SmartResponsor\
  *
  * Usage:

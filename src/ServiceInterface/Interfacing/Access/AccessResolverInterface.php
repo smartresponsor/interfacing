@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Access;
+namespace App\Interfacing\ServiceInterface\Interfacing\Access;
 
-use App\Contract\Access\AccessDecision;
+use App\Interfacing\Contract\Access\AccessDecision;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 

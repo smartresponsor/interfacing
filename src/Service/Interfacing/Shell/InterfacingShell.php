@@ -6,14 +6,14 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Shell;
+namespace App\Interfacing\Service\Interfacing\Shell;
 
-use App\Contract\View\ShellNavGroup;
-use App\Contract\View\ShellNavItem;
-use App\Contract\View\ShellView;
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
-use App\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
+use App\Interfacing\Contract\View\ShellNavGroup;
+use App\Interfacing\Contract\View\ShellNavItem;
+use App\Interfacing\Contract\View\ShellView;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 

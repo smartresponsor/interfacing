@@ -6,9 +6,9 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Integration\Twig;
+namespace App\Interfacing\Integration\Twig;
 
-use App\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
@@ -29,7 +29,7 @@ final class InterfacingTwigExtension extends AbstractExtension implements Interf
     }
 
     /**
-     * @return \App\Contract\View\ShellView
+     * @return \App\Interfacing\Contract\View\ShellView
      */
     public function shell()
     {

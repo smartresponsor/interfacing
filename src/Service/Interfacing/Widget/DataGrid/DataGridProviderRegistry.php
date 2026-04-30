@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Widget\DataGrid;
+namespace App\Interfacing\Service\Interfacing\Widget\DataGrid;
 
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
 
 /**
  *
@@ -46,7 +46,7 @@ final class DataGridProviderRegistry implements DataGridProviderRegistryInterfac
 
     /**
      * @param string $key
-     * @return \App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderInterface
      */
     public function get(string $key): DataGridProviderInterface
     {

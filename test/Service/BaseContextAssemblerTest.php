@@ -5,11 +5,11 @@ declare(strict_types=1);
  * Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
  * Proprietary and confidential.
  */
-namespace App\Test\Service;
+namespace App\Interfacing\Test\Service;
 
 use PHPUnit\Framework\TestCase;
-use App\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
-use App\Service\Interfacing\Context\BaseContextAssembler;
+use App\Interfacing\DomainInterface\Interfacing\Context\BaseContextProviderInterface;
+use App\Interfacing\Service\Interfacing\Context\BaseContextAssembler;
 
 /**
  *

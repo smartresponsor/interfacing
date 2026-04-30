@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Action;
+namespace App\Interfacing\Service\Interfacing\Action;
 
-use App\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
-use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
-use App\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
-use App\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\Runtime\ActionRequest;
-use App\ServiceInterface\Interfacing\Runtime\ActionResult;
-use App\ServiceInterface\Interfacing\Security\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionDispatcherInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
+use App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 
 final readonly class ActionDispatcher implements ActionDispatcherInterface
 {

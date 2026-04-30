@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Action;
+namespace App\Interfacing\Service\Interfacing\Action;
 
-use App\Contract\ValueObject\ActionIdInterface;
-use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
-use App\ServiceInterface\Interfacing\Action\ActionProviderInterface;
+use App\Interfacing\Contract\ValueObject\ActionIdInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionProviderInterface;
 
 final class ActionCatalog implements ActionCatalogInterface
 {

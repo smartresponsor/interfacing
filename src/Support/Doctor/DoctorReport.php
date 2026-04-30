@@ -7,11 +7,11 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Support\Doctor;
+namespace App\Interfacing\Support\Doctor;
 
-use App\Contract\View\LayoutScreenSpecInterface;
-use App\Contract\View\ScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+use App\Interfacing\Contract\View\LayoutScreenSpecInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 
 final readonly class DoctorReport implements DoctorReportInterface
 {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\ServiceInterface\Interfacing\View;
+namespace App\Interfacing\ServiceInterface\Interfacing\View;
 
 interface ScreenViewBuilderInterface
 {

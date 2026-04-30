@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Access;
+namespace App\Interfacing\Service\Interfacing\Access;
 
-use App\Application\Security\InterfacingPermission;
-use App\Contract\Access\AccessDecision;
-use App\ServiceInterface\Interfacing\Access\AccessResolverInterface;
-use App\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
+use App\Interfacing\Application\Security\InterfacingPermission;
+use App\Interfacing\Contract\Access\AccessDecision;
+use App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 final readonly class SymfonyAccessResolver implements AccessResolverInterface
 {
     public function __construct(
-        private AuthorizationCheckerInterface $auth,
+        private ?AuthorizationCheckerInterface $auth = null,
         private PermissionNamerInterface $permission,
     ) {
     }
@@ -24,11 +24,11 @@ final readonly class SymfonyAccessResolver implements AccessResolverInterface
     {
         $attribute = $this->permission->screen($screenId);
 
-        if ($this->auth->isGranted(InterfacingPermission::RoleAdmin)) {
+        if ($this->auth?->isGranted(InterfacingPermission::RoleAdmin) ?? false) {
             return AccessDecision::allow('admin');
         }
 
-        if ($this->auth->isGranted($attribute)) {
+        if ($this->auth?->isGranted($attribute) ?? false) {
             return AccessDecision::allow('granted');
         }
 
@@ -39,11 +39,11 @@ final readonly class SymfonyAccessResolver implements AccessResolverInterface
     {
         $attribute = $this->permission->action($screenId, $actionId);
 
-        if ($this->auth->isGranted(InterfacingPermission::RoleAdmin)) {
+        if ($this->auth?->isGranted(InterfacingPermission::RoleAdmin) ?? false) {
             return AccessDecision::allow('admin');
         }
 
-        if ($this->auth->isGranted($attribute)) {
+        if ($this->auth?->isGranted($attribute) ?? false) {
             return AccessDecision::allow('granted');
         }
 

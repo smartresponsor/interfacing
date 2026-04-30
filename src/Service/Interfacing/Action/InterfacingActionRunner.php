@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Action;
+namespace App\Interfacing\Service\Interfacing\Action;
 
-use App\Contract\Action\ActionResult;
-use App\Contract\Action\ActionRuntime;
-use App\Contract\Ui\UiError;
-use App\Contract\ValueObject\ActionIdInterface;
-use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\Action\InterfacingActionRunnerInterface;
-use App\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface;
-use App\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
+use App\Interfacing\Contract\Action\ActionResult;
+use App\Interfacing\Contract\Action\ActionRuntime;
+use App\Interfacing\Contract\Ui\UiError;
+use App\Interfacing\Contract\ValueObject\ActionIdInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\InterfacingActionRunnerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\InterfacingActionRunResultInterface;
+use App\Interfacing\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
 
 final readonly class InterfacingActionRunner implements InterfacingActionRunnerInterface
 {

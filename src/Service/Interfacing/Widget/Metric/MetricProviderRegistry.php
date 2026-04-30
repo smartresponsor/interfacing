@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Widget\Metric;
+namespace App\Interfacing\Service\Interfacing\Widget\Metric;
 
-use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
-use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
 
 /**
  *
@@ -46,7 +46,7 @@ final class MetricProviderRegistry implements MetricProviderRegistryInterface
 
     /**
      * @param string $id
-     * @return \App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderInterface
      */
     public function get(string $id): MetricProviderInterface
     {

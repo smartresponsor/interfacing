@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Demo;
+namespace App\Interfacing\Service\Interfacing\Demo;
 
-use App\Contract\ValueObject\LayoutSlot;
-use App\Contract\View\LayoutBlockSpec;
-use App\Contract\View\LayoutScreenSpec;
-use App\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
+use App\Interfacing\Contract\ValueObject\LayoutSlot;
+use App\Interfacing\Contract\View\LayoutBlockSpec;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutProviderInterface;
 
 final class DemoLayoutProvider implements LayoutProviderInterface
 {

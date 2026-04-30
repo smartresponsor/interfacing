@@ -24,6 +24,8 @@
       {% include 'interfacing/live/block-form.html.twig' with { block: b, component: component } %}
     {% elseif b.type == 'metric' %}
       {% include 'interfacing/live/block-metric.html.twig' with { block: b, component: component } %}
+    {% elseif b.type == 'collection' %}
+      {% include 'interfacing/live/block-collection.html.twig' with { block: b, component: component } %}
     {% elseif b.type == 'wizard' %}
       {% include 'interfacing/live/block-wizard.html.twig' with { block: b, component: component } %}
     {% else %}

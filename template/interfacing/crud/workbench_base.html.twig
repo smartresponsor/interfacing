@@ -1,0 +1,330 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Interfacing CRUD workbench{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      :root {
+        --if-bg: #f5f7fa;
+        --if-panel: #ffffff;
+        --if-border: #d9d9d9;
+        --if-border-soft: #f0f0f0;
+        --if-text: #1f1f1f;
+        --if-muted: #595959;
+        --if-primary: #1677ff;
+        --if-primary-soft: #e6f4ff;
+        --if-success-soft: #f6ffed;
+        --if-success-text: #389e0d;
+        --if-warning-soft: #fffbe6;
+        --if-warning-text: #ad6800;
+        --if-danger-soft: #fff1f0;
+        --if-danger-text: #cf1322;
+        --if-radius: 12px;
+        --if-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--if-bg);
+        color: var(--if-text);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      a { color: var(--if-primary); }
+      .if-shell {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+      .if-stack { display: flex; flex-direction: column; gap: 16px; }
+      .if-panel {
+        background: var(--if-panel);
+        border: 1px solid var(--if-border-soft);
+        border-radius: var(--if-radius);
+        box-shadow: var(--if-shadow);
+      }
+      .if-page-head {
+        padding: 20px 24px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: flex-start;
+      }
+      .if-eyebrow {
+        color: var(--if-primary);
+        font-size: 12px;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .if-title {
+        margin: 8px 0 0 0;
+        font-size: 28px;
+        line-height: 1.2;
+      }
+      .if-subtitle {
+        margin: 10px 0 0 0;
+        color: var(--if-muted);
+        font-size: 14px;
+        max-width: 780px;
+      }
+      .if-meta {
+        margin-top: 12px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .if-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #fafafa;
+        border: 1px solid var(--if-border-soft);
+        color: var(--if-muted);
+        font-size: 12px;
+      }
+      .if-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+        min-width: 280px;
+      }
+      .if-button {
+        appearance: none;
+        border: 1px solid var(--if-border);
+        background: #fff;
+        color: var(--if-text);
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .if-button:hover { border-color: var(--if-primary); }
+      .if-button-primary {
+        background: var(--if-primary);
+        border-color: var(--if-primary);
+        color: #fff;
+      }
+      .if-button-danger {
+        color: var(--if-danger-text);
+        border-color: #ffccc7;
+        background: #fff;
+      }
+      .if-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.8fr) minmax(320px, 0.95fr);
+        gap: 16px;
+      }
+      .if-section-head {
+        padding: 18px 20px 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .if-section-title {
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .if-section-hint {
+        color: var(--if-muted);
+        font-size: 12px;
+      }
+      .if-filters {
+        padding: 16px 20px 20px 20px;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .if-field { display: flex; flex-direction: column; gap: 6px; }
+      .if-label {
+        font-size: 12px;
+        color: var(--if-muted);
+        font-weight: 600;
+      }
+      .if-input, .if-select {
+        width: 100%;
+        border: 1px solid var(--if-border);
+        border-radius: 10px;
+        background: #fff;
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+
+      .if-required {
+        display: inline-flex;
+        align-items: center;
+        margin-left: 6px;
+        padding: 2px 6px;
+        border-radius: 999px;
+        background: var(--if-primary-soft);
+        color: var(--if-primary);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+      }
+      .if-field-success .if-input { border-color: #b7eb8f; background: #fcffe6; }
+      .if-field-warning .if-input { border-color: #ffe58f; background: #fffbe6; }
+      .if-field-error .if-input { border-color: #ffccc7; background: #fff1f0; }
+      .if-field-feedback {
+        margin-top: 6px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .if-field-feedback-warning { color: var(--if-warning-text); }
+      .if-field-feedback-error { color: var(--if-danger-text); }
+      .if-callout-validation {
+        background: #fafcff;
+        border-color: #d6e4ff;
+      }
+      .if-summary-list {
+        margin: 8px 0 0 18px;
+        padding: 0;
+      }
+      .if-section-stack { display: flex; flex-direction: column; gap: 16px; }
+      .if-section-card {
+        border: 1px solid var(--if-border-soft);
+        border-radius: 12px;
+        background: #fff;
+        padding: 16px;
+      }
+      .if-section-card-head {
+        margin-bottom: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .if-section-card-title {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .if-inline-actions {
+        display: flex;
+        align-items: flex-end;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .if-form-stack { padding: 0 20px 20px 20px; display: flex; flex-direction: column; gap: 16px; }
+      .if-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .if-detail-grid { padding: 0 20px 20px 20px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+      .if-callout {
+        margin: 0 20px 20px 20px;
+        border-radius: 12px;
+        padding: 18px;
+        border: 1px solid var(--if-border-soft);
+        background: #fafafa;
+      }
+      .if-callout-danger {
+        background: var(--if-danger-soft);
+        border-color: #ffccc7;
+      }
+      .if-table-wrap { padding: 0 20px 20px 20px; overflow: auto; }
+      .if-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 840px;
+      }
+      .if-table th {
+        background: #fafafa;
+        color: var(--if-muted);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        text-align: left;
+        padding: 12px 14px;
+        border-top: 1px solid var(--if-border-soft);
+        border-bottom: 1px solid var(--if-border-soft);
+      }
+      .if-table td {
+        padding: 14px;
+        border-bottom: 1px solid var(--if-border-soft);
+        font-size: 14px;
+        vertical-align: top;
+      }
+      .if-code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        font-size: 13px;
+      }
+      .if-tag {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .if-tag-success { background: var(--if-success-soft); color: var(--if-success-text); }
+      .if-tag-warning { background: var(--if-warning-soft); color: var(--if-warning-text); }
+      .if-tag-danger { background: var(--if-danger-soft); color: var(--if-danger-text); }
+      .if-row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+      .if-link-button {
+        border: 1px solid var(--if-border);
+        border-radius: 8px;
+        padding: 6px 10px;
+        text-decoration: none;
+        color: var(--if-text);
+        background: #fff;
+        font-size: 13px;
+      }
+      .if-sidebar { padding: 20px; display: flex; flex-direction: column; gap: 16px; }
+      .if-card {
+        border: 1px solid var(--if-border-soft);
+        border-radius: 12px;
+        padding: 16px;
+        background: #fff;
+      }
+      .if-card-title { font-size: 15px; font-weight: 700; margin: 0 0 12px 0; }
+      .if-description-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+      .if-description-item { display: grid; grid-template-columns: 120px 1fr; gap: 8px; font-size: 14px; }
+      .if-description-term { color: var(--if-muted); }
+      .if-note {
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: var(--if-primary-soft);
+        color: #003a8c;
+        font-size: 13px;
+      }
+      .if-form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .if-form-grid .if-field-full { grid-column: 1 / -1; }
+      .if-footer {
+        padding: 0 20px 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        color: var(--if-muted);
+        font-size: 13px;
+      }
+      @media (max-width: 1080px) {
+        .if-grid { grid-template-columns: 1fr; }
+        .if-page-head { flex-direction: column; }
+        .if-actions { justify-content: flex-start; min-width: 0; }
+      }
+      @media (max-width: 860px) {
+        .if-filters, .if-form-grid { grid-template-columns: 1fr; }
+        .if-shell { padding: 16px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="if-shell">
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>

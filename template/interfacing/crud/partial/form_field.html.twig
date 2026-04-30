@@ -1,0 +1,24 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div class="if-field if-field-{{ field.validationState }}">
+  <label class="if-label" for="{{ field.name }}">
+    {{ field.label }}
+    {% if field.required %}
+      <span class="if-required">required</span>
+    {% endif %}
+  </label>
+  {% if field.type == 'select' %}
+    <select class="if-input" id="{{ field.name }}" name="{{ field.name }}"{% if field.required %} required{% endif %}>
+      {% for option in field.options %}
+        <option value="{{ option.value }}"{% if option.value == field.value %} selected{% endif %}>{{ option.label }}</option>
+      {% endfor %}
+    </select>
+  {% else %}
+    <input class="if-input" id="{{ field.name }}" type="{{ field.type }}" name="{{ field.name }}" value="{{ field.value }}" placeholder="{{ field.placeholder }}"{% if field.required %} required{% endif %}>
+  {% endif %}
+  {% if field.helpText %}
+    <div class="if-note" style="margin-top: 6px;">{{ field.helpText }}</div>
+  {% endif %}
+  {% if field.errorText %}
+    <div class="if-field-feedback if-field-feedback-{{ field.validationState }}">{{ field.errorText }}</div>
+  {% endif %}
+</div>

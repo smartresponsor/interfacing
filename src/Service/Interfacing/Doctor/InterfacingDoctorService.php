@@ -7,16 +7,16 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Doctor;
+namespace App\Interfacing\Service\Interfacing\Doctor;
 
-use App\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
-use App\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
-use App\Support\Doctor\DoctorIssue;
-use App\Support\Doctor\DoctorReport;
-use App\Support\Doctor\DoctorReportInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
+use App\Interfacing\Support\Doctor\DoctorIssue;
+use App\Interfacing\Support\Doctor\DoctorReport;
+use App\Interfacing\Support\Doctor\DoctorReportInterface;
 
 final readonly class InterfacingDoctorService implements InterfacingDoctorServiceInterface
 {

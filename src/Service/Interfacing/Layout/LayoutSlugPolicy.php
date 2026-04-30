@@ -6,9 +6,9 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Layout;
+namespace App\Interfacing\Service\Interfacing\Layout;
 
-use App\ServiceInterface\Interfacing\Layout\LayoutSlugPolicyInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutSlugPolicyInterface;
 
 /**
  *

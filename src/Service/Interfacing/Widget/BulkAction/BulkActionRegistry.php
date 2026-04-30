@@ -6,11 +6,11 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Widget\BulkAction;
+namespace App\Interfacing\Service\Interfacing\Widget\BulkAction;
 
-use App\Contract\View\BulkActionSpec;
-use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
-use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
+use App\Interfacing\Contract\View\BulkActionSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
 
 final class BulkActionRegistry implements BulkActionRegistryInterface
 {

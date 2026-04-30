@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
-use App\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 

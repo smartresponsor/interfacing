@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Action;
+namespace App\Interfacing\ServiceInterface\Interfacing\Action;
 
-use App\ServiceInterface\Interfacing\Runtime\ActionResult;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
 
 interface ActionDispatcherInterface
 {

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\ServiceInterface\Interfacing\Access\AccessResolverInterface;
-use App\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
-use App\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
-use App\ServiceInterface\Support\Audit\AuditSinkInterface;
-use App\Support\Audit\AuditEvent;
-use App\Support\Audit\AuditEventType;
+use App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
+use App\Interfacing\ServiceInterface\Support\Audit\AuditSinkInterface;
+use App\Interfacing\Support\Audit\AuditEvent;
+use App\Interfacing\Support\Audit\AuditEventType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,10 +21,10 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 final class InterfacingDoctorInfraController extends AbstractController
 {
     /**
-     * @param \App\ServiceInterface\Interfacing\Context\RequestRequestBaseContextProviderInterface $baseContext
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface $baseContext
      */
     public function __construct(
-        private TokenStorageInterface $tokenStorage,
+        private ?TokenStorageInterface $tokenStorage = null,
         private RequestBaseContextProviderInterface $baseContext,
         private AccessResolverInterface $access,
         private PermissionNamerInterface $permission,

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Demo;
+namespace App\Interfacing\Service\Interfacing\Demo;
 
-use App\Contract\Action\ActionResult;
-use App\Contract\Action\ActionRuntimeInterface;
-use App\Contract\Ui\UiMessage;
-use App\Contract\ValueObject\ActionId;
-use App\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
+use App\Interfacing\Contract\Action\ActionResult;
+use App\Interfacing\Contract\Action\ActionRuntimeInterface;
+use App\Interfacing\Contract\Ui\UiMessage;
+use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 
 final class DemoPingActionEndpoint implements ActionEndpointInterface
 {

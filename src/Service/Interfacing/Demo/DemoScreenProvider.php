@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Demo;
+namespace App\Interfacing\Service\Interfacing\Demo;
 
-use App\Contract\View\LayoutBlockSpec;
-use App\Contract\View\LayoutScreenSpec;
-use App\Contract\View\ScreenSpec;
-use App\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
+use App\Interfacing\Contract\View\LayoutBlockSpec;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
+use App\Interfacing\Contract\View\ScreenSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
 
 final class DemoScreenProvider implements ScreenProviderInterface
 {

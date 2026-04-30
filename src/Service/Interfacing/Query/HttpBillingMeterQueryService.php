@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Query;
+namespace App\Interfacing\Service\Interfacing\Query;
 
-use App\Contract\Dto\BillingMeterPage;
-use App\Contract\Dto\BillingMeterRow;
-use App\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
+use App\Interfacing\Contract\Dto\BillingMeterPage;
+use App\Interfacing\Contract\Dto\BillingMeterRow;
+use App\Interfacing\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final readonly class HttpBillingMeterQueryService implements BillingMeterQueryServiceInterface

@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Interfacing\Widget\Form;
+namespace App\Interfacing\ServiceInterface\Interfacing\Widget\Form;
 
-use App\Contract\Dto\FormSubmitResult;
-use App\Contract\View\FormSpec;
+use App\Interfacing\Contract\Dto\FormSubmitResult;
+use App\Interfacing\Contract\View\FormSpec;
 
 interface FormHandlerInterface
 {

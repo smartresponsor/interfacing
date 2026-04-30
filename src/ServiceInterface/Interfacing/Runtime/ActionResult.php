@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Runtime;
+namespace App\Interfacing\ServiceInterface\Interfacing\Runtime;
 
 final readonly class ActionResult
 {

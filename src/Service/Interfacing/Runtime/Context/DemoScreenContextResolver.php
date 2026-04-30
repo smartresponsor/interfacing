@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Runtime\Context;
+namespace App\Interfacing\Service\Interfacing\Runtime\Context;
 
-use App\Contract\View\LayoutScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenContextResolverInterface;
+use App\Interfacing\Contract\View\LayoutScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextResolverInterface;
 
 final class DemoScreenContextResolver implements ScreenContextResolverInterface
 {

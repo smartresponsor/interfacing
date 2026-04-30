@@ -7,13 +7,13 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Provider;
+namespace App\Interfacing\Service\Interfacing\Provider;
 
-use App\Service\Interfacing\Provider\DemoAction\DemoRefreshMetricActionEndpoint;
-use App\Service\Interfacing\Provider\DemoAction\DemoSaveProfileActionEndpoint;
-use App\Service\Interfacing\Provider\DemoAction\DemoWizardBackActionEndpoint;
-use App\Service\Interfacing\Provider\DemoAction\DemoWizardNextActionEndpoint;
-use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
+use App\Interfacing\Service\Interfacing\Provider\DemoAction\DemoRefreshMetricActionEndpoint;
+use App\Interfacing\Service\Interfacing\Provider\DemoAction\DemoSaveProfileActionEndpoint;
+use App\Interfacing\Service\Interfacing\Provider\DemoAction\DemoWizardBackActionEndpoint;
+use App\Interfacing\Service\Interfacing\Provider\DemoAction\DemoWizardNextActionEndpoint;
+use App\Interfacing\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
 
 /**
  *
@@ -25,7 +25,7 @@ use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
 final class DemoActionProvider implements ActionProviderInterface
 {
     /**
-     * @return array|\App\ServiceInterface\Interfacing\Action\ActionEndpointInterface[]
+     * @return array|\App\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface[]
      */
     public function provide(): array
     {

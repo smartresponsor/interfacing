@@ -6,9 +6,9 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Interfacing\Widget\Metric;
+namespace App\Interfacing\ServiceInterface\Interfacing\Widget\Metric;
 
-use App\Contract\View\MetricDatum;
+use App\Interfacing\Contract\View\MetricDatum;
 
 interface MetricProviderInterface
 {

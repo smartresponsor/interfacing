@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\Service\Interfacing\Registry;
+namespace App\Interfacing\Service\Interfacing\Registry;
 
-use App\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
 
 /**
  *
@@ -22,7 +22,7 @@ final class ActionCatalog implements ActionCatalogInterface
     private array $action = [];
 
     /**
-     * @param \App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface $endpoint
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface $endpoint
      * @return void
      */
     public function add(ActionEndpointInterface $endpoint): void
@@ -32,7 +32,7 @@ final class ActionCatalog implements ActionCatalogInterface
 
     /**
      * @param string $screenId
-     * @return array|\App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface[]
+     * @return array|\App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface[]
      */
     public function allForScreen(string $screenId): array
     {
@@ -46,7 +46,7 @@ final class ActionCatalog implements ActionCatalogInterface
     /**
      * @param string $screenId
      * @param string $actionId
-     * @return \App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface
+     * @return \App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface
      */
     public function get(string $screenId, string $actionId): ActionEndpointInterface
     {

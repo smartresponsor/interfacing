@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Contract\Dto;
+namespace App\Interfacing\Contract\Dto;
 
 final readonly class OrderSummaryRow
 {

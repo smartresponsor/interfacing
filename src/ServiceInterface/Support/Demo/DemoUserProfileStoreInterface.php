@@ -6,9 +6,9 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Support\Demo;
+namespace App\Interfacing\ServiceInterface\Support\Demo;
 
-use App\Contract\Error\DomainOperationFailed;
+use App\Interfacing\Contract\Error\DomainOperationFailed;
 
 interface DemoUserProfileStoreInterface
 {

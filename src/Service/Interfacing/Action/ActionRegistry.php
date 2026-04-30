@@ -7,12 +7,11 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Action;
+namespace App\Interfacing\Service\Interfacing\Action;
 
-use App\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
-use App\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
-use App\ServiceInterface\Interfacing\Registry\ActionEndpointInterface;
-
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Provider\ActionProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface;
 final class ActionRegistry implements ActionRegistryInterface
 {
     /** @var array<string, ActionEndpointInterface> */
@@ -53,7 +52,7 @@ final class ActionRegistry implements ActionRegistryInterface
         return $out;
     }
 
-    public function resolve(string $screenId, string $actionId): ActionEndpointInterface
+	public function resolve(string $screenId, string $actionId): ActionEndpointInterface
     {
         $k = $this->key($screenId, $actionId);
         if (!isset($this->map[$k])) {

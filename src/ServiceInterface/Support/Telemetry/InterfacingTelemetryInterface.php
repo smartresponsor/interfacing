@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Support\Telemetry;
+namespace App\Interfacing\ServiceInterface\Support\Telemetry;
 
 interface InterfacingTelemetryInterface
 {

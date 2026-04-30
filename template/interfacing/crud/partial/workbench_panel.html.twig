@@ -1,0 +1,14 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<section class="if-panel">
+  <div class="if-section-head">
+    <div>
+      <div class="if-section-title">{% block if_workbench_panel_title %}{% endblock %}</div>
+      <div class="if-section-hint">{% block if_workbench_panel_hint %}{% endblock %}</div>
+    </div>
+    <div class="if-section-hint">{% block if_workbench_panel_meta %}{% endblock %}</div>
+  </div>
+
+  {% block if_workbench_panel_filters %}{% endblock %}
+  {% block if_workbench_panel_body %}{% endblock %}
+  {% block if_workbench_panel_footer %}{% endblock %}
+</section>

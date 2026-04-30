@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing;
+namespace App\Interfacing\ServiceInterface\Interfacing;
 
-use App\Contract\Action\ActionRequest;
-use App\Contract\Action\ActionResult;
-use App\Contract\ValueObject\ActionId;
+use App\Interfacing\Contract\Action\ActionRequest;
+use App\Interfacing\Contract\Action\ActionResult;
+use App\Interfacing\Contract\ValueObject\ActionId;
 
 interface ActionEndpointInterface
 {

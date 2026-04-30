@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Presentation\LiveComponent\Interfacing;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing;
 
-use App\Contract\Action\ActionResult;
-use App\Contract\Dto\CategoryFormInput;
-use App\Contract\Ui\UiErrorInterface;
-use App\Contract\Ui\UiMessageInterface;
-use App\Contract\ValueObject\ActionId;
-use App\Contract\ValueObject\ScreenId;
-use App\Service\Interfacing\ActionRunner;
-use App\ServiceInterface\Interfacing\BaseContextProviderInterface;
+use App\Interfacing\Contract\Action\ActionResult;
+use App\Interfacing\Contract\Dto\CategoryFormInput;
+use App\Interfacing\Contract\Ui\UiErrorInterface;
+use App\Interfacing\Contract\Ui\UiMessageInterface;
+use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\Contract\ValueObject\ScreenId;
+use App\Interfacing\Service\Interfacing\ActionRunner;
+use App\Interfacing\ServiceInterface\Interfacing\BaseContextProviderInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -19,6 +19,7 @@ use Symfony\UX\LiveComponent\Attribute\LiveProp;
 #[AsLiveComponent('InterfacingCategoryAdmin', template: 'component/InterfacingCategoryAdmin.html.twig')]
 final class CategoryAdminLive
 {
+
     #[LiveProp(writable: true)] public string $q = '';
     #[LiveProp(writable: true)] public ?string $cursor = null;
     #[LiveProp] public ?string $nextCursor = null;
@@ -27,7 +28,12 @@ final class CategoryAdminLive
     #[LiveProp] public array $message = [];
     #[LiveProp] public array $error = [];
     #[LiveProp] public array $form = ['id' => '', 'slug' => '', 'name' => '', 'locale' => 'en', 'status' => 'active'];
+
     public function __construct(private readonly ActionRunner $runner, private readonly BaseContextProviderInterface $contextProvider)
+    {
+    }
+
+    public function __invoke(): void
     {
     }
 

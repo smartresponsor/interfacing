@@ -7,9 +7,9 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\ServiceInterface\Interfacing\Provider;
+namespace App\Interfacing\ServiceInterface\Interfacing\Provider;
 
-use App\Contract\View\ScreenSpecInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
 
 interface ScreenProviderInterface
 {

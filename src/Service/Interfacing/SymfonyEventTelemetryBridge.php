@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing;
+namespace App\Interfacing\Service\Interfacing;
 
-use App\ServiceInterface\Interfacing\TelemetryBridgeInterface;
-use App\Support\Telemetry\TelemetryEvent;
+use App\Interfacing\ServiceInterface\Interfacing\TelemetryBridgeInterface;
+use App\Interfacing\Support\Telemetry\TelemetryEvent;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 final class SymfonyEventTelemetryBridge implements TelemetryBridgeInterface

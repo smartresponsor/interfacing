@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Presentation\LiveComponent\Interfacing;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing;
 
-use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
-use App\Support\Doctor\DoctorReportInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
+use App\Interfacing\Support\Doctor\DoctorReportInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 
@@ -19,6 +19,10 @@ final class InterfacingDoctorComponent
     public bool $onlyIssue = false;
 
     public function __construct(private readonly InterfacingDoctorServiceInterface $service)
+    {
+    }
+
+    public function __invoke(): void
     {
     }
 

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 /* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
 
-namespace App\ServiceInterface\Interfacing\Builder;
+namespace App\Interfacing\ServiceInterface\Interfacing\Builder;
 
-use App\Contract\View\LayoutScreenSpec;
+use App\Interfacing\Contract\View\LayoutScreenSpec;
 
 interface LayoutScreenSpecBuilderInterface
 {

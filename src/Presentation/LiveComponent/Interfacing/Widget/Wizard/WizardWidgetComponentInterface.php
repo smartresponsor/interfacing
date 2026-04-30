@@ -6,11 +6,11 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing\Widget\Wizard;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Widget\Wizard;
 
-use App\Contract\View\WizardProgress;
-use App\Contract\View\WizardSpec;
-use App\Contract\View\WizardStepSpec;
+use App\Interfacing\Contract\View\WizardProgress;
+use App\Interfacing\Contract\View\WizardSpec;
+use App\Interfacing\Contract\View\WizardStepSpec;
 
 interface WizardWidgetComponentInterface
 {

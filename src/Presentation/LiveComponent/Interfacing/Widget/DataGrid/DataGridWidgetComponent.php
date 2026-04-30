@@ -6,13 +6,13 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing\Widget\DataGrid;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Widget\DataGrid;
 
-use App\Contract\Dto\BulkActionResult;
-use App\Contract\View\DataGridQuery;
-use App\Contract\View\DataGridResult;
-use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
-use App\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
+use App\Interfacing\Contract\Dto\BulkActionResult;
+use App\Interfacing\Contract\View\DataGridQuery;
+use App\Interfacing\Contract\View\DataGridResult;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\DataGrid\DataGridProviderRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -60,6 +60,10 @@ final class DataGridWidgetComponent implements DataGridWidgetComponentInterface
         private readonly DataGridProviderRegistryInterface $registry,
         private readonly BulkActionRegistryInterface $bulkRegistry,
     ) {
+    }
+
+    public function __invoke(): void
+    {
     }
 
     public function result(): DataGridResult

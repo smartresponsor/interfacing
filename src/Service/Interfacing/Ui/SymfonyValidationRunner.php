@@ -6,11 +6,11 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Ui;
+namespace App\Interfacing\Service\Interfacing\Ui;
 
-use App\Contract\Ui\UiErrorBag;
-use App\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface;
-use App\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
+use App\Interfacing\Contract\Ui\UiErrorBag;
+use App\Interfacing\ServiceInterface\Interfacing\Ui\UiErrorMapperInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Ui\ValidationRunnerInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final readonly class SymfonyValidationRunner implements ValidationRunnerInterface

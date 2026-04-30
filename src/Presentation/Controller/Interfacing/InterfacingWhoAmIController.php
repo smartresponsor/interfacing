@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,10 +14,10 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 final class InterfacingWhoAmIController extends AbstractController
 {
     /**
-     * @param \App\ServiceInterface\Interfacing\Context\RequestRequestBaseContextProviderInterface $baseContext
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface $baseContext
      */
     public function __construct(
-        private TokenStorageInterface $tokenStorage,
+        private ?TokenStorageInterface $tokenStorage = null,
         private RequestBaseContextProviderInterface $baseContext,
     ) {
     }

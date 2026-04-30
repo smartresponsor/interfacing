@@ -7,7 +7,7 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Contract\Ui;
+namespace App\Interfacing\Contract\Ui;
 
 interface UiMessageInterface
 {

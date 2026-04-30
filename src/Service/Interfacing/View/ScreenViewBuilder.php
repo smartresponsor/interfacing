@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing\View;
+namespace App\Interfacing\Service\Interfacing\View;
 
-use App\Contract\Error\ScreenForbidden;
-use App\Contract\Error\ScreenNotFound;
-use App\Contract\ValueObject\LayoutSlot;
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
-use App\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface;
+use App\Interfacing\Contract\Error\ScreenForbidden;
+use App\Interfacing\Contract\Error\ScreenNotFound;
+use App\Interfacing\Contract\ValueObject\LayoutSlot;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface;
 
 final readonly class ScreenViewBuilder implements ScreenViewBuilderInterface
 {

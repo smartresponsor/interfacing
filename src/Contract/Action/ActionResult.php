@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Contract\Action;
+namespace App\Interfacing\Contract\Action;
 
-use App\Contract\Ui\UiError;
-use App\Contract\Ui\UiErrorBag;
-use App\Contract\Ui\UiErrorInterface;
-use App\Contract\Ui\UiMessage;
-use App\Contract\Ui\UiMessageInterface;
+use App\Interfacing\Contract\Ui\UiError;
+use App\Interfacing\Contract\Ui\UiErrorBag;
+use App\Interfacing\Contract\Ui\UiErrorInterface;
+use App\Interfacing\Contract\Ui\UiMessage;
+use App\Interfacing\Contract\Ui\UiMessageInterface;
 
 final class ActionResult implements ActionResultInterface
 {

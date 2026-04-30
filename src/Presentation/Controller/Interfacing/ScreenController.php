@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\ServiceInterface\Interfacing\AccessResolverInterface;
-use App\ServiceInterface\Interfacing\ScreenCatalogInterface;
-use App\ServiceInterface\Interfacing\ShellNavProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ShellNavProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 

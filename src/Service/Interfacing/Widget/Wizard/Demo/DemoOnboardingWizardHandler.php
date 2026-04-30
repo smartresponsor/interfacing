@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing\Widget\Wizard\Demo;
+namespace App\Interfacing\Service\Interfacing\Widget\Wizard\Demo;
 
-use App\Contract\Dto\FormSubmitResult;
-use App\Contract\View\FormFieldSpec;
-use App\Contract\View\WizardSpec;
-use App\Contract\View\WizardStepSpec;
-use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
+use App\Interfacing\Contract\Dto\FormSubmitResult;
+use App\Interfacing\Contract\View\FormFieldSpec;
+use App\Interfacing\Contract\View\WizardSpec;
+use App\Interfacing\Contract\View\WizardStepSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerInterface;
 
 final class DemoOnboardingWizardHandler implements WizardHandlerInterface
 {

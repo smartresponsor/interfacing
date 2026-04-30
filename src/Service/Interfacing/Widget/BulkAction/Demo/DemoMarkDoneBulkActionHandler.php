@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Widget\BulkAction\Demo;
+namespace App\Interfacing\Service\Interfacing\Widget\BulkAction\Demo;
 
-use App\Contract\Dto\BulkActionResult;
-use App\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
+use App\Interfacing\Contract\Dto\BulkActionResult;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\BulkAction\BulkActionHandlerInterface;
 
 final class DemoMarkDoneBulkActionHandler implements BulkActionHandlerInterface
 {

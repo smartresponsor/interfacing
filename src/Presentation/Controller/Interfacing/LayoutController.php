@@ -6,12 +6,12 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
-use App\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +33,7 @@ final class LayoutController extends AbstractController
             throw $this->createNotFoundException('Unknown layout slug.');
         }
 
-        if (!$this->guard->canView($spec, $this->container->get('security.token_storage')->getToken())) {
+        if (!$this->guard->canView($spec, $this($this->container->has('security.token_storage') ? $this->container->get('security.token_storage')->getToken() : null))) {
             throw $this->createAccessDeniedException('Access denied.');
         }
 

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Service\Interfacing\Action;
+namespace App\Interfacing\Service\Interfacing\Action;
 
-use App\Contract\Action\ActionRequest;
-use App\Contract\Action\ActionResult;
-use App\Contract\Ui\UiMessage;
-use App\Contract\ValueObject\ActionId;
-use App\ServiceInterface\Interfacing\ActionEndpointInterface;
-use App\ServiceInterface\Interfacing\CategoryApiClientInterface;
+use App\Interfacing\Contract\Action\ActionRequest;
+use App\Interfacing\Contract\Action\ActionResult;
+use App\Interfacing\Contract\Ui\UiMessage;
+use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\ServiceInterface\Interfacing\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\CategoryApiClientInterface;
 
 final class CategoryOpenEndpoint implements ActionEndpointInterface
 {

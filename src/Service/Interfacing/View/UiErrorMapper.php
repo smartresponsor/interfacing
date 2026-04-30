@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing\View;
+namespace App\Interfacing\Service\Interfacing\View;
 
-use App\Contract\Error\ScreenForbidden;
-use App\Contract\Error\ScreenNotFound;
-use App\Contract\Error\UiErrorCode;
-use App\ServiceInterface\Interfacing\View\UiErrorMapperInterface;
+use App\Interfacing\Contract\Error\ScreenForbidden;
+use App\Interfacing\Contract\Error\ScreenNotFound;
+use App\Interfacing\Contract\Error\UiErrorCode;
+use App\Interfacing\ServiceInterface\Interfacing\View\UiErrorMapperInterface;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 final class UiErrorMapper implements UiErrorMapperInterface

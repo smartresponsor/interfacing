@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing\Doctor;
+namespace App\Interfacing\Service\Interfacing\Doctor;
 
-use App\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface;
 
 final class DoctorReportNormalizer implements DoctorReportNormalizerInterface
 {

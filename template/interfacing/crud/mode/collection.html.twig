@@ -1,0 +1,59 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<div class="if-note" style="margin-bottom: 16px;">
+  Collection mode: <strong>{{ workbench.routeContext.resourceLabel }}</strong> index surface for filters, listing, and row-level commands.
+  {{ workbench.routeContext.collectionModeLead }}
+  · path <strong>{{ workbench.routeContext.resourcePath }}</strong>
+  · operation <strong>{{ workbench.routeContext.operation }}</strong>
+  · surface <strong>{{ workbench.routeContext.surface }}</strong> · {{ workbench.routeContext.surfaceLabel }}
+  · identifier kind <strong>{{ workbench.routeContext.identifierKindLabel }}</strong>
+  · resource tone <strong>{{ workbench.routeContext.resourceToneLabel }}</strong>
+</div>
+<div class="if-table-wrap">
+  <table class="if-table">
+    <thead>
+      <tr>
+        {% for column in workbench.columns %}
+          <th>{{ column.label }}</th>
+        {% endfor %}
+        <th>Commands</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if workbench.rows is empty %}
+        <tr>
+          <td colspan="{{ workbench.columns|length + 1 }}">
+            <div>{{ workbench.emptyState }}</div>
+            <div class="if-note" style="margin-top: 8px;">{{ workbench.routeContext.emptyStateLead }}</div>
+          </td>
+        </tr>
+      {% else %}
+        {% for row in workbench.rows %}
+          <tr>
+            {% for column in workbench.columns %}
+              {% set value = attribute(row, column.key) %}
+              <td>
+                {% if column.isStatus %}
+                  {% set statusClass = 'if-tag-warning' %}
+                  {% if value in ['paid', 'active'] %}{% set statusClass = 'if-tag-success' %}{% endif %}
+                  {% if value in ['failed', 'deleted'] %}{% set statusClass = 'if-tag-danger' %}{% endif %}
+                  <span class="if-tag {{ statusClass }}">{{ value }}</span>
+                {% elseif column.isCode %}
+                  <span class="if-code">{{ value }}</span>
+                {% else %}
+                  {{ value }}
+                {% endif %}
+              </td>
+            {% endfor %}
+            <td>
+              <div class="if-row-actions">
+                {% for action in row._actions %}
+                  <a class="if-link-button{% if action.variant == 'danger' %} if-button-danger{% endif %}" href="{{ action.href }}">{{ action.label }}</a>
+                {% endfor %}
+              </div>
+            </td>
+          </tr>
+        {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+</div>

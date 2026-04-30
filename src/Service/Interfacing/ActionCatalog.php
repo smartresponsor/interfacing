@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\Service\Interfacing;
+namespace App\Interfacing\Service\Interfacing;
 
-use App\Contract\ValueObject\ActionId;
-use App\ServiceInterface\Interfacing\ActionCatalogInterface;
-use App\ServiceInterface\Interfacing\ActionEndpointInterface;
+use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\ActionEndpointInterface;
 
 final class ActionCatalog implements ActionCatalogInterface
 {

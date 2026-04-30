@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Contract\ValueObject;
+namespace App\Interfacing\Contract\ValueObject;
 
 final readonly class LayoutId implements LayoutIdInterface
 {

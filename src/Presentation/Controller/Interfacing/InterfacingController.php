@@ -6,12 +6,12 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\Controller\Interfacing;
+namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;

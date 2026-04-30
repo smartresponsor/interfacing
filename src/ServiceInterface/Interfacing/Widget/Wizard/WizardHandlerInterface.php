@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\ServiceInterface\Interfacing\Widget\Wizard;
+namespace App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard;
 
-use App\Contract\Dto\FormSubmitResult;
-use App\Contract\View\WizardSpec;
+use App\Interfacing\Contract\Dto\FormSubmitResult;
+use App\Interfacing\Contract\View\WizardSpec;
 
 interface WizardHandlerInterface
 {

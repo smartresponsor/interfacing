@@ -6,14 +6,14 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Doctor;
+namespace App\Interfacing\Service\Interfacing\Doctor;
 
-use App\ServiceInterface\Interfacing\Doctor\InterfacingDoctorInterface;
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
-use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
-use App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
@@ -29,11 +29,11 @@ final class InterfacingDoctor implements InterfacingDoctorInterface
     /**
      * @param \Symfony\Component\Routing\RouterInterface $router
      * @param \Twig\Environment $twig
-     * @param \App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layout
-     * @param \App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screen
-     * @param \App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface $metric
-     * @param \App\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface $form
-     * @param \App\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface $wizard
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface $layout
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface $screen
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface $metric
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerRegistryInterface $form
+     * @param \App\Interfacing\ServiceInterface\Interfacing\Widget\Wizard\WizardHandlerRegistryInterface $wizard
      */
     public function __construct(
         private readonly RouterInterface                 $router,

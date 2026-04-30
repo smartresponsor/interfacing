@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 // Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
-namespace App\ServiceInterface\Interfacing;
+namespace App\Interfacing\ServiceInterface\Interfacing;
 
-use App\Contract\Dto\CategoryItemView;
+use App\Interfacing\Contract\Dto\CategoryItemView;
 
 interface CategoryApiClientInterface
 {

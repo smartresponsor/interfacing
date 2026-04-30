@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ServiceInterface\Interfacing\Query;
+namespace App\Interfacing\ServiceInterface\Interfacing\Query;
 
-use App\Contract\Dto\BillingMeterPage;
+use App\Interfacing\Contract\Dto\BillingMeterPage;
 
 interface BillingMeterQueryServiceInterface
 {

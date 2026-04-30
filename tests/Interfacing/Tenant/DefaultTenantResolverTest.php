@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Tenant;
+namespace App\Interfacing\Tests\Interfacing\Tenant;
 
-use App\Service\Interfacing\Tenant\DefaultTenantResolver;
+use App\Interfacing\Service\Interfacing\Tenant\DefaultTenantResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 

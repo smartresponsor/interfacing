@@ -7,12 +7,12 @@ declare(strict_types=1);
  * Proprietary and confidential.
  */
 
-namespace App\Service\Interfacing\Screen;
+namespace App\Interfacing\Service\Interfacing\Screen;
 
-use App\Contract\ValueObject\ScreenIdInterface;
-use App\Contract\View\ScreenSpecInterface;
-use App\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
-use App\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
+use App\Interfacing\Contract\ValueObject\ScreenIdInterface;
+use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
 
 final class ScreenRegistry implements ScreenRegistryInterface
 {

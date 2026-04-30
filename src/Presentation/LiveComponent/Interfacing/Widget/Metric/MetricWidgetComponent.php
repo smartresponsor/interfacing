@@ -6,10 +6,10 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Presentation\LiveComponent\Interfacing\Widget\Metric;
+namespace App\Interfacing\Presentation\LiveComponent\Interfacing\Widget\Metric;
 
-use App\Contract\View\MetricDatum;
-use App\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
+use App\Interfacing\Contract\View\MetricDatum;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Metric\MetricProviderRegistryInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -27,6 +27,10 @@ final class MetricWidgetComponent
     public int $tick = 0;
 
     public function __construct(private readonly MetricProviderRegistryInterface $registry)
+    {
+    }
+
+    public function __invoke(): void
     {
     }
 

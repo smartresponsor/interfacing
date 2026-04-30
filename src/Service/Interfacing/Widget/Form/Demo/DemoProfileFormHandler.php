@@ -6,12 +6,12 @@ declare(strict_types=1);
 Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 */
 
-namespace App\Service\Interfacing\Widget\Form\Demo;
+namespace App\Interfacing\Service\Interfacing\Widget\Form\Demo;
 
-use App\Contract\Dto\FormSubmitResult;
-use App\Contract\View\FormFieldSpec;
-use App\Contract\View\FormSpec;
-use App\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
+use App\Interfacing\Contract\Dto\FormSubmitResult;
+use App\Interfacing\Contract\View\FormFieldSpec;
+use App\Interfacing\Contract\View\FormSpec;
+use App\Interfacing\ServiceInterface\Interfacing\Widget\Form\FormHandlerInterface;
 
 final class DemoProfileFormHandler implements FormHandlerInterface
 {
