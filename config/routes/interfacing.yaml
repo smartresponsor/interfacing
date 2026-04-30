@@ -3,8 +3,18 @@ interfacing_billing_meter:
   controller: App\Interfacing\Presentation\Controller\Interfacing\BillingMeterScreenController::index
   methods: [GET]
 
+interfacing_billing_meter_legacy:
+  path: /billing/meter
+  controller: App\Interfacing\Presentation\Controller\Interfacing\BillingMeterScreenController::index
+  methods: [GET]
+
 interfacing_order_summary:
   path: /interfacing/order/summary
+  controller: App\Interfacing\Presentation\Controller\Interfacing\OrderSummaryScreenController::index
+  methods: [GET]
+
+interfacing_order_summary_legacy:
+  path: /order/summary
   controller: App\Interfacing\Presentation\Controller\Interfacing\OrderSummaryScreenController::index
   methods: [GET]
 

@@ -14,6 +14,37 @@ final class MessageScreenProvider implements ScreenProviderInterface
     {
         return [
             new ScreenSpec(
+                'message.digest',
+                'Digest',
+                new LayoutScreenSpec([
+                    new \App\Interfacing\Contract\View\LayoutBlockSpec('collection', 'digest', [
+                        'title' => 'Messaging digest',
+                        'subtitle' => 'A compact digest surfaced for the Interfacing shell.',
+                        'items' => [
+                            [
+                                'title' => 'Unread digest',
+                                'subtitle' => 'Latest unread thread summary ready for review.',
+                                'meta' => ['kind' => 'digest', 'priority' => 'high'],
+                            ],
+                            [
+                                'title' => 'Pending notifications',
+                                'subtitle' => 'Notifications queued for presentation.',
+                                'meta' => ['kind' => 'digest', 'priority' => 'medium'],
+                            ],
+                            [
+                                'title' => 'Room highlights',
+                                'subtitle' => 'Recent activity across active rooms.',
+                                'meta' => ['kind' => 'digest', 'priority' => 'low'],
+                            ],
+                        ],
+                    ]),
+                ], id: 'message.digest', title: 'Digest', routePath: 'message/digest'),
+                [],
+                [],
+                'Messaging digest rendered in the Interfacing shell.',
+                'message/digest',
+            ),
+            new ScreenSpec(
                 'message.notifications.inbox',
                 'Notification inbox',
                 new LayoutScreenSpec(id: 'message.notifications.inbox', title: 'Notification inbox', routePath: 'interfacing/screen/message/notifications-inbox'),

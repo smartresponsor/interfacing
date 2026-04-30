@@ -55,7 +55,7 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('Showing 2 of 2 meter readings in the current operational window', $content);
         self::assertStringContainsString('Reading route context', $content);
         self::assertStringContainsString('Reading command form', $content);
-        self::assertStringContainsString('Resource-aware form schema keeps edit/new fields aligned to the selected CRUD resource.', $content);
+        self::assertStringContainsString('Transaction-safe request vocabulary for filters, columns, and command forms.', $content);
         self::assertStringContainsString('Downstream settlement marker for the current reading.', $content);
         self::assertStringContainsString('template intent: workbench.index', $content);
         self::assertStringContainsString('access mode: interactive', $content);
@@ -81,6 +81,34 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('template intent: workbench.index', $content);
         self::assertStringContainsString('access mode: interactive', $content);
         self::assertStringContainsString('Meter readings browse capability', $content);
+    }
+
+    public function testBillingMeterScreenLegacyRouteRendersWithStubData(): void
+    {
+        $client = $this->createClientWithStubs();
+
+        $client->request('GET', '/billing/meter');
+
+        self::assertResponseIsSuccessful();
+        $content = (string) $client->getResponse()->getContent();
+
+        self::assertStringContainsString('CRUD Workbench · Billing / Meter', $content);
+        self::assertStringContainsString('billing/meter', $content);
+    }
+
+    public function testMessageDigestScreenRendersWithStubData(): void
+    {
+        $client = $this->createClientWithStubs();
+
+        $client->request('GET', '/message/digest');
+
+        self::assertResponseIsSuccessful();
+        $content = (string) $client->getResponse()->getContent();
+
+        self::assertStringContainsString('Messaging digest', $content);
+        self::assertStringContainsString('Unread digest', $content);
+        self::assertStringContainsString('Pending notifications', $content);
+        self::assertStringContainsString('Room highlights', $content);
     }
 
     public function testOrderSummaryScreenRendersWithStubData(): void
@@ -110,10 +138,23 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('Showing 2 of 2 orders in the current request window', $content);
         self::assertStringContainsString('Request route context', $content);
         self::assertStringContainsString('Order command form', $content);
-        self::assertStringContainsString('Resource-aware form schema keeps edit/new fields aligned to the selected CRUD resource.', $content);
+        self::assertStringContainsString('Transaction-safe request vocabulary for filters, columns, and command forms.', $content);
         self::assertStringContainsString('Internal reference for order routing.', $content);
         self::assertStringContainsString('template intent: workbench.index', $content);
         self::assertStringContainsString('Orders browse capability', $content);
+    }
+
+    public function testOrderSummaryScreenLegacyRouteRendersWithStubData(): void
+    {
+        $client = $this->createClientWithStubs();
+
+        $client->request('GET', '/order/summary');
+
+        self::assertResponseIsSuccessful();
+        $content = (string) $client->getResponse()->getContent();
+
+        self::assertStringContainsString('CRUD Workbench · Sales / Order', $content);
+        self::assertStringContainsString('sales/order', $content);
     }
 
 
@@ -159,7 +200,7 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('mtr-2', $content);
         self::assertStringContainsString('Back to meters', $content);
         self::assertStringContainsString('Only destructive-safe actions stay visible in this mode.', $content);
-        self::assertStringContainsString('Retirement target', $content);
+        self::assertStringContainsString('Retire meter', $content);
         self::assertStringNotContainsString('Register meter', $content);
         self::assertStringNotContainsString('Next reading step', $content);
     }
@@ -181,6 +222,7 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('Preview order', $content);
         self::assertStringContainsString('Validation and section review', $content);
         self::assertStringContainsString('Request identity', $content);
+        self::assertStringContainsString('Transaction-safe request vocabulary for filters, columns, and command forms.', $content);
         self::assertStringNotContainsString('Save order draft', $content);
     }
 
@@ -197,9 +239,9 @@ final class InterfacingBillingAndOrderScreenTest extends WebTestCase
         self::assertStringContainsString('Operator/internal id addressing', $content);
         self::assertStringContainsString('surface: public', $content);
         self::assertStringContainsString('Consumer-safe public surface', $content);
-        self::assertStringContainsString('Archive request', $content);
+        self::assertStringContainsString('Open meter', $content);
         self::assertStringContainsString('Public surface keeps only review-safe actions visible in this mode.', $content);
-        self::assertStringContainsString('Retirement target', $content);
+        self::assertStringContainsString('meter retirement', $content);
         self::assertStringNotContainsString('Only destructive-safe actions stay visible in this mode.', $content);
     }
 

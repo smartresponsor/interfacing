@@ -8,6 +8,7 @@ namespace App\Interfacing\Presentation\Controller\Interfacing;
 
 use App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
 use App\Interfacing\ServiceInterface\Support\Audit\AuditSinkInterface;
 use App\Interfacing\Support\Audit\AuditEvent;
@@ -20,22 +21,20 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 final class InterfacingDoctorInfraController extends AbstractController
 {
-    /**
-     * @param \App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface $baseContext
-     */
     public function __construct(
-        private ?TokenStorageInterface $tokenStorage = null,
-        private RequestBaseContextProviderInterface $baseContext,
-        private AccessResolverInterface $access,
-        private PermissionNamerInterface $permission,
-        private AuditSinkInterface $audit,
+        private readonly ?TokenStorageInterface $tokenStorage,
+        private readonly RequestBaseContextProviderInterface $baseContext,
+        private readonly AccessResolverInterface $access,
+        private readonly PermissionNamerInterface $permission,
+        private readonly AuditSinkInterface $audit,
+        private readonly InterfacingRendererInterface $renderer,
     ) {
     }
 
-    #[Route(path: '/interfacing/doctor/infra', name: 'interfacing_doctor_infra', methods: ['GET'])]
+    #[Route('/interfacing/doctor/infra', name: 'interfacing_doctor_infra', methods: ['GET'])]
     public function index(Request $request): Response
     {
-        $token = $this->tokenStorage->getToken();
+        $token = $this->tokenStorage?->getToken();
         $ctx = $this->baseContext->provide($request, $token);
 
         $screenSamples = [
@@ -67,7 +66,9 @@ final class InterfacingDoctorInfraController extends AbstractController
             ],
         ));
 
-        return $this->render('interfacing/doctor/index.html.twig', [
+        return $this->renderer->render('interfacing/doctor/index.html.twig', [
+            'title' => 'Doctor infra',
+            'screenId' => 'interfacing.doctor.infra',
             'ctx' => $ctx,
             'screenCheck' => $screenCheck,
         ]);

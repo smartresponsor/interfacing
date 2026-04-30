@@ -9,6 +9,7 @@ use App\Interfacing\Contract\View\ShellFooterGroup;
 use App\Interfacing\Contract\View\ShellFooterLink;
 use App\Interfacing\Contract\View\ShellNavGroup;
 use App\Interfacing\Contract\View\ShellNavItem;
+use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceExplorerProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -18,6 +19,7 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
     public function __construct(
         private readonly RequestStack $requestStack,
         private readonly UrlGeneratorInterface $url,
+        private readonly CrudResourceExplorerProviderInterface $crudResourceExplorerProvider,
     ) {
     }
 
@@ -56,7 +58,7 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
     private function topLink(): array
     {
         return [
-            new ShellNavItem('workspace', 'Workspace', $this->safeUrl('interfacing_layout_index', '/interfacing'), 'workspace', null, 10),
+            new ShellNavItem('workspace', 'Workspace', $this->safeUrl('interfacing_index', '/interfacing'), 'workspace', null, 10),
             new ShellNavItem('notifications', 'Notifications', $this->screenUrl('message.notifications.inbox'), 'workspace', null, 20),
             new ShellNavItem('crud.explorer', 'CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'workspace', null, 30),
             new ShellNavItem('help', 'Help', '#help', 'workspace', null, 40),
@@ -69,14 +71,14 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
     {
         return [
             new ShellNavGroup('platform', 'Platform', [
-                new ShellNavItem('workspace.home', 'Workspace', $this->safeUrl('interfacing_layout_index', '/interfacing'), 'platform', null, 10),
-                new ShellNavItem('access', 'Access', '#access', 'platform', null, 20),
+                new ShellNavItem('workspace.home', 'Workspace', $this->safeUrl('interfacing_index', '/interfacing'), 'platform', null, 10),
+                new ShellNavItem('access', 'Access', '/access', 'platform', null, 20),
                 new ShellNavItem('messaging', 'Messaging', $this->screenUrl('message.notifications.inbox'), 'platform', null, 30),
                 new ShellNavItem('billing', 'Billing', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter'), 'platform', null, 40),
                 new ShellNavItem('orders', 'Orders', $this->safeUrl('interfacing_order_summary', '/interfacing/order/summary'), 'platform', null, 50),
-                new ShellNavItem('catalog', 'Catalog', $this->screenUrl('category-admin'), 'platform', null, 60),
+                new ShellNavItem('catalog', 'Catalog', '/category/', 'platform', null, 60),
                 new ShellNavItem('crud', 'CRUD', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'platform', null, 70),
-                new ShellNavItem('taxation', 'Taxation', '#taxation', 'platform', null, 80),
+                new ShellNavItem('taxation', 'Taxation', '/taxation-api/', 'platform', null, 80),
             ]),
         ];
     }
@@ -98,9 +100,9 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellNavItem('interfacing.billing.meter', 'Meters', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter'), 'billing', null, 10),
             ])],
             'workspace' => [new ShellNavGroup('workspace', 'Workspace', [
-                new ShellNavItem('workspace.home', 'Overview', $this->safeUrl('interfacing_layout_index', '/interfacing'), 'workspace', null, 10),
+                new ShellNavItem('workspace.home', 'Overview', $this->safeUrl('interfacing_index', '/interfacing'), 'workspace', null, 10),
                 new ShellNavItem('interfacing.doctor', 'Doctor', $this->screenUrl('interfacing-doctor'), 'workspace', null, 20),
-                new ShellNavItem('category-admin', 'Category admin', $this->screenUrl('category-admin'), 'workspace', null, 30),
+                new ShellNavItem('crud.explorer', 'CRUD explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'workspace', null, 30),
                 new ShellNavItem('interfacing.health', 'Health', $this->safeUrl('interfacing_health', '/interfacing/health'), 'workspace', null, 40),
             ])],
             'access' => [new ShellNavGroup('access', 'Access', [
@@ -109,17 +111,9 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellNavItem('access.security.events', 'Security events', '#access-security-events', 'access', null, 30),
                 new ShellNavItem('access.registration', 'Registration', '#access-registration', 'access', null, 40),
             ])],
-            'crud' => [new ShellNavGroup('crud', 'Typical CRUD', [
-                new ShellNavItem('crud.explorer', 'CRUD explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'crud', null, 10),
-                new ShellNavItem('crud.category.index', $this->routeLabel('admin_category_index', 'Category index'), $this->safeUrl('admin_category_index', '/admin/category'), 'crud', null, 20),
-                new ShellNavItem('crud.category.new', $this->routeLabel('admin_category_new', 'Category new'), $this->safeUrl('admin_category_new', '/admin/category/new'), 'crud', null, 30),
-                new ShellNavItem('crud.application.index', $this->routeLabel('applicating_application_index', 'Application index'), $this->safeUrl('applicating_application_index', '/admin/applications'), 'crud', null, 40),
-                new ShellNavItem('crud.application.new', $this->routeLabel('applicating_application_new', 'Application new'), $this->safeUrl('applicating_application_new', '/admin/applications/new'), 'crud', null, 50),
-                new ShellNavItem('crud.generic.category', $this->routeLabel('app_crud_index', 'Generic category index'), $this->safeUrl('app_crud_index', '/category/', ['resourcePath' => 'category']), 'crud', null, 60),
-                new ShellNavItem('crud.generic.vendor', $this->routeLabel('app_crud_index', 'Generic vendor index'), $this->safeUrl('app_crud_index', '/vendor/', ['resourcePath' => 'vendor']), 'crud', null, 70),
-            ])],
+            'crud' => [new ShellNavGroup('crud', 'Typical CRUD', $this->crudSectionItems())],
             default => [new ShellNavGroup('workspace', 'Workspace', [
-                new ShellNavItem('workspace.home', 'Overview', $this->safeUrl('interfacing_layout_index', '/interfacing'), 'workspace', null, 10),
+                new ShellNavItem('workspace.home', 'Overview', $this->safeUrl('interfacing_index', '/interfacing'), 'workspace', null, 10),
                 new ShellNavItem('message.notifications.inbox', 'Messaging inbox', $this->screenUrl('message.notifications.inbox'), 'workspace', null, 20),
                 new ShellNavItem('interfacing.order.summary', 'Order summary', $this->safeUrl('interfacing_order_summary', '/interfacing/order/summary'), 'workspace', null, 30),
                 new ShellNavItem('interfacing.billing.meter', 'Billing meter', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter'), 'workspace', null, 40),
@@ -145,10 +139,39 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellFooterLink('Messaging', $this->screenUrl('message.notifications.inbox')),
                 new ShellFooterLink('Orders', $this->safeUrl('interfacing_order_summary', '/interfacing/order/summary')),
                 new ShellFooterLink('Billing', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter')),
-                new ShellFooterLink('Catalog', $this->screenUrl('category-admin')),
+                new ShellFooterLink('Catalog category', '/category/'),
                 new ShellFooterLink('CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer')),
             ]),
         ];
+    }
+
+
+
+    /** @return list<ShellNavItem> */
+    private function crudSectionItems(): array
+    {
+        $items = [
+            new ShellNavItem('crud.explorer', 'CRUD explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'crud', null, 10),
+        ];
+
+        $order = 20;
+        foreach ($this->crudResourceExplorerProvider->provide() as $resource) {
+            $items[] = new ShellNavItem(
+                id: 'crud.resource.'.$resource->id(),
+                title: $resource->component().' · '.$resource->label(),
+                url: $resource->indexUrl(),
+                group: 'crud',
+                icon: null,
+                order: $order,
+            );
+            $order += 10;
+
+            if ($order > 140) {
+                break;
+            }
+        }
+
+        return $items;
     }
 
     private function detectActiveSection(?string $activeId, string $path): string

@@ -1,15 +1,14 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp | Proprietary and confidential. #}
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Interfacing Doctor</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body style="font-family: ui-sans-serif, system-ui; margin: 24px;">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    <h2 style="margin: 0 0 12px 0;">Interfacing Doctor</h2>
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px; margin-bottom:14px;">
+    <div style="font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Diagnostics</div>
+    <h1 style="margin:6px 0 0; font-size:28px; line-height:1.05;">Doctor component</h1>
+    <div style="margin-top:8px; color:#64748b; font-size:13px;">Interactive diagnostic component inside the standard shell.</div>
+  </section>
+
+  <div style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
     {{ component('interfacing_doctor') }}
   </div>
-</body>
-</html>
+{% endblock %}

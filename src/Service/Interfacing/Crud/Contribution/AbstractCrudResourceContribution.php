@@ -46,6 +46,32 @@ abstract class AbstractCrudResourceContribution
         );
     }
 
+
+
+    protected function genericResource(
+        string $id,
+        string $component,
+        string $label,
+        string $resourcePath,
+        ?string $note = null,
+    ): CrudResourceLinkSetInterface {
+        return $this->resource(
+            id: $id,
+            component: $component,
+            label: $label,
+            resourcePath: $resourcePath,
+            indexRoute: 'app_crud_index',
+            indexFallback: '/'.$resourcePath.'/',
+            newRoute: 'app_crud_new',
+            newFallback: '/'.$resourcePath.'/new/',
+            showPattern: '/'.$resourcePath.'/{id}',
+            editPattern: '/'.$resourcePath.'/edit/{id}',
+            deletePattern: '/'.$resourcePath.'/delete/{id}',
+            note: $note,
+            routeParameters: ['resourcePath' => $resourcePath],
+        );
+    }
+
     /**
      * @param array<string, string> $parameters
      */

@@ -21,6 +21,37 @@ final class MessageLayoutProvider implements LayoutProviderInterface
         return [
             new LayoutScreenSpec(
                 [
+                    new LayoutBlockSpec('collection', 'digest', [
+                        'title' => 'Messaging digest',
+                        'subtitle' => 'A compact digest surfaced for the Interfacing shell.',
+                        'items' => [
+                            [
+                                'title' => 'Unread digest',
+                                'subtitle' => 'Latest unread thread summary ready for review.',
+                                'meta' => ['kind' => 'digest', 'priority' => 'high'],
+                            ],
+                            [
+                                'title' => 'Pending notifications',
+                                'subtitle' => 'Notifications queued for presentation.',
+                                'meta' => ['kind' => 'digest', 'priority' => 'medium'],
+                            ],
+                            [
+                                'title' => 'Room highlights',
+                                'subtitle' => 'Recent activity across active rooms.',
+                                'meta' => ['kind' => 'digest', 'priority' => 'low'],
+                            ],
+                        ],
+                    ]),
+                ],
+                id: 'message.digest',
+                title: 'Digest',
+                navGroup: 'message',
+                screenId: ScreenId::fromString('message.digest'),
+                routePath: 'message/digest',
+                navOrder: 5,
+            ),
+            new LayoutScreenSpec(
+                [
                     new LayoutBlockSpec('collection', 'notifications', [
                         'title' => 'Notification inbox',
                         'subtitle' => 'Recent messaging notifications surfaced for Interfacing.',

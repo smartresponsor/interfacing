@@ -11,8 +11,8 @@ namespace App\Interfacing\Presentation\Controller\Interfacing;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutGuardInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface;
-use App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +24,7 @@ final class LayoutController extends AbstractController
         private readonly LayoutGuardInterface $guard,
         private readonly LayoutShellInterface $shell,
         private readonly InterfacingRuntimeInterface $runtime,
-        private readonly ShellChromeProviderInterface $shellChromeProvider,
+        private readonly InterfacingRendererInterface $renderer,
     ) {
     }
 
@@ -41,11 +41,12 @@ final class LayoutController extends AbstractController
 
         $componentName = $this->runtime->resolveScreenComponentName($spec->screenId());
 
-        return $this->render('interfacing/layout/shell.html.twig', [
+        return $this->renderer->render('interfacing/layout/shell.html.twig', [
+            'title' => $spec->title(),
+            'screenId' => $spec->id(),
             'layout' => $this->shell->build($spec, $this->catalog->list()),
             'screenComponent' => $componentName,
             'screenContext' => $spec->context(),
-            'shell' => $this->shellChromeProvider->provide($spec->id()),
         ]);
     }
 }

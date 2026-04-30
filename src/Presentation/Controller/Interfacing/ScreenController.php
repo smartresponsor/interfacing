@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Interfacing\Presentation\Controller\Interfacing;
 
 use App\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
 use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\ShellNavProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,6 +17,7 @@ final class ScreenController extends AbstractController
         private readonly ScreenCatalogInterface $screenCatalog,
         private readonly ShellNavProviderInterface $navProvider,
         private readonly AccessResolverInterface $accessResolver,
+        private readonly InterfacingRendererInterface $renderer,
     ) {
     }
 
@@ -26,7 +28,9 @@ final class ScreenController extends AbstractController
             throw $this->createAccessDeniedException();
         }
 
-        return $this->render('interfacing/shell/index.html.twig', [
+        return $this->renderer->render('interfacing/shell/index.html.twig', [
+            'title' => $spec->title(),
+            'screenId' => $spec->id(),
             'navGroupList' => $this->navProvider->provide(),
             'activeScreenId' => $spec->id(),
             'activeViewId' => $spec->viewId(),

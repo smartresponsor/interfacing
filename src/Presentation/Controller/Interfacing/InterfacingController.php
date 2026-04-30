@@ -9,10 +9,10 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 namespace App\Interfacing\Presentation\Controller\Interfacing;
 
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
-use App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -24,15 +24,16 @@ final class InterfacingController extends AbstractController
         private readonly ScreenRegistryInterface $screen,
         private readonly ScreenContextAssemblerInterface $context,
         private readonly AccessResolverInterface $access,
-        private readonly ShellChromeProviderInterface $shellChromeProvider,
+        private readonly InterfacingRendererInterface $renderer,
     ) {
     }
 
     #[Route('/interfacing', name: 'interfacing_index', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->render('interfacing/page/index.html.twig', [
-            'shell' => $this->shellChromeProvider->provide(),
+        return $this->renderer->render('interfacing/page/index.html.twig', [
+            'title' => 'Interfacing workspace',
+            'screenId' => 'interfacing.index',
         ]);
     }
 
@@ -53,12 +54,12 @@ final class InterfacingController extends AbstractController
         $component = $this->screen->componentName($spec->screenId());
         $context = $this->context->contextFor($spec);
 
-        return $this->render('interfacing/page/screen.html.twig', [
+        return $this->renderer->render('interfacing/page/screen.html.twig', [
             'spec' => $spec,
             'component' => $component,
             'context' => $context,
             'title' => $spec->title(),
-            'shell' => $this->shellChromeProvider->provide($spec->id()),
+            'screenId' => $spec->id(),
         ]);
     }
 }

@@ -15,6 +15,6 @@
   </div>
 
   <div style="border:1px solid #e5e7eb; border-radius:14px; background:#fff; padding:14px;">
-    {{ component(screenComponent, { context: screenContext }) }}
+    {{ component(screenComponent, { screenId: layout.active.screenId.toString(), context: screenContext }) }}
   </div>
 {% endblock %}

@@ -67,6 +67,11 @@ final class LayoutCatalog implements LayoutCatalogInterface
         return $this->all()[$k] ?? null;
     }
 
+    public function findBySlug(string $slug): ?LayoutScreenSpecInterface
+    {
+        return $this->find($slug);
+    }
+
     public function get(string $layoutKey): LayoutScreenSpecInterface
     {
         $k = trim($layoutKey);

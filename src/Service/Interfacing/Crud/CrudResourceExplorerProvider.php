@@ -18,15 +18,23 @@ final readonly class CrudResourceExplorerProvider implements CrudResourceExplore
     public function provide(): array
     {
         $list = [];
+        $seen = [];
         foreach ($this->contributions as $contribution) {
             if (!$contribution instanceof CrudResourceContributionInterface) {
                 continue;
             }
 
             foreach ($contribution->provide() as $resource) {
-                if ($resource instanceof CrudResourceLinkSetInterface) {
-                    $list[] = $resource;
+                if (!$resource instanceof CrudResourceLinkSetInterface) {
+                    continue;
                 }
+
+                if (isset($seen[$resource->id()])) {
+                    continue;
+                }
+
+                $seen[$resource->id()] = true;
+                $list[] = $resource;
             }
         }
 

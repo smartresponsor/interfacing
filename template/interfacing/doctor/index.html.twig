@@ -1,47 +1,35 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Interfacing Doctor</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; margin: 24px; }
-      table { border-collapse: collapse; width: 100%; }
-      th, td { border: 1px solid #ddd; padding: 8px; font-size: 14px; }
-      th { text-align: left; background: #f6f6f6; }
-      code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New"; }
-      .muted { color: #666; }
-    </style>
-  </head>
-  <body>
-    <div class="muted">Interfacing Doctor</div>
-    <p class="muted">Base context</p>
-    <table>
-      <tr><th>Key</th><th>Value</th></tr>
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Diagnostics</div>
+    <h1 style="margin:6px 0 0; font-size:28px; line-height:1.05;">Doctor infra</h1>
+    <div style="margin-top:8px; color:#64748b; font-size:13px;">Base context and permission checks rendered through the standard shell.</div>
+  </section>
+
+  <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="font-weight:700; font-size:14px;">Base context</div>
+    <table style="margin-top:10px; border-collapse:collapse; width:100%;">
+      <tr><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">Key</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">Value</th></tr>
       {% for k, v in ctx %}
-        <tr><td><code>{{ k }}</code></td><td><code>{{ v }}</code></td></tr>
+        <tr><td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ k }}</code></td><td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ v }}</code></td></tr>
       {% endfor %}
     </table>
+  </section>
 
-    <p class="muted" style="margin-top: 18px;">Screen permission checks</p>
-    <table>
-      <tr><th>screenId</th><th>permission</th><th>decision</th><th>reason</th></tr>
+  <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="font-weight:700; font-size:14px;">Screen permission checks</div>
+    <table style="margin-top:10px; border-collapse:collapse; width:100%;">
+      <tr><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">screenId</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">permission</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">decision</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">reason</th></tr>
       {% for row in screenCheck %}
         <tr>
-          <td><code>{{ row.screenId }}</code></td>
-          <td><code>{{ row.permission }}</code></td>
-          <td><code>{{ row.decision }}</code></td>
-          <td class="muted">{{ row.reason }}</td>
+          <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ row.screenId }}</code></td>
+          <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ row.permission }}</code></td>
+          <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ row.decision }}</code></td>
+          <td style="padding:8px; border-bottom:1px solid #f1f5f9; color:#64748b;">{{ row.reason }}</td>
         </tr>
       {% endfor %}
     </table>
-
-    <p class="muted" style="margin-top: 18px;">Try:</p>
-    <ul class="muted">
-      <li><code>GET /interfacing/whoami</code></li>
-      <li><code>GET /interfacing/doctor</code> with header <code>X-SR-Tenant: demo</code></li>
-      <li><code>php bin/console interfacing:doctor</code></li>
-    </ul>
-  </body>
-</html>
+  </section>
+{% endblock %}

@@ -13,6 +13,7 @@ parameters:
   interfacing.screens:
     - { id: 'billing-meter', route: 'interfacing_billing_meter', domain: 'billing', notes: 'Billing meter grid' }
     - { id: 'order-summary', route: 'interfacing_order_summary', domain: 'order', notes: 'Order summary grid' }
+    - { id: 'message.digest', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging digest screen' }
     - { id: 'message.notifications.inbox', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging notification inbox screen' }
     - { id: 'message.search.results', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging search results screen' }
     - { id: 'message.rooms.collection', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging rooms collection screen' }

@@ -27,5 +27,10 @@ interface LayoutCatalogInterface
 
     public function find(string $layoutKey): ?LayoutScreenSpecInterface;
 
+    /**
+     * BC alias for slug-based callers.
+     */
+    public function findBySlug(string $slug): ?LayoutScreenSpecInterface;
+
     public function get(string $layoutKey): LayoutScreenSpecInterface;
 }

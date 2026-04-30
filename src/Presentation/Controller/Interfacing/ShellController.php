@@ -9,30 +9,25 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Presentation\Controller\Interfacing;
 
+use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Twig\Environment;
 
 final readonly class ShellController
 {
-    public function __construct(private Environment $twig)
+    public function __construct(private InterfacingRendererInterface $renderer)
     {
     }
 
-    /**
-     * @throws \Twig\Error\LoaderError
-     * @throws \Twig\Error\RuntimeError
-     * @throws \Twig\Error\SyntaxError
-     */
-    #[Route(path: '/interfacing', name: 'interfacing_shell', methods: ['GET'])]
+    #[Route('/interfacing/shell-legacy', name: 'interfacing_shell_legacy', methods: ['GET'])]
     public function __invoke(Request $request): Response
     {
         $screenId = (string) $request->query->get('screen', 'interfacing-doctor');
-        $html = $this->twig->render('interfacing/shell.html.twig', [
+
+        return $this->renderer->render('interfacing/shell.html.twig', [
+            'title' => 'Legacy shell',
             'screenId' => $screenId,
         ]);
-
-        return new Response($html);
     }
 }

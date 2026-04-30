@@ -20,11 +20,24 @@ final readonly class CrudExplorerController
     #[Route('/interfacing/crud/explorer', name: 'interfacing_crud_explorer', methods: ['GET'])]
     public function index(): Response
     {
+        $resourceSet = $this->crudResourceExplorerProvider->provide();
+
+        usort(
+            $resourceSet,
+            static fn ($left, $right): int => [$left->component(), $left->label()] <=> [$right->component(), $right->label()],
+        );
+
+        $grouped = [];
+        foreach ($resourceSet as $resource) {
+            $grouped[$resource->component()][] = $resource;
+        }
+
         return $this->interfacingRenderer->render('interfacing/page/crud_explorer.html.twig', [
             'title' => 'CRUD Explorer',
             'shell' => null,
             'screenId' => 'crud.explorer',
-            'resourceSet' => $this->crudResourceExplorerProvider->provide(),
+            'resourceSet' => $resourceSet,
+            'resourceGroups' => $grouped,
         ]);
     }
 }

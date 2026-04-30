@@ -10,3 +10,5 @@ Current normative documentation for this repository:
 - `docs/interfacing-renderer-contract.md`
 
 Remove stale sketch and stabilization notes instead of treating them as active architecture canon.
+
+- docs/interfacing/interfacing-canonical-crud-directory.md

@@ -24,6 +24,7 @@ final class LayoutScreenSpec implements LayoutScreenSpecInterface
         private ?ScreenIdInterface $screenId = null,
         private ?string $guardKey = null,
         private ?string $routePath = null,
+        private array $context = [],
         private int $navOrder = 0,
     ) {
         $this->block = $block;
@@ -38,6 +39,11 @@ final class LayoutScreenSpec implements LayoutScreenSpecInterface
     public function id(): string
     {
         return $this->id;
+    }
+
+    public function slug(): string
+    {
+        return $this->id();
     }
 
     public function title(): string
@@ -73,5 +79,10 @@ final class LayoutScreenSpec implements LayoutScreenSpecInterface
     public function navOrder(): int
     {
         return $this->navOrder;
+    }
+
+    public function context(): array
+    {
+        return $this->context;
     }
 }

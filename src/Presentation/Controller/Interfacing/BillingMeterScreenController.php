@@ -42,6 +42,7 @@ final class BillingMeterScreenController extends AbstractController
     }
 
     #[Route(path: '/interfacing/billing/meter', name: 'interfacing_billing_meter', methods: ['GET'])]
+    #[Route(path: '/billing/meter', name: 'interfacing_billing_meter_legacy', methods: ['GET'])]
     public function index(Request $request): Response
     {
         $token = $this->tokenStorage?->getToken();

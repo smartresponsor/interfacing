@@ -16,6 +16,7 @@ final class MessageScreenProvider implements ScreenProviderInterface
     public function map(): array
     {
         return [
+            'message.digest' => 'interfacing_screen',
             'message.notifications.inbox' => 'interfacing_screen',
             'message.search.results' => 'interfacing_screen',
             'message.rooms.collection' => 'interfacing_screen',

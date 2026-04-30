@@ -42,6 +42,7 @@ final class OrderSummaryScreenController extends AbstractController
     }
 
     #[Route(path: '/interfacing/order/summary', name: 'interfacing_order_summary', methods: ['GET'])]
+    #[Route(path: '/order/summary', name: 'interfacing_order_summary_legacy', methods: ['GET'])]
     public function index(Request $request): Response
     {
         $token = $this->tokenStorage?->getToken();

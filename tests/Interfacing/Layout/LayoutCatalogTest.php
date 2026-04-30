@@ -17,6 +17,7 @@ final class LayoutCatalogTest extends TestCase
         $spec = new class implements LayoutScreenSpecInterface {
             public function block(): array { return []; }
             public function id(): string { return 'demo'; }
+            public function slug(): string { return 'demo'; }
             public function title(): string { return 'Demo'; }
             public function description(): string { return 'Demo description'; }
             public function navGroup(): string { return 'workspace'; }
@@ -40,6 +41,8 @@ final class LayoutCatalogTest extends TestCase
         self::assertSame($catalog->all(), $catalog->list());
         self::assertArrayHasKey('demo', $catalog->list());
         self::assertSame($spec, $catalog->find('demo'));
+        self::assertSame($spec, $catalog->findBySlug('demo'));
+        self::assertSame('demo', $spec->slug());
         self::assertNull($catalog->find('missing'));
     }
 }

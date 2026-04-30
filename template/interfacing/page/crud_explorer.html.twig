@@ -6,7 +6,7 @@
       <div>
         <div style="font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Cruding → Interfacing</div>
         <h1 style="margin:6px 0 0; font-size:28px; line-height:1.05; letter-spacing:-.03em;">CRUD Explorer</h1>
-        <div style="margin-top:8px; font-size:13px; color:#64748b; max-width:960px;">One screen for discovering canonical CRUD entry points across connected resources. Use it to open index/new flows first, then inspect show/edit/delete patterns before asking bridges for deeper custom screens.</div>
+        <div style="margin-top:8px; font-size:13px; color:#64748b; max-width:960px;">One screen for discovering canonical CRUD entry points across connected and planned ecosystem resources. Use it to open index/new flows first, then inspect canonical show/edit/delete grammar before asking bridges for deeper custom screens.</div>
       </div>
       <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
         <a href="{{ path('interfacing_index') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Workspace</a>
@@ -16,9 +16,18 @@
   </section>
 
   <section style="display:grid; grid-template-columns:minmax(0,2.1fr) minmax(320px,.9fr); gap:14px; align-items:start;">
-    <div style="display:flex; flex-direction:column; gap:12px;">
-      {% for resource in resourceSet %}
-        <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      {% for component, resources in resourceGroups %}
+        <section style="display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:10px;">
+            <div>
+              <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Known ecosystem component</div>
+              <div style="margin-top:4px; font-size:20px; font-weight:800; line-height:1.1;">{{ component }}</div>
+            </div>
+            <div style="font-size:12px; color:#64748b;">{{ resources|length }} CRUD resource{% if resources|length != 1 %}s{% endif %}</div>
+          </div>
+          {% for resource in resources %}
+            <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
           <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
             <div>
               <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ resource.component }}</div>
@@ -47,7 +56,9 @@
           {% if resource.note %}
             <div style="margin-top:10px; font-size:12px; color:#475569;">{{ resource.note }}</div>
           {% endif %}
-        </article>
+            </article>
+          {% endfor %}
+        </section>
       {% endfor %}
     </div>
 
@@ -64,7 +75,8 @@
       </section>
       <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
         <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Why this screen exists</div>
-        <div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">This is the shell-native place to audit which connected resources already expose canonical CRUD entry points. Custom component bridges stay separate; generic CRUD discovery belongs here.</div>
+        <div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">This is the shell-native place to audit which connected or planned resources already expose canonical CRUD entry points. Custom component bridges stay separate; generic CRUD discovery belongs here.</div>
+        <div style="margin-top:10px; font-size:12px; color:#64748b;">Known resources listed here: {{ resourceSet|length }}</div>
       </section>
     </aside>
   </section>
