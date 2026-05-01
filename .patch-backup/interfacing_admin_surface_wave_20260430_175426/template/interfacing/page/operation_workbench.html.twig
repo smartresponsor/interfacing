@@ -1,0 +1,66 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set status = operationStatusCounts|default({}) %}
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:16px 18px; margin-bottom:14px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+      <div>
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Operation workbench</div>
+        <h1 style="margin:6px 0 0; font-size:30px; line-height:1.08; letter-spacing:-.03em;">EasyAdmin-like CRUD command surface</h1>
+        <div style="margin-top:8px; color:#475569; max-width:920px; font-size:13px; line-height:1.45;">
+          One card per known resource. The toolbar exposes index, create, show, edit and delete links using the canonical CRUD bridge. Interfacing does not provide business rows; connected components provide fixtures and records.
+        </div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+        <a href="{{ path('interfacing_index') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Workspace</a>
+        <a href="{{ path('interfacing_screen_directory') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Screens</a>
+        <a href="{{ path('interfacing_crud_explorer') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#2563eb; color:#fff; font-weight:700; font-size:12px;">CRUD Explorer</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-bottom:14px;">
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:14px; padding:12px 14px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Resources</div><div style="margin-top:5px; font-size:28px; font-weight:800;">{{ status.total|default(0) }}</div></article>
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:14px; padding:12px 14px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Connected</div><div style="margin-top:5px; font-size:28px; font-weight:800; color:#047857;">{{ status.connected|default(0) }}</div></article>
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:14px; padding:12px 14px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Canonical</div><div style="margin-top:5px; font-size:28px; font-weight:800; color:#2563eb;">{{ status.canonical|default(0) }}</div></article>
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:14px; padding:12px 14px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Planned</div><div style="margin-top:5px; font-size:28px; font-weight:800; color:#92400e;">{{ status.planned|default(0) }}</div></article>
+  </section>
+
+  <section style="display:flex; flex-direction:column; gap:14px;">
+    {% for zone, cards in operationGroups|default({}) %}
+      <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px;">
+          <div><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ zone }}</div><div style="margin-top:3px; font-size:12px; color:#64748b;">{{ cards|length }} CRUD resources</div></div>
+          <a href="{{ path('interfacing_screen_directory') }}" style="text-decoration:none; color:#2563eb; font-size:12px; font-weight:700;">Screen matrix</a>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;">
+          {% for card in cards %}
+            <div style="border:1px solid #e2e8f0; border-radius:14px; padding:12px; background:#fbfdff; min-width:0;">
+              <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+                <div style="min-width:0;">
+                  <div style="font-size:10px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.04em;">{{ card.component }}</div>
+                  <div style="margin-top:4px; font-size:16px; font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ card.label }}</div>
+                  <div style="margin-top:5px; font-size:11px; color:#64748b; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ card.indexUrl }}</div>
+                </div>
+                <span style="font-size:10px; color:{{ card.resourceStatus == 'connected' ? '#047857' : (card.resourceStatus == 'canonical' ? '#2563eb' : '#92400e') }}; border:1px solid #e2e8f0; border-radius:999px; padding:2px 6px; white-space:nowrap;">{{ card.resourceStatus }}</span>
+              </div>
+
+              <div style="margin-top:11px; display:flex; flex-wrap:wrap; gap:7px;">
+                <a href="{{ card.indexUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#2563eb; color:#fff; font-weight:700; font-size:12px;">Index</a>
+                <a href="{{ card.newUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#ecfdf5; color:#047857; border:1px solid #bbf7d0; font-weight:700; font-size:12px;">New</a>
+                <a href="{{ card.showUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Show sample</a>
+                <a href="{{ card.editUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Edit sample</a>
+                <a href="{{ card.deleteUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; font-weight:700; font-size:12px;">Delete sample</a>
+              </div>
+
+              {% if card.note %}
+                <div style="margin-top:10px; font-size:12px; color:#475569; line-height:1.4;">{{ card.note }}</div>
+              {% endif %}
+              <div style="margin-top:9px; font-size:10px; color:#94a3b8;">Sample show/edit/delete links intentionally use a sample id; real identifiers come from the owning component.</div>
+            </div>
+          {% endfor %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}

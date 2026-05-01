@@ -1,0 +1,138 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+{% block body %}
+  <div style="display:grid; grid-template-columns:minmax(0, 1.6fr) minmax(320px, .9fr); gap:14px; align-items:start;">
+    <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:16px 18px;">
+      <div style="font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Platform shell</div>
+      <h1 style="margin:6px 0 0; font-size:34px; line-height:1.05; letter-spacing:-.03em;">High-density Interfacing workspace</h1>
+      <div style="margin-top:10px; color:#475569; max-width:820px; font-size:15px; line-height:1.45;">
+        Dense operator shell for connected screens, component bridges, custom workbenches and a permanent CRUD Explorer for connected resources.
+      </div>
+      <div style="margin-top:16px; display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="#faq" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#2563eb; color:#fff; font-weight:700; font-size:13px;">FAQ</a>
+        <a href="#support" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Support</a>
+        <a href="{{ path('interfacing_admin_launchpad') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Admin Launchpad</a>
+        <a href="{{ path('interfacing_crud_explorer') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">CRUD Explorer</a>
+        <a href="{{ path('interfacing_screen_directory') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Screen Directory</a>
+        <a href="{{ path('interfacing_operation_workbench') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Operation Workbench</a>
+        <a href="{{ path('interfacing_component_roadmap') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Component Roadmap</a>
+      </div>
+    </section>
+
+    <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+      <div style="font-weight:700; font-size:14px;">Workspace snapshot</div>
+      {% set roadmapStatus = componentRoadmapStatusCounts|default({}) %}
+      <div style="margin-top:10px; display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px;">
+        <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;">
+          <div style="font-size:11px; color:#64748b; text-transform:uppercase;">Connected screens</div>
+          <div style="margin-top:6px; font-size:28px; font-weight:800;">{{ shell.itemTotal }}</div>
+        </div>
+        <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;">
+          <div style="font-size:11px; color:#64748b; text-transform:uppercase;">Sections</div>
+          <div style="margin-top:6px; font-size:28px; font-weight:800;">{{ shell.group|length }}</div>
+        </div>
+        <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;">
+          <div style="font-size:11px; color:#64748b; text-transform:uppercase;">Components</div>
+          <div style="margin-top:6px; font-size:28px; font-weight:800;">{{ roadmapStatus.total|default(0) }}</div>
+        </div>
+        <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;">
+          <div style="font-size:11px; color:#64748b; text-transform:uppercase;">Planned</div>
+          <div style="margin-top:6px; font-size:28px; font-weight:800;">{{ roadmapStatus.planned|default(0) }}</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
+      <div>
+        <div style="font-weight:700; font-size:16px;">Connected sections</div>
+        <div style="margin-top:3px; font-size:12px; color:#64748b;">Primary navigation contributions for connected components and workspaces.</div>
+      </div>
+      <div style="font-size:12px; color:#64748b;">Dense shell discipline · Facebook/Amazon-like information packing</div>
+    </div>
+    <div style="margin-top:12px; display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px;">
+      {% for g in shell.group %}
+        <article style="border:1px solid #e2e8f0; border-radius:14px; padding:12px 12px 10px;">
+          <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ g.title }}</div>
+          <div style="margin-top:8px; display:flex; flex-direction:column; gap:6px;">
+            {% for it in g.item %}
+              <a href="{{ it.url }}" style="display:flex; justify-content:space-between; gap:12px; align-items:center; text-decoration:none; color:inherit; padding:8px 9px; border:1px solid #edf2f7; border-radius:10px;">
+                <div>
+                  <div style="font-size:13px; font-weight:700;">{{ it.title }}</div>
+                  <div style="margin-top:2px; font-size:11px; color:#64748b;">{{ it.id }}</div>
+                </div>
+                <div style="font-size:11px; color:#2563eb;">Open</div>
+              </a>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% set matrixStatus = ecommerceScreenStatusCounts|default({}) %}
+  {% set matrixTotal = ecommerceScreenMatrix|default([])|length %}
+  <section id="ecommerce-screen-matrix" style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+      <div>
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">E-commerce screen matrix</div>
+        <h2 style="margin:5px 0 0; font-size:24px; letter-spacing:-.02em;">All known Smart Responsor commerce screens</h2>
+        <div style="margin-top:6px; font-size:13px; color:#64748b; max-width:920px; line-height:1.45;">
+          This matrix is generated from the canonical CRUD registry and shell-connected screens. It intentionally contains connected, canonical and planned links, without embedding business demo rows inside Interfacing.
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; min-width:300px;">
+        <div style="padding:9px 10px; border:1px solid #e2e8f0; border-radius:12px;">
+          <div style="font-size:10px; color:#64748b; text-transform:uppercase;">Connected</div>
+          <div style="margin-top:4px; font-size:22px; font-weight:800;">{{ matrixStatus.connected|default(0) }}</div>
+        </div>
+        <div style="padding:9px 10px; border:1px solid #e2e8f0; border-radius:12px;">
+          <div style="font-size:10px; color:#64748b; text-transform:uppercase;">Canonical</div>
+          <div style="margin-top:4px; font-size:22px; font-weight:800;">{{ matrixStatus.canonical|default(0) }}</div>
+        </div>
+        <div style="padding:9px 10px; border:1px solid #e2e8f0; border-radius:12px;">
+          <div style="font-size:10px; color:#64748b; text-transform:uppercase;">Planned</div>
+          <div style="margin-top:4px; font-size:22px; font-weight:800;">{{ matrixStatus.planned|default(0) }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px; font-size:12px; color:#64748b;">Total screen/action links: {{ matrixTotal }}</div>
+
+    <div style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+      {% for zone, entries in ecommerceScreenGroups|default({}) %}
+        <article style="border:1px solid #e2e8f0; border-radius:14px; padding:12px;">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
+            <div>
+              <div style="font-size:16px; font-weight:800;">{{ zone }}</div>
+              <div style="margin-top:3px; font-size:11px; color:#64748b;">{{ entries|length }} screen/action link{% if entries|length != 1 %}s{% endif %}</div>
+            </div>
+            <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+              <a href="{{ path('interfacing_admin_launchpad') }}" style="text-decoration:none; padding:7px 10px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Launchpad</a>
+              <a href="{{ path('interfacing_crud_explorer') }}" style="text-decoration:none; padding:7px 10px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">CRUD Explorer</a>
+            </div>
+          </div>
+          <div style="margin-top:10px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px;">
+            {% for entry in entries %}
+              <a href="{{ entry.url }}" style="display:block; text-decoration:none; color:inherit; border:1px solid #edf2f7; border-radius:12px; padding:9px 10px; background:#fbfdff; min-width:0;">
+                <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+                  <div style="min-width:0;">
+                    <div style="font-size:10px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.04em;">{{ entry.component }} · {{ entry.operation }}</div>
+                    <div style="margin-top:4px; font-size:13px; font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ entry.label }}</div>
+                  </div>
+                  <span style="font-size:10px; color:{{ entry.status == 'connected' ? '#047857' : (entry.status == 'canonical' ? '#2563eb' : '#92400e') }}; border:1px solid #e2e8f0; border-radius:999px; padding:2px 6px; white-space:nowrap;">{{ entry.status }}</span>
+                </div>
+                <div style="margin-top:7px; font-size:11px; color:#64748b; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ entry.url }}</div>
+                {% if entry.kind == 'crud-sample' %}
+                  <div style="margin-top:5px; font-size:10px; color:#94a3b8;">sample id/slug placeholder</div>
+                {% endif %}
+              </a>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

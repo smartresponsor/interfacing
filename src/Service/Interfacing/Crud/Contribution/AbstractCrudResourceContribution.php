@@ -31,6 +31,8 @@ abstract class AbstractCrudResourceContribution
         string $deletePattern,
         ?string $note = null,
         array $routeParameters = [],
+        string $status = 'connected',
+        string $sampleIdentifier = 'sample',
     ): CrudResourceLinkSetInterface {
         return new CrudResourceLinkSet(
             id: $id,
@@ -43,10 +45,10 @@ abstract class AbstractCrudResourceContribution
             editPattern: $editPattern,
             deletePattern: $deletePattern,
             note: $note,
+            status: $status,
+            sampleIdentifier: $sampleIdentifier,
         );
     }
-
-
 
     protected function genericResource(
         string $id,
@@ -69,6 +71,32 @@ abstract class AbstractCrudResourceContribution
             deletePattern: '/'.$resourcePath.'/delete/{id}',
             note: $note,
             routeParameters: ['resourcePath' => $resourcePath],
+            status: 'planned',
+        );
+    }
+
+    protected function canonicalResource(
+        string $id,
+        string $component,
+        string $label,
+        string $resourcePath,
+        ?string $note = null,
+    ): CrudResourceLinkSetInterface {
+        return $this->resource(
+            id: $id,
+            component: $component,
+            label: $label,
+            resourcePath: $resourcePath,
+            indexRoute: 'app_crud_index',
+            indexFallback: '/'.$resourcePath.'/',
+            newRoute: 'app_crud_new',
+            newFallback: '/'.$resourcePath.'/new/',
+            showPattern: '/'.$resourcePath.'/{id}',
+            editPattern: '/'.$resourcePath.'/edit/{id}',
+            deletePattern: '/'.$resourcePath.'/delete/{id}',
+            note: $note,
+            routeParameters: ['resourcePath' => $resourcePath],
+            status: 'canonical',
         );
     }
 

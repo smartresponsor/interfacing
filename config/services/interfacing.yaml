@@ -110,6 +110,71 @@ services:
 
   App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider: ~
 
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceScreenCatalogProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceOperationWorkbenchProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceAdminTableProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceCrudAffordanceProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceCrudFrameProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceCrudReadinessProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceComponentRoadmapProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceComponentObligationProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceRuntimeBridgeProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommercePromotionGateProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceEvidenceRegistryProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceContractRegistryProvider: ~
+
+  App\Interfacing\Service\Interfacing\Ecommerce\EcommerceFieldSchemaRegistryProvider: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceOperationWorkbenchProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceOperationWorkbenchProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceAdminTableProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceAdminTableProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceCrudAffordanceProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceCrudAffordanceProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceCrudFrameProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceCrudFrameProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceCrudReadinessProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceCrudReadinessProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceScreenCatalogProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceScreenCatalogProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceComponentRoadmapProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceComponentRoadmapProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceComponentObligationProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceComponentObligationProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceRuntimeBridgeProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceRuntimeBridgeProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommercePromotionGateProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommercePromotionGateProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceEvidenceRegistryProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceEvidenceRegistryProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceContractRegistryProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceContractRegistryProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Ecommerce\EcommerceFieldSchemaRegistryProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Ecommerce\EcommerceFieldSchemaRegistryProvider
+
   App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface:
     alias: App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider
   App\Interfacing\Service\Interfacing\Runtime\ScreenRegistry:
@@ -129,7 +194,6 @@ services:
   App\Interfacing\Service\Interfacing\Context\ScreenContextAssembler: ~
   App\Interfacing\Service\Interfacing\Security\SymfonyAccessResolver: ~
   App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider: ~
-  App\Interfacing\Service\Interfacing\Runtime\Context\DemoBaseContextProvider: ~
   App\Interfacing\Service\Interfacing\Runtime\Context\ScreenContextAssembler:
     arguments:
       $base: '@App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider'
@@ -160,12 +224,19 @@ services:
 
   App\Interfacing\Service\Interfacing\Provider\:
     resource: '../../src/Service/Interfacing/Provider/*'
+    exclude:
+      - '../../src/Service/Interfacing/Provider/Demo*'
+      - '../../src/Service/Interfacing/Provider/DemoAction/*'
 
   App\Interfacing\Service\Interfacing\Layout\Provider\:
     resource: '../../src/Service/Interfacing/Layout/Provider/*'
+    exclude:
+      - '../../src/Service/Interfacing/Layout/Provider/DemoLayoutProvider.php'
 
   App\Interfacing\Service\Interfacing\Runtime\Provider\:
     resource: '../../src/Service/Interfacing/Runtime/Provider/*'
+    exclude:
+      - '../../src/Service/Interfacing/Runtime/Provider/DemoScreenProvider.php'
 
   App\Interfacing\Service\Interfacing\Registry\:
     resource: '../../src/Service/Interfacing/Registry/*'
@@ -219,7 +290,7 @@ services:
   App\Interfacing\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface:
     alias: App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider
   App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface:
-    alias: App\Interfacing\Service\Interfacing\Runtime\Context\DemoBaseContextProvider
+    alias: App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider
 
   App\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface:
     alias: App\Interfacing\Service\Interfacing\Runtime\InterfacingRuntime
@@ -290,3 +361,8 @@ services:
 
   App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorInterface:
     alias: App\Interfacing\Service\Interfacing\Doctor\InterfacingDoctor
+
+  App\Interfacing\Service\Interfacing\Surface\InterfaceSurfaceAuditProvider: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Surface\InterfaceSurfaceAuditProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Surface\InterfaceSurfaceAuditProvider

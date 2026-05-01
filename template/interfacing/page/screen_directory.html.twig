@@ -1,0 +1,76 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set matrixStatus = ecommerceScreenStatusCounts|default({}) %}
+  {% set matrixTotal = ecommerceScreenMatrix|default([])|length %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'Screen directory',
+    heading: 'All known e-commerce screens and CRUD actions',
+    text: 'Shell-native directory generated from screen contracts and the canonical CRUD registry. Connected links should open now; canonical and planned links expose URL patterns without demo rows in Interfacing.',
+    status: {
+      'links': matrixTotal,
+      'connected': matrixStatus.connected|default(0),
+      'canonical': matrixStatus.canonical|default(0),
+      'planned': matrixStatus.planned|default(0)
+    },
+    actions: [
+      {title: 'Workspace', url: path('interfacing_index')},
+      {title: 'Operations', url: path('interfacing_operation_workbench')},
+      {title: 'CRUD Explorer', url: path('interfacing_crud_explorer'), primary: true}
+    ]
+  } only %}
+
+  <section style="display:grid; grid-template-columns:minmax(0, 1fr) 340px; gap:14px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      {% for zone, entries in ecommerceScreenGroups|default({}) %}
+        <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px;">
+            <div>
+              <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ zone }}</div>
+              <div style="margin-top:3px; font-size:12px; color:#64748b;">{{ entries|length }} screen/action links</div>
+            </div>
+            <a href="{{ path('interfacing_operation_workbench') }}" style="text-decoration:none; color:#2563eb; font-size:12px; font-weight:700;">Operations</a>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px;">
+            {% for entry in entries %}
+              <a href="{{ entry.url }}" style="display:block; text-decoration:none; color:inherit; border:1px solid #edf2f7; border-radius:12px; padding:9px 10px; background:#fbfdff; min-width:0;">
+                <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+                  <div style="min-width:0;">
+                    <div style="font-size:10px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.04em;">{{ entry.component }} · {{ entry.operation }}</div>
+                    <div style="margin-top:4px; font-size:13px; font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ entry.label }}</div>
+                  </div>
+                  <span style="font-size:10px; color:{{ entry.status == 'connected' ? '#047857' : (entry.status == 'canonical' ? '#2563eb' : '#92400e') }}; border:1px solid #e2e8f0; border-radius:999px; padding:2px 6px; white-space:nowrap;">{{ entry.status }}</span>
+                </div>
+                <div style="margin-top:7px; font-size:11px; color:#64748b; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ entry.url }}</div>
+                {% if entry.kind == 'crud-sample' %}<div style="margin-top:5px; font-size:10px; color:#94a3b8;">sample id/slug placeholder</div>{% endif %}
+              </a>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <aside style="display:flex; flex-direction:column; gap:12px;">
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Component coverage</div>
+        <div style="margin-top:8px; display:flex; flex-direction:column; gap:10px;">
+          {% for zone, components in ecommerceComponentGroups|default({}) %}
+            <div>
+              <div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:700;">{{ zone }}</div>
+              <div style="margin-top:5px; display:flex; flex-direction:column; gap:5px;">
+                {% for component in components %}
+                  <div style="display:flex; justify-content:space-between; gap:8px; align-items:center; border:1px solid #edf2f7; border-radius:10px; padding:7px 8px;">
+                    <div style="font-size:12px; font-weight:700;">{{ component.component }}</div>
+                    <div style="font-size:11px; color:#64748b;">{{ component.total }} · {{ component.primaryStatus }}</div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
+      {% include 'interfacing/partial/operation_status_legend.html.twig' only %}
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;"><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Boundary</div><div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">Interfacing owns shell frame, navigation, CRUD URL grammar and rendering states. Business rows, fixtures and real identifiers must come from the owning Smart Responsor components.</div></section>
+    </aside>
+  </section>
+{% endblock %}

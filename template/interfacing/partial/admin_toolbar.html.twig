@@ -1,0 +1,26 @@
+{# Shell-native admin toolbar shared by Interfacing directory/workbench pages. #}
+{% set actions = actions|default([]) %}
+{% set status = status|default(null) %}
+<section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:16px 18px; margin-bottom:14px;">
+  <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+    <div style="min-width:0;">
+      <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ eyebrow|default('Interfacing') }}</div>
+      <h1 style="margin:6px 0 0; font-size:30px; line-height:1.08; letter-spacing:-.03em;">{{ heading|default(title|default('Interfacing')) }}</h1>
+      {% if text|default(null) %}
+        <div style="margin-top:8px; color:#475569; max-width:980px; font-size:13px; line-height:1.45;">{{ text }}</div>
+      {% endif %}
+      {% if status %}
+        <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:7px;">
+          {% for label, value in status %}
+            <span style="font-size:11px; color:#334155; border:1px solid #e2e8f0; border-radius:999px; padding:4px 8px; background:#fbfdff;"><strong>{{ value }}</strong> {{ label }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; min-width:260px;">
+      {% for action in actions %}
+        <a href="{{ action.url }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:{{ action.primary|default(false) ? '#2563eb' : '#fff' }}; color:{{ action.primary|default(false) ? '#fff' : '#0f172a' }}; border:{{ action.primary|default(false) ? '1px solid #2563eb' : '1px solid #cbd5e1' }}; font-weight:{{ action.primary|default(false) ? '700' : '600' }}; font-size:12px; white-space:nowrap;">{{ action.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

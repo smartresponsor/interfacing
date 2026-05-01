@@ -1,0 +1,76 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set status = operationStatusCounts|default({}) %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'Operation workbench',
+    heading: 'EasyAdmin-like CRUD command surface',
+    text: 'One shell-native workbench for every known CRUD resource. Interfacing renders commands, route grammar and empty/action states; owning components provide fixtures, records and real identifiers.',
+    status: {
+      'resources': status.total|default(0),
+      'connected': status.connected|default(0),
+      'canonical': status.canonical|default(0),
+      'planned': status.planned|default(0)
+    },
+    actions: [
+      {title: 'Workspace', url: path('interfacing_index')},
+      {title: 'Screens', url: path('interfacing_screen_directory')},
+      {title: 'CRUD Explorer', url: path('interfacing_crud_explorer'), primary: true}
+    ]
+  } only %}
+
+  <section style="display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:14px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      {% for zone, cards in operationGroups|default({}) %}
+        <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px;">
+            <div><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ zone }}</div><div style="margin-top:3px; font-size:12px; color:#64748b;">{{ cards|length }} CRUD resources</div></div>
+            <a href="{{ path('interfacing_screen_directory') }}" style="text-decoration:none; color:#2563eb; font-size:12px; font-weight:700;">Screen matrix</a>
+          </div>
+          <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;">
+            {% for card in cards %}
+              <div style="border:1px solid #e2e8f0; border-radius:14px; padding:12px; background:#fbfdff; min-width:0;">
+                <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+                  <div style="min-width:0;">
+                    <div style="font-size:10px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.04em;">{{ card.component }}</div>
+                    <div style="margin-top:4px; font-size:16px; font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ card.label }}</div>
+                    <div style="margin-top:5px; font-size:11px; color:#64748b; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ card.indexUrl }}</div>
+                  </div>
+                  <span style="font-size:10px; color:{{ card.resourceStatus == 'connected' ? '#047857' : (card.resourceStatus == 'canonical' ? '#2563eb' : '#92400e') }}; border:1px solid #e2e8f0; border-radius:999px; padding:2px 6px; white-space:nowrap;">{{ card.resourceStatus }}</span>
+                </div>
+
+                <div style="margin-top:11px; display:flex; flex-wrap:wrap; gap:7px;">
+                  <a href="{{ card.indexUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#2563eb; color:#fff; font-weight:700; font-size:12px;">Index</a>
+                  <a href="{{ card.newUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#ecfdf5; color:#047857; border:1px solid #bbf7d0; font-weight:700; font-size:12px;">New</a>
+                  <a href="{{ card.showUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Show sample</a>
+                  <a href="{{ card.editUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Edit sample</a>
+                  <a href="{{ card.deleteUrl }}" style="text-decoration:none; padding:7px 9px; border-radius:10px; background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; font-weight:700; font-size:12px;">Delete sample</a>
+                </div>
+
+                <div style="margin-top:11px; border-top:1px solid #e2e8f0; padding-top:9px; display:grid; grid-template-columns:70px minmax(0,1fr); gap:6px 8px; font-size:11px;">
+                  {% for action in card.action %}
+                    <div style="color:#64748b; text-transform:uppercase; font-weight:700;">{{ action.operation }}</div>
+                    <a href="{{ action.url }}" style="color:#2563eb; text-decoration:none; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ action.url }}</a>
+                  {% endfor %}
+                </div>
+
+                {% if card.note %}
+                  <div style="margin-top:10px; font-size:12px; color:#475569; line-height:1.4;">{{ card.note }}</div>
+                {% endif %}
+                <div style="margin-top:9px; font-size:10px; color:#94a3b8;">Sample show/edit/delete links intentionally use a sample id; real identifiers come from the owning component.</div>
+              </div>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <aside style="display:flex; flex-direction:column; gap:12px;">
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
+      {% include 'interfacing/partial/operation_status_legend.html.twig' only %}
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Data boundary</div>
+        <div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">This workbench must not invent business rows. It may expose links and empty/action states, but fixtures and actual records stay inside Cataloging, Ordering, Billing, Messaging and the other owning components.</div>
+      </section>
+    </aside>
+  </section>
+{% endblock %}

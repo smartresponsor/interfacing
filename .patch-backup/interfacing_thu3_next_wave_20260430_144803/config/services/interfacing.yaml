@@ -1,0 +1,298 @@
+parameters:
+  env(SR_TENANT_DEFAULT): 'default'
+  env(SR_BILLING_API_BASE): 'http://127.0.0.1'
+  env(SR_BILLING_API_METER_PATH): '/billing/meter'
+  env(SR_ORDER_API_BASE): 'http://127.0.0.1'
+  env(SR_ORDER_API_SUMMARY_PATH): '/order/summary'
+  env(INTERFACING_CATEGORY_API_BASE_URL): 'http://127.0.0.1:8080'
+  env(INTERFACING_CATEGORY_API_TIMEOUT_MS): '2500'
+  env(INTERFACING_CATEGORY_API_LIST_PATH): '/category/admin/category'
+  env(INTERFACING_CATEGORY_API_READ_PATH): '/category/admin/category/{id}'
+  env(INTERFACING_CATEGORY_API_SAVE_PATH): '/category/admin/category/{id}'
+  interfacing.demo_user_profile_path: '%kernel.project_dir%/var/interfacing/demo-user-profile.json'
+  interfacing.screens:
+    - { id: 'billing-meter', route: 'interfacing_billing_meter', domain: 'billing', notes: 'Billing meter grid' }
+    - { id: 'order-summary', route: 'interfacing_order_summary', domain: 'order', notes: 'Order summary grid' }
+    - { id: 'message.digest', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging digest screen' }
+    - { id: 'message.notifications.inbox', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging notification inbox screen' }
+    - { id: 'message.search.results', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging search results screen' }
+    - { id: 'message.rooms.collection', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging rooms collection screen' }
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  _instanceof:
+    App\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface:
+      tags: ['interfacing.screen_provider']
+
+    App\Interfacing\ServiceInterface\Interfacing\Provider\ActionProviderInterface:
+      tags: ['interfacing.action_provider']
+
+    App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutProviderInterface:
+      tags: ['interfacing.layout_provider']
+
+    App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface:
+      tags: ['interfacing.runtime_screen_provider']
+
+    App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceContributionInterface:
+      tags: ['interfacing.crud_resource_contribution']
+
+  Psr\Log\NullLogger: ~
+
+  App\Interfacing\Application\Security\InterfacingPermissionVoter:
+    tags:
+      - { name: security.voter }
+
+  App\Interfacing\Integration\Twig\ClassNameTwigExtension:
+    tags: ['twig.extension']
+
+  App\Interfacing\Support\Telemetry\InterfacingTelemetry: ~
+
+  App\Interfacing\Presentation\Controller\Interfacing\BillingMeterScreenController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\OrderSummaryScreenController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\InterfacingHealthController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\ScreenController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\LayoutController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\InterfacingController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\CrudExplorerController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenEmptyComponent: ~
+  App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenFormDemoComponent: ~
+  App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenGridDemoComponent: ~
+  App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenHealthComponent: ~
+  App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenMetricDemoComponent: ~
+  App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenWizardDemoComponent: ~
+  App\Interfacing\Presentation\LiveComponent\Interfacing\ScreenLiveComponent: ~
+
+  App\Interfacing\Service\Interfacing\Access\SymfonyAccessResolver: ~
+
+
+  App\Interfacing\Service\Interfacing\Crud\:
+    resource: '../../src/Service/Interfacing/Crud/*'
+    exclude:
+      - '../../src/Service/Interfacing/Crud/CrudResourceExplorerProvider.php'
+
+  App\Interfacing\Service\Interfacing\Crud\Contribution\:
+    resource: '../../src/Service/Interfacing/Crud/Contribution/*'
+
+  App\Interfacing\Service\Interfacing\Crud\CrudResourceExplorerProvider:
+    arguments:
+      $contributions: !tagged_iterator interfacing.crud_resource_contribution
+
+
+  App\Interfacing\Service\Interfacing\Audit\MonologAuditSink:
+    arguments:
+      $logger: '@Psr\Log\NullLogger'
+
+  App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider: ~
+  App\Interfacing\Service\Interfacing\SymfonyAccessResolver: ~
+  App\Interfacing\Service\Interfacing\Layout\LayoutCatalog:
+    arguments:
+      $provider: !tagged_iterator interfacing.layout_provider
+  App\Interfacing\Service\Interfacing\Layout\LayoutGuard: ~
+  App\Interfacing\Service\Interfacing\Layout\LayoutShell: ~
+  App\Interfacing\Service\Interfacing\Shell\SymfonyAccessResolver: ~
+
+  App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider
+  App\Interfacing\Service\Interfacing\Runtime\ScreenRegistry:
+    arguments:
+      $provider: !tagged_iterator interfacing.runtime_screen_provider
+  App\Interfacing\Service\Interfacing\Registry\ScreenRegistry:
+    arguments:
+      $provider: !tagged_iterator interfacing.screen_provider
+  App\Interfacing\Service\Interfacing\Action\ActionRegistry:
+    arguments:
+      $provider: !tagged_iterator interfacing.action_provider
+  App\Interfacing\Service\Interfacing\Action\ActionDispatcher: ~
+  App\Interfacing\Service\Interfacing\ActionCatalog:
+    arguments:
+      $endpoint: !tagged_iterator interfacing.action
+  App\Interfacing\Service\Interfacing\Demo\DemoPingAction: ~
+  App\Interfacing\Service\Interfacing\Context\ScreenContextAssembler: ~
+  App\Interfacing\Service\Interfacing\Security\SymfonyAccessResolver: ~
+  App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider: ~
+  App\Interfacing\Service\Interfacing\Runtime\Context\ScreenContextAssembler:
+    arguments:
+      $base: '@App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider'
+      $resolver: !tagged_iterator interfacing.screen_context_resolver
+  App\Interfacing\Service\Interfacing\Runtime\InterfacingRuntime: ~
+  App\Interfacing\Service\Interfacing\ScreenCatalog:
+    arguments:
+      $provider: !tagged_iterator interfacing.screen_provider
+  App\Interfacing\Service\Interfacing\ShellNavProvider: ~
+
+  App\Interfacing\Service\Interfacing\Query\HttpBillingMeterQueryService:
+    arguments:
+      $client: '@http_client'
+      $baseUrl: '%env(string:SR_BILLING_API_BASE)%'
+      $path: '%env(string:SR_BILLING_API_METER_PATH)%'
+
+  App\Interfacing\Service\Interfacing\Query\HttpOrderSummaryQueryService:
+    arguments:
+      $client: '@http_client'
+      $baseUrl: '%env(string:SR_ORDER_API_BASE)%'
+      $path: '%env(string:SR_ORDER_API_SUMMARY_PATH)%'
+
+  App\Interfacing\Service\Interfacing\Security\InterfacingPermissionNamer: ~
+
+  App\Interfacing\Service\Interfacing\Tenant\DefaultTenantResolver:
+    arguments:
+      $defaultTenantId: '%env(string:SR_TENANT_DEFAULT)%'
+
+  App\Interfacing\Service\Interfacing\Provider\:
+    resource: '../../src/Service/Interfacing/Provider/*'
+    exclude:
+      - '../../src/Service/Interfacing/Provider/Demo*'
+      - '../../src/Service/Interfacing/Provider/DemoAction/*'
+
+  App\Interfacing\Service\Interfacing\Layout\Provider\:
+    resource: '../../src/Service/Interfacing/Layout/Provider/*'
+    exclude:
+      - '../../src/Service/Interfacing/Layout/Provider/DemoLayoutProvider.php'
+
+  App\Interfacing\Service\Interfacing\Runtime\Provider\:
+    resource: '../../src/Service/Interfacing/Runtime/Provider/*'
+    exclude:
+      - '../../src/Service/Interfacing/Runtime/Provider/DemoScreenProvider.php'
+
+  App\Interfacing\Service\Interfacing\Registry\:
+    resource: '../../src/Service/Interfacing/Registry/*'
+    exclude:
+      - '../../src/Service/Interfacing/Registry/ScreenRegistry.php'
+
+  App\Interfacing\Service\Interfacing\Doctor\:
+    resource: '../../src/Service/Interfacing/Doctor/*'
+
+  App\Interfacing\Support\Console\:
+    resource: '../../src/Support/Console/*'
+
+  App\Interfacing\ServiceInterface\Interfacing\Query\BillingMeterQueryServiceInterface:
+    alias: App\Interfacing\Service\Interfacing\Query\HttpBillingMeterQueryService
+
+  App\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface:
+    alias: App\Interfacing\Service\Interfacing\Query\HttpOrderSummaryQueryService
+
+  App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Access\SymfonyAccessResolver
+
+  App\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\SymfonyAccessResolver
+
+  App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface:
+    alias: App\Interfacing\Service\Interfacing\Layout\LayoutCatalog
+
+  App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutGuardInterface:
+    alias: App\Interfacing\Service\Interfacing\Layout\LayoutGuard
+
+  App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface:
+    alias: App\Interfacing\Service\Interfacing\Layout\LayoutShell
+
+  App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Shell\SymfonyAccessResolver
+
+  App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface:
+    alias: App\Interfacing\Service\Interfacing\Runtime\ScreenRegistry
+  App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface:
+    alias: App\Interfacing\Service\Interfacing\Registry\ScreenRegistry
+  App\Interfacing\ServiceInterface\Interfacing\Action\ActionRegistryInterface:
+    alias: App\Interfacing\Service\Interfacing\Action\ActionRegistry
+  App\Interfacing\ServiceInterface\Interfacing\Action\ActionDispatcherInterface:
+    alias: App\Interfacing\Service\Interfacing\Action\ActionDispatcher
+
+  App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface:
+    alias: App\Interfacing\Service\Interfacing\Runtime\Context\ScreenContextAssembler
+  App\Interfacing\ServiceInterface\Interfacing\Context\ScreenContextAssemblerInterface:
+    alias: App\Interfacing\Service\Interfacing\Context\ScreenContextAssembler
+
+  App\Interfacing\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider
+  App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface:
+    alias: App\Interfacing\Service\Interfacing\Runtime\InterfacingRuntime
+
+  App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface:
+    alias: App\Interfacing\Service\Interfacing\ScreenCatalog
+  App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface:
+    alias: App\Interfacing\Service\Interfacing\Registry\ScreenCatalog
+  App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface:
+    alias: App\Interfacing\Service\Interfacing\Registry\ActionCatalog
+  App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface:
+    alias: App\Interfacing\Service\Interfacing\ActionCatalog
+
+  App\Interfacing\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface:
+    alias: App\Interfacing\Support\Telemetry\InterfacingTelemetry
+
+  App\Interfacing\ServiceInterface\Interfacing\ShellNavProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\ShellNavProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider
+  App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Security\SymfonyAccessResolver
+
+  App\Interfacing\ServiceInterface\Interfacing\Security\PermissionNamerInterface:
+    alias: App\Interfacing\Service\Interfacing\Security\InterfacingPermissionNamer
+
+  App\Interfacing\ServiceInterface\Interfacing\Tenant\TenantResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Tenant\DefaultTenantResolver
+
+  App\Interfacing\ServiceInterface\Support\Audit\AuditSinkInterface:
+    alias: App\Interfacing\Service\Interfacing\Audit\MonologAuditSink
+
+  # RVE-A2: enforce thin controllers by delegating orchestration to a view builder (service layer).
+  App\Interfacing\Service\Interfacing\View\ScreenViewBuilder: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface:
+    alias: App\Interfacing\Service\Interfacing\View\ScreenViewBuilder
+
+  App\Interfacing\Service\Interfacing\View\UiErrorMapper: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\View\UiErrorMapperInterface:
+    alias: App\Interfacing\Service\Interfacing\View\UiErrorMapper
+
+  App\Interfacing\Service\Interfacing\Metric\InMemoryUiMetric: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface:
+    alias: App\Interfacing\Service\Interfacing\Metric\InMemoryUiMetric
+
+  App\Interfacing\Service\Interfacing\Presentation\TwigInterfacingRenderer: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceExplorerProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Crud\CrudResourceExplorerProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface:
+    alias: App\Interfacing\Service\Interfacing\Presentation\TwigInterfacingRenderer
+
+  App\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportNormalizerInterface:
+    alias: App\Interfacing\Service\Interfacing\Doctor\DoctorReportNormalizer
+
+  App\Interfacing\ServiceInterface\Interfacing\Doctor\DoctorReportBuilderInterface:
+    alias: App\Interfacing\Service\Interfacing\Doctor\DoctorReportBuilder
+
+  App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface:
+    alias: App\Interfacing\Service\Interfacing\Doctor\InterfacingDoctorService
+
+  App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorInterface:
+    alias: App\Interfacing\Service\Interfacing\Doctor\InterfacingDoctor

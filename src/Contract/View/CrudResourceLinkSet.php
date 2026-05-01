@@ -17,6 +17,8 @@ final readonly class CrudResourceLinkSet implements CrudResourceLinkSetInterface
         private string $editPattern,
         private string $deletePattern,
         private ?string $note = null,
+        private string $status = 'planned',
+        private string $sampleIdentifier = 'sample',
     ) {
     }
 
@@ -68,5 +70,35 @@ final readonly class CrudResourceLinkSet implements CrudResourceLinkSetInterface
     public function note(): ?string
     {
         return $this->note;
+    }
+
+    public function status(): string
+    {
+        return $this->status;
+    }
+
+    public function sampleIdentifier(): string
+    {
+        return $this->sampleIdentifier;
+    }
+
+    public function showSampleUrl(): string
+    {
+        return $this->materialize($this->showPattern);
+    }
+
+    public function editSampleUrl(): string
+    {
+        return $this->materialize($this->editPattern);
+    }
+
+    public function deleteSampleUrl(): string
+    {
+        return $this->materialize($this->deletePattern);
+    }
+
+    private function materialize(string $pattern): string
+    {
+        return str_replace(['{id}', '{id|slug}'], $this->sampleIdentifier, $pattern);
     }
 }

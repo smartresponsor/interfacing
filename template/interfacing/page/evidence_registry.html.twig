@@ -1,0 +1,92 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'Evidence registry',
+    title: 'Component evidence for live CRUD promotion',
+    summary: 'Shows which route, data, operation, policy and audit evidence must come from owning components before Interfacing can treat CRUD screens as connected runtime surfaces.',
+    actions: [
+      { label: 'Promotion Gates', url: path('interfacing_promotion_gates') },
+      { label: 'Contract Registry', url: path('interfacing_contract_registry') },
+      { label: 'Runtime Bridges', url: path('interfacing_runtime_bridges') },
+      { label: 'Component Obligations', url: path('interfacing_component_obligations') },
+      { label: 'CRUD Readiness', url: path('interfacing_crud_readiness') }
+    ]
+  } only %}
+
+  <section style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:0 0 18px;">
+    {% for key,label in {'total':'Evidence rows','missing':'Missing','partial':'Partial','complete':'Complete'} %}
+      <article style="border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#fff;">
+        <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.04em;">{{ label }}</div>
+        <div style="font-size:28px; font-weight:900; color:#0f172a; margin-top:4px;">{{ evidenceGradeCounts[key]|default(0) }}</div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section style="display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:18px; align-items:start;">
+    <div style="display:grid; gap:18px;">
+      {% for zone,items in evidenceGroups %}
+        <article id="{{ zone|lower|replace({' ':'-', '&':'and', '/':'-'}) }}" style="border:1px solid #dbe3ef; border-radius:18px; background:#fff; overflow:hidden;">
+          <header style="display:flex; justify-content:space-between; gap:12px; align-items:center; padding:14px 16px; background:#f8fafc; border-bottom:1px solid #e2e8f0;">
+            <div>
+              <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.05em;">Evidence zone</div>
+              <h2 style="margin:3px 0 0; font-size:18px;">{{ zone }}</h2>
+            </div>
+            <span style="font-size:12px; font-weight:800; color:#475569;">{{ items|length }} components</span>
+          </header>
+
+          <div style="display:grid; gap:12px; padding:14px;">
+            {% for item in items %}
+              <section style="border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#fff;">
+                <header style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:12px;">
+                  <div>
+                    <h3 style="margin:0; font-size:17px; color:#0f172a;">{{ item.component }}</h3>
+                    <div style="font-size:12px; color:#64748b; margin-top:3px;">{{ item.status }} · {{ item.evidenceGrade }} · score {{ item.score }}</div>
+                    <p style="margin:8px 0 0; color:#475569; font-size:13px; line-height:1.5;">{{ item.note }}</p>
+                  </div>
+                  <a href="{{ item.primaryUrl }}" style="text-decoration:none; border:1px solid #0f172a; border-radius:10px; padding:7px 10px; font-size:12px; font-weight:900; color:#fff; background:#0f172a; white-space:nowrap;">Primary CRUD</a>
+                </header>
+
+                <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px;">
+                  <div style="border:1px solid #eef2f7; border-radius:12px; padding:10px; background:#f8fafc;">
+                    <strong style="font-size:12px; color:#334155; text-transform:uppercase; letter-spacing:.04em;">Route + data</strong>
+                    <ul style="margin:8px 0 0; padding-left:18px; color:#475569; font-size:12px; line-height:1.45;">
+                      {% for evidence in item.routeEvidence %}<li>{{ evidence }}</li>{% endfor %}
+                      {% for evidence in item.dataEvidence %}<li>{{ evidence }}</li>{% endfor %}
+                    </ul>
+                  </div>
+                  <div style="border:1px solid #eef2f7; border-radius:12px; padding:10px; background:#fff;">
+                    <strong style="font-size:12px; color:#334155; text-transform:uppercase; letter-spacing:.04em;">Operation + policy</strong>
+                    <ul style="margin:8px 0 0; padding-left:18px; color:#475569; font-size:12px; line-height:1.45;">
+                      {% for evidence in item.operationEvidence %}<li>{{ evidence }}</li>{% endfor %}
+                      {% for evidence in item.policyEvidence %}<li>{{ evidence }}</li>{% endfor %}
+                    </ul>
+                  </div>
+                  <div style="border:1px solid #eef2f7; border-radius:12px; padding:10px; background:#fff;">
+                    <strong style="font-size:12px; color:#334155; text-transform:uppercase; letter-spacing:.04em;">Audit + missing</strong>
+                    <ul style="margin:8px 0 0; padding-left:18px; color:#475569; font-size:12px; line-height:1.45;">
+                      {% for evidence in item.auditEvidence %}<li>{{ evidence }}</li>{% endfor %}
+                      {% for missing in item.missingEvidence %}<li>{{ missing }}</li>{% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <aside style="display:grid; gap:12px; position:sticky; top:18px;">
+      <article style="border:1px solid #e2e8f0; border-radius:16px; background:#fff; padding:14px;">
+        <h3 style="margin:0 0 8px; font-size:15px;">Evidence grade</h3>
+        <div style="display:grid; gap:8px; font-size:13px; color:#475569;">
+          <div><strong>missing</strong> — planned component; no Interfacing business rows may be invented.</div>
+          <div><strong>partial</strong> — canonical resource exists, but runtime proof is incomplete.</div>
+          <div><strong>complete</strong> — connected runtime surface has current route/data/operation/policy/audit proof.</div>
+        </div>
+      </article>
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
+    </aside>
+  </section>
+{% endblock %}

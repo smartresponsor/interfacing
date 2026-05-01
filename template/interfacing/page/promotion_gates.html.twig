@@ -1,0 +1,96 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'Promotion gates',
+    title: 'Component status promotion discipline',
+    summary: 'Shows what must be proven before a planned component becomes canonical, or a canonical component becomes connected. Interfacing shows gates only; owning components provide runtime proof and data.',
+    actions: [
+      { label: 'Evidence Registry', url: path('interfacing_evidence_registry') },
+      { label: 'Contract Registry', url: path('interfacing_contract_registry') },
+      { label: 'Runtime Bridges', url: path('interfacing_runtime_bridges') },
+      { label: 'Component Obligations', url: path('interfacing_component_obligations') },
+      { label: 'CRUD Readiness', url: path('interfacing_crud_readiness') },
+      { label: 'Launchpad', url: path('interfacing_admin_launchpad') }
+    ]
+  } only %}
+
+  <section style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:0 0 18px;">
+    {% for key,label in {'total':'Components','blocked':'Blocked','promote_candidate':'Promotion candidates','connected':'Connected'} %}
+      <article style="border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#fff;">
+        <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.04em;">{{ label }}</div>
+        <div style="font-size:28px; font-weight:900; color:#0f172a; margin-top:4px;">{{ promotionGateCounts[key]|default(0) }}</div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section style="display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:18px; align-items:start;">
+    <div style="display:grid; gap:18px;">
+      {% for zone,items in promotionGateGroups %}
+        <article id="{{ zone|lower|replace({' ':'-', '&':'and', '/':'-'}) }}" style="border:1px solid #dbe3ef; border-radius:18px; background:#fff; overflow:hidden;">
+          <header style="display:flex; justify-content:space-between; gap:12px; align-items:center; padding:14px 16px; background:#f8fafc; border-bottom:1px solid #e2e8f0;">
+            <div>
+              <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.05em;">Promotion zone</div>
+              <h2 style="margin:3px 0 0; font-size:18px;">{{ zone }}</h2>
+            </div>
+            <span style="font-size:12px; font-weight:800; color:#475569;">{{ items|length }} components</span>
+          </header>
+
+          <div style="display:grid; gap:12px; padding:14px;">
+            {% for item in items %}
+              <section style="border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#fff;">
+                <header style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:12px;">
+                  <div>
+                    <h3 style="margin:0; font-size:17px; color:#0f172a;">{{ item.component }}</h3>
+                    <div style="font-size:12px; color:#64748b; margin-top:3px;">
+                      {{ item.currentStatus }} → {{ item.targetStatus }} · {{ item.gateStatus }} · score {{ item.score }}
+                    </div>
+                    <p style="margin:8px 0 0; color:#475569; font-size:13px; line-height:1.5;">{{ item.note }}</p>
+                  </div>
+                  <a href="{{ item.primaryUrl }}" style="text-decoration:none; border:1px solid #0f172a; border-radius:10px; padding:7px 10px; font-size:12px; font-weight:900; color:#fff; background:#0f172a; white-space:nowrap;">Primary CRUD</a>
+                </header>
+
+                <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px;">
+                  <div style="border:1px solid #eef2f7; border-radius:12px; padding:10px; background:#f8fafc;">
+                    <strong style="font-size:12px; color:#334155; text-transform:uppercase; letter-spacing:.04em;">Required evidence</strong>
+                    <ul style="margin:8px 0 0; padding-left:18px; color:#475569; font-size:12px; line-height:1.45;">
+                      {% for evidence in item.requiredEvidence %}<li>{{ evidence }}</li>{% endfor %}
+                    </ul>
+                  </div>
+                  <div style="border:1px solid #eef2f7; border-radius:12px; padding:10px; background:#fff;">
+                    <strong style="font-size:12px; color:#334155; text-transform:uppercase; letter-spacing:.04em;">Blocking issues</strong>
+                    <ul style="margin:8px 0 0; padding-left:18px; color:#475569; font-size:12px; line-height:1.45;">
+                      {% for blocker in item.blockingIssues %}<li>{{ blocker }}</li>{% endfor %}
+                    </ul>
+                  </div>
+                  <div style="border:1px solid #eef2f7; border-radius:12px; padding:10px; background:#fff;">
+                    <strong style="font-size:12px; color:#334155; text-transform:uppercase; letter-spacing:.04em;">Next actions</strong>
+                    <ul style="margin:8px 0 0; padding-left:18px; color:#475569; font-size:12px; line-height:1.45;">
+                      {% for action in item.nextActions %}<li>{{ action }}</li>{% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </section>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <aside style="display:grid; gap:12px; position:sticky; top:18px;">
+      <article style="border:1px solid #e2e8f0; border-radius:16px; background:#fff; padding:14px;">
+        <h3 style="margin:0 0 8px; font-size:15px;">Promotion status</h3>
+        <div style="display:grid; gap:8px; font-size:13px; color:#475569;">
+          <div><strong>blocked</strong> — planned resource; no fake Interfacing rows allowed.</div>
+          <div><strong>promote_candidate</strong> — canonical resource needs host route/controller/query/command proof.</div>
+          <div><strong>connected</strong> — runtime bridge is already live; keep smoke proof current.</div>
+        </div>
+      </article>
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
+      <article style="border:1px solid #e2e8f0; border-radius:16px; background:#fff; padding:14px;">
+        <h3 style="margin:0 0 8px; font-size:15px;">Boundary</h3>
+        <p style="margin:0; color:#475569; font-size:13px; line-height:1.5;">Promotion is metadata discipline only. Interfacing does not provide records, fixtures, persistence, validation, policy or audit handlers.</p>
+      </article>
+    </aside>
+  </section>
+{% endblock %}

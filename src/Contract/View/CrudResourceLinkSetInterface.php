@@ -25,4 +25,14 @@ interface CrudResourceLinkSetInterface
     public function deletePattern(): string;
 
     public function note(): ?string;
+
+    public function status(): string;
+
+    public function sampleIdentifier(): string;
+
+    public function showSampleUrl(): string;
+
+    public function editSampleUrl(): string;
+
+    public function deleteSampleUrl(): string;
 }

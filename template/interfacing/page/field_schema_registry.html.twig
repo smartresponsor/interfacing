@@ -1,0 +1,21 @@
+{% extends 'interfacing/base.html.twig' %}
+{% block body %}
+{% include 'interfacing/partial/admin_toolbar.html.twig' with {eyebrow:'Field schema registry',title:'CRUD field schema registry',summary:'Field, identifier, label, validation and relation contracts must come from owning components; Interfacing renders only table/form shells.',actions:[{label:'Contract Registry',url:path('interfacing_contract_registry')},{label:'CRUD Frames',url:path('interfacing_crud_frames')},{label:'Admin Tables',url:path('interfacing_admin_tables')}]} only %}
+<section style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px;">
+{% for key,label in {'total':'Schema rows','missing':'Missing','draft':'Draft','schema_ready':'Schema ready'} %}<article style="border:1px solid #e2e8f0;border-radius:16px;padding:14px;background:#fff;"><div style="font-size:12px;color:#64748b;font-weight:800;text-transform:uppercase;">{{ label }}</div><div style="font-size:28px;font-weight:900;">{{ fieldSchemaGradeCounts[key]|default(0) }}</div></article>{% endfor %}
+</section>
+<section style="display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start;">
+<div style="display:grid;gap:18px;">
+{% for zone,items in fieldSchemaGroups %}
+<article style="border:1px solid #dbe3ef;border-radius:18px;background:#fff;overflow:hidden;"><header style="display:flex;justify-content:space-between;gap:12px;padding:14px 16px;background:#f8fafc;border-bottom:1px solid #e2e8f0;"><div><div style="font-size:12px;color:#64748b;font-weight:800;text-transform:uppercase;">Schema zone</div><h2 style="margin:3px 0 0;font-size:18px;">{{ zone }}</h2></div><span style="font-size:12px;font-weight:800;color:#475569;">{{ items|length }} components</span></header><div style="display:grid;gap:12px;padding:14px;">
+{% for item in items %}<section style="border:1px solid #e2e8f0;border-radius:16px;padding:14px;background:#fff;"><header style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px;"><div><h3 style="margin:0;font-size:17px;color:#0f172a;">{{ item.component }}</h3><div style="font-size:12px;color:#64748b;margin-top:3px;">{{ item.status }} · {{ item.schemaGrade }} · score {{ item.score }}</div><p style="margin:8px 0 0;color:#475569;font-size:13px;line-height:1.5;">{{ item.note }}</p></div><a href="{{ item.primaryUrl }}" style="text-decoration:none;border:1px solid #0f172a;border-radius:10px;padding:7px 10px;font-size:12px;font-weight:900;color:#fff;background:#0f172a;white-space:nowrap;">Primary CRUD</a></header><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;">
+<div style="border:1px solid #eef2f7;border-radius:12px;padding:10px;background:#f8fafc;"><strong>Identifiers + table columns</strong><ul>{% for line in item.identifierContracts %}<li>{{ line }}</li>{% endfor %}{% for line in item.tableColumns %}<li>{{ line }}</li>{% endfor %}</ul></div>
+<div style="border:1px solid #eef2f7;border-radius:12px;padding:10px;background:#f8fafc;"><strong>Forms + validation</strong><ul>{% for line in item.formFields %}<li>{{ line }}</li>{% endfor %}{% for line in item.validationRules %}<li>{{ line }}</li>{% endfor %}</ul></div>
+<div style="border:1px solid #eef2f7;border-radius:12px;padding:10px;background:#f8fafc;"><strong>Relations + questions</strong><ul>{% for line in item.relationshipFields %}<li>{{ line }}</li>{% endfor %}{% for line in item.openQuestions %}<li>{{ line }}</li>{% endfor %}</ul></div>
+</div></section>{% endfor %}
+</div></article>
+{% endfor %}
+</div>
+<aside style="display:grid;gap:12px;">{% include 'interfacing/partial/operation_status_legend.html.twig' only %}{% include 'interfacing/partial/crud_route_grammar.html.twig' only %}<section style="border:1px solid #dbe3ef;border-radius:16px;background:#fff;padding:14px;"><h3 style="margin:0;font-size:15px;">Schema boundary</h3><p style="margin:8px 0 0;color:#475569;font-size:13px;line-height:1.5;">Owning components provide fields, labels, identifiers, validation, relation lookups and persistence handlers. Interfacing does not store demo/business rows.</p></section></aside>
+</section>
+{% endblock %}

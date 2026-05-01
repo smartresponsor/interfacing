@@ -1,0 +1,97 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+{% block body %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'Admin tables',
+    title: 'Table-first CRUD index surface',
+    description: 'A shell-native index/table view for every known Smart Responsor CRUD resource. Interfacing renders table affordances, empty states and route-transparent actions; records and fixtures stay inside the owning components.',
+    actions: [
+      { label: 'Launchpad', url: path('interfacing_admin_launchpad') },
+      { label: 'Operations', url: path('interfacing_operation_workbench') },
+      { label: 'Components', url: path('interfacing_component_roadmap') },
+      { label: 'Surface Audit', url: path('interfacing_surface_audit') }
+    ]
+  } only %}
+
+  {% set counts = adminTableStatusCounts|default({}) %}
+  <section style="margin-top:14px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;">
+    {% for label, value in {
+      'Table resources': counts.total|default(0),
+      'Connected': counts.connected|default(0),
+      'Canonical': counts.canonical|default(0),
+      'Planned': counts.planned|default(0)
+    } %}
+      <div style="background:#fff; border:1px solid #dbe1ea; border-radius:14px; padding:11px 12px;">
+        <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800; letter-spacing:.04em;">{{ label }}</div>
+        <div style="margin-top:6px; font-size:28px; font-weight:900; letter-spacing:-.03em;">{{ value }}</div>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section style="margin-top:14px; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(330px,.65fr); gap:14px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      {% for zone, rows in adminTableGroups|default({}) %}
+        <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; overflow:hidden;">
+          <div style="padding:14px 16px; border-bottom:1px solid #e2e8f0; display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+            <div>
+              <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:900; letter-spacing:.05em;">{{ zone }}</div>
+              <h2 style="margin:4px 0 0; font-size:21px; letter-spacing:-.02em;">{{ rows|length }} table surface{% if rows|length != 1 %}s{% endif %}</h2>
+            </div>
+            <a href="{{ path('interfacing_operation_workbench') }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:10px; padding:7px 10px; font-size:12px; font-weight:800; color:#0f172a; background:#fff;">Cards</a>
+          </div>
+
+          <div style="overflow:auto;">
+            <table style="width:100%; border-collapse:separate; border-spacing:0; font-size:12px; min-width:880px;">
+              <thead>
+                <tr style="background:#f8fafc; color:#475569; text-align:left;">
+                  <th style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">Component</th>
+                  <th style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">Resource</th>
+                  <th style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">Status</th>
+                  <th style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">Index route</th>
+                  <th style="padding:10px 12px; border-bottom:1px solid #e2e8f0;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in rows %}
+                  <tr>
+                    <td style="padding:10px 12px; border-bottom:1px solid #edf2f7; font-weight:800; color:#0f172a;">{{ row.component }}</td>
+                    <td style="padding:10px 12px; border-bottom:1px solid #edf2f7;">
+                      <div style="font-weight:900; color:#0f172a;">{{ row.resourceLabel }}</div>
+                      <div style="margin-top:3px; color:#94a3b8; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">id: {{ row.identifierPreview }}</div>
+                    </td>
+                    <td style="padding:10px 12px; border-bottom:1px solid #edf2f7;"><span style="font-size:10px; border:1px solid #e2e8f0; border-radius:999px; padding:3px 7px; color:{{ row.status == 'connected' ? '#047857' : (row.status == 'canonical' ? '#2563eb' : '#92400e') }}; background:#fff; white-space:nowrap;">{{ row.status }}</span></td>
+                    <td style="padding:10px 12px; border-bottom:1px solid #edf2f7; max-width:270px;"><a href="{{ row.indexUrl }}" style="color:#2563eb; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block;">{{ row.indexUrl }}</a></td>
+                    <td style="padding:10px 12px; border-bottom:1px solid #edf2f7;">
+                      <div style="display:flex; gap:5px; flex-wrap:wrap;">
+                        <a href="{{ row.indexUrl }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:8px; padding:5px 7px; color:#0f172a; background:#fff; font-weight:800;">Index</a>
+                        <a href="{{ row.newUrl }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:8px; padding:5px 7px; color:#0f172a; background:#fff; font-weight:800;">New</a>
+                        <a href="{{ row.showUrl }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:8px; padding:5px 7px; color:#0f172a; background:#fff; font-weight:800;">Show</a>
+                        <a href="{{ row.editUrl }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:8px; padding:5px 7px; color:#0f172a; background:#fff; font-weight:800;">Edit</a>
+                        <a href="{{ row.deleteUrl }}" style="text-decoration:none; border:1px solid #fecaca; border-radius:8px; padding:5px 7px; color:#991b1b; background:#fff; font-weight:800;">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="5" style="padding:9px 12px 12px; border-bottom:1px solid #e2e8f0; background:#fbfdff; color:#475569;">
+                      <strong>{{ row.emptyStateTitle }}</strong><br>
+                      <span style="font-size:12px;">{{ row.emptyStateText }}</span>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <aside style="display:flex; flex-direction:column; gap:12px;">
+      {% include 'interfacing/partial/operation_status_legend.html.twig' only %}
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:900; letter-spacing:.05em;">Table boundary</div>
+        <div style="margin-top:8px; color:#475569; font-size:12px; line-height:1.45;">This page intentionally renders index/table chrome only. It must not seed records, infer business rows or mirror component fixtures into Interfacing.</div>
+      </section>
+    </aside>
+  </section>
+{% endblock %}

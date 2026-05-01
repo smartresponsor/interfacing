@@ -1,0 +1,68 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set status = surfaceStatusCounts|default({}) %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'Surface audit',
+    heading: 'Interfacing transparency and boundary report',
+    text: 'A shell-native report that explains which interface surfaces are canonical, which ones are compatibility routes, and where business data must come from. This page is intentionally metadata-only: no fake rows and no component-owned fixtures inside Interfacing.',
+    status: {
+      'checks': status.total|default(0),
+      'solid': status.solid|default(0),
+      'watch': status.watch|default(0),
+      'drift': status.drift|default(0)
+    },
+    actions: [
+      {title: 'Workspace', url: path('interfacing_index')},
+      {title: 'Screens', url: path('interfacing_screen_directory')},
+      {title: 'Operations', url: path('interfacing_operation_workbench'), primary: true}
+    ]
+  } only %}
+
+  <section style="display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:14px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      {% for area, items in surfaceGroups|default({}) %}
+        <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:center; margin-bottom:10px;">
+            <div>
+              <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ area }}</div>
+              <div style="margin-top:3px; font-size:12px; color:#64748b;">{{ items|length }} transparency checks</div>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;">
+            {% for item in items %}
+              <div id="{{ item.id|lower|replace({'.':'-', ' ':'-'}) }}" style="border:1px solid #e2e8f0; border-radius:14px; padding:12px; background:#fbfdff; min-width:0;">
+                <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+                  <div style="min-width:0;">
+                    <div style="font-size:10px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.04em;">{{ item.area }}</div>
+                    <div style="margin-top:4px; font-size:16px; font-weight:800; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ item.label }}</div>
+                  </div>
+                  <span style="font-size:10px; color:{{ item.status == 'solid' ? '#047857' : (item.status == 'watch' ? '#92400e' : '#b91c1c') }}; border:1px solid #e2e8f0; border-radius:999px; padding:2px 6px; white-space:nowrap;">{{ item.status }}</span>
+                </div>
+                <a href="{{ item.url }}" style="display:block; margin-top:8px; color:#2563eb; text-decoration:none; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:11px;">{{ item.url }}</a>
+                <div style="margin-top:9px; color:#475569; font-size:12px; line-height:1.45;">{{ item.note }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <aside style="display:flex; flex-direction:column; gap:12px;">
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Boundary rule</div>
+        <div style="margin-top:8px; color:#475569; font-size:12px; line-height:1.45;">Interfacing owns shell, navigation, route grammar, rendering contracts and operation affordances. Cataloging, Ordering, Billing, Messaging, Taxating and other components own fixtures, records, identifiers and business rows.</div>
+      </section>
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Status contract</div>
+        <div style="margin-top:8px; display:flex; flex-direction:column; gap:7px; color:#475569; font-size:12px; line-height:1.45;">
+          <div><strong style="color:#047857;">solid</strong> — canonical surface or deliberate bridge.</div>
+          <div><strong style="color:#92400e;">watch</strong> — accepted transitional surface that should stay visible until replaced.</div>
+          <div><strong style="color:#b91c1c;">drift</strong> — known wrong shape; should be removed or corrected.</div>
+        </div>
+      </section>
+    </aside>
+  </section>
+{% endblock %}

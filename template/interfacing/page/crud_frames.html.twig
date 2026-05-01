@@ -1,0 +1,78 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'CRUD frames',
+    title: 'Form and delete operation frames',
+    summary: 'Shell-native New/Edit/Delete surfaces for every known Smart Responsor e-commerce CRUD resource. Interfacing renders the operation frame only; records, fixtures, validation and persistence stay inside the owning component.',
+    actions: [
+      { label: 'Admin Tables', url: path('interfacing_admin_tables') },
+      { label: 'Launchpad', url: path('interfacing_admin_launchpad') },
+      { label: 'CRUD Explorer', url: path('interfacing_crud_explorer') },
+      { label: 'Components', url: path('interfacing_component_roadmap') }
+    ]
+  } only %}
+
+  <section style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:0 0 18px;">
+    {% for key,label in {'total':'Total frames','connected':'Connected','canonical':'Canonical','planned':'Planned'} %}
+      <article style="border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#fff;">
+        <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.04em;">{{ label }}</div>
+        <div style="font-size:28px; font-weight:900; color:#0f172a; margin-top:4px;">{{ crudFrameStatusCounts[key]|default(0) }}</div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <div style="display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:18px; align-items:start;">
+    <section style="display:grid; gap:18px;">
+      {% for zone,frames in crudFrameGroups %}
+        <article id="{{ zone|lower|replace({' ':'-', '&':'and', '/':'-'}) }}" style="border:1px solid #dbe3ef; border-radius:18px; background:#fff; overflow:hidden;">
+          <header style="display:flex; justify-content:space-between; gap:12px; align-items:center; padding:14px 16px; background:#f8fafc; border-bottom:1px solid #e2e8f0;">
+            <div>
+              <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.05em;">E-commerce zone</div>
+              <h2 style="margin:3px 0 0; font-size:18px;">{{ zone }}</h2>
+            </div>
+            <span style="font-size:12px; font-weight:800; color:#475569;">{{ frames|length }} operation frames</span>
+          </header>
+
+          <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:14px;">
+            {% for frame in frames %}
+              <article style="border:1px solid #e2e8f0; border-radius:14px; padding:12px; background:#fcfdff; display:grid; gap:10px;">
+                <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+                  <div>
+                    <div style="font-size:11px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.04em;">{{ frame.component }} · {{ frame.mode|upper }}</div>
+                    <h3 style="font-size:15px; line-height:1.25; margin:3px 0 0;">{{ frame.title }}</h3>
+                  </div>
+                  <span style="font-size:11px; border:1px solid #cbd5e1; border-radius:999px; padding:3px 7px; font-weight:800; color:#334155; background:#fff; white-space:nowrap;">{{ frame.status }}</span>
+                </div>
+
+                <div style="font-size:12px; color:#475569; line-height:1.45;">
+                  <strong style="color:#0f172a;">{{ frame.contractTitle }}</strong><br>
+                  {{ frame.contractText }}
+                </div>
+
+                <div style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; color:#334155; background:#f1f5f9; border-radius:10px; padding:8px; overflow:auto;">
+                  {{ frame.routePattern }}<br>
+                  id={{ frame.identifierPreview }}
+                </div>
+
+                <div style="display:flex; gap:7px; flex-wrap:wrap; margin-top:2px;">
+                  <a href="{{ frame.primaryUrl }}" style="text-decoration:none; border:1px solid #0f172a; border-radius:9px; padding:6px 9px; font-size:12px; font-weight:800; color:#fff; background:#0f172a;">Open {{ frame.mode }}</a>
+                  <a href="{{ frame.secondaryUrl }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:9px; padding:6px 9px; font-size:12px; font-weight:800; color:#0f172a; background:#fff;">Related</a>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </section>
+
+    <aside style="display:grid; gap:12px; position:sticky; top:18px;">
+      {% include 'interfacing/partial/operation_status_legend.html.twig' only %}
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' %}
+      <article style="border:1px solid #e2e8f0; border-radius:16px; background:#fff; padding:14px;">
+        <h3 style="margin:0 0 8px; font-size:15px;">Data boundary</h3>
+        <p style="margin:0; color:#475569; font-size:13px; line-height:1.5;">No form values, fake records or deletion targets are owned by Interfacing. This page exposes only the operation frame and canonical route affordances. Component fixtures/providers must supply real records.</p>
+      </article>
+    </aside>
+  </div>
+{% endblock %}

@@ -17,8 +17,9 @@ final readonly class CrudResourceExplorerProvider implements CrudResourceExplore
 
     public function provide(): array
     {
-        $list = [];
-        $seen = [];
+        /** @var array<string, CrudResourceLinkSetInterface> $byId */
+        $byId = [];
+
         foreach ($this->contributions as $contribution) {
             if (!$contribution instanceof CrudResourceContributionInterface) {
                 continue;
@@ -29,15 +30,37 @@ final readonly class CrudResourceExplorerProvider implements CrudResourceExplore
                     continue;
                 }
 
-                if (isset($seen[$resource->id()])) {
-                    continue;
+                $current = $byId[$resource->id()] ?? null;
+                if (null === $current || $this->priority($resource) > $this->priority($current)) {
+                    $byId[$resource->id()] = $resource;
                 }
-
-                $seen[$resource->id()] = true;
-                $list[] = $resource;
             }
         }
 
+        $list = array_values($byId);
+        usort(
+            $list,
+            static fn (CrudResourceLinkSetInterface $left, CrudResourceLinkSetInterface $right): int => [
+                $left->component(),
+                $left->label(),
+                $left->id(),
+            ] <=> [
+                $right->component(),
+                $right->label(),
+                $right->id(),
+            ],
+        );
+
         return $list;
+    }
+
+    private function priority(CrudResourceLinkSetInterface $resource): int
+    {
+        return match ($resource->status()) {
+            'connected' => 300,
+            'canonical' => 200,
+            'planned' => 100,
+            default => 0,
+        };
     }
 }

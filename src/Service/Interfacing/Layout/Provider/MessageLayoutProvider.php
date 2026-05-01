@@ -19,125 +19,65 @@ final class MessageLayoutProvider implements LayoutProviderInterface
     public function provide(): array
     {
         return [
-            new LayoutScreenSpec(
-                [
-                    new LayoutBlockSpec('collection', 'digest', [
-                        'title' => 'Messaging digest',
-                        'subtitle' => 'A compact digest surfaced for the Interfacing shell.',
-                        'items' => [
-                            [
-                                'title' => 'Unread digest',
-                                'subtitle' => 'Latest unread thread summary ready for review.',
-                                'meta' => ['kind' => 'digest', 'priority' => 'high'],
-                            ],
-                            [
-                                'title' => 'Pending notifications',
-                                'subtitle' => 'Notifications queued for presentation.',
-                                'meta' => ['kind' => 'digest', 'priority' => 'medium'],
-                            ],
-                            [
-                                'title' => 'Room highlights',
-                                'subtitle' => 'Recent activity across active rooms.',
-                                'meta' => ['kind' => 'digest', 'priority' => 'low'],
-                            ],
-                        ],
-                    ]),
-                ],
+            $this->collectionScreen(
                 id: 'message.digest',
                 title: 'Digest',
-                navGroup: 'message',
-                screenId: ScreenId::fromString('message.digest'),
+                blockId: 'digest',
+                blockTitle: 'Messaging digest',
                 routePath: 'message/digest',
                 navOrder: 5,
             ),
-            new LayoutScreenSpec(
-                [
-                    new LayoutBlockSpec('collection', 'notifications', [
-                        'title' => 'Notification inbox',
-                        'subtitle' => 'Recent messaging notifications surfaced for Interfacing.',
-                        'items' => [
-                            [
-                                'title' => 'Thread reply received',
-                                'subtitle' => 'A new reply landed in the active thread.',
-                                'meta' => ['kind' => 'reply', 'priority' => 'high'],
-                            ],
-                            [
-                                'title' => 'Room invite pending',
-                                'subtitle' => 'A collaborator invite is waiting for review.',
-                                'meta' => ['kind' => 'invite', 'priority' => 'medium'],
-                            ],
-                            [
-                                'title' => 'Digest ready',
-                                'subtitle' => 'The latest digest is ready for presentation.',
-                                'meta' => ['kind' => 'digest', 'priority' => 'low'],
-                            ],
-                        ],
-                    ]),
-                ],
+            $this->collectionScreen(
                 id: 'message.notifications.inbox',
                 title: 'Notification inbox',
-                navGroup: 'message',
-                screenId: ScreenId::fromString('message.notifications.inbox'),
+                blockId: 'notifications',
+                blockTitle: 'Notification inbox',
                 routePath: 'interfacing/screen/message/notifications-inbox',
                 navOrder: 10,
             ),
-            new LayoutScreenSpec(
-                [
-                    new LayoutBlockSpec('collection', 'search-results', [
-                        'title' => 'Search results',
-                        'subtitle' => 'Messaging search output prepared for review.',
-                        'items' => [
-                            [
-                                'title' => 'Result: policy update',
-                                'subtitle' => 'Matches the query in thread metadata.',
-                                'meta' => ['room' => 'general', 'score' => '0.93'],
-                            ],
-                            [
-                                'title' => 'Result: moderation note',
-                                'subtitle' => 'Relevant in-room moderation result.',
-                                'meta' => ['room' => 'ops', 'score' => '0.87'],
-                            ],
-                        ],
-                    ]),
-                ],
+            $this->collectionScreen(
                 id: 'message.search.results',
                 title: 'Search results',
-                navGroup: 'message',
-                screenId: ScreenId::fromString('message.search.results'),
+                blockId: 'search-results',
+                blockTitle: 'Search results',
                 routePath: 'interfacing/screen/message/search-results',
                 navOrder: 20,
             ),
-            new LayoutScreenSpec(
-                [
-                    new LayoutBlockSpec('collection', 'rooms', [
-                        'title' => 'Room collection',
-                        'subtitle' => 'Messaging room list prepared for the interface.',
-                        'items' => [
-                            [
-                                'title' => 'General',
-                                'subtitle' => 'Shared project conversation.',
-                                'meta' => ['slug' => 'general', 'visibility' => 'public'],
-                            ],
-                            [
-                                'title' => 'Moderation',
-                                'subtitle' => 'Operations and moderation workflow.',
-                                'meta' => ['slug' => 'moderation', 'visibility' => 'private'],
-                            ],
-                            [
-                                'title' => 'Launch team',
-                                'subtitle' => 'Cross-functional launch coordination.',
-                                'meta' => ['slug' => 'launch-team', 'visibility' => 'private'],
-                            ],
-                        ],
-                    ]),
-                ],
+            $this->collectionScreen(
                 id: 'message.rooms.collection',
                 title: 'Rooms collection',
-                navGroup: 'message',
-                screenId: ScreenId::fromString('message.rooms.collection'),
+                blockId: 'rooms',
+                blockTitle: 'Room collection',
                 routePath: 'interfacing/screen/message/rooms-collection',
                 navOrder: 30,
             ),
         ];
+    }
+
+    private function collectionScreen(
+        string $id,
+        string $title,
+        string $blockId,
+        string $blockTitle,
+        string $routePath,
+        int $navOrder,
+    ): LayoutScreenSpec {
+        return new LayoutScreenSpec(
+            [
+                new LayoutBlockSpec('collection', $blockId, [
+                    'title' => $blockTitle,
+                    'subtitle' => 'Screen contract only; business fixtures and live rows must come from Messaging.',
+                    'items' => [],
+                    'emptyTitle' => 'Component data not connected',
+                    'emptyText' => 'Interfacing owns chrome and rendering discipline only. Messaging must provide fixtures or live data for this collection.',
+                ]),
+            ],
+            id: $id,
+            title: $title,
+            navGroup: 'message',
+            screenId: ScreenId::fromString($id),
+            routePath: $routePath,
+            navOrder: $navOrder,
+        );
     }
 }

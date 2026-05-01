@@ -1,0 +1,75 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+{% block body %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'Component roadmap',
+    title: 'Smart Responsor e-commerce component surface',
+    description: 'A complete visibility map for known components, required screens and CRUD resources. Business data remains owned by each component; Interfacing renders shell, navigation and operation affordances only.',
+    actions: [
+      { label: 'Workspace', url: path('interfacing_index') },
+      { label: 'Screen Directory', url: path('interfacing_screen_directory') },
+      { label: 'Operation Workbench', url: path('interfacing_operation_workbench') },
+      { label: 'Surface Audit', url: path('interfacing_surface_audit') }
+    ]
+  } only %}
+
+  {% set counts = componentRoadmapStatusCounts|default({}) %}
+  <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;">
+      {% for label, value in {'Total': counts.total|default(0), 'Connected': counts.connected|default(0), 'Canonical': counts.canonical|default(0), 'Planned': counts.planned|default(0)} %}
+        <div style="border:1px solid #e2e8f0; border-radius:13px; padding:11px 12px;">
+          <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700; letter-spacing:.04em;">{{ label }}</div>
+          <div style="margin-top:5px; font-size:28px; font-weight:800;">{{ value }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+    {% for zone, items in componentRoadmapGroups|default({}) %}
+      <article id="{{ zone|lower|replace({' ':'-', '&':'and'}) }}" style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+          <div>
+            <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:800; letter-spacing:.05em;">{{ zone }}</div>
+            <h2 style="margin:4px 0 0; font-size:22px; letter-spacing:-.02em;">{{ items|length }} component{% if items|length != 1 %}s{% endif %}</h2>
+          </div>
+          <div style="font-size:12px; color:#64748b; max-width:420px; line-height:1.45;">Screens are obligations, not embedded fixtures. A planned link may be visible before the host application connects the component route.</div>
+        </div>
+
+        <div style="margin-top:12px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;">
+          {% for item in items %}
+            <div id="{{ item.id }}" style="border:1px solid #e2e8f0; border-radius:14px; padding:12px; background:#fbfdff;">
+              <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+                <div>
+                  <div style="font-size:16px; font-weight:800;">{{ item.component }}</div>
+                  <div style="margin-top:3px; color:#64748b; font-size:12px; line-height:1.4;">{{ item.ownership }}</div>
+                </div>
+                <span style="font-size:10px; border:1px solid #e2e8f0; border-radius:999px; padding:3px 7px; color:{{ item.status == 'connected' ? '#047857' : (item.status == 'canonical' ? '#2563eb' : '#92400e') }}; background:#fff;">{{ item.status }}</span>
+              </div>
+
+              <div style="margin-top:11px; display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <div>
+                  <div style="font-size:10px; color:#64748b; font-weight:800; text-transform:uppercase;">Required screens</div>
+                  <ul style="margin:7px 0 0; padding-left:16px; color:#334155; font-size:12px; line-height:1.55;">
+                    {% for screen in item.screen %}<li>{{ screen }}</li>{% endfor %}
+                  </ul>
+                </div>
+                <div>
+                  <div style="font-size:10px; color:#64748b; font-weight:800; text-transform:uppercase;">CRUD resources</div>
+                  <ul style="margin:7px 0 0; padding-left:16px; color:#334155; font-size:12px; line-height:1.55;">
+                    {% for resource in item.resource %}<li><code>{{ resource }}</code></li>{% endfor %}
+                  </ul>
+                </div>
+              </div>
+
+              <div style="margin-top:11px; display:flex; justify-content:space-between; gap:10px; align-items:center; border-top:1px solid #e2e8f0; padding-top:10px;">
+                <code style="font-size:11px; color:#64748b; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ item.primaryUrl }}</code>
+                <a href="{{ item.primaryUrl }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:10px; padding:7px 10px; font-size:12px; font-weight:700; color:#0f172a; background:#fff;">Open</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+{% endblock %}

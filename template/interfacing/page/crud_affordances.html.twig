@@ -1,0 +1,79 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% include 'interfacing/partial/admin_toolbar.html.twig' with {
+    eyebrow: 'CRUD affordances',
+    title: 'Filters, search, sorting and bulk-action affordances',
+    summary: 'Shell-native admin controls generated from the canonical CRUD registry. Interfacing exposes controls and route grammar only; components own searchable fields, policies, records, fixtures and handlers.',
+    actions: [
+      { label: 'Admin Tables', url: path('interfacing_admin_tables') },
+      { label: 'CRUD Frames', url: path('interfacing_crud_frames') },
+      { label: 'Launchpad', url: path('interfacing_admin_launchpad') },
+      { label: 'Components', url: path('interfacing_component_roadmap') }
+    ]
+  } only %}
+
+  <section style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:0 0 18px;">
+    {% for key,label in {'total':'Total affordances','connected':'Connected','canonical':'Canonical','planned':'Planned'} %}
+      <article style="border:1px solid #e2e8f0; border-radius:16px; padding:14px; background:#fff;">
+        <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.04em;">{{ label }}</div>
+        <div style="font-size:28px; font-weight:900; color:#0f172a; margin-top:4px;">{{ crudAffordanceStatusCounts[key]|default(0) }}</div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section style="display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:18px; align-items:start;">
+    <div style="display:grid; gap:18px;">
+      {% for zone,affordances in crudAffordanceGroups %}
+        <article id="{{ zone|lower|replace({' ':'-', '&':'and', '/':'-'}) }}" style="border:1px solid #dbe3ef; border-radius:18px; background:#fff; overflow:hidden;">
+          <header style="display:flex; justify-content:space-between; gap:12px; align-items:center; padding:14px 16px; background:#f8fafc; border-bottom:1px solid #e2e8f0;">
+            <div>
+              <div style="font-size:12px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.05em;">E-commerce zone</div>
+              <h2 style="margin:3px 0 0; font-size:18px;">{{ zone }}</h2>
+            </div>
+            <span style="font-size:12px; font-weight:800; color:#475569;">{{ affordances|length }} affordances</span>
+          </header>
+
+          <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:14px;">
+            {% for affordance in affordances %}
+              <article style="border:1px solid #e2e8f0; border-radius:14px; padding:12px; background:#fcfdff; display:grid; gap:10px;">
+                <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+                  <div>
+                    <div style="font-size:11px; color:#64748b; font-weight:800; text-transform:uppercase; letter-spacing:.04em;">{{ affordance.component }} · {{ affordance.type }}</div>
+                    <h3 style="font-size:15px; line-height:1.25; margin:3px 0 0;">{{ affordance.title }}</h3>
+                  </div>
+                  <span style="font-size:11px; border:1px solid #cbd5e1; border-radius:999px; padding:3px 7px; font-weight:800; color:#334155; background:#fff; white-space:nowrap;">{{ affordance.status }}</span>
+                </div>
+
+                <div style="display:inline-flex; width:max-content; font-size:11px; border:1px solid #bfdbfe; border-radius:999px; padding:3px 8px; font-weight:900; color:#1d4ed8; background:#eff6ff;">{{ affordance.badge }}</div>
+
+                <div style="font-size:12px; color:#475569; line-height:1.45;">
+                  <strong style="color:#0f172a;">{{ affordance.contractTitle }}</strong><br>
+                  {{ affordance.contractText }}
+                </div>
+
+                <div style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; font-size:11px; color:#334155; background:#f1f5f9; border-radius:10px; padding:8px; overflow:auto;">
+                  {{ affordance.routePattern }}
+                </div>
+
+                <div style="display:flex; gap:7px; flex-wrap:wrap; margin-top:2px;">
+                  <a href="{{ affordance.primaryUrl }}" style="text-decoration:none; border:1px solid #0f172a; border-radius:9px; padding:6px 9px; font-size:12px; font-weight:800; color:#fff; background:#0f172a;">Open control</a>
+                  <a href="{{ affordance.secondaryUrl }}" style="text-decoration:none; border:1px solid #cbd5e1; border-radius:9px; padding:6px 9px; font-size:12px; font-weight:800; color:#0f172a; background:#fff;">Resource index</a>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+    <aside style="display:grid; gap:12px; position:sticky; top:18px;">
+      {% include 'interfacing/partial/operation_status_legend.html.twig' only %}
+      {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
+      <article style="border:1px solid #e2e8f0; border-radius:16px; background:#fff; padding:14px;">
+        <h3 style="margin:0 0 8px; font-size:15px;">Affordance boundary</h3>
+        <p style="margin:0; color:#475569; font-size:13px; line-height:1.5;">Search fields, filter operators, sort keys, bulk operation handlers and selectable identifiers are owned by each component. Interfacing must not invent rows, seed demo filters or emulate component policy.</p>
+      </article>
+    </aside>
+  </section>
+{% endblock %}

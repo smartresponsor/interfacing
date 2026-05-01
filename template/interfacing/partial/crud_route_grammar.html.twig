@@ -1,0 +1,12 @@
+{# Canonical CRUD route grammar. This is intentionally UI-only and data-free. #}
+<section id="crud-pattern" style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+  <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Canonical CRUD bridge</div>
+  <div style="margin-top:6px; font-size:12px; color:#64748b; line-height:1.45;">All operation links in Interfacing must be generated from this Cruding-compatible grammar. Sample links are navigation probes only; real identifiers belong to the owning component fixtures/runtime.</div>
+  <div style="margin-top:10px; display:flex; flex-direction:column; gap:8px; font-size:12px; color:#334155;">
+    <div><strong>Index</strong> · <span style="font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">/{resourcePath}/</span></div>
+    <div><strong>New</strong> · <span style="font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">/{resourcePath}/new/</span></div>
+    <div><strong>Show</strong> · <span style="font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">/{resourcePath}/{id|slug}</span></div>
+    <div><strong>Edit</strong> · <span style="font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">/{resourcePath}/edit/{id|slug}</span></div>
+    <div><strong>Delete</strong> · <span style="font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">/{resourcePath}/delete/{id|slug}</span></div>
+  </div>
+</section>

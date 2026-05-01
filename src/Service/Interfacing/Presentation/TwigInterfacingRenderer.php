@@ -21,7 +21,7 @@ final readonly class TwigInterfacingRenderer implements InterfacingRendererInter
     {
         $activeId = isset($context['screenId']) && is_string($context['screenId']) ? $context['screenId'] : null;
 
-        if (!array_key_exists('shell', $context)) {
+        if (!array_key_exists('shell', $context) || null === $context['shell']) {
             $context['shell'] = $this->shellChromeProvider->provide($activeId);
         }
 
