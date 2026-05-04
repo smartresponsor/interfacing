@@ -240,3 +240,6 @@ Explicit retired PHP marker files after Markdown replacement:
 - `src/Service/Interfacing/README.php` → replaced by `src/Service/Interfacing/README.md`
 - `src/ServiceInterface/Interfacing/README.php` → replaced by `src/ServiceInterface/Interfacing/README.md`
 
+## Wave19 note
+
+No retirement/delete candidates were introduced. Commerce finance coverage was added through canonical Symfony service/contribution classes and shell navigation edits.

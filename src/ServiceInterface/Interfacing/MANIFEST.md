@@ -112,3 +112,8 @@ Canonical CRUD route grammar provider:
 This contract owns the operation vocabulary for generic CRUD bridge routes. Consumers should not duplicate `app_crud_*` route-name arrays or grammar literals.
 
 - Wave18: `README.php` marker was retired and replaced by `README.md` to avoid PSR-4 class scanning noise.
+
+## Wave19 commerce finance navigation
+
+- Existing CRUD contribution contract remains the boundary for commerce finance resources.
+- No new port/adapter tree was introduced.

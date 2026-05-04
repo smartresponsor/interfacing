@@ -8,14 +8,14 @@ use App\Interfacing\Contract\Action\ActionRequest;
 use App\Interfacing\Contract\Action\ActionResult;
 use App\Interfacing\Contract\ValueObject\ActionId;
 use App\Interfacing\Contract\ValueObject\ScreenId;
-use App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\TelemetryBridgeInterface;
 use App\Interfacing\Support\Telemetry\TelemetryEvent;
 
 final class ActionRunner
 {
     public function __construct(
-        private readonly ActionCatalogInterface $actionCatalog,
+        private readonly ActionEndpointCatalogInterface $actionCatalog,
         private readonly TelemetryBridgeInterface $telemetry,
     ) {
     }

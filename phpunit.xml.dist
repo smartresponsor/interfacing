@@ -38,6 +38,7 @@
             <directory>tests/Interfacing/Doctor</directory>
             <directory>tests/Interfacing/Security</directory>
             <directory>tests/Interfacing/Tenant</directory>
+            <directory>tests/Interfacing/Contract</directory>
         </testsuite>
         <testsuite name="integration">
             <directory>tests/Interfacing/Query</directory>

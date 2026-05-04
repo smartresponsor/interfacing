@@ -149,9 +149,10 @@ services:
       $logger: '@Psr\Log\NullLogger'
 
   App\Interfacing\Service\Interfacing\BaseContextProvider: ~
+  App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\BaseContextProvider
   App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider: ~
   App\Interfacing\Service\Interfacing\Access\SymfonyRoleAccessResolver: ~
-  App\Interfacing\Service\Interfacing\SymfonyAccessResolver: ~
   App\Interfacing\Service\Interfacing\Layout\LayoutCatalog:
     arguments:
       $provider: !tagged_iterator interfacing.layout_provider
@@ -335,8 +336,6 @@ services:
 
   App\Interfacing\ServiceInterface\Interfacing\Access\RoleAccessResolverInterface:
     alias: App\Interfacing\Service\Interfacing\Access\SymfonyRoleAccessResolver
-  App\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface:
-    alias: App\Interfacing\Service\Interfacing\SymfonyAccessResolver
 
   App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\Layout\LayoutCatalog
@@ -368,23 +367,17 @@ services:
 
   App\Interfacing\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface:
     alias: App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider
-  App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface:
-    alias: App\Interfacing\Service\Interfacing\BaseContextProvider
 
   App\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface:
     alias: App\Interfacing\Service\Interfacing\Runtime\InterfacingRuntime
 
   App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\ScreenCatalog
-  App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface:
-    alias: App\Interfacing\Service\Interfacing\ScreenCatalog
   App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\Registry\ScreenCatalog
   App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\Registry\ActionCatalog
   App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface:
-    alias: App\Interfacing\Service\Interfacing\ActionCatalog
-  App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\ActionCatalog
 
   App\Interfacing\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface:

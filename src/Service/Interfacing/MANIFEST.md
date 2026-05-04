@@ -55,3 +55,8 @@ The view builder now consumes `ServiceInterface/Interfacing/Crud/CrudWorkbenchPr
 `Crud/DefaultCrudOperationGrammarProvider.php` is the canonical provider for the generic CRUD bridge operation grammar. `CrudExplorerViewBuilder` and `CrudResourceExplorerProvider` consume it instead of duplicating route-name and pattern arrays.
 
 - Wave18: `README.php` marker was retired and replaced by `README.md` to avoid PSR-4 class scanning noise.
+
+## Wave19 commerce finance navigation
+
+- Added component-named CRUD resource contributions for Currencing, Exchanging, Subscripting and Commissioning.
+- Shell navigation now exposes commerce finance links via generic CRUD bridge URLs.

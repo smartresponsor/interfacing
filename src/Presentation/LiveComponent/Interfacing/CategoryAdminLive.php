@@ -11,7 +11,7 @@ use App\Interfacing\Contract\Ui\UiMessageInterface;
 use App\Interfacing\Contract\ValueObject\ActionId;
 use App\Interfacing\Contract\ValueObject\ScreenId;
 use App\Interfacing\Service\Interfacing\ActionRunner;
-use App\Interfacing\ServiceInterface\Interfacing\BaseContextProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
@@ -19,7 +19,6 @@ use Symfony\UX\LiveComponent\Attribute\LiveProp;
 #[AsLiveComponent('InterfacingCategoryAdmin', template: 'component/InterfacingCategoryAdmin.html.twig')]
 final class CategoryAdminLive
 {
-
     #[LiveProp(writable: true)] public string $q = '';
     #[LiveProp(writable: true)] public ?string $cursor = null;
     #[LiveProp] public ?string $nextCursor = null;
@@ -28,7 +27,6 @@ final class CategoryAdminLive
     #[LiveProp] public array $message = [];
     #[LiveProp] public array $error = [];
     #[LiveProp] public array $form = ['id' => '', 'slug' => '', 'name' => '', 'locale' => 'en', 'status' => 'active'];
-
     public function __construct(private readonly ActionRunner $runner, private readonly BaseContextProviderInterface $contextProvider)
     {
     }

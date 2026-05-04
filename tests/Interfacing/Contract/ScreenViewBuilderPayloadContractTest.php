@@ -18,7 +18,7 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
 {
     public function testBuildReturnsStablePayloadShape(): void
     {
-        $spec = new class() implements LayoutScreenSpecInterface {
+        $spec = new class implements LayoutScreenSpecInterface {
             public function block(): array
             {
                 return [];
@@ -29,9 +29,19 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
                 return 'contract-layout';
             }
 
+            public function slug(): string
+            {
+                return 'contract-layout';
+            }
+
             public function title(): string
             {
                 return 'Contract title';
+            }
+
+            public function description(): string
+            {
+                return 'Contract layout description';
             }
 
             public function navGroup(): string
@@ -59,6 +69,14 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
                 return 10;
             }
 
+            public function context(): array
+            {
+                return [
+                    'tenant' => 'tenant-1',
+                    'mode' => 'contract',
+                ];
+            }
+
             public function capability(): ?string
             {
                 return 'cap.contract.view';
@@ -76,6 +94,16 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
                     return [$this->spec->id() => $this->spec];
                 }
 
+                public function list(): array
+                {
+                    return $this->all();
+                }
+
+                public function has(string $layoutKey): bool
+                {
+                    return $layoutKey === $this->spec->id();
+                }
+
                 public function get(string $layoutKey): LayoutScreenSpecInterface
                 {
                     if ($layoutKey !== $this->spec->id()) {
@@ -89,8 +117,13 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
                 {
                     return $layoutKey === $this->spec->id() ? $this->spec : null;
                 }
+
+                public function findBySlug(string $slug): ?LayoutScreenSpecInterface
+                {
+                    return $this->find($slug);
+                }
             },
-            new class() implements ScreenRegistryInterface {
+            new class implements ScreenRegistryInterface {
                 public function has(ScreenId $id): bool
                 {
                     unset($id);
@@ -105,7 +138,7 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
                     return 'interfacing_contract_screen';
                 }
             },
-            new class() implements ScreenContextAssemblerInterface {
+            new class implements ScreenContextAssemblerInterface {
                 public function contextFor(LayoutScreenSpecInterface $spec): array
                 {
                     unset($spec);
@@ -116,7 +149,7 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
                     ];
                 }
             },
-            new class() implements CapabilityAccessResolverInterface {
+            new class implements CapabilityAccessResolverInterface {
                 public function allow(string $capability, array $context = []): bool
                 {
                     TestCase::assertSame('cap.contract.view', $capability);

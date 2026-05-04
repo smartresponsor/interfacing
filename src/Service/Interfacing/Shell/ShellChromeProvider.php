@@ -113,6 +113,10 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellNavItem('access', 'Access', '/access', 'platform', null, 20),
                 new ShellNavItem('messaging', 'Messaging', $this->screenUrl('message.notifications.inbox'), 'platform', null, 30),
                 new ShellNavItem('billing', 'Billing', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter'), 'platform', null, 40),
+                new ShellNavItem('currencing', 'Currencies', '/currency/', 'platform', null, 42),
+                new ShellNavItem('exchanging', 'Exchange rates', '/exchange-rate/', 'platform', null, 44),
+                new ShellNavItem('subscripting', 'Subscriptions', '/subscription/', 'platform', null, 46),
+                new ShellNavItem('commissioning', 'Commissions', '/commission-plan/', 'platform', null, 48),
                 new ShellNavItem('orders', 'Orders', $this->safeUrl('interfacing_order_summary', '/interfacing/order/summary'), 'platform', null, 50),
                 new ShellNavItem('catalog', 'Catalog', '/category/', 'platform', null, 60),
                 new ShellNavItem('admin.launchpad', 'Launchpad', $this->safeUrl('interfacing_admin_launchpad', '/interfacing/launchpad'), 'platform', null, 68),
@@ -155,6 +159,16 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
             ])],
             'billing' => [new ShellNavGroup('billing', 'Billing', [
                 new ShellNavItem('interfacing.billing.meter', 'Meters', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter'), 'billing', null, 10),
+            ])],
+            'commerce-finance' => [new ShellNavGroup('commerce-finance', 'Commerce finance', [
+                new ShellNavItem('currencing.currency', 'Currencies', '/currency/', 'commerce-finance', null, 10),
+                new ShellNavItem('currencing.money-format', 'Money formats', '/money-format/', 'commerce-finance', null, 20),
+                new ShellNavItem('exchanging.exchange-rate', 'Exchange rates', '/exchange-rate/', 'commerce-finance', null, 30),
+                new ShellNavItem('exchanging.exchange-quote', 'Exchange quotes', '/exchange-quote/', 'commerce-finance', null, 40),
+                new ShellNavItem('subscripting.subscription', 'Subscriptions', '/subscription/', 'commerce-finance', null, 50),
+                new ShellNavItem('subscripting.subscription-plan', 'Plans', '/subscription-plan/', 'commerce-finance', null, 60),
+                new ShellNavItem('commissioning.commission-plan', 'Commission plans', '/commission-plan/', 'commerce-finance', null, 70),
+                new ShellNavItem('commissioning.commission-payout', 'Commission payouts', '/commission-payout/', 'commerce-finance', null, 80),
             ])],
             'workspace', 'screens' => [new ShellNavGroup('workspace', 'Workspace', [
                 new ShellNavItem('workspace.home', 'Overview', $this->safeUrl('interfacing_index', '/interfacing'), 'workspace', null, 10),
@@ -216,6 +230,10 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellFooterLink('Messaging', $this->screenUrl('message.notifications.inbox')),
                 new ShellFooterLink('Orders', $this->safeUrl('interfacing_order_summary', '/interfacing/order/summary')),
                 new ShellFooterLink('Billing', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter')),
+                new ShellFooterLink('Currencies', '/currency/'),
+                new ShellFooterLink('Exchange rates', '/exchange-rate/'),
+                new ShellFooterLink('Subscriptions', '/subscription/'),
+                new ShellFooterLink('Commissions', '/commission-plan/'),
                 new ShellFooterLink('Catalog category', '/category/'),
                 new ShellFooterLink('Admin Launchpad', $this->safeUrl('interfacing_admin_launchpad', '/interfacing/launchpad')),
                 new ShellFooterLink('Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications')),
@@ -238,7 +256,7 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellFooterLink('Shell Guard', $this->safeUrl('interfacing_shell_diagnostics', '/interfacing/shell/diagnostics')),
                 new ShellFooterLink('Shell Map', $this->safeUrl('interfacing_shell_navigation', '/interfacing/shell/navigation')),
                 new ShellFooterLink('Shell Layout Preview', $this->safeUrl('interfacing_shell_layout_preview', '/interfacing/shell/layout-preview')),
-                new ShellFooterLink('Shell Layout JSON', $this->safeUrl('interfacing_shell_layout_preview_json', '/interfacing/shell/layout-preview.json')), 
+                new ShellFooterLink('Shell Layout JSON', $this->safeUrl('interfacing_shell_layout_preview_json', '/interfacing/shell/layout-preview.json')),
             ]),
         ];
     }
@@ -278,6 +296,9 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
         if (str_contains($path, '/billing/') || str_contains($needle, 'billing')) {
             return 'billing';
         }
+        if ($this->isCommerceFinancePath($path, $needle)) {
+            return 'commerce-finance';
+        }
         if (str_contains($path, '/crud/') || str_contains($needle, 'crud')) {
             return 'crud';
         }
@@ -291,11 +312,48 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
         return 'workspace';
     }
 
+    private function isCommerceFinancePath(string $path, string $needle): bool
+    {
+        foreach ([
+            'currency',
+            'currency-metadata',
+            'currency-minor-unit',
+            'money-format',
+            'money-normalization',
+            'exchange-rate',
+            'exchange-pair',
+            'exchange-quote',
+            'conversion-rule',
+            'rate-provider',
+            'subscription',
+            'subscription-plan',
+            'subscription-price',
+            'subscription-entitlement',
+            'subscription-event',
+            'billing-cycle',
+            'commission-plan',
+            'commission-rule',
+            'commission-agreement',
+            'commission-accrual',
+            'commission-payout',
+            'commission-statement',
+            'currencing',
+            'exchanging',
+            'subscripting',
+            'commissioning',
+        ] as $token) {
+            if (str_contains($path, '/'.$token) || str_contains($needle, $token)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private function screenUrl(string $screenId): string
     {
         return $this->safeUrl('interfacing_screen', '/interfacing/'.$screenId, ['id' => $screenId]);
     }
-
 
     /**
      * @return list<ShellNavGroup>

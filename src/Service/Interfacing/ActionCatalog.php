@@ -7,11 +7,10 @@ declare(strict_types=1);
 namespace App\Interfacing\Service\Interfacing;
 
 use App\Interfacing\Contract\ValueObject\ActionId;
-use App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
-use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointInterface;
 
-final class ActionCatalog implements ActionEndpointCatalogInterface, ActionCatalogInterface
+final class ActionCatalog implements ActionEndpointCatalogInterface
 {
     /** @var list<ActionEndpointInterface> */
     private array $endpoint;

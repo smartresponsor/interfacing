@@ -1,0 +1,12 @@
+src/Service/Interfacing/Crud/Contribution/CurrencingCrudResourceContribution.php
+src/Service/Interfacing/Crud/Contribution/ExchangingCrudResourceContribution.php
+src/Service/Interfacing/Crud/Contribution/SubscriptingCrudResourceContribution.php
+src/Service/Interfacing/Crud/Contribution/CommissioningCrudResourceContribution.php
+src/Service/Interfacing/Ecommerce/EcommerceComponentRoadmapProvider.php
+src/Service/Interfacing/Ecommerce/EcommerceScreenCatalogProvider.php
+src/Service/Interfacing/Shell/ShellChromeProvider.php
+src/Service/Interfacing/MANIFEST.md
+src/ServiceInterface/Interfacing/MANIFEST.md
+DELETE_LIST.md
+docs/interfacing/interfacing-wave19-commerce-finance-navigation.md
+.interfacing/contracts/wave19-commerce-finance-navigation.yaml

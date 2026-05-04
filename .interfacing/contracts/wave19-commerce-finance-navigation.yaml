@@ -1,0 +1,48 @@
+schema: smart-responsor.interfacing.wave-contract.v1
+wave: 19
+name: commerce-finance-navigation
+component: Interfacing
+status: canonical
+scope:
+  - shell-navigation
+  - ecommerce-roadmap
+  - ecommerce-screen-catalog
+  - crud-resource-contributions
+components:
+  - Currencing
+  - Exchanging
+  - Subscripting
+  - Commissioning
+zone: Billing and paying
+rules:
+  - Interfacing owns shell, navigation, screen catalog and route-transparent CRUD frames only.
+  - Owning components own records, persistence, fixtures, validation, policies, handlers and audit evidence.
+  - Resource URLs use the existing generic CRUD bridge grammar.
+  - Contribution classes must remain component-named and Symfony-autoloadable under src/Service/Interfacing/Crud/Contribution.
+resources:
+  Currencing:
+    - currency
+    - currency-metadata
+    - currency-minor-unit
+    - money-format
+    - money-normalization
+  Exchanging:
+    - exchange-rate
+    - exchange-pair
+    - exchange-quote
+    - conversion-rule
+    - rate-provider
+  Subscripting:
+    - subscription
+    - subscription-plan
+    - subscription-price
+    - subscription-entitlement
+    - subscription-event
+    - billing-cycle
+  Commissioning:
+    - commission-plan
+    - commission-rule
+    - commission-agreement
+    - commission-accrual
+    - commission-payout
+    - commission-statement

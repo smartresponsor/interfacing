@@ -202,7 +202,7 @@ final readonly class EcommerceScreenCatalogProvider implements EcommerceScreenCa
             'Cataloging', 'Faceting', 'Tagging', 'Search', 'Indexing', 'Discovering' => 'Catalog and discovery',
             'Commercializing', 'Retailing' => 'Commercial and retail',
             'Ordering', 'Consuming' => 'Ordering',
-            'Billing', 'Paying' => 'Billing and paying',
+            'Billing', 'Paying', 'Currencing', 'Exchanging', 'Subscripting', 'Commissioning' => 'Billing and paying',
             'Taxating', 'Complying', 'Governancing', 'Adjudicating', 'Evaluating', 'Facting' => 'Tax and governance',
             'Shipping', 'Addressing', 'Locating' => 'Fulfillment and location',
             'Messaging' => 'Messaging',
