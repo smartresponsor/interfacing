@@ -1,7 +1,4 @@
-interfacing_billing_controller:
-  resource: '../src/Presentation/Controller/Interfacing/BillingMeterScreenController.php'
-  type: attribute
-
-interfacing_order_controller:
-  resource: '../src/Presentation/Controller/Interfacing/OrderSummaryScreenController.php'
-  type: attribute
+# This standalone kernel imports config/routes/*.yaml.
+# Keep this file for Symfony host compatibility only.
+# Canonical Interfacing controller route imports live in:
+#   config/routes/interfacing_attributes.yaml

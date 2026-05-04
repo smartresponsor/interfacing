@@ -1,0 +1,78 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set summary = diagnostics.summary|default({}) %}
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:16px 18px; margin-bottom:14px;">
+    <div style="font-size:12px; font-weight:800; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Shell guard</div>
+    <div style="display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-top:6px;">
+      <div>
+        <h1 style="margin:0; font-size:30px; line-height:1.05; letter-spacing:-.03em;">Shared panel diagnostics</h1>
+        <div style="margin-top:8px; color:#64748b; font-size:13px; max-width:840px; line-height:1.45;">
+          This page checks the required Interfacing shell contract: Top panel, two left panels, body, default right context panel and footer. It is a fast visual guard against repeated shell drift.
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end;">
+        <a href="{{ path('interfacing_shell_diagnostics_json') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#0f172a; color:#fff; font-size:12px; font-weight:800;">Diagnostics JSON</a>
+        <a href="{{ path('interfacing_shell_navigation') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-size:12px; font-weight:700;">Navigation map</a>
+        <a href="{{ path('interfacing_index') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-size:12px; font-weight:700;">Workspace</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-bottom:14px;">
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px;">
+      <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">Mode</div>
+      <div style="margin-top:5px; font-size:22px; font-weight:900;">{{ diagnostics.mode|default('unknown') }}</div>
+    </div>
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px;">
+      <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">Required panels</div>
+      <div style="margin-top:5px; font-size:22px; font-weight:900;">{{ summary.presentRequiredPanels|default(0) }}/{{ summary.requiredPanels|default(0) }}</div>
+    </div>
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px;">
+      <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">Known CRUD</div>
+      <div style="margin-top:5px; font-size:22px; font-weight:900;">{{ summary.knownCrudResources|default(0) }}</div>
+    </div>
+    <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px;">
+      <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">Health</div>
+      <div style="margin-top:5px; font-size:22px; font-weight:900; color:{{ diagnostics.healthy|default(false) ? '#047857' : '#b91c1c' }};">{{ diagnostics.healthy|default(false) ? 'OK' : 'Drift' }}</div>
+    </div>
+  </section>
+
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-end;">
+      <div>
+        <h2 style="margin:0; font-size:20px; letter-spacing:-.02em;">Required panel contract</h2>
+        <div style="margin-top:4px; font-size:12px; color:#64748b;">Every standard Interfacing screen should inherit these panels through <code>template/interfacing/base.html.twig</code>.</div>
+      </div>
+      <div style="font-size:12px; color:#64748b;">Top/footer stay mandatory in both 3-column and 4-column modes.</div>
+    </div>
+
+    <div style="margin-top:12px; overflow:auto; border:1px solid #e2e8f0; border-radius:12px;">
+      <table style="width:100%; border-collapse:collapse; font-size:12px; min-width:860px;">
+        <thead style="background:#f8fafc;">
+          <tr>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Panel</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Source key</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Type</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Count</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Status</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for panel in diagnostics.panels|default([]) %}
+            <tr>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; font-weight:800;">{{ panel.label }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; color:#475569;">{{ panel.key }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;">{{ panel.type }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; font-weight:800;">{{ panel.count }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; color:{{ panel.present ? '#047857' : '#b91c1c' }}; font-weight:900;">{{ panel.present ? 'present' : 'missing' }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; color:#64748b;">{{ panel.note }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock %}

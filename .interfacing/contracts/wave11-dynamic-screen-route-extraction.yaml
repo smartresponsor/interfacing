@@ -1,0 +1,29 @@
+version: 1
+component: Interfacing
+wave: 11
+name: dynamic-screen-route-extraction
+status: active
+canonical_controller_boundary:
+  workspace_pages:
+    controller: App\Interfacing\Presentation\Controller\Interfacing\InterfacingController
+    responsibility: static Interfacing workspace/page routes only
+  dynamic_screens:
+    controller: App\Interfacing\Presentation\Controller\Interfacing\DynamicScreenController
+    routes:
+      - path: /interfacing/{id}
+        name: interfacing_screen
+      - path: /interfacing/screen/{id}
+        name: interfacing_screen_legacy
+        status: legacy-compatible
+    view_builder: App\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface
+    renderer: App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface
+exception_mapping:
+  App\Interfacing\Contract\Error\ScreenNotFound: 404
+  App\Interfacing\Contract\Error\ScreenForbidden: 403
+controller_rule:
+  dynamic_screen_orchestration: service-layer-only
+  forbidden_in_controller:
+    - direct layout catalog lookup
+    - direct runtime screen registry lookup
+    - direct screen context assembly
+    - direct capability access evaluation

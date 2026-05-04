@@ -17,6 +17,11 @@ final readonly class EcommerceAdminTableProvider implements EcommerceAdminTableP
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $rows = [];
 
         foreach ($this->operationWorkbenchProvider->provide() as $card) {
@@ -42,21 +47,31 @@ final readonly class EcommerceAdminTableProvider implements EcommerceAdminTableP
             );
         }
 
-        return $rows;
+        return $cache = $rows;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $row) {
             $grouped[$row->zone()][] = $row;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function statusCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['connected' => 0, 'canonical' => 0, 'planned' => 0, 'total' => 0];
 
         foreach ($this->provide() as $row) {
@@ -66,7 +81,7 @@ final readonly class EcommerceAdminTableProvider implements EcommerceAdminTableP
             }
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function identifierPreview(EcommerceOperationCard $card): string

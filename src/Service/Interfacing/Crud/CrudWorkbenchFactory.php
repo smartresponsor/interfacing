@@ -6,6 +6,8 @@ namespace App\Interfacing\Service\Interfacing\Crud;
 
 use App\Interfacing\Contract\Crud\CrudAction;
 use App\Interfacing\Contract\Crud\CrudFilterField;
+use App\Interfacing\Contract\Crud\CrudPreviewPage;
+use App\Interfacing\Contract\Crud\CrudPreviewRow;
 use App\Interfacing\Contract\Crud\CrudFormField;
 use App\Interfacing\Contract\Crud\CrudFormSection;
 use App\Interfacing\Contract\Crud\CrudRouteContext;
@@ -20,6 +22,119 @@ use App\Interfacing\Contract\Dto\OrderSummaryRow;
 
 final readonly class CrudWorkbenchFactory
 {
+
+    /**
+     * @param array{status:string,createdFrom:string,createdTo:string} $filters
+     * @param array<string, mixed> $ctx
+     */
+    public function buildCrudPreviewView(CrudPreviewPage $page, array $filters, array $ctx, CrudRouteContext $routeContext, CrudScreenContext $screenContext): CrudWorkbenchView
+    {
+        $selectedRow = $this->resolveSelectedPreviewRow($page, $routeContext->displayIdentifier());
+        $currentQuery = array_filter([
+            'status' => $filters['status'],
+            'createdFrom' => $filters['createdFrom'],
+            'createdTo' => $filters['createdTo'],
+        ], static fn (mixed $value): bool => '' !== (string) $value);
+
+        $selectionFacts = $this->previewSelectionFacts($selectedRow);
+        $formFields = $this->buildFormFields($routeContext, $selectionFacts);
+
+        $rows = [];
+        foreach ($page->items as $row) {
+            $rows[] = [
+                'id' => $row->identifier,
+                'status' => $row->status,
+                'createdAt' => $this->formatDateTime($row->occurredAtIso),
+                'amount' => number_format($row->amountValue, 2).' '.$row->currencyCode,
+                'customer' => $row->actorLabel ?? 'preview actor',
+                '_actions' => $this->rowActions($routeContext, $screenContext, $row->identifier),
+            ];
+        }
+
+        return new CrudWorkbenchView(
+            routeContext: $routeContext,
+            screenContext: $screenContext,
+            eyebrow: 'Ant Design / ProComponents discipline',
+            title: 'CRUD Workbench · '.$routeContext->resourceLabel(),
+            subtitle: 'Host-aligned CRUD body driven by neutral Interfacing preview DTOs and route semantics: resourcePath, operation, surface, identifier metadata, and identifier-kind addressing.',
+            breadcrumbs: $routeContext->breadcrumbItems(),
+            metaChips: [
+                'resource: '.$routeContext->resourcePath,
+                'resource label: '.$routeContext->resourceLabel(),
+                'operation: '.$routeContext->operation,
+                'surface: '.$routeContext->surface,
+                'surface tone: '.$routeContext->surfaceLabel(),
+                'identifier kind: '.$routeContext->identifierKindLabel(),
+                'mode: '.$routeContext->mode(),
+                'resource tone: '.$routeContext->resourceToneLabel(),
+                'template intent: '.$screenContext->templateIntent,
+                'access mode: '.$screenContext->accessMode,
+                'capability: '.$screenContext->capabilityLabel,
+                'ownership: '.$screenContext->ownershipLabel,
+                'tenant: '.(string) ($ctx['tenantId'] ?? 'default'),
+                'rows: '.$page->total,
+            ],
+            headerActions: $this->headerActions($routeContext, $screenContext, $currentQuery, $selectedRow?->identifier),
+            panelTitle: 'CRUD command routing layer',
+            panelHint: $routeContext->isAdminSurface() ? 'Admin surface keeps a denser command toolbar, destructive affordances, and '.strtolower($routeContext->resourceToneLabel()).'.' : 'Public surface keeps the same CRUD semantics but softens dangerous commands while preserving '.strtolower($routeContext->resourceToneLabel()).'.',
+            panelMeta: sprintf('page %d · pageSize %d · %s · %s · %s', $page->page, $page->pageSize, $routeContext->identifierKindLabel(), $routeContext->vocabularyLead(), $screenContext->accessToneLabel()),
+            filters: [
+                new CrudFilterField('status', $routeContext->statusFilterLabel(), 'select', $filters['status'], $routeContext->statusFilterOptions(), $routeContext->statusFilterPlaceholder(), 'Preview collection uses route-aware lifecycle vocabulary.'),
+                new CrudFilterField('createdFrom', $routeContext->dateFromFilterLabel(), 'date', $filters['createdFrom'], [], $routeContext->fromFilterPlaceholder(), 'Narrow the preview window from this date.'),
+                new CrudFilterField('createdTo', $routeContext->dateToFilterLabel(), 'date', $filters['createdTo'], [], $routeContext->toFilterPlaceholder(), 'Narrow the preview window up to this date.'),
+            ],
+            columns: [
+                new CrudTableColumn('id', $routeContext->identifierColumnLabel(), true),
+                new CrudTableColumn('status', $routeContext->statusColumnLabel(), false, true),
+                new CrudTableColumn('createdAt', $routeContext->primaryDateColumnLabel()),
+                new CrudTableColumn('amount', $routeContext->amountColumnLabel()),
+                new CrudTableColumn('customer', $routeContext->auxiliaryColumnLabel()),
+            ],
+            rows: $rows,
+            emptyState: $routeContext->emptyStateLabel(),
+            paginationLabel: $routeContext->paginationLabel(count($page->items), $page->total),
+            formFields: $formFields,
+            formSections: $this->buildFormSections($routeContext, $formFields),
+            validationSummary: $this->buildValidationSummary($routeContext, $formFields),
+            sidebarSections: $this->sidebarSectionsForMode($routeContext, [
+                new CrudSidebarSection(
+                    title: $routeContext->routeContextSidebarTitle(),
+                    facts: [
+                        'Resource path' => $routeContext->resourcePath,
+                        'Operation' => $routeContext->operation,
+                        'Surface' => $routeContext->surface,
+                        'Identifier field' => $routeContext->identifierField,
+                        'Identifier value' => $routeContext->displayIdentifier(),
+                        'Identifier kind' => $routeContext->identifierKindLabel(),
+                        'Resource label' => $routeContext->resourceLabel(),
+                        'Template intent' => $screenContext->templateIntent,
+                        'Access mode' => $screenContext->accessMode,
+                        'Capability' => $screenContext->capabilityLabel,
+                        'Ownership' => $screenContext->ownershipLabel,
+                        'Mutation tone' => $screenContext->mutationToneLabel(),
+                    ],
+                    note: 'This context matches the host CRUD endpoint pattern and is independent from the underlying entity type.',
+                ),
+                new CrudSidebarSection(
+                    title: $routeContext->selectionSidebarTitle(),
+                    facts: $selectionFacts,
+                    note: 'Row detail facts are mapped from Interfacing neutral CRUD preview DTOs.',
+                ),
+                new CrudSidebarSection(
+                    title: $routeContext->commandSidebarTitle(),
+                    facts: [
+                        'Primary action' => $routeContext->adminPrimaryFormActionLabel(),
+                        'Secondary action' => $routeContext->adminSecondaryFormActionLabel(),
+                        'Destructive action' => $routeContext->adminDestructiveActionLabel(),
+                        'Routing copy' => $routeContext->vocabularyLead(),
+                        'Next step' => 'Owner component routing',
+                    ],
+                    note: $routeContext->isAdminSurface() ? 'Buttons below reflect the admin workbench density and destructive affordances.' : 'Buttons below stay aligned to CRUD semantics while hiding the heaviest destructive/public-unsafe affordances.',
+                    actions: $this->commandActions($routeContext, $screenContext, $selectedRow?->identifier, $routeContext->adminSecondaryFormActionLabel()),
+                ),
+            ]),
+        );
+    }
     /**
      * @param array{status:string,createdFrom:string,createdTo:string} $filters
      * @param array<string, mixed> $ctx
@@ -432,6 +547,31 @@ final readonly class CrudWorkbenchFactory
         ));
     }
 
+
+    /**
+     * @return array<string, scalar|null>
+     */
+    private function previewSelectionFacts(?CrudPreviewRow $selectedRow): array
+    {
+        if (null === $selectedRow) {
+            return [
+                'Preview ref' => null,
+                'Workflow state' => null,
+                'Occurred at' => null,
+                'Amount' => null,
+                'Actor' => null,
+            ];
+        }
+
+        return [
+            'Preview ref' => $selectedRow->identifier,
+            'Workflow state' => $selectedRow->status,
+            'Occurred at' => $this->formatDateTime($selectedRow->occurredAtIso),
+            'Amount' => number_format($selectedRow->amountValue, 2).' '.$selectedRow->currencyCode,
+            'Actor' => $selectedRow->actorLabel ?? 'preview actor',
+        ];
+    }
+
     /**
      * @return array<string, scalar|null>
      */
@@ -645,6 +785,22 @@ final readonly class CrudWorkbenchFactory
         }
 
         return $path.'?'.http_build_query($query);
+    }
+
+
+    private function resolveSelectedPreviewRow(CrudPreviewPage $page, ?string $selectedId): ?CrudPreviewRow
+    {
+        if ('' === (string) $selectedId) {
+            return $page->items[0] ?? null;
+        }
+
+        foreach ($page->items as $row) {
+            if ($row->identifier === $selectedId) {
+                return $row;
+            }
+        }
+
+        return $page->items[0] ?? null;
     }
 
     private function resolveSelectedOrderRow(OrderSummaryPage $page, ?string $selectedId): ?OrderSummaryRow

@@ -9,16 +9,10 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 namespace App\Interfacing\ServiceInterface\Interfacing\Shell;
 
 /**
+ * Deprecated compatibility alias for shell capability checks.
  *
+ * New consumers must depend on CapabilityAccessResolverInterface.
  */
-
-/**
- *
- */
-interface AccessResolverInterface
+interface AccessResolverInterface extends CapabilityAccessResolverInterface
 {
-    /**
-     * @param array<string,mixed> $context
-     */
-    public function allow(string $capability, array $context = []): bool;
 }

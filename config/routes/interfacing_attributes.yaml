@@ -1,0 +1,71 @@
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+# Canonical attribute route imports for Interfacing-owned controllers.
+# Keep broad/catch-all controllers last so specific screen routes win first.
+
+interfacing_billing_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/BillingMeterScreenController.php'
+  type: attribute
+
+interfacing_order_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/OrderSummaryScreenController.php'
+  type: attribute
+
+interfacing_crud_explorer_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/CrudExplorerController.php'
+  type: attribute
+
+interfacing_doctor_json_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/DoctorJsonController.php'
+  type: attribute
+
+interfacing_doctor_page_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/InterfacingDoctorController.php'
+  type: attribute
+
+interfacing_doctor_infra_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/InterfacingDoctorInfraController.php'
+  type: attribute
+
+interfacing_metrics_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/InterfacingMetricController.php'
+  type: attribute
+
+interfacing_shell_demo_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/InterfacingShellController.php'
+  type: attribute
+
+interfacing_whoami_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/InterfacingWhoAmIController.php'
+  type: attribute
+
+interfacing_shell_legacy_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/ShellController.php'
+  type: attribute
+
+interfacing_shell_panel_diagnostics_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/ShellPanelDiagnosticsController.php'
+  type: attribute
+
+interfacing_shell_navigation_map_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/ShellNavigationMapController.php'
+  type: attribute
+
+interfacing_shell_application_dashboard_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/ShellApplicationDashboardController.php'
+  type: attribute
+
+interfacing_shell_screen_catalog_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/ShellScreenCatalogController.php'
+  type: attribute
+
+interfacing_shell_layout_preview_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/ShellLayoutPreviewController.php'
+  type: attribute
+
+interfacing_catalog_screen_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/ScreenController.php'
+  type: attribute
+
+interfacing_workspace_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/InterfacingController.php'
+  type: attribute

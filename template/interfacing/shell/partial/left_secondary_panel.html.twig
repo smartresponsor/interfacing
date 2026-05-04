@@ -1,0 +1,17 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<aside title="{{ shellSlotMap['shell.nav.section']|default('Secondary left panel') }}" style="background:#fbfcfd; border-right:1px solid #e5e7eb; padding:12px 10px; overflow:auto;">
+  {% for g in shellSectionGroup %}
+    <div style="margin-bottom:12px;">
+      <div style="padding:4px 8px; font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.72;">{{ g.title }}</div>
+      <div style="display:flex; flex-direction:column; gap:4px;">
+        {% for it in g.item %}
+          {% set active = shellActiveId and shellActiveId == it.id %}
+          <a href="{{ it.url }}" style="display:block; text-decoration:none; color:#111827; border-radius:8px; padding:7px 9px; background:{{ active ? '#eaf7ef' : 'transparent' }}; font-size:12px;">
+            <div style="font-weight:600;">{{ it.title }}</div>
+            <div style="opacity:.55; font-size:11px; margin-top:1px;">{{ it.id }}</div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</aside>

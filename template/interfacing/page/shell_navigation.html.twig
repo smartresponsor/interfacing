@@ -1,0 +1,117 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set summary = navigationMap.summary|default({}) %}
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:16px 18px; margin-bottom:14px;">
+    <div style="font-size:12px; font-weight:800; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Shell navigation map</div>
+    <div style="display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-top:6px;">
+      <div>
+        <h1 style="margin:0; font-size:30px; line-height:1.05; letter-spacing:-.03em;">Shared panel links</h1>
+        <div style="margin-top:8px; color:#64748b; font-size:13px; max-width:880px; line-height:1.45;">
+          This page materializes every shared shell link from Top, both left panels, right context and Footer. It is the visual counterpart of the shell diagnostics guard.
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end;">
+        <a href="{{ path('interfacing_shell_navigation_json') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#0f172a; color:#fff; font-size:12px; font-weight:800;">Navigation JSON</a>
+        <a href="{{ path('interfacing_shell_diagnostics') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-size:12px; font-weight:700;">Shell Guard</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px; margin-bottom:14px;">
+    {% set cards = {
+      'Mode': navigationMap.mode|default('unknown'),
+      'Top': summary.topLinks|default(0),
+      'Left primary': summary.leftPrimaryLinks|default(0),
+      'Left secondary': summary.leftSecondaryLinks|default(0),
+      'Right': summary.rightContextLinks|default(0),
+      'Footer': summary.footerLinks|default(0)
+    } %}
+    {% for label,value in cards %}
+      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px;">
+        <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">{{ label }}</div>
+        <div style="margin-top:5px; font-size:21px; font-weight:900;">{{ value }}</div>
+      </div>
+    {% endfor %}
+  </section>
+
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px; margin-bottom:14px;">
+    <h2 style="margin:0 0 10px 0; font-size:20px; letter-spacing:-.02em;">Top panel links</h2>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      {% for link in navigationMap.panels.top.links|default([]) %}
+        <a href="{{ link.url }}" style="text-decoration:none; color:#0f172a; background:#f8fafc; border:1px solid #e2e8f0; border-radius:999px; padding:7px 10px; font-size:12px; font-weight:800;">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-bottom:14px;">
+    {% for panelKey in ['leftPrimary','leftSecondary','rightContext'] %}
+      {% set panel = attribute(navigationMap.panels, panelKey)|default({}) %}
+      <div style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <h2 style="margin:0; font-size:19px; letter-spacing:-.02em;">{{ panel.label|default(panelKey) }}</h2>
+        <div style="margin-top:4px; color:#64748b; font-size:12px;">Slot: <code>{{ panel.slot|default('unknown') }}</code></div>
+        {% for group in panel.groups|default([]) %}
+          <div style="margin-top:12px; border-top:1px solid #eef2f7; padding-top:10px;">
+            <div style="font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:#64748b; font-weight:900;">{{ group.title }}</div>
+            <div style="margin-top:7px; display:grid; gap:6px;">
+              {% for link in group.links %}
+                <a href="{{ link.url }}" style="display:block; text-decoration:none; color:#111827; border:1px solid #e2e8f0; border-radius:10px; padding:7px 9px; background:#f8fafc; font-size:12px;">
+                  <strong>{{ link.title }}</strong>
+                  <span style="display:block; margin-top:2px; color:#64748b; font-size:11px; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ link.id }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </section>
+
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px; margin-bottom:14px;">
+    <h2 style="margin:0; font-size:20px; letter-spacing:-.02em;">Known component/entity CRUD links</h2>
+    <div style="margin-top:4px; font-size:12px; color:#64748b;">These links use the same CRUD bridge URL pattern exposed by the resource explorer provider.</div>
+    <div style="margin-top:12px; overflow:auto; border:1px solid #e2e8f0; border-radius:12px;">
+      <table style="width:100%; border-collapse:collapse; font-size:12px; min-width:980px;">
+        <thead style="background:#f8fafc;">
+          <tr>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Component</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Resource</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Status</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Index</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">New</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Show/Edit/Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for resource in navigationMap.knownCrudResources|default([]) %}
+            <tr>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; font-weight:900;">{{ resource.component }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;">{{ resource.label }}<div style="color:#64748b; font-size:11px; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ resource.resourcePath }}</div></td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;">{{ resource.status }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.indexUrl }}">Index</a></td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.newUrl }}">New</a></td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; display:flex; gap:8px; flex-wrap:wrap;"><a href="{{ resource.showSampleUrl }}">Show</a><a href="{{ resource.editSampleUrl }}">Edit</a><a href="{{ resource.deleteSampleUrl }}">Delete</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <h2 style="margin:0 0 10px 0; font-size:20px; letter-spacing:-.02em;">Footer links</h2>
+    <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px;">
+      {% for group in navigationMap.panels.footer.groups|default([]) %}
+        <div style="border:1px solid #e2e8f0; border-radius:12px; padding:10px;">
+          <div style="font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:#64748b; font-weight:900;">{{ group.title }}</div>
+          <div style="margin-top:8px; display:flex; flex-wrap:wrap; gap:8px;">
+            {% for link in group.links %}
+              <a href="{{ link.url }}" style="text-decoration:none; color:#111827; border:1px solid #e2e8f0; border-radius:999px; padding:6px 9px; font-size:12px;">{{ link.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

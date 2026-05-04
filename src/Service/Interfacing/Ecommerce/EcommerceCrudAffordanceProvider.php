@@ -17,6 +17,11 @@ final readonly class EcommerceCrudAffordanceProvider implements EcommerceCrudAff
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $affordances = [];
 
         foreach ($this->adminTableProvider->provide() as $row) {
@@ -29,21 +34,31 @@ final readonly class EcommerceCrudAffordanceProvider implements EcommerceCrudAff
             $affordances[] = $this->bulkAffordance($row);
         }
 
-        return $affordances;
+        return $cache = $affordances;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $affordance) {
             $grouped[$affordance->zone()][] = $affordance;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function statusCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['connected' => 0, 'canonical' => 0, 'planned' => 0, 'total' => 0];
 
         foreach ($this->provide() as $affordance) {
@@ -53,7 +68,7 @@ final readonly class EcommerceCrudAffordanceProvider implements EcommerceCrudAff
             }
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function filterAffordance(EcommerceAdminTableRow $row): EcommerceCrudAffordance

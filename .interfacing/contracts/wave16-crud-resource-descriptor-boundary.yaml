@@ -1,0 +1,17 @@
+schema: smart-responsor.interfacing.boundary-wave.v1
+wave: 16
+name: crud-resource-descriptor-boundary
+status: active
+canonical_contracts:
+  contribution: App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceDescriptorContributionInterface
+  descriptor_interface: App\Interfacing\Contract\Crud\CrudResourceDescriptorInterface
+  descriptor: App\Interfacing\Contract\Crud\CrudResourceDescriptor
+compatibility_contracts:
+  deprecated_alias: App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceContributionInterface
+provider_boundary:
+  normalizer: App\Interfacing\Service\Interfacing\Crud\CrudResourceExplorerProvider
+  output: App\Interfacing\Contract\View\CrudResourceLinkSetInterface
+rules:
+  - Contributions publish URL-free resource descriptors.
+  - Route generation stays inside the Interfacing provider layer.
+  - Existing view payloads keep using CrudResourceLinkSetInterface until a separate view contract migration is scheduled.

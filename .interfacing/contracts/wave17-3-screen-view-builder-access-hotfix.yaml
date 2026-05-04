@@ -1,0 +1,9 @@
+wave: "17.3"
+component: "Interfacing"
+type: "runtime-hotfix"
+fix:
+  file: "src/Service/Interfacing/View/ScreenViewBuilder.php"
+  symptom: "ScreenViewBuilder constructor resolved AccessResolverInterface relative to the View namespace"
+  canonical_contract: "App\\Interfacing\\ServiceInterface\\Interfacing\\Shell\\CapabilityAccessResolverInterface"
+behavior_change: false
+routes_changed: false

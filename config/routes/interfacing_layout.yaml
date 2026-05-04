@@ -1,42 +1,45 @@
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-interfacing_index:
-  path: /interfacing
-  controller: App\Interfacing\Presentation\Controller\Interfacing\LayoutController::show
-  defaults:
-    slug: home
+# Layout routes are scoped under /interfacing/layout to avoid collisions with
+# InterfacingController attribute routes and the generic /interfacing/{id} workspace screen route.
 
 interfacing_layout_index:
-  path: /interfacing
+  path: /interfacing/layout
   controller: App\Interfacing\Presentation\Controller\Interfacing\LayoutController::show
   defaults:
     slug: home
+  methods: [GET]
 
 interfacing_layout_show:
-  path: /interfacing/{slug}
+  path: /interfacing/layout/{slug}
   controller: App\Interfacing\Presentation\Controller\Interfacing\LayoutController::show
   requirements:
     slug: '[a-z0-9][a-z0-9._-]{0,63}'
+  methods: [GET]
 
 interfacing_layout_message_digest:
   path: /message/digest
   controller: App\Interfacing\Presentation\Controller\Interfacing\LayoutController::show
   defaults:
     slug: message.digest
+  methods: [GET]
 
 interfacing_layout_message_notifications_inbox:
   path: /message/notifications/inbox
   controller: App\Interfacing\Presentation\Controller\Interfacing\LayoutController::show
   defaults:
     slug: message.notifications.inbox
+  methods: [GET]
 
 interfacing_layout_message_search_results:
   path: /message/search/results
   controller: App\Interfacing\Presentation\Controller\Interfacing\LayoutController::show
   defaults:
     slug: message.search.results
+  methods: [GET]
 
 interfacing_layout_message_rooms_collection:
   path: /message/rooms/collection
   controller: App\Interfacing\Presentation\Controller\Interfacing\LayoutController::show
   defaults:
     slug: message.rooms.collection
+  methods: [GET]

@@ -7,7 +7,7 @@ namespace App\Interfacing\Service\Interfacing\Demo;
 use App\Interfacing\Contract\View\LayoutBlockSpec;
 use App\Interfacing\Contract\View\LayoutScreenSpec;
 use App\Interfacing\Contract\View\ScreenSpec;
-use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 
 final class DemoScreenProvider implements ScreenProviderInterface
 {

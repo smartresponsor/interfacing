@@ -10,7 +10,7 @@ use App\Interfacing\Contract\Dto\CategoryFormInput;
 use App\Interfacing\Contract\Ui\UiMessage;
 use App\Interfacing\Contract\ValueObject\ActionId;
 use App\Interfacing\Service\Interfacing\Validator\ValidatorErrorMapper;
-use App\Interfacing\ServiceInterface\Interfacing\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointInterface;
 use App\Interfacing\ServiceInterface\Interfacing\CategoryApiClientInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Validator\ValidatorInterface;

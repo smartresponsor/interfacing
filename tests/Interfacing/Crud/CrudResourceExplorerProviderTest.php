@@ -6,6 +6,7 @@ namespace App\Interfacing\Tests\Interfacing\Crud;
 
 use App\Interfacing\Contract\View\CrudResourceLinkSet;
 use App\Interfacing\Service\Interfacing\Crud\CrudResourceExplorerProvider;
+use App\Interfacing\Service\Interfacing\Crud\DefaultCrudOperationGrammarProvider;
 use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceContributionInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -52,7 +53,7 @@ final class CrudResourceExplorerProviderTest extends TestCase
                     ];
                 }
             },
-        ]);
+        ], new DefaultCrudOperationGrammarProvider());
 
         $list = $provider->provide();
 

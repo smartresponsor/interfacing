@@ -1,0 +1,75 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'interfacing/base.html.twig' %}
+{% set dashboard = applicationDashboard|default(shell.applicationDashboard|default({})) %}
+{% set summary = dashboard.summary|default({}) %}
+{% block body %}
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:16px 18px;">
+    <div style="display:flex; justify-content:space-between; gap:16px; align-items:flex-start;">
+      <div>
+        <div style="font-size:12px; font-weight:800; color:#2563eb; text-transform:uppercase; letter-spacing:.06em;">Application dashboard</div>
+        <h1 style="margin:6px 0 0; font-size:32px; line-height:1.05; letter-spacing:-.03em;">Known Smart Responsor components and CRUD entrypoints</h1>
+        <p style="margin:10px 0 0; max-width:900px; color:#475569; font-size:14px; line-height:1.45;">This dashboard intentionally exposes connected, canonical and planned component resources through the same CRUD bridge URLs shown in the browser address bar. Planned links may not have host persistence yet, but their screen routes are already visible for shell and navigation validation.</p>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; min-width:260px;">
+        <a href="{{ path('interfacing_application_dashboard_json') }}" style="text-decoration:none; padding:9px 12px; border-radius:10px; background:#0f172a; color:#fff; font-weight:800; font-size:12px;">Applications JSON</a>
+        <a href="{{ path('interfacing_crud_explorer') }}" style="text-decoration:none; padding:9px 12px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:700; font-size:12px;">CRUD Explorer</a>
+        <a href="{{ path('interfacing_shell_navigation') }}" style="text-decoration:none; padding:9px 12px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:700; font-size:12px;">Shell Map</a>
+      </div>
+    </div>
+
+    <div style="margin-top:14px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;">
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Components</div><div style="margin-top:5px; font-size:26px; font-weight:900;">{{ summary.componentCount|default(0) }}</div></div>
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Resources</div><div style="margin-top:5px; font-size:26px; font-weight:900;">{{ summary.resourceCount|default(0) }}</div></div>
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">CRUD operations</div><div style="margin-top:5px; font-size:26px; font-weight:900;">{{ summary.operationCount|default(0) }}</div></div>
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Connected/canonical/planned</div><div style="margin-top:5px; font-size:16px; font-weight:900;">{{ summary.connectedResources|default(0) }} / {{ summary.canonicalResources|default(0) }} / {{ summary.plannedResources|default(0) }}</div></div>
+    </div>
+  </section>
+
+  <section style="margin-top:14px; display:flex; flex-direction:column; gap:14px;">
+    {% for component in dashboard.components|default([]) %}
+      <article id="component-{{ component.component|lower|replace({' ':'-'}) }}" style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+          <div>
+            <div style="font-size:20px; font-weight:900; letter-spacing:-.02em;">{{ component.component }}</div>
+            <div style="margin-top:4px; color:#64748b; font-size:12px;">{{ component.resourceCount }} resource{% if component.resourceCount != 1 %}s{% endif %} · {{ component.operationCount }} CRUD operation link{% if component.operationCount != 1 %}s{% endif %}</div>
+          </div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+            <span style="font-size:11px; border:1px solid #e2e8f0; border-radius:999px; padding:4px 8px; color:#334155;">{{ component.status }}</span>
+            <a href="{{ component.firstIndexUrl }}" style="text-decoration:none; padding:7px 10px; border-radius:10px; background:#2563eb; color:#fff; font-size:12px; font-weight:800;">Open first index</a>
+          </div>
+        </div>
+
+        <div style="margin-top:12px; overflow:auto; border:1px solid #e2e8f0; border-radius:12px;">
+          <table style="width:100%; border-collapse:collapse; min-width:980px; font-size:12px;">
+            <thead style="background:#f8fafc;">
+              <tr>
+                <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Resource</th>
+                <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Status</th>
+                <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Address-bar path</th>
+                <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Operations</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for resource in component.resources %}
+                <tr>
+                  <td style="padding:9px; border-bottom:1px solid #f1f5f9;"><strong>{{ resource.label }}</strong><div style="margin-top:2px; color:#94a3b8; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ resource.id }}</div></td>
+                  <td style="padding:9px; border-bottom:1px solid #f1f5f9;">{{ resource.status }}</td>
+                  <td style="padding:9px; border-bottom:1px solid #f1f5f9; color:#64748b; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ resource.resourcePath }}</td>
+                  <td style="padding:9px; border-bottom:1px solid #f1f5f9;">
+                    <div style="display:flex; gap:7px; flex-wrap:wrap;">
+                      {% for operation in resource.operations %}
+                        <a href="{{ operation.url }}" style="text-decoration:none; padding:5px 8px; border-radius:8px; border:1px solid {{ operation.variant == 'danger' ? '#fecaca' : '#cbd5e1' }}; color:{{ operation.variant == 'danger' ? '#b91c1c' : '#2563eb' }}; font-weight:700;">{{ operation.label }}</a>
+                      {% endfor %}
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </article>
+    {% else %}
+      <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px; color:#64748b;">No application CRUD resources are currently registered.</article>
+    {% endfor %}
+  </section>
+{% endblock %}

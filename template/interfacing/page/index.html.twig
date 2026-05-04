@@ -14,6 +14,8 @@
         <a href="{{ path('interfacing_admin_launchpad') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Admin Launchpad</a>
         <a href="{{ path('interfacing_crud_explorer') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">CRUD Explorer</a>
         <a href="{{ path('interfacing_screen_directory') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Screen Directory</a>
+              <a href="{{ path('interfacing_shell_screen_catalog') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#0f172a; color:#fff; border:1px solid #0f172a; font-weight:700; font-size:13px;">Shell Screen Catalog</a>
+        <a href="{{ path('interfacing_shell_layout_preview') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:700; font-size:13px;">Layout Preview</a>
         <a href="{{ path('interfacing_operation_workbench') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Operation Workbench</a>
         <a href="{{ path('interfacing_admin_tables') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">Admin Tables</a>
               <a href="{{ path('interfacing_crud_frames') }}" style="text-decoration:none; padding:10px 14px; border-radius:12px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:13px;">CRUD Frames</a>
@@ -52,6 +54,71 @@
       </div>
     </section>
   </div>
+
+  <section id="shell-layout-preview" style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+      <div>
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:800; letter-spacing:.05em;">Shared shell layout</div>
+        <h2 style="margin:5px 0 0; font-size:22px; letter-spacing:-.02em;">Top, two left panels, body, right context and footer</h2>
+        <div style="margin-top:5px; color:#64748b; font-size:13px; max-width:860px; line-height:1.45;">Open the layout preview to validate the standard four-column shell and the compact three-column mode. Top and Footer remain mandatory in both modes.</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+        <a href="{{ path('interfacing_shell_layout_preview') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#0f172a; color:#fff; font-size:12px; font-weight:800;">Open layout preview</a>
+        <a href="{{ path('interfacing_shell_layout_preview_json') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-size:12px; font-weight:700;">JSON</a>
+      </div>
+    </div>
+  </section>
+
+  {% set applicationDashboard = shell.applicationDashboard|default({}) %}
+  {% set applicationSummary = applicationDashboard.summary|default({}) %}
+  <section id="application-dashboard-preview" style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+      <div>
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:800; letter-spacing:.05em;">Application/component links</div>
+        <h2 style="margin:5px 0 0; font-size:24px; letter-spacing:-.02em;">Known Smart Responsor components</h2>
+        <div style="margin-top:6px; font-size:13px; color:#64748b; max-width:920px; line-height:1.45;">Connected, canonical and planned components are visible here immediately, using the same CRUD bridge URL grammar as the CRUD component. This is the fast replacement surface for the default EasyAdmin-style application index.</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; min-width:260px;">
+        <a href="{{ path('interfacing_application_dashboard') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#0f172a; color:#fff; font-size:12px; font-weight:800;">Open applications</a>
+        <a href="{{ path('interfacing_application_dashboard_json') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-size:12px; font-weight:700;">JSON</a>
+      </div>
+    </div>
+
+    <div style="margin-top:12px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;">
+      <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Components</div><div style="margin-top:5px; font-size:24px; font-weight:900;">{{ applicationSummary.componentCount|default(0) }}</div></div>
+      <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Resources</div><div style="margin-top:5px; font-size:24px; font-weight:900;">{{ applicationSummary.resourceCount|default(0) }}</div></div>
+      <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Operations</div><div style="margin-top:5px; font-size:24px; font-weight:900;">{{ applicationSummary.operationCount|default(0) }}</div></div>
+      <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Connected/canonical/planned</div><div style="margin-top:6px; font-size:14px; font-weight:900;">{{ applicationSummary.connectedResources|default(0) }} / {{ applicationSummary.canonicalResources|default(0) }} / {{ applicationSummary.plannedResources|default(0) }}</div></div>
+    </div>
+
+    <div style="margin-top:12px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;">
+      {% for component in applicationDashboard.components|default([])|slice(0, 12) %}
+        <a href="{{ component.firstIndexUrl }}" style="display:block; text-decoration:none; color:inherit; border:1px solid #edf2f7; border-radius:12px; padding:10px 11px; background:#fbfdff;">
+          <div style="display:flex; justify-content:space-between; gap:8px; align-items:flex-start;">
+            <div style="font-size:14px; font-weight:900;">{{ component.component }}</div>
+            <span style="font-size:10px; color:#334155; border:1px solid #e2e8f0; border-radius:999px; padding:2px 6px;">{{ component.status }}</span>
+          </div>
+          <div style="margin-top:6px; font-size:11px; color:#64748b;">{{ component.resourceCount }} resources · {{ component.operationCount }} operations</div>
+        </a>
+      {% else %}
+        <div style="grid-column:1/-1; color:#64748b; font-size:13px;">No known application components are registered yet.</div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="shell-screen-catalog-preview" style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+      <div>
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:800; letter-spacing:.05em;">Screen catalog</div>
+        <h2 style="margin:5px 0 0; font-size:22px; letter-spacing:-.02em;">One shell entrypoint for all screens</h2>
+        <div style="margin-top:5px; color:#64748b; font-size:13px; max-width:860px; line-height:1.45;">Open the shared catalog to review shell pages, diagnostics, JSON exports and all known CRUD bridge screens from one place.</div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+        <a href="{{ path('interfacing_shell_screen_catalog') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#0f172a; color:#fff; font-size:12px; font-weight:800;">Open screen catalog</a>
+        <a href="{{ path('interfacing_shell_screen_catalog_json') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-size:12px; font-weight:700;">JSON</a>
+      </div>
+    </div>
+  </section>
 
   <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
     <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
@@ -144,6 +211,46 @@
           </div>
         </article>
       {% endfor %}
+    </div>
+  </section>
+
+
+
+  <section id="known-component-entity-links" style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-end;">
+      <div>
+        <div style="font-weight:800; font-size:17px;">Known component/entity CRUD links</div>
+        <div style="margin-top:3px; font-size:12px; color:#64748b;">Real address-bar links generated from the same CRUD bridge grammar used by the CRUD component. Some planned links may not be backed by a host application yet.</div>
+      </div>
+      <a href="{{ path('interfacing_crud_explorer') }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#0f172a; color:#fff; font-size:12px; font-weight:800;">Open CRUD Explorer</a>
+    </div>
+    <div style="margin-top:12px; overflow:auto; border:1px solid #e2e8f0; border-radius:12px;">
+      <table style="width:100%; border-collapse:collapse; font-size:12px; min-width:980px;">
+        <thead style="background:#f8fafc;">
+          <tr>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Component</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Entity/resource</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Status</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Index</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">New</th>
+            <th style="text-align:left; padding:9px; border-bottom:1px solid #e2e8f0;">Show/Edit/Delete samples</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for resource in shellKnownCrudResources %}
+            <tr>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; font-weight:700;">{{ resource.component }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;"><strong>{{ resource.label }}</strong><div style="color:#94a3b8; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ resource.resourcePath }}</div></td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;">{{ resource.status }}</td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.indexUrl }}" style="color:#2563eb; text-decoration:none; font-weight:700;">Index</a></td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.newUrl }}" style="color:#2563eb; text-decoration:none; font-weight:700;">New</a></td>
+              <td style="padding:9px; border-bottom:1px solid #f1f5f9; display:flex; gap:8px; flex-wrap:wrap;"><a href="{{ resource.showSampleUrl }}" style="color:#2563eb; text-decoration:none;">Show</a><a href="{{ resource.editSampleUrl }}" style="color:#2563eb; text-decoration:none;">Edit</a><a href="{{ resource.deleteSampleUrl }}" style="color:#b91c1c; text-decoration:none;">Delete</a></td>
+            </tr>
+          {% else %}
+            <tr><td colspan="6" style="padding:12px; color:#64748b;">No CRUD resources are currently registered in the shell provider.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </section>
 

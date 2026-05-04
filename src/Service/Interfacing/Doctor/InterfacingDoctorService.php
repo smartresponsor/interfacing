@@ -12,7 +12,7 @@ namespace App\Interfacing\Service\Interfacing\Doctor;
 use App\Interfacing\ServiceInterface\Interfacing\Doctor\InterfacingDoctorServiceInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface;
 use App\Interfacing\ServiceInterface\Support\Telemetry\InterfacingTelemetryInterface;
 use App\Interfacing\Support\Doctor\DoctorIssue;
 use App\Interfacing\Support\Doctor\DoctorReport;
@@ -21,7 +21,7 @@ use App\Interfacing\Support\Doctor\DoctorReportInterface;
 final readonly class InterfacingDoctorService implements InterfacingDoctorServiceInterface
 {
     public function __construct(
-        private ScreenCatalogInterface $screenCatalog,
+        private ScreenSpecCatalogInterface $screenCatalog,
         private LayoutCatalogInterface $layoutCatalog,
         private ActionCatalogInterface $actionCatalog,
         private InterfacingTelemetryInterface $telemetry,

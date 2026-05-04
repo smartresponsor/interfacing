@@ -17,6 +17,11 @@ final readonly class EcommerceComponentObligationProvider implements EcommerceCo
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $items = [];
 
         foreach ($this->roadmapProvider->provide() as $roadmap) {
@@ -55,21 +60,31 @@ final readonly class EcommerceComponentObligationProvider implements EcommerceCo
             ],
         );
 
-        return $items;
+        return $cache = $items;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $item) {
             $grouped[$item->zone()][] = $item;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function riskCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['high' => 0, 'medium' => 0, 'low' => 0, 'total' => 0];
 
         foreach ($this->provide() as $item) {
@@ -79,7 +94,7 @@ final readonly class EcommerceComponentObligationProvider implements EcommerceCo
             }
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function riskLevel(string $status): string

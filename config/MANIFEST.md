@@ -12,3 +12,7 @@ Evolve toward:
 - explicit feature toggles for facade/workbench zones;
 - minimal, readable config files grouped by concern;
 - Symfony-oriented autowiring/autoconfiguration/container clarity.
+
+## Wave 9 route boundary
+
+Controller-owned routes are imported from `config/routes/interfacing_attributes.yaml`; YAML route files are reserved for bridge/scoped-layout routes.

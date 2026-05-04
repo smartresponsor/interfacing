@@ -1,0 +1,19 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<header style="border-bottom:1px solid #dbe1e8; background:#fff; position:sticky; top:0; z-index:20;">
+  <div style="max-width:1680px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:10px 14px;">
+    <div title="{{ shellSlotMap['shell.topbar.left']|default('Top panel') }}" style="display:flex; align-items:center; gap:14px; min-width:0;">
+      <a href="{{ path('interfacing_index') }}" style="text-decoration:none; color:#111827;">
+        <div style="font-weight:800; font-size:14px;">Smart Responsor</div>
+        <div style="font-size:11px; opacity:.65;">Interfacing shared shell</div>
+      </a>
+      <form method="get" action="{{ path('interfacing_index') }}" style="display:flex; align-items:center; min-width:280px;">
+        <input name="q" value="{{ shellQuery }}" placeholder="Search screens, components, CRUD resources..." style="width:100%; padding:7px 10px; border:1px solid #cfd6df; border-radius:8px; font-size:12px;">
+      </form>
+    </div>
+    <nav title="{{ shellSlotMap['shell.topbar.right']|default('Top quick links') }}" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+      {% for it in shellTopLink %}
+        <a href="{{ it.url }}" style="text-decoration:none; color:#111827; border:1px solid #d7dde5; background:#f8fafc; border-radius:8px; padding:6px 9px; font-size:12px;">{{ it.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

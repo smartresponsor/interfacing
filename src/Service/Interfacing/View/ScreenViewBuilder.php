@@ -12,7 +12,7 @@ use App\Interfacing\Contract\ValueObject\LayoutSlot;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
-use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\CapabilityAccessResolverInterface;
 use App\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface;
 
 final readonly class ScreenViewBuilder implements ScreenViewBuilderInterface
@@ -21,7 +21,7 @@ final readonly class ScreenViewBuilder implements ScreenViewBuilderInterface
         private LayoutCatalogInterface $layout,
         private ScreenRegistryInterface $screen,
         private ScreenContextAssemblerInterface $context,
-        private AccessResolverInterface $access,
+        private CapabilityAccessResolverInterface $access,
     ) {
     }
 

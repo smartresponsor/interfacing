@@ -1,0 +1,19 @@
+wave: 14
+name: crud-workbench-preview-provider
+status: active
+component: Interfacing
+canonical_contracts:
+  - src/ServiceInterface/Interfacing/Crud/CrudWorkbenchPreviewProviderInterface.php
+canonical_services:
+  - src/Service/Interfacing/Crud/CrudWorkbenchPreviewProviderChain.php
+  - src/Service/Interfacing/Crud/DefaultCrudWorkbenchPreviewProvider.php
+provider_tag: interfacing.crud_workbench_preview_provider
+rules:
+  - GenericCrudWorkbenchViewBuilder must not construct component-specific sample rows.
+  - Owning components may publish resource-specific preview providers through the provider tag.
+  - DefaultCrudWorkbenchPreviewProvider is standalone fallback only.
+  - GenericCrudWorkbenchController remains route/rendering owner only.
+verification:
+  - php -l touched PHP files
+  - php bin/console lint:container
+  - php bin/console debug:container "App\\Interfacing\\ServiceInterface\\Interfacing\\Crud\\CrudWorkbenchPreviewProviderInterface"

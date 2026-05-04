@@ -17,6 +17,11 @@ final readonly class EcommerceRuntimeBridgeProvider implements EcommerceRuntimeB
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $items = [];
 
         foreach ($this->roadmapProvider->provide() as $roadmap) {
@@ -57,21 +62,31 @@ final readonly class EcommerceRuntimeBridgeProvider implements EcommerceRuntimeB
             ],
         );
 
-        return $items;
+        return $cache = $items;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $item) {
             $grouped[$item->zone()][] = $item;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function gradeCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['ready' => 0, 'needs_bridge' => 0, 'planned' => 0, 'total' => 0];
 
         foreach ($this->provide() as $item) {
@@ -81,7 +96,7 @@ final readonly class EcommerceRuntimeBridgeProvider implements EcommerceRuntimeB
             }
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function bridgeGrade(string $status): string

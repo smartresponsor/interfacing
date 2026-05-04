@@ -4,12 +4,9 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Interfacing\Crud;
 
-use App\Interfacing\Contract\View\CrudResourceLinkSetInterface;
-
-interface CrudResourceContributionInterface
+/**
+ * @deprecated since boundary wave16. Implement CrudResourceDescriptorContributionInterface instead.
+ */
+interface CrudResourceContributionInterface extends CrudResourceDescriptorContributionInterface
 {
-    /**
-     * @return list<CrudResourceLinkSetInterface>
-     */
-    public function provide(): array;
 }

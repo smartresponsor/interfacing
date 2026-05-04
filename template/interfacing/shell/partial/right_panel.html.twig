@@ -1,0 +1,19 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<aside title="{{ shellSlotMap['shell.context.right']|default('Right context panel') }}" style="background:#fff; border-left:1px solid #e5e7eb; padding:12px 10px; overflow:auto;">
+  <section style="border:1px solid #e2e8f0; border-radius:14px; padding:10px 11px; margin-bottom:12px;">
+    <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:800; letter-spacing:.05em;">Known CRUD resources</div>
+    <div style="margin-top:6px; font-size:28px; font-weight:900;">{{ shellKnownCrudResources|length }}</div>
+    <div style="margin-top:2px; font-size:12px; color:#64748b;">Connected, canonical and planned component/entity links.</div>
+  </section>
+
+  {% for g in shellRightPanelGroup %}
+    <section style="margin-bottom:12px;">
+      <div style="padding:4px 2px; font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.72;">{{ g.title }}</div>
+      <div style="display:flex; flex-direction:column; gap:5px;">
+        {% for it in g.item %}
+          <a href="{{ it.url }}" style="display:block; text-decoration:none; color:#111827; border:1px solid #e2e8f0; border-radius:10px; padding:7px 9px; font-size:12px; background:#f8fafc;">{{ it.title }}</a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</aside>

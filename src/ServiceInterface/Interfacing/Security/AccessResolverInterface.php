@@ -9,9 +9,11 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Interfacing\Security;
 
-use App\Interfacing\Contract\View\ScreenSpecInterface;
-
-interface AccessResolverInterface
+/**
+ * Deprecated compatibility alias for screen-spec access checks.
+ *
+ * New consumers must depend on ScreenAccessResolverInterface.
+ */
+interface AccessResolverInterface extends ScreenAccessResolverInterface
 {
-    public function isAllowed(ScreenSpecInterface $screen): bool;
 }

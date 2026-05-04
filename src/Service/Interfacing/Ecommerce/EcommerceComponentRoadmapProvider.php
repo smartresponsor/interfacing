@@ -11,6 +11,11 @@ final readonly class EcommerceComponentRoadmapProvider implements EcommerceCompo
 {
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $items = [];
         foreach ($this->rows() as $row) {
             $items[] = new EcommerceComponentRoadmapItem(
@@ -39,28 +44,38 @@ final readonly class EcommerceComponentRoadmapProvider implements EcommerceCompo
             ],
         );
 
-        return $items;
+        return $cache = $items;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $item) {
             $grouped[$item->zone()][] = $item;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function statusCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['connected' => 0, 'canonical' => 0, 'planned' => 0, 'total' => 0];
         foreach ($this->provide() as $item) {
             ++$counts['total'];
             ++$counts[$item->status()];
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     /** @return list<array{id:string,zone:string,component:string,status:string,primaryUrl:string,ownership:string,screen:list<string>,resource:list<string>,note:string}> */

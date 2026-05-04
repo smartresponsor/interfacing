@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Interfacing;
 
-use App\Interfacing\Contract\Action\ActionRequest;
-use App\Interfacing\Contract\Action\ActionResult;
-use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointInterface as CatalogActionEndpointInterface;
 
-interface ActionEndpointInterface
+/**
+ * @deprecated Use Catalog\ActionEndpointInterface for bridge/simple action endpoints.
+ */
+interface ActionEndpointInterface extends CatalogActionEndpointInterface
 {
-    public function id(): ActionId;
-
-    public function handle(ActionRequest $request): ActionResult;
 }

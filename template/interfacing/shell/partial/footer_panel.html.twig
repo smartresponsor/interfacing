@@ -1,0 +1,15 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<footer style="border-top:1px solid #dbe1e8; background:#fff;">
+  <div style="max-width:1680px; margin:0 auto; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; padding:12px 14px;">
+    {% for g in shellFooterGroup %}
+      <div title="{{ loop.first ? shellSlotMap['shell.footer.primary']|default('Footer primary') : shellSlotMap['shell.footer.secondary']|default('Footer secondary') }}">
+        <div style="font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.68; margin-bottom:6px;">{{ g.title }}</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 12px;">
+          {% for link in g.link %}
+            <a href="{{ link.url }}" style="text-decoration:none; color:#111827; opacity:.82; font-size:12px;">{{ link.title }}</a>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</footer>

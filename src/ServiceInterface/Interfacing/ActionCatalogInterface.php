@@ -6,12 +6,15 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Interfacing;
 
-use App\Interfacing\Contract\ValueObject\ActionId;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface;
 
-interface ActionCatalogInterface
+/**
+ * Deprecated compatibility alias for the canonical action endpoint catalog.
+ *
+ * New consumers must depend on Catalog\ActionEndpointCatalogInterface so the
+ * endpoint catalog is not confused with Action\ActionCatalogInterface or the
+ * screen-scoped Registry\ActionCatalogInterface.
+ */
+interface ActionCatalogInterface extends ActionEndpointCatalogInterface
 {
-    /** @return list<ActionEndpointInterface> */
-    public function all(): array;
-
-    public function get(ActionId $id): ActionEndpointInterface;
 }

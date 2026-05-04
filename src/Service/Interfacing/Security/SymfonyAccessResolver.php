@@ -9,29 +9,13 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing\Security;
 
-use App\Interfacing\Contract\View\ScreenSpecInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-final readonly class SymfonyAccessResolver implements AccessResolverInterface
+/**
+ * Deprecated compatibility class for screen-spec access checks.
+ *
+ * New services should use SymfonyScreenAccessResolver.
+ */
+final class SymfonyAccessResolver extends SymfonyScreenAccessResolver implements AccessResolverInterface
 {
-    public function __construct(
-        private ?AuthorizationCheckerInterface $authorizationChecker = null,
-    ) {
-    }
-
-    public function isAllowed(ScreenSpecInterface $screen): bool
-    {
-        $roles = $screen->requireRole();
-        if ([] === $roles) {
-            return true;
-        }
-        foreach ($roles as $role) {
-            if (!$this->authorizationChecker->isGranted($role)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
 }

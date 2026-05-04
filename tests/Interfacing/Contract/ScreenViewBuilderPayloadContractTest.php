@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Tests\Interfacing\Contract;
+namespace App\Interfacing\Tests\Interfacing\Contract;
 
-use App\Contract\ValueObject\LayoutSlot;
-use App\Contract\ValueObject\ScreenId;
-use App\Contract\View\LayoutScreenSpecInterface;
-use App\Service\Interfacing\View\ScreenViewBuilder;
-use App\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
-use App\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
-use App\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\Interfacing\Contract\ValueObject\LayoutSlot;
+use App\Interfacing\Contract\ValueObject\ScreenId;
+use App\Interfacing\Contract\View\LayoutScreenSpecInterface;
+use App\Interfacing\Service\Interfacing\View\ScreenViewBuilder;
+use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenContextAssemblerInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\CapabilityAccessResolverInterface;
 use PHPUnit\Framework\TestCase;
 
 final class ScreenViewBuilderPayloadContractTest extends TestCase
@@ -116,7 +116,7 @@ final class ScreenViewBuilderPayloadContractTest extends TestCase
                     ];
                 }
             },
-            new class() implements AccessResolverInterface {
+            new class() implements CapabilityAccessResolverInterface {
                 public function allow(string $capability, array $context = []): bool
                 {
                     TestCase::assertSame('cap.contract.view', $capability);

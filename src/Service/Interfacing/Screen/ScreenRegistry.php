@@ -11,7 +11,7 @@ namespace App\Interfacing\Service\Interfacing\Screen;
 
 use App\Interfacing\Contract\ValueObject\ScreenIdInterface;
 use App\Interfacing\Contract\View\ScreenSpecInterface;
-use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenProviderInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Screen\ScreenRegistryInterface;
 
 final class ScreenRegistry implements ScreenRegistryInterface

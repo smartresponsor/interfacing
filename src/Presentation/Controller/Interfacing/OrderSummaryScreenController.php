@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Interfacing\Presentation\Controller\Interfacing;
 
 use App\Interfacing\Contract\Access\AccessDecisionCode;
-use App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Access\ScreenActionAccessResolverInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
 use App\Interfacing\Service\Interfacing\Crud\CrudRouteContextResolver;
@@ -29,15 +29,15 @@ final class OrderSummaryScreenController extends AbstractController
      * @param \App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface $baseContext
      */
     public function __construct(
-        private readonly ?TokenStorageInterface $tokenStorage = null,
         private readonly RequestBaseContextProviderInterface $baseContext,
-        private readonly AccessResolverInterface $access,
+        private readonly ScreenActionAccessResolverInterface $access,
         private readonly OrderSummaryQueryServiceInterface $orders,
         private readonly CrudRouteContextResolver $routeContextResolver,
         private readonly CrudWorkbenchFactory $workbenchFactory,
         private readonly CrudScreenContextResolver $screenContextResolver,
         private readonly AuditSinkInterface $audit,
         private readonly InterfacingRendererInterface $renderer,
+        private readonly ?TokenStorageInterface $tokenStorage = null,
     ) {
     }
 

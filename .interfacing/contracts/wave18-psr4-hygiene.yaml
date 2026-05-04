@@ -1,0 +1,15 @@
+wave: 18
+name: psr4-hygiene
+status: compatibility-hygiene
+changes:
+  - converted service README marker PHP files to Markdown docs
+  - corrected ScreenViewBuilderPayloadContractTest namespace to App\Interfacing\Tests\Interfacing\Contract
+  - corrected test imports to App\Interfacing scoped symbols
+non_goals:
+  - runtime behavior changes
+  - route changes
+  - service alias changes
+validation_targets:
+  - composer dump-autoload without PSR-4 warnings for touched files
+  - php bin/console cache:clear
+  - php bin/console lint:container

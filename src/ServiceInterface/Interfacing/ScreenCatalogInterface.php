@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Interfacing;
 
-use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface;
 
-interface ScreenCatalogInterface
+/**
+ * @deprecated Use App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface.
+ */
+interface ScreenCatalogInterface extends ScreenSpecCatalogInterface
 {
-    /** @return list<ScreenSpecInterface> */
-    public function all(): array;
-
-    public function get(string $id): ScreenSpecInterface;
 }

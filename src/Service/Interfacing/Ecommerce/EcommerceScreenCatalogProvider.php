@@ -18,6 +18,11 @@ final readonly class EcommerceScreenCatalogProvider implements EcommerceScreenCa
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $entries = $this->platformEntries();
 
         foreach ($this->crudResourceExplorerProvider->provide() as $resource) {
@@ -49,21 +54,31 @@ final readonly class EcommerceScreenCatalogProvider implements EcommerceScreenCa
             ],
         );
 
-        return $entries;
+        return $cache = $entries;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $entry) {
             $grouped[$entry->zone()][] = $entry;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function statusCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = [
             'connected' => 0,
             'canonical' => 0,
@@ -74,11 +89,16 @@ final readonly class EcommerceScreenCatalogProvider implements EcommerceScreenCa
             $counts[$entry->status()] = ($counts[$entry->status()] ?? 0) + 1;
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     public function componentSummaryByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $summary = [];
         foreach ($this->provide() as $entry) {
             $key = $entry->zone().'|'.$entry->component();
@@ -123,7 +143,7 @@ final readonly class EcommerceScreenCatalogProvider implements EcommerceScreenCa
 
         uksort($grouped, static fn (string $left, string $right): int => self::zoneOrder($left) <=> self::zoneOrder($right));
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     /** @return list<EcommerceScreenEntry> */

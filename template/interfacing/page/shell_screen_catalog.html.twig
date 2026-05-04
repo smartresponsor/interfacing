@@ -1,0 +1,60 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  {% set summary = screenCatalog.summary|default({}) %}
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:18px; padding:16px 18px;">
+    <div style="display:flex; justify-content:space-between; gap:14px; align-items:flex-start;">
+      <div>
+        <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:900; letter-spacing:.05em;">Shell screen catalog</div>
+        <h1 style="margin:6px 0 0; font-size:30px; letter-spacing:-.03em;">All shell, CRUD and application screens</h1>
+        <p style="margin:8px 0 0; color:#64748b; max-width:980px; line-height:1.5;">This catalog is a single navigation surface for shared shell pages, diagnostics, JSON exports and all known Smart Responsor CRUD resources. It keeps the EasyAdmin replacement visible inside the common Top / Left / Body / Right / Footer shell.</p>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; min-width:280px;">
+        <a href="{{ path('interfacing_shell_screen_catalog_json') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#0f172a; color:#fff; font-size:12px; font-weight:800;">Open JSON</a>
+        <a href="{{ path('interfacing_application_dashboard') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#fff; border:1px solid #cbd5e1; color:#0f172a; font-size:12px; font-weight:700;">Applications</a>
+        <a href="{{ path('interfacing_crud_explorer') }}" style="text-decoration:none; padding:9px 12px; border-radius:11px; background:#fff; border:1px solid #cbd5e1; color:#0f172a; font-size:12px; font-weight:700;">CRUD Explorer</a>
+      </div>
+    </div>
+
+    <div style="margin-top:14px; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px;">
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">Screens</div><div style="margin-top:6px; font-size:28px; font-weight:900;">{{ summary.screenCount|default(0) }}</div></div>
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">Zones</div><div style="margin-top:6px; font-size:28px; font-weight:900;">{{ summary.zoneCount|default(0) }}</div></div>
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">Components</div><div style="margin-top:6px; font-size:28px; font-weight:900;">{{ summary.componentCount|default(0) }}</div></div>
+      <div style="padding:11px 12px; border:1px solid #e2e8f0; border-radius:13px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:800;">CRUD resources</div><div style="margin-top:6px; font-size:28px; font-weight:900;">{{ summary.crudResourceCount|default(0) }}</div></div>
+    </div>
+  </section>
+
+  <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:18px; padding:16px 18px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:center;">
+      <div>
+        <h2 style="margin:0; font-size:22px; letter-spacing:-.02em;">Screen zones</h2>
+        <div style="margin-top:4px; color:#64748b; font-size:13px;">Grouped by shell/navigation area and CRUD bridge surface.</div>
+      </div>
+      <div style="font-size:12px; color:#64748b;">Top · left primary · left secondary · right context · footer · CRUD</div>
+    </div>
+
+    <div style="margin-top:14px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px;">
+      {% for zone in screenCatalog.zones|default([]) %}
+        <article style="border:1px solid #e2e8f0; border-radius:15px; padding:12px; background:#fbfdff;">
+          <div style="display:flex; justify-content:space-between; gap:8px; align-items:center;">
+            <div style="font-size:15px; font-weight:900;">{{ zone.zone }}</div>
+            <span style="font-size:11px; color:#334155; border:1px solid #e2e8f0; border-radius:999px; padding:3px 7px;">{{ zone.screenCount }} screens</span>
+          </div>
+          <div style="margin-top:10px; display:flex; flex-direction:column; gap:7px; max-height:360px; overflow:auto;">
+            {% for screen in zone.screens|slice(0, 32) %}
+              <a href="{{ screen.url }}" style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start; text-decoration:none; color:inherit; padding:9px 10px; border:1px solid #edf2f7; border-radius:11px; background:#fff;">
+                <span>
+                  <span style="display:block; font-size:13px; font-weight:800;">{{ screen.title }}</span>
+                  <span style="display:block; margin-top:2px; font-size:11px; color:#64748b;">{{ screen.component }} · {{ screen.operation }} · {{ screen.status }}</span>
+                </span>
+                <span style="font-size:11px; color:#2563eb; white-space:nowrap;">Open</span>
+              </a>
+            {% endfor %}
+          </div>
+        </article>
+      {% else %}
+        <div style="grid-column:1/-1; color:#64748b; font-size:13px;">No screens are registered in the shell catalog.</div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

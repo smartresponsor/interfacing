@@ -1,25 +1,6 @@
-interfacing_billing_meter:
-  path: /interfacing/billing/meter
-  controller: App\Interfacing\Presentation\Controller\Interfacing\BillingMeterScreenController::index
-  methods: [GET]
-
-interfacing_billing_meter_legacy:
-  path: /billing/meter
-  controller: App\Interfacing\Presentation\Controller\Interfacing\BillingMeterScreenController::index
-  methods: [GET]
-
-interfacing_order_summary:
-  path: /interfacing/order/summary
-  controller: App\Interfacing\Presentation\Controller\Interfacing\OrderSummaryScreenController::index
-  methods: [GET]
-
-interfacing_order_summary_legacy:
-  path: /order/summary
-  controller: App\Interfacing\Presentation\Controller\Interfacing\OrderSummaryScreenController::index
-  methods: [GET]
-
-interfacing_screen_controller:
-  path: /interfacing/screen/{screenId}
-  controller: App\Interfacing\Presentation\Controller\Interfacing\ScreenController::show
-  requirements:
-    screenId: '[a-z0-9][a-z0-9._-]{0,63}'
+# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+# Route ownership note:
+# - Interfacing-owned controller routes are imported from config/routes/interfacing_attributes.yaml.
+# - This file is intentionally kept as a legacy anchor for host applications that import
+#   config/routes/interfacing.yaml directly, but it must not redeclare attribute-owned routes.
+# - Do not add /interfacing/* catch-all routes here; keep broad routes after specific attributes.

@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing;
 
+use App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface as ContextBaseContextProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\BaseContextProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -17,7 +18,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 /**
  *
  */
-final class BaseContextProvider implements BaseContextProviderInterface
+final class BaseContextProvider implements BaseContextProviderInterface, ContextBaseContextProviderInterface
 {
     /**
      * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack

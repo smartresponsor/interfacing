@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Presentation\Controller\Interfacing;
 
-use App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Access\ScreenActionAccessResolverInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Presentation\InterfacingRendererInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Security\PermissionNamerInterface;
@@ -24,7 +24,7 @@ final class InterfacingDoctorInfraController extends AbstractController
     public function __construct(
         private readonly ?TokenStorageInterface $tokenStorage,
         private readonly RequestBaseContextProviderInterface $baseContext,
-        private readonly AccessResolverInterface $access,
+        private readonly ScreenActionAccessResolverInterface $access,
         private readonly PermissionNamerInterface $permission,
         private readonly AuditSinkInterface $audit,
         private readonly InterfacingRendererInterface $renderer,

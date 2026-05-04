@@ -8,9 +8,10 @@ namespace App\Interfacing\Service\Interfacing;
 
 use App\Interfacing\Contract\ValueObject\ActionId;
 use App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
-use App\Interfacing\ServiceInterface\Interfacing\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface;
 
-final class ActionCatalog implements ActionCatalogInterface
+final class ActionCatalog implements ActionEndpointCatalogInterface, ActionCatalogInterface
 {
     /** @var list<ActionEndpointInterface> */
     private array $endpoint;

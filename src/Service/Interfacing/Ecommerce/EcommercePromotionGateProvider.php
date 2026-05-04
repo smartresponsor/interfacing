@@ -17,6 +17,11 @@ final readonly class EcommercePromotionGateProvider implements EcommercePromotio
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $items = [];
         foreach ($this->runtimeBridgeProvider->provide() as $bridge) {
             if (!$bridge instanceof EcommerceRuntimeBridgeItem) {
@@ -54,21 +59,31 @@ final readonly class EcommercePromotionGateProvider implements EcommercePromotio
             ],
         );
 
-        return $items;
+        return $cache = $items;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $item) {
             $grouped[$item->zone()][] = $item;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function gateCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['blocked' => 0, 'promote_candidate' => 0, 'connected' => 0, 'total' => 0];
 
         foreach ($this->provide() as $item) {
@@ -78,7 +93,7 @@ final readonly class EcommercePromotionGateProvider implements EcommercePromotio
             }
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function targetStatus(EcommerceRuntimeBridgeItem $bridge): string

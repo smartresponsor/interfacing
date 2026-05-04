@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace App\Interfacing\Service\Interfacing;
 
 use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
 
-final class ScreenCatalog implements ScreenCatalogInterface
+final class ScreenCatalog implements ScreenSpecCatalogInterface, ScreenCatalogInterface
 {
     /** @var list<ScreenProviderInterface> */
     private array $provider;

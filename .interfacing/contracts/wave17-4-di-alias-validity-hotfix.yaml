@@ -1,0 +1,11 @@
+wave: 17.4
+name: di-alias-validity-hotfix
+status: runtime-hotfix
+reason: >
+  Symfony lint:container validates interface aliases against concrete classes.
+  Deprecated transitional interfaces must point to compatibility wrappers that
+  explicitly implement those deprecated interfaces, not only to canonical
+  implementations that implement the parent/canonical interface.
+changes:
+  - config/services/interfacing.yaml deprecated access aliases now point to compatibility wrappers.
+  - ActionCatalog explicitly implements the deprecated root ActionCatalogInterface as well as the canonical catalog interface.

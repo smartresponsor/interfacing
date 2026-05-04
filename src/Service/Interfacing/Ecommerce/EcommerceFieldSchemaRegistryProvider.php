@@ -17,6 +17,11 @@ final readonly class EcommerceFieldSchemaRegistryProvider implements EcommerceFi
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $items = [];
         foreach ($this->contractRegistryProvider->provide() as $contract) {
             if (!$contract instanceof EcommerceContractItem) {
@@ -56,28 +61,38 @@ final readonly class EcommerceFieldSchemaRegistryProvider implements EcommerceFi
             ],
         );
 
-        return $items;
+        return $cache = $items;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $item) {
             $grouped[$item->zone()][] = $item;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function gradeCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['schema_ready' => 0, 'draft' => 0, 'missing' => 0, 'total' => 0];
         foreach ($this->provide() as $item) {
             ++$counts['total'];
             ++$counts[$item->schemaGrade()];
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function schemaGrade(string $contractGrade): string

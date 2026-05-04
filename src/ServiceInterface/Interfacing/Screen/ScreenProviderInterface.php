@@ -9,10 +9,14 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Interfacing\Screen;
 
-use App\Interfacing\Contract\View\ScreenSpecInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Provider\ScreenProviderInterface as ProviderScreenProviderInterface;
 
-interface ScreenProviderInterface
+/**
+ * @deprecated Transitional screen-bucket alias. Use Provider\ScreenProviderInterface
+ *             for screen contribution providers. Screen orchestration contracts
+ *             should stay under ServiceInterface\Interfacing\Screen only when they
+ *             are not provider contributions.
+ */
+interface ScreenProviderInterface extends ProviderScreenProviderInterface
 {
-    /** @return array<int, ScreenSpecInterface> */
-    public function provide(): array;
 }

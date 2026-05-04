@@ -1,0 +1,17 @@
+schema: smartresponsor.interfacing.contract_note.v1
+component: Interfacing
+wave: 15
+title: Neutral CRUD preview DTO boundary
+status: applied
+canonical_contracts:
+  - src/Contract/Crud/CrudPreviewPage.php
+  - src/Contract/Crud/CrudPreviewRow.php
+  - src/ServiceInterface/Interfacing/Crud/CrudWorkbenchPreviewProviderInterface.php
+principles:
+  - Generic CRUD workbench preview data must use Interfacing-owned neutral DTOs.
+  - Owning components map their resource-specific query/read models into CrudPreviewPage/CrudPreviewRow.
+  - OrderSummaryPage remains valid only for the order summary screen and is no longer the generic preview provider return type.
+compatibility:
+  - Public CRUD bridge routes are unchanged.
+  - Twig payload shape is unchanged: rows still expose id, status, createdAt, amount, customer, and _actions.
+  - buildOrderSummaryView remains for the dedicated order summary screen.

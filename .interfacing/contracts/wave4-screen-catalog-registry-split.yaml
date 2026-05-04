@@ -1,0 +1,27 @@
+schema: smartresponsor.interfacing.contract_split.v1
+component: Interfacing
+wave: 4
+canonical:
+  screen_spec_catalog:
+    interface: App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface
+    implementation: App\Interfacing\Service\Interfacing\ScreenCatalog
+    payload: App\Interfacing\Contract\View\ScreenSpecInterface
+    identifier: string
+  registry_descriptor_catalog:
+    interface: App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface
+    implementation: App\Interfacing\Service\Interfacing\Registry\ScreenCatalog
+    payload: App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenDescriptorInterface
+    identifier: string
+  runtime_screen_registry:
+    interface: App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenRegistryInterface
+    implementation: App\Interfacing\Service\Interfacing\Runtime\ScreenRegistry
+    payload: component-name mapping
+    identifier: App\Interfacing\Contract\ValueObject\ScreenId
+transitional:
+  deprecated_root_screen_catalog_interface:
+    interface: App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface
+    replacement: App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface
+rule: >-
+  New code must inject the narrow contract matching its payload. Controllers and doctor reports
+  use Catalog\ScreenSpecCatalogInterface; compiler/descriptor integrations use Registry; runtime
+  component-name resolution uses Runtime.

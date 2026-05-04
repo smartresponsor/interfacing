@@ -1,0 +1,14 @@
+wave: 5
+component: Interfacing
+area: action-catalog-registry-split
+canonical_contracts:
+  endpoint_catalog: App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface
+  modern_action_catalog: App\Interfacing\ServiceInterface\Interfacing\Action\ActionCatalogInterface
+  screen_scoped_registry_catalog: App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface
+compatibility_contracts:
+  deprecated_root_action_catalog: App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface
+rules:
+  - New bridge/simple endpoint catalog consumers must use Catalog\ActionEndpointCatalogInterface.
+  - New modern action runner consumers must use Action\ActionCatalogInterface.
+  - New screen-scoped registry/runtime consumers must use Registry\ActionCatalogInterface.
+  - Do not collapse the three action contracts without an explicit payload-model migration.

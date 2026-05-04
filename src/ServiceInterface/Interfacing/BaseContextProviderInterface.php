@@ -6,15 +6,11 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Interfacing;
 
-/**
- *
- */
+use App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface as ContextBaseContextProviderInterface;
 
 /**
- *
+ * @deprecated Transitional root-level alias. Use Context\BaseContextProviderInterface.
  */
-interface BaseContextProviderInterface
+interface BaseContextProviderInterface extends ContextBaseContextProviderInterface
 {
-    /** @return array<string,mixed> */
-    public function provide(): array;
 }

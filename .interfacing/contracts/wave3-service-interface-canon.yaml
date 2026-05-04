@@ -1,0 +1,14 @@
+version: 1
+component: interfacing
+wave: service-interface-dedup-3
+canonical:
+  screen_provider: src/ServiceInterface/Interfacing/Provider/ScreenProviderInterface.php
+  runtime_screen_provider: src/ServiceInterface/Interfacing/Runtime/ScreenProviderInterface.php
+  base_context_provider: src/ServiceInterface/Interfacing/Context/BaseContextProviderInterface.php
+transitional_aliases:
+  - src/ServiceInterface/Interfacing/ScreenProviderInterface.php
+  - src/ServiceInterface/Interfacing/Screen/ScreenProviderInterface.php
+  - src/ServiceInterface/Interfacing/BaseContextProviderInterface.php
+not_collapsed_yet:
+  screen_catalogs: method signatures differ between string ids, value-object ids, registry descriptors, and runtime id lists
+  access_resolvers: method signatures differ between shell capability checks, screen-aware checks, and request/token-aware decisions

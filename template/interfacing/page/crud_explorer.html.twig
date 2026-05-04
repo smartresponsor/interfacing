@@ -4,19 +4,113 @@
   {% include 'interfacing/partial/admin_toolbar.html.twig' with {
     eyebrow: 'Cruding → Interfacing',
     heading: 'CRUD Explorer',
-    text: 'Shell-native CRUD route directory for connected, canonical and planned Smart Responsor resources.',
+    text: 'Shell-native CRUD route directory for connected, canonical and planned Smart Responsor resources. Index/New/Show/Edit/Delete open route-compatible workbench URLs, and links.json exports the same surface for host wiring.',
     status: {'resources': resourceSet|length},
     actions: [
       {title: 'Workspace', url: path('interfacing_index')},
       {title: 'Operations', url: path('interfacing_operation_workbench')},
-      {title: 'Route grammar', url: '#crud-pattern', primary: true}
+      {title: 'Route grammar', url: '#crud-pattern', primary: true},
+      {title: 'Generic CRUD bridge', url: '/category/'},
+      {title: 'Links JSON', url: path('interfacing_crud_explorer_links')},
+      {title: 'Route expectations', url: path('interfacing_crud_explorer_route_expectations')},
+      {title: 'Operations JSON', url: path('interfacing_crud_explorer_operations')}
     ]
   } only %}
 
+  <section style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:14px;">
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:12px 14px;"><div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:700;">Resources</div><div style="margin-top:5px; font-size:24px; font-weight:800;">{{ resourceSet|length }}</div><div style="margin-top:3px; font-size:12px; color:#64748b;">published CRUD rows</div></article>
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:12px 14px;"><div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:700;">Components</div><div style="margin-top:5px; font-size:24px; font-weight:800;">{{ resourceGroups|length }}</div><div style="margin-top:3px; font-size:12px; color:#64748b;">known ecosystem areas</div></article>
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:12px 14px;"><div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:700;">Connected/canonical</div><div style="margin-top:5px; font-size:24px; font-weight:800;">{{ statusSummary.connected + statusSummary.canonical }}</div><div style="margin-top:3px; font-size:12px; color:#64748b;">higher priority entries</div></article>
+    <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:12px 14px;"><div style="font-size:11px; color:#64748b; text-transform:uppercase; font-weight:700;">Planned</div><div style="margin-top:5px; font-size:24px; font-weight:800;">{{ statusSummary.planned }}</div><div style="margin-top:3px; font-size:12px; color:#64748b;">fallback bridge rows</div></article>
+  </section>
+
+  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px; margin-bottom:14px;">
+    <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+      <div><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Operation launchpad</div><div style="margin-top:6px; font-size:20px; font-weight:800;">CRUD operation coverage by action</div><div style="margin-top:6px; font-size:12px; color:#64748b; line-height:1.45;">Use this strip when you want to test the same operation across all known Smart Responsor resources: index, new, show, edit and delete.</div></div>
+      <a href="{{ path('interfacing_crud_explorer_operations') }}" style="display:inline-block; padding:8px 10px; border-radius:10px; border:1px solid #cbd5e1; color:#0f172a; text-decoration:none; font-size:12px; font-weight:700; white-space:nowrap;">Open operations.json</a>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; margin-top:12px;">
+      {% for row in operationSummary %}
+        <article style="border:1px solid #e2e8f0; border-radius:14px; padding:10px 11px; background:#f8fafc;">
+          <div style="display:flex; justify-content:space-between; gap:8px; align-items:center;"><strong style="font-size:13px;">{{ row.label }}</strong><span style="font-size:10px; color:#64748b; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ row.routeName }}</span></div>
+          <div style="margin-top:8px; font-size:22px; font-weight:800;">{{ row.resources }}</div>
+          <div style="margin-top:4px; font-size:11px; color:#64748b; line-height:1.4;">connected {{ row.connected }} · canonical {{ row.canonical }} · planned {{ row.planned }}</div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
   <section style="display:grid; grid-template-columns:minmax(0,2.1fr) minmax(320px,.9fr); gap:14px; align-items:start;">
     <div style="display:flex; flex-direction:column; gap:14px;">
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
+          <div>
+            <div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">EasyAdmin compensation surface</div>
+            <div style="margin-top:6px; font-size:20px; font-weight:800;">Universal index/new/show/edit/delete matrix</div>
+            <div style="margin-top:6px; font-size:12px; color:#64748b; line-height:1.45;">Every row below publishes the same Cruding-compatible address-bar grammar. Some URLs will resolve to the generic Interfacing preview bridge until the owning component exposes a concrete controller.</div>
+          </div>
+          <div style="font-size:12px; color:#64748b; white-space:nowrap;">{{ resourceSet|length }} resources · {{ resourceGroups|length }} components</div>
+        </div>
+
+        <div style="margin-top:12px; overflow:auto; border:1px solid #e2e8f0; border-radius:14px;">
+          <table style="width:100%; border-collapse:separate; border-spacing:0; font-size:12px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0; background:#f8fafc;">Component</th>
+                <th style="text-align:right; padding:8px; border-bottom:1px solid #e2e8f0; background:#f8fafc;">Resources</th>
+                <th style="text-align:right; padding:8px; border-bottom:1px solid #e2e8f0; background:#f8fafc;">Connected</th>
+                <th style="text-align:right; padding:8px; border-bottom:1px solid #e2e8f0; background:#f8fafc;">Canonical</th>
+                <th style="text-align:right; padding:8px; border-bottom:1px solid #e2e8f0; background:#f8fafc;">Planned</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0; background:#f8fafc;">Quick open</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in componentSummary %}
+                <tr>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><a href="#crud-component-{{ row.component|lower }}" style="color:#2563eb; text-decoration:none; font-weight:700;">{{ row.component }}</a></td>
+                  <td style="text-align:right; padding:8px; border-bottom:1px solid #f1f5f9;">{{ row.resources }}</td>
+                  <td style="text-align:right; padding:8px; border-bottom:1px solid #f1f5f9;">{{ row.connected }}</td>
+                  <td style="text-align:right; padding:8px; border-bottom:1px solid #f1f5f9;">{{ row.canonical }}</td>
+                  <td style="text-align:right; padding:8px; border-bottom:1px solid #f1f5f9;">{{ row.planned }}</td>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><a href="{{ row.firstIndexUrl }}" style="color:#2563eb; text-decoration:none; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ row.firstIndexUrl }}</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:12px; overflow:auto;">
+          <table style="width:100%; border-collapse:separate; border-spacing:0; font-size:12px;">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0;">Component</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0;">Resource</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0;">Index</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0;">New</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0;">Show sample</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0;">Edit sample</th>
+                <th style="text-align:left; padding:8px; border-bottom:1px solid #e2e8f0;">Delete sample</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for resource in resourceSet %}
+                <tr>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ resource.component }}</td>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><strong>{{ resource.label }}</strong><div style="color:#94a3b8; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ resource.resourcePath }}</div></td>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.indexUrl }}" style="color:#2563eb; text-decoration:none;">{{ resource.indexUrl }}</a></td>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.newUrl }}" style="color:#2563eb; text-decoration:none;">{{ resource.newUrl }}</a></td>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.showSampleUrl }}" style="color:#2563eb; text-decoration:none;">{{ resource.showSampleUrl }}</a></td>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.editSampleUrl }}" style="color:#2563eb; text-decoration:none;">{{ resource.editSampleUrl }}</a></td>
+                  <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><a href="{{ resource.deleteSampleUrl }}" style="color:#b91c1c; text-decoration:none;">{{ resource.deleteSampleUrl }}</a></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
       {% for component, resources in resourceGroups %}
-        <section style="display:flex; flex-direction:column; gap:10px;">
+        <section id="crud-component-{{ component|lower }}" style="display:flex; flex-direction:column; gap:10px; scroll-margin-top:16px;">
           <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:10px;">
             <div><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Known ecosystem component</div><div style="margin-top:4px; font-size:20px; font-weight:800; line-height:1.1;">{{ component }}</div></div>
             <div style="font-size:12px; color:#64748b;">{{ resources|length }} CRUD resource{% if resources|length != 1 %}s{% endif %}</div>
@@ -25,7 +119,11 @@
             <article style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
               <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start;">
                 <div><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">{{ resource.component }}</div><div style="margin-top:6px; font-size:20px; font-weight:800; line-height:1.1;">{{ resource.label }}</div><div style="margin-top:4px; font-size:12px; color:#64748b;">resourcePath · {{ resource.resourcePath }} · status · {{ resource.status }}</div></div>
-                <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;"><a href="{{ resource.indexUrl }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#0f172a; color:#fff; font-weight:700; font-size:12px;">Open index</a><a href="{{ resource.newUrl }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600; font-size:12px;">Create new</a></div>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+                  {% for action in resource.operationUrls %}
+                    <a href="{{ action.url }}" style="text-decoration:none; padding:8px 11px; border-radius:10px; {% if action.variant == 'primary' %}background:#0f172a; color:#fff; border:1px solid #0f172a; font-weight:700;{% elseif action.variant == 'danger' %}background:#fff; color:#b91c1c; border:1px solid #fecaca; font-weight:600;{% else %}background:#fff; color:#0f172a; border:1px solid #cbd5e1; font-weight:600;{% endif %} font-size:12px;">{{ action.label }}</a>
+                  {% endfor %}
+                </div>
               </div>
               <div style="margin-top:12px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px;">
                 <div style="padding:10px 11px; border:1px solid #e2e8f0; border-radius:12px;"><div style="font-size:11px; color:#64748b; text-transform:uppercase;">Show</div><a href="{{ resource.showSampleUrl }}" style="display:inline-block; margin-top:6px; font-size:12px; font-family:ui-monospace,SFMono-Regular,Consolas,monospace; color:#2563eb; text-decoration:none;">{{ resource.showSampleUrl }}</a><div style="margin-top:4px; font-size:11px; color:#94a3b8; font-family:ui-monospace,SFMono-Regular,Consolas,monospace;">{{ resource.showPattern }}</div></div>
@@ -41,7 +139,9 @@
     <aside style="display:flex; flex-direction:column; gap:12px;">
       {% include 'interfacing/partial/crud_route_grammar.html.twig' only %}
       {% include 'interfacing/partial/operation_status_legend.html.twig' only %}
-      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;"><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Why this screen exists</div><div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">This is the shell-native place to audit which resources expose the same CRUD grammar.</div><div style="margin-top:10px; font-size:12px; color:#64748b;">Known resources listed here: {{ resourceSet|length }}</div></section>
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;"><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Link export</div><div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">The JSON endpoint exposes the same address-bar grammar for scripts, smoke checks and host-app navigation wiring.</div><div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;"><a href="{{ path('interfacing_crud_explorer_links') }}" style="display:inline-block; padding:8px 10px; border-radius:10px; border:1px solid #cbd5e1; color:#0f172a; text-decoration:none; font-size:12px; font-weight:700;">Open links.json</a><a href="{{ path('interfacing_crud_explorer_route_expectations') }}" style="display:inline-block; padding:8px 10px; border-radius:10px; border:1px solid #cbd5e1; color:#0f172a; text-decoration:none; font-size:12px; font-weight:700;">Open route expectations</a><a href="{{ path('interfacing_crud_explorer_operations') }}" style="display:inline-block; padding:8px 10px; border-radius:10px; border:1px solid #cbd5e1; color:#0f172a; text-decoration:none; font-size:12px; font-weight:700;">Open operations</a></div></section>
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;"><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Bridge route smoke contract</div><div style="margin-top:8px; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px;"><div style="padding:8px; border:1px solid #e2e8f0; border-radius:10px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Expectations</div><div style="font-size:18px; font-weight:800;">{{ routeExpectationSummary.expectations }}</div></div><div style="padding:8px; border:1px solid #dcfce7; border-radius:10px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Present</div><div style="font-size:18px; font-weight:800; color:#166534;">{{ routeExpectationSummary.routePresent }}</div></div><div style="padding:8px; border:1px solid #fecaca; border-radius:10px;"><div style="font-size:10px; color:#64748b; text-transform:uppercase;">Missing</div><div style="font-size:18px; font-weight:800; color:#991b1b;">{{ routeExpectationSummary.routeMissing }}</div></div></div><div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">This counts resource × operation expectations against the global CRUD bridge route names: app_crud_index, app_crud_new, app_crud_show, app_crud_edit and app_crud_delete.</div></section>
+      <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;"><div style="font-size:11px; color:#2563eb; text-transform:uppercase; font-weight:700; letter-spacing:.05em;">Why this screen exists</div><div style="margin-top:8px; font-size:12px; color:#475569; line-height:1.45;">This is the shell-native place to audit which resources expose the same CRUD grammar. The bridge is intentionally preview-only: business persistence still belongs to the owning component.</div><div style="margin-top:10px; font-size:12px; color:#64748b;">Known resources listed here: {{ resourceSet|length }}</div></section>
     </aside>
   </section>
 {% endblock %}

@@ -25,6 +25,10 @@ final readonly class TwigInterfacingRenderer implements InterfacingRendererInter
             $context['shell'] = $this->shellChromeProvider->provide($activeId);
         }
 
+        if (!array_key_exists('shellKnownCrudResources', $context) && is_array($context['shell'])) {
+            $context['shellKnownCrudResources'] = $context['shell']['knownCrudResources'] ?? [];
+        }
+
         return new Response($this->twig->render($template, $context), $status);
     }
 }

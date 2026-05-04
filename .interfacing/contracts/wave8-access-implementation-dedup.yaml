@@ -1,0 +1,20 @@
+wave: 8
+name: access-implementation-dedup
+scope: service-implementation
+canonical_implementations:
+  screen_action: src/Service/Interfacing/Access/SymfonyScreenActionAccessResolver.php
+  role_list: src/Service/Interfacing/Access/SymfonyRoleAccessResolver.php
+  screen_spec: src/Service/Interfacing/Security/SymfonyScreenAccessResolver.php
+  shell_capability: src/Service/Interfacing/Shell/SymfonyCapabilityAccessResolver.php
+  fallback_screen_spec: src/Service/Interfacing/Security/AllowAllScreenAccessResolver.php
+  fallback_shell_capability: src/Service/Interfacing/Shell/AllowAllCapabilityAccessResolver.php
+compatibility_wrappers:
+  - src/Service/Interfacing/Access/SymfonyAccessResolver.php
+  - src/Service/Interfacing/SymfonyAccessResolver.php
+  - src/Service/Interfacing/Security/SymfonyAccessResolver.php
+  - src/Service/Interfacing/Shell/SymfonyAccessResolver.php
+  - src/Service/Interfacing/Security/AllowAllAccessResolver.php
+  - src/Service/Interfacing/Shell/AllowAllAccessResolver.php
+runtime_policy:
+  standalone_without_authorization_checker: allow
+  strict_host_policy: bind real authorization checker or override resolver service

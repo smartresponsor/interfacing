@@ -17,6 +17,11 @@ final readonly class EcommerceEvidenceRegistryProvider implements EcommerceEvide
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $items = [];
         foreach ($this->promotionGateProvider->provide() as $gate) {
             if (!$gate instanceof EcommercePromotionGateItem) {
@@ -55,28 +60,38 @@ final readonly class EcommerceEvidenceRegistryProvider implements EcommerceEvide
             ],
         );
 
-        return $items;
+        return $cache = $items;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $item) {
             $grouped[$item->zone()][] = $item;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function gradeCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['complete' => 0, 'partial' => 0, 'missing' => 0, 'total' => 0];
         foreach ($this->provide() as $item) {
             ++$counts['total'];
             ++$counts[$item->evidenceGrade()];
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function evidenceGrade(string $gateStatus): string

@@ -1,0 +1,38 @@
+schema: smart-responsor.interfacing.contract-wave.v1
+wave: 17
+name: crud-operation-grammar-provider
+status: canonical-boundary-added
+canonical_contracts:
+  - src/Contract/Crud/CrudOperationGrammarInterface.php
+  - src/Contract/Crud/CrudOperationGrammar.php
+  - src/ServiceInterface/Interfacing/Crud/CrudOperationGrammarProviderInterface.php
+canonical_services:
+  - src/Service/Interfacing/Crud/DefaultCrudOperationGrammarProvider.php
+consumers:
+  - src/Service/Interfacing/View/CrudExplorerViewBuilder.php
+  - src/Service/Interfacing/Crud/CrudResourceExplorerProvider.php
+route_grammar:
+  index:
+    route_name: app_crud_index
+    grammar: /{resourcePath}/
+    variant: primary
+  new:
+    route_name: app_crud_new
+    grammar: /{resourcePath}/new/
+    variant: default
+  show:
+    route_name: app_crud_show
+    grammar: /{resourcePath}/{id}
+    variant: default
+  edit:
+    route_name: app_crud_edit
+    grammar: /{resourcePath}/edit/{id}
+    variant: default
+  delete:
+    route_name: app_crud_delete
+    grammar: /{resourcePath}/delete/{id}
+    variant: danger
+compatibility:
+  public_routes_changed: false
+  payload_shape_changed: false
+  link_set_operation_arrays_retained: true

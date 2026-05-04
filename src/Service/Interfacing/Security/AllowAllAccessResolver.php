@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing\Security;
 
-use App\Interfacing\Contract\View\ScreenSpecInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
 
-final class AllowAllAccessResolver implements AccessResolverInterface
+/**
+ * Deprecated compatibility class for screen-spec allow-all access checks.
+ *
+ * New services should use AllowAllScreenAccessResolver.
+ */
+final class AllowAllAccessResolver extends AllowAllScreenAccessResolver implements AccessResolverInterface
 {
-    public function isAllowed(ScreenSpecInterface $screen): bool
-    {
-        return true;
-    }
 }

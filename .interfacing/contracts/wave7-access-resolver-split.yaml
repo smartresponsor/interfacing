@@ -1,0 +1,28 @@
+wave: 7
+area: access-resolver-split
+canonical_contracts:
+  request_aware_screen_action:
+    interface: App\Interfacing\ServiceInterface\Interfacing\Access\ScreenActionAccessResolverInterface
+    implementation: App\Interfacing\Service\Interfacing\Access\SymfonyAccessResolver
+    responsibility: screen/action access decisions using request and token context
+  legacy_role_list:
+    interface: App\Interfacing\ServiceInterface\Interfacing\Access\RoleAccessResolverInterface
+    implementation: App\Interfacing\Service\Interfacing\SymfonyAccessResolver
+    responsibility: legacy role-list checks for old screen rendering paths
+  screen_spec_security:
+    interface: App\Interfacing\ServiceInterface\Interfacing\Security\ScreenAccessResolverInterface
+    implementation: App\Interfacing\Service\Interfacing\Security\SymfonyAccessResolver
+    responsibility: ScreenSpecInterface access checks
+  shell_capability:
+    interface: App\Interfacing\ServiceInterface\Interfacing\Shell\CapabilityAccessResolverInterface
+    implementation: App\Interfacing\Service\Interfacing\Shell\SymfonyAccessResolver
+    responsibility: shell/layout/panel capability visibility checks
+deprecated_aliases:
+  - App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface
+  - App\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface
+  - App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface
+  - App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface
+runtime_policy:
+  deletion: false
+  compatibility_aliases_retained: true
+  new_consumers_use_canonical_contracts: true

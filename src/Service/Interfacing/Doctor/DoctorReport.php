@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing\Doctor;
 
-use App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface;
-use App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface;
 
 final class DoctorReport
 {
-    public function __construct(private readonly ScreenCatalogInterface $screenCatalog, private readonly ActionCatalogInterface $actionCatalog)
+    public function __construct(private readonly ScreenSpecCatalogInterface $screenCatalog, private readonly ActionEndpointCatalogInterface $actionCatalog)
     {
     }
 

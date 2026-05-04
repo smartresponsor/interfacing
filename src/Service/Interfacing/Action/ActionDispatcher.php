@@ -10,7 +10,7 @@ use App\Interfacing\ServiceInterface\Interfacing\Context\ScreenContextAssemblerI
 use App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenRegistryInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionRequest;
 use App\Interfacing\ServiceInterface\Interfacing\Runtime\ActionResult;
-use App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Security\ScreenAccessResolverInterface;
 
 final readonly class ActionDispatcher implements ActionDispatcherInterface
 {
@@ -18,7 +18,7 @@ final readonly class ActionDispatcher implements ActionDispatcherInterface
         private ScreenRegistryInterface $screenRegistry,
         private ActionRegistryInterface $actionRegistry,
         private ScreenContextAssemblerInterface $contextAssembler,
-        private AccessResolverInterface $accessResolver,
+        private ScreenAccessResolverInterface $accessResolver,
     ) {
     }
 

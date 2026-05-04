@@ -1,0 +1,20 @@
+version: 1
+component: Interfacing
+wave: 9
+name: route-controller-boundary
+status: canonicalized
+rules:
+  - id: interfacing-owned-controllers-use-attribute-routes
+    statement: Interfacing-owned controller routes are imported through config/routes/interfacing_attributes.yaml.
+  - id: yaml-is-for-bridge-and-scoped-layout-routes
+    statement: YAML routes may define bridge routes and layout routes, but must not redeclare attribute-owned controller routes.
+  - id: no-root-interfacing-duplicate
+    statement: The /interfacing path is owned by InterfacingController::index; LayoutController uses /interfacing/layout.
+  - id: broad-routes-last
+    statement: Controllers with broad /interfacing/{id} routes must be imported after specific controllers.
+  - id: screen-catalog-route-is-scoped
+    statement: ScreenController catalog display uses /interfacing/catalog/screen/{screenId}; /interfacing/screen/{id} remains InterfacingController legacy layout resolution.
+retired_route_sources:
+  - config/routes/interfacing.yaml explicit billing/order/screen route declarations
+  - config/routes/interfacing_layout.yaml duplicate /interfacing declarations
+  - config/routes.yaml active standalone imports

@@ -1,0 +1,8 @@
+src/Integration/Symfony/InterfacingBundle.php
+src/Integration/Symfony/DependencyInjection/InterfacingExtension.php
+CrudRouteContext.php
+CrudWorkbenchFactory.php
+base.html.twig
+crud/screen.html.twig
+crud/workbench_base.html.twig
+templates/base.html.twig

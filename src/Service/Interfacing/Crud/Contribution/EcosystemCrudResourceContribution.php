@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing\Crud\Contribution;
 
-use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceContributionInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceDescriptorContributionInterface;
 
-final class EcosystemCrudResourceContribution extends AbstractCrudResourceContribution implements CrudResourceContributionInterface
+final class EcosystemCrudResourceContribution extends AbstractCrudResourceContribution implements CrudResourceDescriptorContributionInterface
 {
     public function provide(): array
     {
@@ -33,6 +33,24 @@ final class EcosystemCrudResourceContribution extends AbstractCrudResourceContri
             $this->genericResource('complying.case', 'Complying', 'Compliance case', 'compliance-case', 'Planned canonical CRUD resource for compliance work.'),
             $this->genericResource('consuming.consumption', 'Consuming', 'Consumption', 'consumption', 'Planned canonical CRUD resource for consumption records.'),
             $this->genericResource('discovering.discovery', 'Discovering', 'Discovery', 'discovery', 'Planned canonical CRUD resource for discovery screens.'),
+            $this->genericResource('configuring.configuration', 'Configuring', 'Configuration', 'configuration', 'Configuration screens need immediate CRUD visibility for host setup.'),
+            $this->genericResource('couponing.coupon', 'Couponing', 'Coupon', 'coupon', 'Coupon CRUD path prepares promotion/discount workflows.'),
+            $this->genericResource('couponing.coupon-redemption', 'Couponing', 'Coupon redemption', 'coupon-redemption', 'Redemption records provide audit visibility for coupon usage.'),
+            $this->genericResource('exporting.export-job', 'Exporting', 'Export job', 'export-job', 'Export job CRUD frames expose operator export status.'),
+            $this->genericResource('fulfilling.fulfillment', 'Fulfilling', 'Fulfillment', 'fulfillment', 'Fulfillment CRUD path complements order and shipment flows.'),
+            $this->genericResource('importing.import-job', 'Importing', 'Import job', 'import-job', 'Import job CRUD frames expose intake status and retries.'),
+            $this->genericResource('inventorying.inventory-item', 'Inventorying', 'Inventory item', 'inventory-item', 'Inventory item screens support stock review and manual correction.'),
+            $this->genericResource('inventorying.stock-movement', 'Inventorying', 'Stock movement', 'stock-movement', 'Stock movement rows need show/edit/delete probes for audit flows.'),
+            $this->genericResource('notifying.notification-template', 'Notifying', 'Notification template', 'notification-template', 'Notification template CRUD path prepares messaging and event notices.'),
+            $this->genericResource('pricing.price-rule', 'Pricing', 'Price rule', 'price-rule', 'Price rule screens support storefront and B2B pricing workflows.'),
+            $this->genericResource('pricing.price-list', 'Pricing', 'Price list', 'price-list', 'Price list CRUD path gives operators a familiar index/edit surface.'),
+            $this->genericResource('promoting.promotion', 'Promoting', 'Promotion', 'promotion', 'Promotion CRUD path supports campaign setup.'),
+            $this->genericResource('quoting.quote', 'Quoting', 'Quote', 'quote', 'Quote CRUD path supports pre-order commercial workflows.'),
+            $this->genericResource('reporting.report', 'Reporting', 'Report', 'report', 'Report CRUD path provides admin-visible report definitions.'),
+            $this->genericResource('reviewing.review', 'Reviewing', 'Review', 'review', 'Review CRUD path gives moderation screens a canonical route surface.'),
+            $this->genericResource('scheduling.schedule', 'Scheduling', 'Schedule', 'schedule', 'Schedule CRUD path prepares calendar/workflow controls.'),
+            $this->genericResource('subscribing.subscription', 'Subscribing', 'Subscription', 'subscription', 'Subscription CRUD path supports recurring commercial flows.'),
+            $this->genericResource('synchronizing.sync-job', 'Synchronizing', 'Sync job', 'sync-job', 'Sync job CRUD frames expose external integration state.'),
             $this->genericResource('documenting.document', 'Documenting', 'Document', 'document', 'Normalized Documenting component entry; replaces the previous Documentating spelling.'),
             $this->genericResource('evaluating.evaluation', 'Evaluating', 'Evaluation', 'evaluation', 'Planned canonical CRUD resource for evaluation workflows.'),
             $this->genericResource('faceting.facet', 'Faceting', 'Facet', 'facet', 'Product discovery/filtering facet surface.'),

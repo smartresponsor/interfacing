@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing\Crud\Contribution;
 
-use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceContributionInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceDescriptorContributionInterface;
 
-final class AccessingCrudResourceContribution extends AbstractCrudResourceContribution implements CrudResourceContributionInterface
+final class AccessingCrudResourceContribution extends AbstractCrudResourceContribution implements CrudResourceDescriptorContributionInterface
 {
     public function provide(): array
     {

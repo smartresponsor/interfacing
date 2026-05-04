@@ -1,0 +1,14 @@
+wave: 17.1
+name: crud-preview-provider-runtime-hotfix
+status: applied
+fixes:
+  - class: App\Interfacing\Service\Interfacing\Crud\CrudWorkbenchPreviewProviderChain
+    issue: return type still referenced App\Interfacing\Contract\Dto\OrderSummaryPage after neutral preview DTO migration
+    canonical_return_type: App\Interfacing\Contract\Crud\CrudPreviewPage
+contracts:
+  provider_interface: App\Interfacing\ServiceInterface\Interfacing\Crud\CrudWorkbenchPreviewProviderInterface
+  neutral_page: App\Interfacing\Contract\Crud\CrudPreviewPage
+compatibility:
+  public_routes_changed: false
+  twig_payload_changed: false
+  destructive_operations: false

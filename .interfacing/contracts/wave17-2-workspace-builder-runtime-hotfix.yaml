@@ -1,0 +1,8 @@
+wave: '17.2'
+name: workspace-builder-runtime-hotfix
+status: runtime-hotfix
+changes:
+  - restore concrete InterfacingWorkspaceViewBuilder class required by Symfony DI
+  - restore InterfacingWorkspaceViewBuilderInterface contract
+public_routes_changed: false
+service_ids_changed: false

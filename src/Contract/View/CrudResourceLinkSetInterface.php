@@ -35,4 +35,14 @@ interface CrudResourceLinkSetInterface
     public function editSampleUrl(): string;
 
     public function deleteSampleUrl(): string;
+
+    /**
+     * @return list<array{operation:string,label:string,url:string,variant:string}>
+     */
+    public function operationUrls(): array;
+
+    /**
+     * @return list<array{operation:string,label:string,pattern:string}>
+     */
+    public function operationPatterns(): array;
 }

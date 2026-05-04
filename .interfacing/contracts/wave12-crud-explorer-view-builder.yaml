@@ -1,0 +1,19 @@
+schema: smart-responsor.interfacing.contract-note.v1
+wave: 12
+name: crud-explorer-view-builder-extraction
+status: applied
+canonical_contracts:
+  - App\Interfacing\ServiceInterface\Interfacing\View\CrudExplorerViewBuilderInterface
+canonical_services:
+  - App\Interfacing\Service\Interfacing\View\CrudExplorerViewBuilder
+controllers:
+  - App\Interfacing\Presentation\Controller\Interfacing\CrudExplorerController
+preserved_routes:
+  - interfacing_crud_explorer
+  - interfacing_crud_explorer_links
+  - interfacing_crud_explorer_route_expectations
+  - interfacing_crud_explorer_operations
+rules:
+  - Controllers own routes, response type, rendering, and JSON response wrapping.
+  - CRUD Explorer sorting, grouping, route expectation rows, operation summary rows, and JSON payload schema assembly belong to the view-builder service layer.
+  - No public route names or paths changed in this wave.

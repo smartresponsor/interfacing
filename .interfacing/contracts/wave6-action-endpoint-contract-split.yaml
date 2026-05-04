@@ -1,0 +1,16 @@
+wave: 6
+component: Interfacing
+area: action-endpoint-contract-split
+canonical_contracts:
+  bridge_simple_endpoint: App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointInterface
+  bridge_simple_endpoint_catalog: App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface
+  modern_action_runner_endpoint: App\Interfacing\ServiceInterface\Interfacing\Action\ActionEndpointInterface
+  screen_scoped_registry_endpoint: App\Interfacing\ServiceInterface\Interfacing\Registry\ActionEndpointInterface
+compatibility_contracts:
+  deprecated_root_action_endpoint: App\Interfacing\ServiceInterface\Interfacing\ActionEndpointInterface
+rules:
+  - New bridge/simple endpoints must implement Catalog\ActionEndpointInterface.
+  - New bridge/simple endpoint catalogs must type against Catalog\ActionEndpointInterface.
+  - New modern action-runner endpoints must implement Action\ActionEndpointInterface.
+  - New screen-scoped runtime/registry endpoints must implement Registry\ActionEndpointInterface.
+  - Do not collapse endpoint contracts that use different payload models.

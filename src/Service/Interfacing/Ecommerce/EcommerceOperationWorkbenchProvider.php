@@ -17,6 +17,11 @@ final readonly class EcommerceOperationWorkbenchProvider implements EcommerceOpe
 
     public function provide(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $buckets = [];
 
         foreach ($this->screenCatalogProvider->provide() as $entry) {
@@ -81,21 +86,31 @@ final readonly class EcommerceOperationWorkbenchProvider implements EcommerceOpe
             ],
         );
 
-        return $cards;
+        return $cache = $cards;
     }
 
     public function groupedByZone(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $grouped = [];
         foreach ($this->provide() as $card) {
             $grouped[$card->zone()][] = $card;
         }
 
-        return $grouped;
+        return $cache = $grouped;
     }
 
     public function statusCounts(): array
     {
+        static $cache = null;
+        if (null !== $cache) {
+            return $cache;
+        }
+
         $counts = ['connected' => 0, 'canonical' => 0, 'planned' => 0, 'total' => 0];
 
         foreach ($this->provide() as $card) {
@@ -103,7 +118,7 @@ final readonly class EcommerceOperationWorkbenchProvider implements EcommerceOpe
             ++$counts[$card->resourceStatus()];
         }
 
-        return $counts;
+        return $cache = $counts;
     }
 
     private function resourceKey(string $entryId): string

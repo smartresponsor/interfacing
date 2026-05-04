@@ -11,21 +11,10 @@ namespace App\Interfacing\Service\Interfacing\Shell;
 use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
 
 /**
+ * Deprecated compatibility class for shell allow-all capability checks.
  *
+ * New services should use AllowAllCapabilityAccessResolver.
  */
-
-/**
- *
- */
-final class AllowAllAccessResolver implements AccessResolverInterface
+final class AllowAllAccessResolver extends AllowAllCapabilityAccessResolver implements AccessResolverInterface
 {
-    /**
-     * @param string $capability
-     * @param array $context
-     * @return bool
-     */
-    public function allow(string $capability, array $context = []): bool
-    {
-        return true;
-    }
 }

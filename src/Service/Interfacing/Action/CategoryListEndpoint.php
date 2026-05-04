@@ -8,7 +8,7 @@ use App\Interfacing\Contract\Action\ActionRequest;
 use App\Interfacing\Contract\Action\ActionResult;
 use App\Interfacing\Contract\Ui\UiMessage;
 use App\Interfacing\Contract\ValueObject\ActionId;
-use App\Interfacing\ServiceInterface\Interfacing\ActionEndpointInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointInterface;
 use App\Interfacing\ServiceInterface\Interfacing\CategoryApiClientInterface;
 
 final class CategoryListEndpoint implements ActionEndpointInterface

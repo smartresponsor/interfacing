@@ -1,0 +1,77 @@
+{% extends 'interfacing/base.html.twig' %}
+
+{% block body %}
+  <section style="display:grid; gap:16px;">
+    <header style="background:#ffffff; border:1px solid #e5e7eb; border-radius:18px; padding:18px; box-shadow:0 8px 24px rgba(15,23,42,.06);">
+      <p style="margin:0 0 6px; text-transform:uppercase; letter-spacing:.08em; font-size:12px; color:#6b7280;">Shell contract</p>
+      <h1 style="margin:0; font-size:28px;">Shared shell layout preview</h1>
+      <p style="margin:8px 0 0; color:#4b5563; max-width:860px; line-height:1.55;">
+        This page is the visual contract for Interfacing screens: Top panel and Footer are mandatory, the default workbench is four-column, and the compact mode may only remove the right context panel.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;">
+        <a href="{{ path('interfacing_shell_layout_preview_json') }}" style="padding:9px 12px; border-radius:999px; background:#111827; color:#fff; text-decoration:none; font-weight:700;">Layout JSON</a>
+        <a href="{{ path('interfacing_shell_diagnostics') }}" style="padding:9px 12px; border-radius:999px; border:1px solid #d1d5db; color:#111827; text-decoration:none; font-weight:700;">Shell Guard</a>
+        <a href="{{ path('interfacing_shell_navigation') }}" style="padding:9px 12px; border-radius:999px; border:1px solid #d1d5db; color:#111827; text-decoration:none; font-weight:700;">Shell Map</a>
+      </div>
+    </header>
+
+    <section style="display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;">
+      {% for key, value in layoutPreview.summary %}
+        <article style="background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:14px;">
+          <div style="font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:#6b7280;">{{ key }}</div>
+          <strong style="display:block; margin-top:6px; font-size:22px;">{{ value }}</strong>
+        </article>
+      {% endfor %}
+    </section>
+
+    <section style="display:grid; gap:14px;">
+      {% for mode in layoutPreview.modes %}
+        <article style="background:#fff; border:1px solid #e5e7eb; border-radius:18px; padding:16px; box-shadow:0 8px 24px rgba(15,23,42,.05);">
+          <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;">
+            <div>
+              <p style="margin:0 0 4px; color:#6b7280; font-size:12px; text-transform:uppercase; letter-spacing:.08em;">{{ mode.id }}</p>
+              <h2 style="margin:0; font-size:20px;">{{ mode.title }}</h2>
+              <p style="margin:8px 0 0; color:#4b5563;">{{ mode.useCase }}</p>
+            </div>
+            <code style="background:#f3f4f6; border:1px solid #e5e7eb; border-radius:10px; padding:8px 10px; color:#374151;">{{ mode.cssGrid }}</code>
+          </div>
+
+          <div style="display:grid; grid-template-columns:{{ mode.cssGrid }}; gap:8px; margin-top:14px; min-height:118px;">
+            {% for column in mode.columns %}
+              <div style="border:1px dashed #9ca3af; border-radius:14px; background:#f9fafb; padding:12px; min-width:0;">
+                <strong style="display:block; font-size:13px; color:#111827;">{{ column }}</strong>
+                <span style="display:block; margin-top:6px; font-size:12px; color:#6b7280;">{{ column == 'body' ? 'main content block' : 'shell chrome slot' }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </section>
+
+    <section style="background:#fff; border:1px solid #e5e7eb; border-radius:18px; padding:16px;">
+      <h2 style="margin:0 0 12px; font-size:20px;">Required shell slots</h2>
+      <div style="overflow:auto;">
+        <table style="width:100%; border-collapse:collapse; min-width:760px;">
+          <thead>
+            <tr style="text-align:left; color:#6b7280; font-size:12px; text-transform:uppercase; letter-spacing:.06em;">
+              <th style="padding:10px; border-bottom:1px solid #e5e7eb;">Slot</th>
+              <th style="padding:10px; border-bottom:1px solid #e5e7eb;">Source</th>
+              <th style="padding:10px; border-bottom:1px solid #e5e7eb;">Required</th>
+              <th style="padding:10px; border-bottom:1px solid #e5e7eb;">Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for slot in layoutPreview.slots %}
+              <tr>
+                <td style="padding:10px; border-bottom:1px solid #f3f4f6;"><strong>{{ slot.title }}</strong><br><small style="color:#6b7280;">{{ slot.id }}</small></td>
+                <td style="padding:10px; border-bottom:1px solid #f3f4f6;"><code>{{ slot.source }}</code></td>
+                <td style="padding:10px; border-bottom:1px solid #f3f4f6;">{{ slot.required ? 'yes' : 'no' }}</td>
+                <td style="padding:10px; border-bottom:1px solid #f3f4f6;">{{ slot.count }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+{% endblock %}

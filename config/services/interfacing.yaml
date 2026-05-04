@@ -36,10 +36,20 @@ services:
     App\Interfacing\ServiceInterface\Interfacing\Runtime\ScreenProviderInterface:
       tags: ['interfacing.runtime_screen_provider']
 
-    App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceContributionInterface:
+    App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceDescriptorContributionInterface:
       tags: ['interfacing.crud_resource_contribution']
 
   Psr\Log\NullLogger: ~
+
+  App\Interfacing\Service\Interfacing\Localization\DefaultLocaleTemplateSelectorProvider: ~
+
+  App\Interfacing\Service\Interfacing\Localization\DefaultLocaleTemplateContextProvider: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Localization\LocaleTemplateContextProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Localization\DefaultLocaleTemplateContextProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Localization\LocaleTemplateSelectorProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Localization\DefaultLocaleTemplateSelectorProvider
 
   App\Interfacing\Application\Security\InterfacingPermissionVoter:
     tags:
@@ -68,7 +78,29 @@ services:
   App\Interfacing\Presentation\Controller\Interfacing\InterfacingController:
     tags: ['controller.service_arguments']
 
+  App\Interfacing\Presentation\Controller\Interfacing\DynamicScreenController:
+    tags: ['controller.service_arguments']
+
+
   App\Interfacing\Presentation\Controller\Interfacing\CrudExplorerController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\GenericCrudWorkbenchController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\ShellPanelDiagnosticsController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\ShellNavigationMapController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\ShellApplicationDashboardController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\ShellScreenCatalogController:
+    tags: ['controller.service_arguments']
+
+  App\Interfacing\Presentation\Controller\Interfacing\ShellLayoutPreviewController:
     tags: ['controller.service_arguments']
 
   App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenEmptyComponent: ~
@@ -79,6 +111,7 @@ services:
   App\Interfacing\Presentation\LiveComponent\Interfacing\Screen\ScreenWizardDemoComponent: ~
   App\Interfacing\Presentation\LiveComponent\Interfacing\ScreenLiveComponent: ~
 
+  App\Interfacing\Service\Interfacing\Access\SymfonyScreenActionAccessResolver: ~
   App\Interfacing\Service\Interfacing\Access\SymfonyAccessResolver: ~
 
 
@@ -90,25 +123,52 @@ services:
   App\Interfacing\Service\Interfacing\Crud\Contribution\:
     resource: '../../src/Service/Interfacing/Crud/Contribution/*'
 
+  App\Interfacing\Service\Interfacing\Crud\DefaultCrudOperationGrammarProvider: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\Crud\CrudOperationGrammarProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Crud\DefaultCrudOperationGrammarProvider
+
   App\Interfacing\Service\Interfacing\Crud\CrudResourceExplorerProvider:
     arguments:
       $contributions: !tagged_iterator interfacing.crud_resource_contribution
+      $url: '@router' 
+
+  App\Interfacing\Service\Interfacing\Crud\DefaultCrudWorkbenchPreviewProvider: ~
+
+  App\Interfacing\Service\Interfacing\Crud\CrudWorkbenchPreviewProviderChain:
+    arguments:
+      $providers: !tagged_iterator interfacing.crud_workbench_preview_provider
+      $fallback: '@App\Interfacing\Service\Interfacing\Crud\DefaultCrudWorkbenchPreviewProvider'
+
+  App\Interfacing\ServiceInterface\Interfacing\Crud\CrudWorkbenchPreviewProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Crud\CrudWorkbenchPreviewProviderChain
 
 
   App\Interfacing\Service\Interfacing\Audit\MonologAuditSink:
     arguments:
       $logger: '@Psr\Log\NullLogger'
 
+  App\Interfacing\Service\Interfacing\BaseContextProvider: ~
   App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider: ~
+  App\Interfacing\Service\Interfacing\Access\SymfonyRoleAccessResolver: ~
   App\Interfacing\Service\Interfacing\SymfonyAccessResolver: ~
   App\Interfacing\Service\Interfacing\Layout\LayoutCatalog:
     arguments:
       $provider: !tagged_iterator interfacing.layout_provider
   App\Interfacing\Service\Interfacing\Layout\LayoutGuard: ~
   App\Interfacing\Service\Interfacing\Layout\LayoutShell: ~
+  App\Interfacing\Service\Interfacing\Shell\SymfonyCapabilityAccessResolver: ~
   App\Interfacing\Service\Interfacing\Shell\SymfonyAccessResolver: ~
 
   App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider: ~
+
+  App\Interfacing\Service\Interfacing\Shell\ShellPanelDiagnosticsProvider: ~
+
+  App\Interfacing\Service\Interfacing\Shell\ShellNavigationMapProvider: ~
+
+  App\Interfacing\Service\Interfacing\Shell\ShellScreenCatalogProvider: ~
+
+  App\Interfacing\Service\Interfacing\Shell\ShellLayoutPreviewProvider: ~
 
   App\Interfacing\Service\Interfacing\Ecommerce\EcommerceScreenCatalogProvider: ~
 
@@ -177,6 +237,18 @@ services:
 
   App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface:
     alias: App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Shell\ShellPanelDiagnosticsProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Shell\ShellPanelDiagnosticsProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Shell\ShellNavigationMapProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Shell\ShellNavigationMapProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Shell\ShellScreenCatalogProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Shell\ShellScreenCatalogProvider
+
+  App\Interfacing\ServiceInterface\Interfacing\Shell\ShellLayoutPreviewProviderInterface:
+    alias: App\Interfacing\Service\Interfacing\Shell\ShellLayoutPreviewProvider
   App\Interfacing\Service\Interfacing\Runtime\ScreenRegistry:
     arguments:
       $provider: !tagged_iterator interfacing.runtime_screen_provider
@@ -192,6 +264,7 @@ services:
       $endpoint: !tagged_iterator interfacing.action
   App\Interfacing\Service\Interfacing\Demo\DemoPingAction: ~
   App\Interfacing\Service\Interfacing\Context\ScreenContextAssembler: ~
+  App\Interfacing\Service\Interfacing\Security\SymfonyScreenAccessResolver: ~
   App\Interfacing\Service\Interfacing\Security\SymfonyAccessResolver: ~
   App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider: ~
   App\Interfacing\Service\Interfacing\Runtime\Context\ScreenContextAssembler:
@@ -255,9 +328,13 @@ services:
   App\Interfacing\ServiceInterface\Interfacing\Query\OrderSummaryQueryServiceInterface:
     alias: App\Interfacing\Service\Interfacing\Query\HttpOrderSummaryQueryService
 
+  App\Interfacing\ServiceInterface\Interfacing\Access\ScreenActionAccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Access\SymfonyScreenActionAccessResolver
   App\Interfacing\ServiceInterface\Interfacing\Access\AccessResolverInterface:
     alias: App\Interfacing\Service\Interfacing\Access\SymfonyAccessResolver
 
+  App\Interfacing\ServiceInterface\Interfacing\Access\RoleAccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Access\SymfonyRoleAccessResolver
   App\Interfacing\ServiceInterface\Interfacing\AccessResolverInterface:
     alias: App\Interfacing\Service\Interfacing\SymfonyAccessResolver
 
@@ -270,6 +347,8 @@ services:
   App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutShellInterface:
     alias: App\Interfacing\Service\Interfacing\Layout\LayoutShell
 
+  App\Interfacing\ServiceInterface\Interfacing\Shell\CapabilityAccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Shell\SymfonyCapabilityAccessResolver
   App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface:
     alias: App\Interfacing\Service\Interfacing\Shell\SymfonyAccessResolver
 
@@ -290,17 +369,21 @@ services:
   App\Interfacing\ServiceInterface\Interfacing\Runtime\BaseContextProviderInterface:
     alias: App\Interfacing\Service\Interfacing\Runtime\Context\RequestBaseContextProvider
   App\Interfacing\ServiceInterface\Interfacing\Context\BaseContextProviderInterface:
-    alias: App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider
+    alias: App\Interfacing\Service\Interfacing\BaseContextProvider
 
   App\Interfacing\ServiceInterface\Interfacing\Runtime\InterfacingRuntimeInterface:
     alias: App\Interfacing\Service\Interfacing\Runtime\InterfacingRuntime
 
+  App\Interfacing\ServiceInterface\Interfacing\Catalog\ScreenSpecCatalogInterface:
+    alias: App\Interfacing\Service\Interfacing\ScreenCatalog
   App\Interfacing\ServiceInterface\Interfacing\ScreenCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\ScreenCatalog
   App\Interfacing\ServiceInterface\Interfacing\Registry\ScreenCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\Registry\ScreenCatalog
   App\Interfacing\ServiceInterface\Interfacing\Registry\ActionCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\Registry\ActionCatalog
+  App\Interfacing\ServiceInterface\Interfacing\Catalog\ActionEndpointCatalogInterface:
+    alias: App\Interfacing\Service\Interfacing\ActionCatalog
   App\Interfacing\ServiceInterface\Interfacing\ActionCatalogInterface:
     alias: App\Interfacing\Service\Interfacing\ActionCatalog
 
@@ -312,6 +395,8 @@ services:
 
   App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface:
     alias: App\Interfacing\Service\Interfacing\Context\SymfonyBaseContextProvider
+  App\Interfacing\ServiceInterface\Interfacing\Security\ScreenAccessResolverInterface:
+    alias: App\Interfacing\Service\Interfacing\Security\SymfonyScreenAccessResolver
   App\Interfacing\ServiceInterface\Interfacing\Security\AccessResolverInterface:
     alias: App\Interfacing\Service\Interfacing\Security\SymfonyAccessResolver
 
@@ -325,6 +410,21 @@ services:
     alias: App\Interfacing\Service\Interfacing\Audit\MonologAuditSink
 
   # RVE-A2: enforce thin controllers by delegating orchestration to a view builder (service layer).
+  App\Interfacing\Service\Interfacing\View\InterfacingWorkspaceViewBuilder: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\View\InterfacingWorkspaceViewBuilderInterface:
+    alias: App\Interfacing\Service\Interfacing\View\InterfacingWorkspaceViewBuilder
+
+  App\Interfacing\Service\Interfacing\View\CrudExplorerViewBuilder: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\View\CrudExplorerViewBuilderInterface:
+    alias: App\Interfacing\Service\Interfacing\View\CrudExplorerViewBuilder
+
+  App\Interfacing\Service\Interfacing\View\GenericCrudWorkbenchViewBuilder: ~
+
+  App\Interfacing\ServiceInterface\Interfacing\View\GenericCrudWorkbenchViewBuilderInterface:
+    alias: App\Interfacing\Service\Interfacing\View\GenericCrudWorkbenchViewBuilder
+
   App\Interfacing\Service\Interfacing\View\ScreenViewBuilder: ~
 
   App\Interfacing\ServiceInterface\Interfacing\View\ScreenViewBuilderInterface:

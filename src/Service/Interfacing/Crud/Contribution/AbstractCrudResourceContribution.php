@@ -4,16 +4,11 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Interfacing\Crud\Contribution;
 
-use App\Interfacing\Contract\View\CrudResourceLinkSet;
-use App\Interfacing\Contract\View\CrudResourceLinkSetInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use App\Interfacing\Contract\Crud\CrudResourceDescriptor;
+use App\Interfacing\Contract\Crud\CrudResourceDescriptorInterface;
 
 abstract class AbstractCrudResourceContribution
 {
-    public function __construct(private readonly UrlGeneratorInterface $url)
-    {
-    }
-
     /**
      * @param array<string, string> $routeParameters
      */
@@ -33,17 +28,20 @@ abstract class AbstractCrudResourceContribution
         array $routeParameters = [],
         string $status = 'connected',
         string $sampleIdentifier = 'sample',
-    ): CrudResourceLinkSetInterface {
-        return new CrudResourceLinkSet(
+    ): CrudResourceDescriptorInterface {
+        return new CrudResourceDescriptor(
             id: $id,
             component: $component,
             label: $label,
             resourcePath: $resourcePath,
-            indexUrl: $this->safeUrl($indexRoute, $indexFallback, $routeParameters),
-            newUrl: $this->safeUrl($newRoute, $newFallback, $routeParameters),
+            indexRoute: $indexRoute,
+            indexFallback: $indexFallback,
+            newRoute: $newRoute,
+            newFallback: $newFallback,
             showPattern: $showPattern,
             editPattern: $editPattern,
             deletePattern: $deletePattern,
+            routeParameters: $routeParameters,
             note: $note,
             status: $status,
             sampleIdentifier: $sampleIdentifier,
@@ -56,7 +54,7 @@ abstract class AbstractCrudResourceContribution
         string $label,
         string $resourcePath,
         ?string $note = null,
-    ): CrudResourceLinkSetInterface {
+    ): CrudResourceDescriptorInterface {
         return $this->resource(
             id: $id,
             component: $component,
@@ -81,7 +79,7 @@ abstract class AbstractCrudResourceContribution
         string $label,
         string $resourcePath,
         ?string $note = null,
-    ): CrudResourceLinkSetInterface {
+    ): CrudResourceDescriptorInterface {
         return $this->resource(
             id: $id,
             component: $component,
@@ -98,17 +96,5 @@ abstract class AbstractCrudResourceContribution
             routeParameters: ['resourcePath' => $resourcePath],
             status: 'canonical',
         );
-    }
-
-    /**
-     * @param array<string, string> $parameters
-     */
-    protected function safeUrl(string $route, string $fallback, array $parameters = []): string
-    {
-        try {
-            return $this->url->generate($route, $parameters);
-        } catch (\Throwable) {
-            return $fallback;
-        }
     }
 }

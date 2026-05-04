@@ -12,7 +12,7 @@ use App\Interfacing\Contract\View\ShellNavGroup;
 use App\Interfacing\Contract\View\ShellNavItem;
 use App\Interfacing\Contract\View\ShellView;
 use App\Interfacing\ServiceInterface\Interfacing\Layout\LayoutCatalogInterface;
-use App\Interfacing\ServiceInterface\Interfacing\Shell\AccessResolverInterface;
+use App\Interfacing\ServiceInterface\Interfacing\Shell\CapabilityAccessResolverInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Shell\InterfacingShellInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -23,7 +23,7 @@ final class InterfacingShell implements InterfacingShellInterface
         private readonly LayoutCatalogInterface $layout,
         private readonly RequestStack $requestStack,
         private readonly UrlGeneratorInterface $url,
-        private readonly AccessResolverInterface $access,
+        private readonly CapabilityAccessResolverInterface $access,
     ) {
     }
 

@@ -1,0 +1,19 @@
+wave: 13
+name: generic-crud-workbench-view-builder
+status: active
+controller_boundary:
+  controller: App\Interfacing\Presentation\Controller\Interfacing\GenericCrudWorkbenchController
+  responsibility: route ownership and rendering only
+service_boundary:
+  interface: App\Interfacing\ServiceInterface\Interfacing\View\GenericCrudWorkbenchViewBuilderInterface
+  implementation: App\Interfacing\Service\Interfacing\View\GenericCrudWorkbenchViewBuilder
+  responsibility:
+    - route context resolution
+    - screen context resolution
+    - filter extraction
+    - demo-backed sample page construction
+    - CRUD workbench view assembly
+compatibility:
+  public_routes_changed: false
+  route_names_changed: false
+  twig_template_changed: false
