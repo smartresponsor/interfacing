@@ -27,6 +27,10 @@ final class ScreenLiveComponent
     #[LiveProp(writable: true)]
     public array $state = [];
 
+    /** @var array<string, mixed> */
+    #[LiveProp(writable: true)]
+    public array $context = [];
+
     /** @var array<int, array{type:string, message:string}> */
     #[LiveProp(writable: true)]
     public array $flash = [];
@@ -52,8 +56,18 @@ final class ScreenLiveComponent
     {
     }
 
-    public function mount(): void
+    /**
+     * @param array<string, mixed> $context
+     */
+    public function mount(string $screenId = 'demo.form', array $context = []): void
     {
+        $screenId = trim($screenId);
+        if ('' !== $screenId) {
+            $this->screenId = $screenId;
+        }
+
+        $this->context = $context;
+
         if ([] !== $this->state) {
             return;
         }

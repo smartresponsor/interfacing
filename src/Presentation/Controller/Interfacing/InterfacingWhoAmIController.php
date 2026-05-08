@@ -13,12 +13,9 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 
 final class InterfacingWhoAmIController extends AbstractController
 {
-    /**
-     * @param \App\Interfacing\ServiceInterface\Interfacing\Context\RequestBaseContextProviderInterface $baseContext
-     */
     public function __construct(
-        private ?TokenStorageInterface $tokenStorage = null,
         private RequestBaseContextProviderInterface $baseContext,
+        private ?TokenStorageInterface $tokenStorage = null,
     ) {
     }
 

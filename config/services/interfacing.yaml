@@ -40,6 +40,7 @@ services:
       tags: ['interfacing.crud_resource_contribution']
 
   Psr\Log\NullLogger: ~
+  cache.app.recorder_inner: '@cache.app'
 
   App\Interfacing\Service\Interfacing\Localization\DefaultLocaleTemplateSelectorProvider: ~
 
@@ -88,6 +89,9 @@ services:
   App\Interfacing\Presentation\Controller\Interfacing\GenericCrudWorkbenchController:
     tags: ['controller.service_arguments']
 
+  App\Interfacing\Presentation\Controller\Interfacing\BridgeProviderSurfaceController:
+    tags: ['controller.service_arguments']
+
   App\Interfacing\Presentation\Controller\Interfacing\ShellPanelDiagnosticsController:
     tags: ['controller.service_arguments']
 
@@ -129,6 +133,7 @@ services:
     alias: App\Interfacing\Service\Interfacing\Crud\DefaultCrudOperationGrammarProvider
 
   App\Interfacing\Service\Interfacing\Crud\CrudResourceExplorerProvider:
+    lazy: true
     arguments:
       $contributions: !tagged_iterator interfacing.crud_resource_contribution
       $url: '@router' 
@@ -161,7 +166,8 @@ services:
   App\Interfacing\Service\Interfacing\Shell\SymfonyCapabilityAccessResolver: ~
   App\Interfacing\Service\Interfacing\Shell\SymfonyAccessResolver: ~
 
-  App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider: ~
+  App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider:
+    lazy: true
 
   App\Interfacing\Service\Interfacing\Shell\ShellPanelDiagnosticsProvider: ~
 
@@ -403,17 +409,13 @@ services:
     alias: App\Interfacing\Service\Interfacing\Audit\MonologAuditSink
 
   # RVE-A2: enforce thin controllers by delegating orchestration to a view builder (service layer).
-  App\Interfacing\Service\Interfacing\View\InterfacingWorkspaceViewBuilder: ~
-
-  App\Interfacing\ServiceInterface\Interfacing\View\InterfacingWorkspaceViewBuilderInterface:
-    alias: App\Interfacing\Service\Interfacing\View\InterfacingWorkspaceViewBuilder
-
   App\Interfacing\Service\Interfacing\View\CrudExplorerViewBuilder: ~
 
   App\Interfacing\ServiceInterface\Interfacing\View\CrudExplorerViewBuilderInterface:
     alias: App\Interfacing\Service\Interfacing\View\CrudExplorerViewBuilder
 
-  App\Interfacing\Service\Interfacing\View\GenericCrudWorkbenchViewBuilder: ~
+  App\Interfacing\Service\Interfacing\View\GenericCrudWorkbenchViewBuilder:
+    lazy: true
 
   App\Interfacing\ServiceInterface\Interfacing\View\GenericCrudWorkbenchViewBuilderInterface:
     alias: App\Interfacing\Service\Interfacing\View\GenericCrudWorkbenchViewBuilder
@@ -433,7 +435,8 @@ services:
   App\Interfacing\ServiceInterface\Interfacing\Metric\UiMetricInterface:
     alias: App\Interfacing\Service\Interfacing\Metric\InMemoryUiMetric
 
-  App\Interfacing\Service\Interfacing\Presentation\TwigInterfacingRenderer: ~
+  App\Interfacing\Service\Interfacing\Presentation\TwigInterfacingRenderer:
+    lazy: true
 
   App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceExplorerProviderInterface:
     alias: App\Interfacing\Service\Interfacing\Crud\CrudResourceExplorerProvider

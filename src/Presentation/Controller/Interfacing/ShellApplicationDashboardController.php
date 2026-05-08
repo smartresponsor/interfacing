@@ -22,7 +22,7 @@ final class ShellApplicationDashboardController extends AbstractController
     #[Route('/interfacing/applications', name: 'interfacing_application_dashboard', methods: ['GET'])]
     public function index(): Response
     {
-        $shell = $this->shellChromeProvider->provide('applications.dashboard');
+        $shell = $this->shellChromeProvider->provide('applications.dashboard', true, true);
 
         return $this->renderer->render('interfacing/page/application_dashboard.html.twig', [
             'title' => 'Interfacing application dashboard',
@@ -35,7 +35,7 @@ final class ShellApplicationDashboardController extends AbstractController
     #[Route('/interfacing/applications.json', name: 'interfacing_application_dashboard_json', methods: ['GET'])]
     public function shellApplicationsJson(): JsonResponse
     {
-        $shell = $this->shellChromeProvider->provide('applications.dashboard');
+        $shell = $this->shellChromeProvider->provide('applications.dashboard', true, true);
 
         return new JsonResponse($shell['applicationDashboard'] ?? []);
     }

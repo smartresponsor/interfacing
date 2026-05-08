@@ -62,14 +62,6 @@ DI aliases for wave7 canonical access contracts now point to type-identifiable i
 - `Security/ScreenAccessResolverInterface` -> `Service/Interfacing/Security/SymfonyScreenAccessResolver`.
 - `Shell/CapabilityAccessResolverInterface` -> `Service/Interfacing/Shell/SymfonyCapabilityAccessResolver`.
 
-## Wave10 workspace view-builder contract
-
-Canonical workspace page context contract:
-
-- `View/InterfacingWorkspaceViewBuilderInterface.php`
-
-This contract owns Interfacing workspace page context assembly for the current dashboard/workbench pages. New controllers should depend on this contract or narrower page-specific builders rather than injecting ecommerce providers directly.
-
 ## Wave12 CRUD explorer view-builder contract
 
 Canonical CRUD Explorer view contract:

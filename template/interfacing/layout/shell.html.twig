@@ -1,20 +1,9 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'interfacing/base.html.twig' %}
+{# Provider-owned visible page. Do not reintroduce bespoke Twig tables, forms, inline CSS, provider-bypassing CSS-framework layout, or fallback UI here. #}
+{% extends 'interfacing/admin/body/provider_page.html.twig' %}
 
-{% block body %}
-  <div title="{{ shell.slotMap['shell.content.header']|default('Content header') }}" style="display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;">
-    <div>
-      <div style="font-size:12px; opacity:.58; text-transform:uppercase; letter-spacing:.04em;">{{ layout.active.navGroup }}</div>
-      <div style="font-size:24px; font-weight:700; line-height:1.1; margin-top:3px;">{{ layout.active.title }}</div>
-      <div style="font-size:12px; opacity:.68; margin-top:4px;">{{ layout.active.slug }}</div>
-    </div>
-    <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-      <a href="{{ path('interfacing_layout_index') }}" style="text-decoration:none; color:#111827; border:1px solid #d7dde5; background:#fff; border-radius:8px; padding:7px 10px; font-size:12px;">Workspace</a>
-      <a href="{{ path('interfacing_health') }}" style="text-decoration:none; color:#111827; border:1px solid #d7dde5; background:#fff; border-radius:8px; padding:7px 10px; font-size:12px;">Health</a>
-    </div>
-  </div>
-
-  <div style="border:1px solid #e5e7eb; border-radius:14px; background:#fff; padding:14px;">
-    {{ component(screenComponent, { screenId: layout.active.screenId.toString(), context: screenContext }) }}
-  </div>
-{% endblock %}
+{% set adminProviderPageTitle = 'Shell' %}
+{% set adminProviderResourceName = 'interfacing_layout_shell' %}
+{% set adminProviderResourceLabel = 'Shell' %}
+{% set adminProviderOperation = 'index' %}
+{% set adminProviderSurface = 'admin' %}

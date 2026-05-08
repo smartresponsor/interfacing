@@ -11,6 +11,7 @@
       </form>
     </div>
     <nav title="{{ shellSlotMap['shell.topbar.right']|default('Top quick links') }}" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:flex-end;">
+      {% include 'interfacing/shell/partial/quick_menu.html.twig' %}
       {% for it in shellTopLink %}
         <a href="{{ it.url }}" style="text-decoration:none; color:#111827; border:1px solid #d7dde5; background:#f8fafc; border-radius:8px; padding:6px 9px; font-size:12px;">{{ it.title }}</a>
       {% endfor %}

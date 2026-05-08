@@ -1,8 +1,9 @@
-<div>
-  <h3 style="margin: 0 0 8px;">Category Admin</h3>
-  <div style="color:#666; margin-bottom: 12px;">
-    Remote admin screen powered by server actions (list/open/save). Configure Category API base URL via env.
-  </div>
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Provider-owned visible page. Do not reintroduce bespoke Twig tables, forms, inline CSS, provider-bypassing CSS-framework layout, or fallback UI here. #}
+{% extends 'interfacing/admin/body/provider_page.html.twig' %}
 
-  {{ component('InterfacingCategoryAdmin') }}
-</div>
+{% set adminProviderPageTitle = 'Category Admin' %}
+{% set adminProviderResourceName = 'interfacing_category_admin' %}
+{% set adminProviderResourceLabel = 'Category Admin' %}
+{% set adminProviderOperation = 'index' %}
+{% set adminProviderSurface = 'admin' %}

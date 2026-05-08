@@ -1,0 +1,784 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Machine-readable admin body schema for the hydrated Ant Design ProComponents
+  layer. This is a contract payload, not a visual template.
+#}
+{% set schemaId = schemaId|default('if-admin-body-schema-' ~ resourceName|replace({'/':'-', '_':'-'})) %}
+{% set schemaPayload = {
+  schema: 'interfacing.admin.body',
+  version: '1.0',
+  schemaManifest: {
+    name: 'admin-body-schema-manifest',
+    version: '1.0',
+    owner: 'interfacing-admin-body-contract',
+    requiredTopLevelKeys: [
+      'schema',
+      'version',
+      'providers',
+      'schemaManifest',
+      'providerPolicy',
+      'resource',
+      'resourceContract',
+      'operationPolicy',
+      'toolbarPolicy',
+      'rowSelectionPolicy',
+      'tableInteractionPolicy',
+      'emptyStatePolicy',
+      'formLifecyclePolicy',
+      'detailViewPolicy',
+      'navigationPolicy',
+      'authorizationPolicy',
+      'telemetryPolicy',
+      'accessibilityPolicy',
+      'responsiveLayoutPolicy',
+      'operation',
+      'surface',
+      'view',
+      'locale',
+      'toolbar',
+      'table',
+      'cards',
+      'form',
+      'actions',
+      'runtime',
+      'hydration'
+    ],
+    requiredPolicyKeys: [
+      'providerPolicy',
+      'resourceContract',
+      'operationPolicy',
+      'toolbarPolicy',
+      'rowSelectionPolicy',
+      'tableInteractionPolicy',
+      'emptyStatePolicy',
+      'formLifecyclePolicy',
+      'detailViewPolicy',
+      'navigationPolicy',
+      'authorizationPolicy',
+      'telemetryPolicy',
+      'accessibilityPolicy',
+      'responsiveLayoutPolicy'
+    ],
+    providerTargets: {
+      primaryAdminWorkbench: 'ant-design-procomponents',
+      secondaryRichFacade: 'primereact'
+    },
+    runtimeChecks: {
+      validateManifest: true,
+      validatePolicies: true,
+      requireCanonicalProviders: true
+    }
+  },
+  providers: {
+    primary: provider,
+    secondary: secondaryProvider,
+    adminWorkbench: 'ant-design-procomponents',
+    richFacade: 'primereact'
+  },
+  providerPolicy: {
+    name: providerSelectionPolicy|default('admin-body-provider-selection'),
+    primary: {
+      provider: provider,
+      role: primaryProviderRole|default('admin-workbench'),
+      required: true,
+      expectedForSurface: 'admin'
+    },
+    secondary: {
+      provider: secondaryProvider,
+      role: secondaryProviderRole|default('rich-facade'),
+      replacementMode: secondaryReplacementMode|default('forbidden-for-admin-body'),
+      mayReplacePrimary: false
+    },
+    violationEvent: 'interfacing:admin-body:provider-policy-error',
+    providerRequiredErrorEvent: 'interfacing:admin-body:provider-required-error'
+  },
+  resource: {
+    name: resourceName,
+    label: resourceLabel,
+    collectionLabel: workbench.routeContext.resourceCollectionLabel|default(resourceLabel),
+    path: workbench.routeContext.resourcePath|default(resourceName)
+  },
+
+
+  toolbarPolicy: {
+    name: 'admin-body-toolbar-policy',
+    version: '1.0',
+    controls: ['search', 'filters', 'content-locale', 'view-mode', 'bulk-actions'],
+    search: {
+      enabled: true,
+      placement: 'pro-table-toolbar-search',
+      queryParam: 'q',
+      providerTarget: 'ProTable.toolbar.search'
+    },
+    filters: {
+      enabled: true,
+      placement: 'pro-table-search-form',
+      count: workbench.filters|length,
+      providerTarget: 'ProTable.search'
+    },
+    contentLocale: {
+      enabled: true,
+      placement: 'toolbar-extra-content-locale',
+      current: contentLocale,
+      supported: ['en', 'uk', 'ru'],
+      providerTarget: 'PageContainer.extra.contentLocale'
+    },
+    viewMode: {
+      enabled: true,
+      placement: 'toolbar-extra-view-mode',
+      default: defaultView,
+      modes: viewModes,
+      providerTarget: 'PageContainer.extra.viewMode'
+    },
+    bulkActions: {
+      enabled: false,
+      placement: 'pro-table-alert-option',
+      mode: 'guarded-by-row-selection',
+      providerTarget: 'ProTable.tableAlertOption'
+    },
+    providerTargets: {
+      search: 'ProTable.toolbar.search',
+      filters: 'ProTable.search',
+      contentLocale: 'PageContainer.extra.contentLocale',
+      viewMode: 'PageContainer.extra.viewMode',
+      bulkActions: 'ProTable.tableAlertOption'
+    }
+  },
+
+  rowSelectionPolicy: {
+    name: 'admin-body-row-selection-policy',
+    version: '1.0',
+    enabled: true,
+    rowKey: 'id',
+    selectionType: 'checkbox',
+    mode: 'guarded-by-row-selection',
+    selectedRowKeysParam: 'selected',
+    preserveSelectedRowKeys: false,
+    bulkActions: {
+      enabled: true,
+      placement: 'pro-table-alert-option',
+      actions: [
+        { key: 'delete-selected', label: 'Delete selected', operation: 'delete', destructive: true, confirmation: 'confirmation-required' },
+        { key: 'export-selected', label: 'Export selected', operation: 'export', destructive: false }
+      ]
+    },
+    providerTargets: {
+      rowSelection: 'ProTable.rowSelection',
+      tableAlertOption: 'ProTable.tableAlertOption',
+      bulkActions: 'ProTable.tableAlertOption.bulkActions'
+    }
+  },
+
+  tableInteractionPolicy: {
+    name: 'admin-body-table-interaction-policy',
+    version: '1.0',
+    pagination: {
+      enabled: true,
+      mode: 'server-driven',
+      pageParam: 'page',
+      pageSizeParam: 'pageSize',
+      providerTarget: 'ProTable.pagination'
+    },
+    sorting: {
+      enabled: true,
+      mode: 'server-driven',
+      sortParam: 'sort',
+      directionParam: 'direction',
+      directions: ['asc', 'desc'],
+      providerTarget: 'ProTable.columns.sorter'
+    },
+    density: {
+      enabled: true,
+      default: 'middle',
+      options: ['small', 'middle', 'large'],
+      providerTarget: 'ProTable.options'
+    },
+    providerTargets: {
+      pagination: 'ProTable.pagination',
+      sorting: 'ProTable.columns.sorter',
+      density: 'ProTable.options'
+    }
+  },
+
+  emptyStatePolicy: {
+    name: 'admin-body-empty-state-policy',
+    version: '1.0',
+    states: {
+      empty: {
+        enabled: true,
+        message: 'No records match the current criteria.',
+        providerTarget: 'ProTable.locale.emptyText'
+      },
+      loading: {
+        enabled: true,
+        message: 'Loading records…',
+        providerTarget: 'ProTable.loading'
+      },
+      error: {
+        enabled: true,
+        message: 'The resource could not be loaded.',
+        providerTarget: 'Result.error'
+      },
+      validationError: {
+        enabled: true,
+        message: 'Review the highlighted fields before saving.',
+        providerTarget: 'ProForm.validation'
+      },
+      offline: {
+        enabled: true,
+        message: 'The workbench is offline or degraded.',
+        providerTarget: 'Alert.offline'
+      }
+    },
+    actions: {
+      retry: { key: 'retry', label: 'Retry', providerTarget: 'Result.extra.retry' },
+      resetFilters: { key: 'reset-filters', label: 'Reset filters', providerTarget: 'ProTable.search.reset' },
+      create: { key: 'create', label: 'Create new', providerTarget: 'PageContainer.extra.create' }
+    },
+    providerTargets: {
+      empty: 'ProTable.locale.emptyText',
+      loading: 'ProTable.loading',
+      error: 'Result.error',
+      validationError: 'ProForm.validation',
+      offline: 'Alert.offline'
+    }
+  },
+
+  formLifecyclePolicy: {
+    name: 'admin-body-form-lifecycle-policy',
+    version: '1.0',
+    modes: ['create', 'edit'],
+    submit: {
+      mode: 'server-driven',
+      method: 'POST',
+      providerTarget: 'ProForm.submitter'
+    },
+    actions: {
+      save: { key: 'save', label: 'Save', providerTarget: 'ProForm.submitter.submit' },
+      saveAndContinue: { key: 'save-and-continue', label: 'Save and continue editing', providerTarget: 'ProForm.submitter.extra' },
+      cancel: { key: 'cancel', label: 'Cancel', providerTarget: 'ProForm.submitter.cancel' },
+      reset: { key: 'reset', label: 'Reset', providerTarget: 'ProForm.submitter.reset' }
+    },
+    dirtyState: {
+      enabled: true,
+      guard: 'confirm-on-navigate-away',
+      providerTarget: 'Modal.confirm'
+    },
+    validation: {
+      mode: 'provider-native',
+      showSummary: true,
+      providerTarget: 'ProForm.validation'
+    },
+    feedback: {
+      success: { message: 'Changes saved.', providerTarget: 'message.success' },
+      error: { message: 'The form could not be saved.', providerTarget: 'message.error' }
+    },
+    providerTargets: {
+      form: 'ProForm',
+      submitter: 'ProForm.submitter',
+      validation: 'ProForm.validation',
+      dirtyConfirm: 'Modal.confirm',
+      success: 'message.success',
+      error: 'message.error'
+    }
+  },
+
+
+
+  navigationPolicy: {
+    name: 'admin-body-navigation-policy',
+    version: '1.0',
+    scope: 'admin-body-local-navigation',
+    globalNavigationOwner: 'ecosystem-shell',
+    breadcrumbs: {
+      enabled: true,
+      providerTarget: 'PageContainer.breadcrumb',
+      items: [
+        { key: 'home', label: 'Home', href: '/' },
+        { key: 'resource-collection', label: workbench.routeContext.resourceCollectionLabel|default(resourceLabel), href: workbench.routeContext.collectionHref|default('./') },
+        { key: 'operation', label: operation|title, current: true }
+      ]
+    },
+    backAction: {
+      enabled: true,
+      key: 'back-to-list',
+      label: 'Back to list',
+      href: workbench.routeContext.collectionHref|default('./'),
+      providerTarget: 'PageContainer.extra.back'
+    },
+    resourceContext: {
+      enabled: true,
+      resource: resourceName,
+      label: resourceLabel,
+      collectionLabel: workbench.routeContext.resourceCollectionLabel|default(resourceLabel),
+      providerTarget: 'PageContainer.header.resourceContext'
+    },
+    routeContext: {
+      enabled: true,
+      operation: operation,
+      surface: surface,
+      providerTarget: 'PageContainer.header.routeContext'
+    },
+    providerTargets: {
+      breadcrumbs: 'PageContainer.breadcrumb',
+      backAction: 'PageContainer.extra.back',
+      resourceContext: 'PageContainer.header.resourceContext',
+      routeContext: 'PageContainer.header.routeContext'
+    }
+  },
+
+
+  authorizationPolicy: {
+    name: 'admin-body-authorization-policy',
+    version: '1.0',
+    mode: 'server-declared-action-state',
+    enforcementOwner: 'backend-security-voters',
+    uiResponsibility: 'visibility-and-disabled-state-only',
+    defaultDecision: 'disabled-until-authorized',
+    disabledReasonKey: 'disabledReason',
+    visibilityStateKey: 'visibility',
+    actionGroups: {
+      headerActions: {
+        placement: 'page-header-extra',
+        providerTarget: 'PageContainer.extra',
+        actions: workbench.headerActions|map(action => {
+          key: action.label|lower|replace({' ':'-', '/':'-', '_':'-'}),
+          label: action.label,
+          operation: action.operation|default('create'),
+          visibility: action.visibility|default('visible'),
+          enabled: action.enabled|default(true),
+          disabledReason: action.disabledReason|default(null)
+        })
+      },
+      rowActions: {
+        placement: 'action-column',
+        providerTarget: 'ProTable.actionColumn',
+        actions: [
+          { key: 'view', operation: 'show', visibility: 'visible', enabled: true },
+          { key: 'edit', operation: 'edit', visibility: 'visible', enabled: true },
+          { key: 'delete', operation: 'delete', visibility: 'visible', enabled: true, destructive: true, confirmation: 'confirmation-required' }
+        ]
+      },
+      bulkActions: {
+        placement: 'table-alert-option',
+        providerTarget: 'ProTable.tableAlertOption.bulkActions',
+        requiresRowSelection: true,
+        actions: [
+          { key: 'delete-selected', operation: 'delete', visibility: 'visible', enabled: false, destructive: true, disabledReason: 'Select rows before deleting.', confirmation: 'confirmation-required' },
+          { key: 'export-selected', operation: 'export', visibility: 'visible', enabled: false, destructive: false, disabledReason: 'Select rows before exporting.' }
+        ]
+      },
+      formActions: {
+        placement: 'form-submitter',
+        providerTarget: 'ProForm.submitter',
+        actions: [
+          { key: 'save', operation: 'save', visibility: 'visible', enabled: true },
+          { key: 'save-and-continue', operation: 'save', visibility: 'visible', enabled: true },
+          { key: 'cancel', operation: 'cancel', visibility: 'visible', enabled: true },
+          { key: 'reset', operation: 'reset', visibility: 'visible', enabled: true }
+        ]
+      },
+      detailActions: {
+        placement: 'page-header-extra',
+        providerTarget: 'PageContainer.extra',
+        actions: [
+          { key: 'back-to-list', operation: 'index', visibility: 'visible', enabled: true },
+          { key: 'edit', operation: 'edit', visibility: 'visible', enabled: true },
+          { key: 'delete', operation: 'delete', visibility: 'visible', enabled: true, destructive: true, confirmation: 'confirmation-required' }
+        ]
+      }
+    },
+    deniedActionBehavior: {
+      nonDestructive: 'render-disabled-with-reason',
+      destructive: 'hide-or-render-danger-disabled-with-confirmation',
+      providerTarget: 'Tooltip.disabledReason'
+    },
+    providerTargets: {
+      headerActions: 'PageContainer.extra',
+      rowActions: 'ProTable.actionColumn',
+      bulkActions: 'ProTable.tableAlertOption.bulkActions',
+      formActions: 'ProForm.submitter',
+      detailActions: 'PageContainer.extra',
+      disabledReason: 'Tooltip.disabledReason'
+    }
+  },
+
+
+
+  accessibilityPolicy: {
+    name: 'admin-body-accessibility-policy',
+    version: '1.0',
+    mode: 'provider-native-required',
+    owner: 'interfacing-admin-body-provider',
+    landmarks: {
+      main: { role: 'main', providerTarget: 'PageContainer.content' },
+      toolbar: { role: 'toolbar', providerTarget: 'ProTable.toolbar' },
+      table: { role: 'table', providerTarget: 'ProTable' },
+      form: { role: 'form', providerTarget: 'ProForm' },
+      detail: { role: 'region', providerTarget: 'Descriptions' }
+    },
+    keyboard: {
+      required: true,
+      mode: 'keyboard-navigation-required',
+      rowActionTabOrder: 'action-column-after-row-fields',
+      toolbarTabOrder: ['search', 'filters', 'content-locale', 'view-mode', 'bulk-actions'],
+      escapeBehavior: 'close-popup-or-return-focus'
+    },
+    focus: {
+      restoreAfterAction: true,
+      restoreMode: 'restore-focus-after-action',
+      initialFocus: 'toolbar-search-or-primary-action',
+      destructiveConfirmationFocus: 'confirm-dialog-primary-action'
+    },
+    announcements: {
+      enabled: true,
+      hydration: 'announce-hydration-state',
+      emptyState: 'announce-empty-state',
+      validationError: 'announce-validation-error',
+      providerTarget: 'aria-live-region'
+    },
+    labels: {
+      contentLocale: 'Content locale',
+      viewMode: 'Workbench view mode',
+      bulkActions: 'Bulk actions',
+      rowActions: 'Row actions',
+      formActions: 'Form actions'
+    },
+    providerTargets: {
+      page: 'PageContainer',
+      toolbar: 'ProTable.toolbar',
+      table: 'ProTable',
+      form: 'ProForm',
+      detail: 'Descriptions',
+      liveRegion: 'aria-live-region',
+      focusManagement: 'provider-focus-manager'
+    }
+  },
+
+  responsiveLayoutPolicy: {
+    name: 'admin-body-responsive-layout-policy',
+    version: '1.0',
+    mode: 'provider-native-responsive-layout',
+    shellOwner: 'ecosystem-shell',
+    bodyOwner: 'ant-design-procomponents',
+    breakpoints: {
+      desktop: { minWidth: 1200, layout: 'full-workbench', tableDensity: 'middle', toolbar: 'inline', filters: 'expanded', providerTarget: 'PageContainer' },
+      tablet: { minWidth: 768, layout: 'condensed-workbench', tableDensity: 'middle', toolbar: 'wrapped', filters: 'collapsible', providerTarget: 'ProTable.search' },
+      mobile: { minWidth: 0, layout: 'single-column-workbench', tableDensity: 'small', toolbar: 'stacked', filters: 'drawer-or-collapse', providerTarget: 'ProTable.search' }
+    },
+    density: {
+      default: 'middle',
+      allowed: ['small', 'middle', 'large'],
+      providerTarget: 'ProTable.options'
+    },
+    table: {
+      narrowBehavior: 'horizontal-scroll-on-narrow',
+      preserveActionColumn: true,
+      providerTarget: 'ProTable.scroll'
+    },
+    cards: {
+      narrowBehavior: 'cards-allowed-on-narrow',
+      providerTarget: 'ProCard.grid'
+    },
+    filters: {
+      narrowBehavior: 'collapse-filters-on-narrow',
+      providerTarget: 'ProTable.search'
+    },
+    forms: {
+      narrowBehavior: 'vertical-on-narrow',
+      providerTarget: 'ProForm.layout'
+    },
+    detail: {
+      narrowBehavior: 'single-column-descriptions-on-narrow',
+      providerTarget: 'Descriptions.column'
+    },
+    providerTargets: {
+      page: 'PageContainer',
+      table: 'ProTable',
+      tableScroll: 'ProTable.scroll',
+      tableOptions: 'ProTable.options',
+      filters: 'ProTable.search',
+      form: 'ProForm.layout',
+      cards: 'ProCard.grid',
+      detail: 'Descriptions.column'
+    }
+  },
+
+  telemetryPolicy: {
+    name: 'admin-body-telemetry-policy',
+    version: '1.0',
+    mode: 'browser-ui-events',
+    owner: 'interfacing-admin-body-runtime',
+    backendAuditOwner: 'backend-audit-log',
+    piiPolicy: 'no-field-values-in-ui-events',
+    correlation: {
+      schemaId: schemaId,
+      resource: resourceName,
+      operation: operation,
+      surface: surface,
+      provider: provider,
+      hydrationStateAttribute: 'data-admin-body-hydration'
+    },
+    events: {
+      hydrationReady: 'interfacing:admin-body:ready',
+      hydrationFailed: 'interfacing:admin-body:hydration-failed',
+      providerRequiredError: 'interfacing:admin-body:provider-required-error',
+      actionIntent: 'interfacing:admin-body:action-intent',
+      actionDenied: 'interfacing:admin-body:action-denied',
+      viewModeChanged: 'interfacing:admin-body:view-mode-changed',
+      contentLocaleChanged: 'interfacing:admin-body:content-locale-changed',
+      selectionChanged: 'interfacing:admin-body:selection-changed',
+      formDirtyStateChanged: 'interfacing:admin-body:form-dirty-state-changed',
+      formSubmitIntent: 'interfacing:admin-body:form-submit-intent'
+    },
+    requiredDetailKeys: ['resource', 'operation', 'surface', 'provider', 'hydration'],
+    providerTargets: {
+      runtime: 'InterfacingAdminBodyRuntime',
+      provider: 'AntDesignProProvider.telemetry',
+      actionColumn: 'ProTable.actionColumn.telemetry',
+      toolbar: 'ProTable.toolbar.telemetry',
+      form: 'ProForm.telemetry'
+    }
+  },
+
+  detailViewPolicy: {
+    name: 'admin-body-detail-view-policy',
+    version: '1.0',
+    mode: 'show',
+    readOnly: true,
+    layout: {
+      provider: 'Descriptions',
+      bordered: true,
+      column: 2,
+      size: 'middle'
+    },
+    sections: {
+      general: {
+        key: 'general',
+        label: 'General',
+        providerTarget: 'Descriptions'
+      },
+      metadata: {
+        key: 'metadata',
+        label: 'Metadata',
+        providerTarget: 'ProCard.metadata'
+      },
+      relations: {
+        key: 'relations',
+        label: 'Relations',
+        providerTarget: 'ProCard.relations'
+      }
+    },
+    fields: workbench.columns|map(column => {
+      key: column.key,
+      dataIndex: column.key,
+      label: column.label,
+      valueType: column.isStatus|default(false) ? 'select' : (column.isCode|default(false) ? 'code' : 'text'),
+      section: column.isCode|default(false) ? 'metadata' : 'general'
+    }),
+    actions: {
+      backToList: { key: 'back-to-list', label: 'Back to list', providerTarget: 'PageContainer.extra.back' },
+      edit: { key: 'edit', label: 'Edit', providerTarget: 'PageContainer.extra.edit' },
+      delete: { key: 'delete', label: 'Delete', destructive: true, confirmation: 'confirmation-required', providerTarget: 'PageContainer.extra.delete' }
+    },
+    destructiveActions: ['delete'],
+    providerTargets: {
+      page: 'PageContainer',
+      descriptions: 'Descriptions',
+      metadata: 'ProCard.metadata',
+      relations: 'ProCard.relations',
+      actions: 'PageContainer.extra',
+      deleteConfirm: 'Modal.confirm'
+    }
+  },
+  operationPolicy: {
+    name: 'admin-body-operation-policy',
+    version: '1.0',
+    supportedOperations: surface == 'dashboard' or operation == 'overview' ? ['overview', 'index', 'show', 'new', 'edit', 'delete'] : ['index', 'show', 'new', 'edit', 'delete'],
+    currentOperation: operation,
+    headerActions: {
+      placement: 'page-header-extra',
+      actions: workbench.headerActions|map(action => {
+        key: action.label|lower|replace({' ':'-', '/':'-', '_':'-'}),
+        label: action.label,
+        href: action.href,
+        variant: action.variant,
+        operation: action.operation|default('create')
+      })
+    },
+    rowActions: {
+      placement: 'action-column',
+      actions: [
+        { key: 'view', label: 'View', operation: 'show', destructive: false },
+        { key: 'edit', label: 'Edit', operation: 'edit', destructive: false },
+        { key: 'delete', label: 'Delete', operation: 'delete', destructive: true, confirmation: 'confirmation-required' }
+      ]
+    },
+    destructiveActions: ['delete'],
+    confirmation: {
+      delete: {
+        required: true,
+        pattern: 'danger-action-with-confirmation',
+        message: 'Confirm delete before submitting a destructive action.'
+      }
+    },
+    providerTargets: {
+      headerActions: 'PageContainer.extra',
+      rowActions: 'ProTable.actionColumn',
+      forms: 'ProForm.submitter'
+    }
+  },
+  resourceContract: {
+    name: 'admin-body-resource-contract',
+    version: '1.0',
+    providerTargets: {
+      table: 'ProTable',
+      form: 'ProForm'
+    },
+    dataSource: {
+      kind: 'crud-workbench-view',
+      rowKey: 'id',
+      total: workbench.rows|length,
+      paginationLabel: workbench.paginationLabel,
+      items: workbench.rows
+    },
+    columns: workbench.columns|map(column => {
+      key: column.key,
+      dataIndex: column.key,
+      title: column.label,
+      valueType: column.isStatus|default(false) ? 'select' : (column.isCode|default(false) ? 'code' : 'text'),
+      search: false,
+      sorter: false,
+      ellipsis: true
+    }),
+    filters: workbench.filters|map(filter => {
+      key: filter.name,
+      name: filter.name,
+      label: filter.label,
+      valueType: filter.type,
+      value: filter.value|default(null),
+      placeholder: filter.placeholder|default(null),
+      options: filter.options|default([])
+    }),
+    formFields: workbench.formFields|map(field => {
+      key: field.name,
+      name: field.name,
+      label: field.label,
+      valueType: field.type,
+      initialValue: field.value,
+      placeholder: field.placeholder,
+      tooltip: field.helpText,
+      required: field.required,
+      validationState: field.validationState,
+      errorText: field.errorText,
+      options: field.options
+    }),
+    headerActions: workbench.headerActions|map(action => {
+      key: action.label|lower|replace({' ':'-', '/':'-', '_':'-'}),
+      label: action.label,
+      href: action.href,
+      variant: action.variant,
+      placement: 'page-header-extra'
+    }),
+    rowActions: {
+      columnKey: 'actions',
+      placement: 'action-column',
+      actions: ['view', 'edit', 'delete'],
+      destructive: ['delete']
+    }
+  },
+  operation: operation,
+  surface: surface,
+  view: {
+    default: defaultView,
+    modes: viewModes,
+    switcher: 'segmented-control'
+  },
+  locale: {
+    kind: 'content-locale',
+    current: contentLocale,
+    supported: ['en', 'uk', 'ru'],
+    control: 'select'
+  },
+  toolbar: {
+    search: true,
+    filters: workbench.filters|length,
+    localeSwitcher: true,
+    viewSwitcher: true,
+    primaryAction: workbench.headerActions is not empty
+  },
+  table: {
+    enabled: true,
+    default: true,
+    columns: workbench.columns|map(column => {
+      key: column.key,
+      label: column.label,
+      type: column.type|default('text')
+    }),
+    actionColumn: true,
+    rowActions: ['view', 'edit', 'delete']
+  },
+  cards: {
+    enabled: true,
+    default: false,
+    actionRow: true
+  },
+  form: {
+    enabled: workbench.routeContext.mode == 'form',
+    provider: 'ProForm',
+    fields: workbench.formFields|length,
+    sections: workbench.formSections|length
+  },
+  detail: {
+    enabled: operation == 'show',
+    provider: 'Descriptions',
+    sections: ['general', 'metadata', 'relations'],
+    actions: ['back-to-list', 'edit', 'delete']
+  },
+  actions: {
+    header: workbench.headerActions|map(action => {
+      label: action.label,
+      href: action.href,
+      variant: action.variant
+    }),
+    row: ['view', 'edit', 'delete']
+  },
+  bridgeContext: workbench.bridgeContext|default({}),
+  dashboard: workbench.dashboard|default({}),
+  runtime: {
+    providerRegistryEntrypoint: 'interfacing/admin-body/provider-registry.js',
+    providerEntrypoints: {
+      antdPro: 'interfacing/admin-body/providers/antd-pro.js',
+      primeReact: 'interfacing/admin-body/providers/primereact.js'
+    },
+    externalProviders: {
+      antdPro: 'InterfacingAntDesignProAdminBodyProvider',
+      primeReact: 'InterfacingPrimeReactAdminBodyProvider'
+    },
+    entrypoint: 'interfacing/admin-body/runtime.js',
+    readyEvent: 'interfacing:admin-body:ready',
+    providerRegistry: 'InterfacingAdminBodyProviders',
+    providerRegistryApi: 'InterfacingAdminBodyProviderRegistry',
+    mountSelector: '[data-interfacing-admin-body-mount=\"true\"]',
+    schemaSelector: '[data-interfacing-admin-body-schema=\"true\"]'
+  },
+  hydration: {
+    stateAttribute: 'data-admin-body-hydration',
+    initialState: 'pending',
+    providerPolicy: 'canonical-provider-required',
+    secondaryProviderReplacement: 'forbidden-for-admin-body',
+    toolbarPolicyErrorState: 'toolbar-policy-error',
+    rowSelectionPolicyErrorState: 'row-selection-policy-error',
+    tableInteractionPolicyErrorState: 'table-interaction-policy-error',
+    emptyStatePolicyErrorState: 'empty-state-policy-error',
+    formLifecyclePolicyErrorState: 'form-lifecycle-policy-error',
+    detailViewPolicyErrorState: 'detail-view-policy-error',
+    navigationPolicyErrorState: 'navigation-policy-error',
+    authorizationPolicyErrorState: 'authorization-policy-error'
+  }
+} %}
+<script
+  id="{{ schemaId }}"
+  type="application/json"
+  data-interfacing-admin-body-schema="true"
+>{{ schemaPayload|json_encode(constant('JSON_UNESCAPED_SLASHES'))|raw }}</script>

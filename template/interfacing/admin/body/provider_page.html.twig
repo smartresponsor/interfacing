@@ -1,0 +1,114 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Canonical provider-rendered visible page template.
+
+  Visible Interfacing pages must not render bespoke Twig tables, forms, or
+  inline CSS as their primary UI. They enter the ecosystem shell and mount the
+  required Ant Design ProComponents admin/workbench provider with PrimeReact as
+  the secondary rich-facade provider.
+#}
+{% set providerInteractive = app.request.query.get('interactive') in ['1', 'true', 'yes'] %}
+{% set providerBaseTemplate = providerInteractive ? 'interfacing/admin/body/provider_document.html.twig' : 'interfacing/base.html.twig' %}
+{% extends providerBaseTemplate %}
+
+{% set adminProviderPageTitle = adminProviderPageTitle|default('Interfacing') %}
+{% set adminProviderResourceName = adminProviderResourceName|default(app.request.attributes.get('_route')|default('interfacing_page')) %}
+{% set adminProviderResourceLabel = adminProviderResourceLabel|default(adminProviderPageTitle) %}
+{% set adminProviderOperation = adminProviderOperation|default('index') %}
+{% set adminProviderSurface = adminProviderSurface|default('admin') %}
+{% set adminProviderDefaultView = adminProviderDefaultView|default('table') %}
+{% set adminProviderViewModes = adminProviderViewModes|default(['table', 'cards']) %}
+{% set adminProviderWorkbench = providerInteractive ? (workbench|default({
+  title: adminProviderPageTitle,
+  component: adminProviderResourceName,
+  integrationOwner: 'bridge',
+  renderingOwner: 'interfacing',
+  primaryProvider: 'ant-design-procomponents',
+  secondaryProvider: 'primereact',
+  shellMode: 'provider-document',
+  routeContext: {
+    resourcePath: adminProviderResourceName,
+    resourceLabel: adminProviderResourceLabel,
+    resourceCollectionLabel: adminProviderResourceLabel,
+    operation: adminProviderOperation,
+    surface: adminProviderSurface,
+    mode: adminProviderOperation in ['new', 'edit'] ? 'form' : (adminProviderOperation == 'show' ? 'detail' : 'collection'),
+    collectionHref: './'
+  },
+  columns: [
+    { key: 'title', label: 'Title', type: 'text', isCode: false, isStatus: false },
+    { key: 'code', label: 'Code', type: 'text', isCode: true, isStatus: false },
+    { key: 'status', label: 'Status', type: 'text', isCode: false, isStatus: true },
+    { key: 'locale', label: 'Locale', type: 'text', isCode: false, isStatus: false }
+  ],
+  rows: [],
+  filters: [
+    { name: 'q', label: 'Search', type: 'text', value: app.request.query.get('q'), placeholder: 'Search ' ~ adminProviderPageTitle }
+  ],
+  formFields: [
+    { name: 'title', label: 'Title', type: 'text', value: null, placeholder: null, helpText: null, required: true, validationState: null, errorText: null, options: [] },
+    { name: 'slug', label: 'Slug', type: 'text', value: null, placeholder: null, helpText: null, required: false, validationState: null, errorText: null, options: [] },
+    { name: 'status', label: 'Status', type: 'text', value: null, placeholder: null, helpText: null, required: false, validationState: null, errorText: null, options: [] }
+  ],
+  formSections: [],
+  headerActions: [
+    { label: 'Create new', href: './new/', variant: 'primary', operation: 'new', enabled: true, visibility: 'visible' }
+  ],
+  paginationLabel: adminProviderPageTitle ~ ' records',
+  dashboard: {}
+})) : null %}
+
+{% block title %}{{ adminProviderPageTitle }}{% endblock %}
+
+{% block body %}
+  {% if providerInteractive %}
+    {% include 'interfacing/admin/body/mount.html.twig' with {
+      workbench: adminProviderWorkbench,
+      provider: 'antd-pro',
+      secondaryProvider: 'primereact',
+      resourceName: adminProviderResourceName,
+      resourceLabel: adminProviderResourceLabel,
+      operation: adminProviderOperation,
+      surface: adminProviderSurface,
+      defaultView: adminProviderDefaultView,
+      viewModes: adminProviderViewModes
+    } only %}
+  {% else %}
+    <main style="max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px;">
+      <section style="background: #fff; border: 1px solid #dbe1e8; border-radius: 18px; padding: 20px; box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-start;">
+          <div style="min-width: 240px;">
+            <p style="margin: 0 0 6px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 800; color: #5b6574;">Provider visible page</p>
+            <h1 style="margin: 0; font-size: 28px; line-height: 1.15; color: #111827;">{{ adminProviderPageTitle }}</h1>
+            <p style="margin: 10px 0 0; color: #5b6574; line-height: 1.6; max-width: 72ch;">
+              This page now loads as a lightweight shell first. Open the interactive provider surface only when you need the full Ant Design ProComponents mount.
+            </p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <a href="?interactive=1" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px; background:#111827; color:#fff; text-decoration:none; font-weight:700;">Open interactive view</a>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px;">
+          <section style="border:1px solid #edf0f3; border-radius: 14px; padding: 14px;">
+            <h2 style="margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #5b6574;">Route context</h2>
+            <dl style="margin: 0; display: grid; gap: 8px;">
+              <div><dt style="font-size: 11px; color: #6b7280;">Resource</dt><dd style="margin: 2px 0 0; font-weight: 700;">{{ adminProviderResourceName }}</dd></div>
+              <div><dt style="font-size: 11px; color: #6b7280;">Label</dt><dd style="margin: 2px 0 0; font-weight: 700;">{{ adminProviderResourceLabel }}</dd></div>
+              <div><dt style="font-size: 11px; color: #6b7280;">Operation</dt><dd style="margin: 2px 0 0; font-weight: 700;">{{ adminProviderOperation }}</dd></div>
+            </dl>
+          </section>
+
+          <section style="border:1px solid #edf0f3; border-radius: 14px; padding: 14px;">
+            <h2 style="margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #5b6574;">Viewport</h2>
+            <ul style="margin: 0; padding-left: 18px; line-height: 1.7;">
+              {% for mode in adminProviderViewModes %}
+                <li>{{ mode }}</li>
+              {% endfor %}
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+  {% endif %}
+{% endblock %}

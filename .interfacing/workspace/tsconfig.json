@@ -2,22 +2,19 @@
   "compilerOptions": {
     "target": "ES2022",
     "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "allowJs": false,
     "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
     "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "strict": true,
-    "baseUrl": ".",
-    "paths": {
-      "@zones/*": ["src/zones/*"],
-      "@wrappers/*": ["src/wrappers/*"],
-      "@contracts/*": ["src/contracts/*"]
-    }
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }

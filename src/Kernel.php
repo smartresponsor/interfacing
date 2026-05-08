@@ -13,6 +13,20 @@ final class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    private static ?float $lastBootMs = null;
+
+    public static function lastBootMs(): ?float
+    {
+        return self::$lastBootMs;
+    }
+
+    public function boot(): void
+    {
+        $startedAt = hrtime(true);
+        parent::boot();
+        self::$lastBootMs = (hrtime(true) - $startedAt) / 1_000_000;
+    }
+
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $configDir = $this->getProjectDir().'/config';

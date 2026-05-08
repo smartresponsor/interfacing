@@ -1,44 +1,9 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'interfacing/base.html.twig' %}
+{# Provider-owned visible page. Do not reintroduce bespoke Twig tables, forms, inline CSS, provider-bypassing CSS-framework layout, or fallback UI here. #}
+{% extends 'interfacing/admin/body/provider_page.html.twig' %}
 
-{% block body %}
-  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
-    <div style="font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Diagnostics</div>
-    <h1 style="margin:6px 0 0; font-size:28px; line-height:1.05;">Interfacing Doctor</h1>
-    <div style="margin-top:8px; color:#64748b; font-size:13px;">Registered screen and layout overview inside the standard shell.</div>
-  </section>
-
-  <div style="margin-top:14px; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-    <div style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
-      <h2 style="margin:0 0 10px; font-size:16px;">Screen ({{ report.screen|length }})</h2>
-      <table style="border-collapse:collapse; width:100%;">
-        <thead><tr><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">screenId</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">title</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">layoutKey</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">access</th></tr></thead>
-        <tbody>
-        {% for s in report.screen %}
-          <tr>
-            <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ s.screenId }}</td>
-            <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ s.title }}</td>
-            <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ s.layoutKey }}</td>
-            <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ s.accessCount }}</td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
-    </div>
-    <div style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
-      <h2 style="margin:0 0 10px; font-size:16px;">Layout ({{ report.layout|length }})</h2>
-      <table style="border-collapse:collapse; width:100%;">
-        <thead><tr><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">layoutKey</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">shellTitle</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">block</th></tr></thead>
-        <tbody>
-        {% for l in report.layout %}
-          <tr>
-            <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ l.layoutKey }}</td>
-            <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ l.shellTitle }}</td>
-            <td style="padding:8px; border-bottom:1px solid #f1f5f9;">{{ l.blockCount }}</td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div>
-{% endblock %}
+{% set adminProviderPageTitle = 'Doctor' %}
+{% set adminProviderResourceName = 'interfacing_doctor' %}
+{% set adminProviderResourceLabel = 'Doctor' %}
+{% set adminProviderOperation = 'show' %}
+{% set adminProviderSurface = 'admin' %}

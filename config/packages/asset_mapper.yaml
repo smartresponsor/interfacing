@@ -5,6 +5,11 @@ framework:
             - assets/
         missing_import_mode: strict
 
+when@dev:
+    framework:
+        asset_mapper:
+            server: false
+
 when@prod:
     framework:
         asset_mapper:

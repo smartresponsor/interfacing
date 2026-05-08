@@ -1,5 +1,9 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-<div>
-  <div style="font-weight:600;margin-bottom:8px;">Form demo</div>
-  {{ component('interfacing_widget_form', { handlerId: 'demo-profile', context: this.context }) }}
-</div>
+{# Provider-owned visible page. Do not reintroduce bespoke Twig tables, forms, inline CSS, provider-bypassing CSS-framework layout, or fallback UI here. #}
+{% extends 'interfacing/admin/body/provider_page.html.twig' %}
+
+{% set adminProviderPageTitle = 'Form Demo' %}
+{% set adminProviderResourceName = 'interfacing_screen_form_demo' %}
+{% set adminProviderResourceLabel = 'Form Demo' %}
+{% set adminProviderOperation = 'edit' %}
+{% set adminProviderSurface = 'admin' %}

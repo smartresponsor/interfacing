@@ -2,6 +2,18 @@
 # Canonical attribute route imports for Interfacing-owned controllers.
 # Keep broad/catch-all controllers last so specific screen routes win first.
 
+interfacing_access_index:
+  path: /access/
+  controller: App\Interfacing\Presentation\Controller\Interfacing\GenericCrudWorkbenchController::show
+  methods: [GET]
+
+interfacing_vendor_index:
+  path: /vendor/
+  controller: App\Interfacing\Presentation\Controller\Interfacing\BridgeProviderSurfaceController::visible
+  methods: [GET]
+  defaults:
+    visiblePath: vendor
+
 interfacing_billing_controller:
   resource: '../../src/Presentation/Controller/Interfacing/BillingMeterScreenController.php'
   type: attribute
@@ -28,6 +40,11 @@ interfacing_doctor_infra_controller:
 
 interfacing_metrics_controller:
   resource: '../../src/Presentation/Controller/Interfacing/InterfacingMetricController.php'
+  type: attribute
+
+
+interfacing_bridge_provider_surface_controller:
+  resource: '../../src/Presentation/Controller/Interfacing/BridgeProviderSurfaceController.php'
   type: attribute
 
 interfacing_shell_demo_controller:

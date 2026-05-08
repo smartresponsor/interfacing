@@ -11,7 +11,10 @@ use App\Interfacing\Contract\View\CrudResourceLinkSetInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudOperationGrammarProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceDescriptorContributionInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceExplorerProviderInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 final readonly class CrudResourceExplorerProvider implements CrudResourceExplorerProviderInterface
 {
@@ -19,17 +22,26 @@ final readonly class CrudResourceExplorerProvider implements CrudResourceExplore
     public function __construct(
         private iterable $contributions,
         private CrudOperationGrammarProviderInterface $operationGrammarProvider,
+        #[Autowire(service: 'cache.app.recorder_inner')]
+        private CacheInterface $cache,
         private ?UrlGeneratorInterface $url = null,
     ) {
     }
 
     public function provide(): array
     {
-        static $cache = null;
-        if (null !== $cache) {
-            return $cache;
-        }
+        return $this->cache->get('interfacing.crud.resource-explorer.v1', function (ItemInterface $item): array {
+            $item->expiresAfter(3600);
 
+            return $this->build();
+        });
+    }
+
+    /**
+     * @return list<CrudResourceLinkSetInterface>
+     */
+    private function build(): array
+    {
         /** @var array<string, CrudResourceLinkSetInterface> $byId */
         $byId = [];
 
@@ -65,7 +77,7 @@ final readonly class CrudResourceExplorerProvider implements CrudResourceExplore
             ],
         );
 
-        return $cache = $list;
+        return $list;
     }
 
     private function normalizeResource(object $resource): ?CrudResourceLinkSetInterface
@@ -100,7 +112,6 @@ final readonly class CrudResourceExplorerProvider implements CrudResourceExplore
             deleteSampleUrl: $this->safeOperationUrl($delete, $resource->resourcePath(), $resource->sampleIdentifier(), $this->materialize($resource->deletePattern(), $resource->sampleIdentifier()), $resource->routeParameters()),
         );
     }
-
 
     private function operation(string $operation): ?CrudOperationGrammarInterface
     {

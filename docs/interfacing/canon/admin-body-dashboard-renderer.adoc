@@ -1,0 +1,22 @@
+= Interfacing Admin Body Dashboard Renderer Canon
+
+Interfacing owns primary rendering for App-host dashboard surfaces.
+The App host owns the `/` route and dashboard composition contract, Bridging owns the handoff into a provider-surface payload, and Interfacing owns browser rendering through the canonical admin-body provider assets.
+
+Dashboard surfaces use `surface=dashboard` and `operation=overview`.
+The `overview` operation is canonical for dashboard composition and must not be rejected by admin-body operation policy validation.
+
+Dashboard payloads must pass through the browser schema using the `dashboard` and `bridgeContext` keys.
+The renderer may use Ant Design ProComponents as the primary provider and PrimeReact only as a secondary/rich-facade provider.
+
+Forbidden as primary dashboard UI:
+
+* Cruding/Twig shell markup such as `crud-app-shell`.
+* `@Cruding/crud/*.html.twig` as final dashboard template.
+* handmade Twig CSS as an insurance/fallback path.
+
+Required provider renderer markers:
+
+* dashboard metrics/cards/widgets are represented as schema data;
+* dashboard side panels are represented as schema data;
+* canonical provider bundle distinguishes dashboard/overview from CRUD index/show/new/edit surfaces.

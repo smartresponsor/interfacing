@@ -11,63 +11,92 @@ use App\Interfacing\Contract\View\ShellNavGroup;
 use App\Interfacing\Contract\View\ShellNavItem;
 use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceExplorerProviderInterface;
 use App\Interfacing\ServiceInterface\Interfacing\Shell\ShellChromeProviderInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 final class ShellChromeProvider implements ShellChromeProviderInterface
 {
+    /**
+     * @var array<string, bool>
+     */
+    private array $routeExistsCache = [];
+
+    /**
+     * @var array<string, string>
+     */
+    private array $generatedUrlCache = [];
+
     public function __construct(
         private readonly RequestStack $requestStack,
-        private readonly UrlGeneratorInterface $url,
+        private readonly RouterInterface $router,
         private readonly CrudResourceExplorerProviderInterface $crudResourceExplorerProvider,
+        #[Autowire(service: 'cache.app.recorder_inner')]
+        private readonly CacheInterface $cache,
     ) {
     }
 
-    public function provide(?string $activeId = null): array
+    /**
+     * @param bool $includeResourceSummaries    include known CRUD resources and related summaries
+     * @param bool $includeApplicationDashboard include the heavy application dashboard payload
+     */
+    public function provide(?string $activeId = null, bool $includeResourceSummaries = false, bool $includeApplicationDashboard = false): array
     {
-        static $cache = [];
         $request = $this->requestStack->getCurrentRequest();
         $path = null !== $request ? (string) $request->getPathInfo() : '';
         $query = null !== $request ? (string) $request->query->get('q', '') : '';
-        $cacheKey = implode('|', [
-            null === $activeId ? '__default__' : $activeId,
-            $path,
-            $query,
-        ]);
-
-        if (array_key_exists($cacheKey, $cache)) {
-            return $cache[$cacheKey];
-        }
-
         $activeSection = $this->detectActiveSection($activeId, $path);
-        $topLink = $this->topLink();
-        $primaryGroup = $this->primaryGroup($activeSection);
-        $sectionGroup = $this->sectionGroup($activeSection);
-        $footerGroup = $this->footerGroup();
 
-        return $cache[$cacheKey] = [
+        $staticChrome = $this->cache->get('interfacing.shell.chrome.static.v4', function (ItemInterface $item): array {
+            $item->expiresAfter(3600);
+
+            return [
+                'topLink' => $this->topLink(),
+                'primaryGroup' => $this->primaryGroup(''),
+                'footerGroup' => $this->footerGroup(),
+                'quickMenuGroup' => $this->quickMenuGroup(),
+                'rightPanelGroup' => $this->rightPanelGroup(),
+                'rightPanelEnabled' => true,
+                'slotMap' => ShellSlot::labelMap(),
+            ];
+        });
+
+        $sectionGroup = $this->cache->get('interfacing.shell.chrome.section.'.sha1($activeSection).'.v4', function (ItemInterface $item) use ($activeSection, $staticChrome): array {
+            $item->expiresAfter(3600);
+
+            $sectionGroup = $this->sectionGroup($activeSection);
+
+            return [
+                'sectionGroup' => $sectionGroup,
+                'itemTotal' => array_reduce(
+                    array_merge($staticChrome['primaryGroup'], $sectionGroup),
+                    static fn (int $carry, ShellNavGroup $group): int => $carry + count($group->item()),
+                    0,
+                ),
+                'group' => array_merge(
+                    array_map([$this, 'legacyGroup'], $staticChrome['primaryGroup']),
+                    array_map([$this, 'legacyGroup'], $sectionGroup),
+                ),
+            ];
+        });
+
+        $shell = $staticChrome + $sectionGroup + [
             'activeId' => $activeId,
             'activeSection' => $activeSection,
             'query' => $query,
-            'topLink' => $topLink,
-            'primaryGroup' => $primaryGroup,
-            'sectionGroup' => $sectionGroup,
-            'footerGroup' => $footerGroup,
-            'rightPanelGroup' => $this->rightPanelGroup(),
-            'rightPanelEnabled' => true,
-            'knownCrudResources' => $this->knownCrudResources(),
-            'applicationDashboard' => $this->applicationDashboard(),
-            'slotMap' => ShellSlot::labelMap(),
-            'itemTotal' => array_reduce(
-                array_merge($primaryGroup, $sectionGroup),
-                static fn (int $carry, ShellNavGroup $group): int => $carry + count($group->item()),
-                0,
-            ),
-            'group' => array_merge(
-                array_map([$this, 'legacyGroup'], $primaryGroup),
-                array_map([$this, 'legacyGroup'], $sectionGroup),
-            ),
         ];
+
+        if ($includeResourceSummaries) {
+            $shell['knownCrudResources'] = $this->knownCrudResources();
+        }
+
+        if ($includeApplicationDashboard) {
+            $shell['applicationDashboard'] = $this->applicationDashboard();
+        }
+
+        return $shell;
     }
 
     /** @return list<ShellNavItem> */
@@ -75,6 +104,8 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
     {
         return [
             new ShellNavItem('workspace', 'Workspace', $this->safeUrl('interfacing_index', '/interfacing'), 'workspace', null, 10),
+            new ShellNavItem('provider.catalog', 'Provider Catalog', '/catalog/', 'workspace', null, 11),
+            new ShellNavItem('provider.vendor', 'Provider Vendors', '/vendor/', 'workspace', null, 12),
             new ShellNavItem('applications.dashboard', 'Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications'), 'workspace', null, 15),
             new ShellNavItem('notifications', 'Notifications', $this->screenUrl('message.notifications.inbox'), 'workspace', null, 20),
             new ShellNavItem('admin.launchpad', 'Launchpad', $this->safeUrl('interfacing_admin_launchpad', '/interfacing/launchpad'), 'workspace', null, 28),
@@ -118,7 +149,8 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellNavItem('subscripting', 'Subscriptions', '/subscription/', 'platform', null, 46),
                 new ShellNavItem('commissioning', 'Commissions', '/commission-plan/', 'platform', null, 48),
                 new ShellNavItem('orders', 'Orders', $this->safeUrl('interfacing_order_summary', '/interfacing/order/summary'), 'platform', null, 50),
-                new ShellNavItem('catalog', 'Catalog', '/category/', 'platform', null, 60),
+                new ShellNavItem('catalog', 'Catalog', '/catalog/category/', 'platform', null, 60),
+                new ShellNavItem('provider.product', 'Products', '/catalog/product/', 'platform', null, 62),
                 new ShellNavItem('admin.launchpad', 'Launchpad', $this->safeUrl('interfacing_admin_launchpad', '/interfacing/launchpad'), 'platform', null, 68),
                 new ShellNavItem('crud', 'CRUD', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'platform', null, 70),
                 new ShellNavItem('screen.directory', 'Screens', $this->safeUrl('interfacing_screen_directory', '/interfacing/screens'), 'platform', null, 73),
@@ -216,47 +248,81 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
     private function footerGroup(): array
     {
         return [
-            new ShellFooterGroup('help', 'Help', [
-                new ShellFooterLink('FAQ', '#faq'),
-                new ShellFooterLink('Docs', '#docs'),
-                new ShellFooterLink('Support', '#support'),
-            ]),
-            new ShellFooterGroup('policy', 'Policy', [
-                new ShellFooterLink('Privacy', '#privacy'),
-                new ShellFooterLink('Terms', '#terms'),
-                new ShellFooterLink('Security', '#security'),
-            ]),
-            new ShellFooterGroup('explore', 'Explore', [
-                new ShellFooterLink('Messaging', $this->screenUrl('message.notifications.inbox')),
+            new ShellFooterGroup('commerce-core', 'Commerce core', [
+                new ShellFooterLink('Catalog categories', '/catalog/category/'),
+                new ShellFooterLink('Search index', '/index-record/'),
+                new ShellFooterLink('Cart', '/cart/'),
                 new ShellFooterLink('Orders', $this->safeUrl('interfacing_order_summary', '/interfacing/order/summary')),
-                new ShellFooterLink('Billing', $this->safeUrl('interfacing_billing_meter', '/interfacing/billing/meter')),
+                new ShellFooterLink('Payments', '/payment/'),
+                new ShellFooterLink('Shipping', '/shipment/'),
+                new ShellFooterLink('Taxation', '/taxation-api/'),
+            ]),
+            new ShellFooterGroup('commerce-finance', 'Commerce finance', [
                 new ShellFooterLink('Currencies', '/currency/'),
+                new ShellFooterLink('Money formats', '/money-format/'),
                 new ShellFooterLink('Exchange rates', '/exchange-rate/'),
+                new ShellFooterLink('Exchange quotes', '/exchange-quote/'),
                 new ShellFooterLink('Subscriptions', '/subscription/'),
-                new ShellFooterLink('Commissions', '/commission-plan/'),
-                new ShellFooterLink('Catalog category', '/category/'),
-                new ShellFooterLink('Admin Launchpad', $this->safeUrl('interfacing_admin_launchpad', '/interfacing/launchpad')),
+                new ShellFooterLink('Subscription plans', '/subscription-plan/'),
+                new ShellFooterLink('Commission plans', '/commission-plan/'),
+                new ShellFooterLink('Commission payouts', '/commission-payout/'),
+            ]),
+            new ShellFooterGroup('customer-account', 'Customer account', [
+                new ShellFooterLink('My profile', '/profile/'),
+                new ShellFooterLink('My security', '/security/'),
+                new ShellFooterLink('My cart', '/cart/'),
+                new ShellFooterLink('My orders', '/order/'),
+                new ShellFooterLink('My subscription', '/subscription/'),
+                new ShellFooterLink('Notifications', $this->screenUrl('message.notifications.inbox')),
+            ]),
+            new ShellFooterGroup('application-indexes', 'Application indexes', [
                 new ShellFooterLink('Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications')),
+                new ShellFooterLink('Components', $this->safeUrl('interfacing_component_roadmap', '/interfacing/components')),
                 new ShellFooterLink('CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer')),
                 new ShellFooterLink('Screen Directory', $this->safeUrl('interfacing_screen_directory', '/interfacing/screens')),
-                new ShellFooterLink('Shell Screen Catalog', $this->safeUrl('interfacing_shell_screen_catalog', '/interfacing/shell/screens')),
-                new ShellFooterLink('Shell Screen Catalog JSON', $this->safeUrl('interfacing_shell_screen_catalog_json', '/interfacing/shell/screens.json')),
-                new ShellFooterLink('Operation Workbench', $this->safeUrl('interfacing_operation_workbench', '/interfacing/operations')),
-                new ShellFooterLink('Admin Tables', $this->safeUrl('interfacing_admin_tables', '/interfacing/tables')),
-                new ShellFooterLink('CRUD Frames', $this->safeUrl('interfacing_crud_frames', '/interfacing/forms')),
-                new ShellFooterLink('CRUD Affordances', $this->safeUrl('interfacing_crud_affordances', '/interfacing/affordances')),
-                new ShellFooterLink('CRUD Readiness', $this->safeUrl('interfacing_crud_readiness', '/interfacing/readiness')),
-                new ShellFooterLink('Component Obligations', $this->safeUrl('interfacing_component_obligations', '/interfacing/obligations')),
-                new ShellFooterLink('Runtime Bridges', $this->safeUrl('interfacing_runtime_bridges', '/interfacing/bridges')),
-                new ShellFooterLink('Promotion Gates', $this->safeUrl('interfacing_promotion_gates', '/interfacing/promotions')),
-                new ShellFooterLink('Evidence Registry', $this->safeUrl('interfacing_evidence_registry', '/interfacing/evidence')),
-                new ShellFooterLink('Contract Registry', $this->safeUrl('interfacing_contract_registry', '/interfacing/contracts')),
-                new ShellFooterLink('Field Schema Registry', $this->safeUrl('interfacing_field_schema_registry', '/interfacing/schemas')),
-                new ShellFooterLink('Component Roadmap', $this->safeUrl('interfacing_component_roadmap', '/interfacing/components')),
+                new ShellFooterLink('Screen Catalog', $this->safeUrl('interfacing_shell_screen_catalog', '/interfacing/shell/screens')),
+                new ShellFooterLink('Operations', $this->safeUrl('interfacing_operation_workbench', '/interfacing/operations')),
+            ]),
+            new ShellFooterGroup('system-links', 'System links', [
+                new ShellFooterLink('Locale selector', $this->screenUrl('localizing.locale.selector')),
                 new ShellFooterLink('Shell Guard', $this->safeUrl('interfacing_shell_diagnostics', '/interfacing/shell/diagnostics')),
                 new ShellFooterLink('Shell Map', $this->safeUrl('interfacing_shell_navigation', '/interfacing/shell/navigation')),
-                new ShellFooterLink('Shell Layout Preview', $this->safeUrl('interfacing_shell_layout_preview', '/interfacing/shell/layout-preview')),
-                new ShellFooterLink('Shell Layout JSON', $this->safeUrl('interfacing_shell_layout_preview_json', '/interfacing/shell/layout-preview.json')),
+                new ShellFooterLink('Layout Preview', $this->safeUrl('interfacing_shell_layout_preview', '/interfacing/shell/layout-preview')),
+                new ShellFooterLink('Contracts', $this->safeUrl('interfacing_contract_registry', '/interfacing/contracts')),
+                new ShellFooterLink('Schemas', $this->safeUrl('interfacing_field_schema_registry', '/interfacing/schemas')),
+            ]),
+            new ShellFooterGroup('support-policy', 'Support & policy', [
+                new ShellFooterLink('Help', '#help'),
+                new ShellFooterLink('Support', '#support'),
+                new ShellFooterLink('Privacy', '#privacy'),
+                new ShellFooterLink('Terms', '#terms'),
+                new ShellFooterLink('Security policy', '#security'),
+                new ShellFooterLink('Status', '#status'),
+            ]),
+        ];
+    }
+
+    /** @return list<ShellNavGroup> */
+    private function quickMenuGroup(): array
+    {
+        return [
+            new ShellNavGroup('account-quick', 'My account', [
+                new ShellNavItem('quick.profile', 'My profile', '/profile/', 'account-quick', null, 10),
+                new ShellNavItem('quick.security', 'My security', '/security/', 'account-quick', null, 20),
+                new ShellNavItem('quick.notifications', 'Notifications', $this->screenUrl('message.notifications.inbox'), 'account-quick', null, 30),
+                new ShellNavItem('quick.locale', 'Locale selector', $this->screenUrl('localizing.locale.selector'), 'account-quick', null, 40),
+            ]),
+            new ShellNavGroup('commerce-quick', 'My commerce', [
+                new ShellNavItem('quick.cart', 'My cart', '/cart/', 'commerce-quick', null, 10),
+                new ShellNavItem('quick.orders', 'My orders', '/order/', 'commerce-quick', null, 20),
+                new ShellNavItem('quick.subscription', 'My subscription', '/subscription/', 'commerce-quick', null, 30),
+                new ShellNavItem('quick.payments', 'Payments', '/payment/', 'commerce-quick', null, 40),
+            ]),
+            new ShellNavGroup('system-quick', 'System shortcuts', [
+                new ShellNavItem('quick.applications', 'Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications'), 'system-quick', null, 10),
+                new ShellNavItem('quick.components', 'Components', $this->safeUrl('interfacing_component_roadmap', '/interfacing/components'), 'system-quick', null, 20),
+                new ShellNavItem('quick.crud', 'CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'system-quick', null, 30),
+                new ShellNavItem('quick.shell', 'Shell Map', $this->safeUrl('interfacing_shell_navigation', '/interfacing/shell/navigation'), 'system-quick', null, 40),
             ]),
         ];
     }
@@ -299,7 +365,7 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
         if ($this->isCommerceFinancePath($path, $needle)) {
             return 'commerce-finance';
         }
-        if (str_contains($path, '/crud/') || str_contains($needle, 'crud')) {
+        if (str_contains($path, '/crud/') || (str_contains($needle, 'crud') && 'crud.generic' !== $needle)) {
             return 'crud';
         }
         if ((str_contains($path, '/interfacing/shell/diagnostics') || str_contains($path, '/interfacing/shell/navigation') || str_contains($path, '/interfacing/shell/screens') || str_contains($path, '/interfacing/shell/layout-preview')) || str_contains($needle, 'shell.diagnostics') || str_contains($needle, 'shell.navigation') || str_contains($needle, 'shell.screens') || str_contains($needle, 'shell.layout.preview') || str_contains($path, '/interfacing/launchpad') || str_contains($path, '/interfacing/applications') || str_contains($path, '/interfacing/screens') || str_contains($path, '/interfacing/operations') || str_contains($path, '/interfacing/tables') || str_contains($path, '/interfacing/forms') || str_contains($path, '/interfacing/affordances') || str_contains($path, '/interfacing/readiness') || str_contains($path, '/interfacing/obligations') || str_contains($path, '/interfacing/bridges') || str_contains($path, '/interfacing/promotions') || str_contains($path, '/interfacing/contracts') || str_contains($path, '/interfacing/schemas') || str_contains($path, '/interfacing/evidence') || str_contains($path, '/interfacing/components') || str_contains($needle, 'admin.launchpad') || str_contains($needle, 'applications.dashboard') || str_contains($needle, 'screen-directory') || str_contains($needle, 'operation.workbench') || str_contains($needle, 'admin.tables') || str_contains($needle, 'crud.frames') || str_contains($needle, 'crud.affordances') || str_contains($needle, 'crud.readiness') || str_contains($needle, 'component.obligations') || str_contains($needle, 'runtime.bridges') || str_contains($needle, 'promotion.gates') || str_contains($needle, 'contract.registry') || str_contains($needle, 'field.schema.registry') || str_contains($needle, 'evidence.registry') || str_contains($needle, 'component.roadmap')) {
@@ -390,84 +456,88 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
      */
     private function applicationDashboard(): array
     {
-        $components = [];
-        $statusCounts = [
-            'connected' => 0,
-            'canonical' => 0,
-            'planned' => 0,
-            'other' => 0,
-        ];
-        $operationTotal = 0;
+        return $this->cache->get('interfacing.shell.chrome.application-dashboard.v3', function (ItemInterface $item): array {
+            $item->expiresAfter(3600);
 
-        foreach ($this->crudResourceExplorerProvider->provide() as $resource) {
-            $component = $resource->component();
-            $status = $resource->status();
-            $statusKey = array_key_exists($status, $statusCounts) ? $status : 'other';
-            ++$statusCounts[$statusKey];
+            $components = [];
+            $statusCounts = [
+                'connected' => 0,
+                'canonical' => 0,
+                'planned' => 0,
+                'other' => 0,
+            ];
+            $operationTotal = 0;
 
-            if (!isset($components[$component])) {
-                $components[$component] = [
+            foreach ($this->crudResourceExplorerProvider->provide() as $resource) {
+                $component = $resource->component();
+                $status = $resource->status();
+                $statusKey = array_key_exists($status, $statusCounts) ? $status : 'other';
+                ++$statusCounts[$statusKey];
+
+                if (!isset($components[$component])) {
+                    $components[$component] = [
+                        'component' => $component,
+                        'status' => $status,
+                        'statusCounts' => [
+                            'connected' => 0,
+                            'canonical' => 0,
+                            'planned' => 0,
+                            'other' => 0,
+                        ],
+                        'resourceCount' => 0,
+                        'operationCount' => 0,
+                        'firstIndexUrl' => $resource->indexUrl(),
+                        'resources' => [],
+                    ];
+                }
+
+                ++$components[$component]['statusCounts'][$statusKey];
+                ++$components[$component]['resourceCount'];
+                $components[$component]['status'] = $this->strongerStatus((string) $components[$component]['status'], $status);
+
+                $operations = $resource->operationUrls();
+                $operationTotal += count($operations);
+                $components[$component]['operationCount'] += count($operations);
+                $components[$component]['resources'][] = [
+                    'id' => $resource->id(),
                     'component' => $component,
+                    'label' => $resource->label(),
+                    'resourcePath' => $resource->resourcePath(),
                     'status' => $status,
-                    'statusCounts' => [
-                        'connected' => 0,
-                        'canonical' => 0,
-                        'planned' => 0,
-                        'other' => 0,
-                    ],
-                    'resourceCount' => 0,
-                    'operationCount' => 0,
-                    'firstIndexUrl' => $resource->indexUrl(),
-                    'resources' => [],
+                    'indexUrl' => $resource->indexUrl(),
+                    'newUrl' => $resource->newUrl(),
+                    'showSampleUrl' => $resource->showSampleUrl(),
+                    'editSampleUrl' => $resource->editSampleUrl(),
+                    'deleteSampleUrl' => $resource->deleteSampleUrl(),
+                    'operations' => $operations,
                 ];
             }
 
-            ++$components[$component]['statusCounts'][$statusKey];
-            ++$components[$component]['resourceCount'];
-            $components[$component]['status'] = $this->strongerStatus((string) $components[$component]['status'], $status);
+            $componentList = array_values($components);
+            usort($componentList, static fn (array $left, array $right): int => [$left['component']] <=> [$right['component']]);
 
-            $operations = $resource->operationUrls();
-            $operationTotal += count($operations);
-            $components[$component]['operationCount'] += count($operations);
-            $components[$component]['resources'][] = [
-                'id' => $resource->id(),
-                'component' => $component,
-                'label' => $resource->label(),
-                'resourcePath' => $resource->resourcePath(),
-                'status' => $status,
-                'indexUrl' => $resource->indexUrl(),
-                'newUrl' => $resource->newUrl(),
-                'showSampleUrl' => $resource->showSampleUrl(),
-                'editSampleUrl' => $resource->editSampleUrl(),
-                'deleteSampleUrl' => $resource->deleteSampleUrl(),
-                'operations' => $operations,
+            return [
+                'schema' => 'smart-responsor.interfacing.application-dashboard.v1',
+                'summary' => [
+                    'componentCount' => count($componentList),
+                    'resourceCount' => array_sum(array_map(static fn (array $component): int => (int) $component['resourceCount'], $componentList)),
+                    'operationCount' => $operationTotal,
+                    'connectedResources' => $statusCounts['connected'],
+                    'canonicalResources' => $statusCounts['canonical'],
+                    'plannedResources' => $statusCounts['planned'],
+                    'otherResources' => $statusCounts['other'],
+                ],
+                'statusCounts' => $statusCounts,
+                'components' => $componentList,
+                'contract' => [
+                    'topPanelRequired' => true,
+                    'leftPanelsRequired' => true,
+                    'footerRequired' => true,
+                    'crudBridgePatternRequired' => true,
+                    'note' => 'Connected, canonical and planned Smart Responsor components are intentionally visible so the host application can validate real CRUD address-bar patterns early.',
+                ],
             ];
-        }
-
-        $componentList = array_values($components);
-        usort($componentList, static fn (array $left, array $right): int => [$left['component']] <=> [$right['component']]);
-
-        return [
-            'schema' => 'smart-responsor.interfacing.application-dashboard.v1',
-            'summary' => [
-                'componentCount' => count($componentList),
-                'resourceCount' => array_sum(array_map(static fn (array $component): int => (int) $component['resourceCount'], $componentList)),
-                'operationCount' => $operationTotal,
-                'connectedResources' => $statusCounts['connected'],
-                'canonicalResources' => $statusCounts['canonical'],
-                'plannedResources' => $statusCounts['planned'],
-                'otherResources' => $statusCounts['other'],
-            ],
-            'statusCounts' => $statusCounts,
-            'components' => $componentList,
-            'contract' => [
-                'topPanelRequired' => true,
-                'leftPanelsRequired' => true,
-                'footerRequired' => true,
-                'crudBridgePatternRequired' => true,
-                'note' => 'Connected, canonical and planned Smart Responsor components are intentionally visible so the host application can validate real CRUD address-bar patterns early.',
-            ],
-        ];
+        });
     }
 
     private function strongerStatus(string $current, string $candidate): string
@@ -486,23 +556,27 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
      */
     private function knownCrudResources(): array
     {
-        $resources = [];
-        foreach ($this->crudResourceExplorerProvider->provide() as $resource) {
-            $resources[] = [
-                'id' => $resource->id(),
-                'component' => $resource->component(),
-                'label' => $resource->label(),
-                'resourcePath' => $resource->resourcePath(),
-                'status' => $resource->status(),
-                'indexUrl' => $resource->indexUrl(),
-                'newUrl' => $resource->newUrl(),
-                'showSampleUrl' => $resource->showSampleUrl(),
-                'editSampleUrl' => $resource->editSampleUrl(),
-                'deleteSampleUrl' => $resource->deleteSampleUrl(),
-            ];
-        }
+        return $this->cache->get('interfacing.shell.chrome.known-crud-resources.v3', function (ItemInterface $item): array {
+            $item->expiresAfter(3600);
 
-        return $resources;
+            $resources = [];
+            foreach ($this->crudResourceExplorerProvider->provide() as $resource) {
+                $resources[] = [
+                    'id' => $resource->id(),
+                    'component' => $resource->component(),
+                    'label' => $resource->label(),
+                    'resourcePath' => $resource->resourcePath(),
+                    'status' => $resource->status(),
+                    'indexUrl' => $resource->indexUrl(),
+                    'newUrl' => $resource->newUrl(),
+                    'showSampleUrl' => $resource->showSampleUrl(),
+                    'editSampleUrl' => $resource->editSampleUrl(),
+                    'deleteSampleUrl' => $resource->deleteSampleUrl(),
+                ];
+            }
+
+            return $resources;
+        });
     }
 
     /**
@@ -510,10 +584,28 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
      */
     private function safeUrl(string $route, string $fallback, array $parameters = []): string
     {
+        $cacheKey = $route.'|'.md5(json_encode($parameters, JSON_THROW_ON_ERROR));
+
+        if (array_key_exists($cacheKey, $this->generatedUrlCache)) {
+            return $this->generatedUrlCache[$cacheKey];
+        }
+
+        if (array_key_exists($route, $this->routeExistsCache) && !$this->routeExistsCache[$route]) {
+            return $this->generatedUrlCache[$cacheKey] = $fallback;
+        }
+
+        if (null === $this->router->getRouteCollection()?->get($route)) {
+            $this->routeExistsCache[$route] = false;
+
+            return $this->generatedUrlCache[$cacheKey] = $fallback;
+        }
+
+        $this->routeExistsCache[$route] = true;
+
         try {
-            return $this->url->generate($route, $parameters);
+            return $this->generatedUrlCache[$cacheKey] = $this->router->generate($route, $parameters);
         } catch (\Throwable) {
-            return $fallback;
+            return $this->generatedUrlCache[$cacheKey] = $fallback;
         }
     }
 

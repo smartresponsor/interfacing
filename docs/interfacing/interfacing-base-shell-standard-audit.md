@@ -13,4 +13,5 @@ Unify user-facing pages under one base shell standard: top bar, primary navigati
 - Legacy shell demo pages normalized into base shell.
 - Controllers moved from direct Twig rendering to `InterfacingRendererInterface` where needed.
 - Conflicting `/interfacing` demo shell route moved to `/interfacing/shell-demo`.
-- Legacy shell route moved to `/interfacing/shell-legacy`.
+- Legacy shell route lives at `/interfacing/shell-legacy`.
+- Visible shell pages now render directly and no longer rely on the retired workspace builder contract.

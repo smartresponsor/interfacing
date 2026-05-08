@@ -18,7 +18,7 @@ final readonly class ShellScreenCatalogProvider implements ShellScreenCatalogPro
 
     public function catalog(?string $activeId = null): array
     {
-        $shell = $this->shellChromeProvider->provide($activeId);
+        $shell = $this->shellChromeProvider->provide($activeId, true, false);
         $navigation = $this->shellNavigationMapProvider->map($activeId);
         $screens = [];
 

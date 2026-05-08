@@ -1,0 +1,19 @@
+schema: interfacing-boundary-note/v1
+wave: "20.2"
+name: shell-partial-visibility-hardening
+status: active
+purpose: >-
+  Make account quick menu and system footer reusable through shell partials, not only through the
+  Interfacing-owned base template.
+canonical_partials:
+  quick_menu: template/interfacing/shell/partial/quick_menu.html.twig
+  system_footer: template/interfacing/shell/partial/system_footer.html.twig
+integrated_partials:
+  - template/interfacing/shell/partial/top_panel.html.twig
+  - template/interfacing/shell/partial/footer_panel.html.twig
+verification_markers:
+  - data-sr-shell-slot="quick-menu"
+  - data-sr-shell-contract="wave20.2"
+  - Commerce core
+  - Commerce finance
+  - Customer account

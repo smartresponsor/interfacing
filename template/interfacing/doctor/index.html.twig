@@ -1,35 +1,9 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'interfacing/base.html.twig' %}
+{# Provider-owned visible page. Do not reintroduce bespoke Twig tables, forms, inline CSS, provider-bypassing CSS-framework layout, or fallback UI here. #}
+{% extends 'interfacing/admin/body/provider_page.html.twig' %}
 
-{% block body %}
-  <section style="background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
-    <div style="font-size:12px; font-weight:700; color:#2563eb; text-transform:uppercase; letter-spacing:.05em;">Diagnostics</div>
-    <h1 style="margin:6px 0 0; font-size:28px; line-height:1.05;">Doctor infra</h1>
-    <div style="margin-top:8px; color:#64748b; font-size:13px;">Base context and permission checks rendered through the standard shell.</div>
-  </section>
-
-  <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
-    <div style="font-weight:700; font-size:14px;">Base context</div>
-    <table style="margin-top:10px; border-collapse:collapse; width:100%;">
-      <tr><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">Key</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">Value</th></tr>
-      {% for k, v in ctx %}
-        <tr><td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ k }}</code></td><td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ v }}</code></td></tr>
-      {% endfor %}
-    </table>
-  </section>
-
-  <section style="margin-top:14px; background:#fff; border:1px solid #dbe1ea; border-radius:16px; padding:14px 16px;">
-    <div style="font-weight:700; font-size:14px;">Screen permission checks</div>
-    <table style="margin-top:10px; border-collapse:collapse; width:100%;">
-      <tr><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">screenId</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">permission</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">decision</th><th style="text-align:left; padding:8px; border-bottom:1px solid #e5e7eb;">reason</th></tr>
-      {% for row in screenCheck %}
-        <tr>
-          <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ row.screenId }}</code></td>
-          <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ row.permission }}</code></td>
-          <td style="padding:8px; border-bottom:1px solid #f1f5f9;"><code>{{ row.decision }}</code></td>
-          <td style="padding:8px; border-bottom:1px solid #f1f5f9; color:#64748b;">{{ row.reason }}</td>
-        </tr>
-      {% endfor %}
-    </table>
-  </section>
-{% endblock %}
+{% set adminProviderPageTitle = 'Doctor Index' %}
+{% set adminProviderResourceName = 'interfacing_doctor_index' %}
+{% set adminProviderResourceLabel = 'Doctor Index' %}
+{% set adminProviderOperation = 'show' %}
+{% set adminProviderSurface = 'admin' %}

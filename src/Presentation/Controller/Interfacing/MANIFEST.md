@@ -9,4 +9,4 @@ Controllers own their public Interfacing routes through attributes. Broad worksp
 
 ## Wave13 generic CRUD controller boundary
 
-`GenericCrudWorkbenchController` remains the route owner for the broad CRUD bridge routes, but workbench context assembly now belongs to `Service/Interfacing/View/GenericCrudWorkbenchViewBuilder.php`.
+`GenericCrudWorkbenchController` remains the route owner for the broad CRUD bridge routes. The default response is shell-first and lightweight; the heavy CRUD workbench payload is only assembled when the request explicitly opts into `?interactive=1`.

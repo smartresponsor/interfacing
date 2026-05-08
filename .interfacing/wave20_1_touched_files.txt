@@ -1,0 +1,5 @@
+template/interfacing/base.html.twig
+template/interfacing/shell/base.html.twig
+docs/interfacing/interfacing-wave20-1-shell-visibility-hardening.md
+.interfacing/contracts/wave20-1-shell-visibility-hardening.yaml
+.interfacing/wave20_1_touched_files.txt

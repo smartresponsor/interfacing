@@ -1,0 +1,6 @@
+/*
+ * Interfacing application-level CSS.
+ *
+ * Admin/workbench UI is provider-owned. Do not add Bootstrap-like or handmade
+ * admin body styling here; build canonical providers through npm run ui:build.
+ */

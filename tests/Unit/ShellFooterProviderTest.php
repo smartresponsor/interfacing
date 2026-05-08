@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Tests\Unit;
 
+use App\Interfacing\Contract\Localization\LocaleTemplateSelectorOption;
 use App\Interfacing\Service\Interfacing\Shell\ShellFooterProvider;
 use App\Interfacing\ServiceInterface\Interfacing\Localization\LocaleTemplateSelectorProviderInterface;
-use App\Interfacing\Contract\Localization\LocaleTemplateSelectorOption;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -26,7 +26,7 @@ final class ShellFooterProviderTest extends TestCase
                 public function generate(string $name, array $parameters = [], int $referenceType = self::ABSOLUTE_PATH): string
                 {
                     if ('interfacing_screen' === $name) {
-                        return '/interfacing/screen/'.($parameters['screenId'] ?? '');
+                        return '/interfacing/screen/'.($parameters['id'] ?? '');
                     }
 
                     return '/'.$name;
@@ -54,10 +54,19 @@ final class ShellFooterProviderTest extends TestCase
 
         $groups = $provider->provide();
 
-        self::assertSame('locale', $groups[0]->id());
-        self::assertSame('Locale', $groups[0]->title());
-        self::assertGreaterThanOrEqual(3, count($groups[0]->link()));
-        self::assertSame('Locale selector', $groups[0]->link()[0]->title());
-        self::assertSame('/interfacing/screen/localizing.locale.selector', $groups[0]->link()[0]->url());
+        $groupsById = [];
+        foreach ($groups as $group) {
+            $groupsById[$group->id()] = $group;
+        }
+
+        self::assertArrayHasKey('commerce-core', $groupsById);
+        self::assertArrayHasKey('commerce-finance', $groupsById);
+        self::assertArrayHasKey('customer-account', $groupsById);
+        self::assertArrayHasKey('application-indexes', $groupsById);
+        self::assertArrayHasKey('locale', $groupsById);
+        self::assertSame('Locale', $groupsById['locale']->title());
+        self::assertGreaterThanOrEqual(3, count($groupsById['locale']->link()));
+        self::assertSame('Locale selector', $groupsById['locale']->link()[0]->title());
+        self::assertSame('/interfacing/screen/localizing.locale.selector', $groupsById['locale']->link()[0]->url());
     }
 }

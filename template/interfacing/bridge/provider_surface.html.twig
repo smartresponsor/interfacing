@@ -1,0 +1,141 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Bridge-owned provider surface.
+
+  Bridge/interface code should render this template for component-owned visible
+  routes. Consumer components provide business/resource metadata; this template
+  maps that metadata to the canonical Interfacing admin body provider mount.
+
+  This file must remain thin: no Bootstrap, no handmade CSS, no Twig tables, and
+  no local component shell.
+#}
+{% set bridgeInteractive = app.request.query.get('interactive') in ['1', 'true', 'yes'] %}
+{% set bridgeBaseTemplate = bridgeInteractive ? 'interfacing/admin/body/provider_document.html.twig' : 'interfacing/base.html.twig' %}
+{% extends bridgeBaseTemplate %}
+
+{% set bridgeComponent = bridgeComponent|default(component|default(app.request.query.get('component', 'bridge'))) %}
+{% set bridgeResource = bridgeResource|default(resource|default(app.request.query.get('resource', app.request.attributes.get('resourcePath')|default('resource')))) %}
+{% set bridgeOperation = bridgeOperation|default(operation|default(app.request.query.get('operation', app.request.attributes.get('_crud_operation')|default('index')))) %}
+{% set bridgeSurface = bridgeSurface|default(surface|default(app.request.query.get('surface', 'admin'))) %}
+{% set bridgeTitle = bridgeTitle|default(title|default(app.request.query.get('title', bridgeResource|replace({'-':' ', '_':' ', '/':' / '})|title))) %}
+{% set bridgeCollectionLabel = bridgeCollectionLabel|default(collectionLabel|default(bridgeTitle)) %}
+{% set bridgeDefaultView = bridgeDefaultView|default(defaultView|default(app.request.query.get('view', 'table'))) %}
+{% set bridgeContentLocale = bridgeContentLocale|default(contentLocale|default(app.request.query.get('contentLocale', app.request.locale|default('en')))) %}
+{% set bridgeColumns = bridgeColumns|default(columns|default([
+  { key: 'title', label: 'Title', type: 'text', isCode: false, isStatus: false },
+  { key: 'code', label: 'Code', type: 'text', isCode: true, isStatus: false },
+  { key: 'status', label: 'Status', type: 'text', isStatus: true },
+  { key: 'locale', label: 'Locale', type: 'text', isCode: false, isStatus: false }
+])) %}
+{% set bridgeRows = bridgeRows|default(rows|default([])) %}
+{% set bridgeFilters = bridgeFilters|default(filters|default([
+  { name: 'q', label: 'Search', type: 'text', value: app.request.query.get('q'), placeholder: 'Search ' ~ bridgeTitle }
+])) %}
+{% set bridgeFormFields = bridgeFormFields|default(formFields|default([
+  { name: 'title', label: 'Title', type: 'text', required: true },
+  { name: 'slug', label: 'Slug', type: 'text', required: false },
+  { name: 'status', label: 'Status', type: 'text', required: false }
+])) %}
+{% set bridgeHeaderActions = bridgeHeaderActions|default(headerActions|default([
+  { label: 'Create new', href: './new/', variant: 'primary', operation: 'new', enabled: true, visibility: 'visible' }
+])) %}
+{% set bridgeWorkbench = workbench|default({
+  title: bridgeTitle,
+  component: bridgeComponent,
+  integrationOwner: 'bridge',
+  renderingOwner: 'interfacing',
+  primaryProvider: 'ant-design-procomponents',
+  secondaryProvider: 'primereact',
+  shellMode: 'provider-document',
+  routeContext: {
+    resourcePath: bridgeResource,
+    resourceLabel: bridgeTitle,
+    resourceCollectionLabel: bridgeCollectionLabel,
+    operation: bridgeOperation,
+    surface: bridgeSurface,
+    mode: bridgeOperation in ['new', 'edit'] ? 'form' : (bridgeOperation == 'show' ? 'detail' : 'collection'),
+    collectionHref: './'
+  },
+  columns: bridgeColumns,
+  rows: bridgeRows,
+  filters: bridgeFilters,
+  formFields: bridgeFormFields,
+  formSections: [],
+  headerActions: bridgeHeaderActions,
+  paginationLabel: 'Bridge-provided resource records'
+}) %}
+
+{% block title %}{{ bridgeTitle }}{% endblock %}
+
+{% block body %}
+  {% if bridgeInteractive %}
+    {% include 'interfacing/admin/body/mount.html.twig' with {
+      workbench: bridgeWorkbench,
+      provider: 'antd-pro',
+      secondaryProvider: 'primereact',
+      resourceName: bridgeResource,
+      resourceLabel: bridgeTitle,
+      operation: bridgeOperation,
+      surface: bridgeSurface,
+      defaultView: bridgeDefaultView,
+      viewModes: ['table', 'cards'],
+      contentLocale: bridgeContentLocale
+    } only %}
+  {% else %}
+    <main style="max-width: 1440px; margin: 0 auto; padding: 24px 16px 48px;">
+      <section style="background: #fff; border: 1px solid #dbe1e8; border-radius: 18px; padding: 20px; box-shadow: 0 14px 36px rgba(15, 23, 42, 0.06);">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: flex-start;">
+          <div style="min-width: 240px;">
+            <p style="margin: 0 0 6px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 800; color: #5b6574;">Bridge visible route</p>
+            <h1 style="margin: 0; font-size: 28px; line-height: 1.15; color: #111827;">{{ bridgeTitle }}</h1>
+            <p style="margin: 10px 0 0; color: #5b6574; line-height: 1.6; max-width: 72ch;">
+              This route is now shell-first so it can load immediately. Open the interactive provider surface only when you need the full Ant Design ProComponents mount.
+            </p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <a href="?interactive=1" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px; background:#111827; color:#fff; text-decoration:none; font-weight:700;">Open interactive view</a>
+            <a href="./" style="display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px; background:#fff; color:#111827; text-decoration:none; border:1px solid #cfd6df; font-weight:700;">Keep shell view</a>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px;">
+          <section style="border:1px solid #edf0f3; border-radius: 14px; padding: 14px;">
+            <h2 style="margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #5b6574;">Route context</h2>
+            <dl style="margin: 0; display: grid; gap: 8px;">
+              <div><dt style="font-size: 11px; color: #6b7280;">Component</dt><dd style="margin: 2px 0 0; font-weight: 700;">{{ bridgeComponent }}</dd></div>
+              <div><dt style="font-size: 11px; color: #6b7280;">Resource</dt><dd style="margin: 2px 0 0; font-weight: 700;">{{ bridgeResource }}</dd></div>
+              <div><dt style="font-size: 11px; color: #6b7280;">Operation</dt><dd style="margin: 2px 0 0; font-weight: 700;">{{ bridgeOperation }}</dd></div>
+            </dl>
+          </section>
+
+          <section style="border:1px solid #edf0f3; border-radius: 14px; padding: 14px;">
+            <h2 style="margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #5b6574;">Columns</h2>
+            <ul style="margin: 0; padding-left: 18px; line-height: 1.7;">
+              {% for column in bridgeColumns %}
+                <li><strong>{{ column.label }}</strong> <span style="color:#6b7280;">({{ column.key }})</span></li>
+              {% endfor %}
+            </ul>
+          </section>
+
+          <section style="border:1px solid #edf0f3; border-radius: 14px; padding: 14px;">
+            <h2 style="margin: 0 0 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: #5b6574;">Records</h2>
+            <div style="display:grid; gap: 8px;">
+              {% if bridgeRows is not empty %}
+                {% for row in bridgeRows %}
+                  <div style="padding: 10px 12px; background:#f8fafc; border-radius: 12px;">
+                    <div style="font-weight:700;">{{ row.title|default(row.id|default('Record')) }}</div>
+                    <div style="font-size: 12px; color:#6b7280;">{{ row.status|default('status unavailable') }}</div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div style="padding: 10px 12px; background:#f8fafc; border-radius: 12px; color:#6b7280;">
+                  No records loaded yet.
+                </div>
+              {% endif %}
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  {% endif %}
+{% endblock %}

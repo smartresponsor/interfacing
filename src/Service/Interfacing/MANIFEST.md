@@ -14,12 +14,6 @@ Canonical Symfony-backed access implementations now use type-identifiable names:
 
 Generic `SymfonyAccessResolver` and `AllowAllAccessResolver` class names remain compatibility wrappers only.
 
-## Wave10 controller view-builder extraction
-
-Workspace page payload assembly moved from `Presentation/Controller/Interfacing/InterfacingController.php` to `Service/Interfacing/View/InterfacingWorkspaceViewBuilder.php`.
-
-Controllers should own HTTP routing and rendering orchestration only; ecommerce/workbench dashboard context assembly belongs to service-layer view builders.
-
 ## Wave12 CRUD explorer view-builder extraction
 
 CRUD Explorer payload assembly moved from `Presentation/Controller/Interfacing/CrudExplorerController.php` to `Service/Interfacing/View/CrudExplorerViewBuilder.php`.

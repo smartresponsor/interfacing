@@ -10,7 +10,7 @@ app_crud_new:
     _crud_operation: new
     _crud_surface: admin
   requirements:
-    resourcePath: '(?!interfacing(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
+    resourcePath: '(?!(?:interfacing|catalog|category|product|collection|attribute|crud|cruding|vendor|vendoring)(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
 
 app_crud_edit:
   path: /{resourcePath}/edit/{id}
@@ -20,7 +20,7 @@ app_crud_edit:
     _crud_operation: edit
     _crud_surface: admin
   requirements:
-    resourcePath: '(?!interfacing(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
+    resourcePath: '(?!(?:interfacing|catalog|category|product|collection|attribute|crud|cruding|vendor|vendoring)(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
     id: '[^/]+'
 
 app_crud_delete:
@@ -31,7 +31,7 @@ app_crud_delete:
     _crud_operation: delete
     _crud_surface: admin
   requirements:
-    resourcePath: '(?!interfacing(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
+    resourcePath: '(?!(?:interfacing|catalog|category|product|collection|attribute|crud|cruding|vendor|vendoring)(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
     id: '[^/]+'
 
 app_crud_index:
@@ -42,7 +42,7 @@ app_crud_index:
     _crud_operation: index
     _crud_surface: admin
   requirements:
-    resourcePath: '(?!interfacing(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
+    resourcePath: '(?!(?:interfacing|catalog|category|product|collection|attribute|crud|cruding|vendor|vendoring)(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
 
 app_crud_show:
   path: /{resourcePath}/{id}
@@ -52,5 +52,5 @@ app_crud_show:
     _crud_operation: show
     _crud_surface: admin
   requirements:
-    resourcePath: '(?!interfacing(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
+    resourcePath: '(?!(?:interfacing|catalog|category|product|collection|attribute|crud|cruding|vendor|vendoring)(?:/|$)|_profiler(?:/|$)|_wdt(?:/|$))[a-z0-9][a-z0-9/-]{0,120}'
     id: '(?!summary$|meter$)[^/]+'

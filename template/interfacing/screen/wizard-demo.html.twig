@@ -1,5 +1,9 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-<div>
-  <div style="font-weight:600;margin-bottom:8px;">Wizard demo</div>
-  {{ component('interfacing_widget_wizard', { handlerId: 'demo-onboarding', context: this.context }) }}
-</div>
+{# Provider-owned visible page. Do not reintroduce bespoke Twig tables, forms, inline CSS, provider-bypassing CSS-framework layout, or fallback UI here. #}
+{% extends 'interfacing/admin/body/provider_page.html.twig' %}
+
+{% set adminProviderPageTitle = 'Wizard Demo' %}
+{% set adminProviderResourceName = 'interfacing_screen_wizard_demo' %}
+{% set adminProviderResourceLabel = 'Wizard Demo' %}
+{% set adminProviderOperation = 'index' %}
+{% set adminProviderSurface = 'admin' %}

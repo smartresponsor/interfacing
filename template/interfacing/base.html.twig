@@ -1,5 +1,6 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{# Interfacing-local templates inherit the host-wide Smart Responsor shell.
-   Keep chrome ownership in template/base.html.twig so every host page that extends
-   the standard Symfony base receives Top, left panels, optional right context and footer. #}
-{% extends 'base.html.twig' %}
+{# Interfacing-local templates inherit the deterministic Interfacing-owned shell base.
+   Do not extend ambiguous `base.html.twig` here: in host applications it may resolve to
+   the host base and bypass Interfacing footer/quick-menu chrome.
+   Host-wide adoption should include Interfacing shell partials/base explicitly. #}
+{% extends 'interfacing/shell/base.html.twig' %}

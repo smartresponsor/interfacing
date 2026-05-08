@@ -1,0 +1,9 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Provider-owned visible page. Do not reintroduce bespoke Twig tables, forms, inline CSS, provider-bypassing CSS-framework layout, or fallback UI here. #}
+{% extends 'interfacing/admin/body/provider_page.html.twig' %}
+
+{% set adminProviderPageTitle = 'CRUD Readiness' %}
+{% set adminProviderResourceName = 'interfacing_page_crud_readiness' %}
+{% set adminProviderResourceLabel = 'CRUD Readiness' %}
+{% set adminProviderOperation = 'index' %}
+{% set adminProviderSurface = 'admin' %}
