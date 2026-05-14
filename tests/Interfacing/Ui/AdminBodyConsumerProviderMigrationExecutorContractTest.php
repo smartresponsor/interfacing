@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Interfacing\Ui;
 
-use App\Contract\Ui\AdminBodyConsumerProviderMigrationExecutorContract;
+use App\Interfacing\Contract\Ui\AdminBodyConsumerProviderMigrationExecutorContract;
 use PHPUnit\Framework\TestCase;
 
 final class AdminBodyConsumerProviderMigrationExecutorContractTest extends TestCase

@@ -112,7 +112,9 @@
     {'id': 'quick.profile', 'title': 'My profile', 'url': '/profile/'},
     {'id': 'quick.security', 'title': 'My security', 'url': '/security/'},
     {'id': 'quick.notifications', 'title': 'Notifications', 'url': '/interfacing/message.notifications.inbox'},
-    {'id': 'quick.locale', 'title': 'Locale selector', 'url': '/interfacing/localizing.locale.selector'}
+    {'id': 'quick.locale', 'title': 'Locale selector', 'url': '/interfacing/localizing.locale.selector'},
+    {'id': 'quick.switch-account', 'title': 'Switch account', 'url': '/switch-account'},
+    {'id': 'quick.sign-out', 'title': 'Sign out', 'url': '/sign-out'}
   ]},
   {'title': 'My commerce', 'item': [
     {'id': 'quick.cart', 'title': 'My cart', 'url': '/cart/'},
@@ -199,7 +201,13 @@
                   <div style="font-size:11px; letter-spacing:.04em; text-transform:uppercase; opacity:.68; margin-bottom:6px; font-weight:800;">{{ g.title }}</div>
                   <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px;">
                     {% for it in g.item|slice(0, shellQuickMenuItemLimit) %}
-                      <a href="{{ it.url }}" style="text-decoration:none; color:#111827; background:#fff; border:1px solid #e5e7eb; border-radius:9px; padding:7px 8px; font-size:12px; font-weight:650;">{{ it.title }}</a>
+                      {% if app.user and it.id in ['quick.switch-account', 'quick.sign-out'] %}
+                        <form method="post" action="{{ it.url }}" style="margin:0;">
+                          <button type="submit" style="width:100%; text-decoration:none; color:{{ it.id == 'quick.sign-out' ? '#b91c1c' : '#111827' }}; background:#fff; border:1px solid {{ it.id == 'quick.sign-out' ? '#fecaca' : '#e5e7eb' }}; border-radius:9px; padding:7px 8px; font-size:12px; font-weight:650; cursor:pointer;">{{ it.title }}</button>
+                        </form>
+                      {% else %}
+                        <a href="{{ it.url }}" style="text-decoration:none; color:#111827; background:#fff; border:1px solid #e5e7eb; border-radius:9px; padding:7px 8px; font-size:12px; font-weight:650;">{{ it.title }}</a>
+                      {% endif %}
                     {% endfor %}
                   </div>
                 </section>

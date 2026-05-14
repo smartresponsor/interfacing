@@ -311,6 +311,8 @@ final class ShellChromeProvider implements ShellChromeProviderInterface
                 new ShellNavItem('quick.security', 'My security', '/security/', 'account-quick', null, 20),
                 new ShellNavItem('quick.notifications', 'Notifications', $this->screenUrl('message.notifications.inbox'), 'account-quick', null, 30),
                 new ShellNavItem('quick.locale', 'Locale selector', $this->screenUrl('localizing.locale.selector'), 'account-quick', null, 40),
+                new ShellNavItem('quick.switch-account', 'Switch account', $this->safeUrl('accessing_switch_account', '/switch-account'), 'account-quick', null, 50),
+                new ShellNavItem('quick.sign-out', 'Sign out', $this->safeUrl('accessing_sign_out', '/sign-out'), 'account-quick', null, 60),
             ]),
             new ShellNavGroup('commerce-quick', 'My commerce', [
                 new ShellNavItem('quick.cart', 'My cart', '/cart/', 'commerce-quick', null, 10),

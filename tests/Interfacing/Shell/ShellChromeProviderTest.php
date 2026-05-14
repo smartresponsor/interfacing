@@ -8,9 +8,13 @@ use App\Interfacing\Contract\View\CrudResourceLinkSet;
 use App\Interfacing\Service\Interfacing\Shell\ShellChromeProvider;
 use App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceExplorerProviderInterface;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Cache\Adapter\ArrayAdapter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\RouterInterface;
 
 final class ShellChromeProviderTest extends TestCase
 {
@@ -19,19 +23,32 @@ final class ShellChromeProviderTest extends TestCase
         $requestStack = new RequestStack();
         $requestStack->push(Request::create('/interfacing'));
 
-        $url = new class implements UrlGeneratorInterface {
+        $url = new class implements RouterInterface {
             public function generate(string $name, array $parameters = [], int $referenceType = self::ABSOLUTE_PATH): string
             {
                 return '/'.$name.'/'.($parameters['id'] ?? '');
             }
 
-            public function setContext(\Symfony\Component\Routing\RequestContext $context): void
+            public function match(string $pathinfo): array
+            {
+                return [];
+            }
+
+            public function getRouteCollection(): RouteCollection
+            {
+                $routes = new RouteCollection();
+                $routes->add('interfacing_screen', new Route('/interfacing/{id}'));
+
+                return $routes;
+            }
+
+            public function setContext(RequestContext $context): void
             {
             }
 
-            public function getContext(): \Symfony\Component\Routing\RequestContext
+            public function getContext(): RequestContext
             {
-                return new \Symfony\Component\Routing\RequestContext();
+                return new RequestContext();
             }
         };
 
@@ -54,7 +71,7 @@ final class ShellChromeProviderTest extends TestCase
             }
         };
 
-        $provider = new ShellChromeProvider($requestStack, $url, $crudResources);
+        $provider = new ShellChromeProvider($requestStack, $url, $crudResources, new ArrayAdapter());
         $shell = $provider->provide('workspace.home');
 
         self::assertArrayHasKey('itemTotal', $shell);
@@ -88,12 +105,18 @@ final class ShellChromeProviderTest extends TestCase
         self::assertContains('Application indexes', $footerTitles);
 
         $quickTitles = [];
+        $quickIds = [];
         foreach ($shell['quickMenuGroup'] as $group) {
             $quickTitles[] = $group->title();
+            foreach ($group->item() as $item) {
+                $quickIds[] = $item->id();
+            }
         }
 
         self::assertContains('My account', $quickTitles);
         self::assertContains('My commerce', $quickTitles);
         self::assertContains('System shortcuts', $quickTitles);
+        self::assertContains('quick.switch-account', $quickIds);
+        self::assertContains('quick.sign-out', $quickIds);
     }
 }

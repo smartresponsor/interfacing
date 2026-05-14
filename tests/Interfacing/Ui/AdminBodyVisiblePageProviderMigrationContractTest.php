@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Interfacing\Ui;
 
-use App\Contract\Ui\AdminBodyVisiblePageProviderMigrationContract;
+use App\Interfacing\Contract\Ui\AdminBodyVisiblePageProviderMigrationContract;
 use PHPUnit\Framework\TestCase;
 
 final class AdminBodyVisiblePageProviderMigrationContractTest extends TestCase
