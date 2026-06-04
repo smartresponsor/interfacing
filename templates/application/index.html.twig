@@ -1,0 +1,37 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/application/base.html.twig' %}
+
+{% block page_content %}
+  <section class="interfacing-surface" data-interfacing-surface="application-index">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Applicating</p>
+      <h1>Application administration</h1>
+      <p>Application rows and summary are supplied by the producer controller as a neutral Viewing payload.</p>
+    </header>
+
+    <section class="interfacing-surface__grid">
+      <article class="interfacing-surface__panel">
+        <h2>Summary</h2>
+        {% if summary is defined and summary is iterable %}
+          <dl class="interfacing-surface__stats">
+            {% for key, value in summary %}
+              <div>
+                <dt>{{ key|replace({'_': ' ', '-': ' '})|title }}</dt>
+                <dd>
+                  {% if value is iterable %}{{ value|length }} item{{ value|length == 1 ? '' : 's' }}{% elseif value is same as(true) %}true{% elseif value is same as(false) %}false{% elseif value is null %}—{% else %}{{ value }}{% endif %}
+                </dd>
+              </div>
+            {% endfor %}
+          </dl>
+        {% else %}
+          <p class="interfacing-surface__empty">No summary available.</p>
+        {% endif %}
+      </article>
+
+      <article class="interfacing-surface__panel">
+        <h2>Application rows</h2>
+        <p>{{ applicationRows is defined and applicationRows is iterable ? applicationRows|length : 0 }} configured row{{ applicationRows is defined and applicationRows is iterable and applicationRows|length == 1 ? '' : 's' }}.</p>
+      </article>
+    </section>
+  </section>
+{% endblock %}

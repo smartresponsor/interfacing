@@ -1,7 +1,0 @@
-Interfacing canon merge report
-PHP files processed: 427
-PHP files changed: 348
-YAML files changed: 8
-Notes:
- - removed-typed-const: 4
- - stripped-leading-output: 115

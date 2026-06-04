@@ -1,0 +1,23 @@
+surface: cart
+owner: Interfacing
+rendered_by: Viewing
+purpose: Cart visual surface for line items, promotions, shipping estimation, and checkout handoff.
+operations:
+  index:
+    expects: [items, lines, cartItems, summary, totals, actions]
+  summary:
+    expects: [items, lines, cartItems, summary, totals, promotions, coupons, actions]
+  line-item:
+    expects: [items, lines, cartItems]
+  promotion:
+    expects: [promotions, coupons, summary, totals]
+  shipping:
+    expects: [shippingMethods, rates, summary, totals]
+  checkout:
+    expects: [items, lines, summary, totals, actions]
+  empty:
+    expects: [actions]
+notes:
+  - Producers own cart business payload and mutation flows.
+  - Interfacing owns Twig layout and shared partial composition.
+  - Viewing selects this surface by surface=cart and operation key.

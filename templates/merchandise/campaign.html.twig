@@ -1,0 +1,24 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/merchandise/base.html.twig' %}
+{% block title %}{{ title|default('Merchandise campaigns') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'merchandise',
+    operationKey: 'campaign',
+    title: title|default(meta.title|default('Merchandise campaigns')),
+    subtitle: meta.description|default('Merchandise campaigns surface for commerce workflows rendered through Viewing.'),
+    primaryTitle: meta.primaryTitle|default('Merchandise campaigns records'),
+    primaryRecords: data.items|default(data.records|default(data.rows|default([]))),
+    primaryEmptyLabel: 'No merchandise campaigns records are available yet.',
+    secondaryTitle: meta.secondaryTitle|default('Surface context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
+  } only %}
+{% endblock %}

@@ -1,0 +1,31 @@
+# Interfacing surface contract
+
+surface: project
+owner: Interfacing template layer
+purpose: Declares payload expectations for Viewing-rendered project-commerce surfaces.
+operations:
+  index:
+    expects: [projects, metrics, actions]
+  browse:
+    expects: [projects, filters, sort, pagination, actions]
+  detail:
+    expects: [project, funding, contributions, milestones, timeline, actions]
+  funding:
+    expects: [funding, tiers, pledgeTiers, rewards, metrics, policy, actions]
+  contribution:
+    expects: [contributions, tiers, rewards, contributor, summary, actions]
+  timeline:
+    expects: [milestones, timeline, events, project, actions]
+  vendor:
+    expects: [vendor, profile, projects, transactions, adapter, actions]
+  editor-step:
+    expects: [project, step, form, actions]
+  ops-dashboard:
+    expects: [metrics, projects, moderation, actions]
+  moderation:
+    expects: [projects, moderation, queue, actions]
+notes:
+  - Producer components own project, funding, contribution, and vendor data preparation.
+  - Viewing owns response selection and fallback.
+  - Interfacing owns visual layout, partial composition, and operation-level template expectations.
+  - Project-commerce screens must stay surface/operation based; do not introduce component-name template folders.

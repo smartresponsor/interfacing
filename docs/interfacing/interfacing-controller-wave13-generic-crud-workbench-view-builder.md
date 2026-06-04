@@ -1,12 +1,12 @@
 # Interfacing Wave13 — Generic CRUD Workbench View Builder
 
-Wave13 continues the controller-thinning sequence by extracting generic CRUD bridge page assembly from `GenericCrudWorkbenchController`.
+Wave13 continues the controller-thinning sequence by extracting generic CRUD bridge page assembly from `InterfaceGenericCrudWorkbenchController`.
 
 ## Boundary decision
 
-`GenericCrudWorkbenchController` remains the owner of the broad catch-all CRUD bridge routes registered in `config/routes/zz_interfacing_crud_bridge.yaml`.
+`InterfaceGenericCrudWorkbenchController` remains the owner of the broad catch-all CRUD bridge routes registered in `config/routes/zz_interfacing_crud_bridge.yaml`.
 
-The controller no longer owns route-context resolution, screen-context resolution, filter extraction, demo-backed sample page construction, or `CrudWorkbenchView` assembly. Those responsibilities now belong to `Service/Interfacing/View/GenericCrudWorkbenchViewBuilder.php` behind `ServiceInterface/Interfacing/View/GenericCrudWorkbenchViewBuilderInterface.php`.
+The controller no longer owns route-context resolution, screen-context resolution, filter extraction, demo-backed sample page construction, or `InterfaceCrudWorkbenchView` assembly. Those responsibilities now belong to `Service/Interfacing/View/InterfaceGenericCrudWorkbenchViewBuilderService.php` behind `ServiceInterface/Interfacing/View/InterfaceGenericCrudWorkbenchViewBuilderInterface.php`.
 
 ## Why
 
@@ -18,4 +18,4 @@ Public routes, route names, Twig template, and rendered payload shape are unchan
 
 ## Follow-up
 
-A later wave can replace the demo-backed `OrderSummaryPage` construction with a provider contract so owning components can contribute resource-specific preview rows without changing bridge routes.
+A later wave can replace the demo-backed `InterfaceOrderSummaryPage` construction with a provider contract so owning components can contribute resource-specific preview rows without changing bridge routes.

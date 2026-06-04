@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Payout statement') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'payout-statement',
+    title:title|default(meta.title|default('Payout statement')),
+    subtitle:meta.description|default('Merchant payout statement, transaction lines, reserve context, and export actions.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/payout_statement_panel.html.twig' with {statement:data.statement|default(data.payoutStatement|default({})), lines:data.lines|default(data.transactions|default([])), title:'Payout statement'} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.lines|default([])), title:'Statement transactions'} only %}
+  {% include '@Interfacing/partial/merchant_action_rail.html.twig' with {actions:data.actions|default([]), data:data, title:'Statement actions'} only %}
+
+{% endblock %}

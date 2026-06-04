@@ -4,7 +4,7 @@ Historical note: this document described a temporary runtime hotfix. The workspa
 
 == Runtime failure
 
-Symfony reported that the service id `App\Interfacing\Service\Interfacing\View\InterfacingWorkspaceViewBuilder` looked like a FQCN but no corresponding class existed.
+Symfony reported that the service id `App\Interfacing\Service\View\InterfacingWorkspaceViewBuilder` looked like a FQCN but no corresponding class existed.
 
 == Outcome
 

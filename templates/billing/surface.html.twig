@@ -1,0 +1,65 @@
+{% extends '@Interfacing/billing/base.html.twig' %}
+
+{% set readiness = readiness|default({}) %}
+{% set metrics = metrics|default({}) %}
+{% set alerts = alerts|default({}) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
+
+{% block title %}Billing{% endblock %}
+
+{% block body %}
+  <main class="interfacing-surface interfacing-surface--billing">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Billing</p>
+      <h1>Billing</h1>
+      <p>Canonical billing surface rendered from the `billing` business word.</p>
+    </header>
+
+    <section class="interfacing-surface__grid">
+      {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
+
+          {% if slotKey == 'left.panel' %}
+            <dl class="interfacing-surface__stats">
+              <div>
+                <dt>Readiness</dt>
+                <dd>{{ readiness.ok is defined and readiness.ok ? 'ready' : 'not ready' }}</dd>
+              </div>
+            </dl>
+          {% elseif slotKey == 'main.body' %}
+            <div class="interfacing-surface__panel-group">
+              <h3>Metrics</h3>
+              {% if metrics.metrics is defined and metrics.metrics is iterable %}
+                <pre class="interfacing-surface__meta-block">{{ metrics.metrics|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+              {% else %}
+                <div class="interfacing-surface__empty">No metrics.</div>
+              {% endif %}
+            </div>
+          {% elseif slotKey == 'right.panel' %}
+            <div class="interfacing-surface__panel-group">
+              <h3>Alerts</h3>
+              {% if alerts.alerts is defined and alerts.alerts is iterable and alerts.alerts is not empty %}
+                <pre class="interfacing-surface__meta-block">{{ alerts.alerts|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+              {% else %}
+                <div class="interfacing-surface__empty">No alerts.</div>
+              {% endif %}
+            </div>
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </section>
+  </main>
+{% endblock %}

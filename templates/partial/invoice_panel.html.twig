@@ -1,0 +1,14 @@
+{# Shared invoice summary panel for order and billing surfaces. #}
+{% set invoice = invoice|default(record|default({})) %}
+<section class="interfacing-invoice-panel" data-ui-zone="invoice-panel">
+  <header class="interfacing-panel-header">
+    <h2>{{ title|default('Invoice') }}</h2>
+    {% if invoice.number|default(invoice.invoiceNumber|default(null)) %}<span>{{ invoice.number|default(invoice.invoiceNumber) }}</span>{% endif %}
+  </header>
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {
+    title: detailTitle|default('Invoice details'),
+    record: invoice,
+    emptyLabel: emptyLabel|default('No invoice data is available yet.'),
+    limit: limit|default(12)
+  } only %}
+</section>

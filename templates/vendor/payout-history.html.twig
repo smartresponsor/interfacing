@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Payout history') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'payout-history',
+    title:title|default(meta.title|default('Payout history')),
+    subtitle:meta.description|default('Historical merchant payout runs, settlement records, exports, and reconciliation state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters:data.filters|default({}), sort:data.sort|default({}), query:data.query|default(null)} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Payout history', records:data.payouts|default(data.records|default(data.items|default([]))), emptyLabel:'No payout history records were provided.'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination:data.pagination|default({})} only %}
+
+{% endblock %}

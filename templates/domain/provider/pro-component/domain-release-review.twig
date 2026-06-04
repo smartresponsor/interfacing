@@ -1,0 +1,34 @@
+{% set status = release.status|default(release.releaseStatus|default('not_reviewed')) %}
+{% set checks = release.checks|default([]) %}
+{% set contracts = release.contracts|default([]) %}
+
+<div class="ant-pro-card interfacing-domain-pro-release" data-ui-provider="pro-components" data-ui-component="ProCard,StatisticCard,CheckCard">
+  <div class="ant-pro-card-body">
+    <div class="interfacing-domain-release-summary">
+      <strong>Release status:</strong> {{ status }}
+    </div>
+
+    <div class="interfacing-domain-release-grid">
+      <section>
+        <h3>Required checks</h3>
+        <ul class="ant-list">
+          {% for check in checks %}
+            <li>{{ check.name|default(check.code|default('check')) }} — {{ check.status|default('unknown') }}</li>
+          {% else %}
+            <li>No release checks received.</li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section>
+        <h3>Published contracts</h3>
+        <ul class="ant-list">
+          {% for contract in contracts %}
+            <li>{{ contract.schemaVersion|default(contract.schema_version|default(contract.name|default('contract'))) }}</li>
+          {% else %}
+            <li>No contract inventory received.</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{# Shared refund panel for order and payment surfaces. #}
+{% set refunds = refunds|default(records|default([])) %}
+<section class="interfacing-refund-panel" data-ui-zone="refund-panel">
+  <header class="interfacing-panel-header">
+    <h2>{{ title|default('Refunds') }}</h2>
+    {% if subtitle|default(null) %}<p>{{ subtitle }}</p>{% endif %}
+  </header>
+  {% include '@Interfacing/partial/record_grid.html.twig' with {
+    title: recordTitle|default('Refund records'),
+    records: refunds,
+    emptyLabel: emptyLabel|default('No refund records are available yet.'),
+    limit: limit|default(8)
+  } only %}
+</section>

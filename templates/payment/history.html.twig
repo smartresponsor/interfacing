@@ -1,0 +1,9 @@
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment history') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'payment', operationKey:'history', title:title|default('Payment history'), subtitle:meta.description|default('Payment records, filters and statuses.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters:data.filters|default({}), sort:data.sort|default({}), query:data.query|default(null)} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.payments|default(data.records|default(data.items|default([]))), title:'Payments', emptyLabel:'No payment history is available yet.'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination:data.pagination|default({})} only %}
+{% endblock %}

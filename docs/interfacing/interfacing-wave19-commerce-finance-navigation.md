@@ -28,11 +28,11 @@ The URLs intentionally use the existing generic CRUD bridge grammar, for example
 
 ## CRUD resource contributions
 
-Each component receives a dedicated `CrudResourceDescriptorContributionInterface` implementation:
+Each component receives a dedicated `InterfaceCrudResourceDescriptorContributionInterface` implementation:
 
-- `CurrencingCrudResourceContribution`
-- `ExchangingCrudResourceContribution`
-- `SubscriptingCrudResourceContribution`
-- `CommissioningCrudResourceContribution`
+- `InterfaceCurrencingCrudResourceContributionService`
+- `InterfaceExchangingCrudResourceContributionService`
+- `InterfaceSubscriptingCrudResourceContributionService`
+- `InterfaceCommissioningCrudResourceContributionService`
 
 This keeps resource metadata in component-named contribution classes instead of embedding ad hoc link lists in controllers or Twig templates.

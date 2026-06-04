@@ -1,0 +1,9 @@
+<div class="interfacing-live-card">
+  <div class="interfacing-live-card__header">
+    <div>
+      <div class="interfacing-live-card__title">{{ block.props.title }}</div>
+      <div class="interfacing-live-card__subtitle">updated: {{ component.state.metric.updatedAt ?? 'never' }}</div>
+    </div>
+  </div>
+  <div class="interfacing-live-metric-value">{{ component.state.metric.value ?? block.props.value ?? '—' }}</div>
+</div>

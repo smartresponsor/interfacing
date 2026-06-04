@@ -1,0 +1,61 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Provider handoff surface.
+
+  This template is intentionally thin. It does not build local tables, cards,
+  fallback panels, or a second shell. It maps component-owned resource metadata
+  into the canonical provider-native CRUD/workbench schema and delegates visible
+  rendering to the shared provider mount partial.
+#}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set handoffComponent = handoffComponent|default(component|default(app.request.query.get('component', 'external'))) %}
+{% set handoffSurfaceKey = handoffSurfaceKey|default(surfaceKey|default(app.request.query.get('surfaceKey', 'surface'))) %}
+{% set handoffResource = handoffResource|default(resource|default(app.request.query.get('resource', app.request.attributes.get('resourcePath')|default('resource')))) %}
+{% set handoffOperation = handoffOperation|default(operation|default(app.request.query.get('operation', app.request.attributes.get('_crud_operation')|default('index')))) %}
+{% set handoffSurface = handoffSurface|default(surface|default(app.request.query.get('surface', 'admin'))) %}
+{% set handoffTitle = handoffTitle|default(title|default(app.request.query.get('title', handoffResource|replace({'-':' ', '_':' ', '/':' / '})|title))) %}
+{% set handoffCollectionLabel = handoffCollectionLabel|default(collectionLabel|default(handoffTitle)) %}
+{% set handoffColumns = handoffColumns|default(columns|default([])) %}
+{% set handoffRows = handoffRows|default(rows|default([])) %}
+{% set handoffFilters = handoffFilters|default(filters|default([])) %}
+{% set handoffFormFields = handoffFormFields|default(formFields|default([])) %}
+{% set handoffHeaderActions = handoffHeaderActions|default(headerActions|default([
+  { label: 'Create new', href: './new/', variant: 'primary', operation: 'new', enabled: true, visibility: 'visible' }
+])) %}
+{% set handoffWorkbench = workbench|default({
+  title: handoffTitle,
+  description: 'Provider-native handoff surface rendered through the shared Interfacing root base.',
+  component: handoffComponent,
+  surfaceKey: handoffSurfaceKey,
+  integrationOwner: 'provider-handoff',
+  renderingOwner: 'interfacing',
+  primaryProvider: 'ant-design-procomponents',
+  secondaryProvider: 'primereact',
+  shellMode: 'provider-shell',
+  routeContext: {
+    resourcePath: handoffResource,
+    resourceLabel: handoffTitle,
+    resourceCollectionLabel: handoffCollectionLabel,
+    operation: handoffOperation,
+    surface: handoffSurface,
+    mode: handoffOperation in ['new', 'edit'] ? 'form' : (handoffOperation == 'show' ? 'detail' : 'collection'),
+    collectionHref: './'
+  },
+  columns: handoffColumns,
+  rows: handoffRows,
+  filters: handoffFilters,
+  formFields: handoffFormFields,
+  formSections: [],
+  headerActions: handoffHeaderActions,
+  paginationLabel: 'Provider handoff resource records'
+}) %}
+
+{% block title %}{{ handoffTitle }}{% endblock %}
+
+{% block body %}
+  {% include 'crud/partial/shell_first_workbench.html.twig' with {
+    workbench: handoffWorkbench,
+    crud: crud|default({})
+  } only %}
+{% endblock %}

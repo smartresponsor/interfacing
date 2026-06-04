@@ -1,0 +1,24 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/commercial/base.html.twig' %}
+{% block title %}{{ title|default('Marketplace') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'commercial',
+    operationKey: 'marketplace',
+    title: title|default(meta.title|default('Marketplace')),
+    subtitle: meta.description|default('Marketplace surface for commerce workflows rendered through Viewing.'),
+    primaryTitle: meta.primaryTitle|default('Marketplace records'),
+    primaryRecords: data.items|default(data.records|default(data.rows|default([]))),
+    primaryEmptyLabel: 'No marketplace records are available yet.',
+    secondaryTitle: meta.secondaryTitle|default('Surface context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
+  } only %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/access/base.html.twig' %}
+
+{% block access_body %}
+  <div class="interfacing-access-stack">
+    <div>
+      <p class="interfacing-eyebrow">Account onboarding</p>
+      <h1>Sign up</h1>
+      <p class="interfacing-muted">Interfacing supplies the public registration surface; account creation policy and persistence belong to the owning access/user component.</p>
+    </div>
+
+    <form method="post" action="{{ path('accessing_sign_up') }}" class="interfacing-form" data-interfacing-access-form="sign-up">
+      <label class="interfacing-form-label">Name
+        <input name="account_registration[displayName]" type="text" autocomplete="name" required>
+      </label>
+      <label class="interfacing-form-label">Email
+        <input name="account_registration[email]" type="email" autocomplete="email" required>
+      </label>
+      <label class="interfacing-form-label">Password
+        <input name="account_registration[plainPassword]" type="password" autocomplete="new-password" required>
+      </label>
+      <label class="interfacing-form-label">Phone
+        <input name="account_registration[phoneNumber]" type="tel" autocomplete="tel">
+      </label>
+      <input name="account_registration[submit]" type="hidden" value="1">
+      <button class="interfacing-button-primary" type="submit">Create account</button>
+    </form>
+
+    <p class="interfacing-muted">Already have an account? <a href="{{ path('interfacing_welcome_sign_in') }}">Sign in</a>.</p>
+  </div>
+{% endblock %}

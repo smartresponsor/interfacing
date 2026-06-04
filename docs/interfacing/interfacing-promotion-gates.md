@@ -25,6 +25,6 @@ Owning components own:
 
 - `blocked`: planned component; no fake Interfacing rows are allowed.
 - `promote_candidate`: canonical component; the host bridge and runtime proof are pending.
-- `connected`: runtime bridge is live and must keep smoke proof current.
+- `connected`: runtime handoff is live and must keep smoke proof current.
 
 Promotion is metadata discipline. It must not be used to hide missing component runtime work behind placeholders.

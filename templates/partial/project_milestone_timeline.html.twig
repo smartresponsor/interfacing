@@ -1,0 +1,17 @@
+{# Project milestone timeline for funding/project delivery screens. #}
+{% set milestones = milestones|default(timeline|default(events|default([]))) %}
+<section class="interfacing-project-milestone-timeline" data-ui-zone="project-milestone-timeline" style="border: 1px solid #d9d9d9; border-radius: 14px; padding: 16px; background: #fff;">
+  <h2 style="margin: 0 0 12px; font-size: 1.1rem;">{{ title|default('Milestones') }}</h2>
+  {% if milestones is iterable and milestones|length > 0 %}
+    <ol style="margin: 0; padding-left: 20px; display: grid; gap: 10px;">
+      {% for milestone in milestones %}
+        <li>
+          <strong>{{ milestone.title|default(milestone.name|default('Milestone')) }}</strong>
+          <p style="margin: 4px 0 0; color: #667085;">{{ milestone.summary|default(milestone.status|default(milestone.date|default('Project milestone'))) }}</p>
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No milestones yet', message: emptyLabel|default('Project milestones were not provided yet.')} only %}
+  {% endif %}
+</section>

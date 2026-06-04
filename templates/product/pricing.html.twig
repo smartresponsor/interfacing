@@ -1,0 +1,9 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product pricing') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'pricing', title: title|default(meta.title|default('Product pricing')), subtitle: meta.description|default('Product pricing surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/price_panel.html.twig' with {price: data.price|default(data.pricing|default(data.prices|default(null))), data: data, meta: meta, title: 'Pricing'} only %}{% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Price rules', records: data.priceRules|default(data.records|default([])), emptyLabel: 'No price rules were supplied by the producer payload.'} only %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% set data = data|default({}) %}
+{% set products = products|default(data.products|default(data.items|default(data.records|default([])))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="product-grid">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Products') }}</div>
+  {% if products is iterable and products is not empty %}
+    <div class="interfacing-provider-record-list" data-ui-zone="product-card-grid">
+      {% for product in products|slice(0, limit|default(24)) %}
+        {% include '@Interfacing/partial/product_card.html.twig' with {product: product} only %}
+      {% endfor %}
+    </div>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: title|default('No products yet'), message: emptyLabel|default('No products were supplied by the producer payload.')} only %}
+  {% endif %}
+</section>

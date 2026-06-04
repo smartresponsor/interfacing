@@ -1,0 +1,144 @@
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set showcase = messagingShowcase|default({}) %}
+{% set activeSection = showcase.activeSection|default('overview') %}
+
+{% block title %}{{ showcase.title|default('Messaging') }} · Smart Responsor{% endblock %}
+
+{% block body %}
+  <main class="interfacing-messaging-showcase" data-interfacing-messaging-showcase="root">
+    <section class="interfacing-commerce-hero-grid">
+      <div class="interfacing-commerce-hero">
+        <div>
+          <p class="interfacing-commerce-hero__eyebrow">{{ showcase.eyebrow|default('Messaging') }}</p>
+          <h1 class="interfacing-commerce-hero__title">{{ showcase.title|default('Messaging') }}</h1>
+          <p class="interfacing-commerce-hero__summary">{{ showcase.summary|default('Messaging surface') }}</p>
+        </div>
+        <div class="interfacing-commerce-stat-list">
+          {% for stat in showcase.stats|default([]) %}
+            <div class="interfacing-commerce-stat">
+              <div class="interfacing-commerce-stat__value">{{ stat.value }}</div>
+              <div class="interfacing-commerce-stat__label">{{ stat.label }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <aside class="interfacing-commerce-controls">
+        <div class="interfacing-commerce-controls__header">
+          <div>
+            <p class="interfacing-eyebrow">Messaging navigation</p>
+            <h2>Business functions</h2>
+          </div>
+          <span class="interfacing-badge">Provider data</span>
+        </div>
+        <nav aria-label="Messaging business functions">
+          <ul class="interfacing-commerce-filter-list">
+            {% for item in showcase.navigation|default([]) %}
+              {% set active = activeSection == item.id %}
+              <li class="interfacing-list-item">
+                <a href="{{ item.url }}" class="interfacing-commerce-filter-link{{ active ? ' is-active' : '' }}">
+                  <span>{{ item.title }}</span>
+                  <span aria-hidden="true">›</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </aside>
+    </section>
+
+    <section class="interfacing-summary-grid">
+      {% for section in showcase.sections|default([]) %}
+        <a href="{{ section.url }}" class="interfacing-summary-card">
+          <div class="interfacing-summary-card__header">
+            <h2 class="interfacing-summary-card__title">{{ section.title }}</h2>
+            <span class="interfacing-badge">{{ section.count }}</span>
+          </div>
+          <p class="interfacing-summary-card__summary">{{ section.summary }}</p>
+        </a>
+      {% endfor %}
+    </section>
+
+    <section class="interfacing-content-aside-grid">
+      <div class="interfacing-side-stack">
+        <div class="interfacing-heading-row">
+          <div>
+            <p class="interfacing-eyebrow">{{ activeSection == 'compose' ? 'Compose preview' : 'Message stream' }}</p>
+            <h2>{{ activeSection|replace({'-':' '})|title }}</h2>
+          </div>
+          <form class="interfacing-search-inline" method="get" action="/interfacing/showcase/message/search">
+            <input name="q" value="{{ showcase.query|default('') }}" placeholder="Search messages...">
+            <button class="interfacing-button-primary" type="submit">Search</button>
+          </form>
+        </div>
+
+        {% if activeSection == 'compose' %}
+          <article class="interfacing-panel-card">
+            <h3>{{ showcase.compose.title }}</h3>
+            <p class="interfacing-muted">{{ showcase.compose.summary }}</p>
+            <div class="interfacing-stack">
+              <select aria-label="Message target">
+                {% for target in showcase.compose.targets %}<option>{{ target }}</option>{% endfor %}
+              </select>
+              <input placeholder="Subject">
+              <textarea placeholder="Write message preview..." rows="7"></textarea>
+              <div class="interfacing-action-row">
+                {% for action in showcase.compose.actions %}
+                  <a href="{{ action.url }}" class="interfacing-link-button interfacing-link-button--primary">{{ action.title }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          </article>
+        {% else %}
+          <div class="interfacing-commerce-card-grid">
+            {% for message in showcase.messages|default([]) %}
+              {% include '@Interfacing/message/partial/message_card.html.twig' with { message: message } only %}
+            {% else %}
+              <article class="interfacing-empty-card">No demo messages matched the current search.</article>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <aside class="interfacing-side-stack">
+        <section class="interfacing-side-card">
+          <h2>Rooms</h2>
+          <ul class="interfacing-commerce-filter-list">
+            {% for room in showcase.rooms|default([]) %}
+              <li class="interfacing-list-item">
+                <a href="{{ room.url }}" class="interfacing-room-link">
+                  <strong>{{ room.title }}</strong>
+                  <span class="interfacing-block-muted">{{ room.summary }}</span>
+                  <span class="interfacing-inline-muted">{{ room.status }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <section class="interfacing-side-card">
+          <h2>Delivery checks</h2>
+          <ul class="interfacing-commerce-filter-list">
+            {% for delivery in showcase.deliveries|default([]) %}
+              <li class="interfacing-delivery-row">
+                <span><strong>{{ delivery.label }}</strong><small class="interfacing-block-muted">{{ delivery.note }}</small></span>
+                <span class="interfacing-delivery-value">{{ delivery.value }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <section class="interfacing-side-card interfacing-side-card--subtle">
+          <h2>Handoff status</h2>
+          <p class="interfacing-summary-card__summary">{{ showcase.handoff.note }}</p>
+          <ul class="interfacing-commerce-filter-list">
+            {% for screen in showcase.handoff.connectedScreens %}
+              <li><a class="interfacing-nav-link" href="{{ screen.url }}">{{ screen.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </section>
+      </aside>
+    </section>
+  </main>
+{% endblock %}

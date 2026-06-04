@@ -1,0 +1,20 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/page/base.html.twig' %}
+{% set fallbackPayload = {} %}
+
+{% block title %}Pages{% endblock %}
+
+{% block page_content %}
+  <main class="interfacing-surface interfacing-surface--page-index" data-interfacing-surface="page">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Paging</p>
+      <h1>Pages</h1>
+      <p>This is the canonical public surface for Page entities.</p>
+    </header>
+
+    <section class="interfacing-surface__panel">
+      <h2>Open a page</h2>
+      <p>Open a specific page with <code>{{ resourcePath|default('/page/{slug}') }}</code>.</p>
+    </section>
+  </main>
+{% endblock %}

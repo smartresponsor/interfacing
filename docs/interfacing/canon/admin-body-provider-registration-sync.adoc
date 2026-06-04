@@ -1,6 +1,0 @@
-= Admin Body Provider Registration Sync
-
-Interfacing provider registration must tolerate host-level asset publication and browser module timing.
-The canonical registry emits `interfacing:admin-body:provider-registry-ready`; provider adapters retry registration after canonical-provider, registry, DOM, and deferred browser turns; runtime rehydrates after provider registration events.
-
-This preserves the canon that Ant Design ProComponents is the primary admin-body renderer and PrimeReact is a secondary rich-facade provider. No Twig fallback UI is introduced.

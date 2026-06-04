@@ -1,0 +1,26 @@
+{# Commerce support operation template for shipment/exception. #}
+{% extends '@Interfacing/shipment/base.html.twig' %}
+{% block title %}{{ title|default('Shipment Exception') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'shipment',
+    operationKey: 'exception',
+    title: title|default(meta.title|default('Shipment Exception')),
+    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Shipment'))
+  } only %}
+  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-surface="shipment" data-operation="exception">
+    <article data-ui-zone="support-primary">
+      {% include '@Interfacing/partial/shipment_tracking_panel.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Shipment Exception')} only %}
+    </article>
+    <article data-ui-zone="support-secondary">
+      {% include '@Interfacing/partial/record_grid.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
+    </article>
+  </section>
+{% endblock %}

@@ -9,7 +9,7 @@ Canonical rules:
 - Ant Design ProComponents is the primary admin body provider.
 - PrimeReact remains secondary/rich-facade only.
 - Twig may emit the provider document, schema payload, script wiring, and boot status marker.
-- Twig must not render Bootstrap/EasyAdmin/handmade CSS/admin tables as the UI.
+- Twig must not render Bootstrap/external admin generator/handmade CSS/admin tables as the UI.
 
 Runtime changes:
 

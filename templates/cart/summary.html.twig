@@ -1,0 +1,30 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/cart/base.html.twig' %}
+{% block title %}{{ title|default('Cart summary') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
+  {% set lines = data.items|default(data.lines|default(data.cartItems|default(data.records|default([])))) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'cart',
+    operationKey: 'summary',
+    title: title|default(meta.title|default('Cart summary')),
+    subtitle: meta.description|default('Review cart lines, totals, promotions, and readiness before checkout.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Carting'))
+  } only %}
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: data.metrics|default(summary), data: data, meta: meta} only %}
+  <section data-ui-zone="cart-layout" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:18px;margin-top:18px;align-items:start;">
+    <div data-ui-zone="cart-primary">
+      {% include '@Interfacing/partial/cart_line_table.html.twig' with {lines: lines, emptyLabel: 'No cart lines are available yet.'} only %}
+    </div>
+    <div data-ui-zone="cart-aside" style="display:grid;gap:14px;">
+      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Cart totals'} only %}
+      {% include '@Interfacing/partial/promotion_panel.html.twig' with {promotions: data.promotions|default(data.coupons|default([]))} only %}
+    </div>
+  </section>
+{% endblock %}

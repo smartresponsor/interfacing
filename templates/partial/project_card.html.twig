@@ -1,0 +1,21 @@
+{# Shared project card for project/funding/contribution surfaces. #}
+{% set project = project|default(record|default({})) %}
+{% set title = project.title|default(project.name|default(project.projectTitle|default('Untitled project'))) %}
+{% set summary = project.summary|default(project.description|default(project.shortDescription|default('Project details are not available yet.'))) %}
+{% set status = project.status|default(project.state|default(project.lifecycle|default('draft'))) %}
+{% set href = project.href|default(project.url|default(project.link|default(null))) %}
+<article class="interfacing-project-card" data-ui-zone="project-card" data-project-status="{{ status|e('html_attr') }}" style="border: 1px solid #d9d9d9; border-radius: 14px; padding: 16px; background: #fff;">
+  <header style="display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;">
+    <div>
+      <h3 style="margin: 0; font-size: 1rem;">{% if href %}<a href="{{ href }}">{{ title }}</a>{% else %}{{ title }}{% endif %}</h3>
+      <p style="margin: 8px 0 0; color: #667085;">{{ summary }}</p>
+    </div>
+    <span style="white-space: nowrap; border: 1px solid #d9d9d9; border-radius: 999px; padding: 4px 10px; font-size: .82rem;">{{ status }}</span>
+  </header>
+  {% set funding = project.funding|default(project.fundingSummary|default({})) %}
+  {% if funding is iterable and funding is not empty %}
+    <div style="margin-top: 14px;">
+      {% include '@Interfacing/partial/funding_progress_panel.html.twig' with {funding: funding, compact: true} only %}
+    </div>
+  {% endif %}
+</article>

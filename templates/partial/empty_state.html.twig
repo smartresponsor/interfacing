@@ -1,0 +1,13 @@
+{# Shared empty state for Interfacing surface templates. #}
+{% set title = title|default('No records yet') %}
+{% set message = message|default('The producer payload did not provide records for this surface yet.') %}
+{% set action = action|default(null) %}
+<div class="interfacing-provider-record interfacing-provider-record--empty" data-ui-zone="empty-state">
+  <div class="interfacing-provider-record__title">{{ title }}</div>
+  <div class="interfacing-provider-record__meta">{{ message }}</div>
+  {% if action is iterable and action.url|default(null) %}
+    <div style="margin-top: 10px;">
+      <a class="interfacing-link-button" href="{{ action.url }}">{{ action.label|default(action.title|default('Open')) }}</a>
+    </div>
+  {% endif %}
+</div>

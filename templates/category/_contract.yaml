@@ -1,0 +1,23 @@
+surface: category
+owner: Interfacing template layer
+purpose: Category hierarchy, detail, and category-product placement surfaces.
+operations:
+  index:
+    expects: [categories, metrics, actions]
+  tree:
+    expects: [tree, categories, filters]
+  detail:
+    expects: [category, products, summary, actions]
+  product-list:
+    expects: [category, products, filters, pagination]
+  admin:
+    expects: [categories, rules, actions]
+  merchant:
+    expects: [category, products, placements]
+  seo:
+    expects: [category, aliases, redirects, canonical]
+  rule:
+    expects: [rules, evaluation, messages]
+notes:
+  - Category templates render hierarchy and product grouping only.
+  - Rule evaluation and SEO policy remain producer-owned.

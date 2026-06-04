@@ -1,0 +1,11 @@
+{# Shared flash block. #}
+{% for type, messages in app.flashes %}
+  <div class="interfacing-flash-group">
+    {% for text in messages %}
+      <div class="interfacing-flash-message interfacing-flash-message--{{ type|e('html_attr') }}">
+        <span class="interfacing-flash-message__type">{{ type|upper }}</span>
+        <span class="interfacing-flash-message__text">{{ text }}</span>
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}

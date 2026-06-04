@@ -1,24 +1,174 @@
-<!DOCTYPE html>
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% set shell = shell|default({}) %}
+{% set shellTopLink = shell.topLink is defined and shell.topLink is iterable ? shell.topLink : [] %}
+{% set shellRightPanelGroup = shell.rightPanelGroup is defined and shell.rightPanelGroup is iterable ? shell.rightPanelGroup : [] %}
+{% set shellFooterGroup = shell.footerGroup is defined and shell.footerGroup is iterable ? shell.footerGroup : [] %}
+{% set shellQuickMenuGroup = shell.quickMenuGroup is defined and shell.quickMenuGroup is iterable ? shell.quickMenuGroup : [] %}
+{% set shellNavigation = shell.navigation is defined and shell.navigation is iterable ? shell.navigation : {} %}
+{% set shellNavigationLocations = shellNavigation.locations is defined and shellNavigation.locations is iterable ? shellNavigation.locations : {} %}
+{% set shellNavigationActive = shellNavigation.active is defined and shellNavigation.active is iterable ? shellNavigation.active : {} %}
+{% set shellQuery = shell.query is defined ? shell.query : app.request.query.get('q', '') %}
+{% set shellActiveId = shell.activeId is defined ? shell.activeId : null %}
+{% set shellActiveSection = shellNavigationActive.active_root is defined and shellNavigationActive.active_root is not null ? shellNavigationActive.active_root : (shell.activeSection is defined ? shell.activeSection : 'workspace') %}
+{% set shellCompact = shell.shellCompact is defined ? shell.shellCompact : false %}
+{#
+  Main shell canon: the full application shell is four-column by default.
+  Older host contexts may still pass shell.rightPanelEnabled=false; do not let that stale
+  flag remove the top-right and right-context slots from the canonical frontend shell.
+  Compact/footer-only contexts remain the explicit way to collapse the shell.
+#}
+{% set shellRightPanelEnabled = not shellCompact %}
+{% if shellCompact %}
+  {% set shellTopLink = shellTopLink|slice(0, 3) %}
+  {% set shellRightPanelGroup = [] %}
+  {% set shellFooterGroup = shellFooterGroup|slice(0, 2) %}
+{% endif %}
+{% set shellMode = shellRightPanelEnabled ? 'four-column' : 'three-column' %}
+{% set shellSlotMap = shell.slotMap is defined ? shell.slotMap : {} %}
+{% set shellLocations = locations|default(shell.locations|default(shellNavigationLocations|default({}))) %}
+{#
+  Semantic shell location canon.
+  Canonical keys use shell.header / shell.left / shell.context / shell.main / shell.right / shell.footer only.
+#}
+{% set shellBodyTopItems = shellLocations['shell.body.top']|default([]) %}
+{% set shellLeftTopItems = shellLocations['shell.left.top']|default([]) %}
+{% set shellLeftMiddleItems = shellLocations['shell.left.middle']|default([]) %}
+{% set shellLeftBottomItems = shellLocations['shell.left.bottom']|default([]) %}
+{% set shellContextTopItems = shellLocations['shell.context.top']|default([]) %}
+{% set shellContextMiddleItems = shellLocations['shell.context.middle']|default([]) %}
+{% set shellContextBottomItems = shellLocations['shell.context.bottom']|default([]) %}
+{% set shellMainTopItems = shellLocations['shell.main.top']|default([]) %}
+{% set shellMainContentItems = shellLocations['shell.main.content']|default([]) %}
+{% set shellMainBottomItems = shellLocations['shell.main.bottom']|default([]) %}
+{% set shellRightTopItems = shellLocations['shell.right.top']|default([]) %}
+{% set shellRightMiddleItems = shellLocations['shell.right.middle']|default([]) %}
+{% set shellRightBottomItems = shellLocations['shell.right.bottom']|default([]) %}
+{% set shellRightToolItems = shellLocations['shell.right.tool']|default([]) %}
+{% set shellRightFilterItems = shellLocations['shell.right.filter']|default([]) %}
+{% set shellFooterTopItems = shellLocations['shell.footer.top']|default([]) %}
+{% set shellFooterLeftItems = shellLocations['shell.footer.left']|default([]) %}
+{% set shellFooterContextItems = shellLocations['shell.footer.context']|default([]) %}
+{% set shellFooterMainItems = shellLocations['shell.footer.main']|default([]) %}
+{% set shellFooterRightItems = shellLocations['shell.footer.right']|default([]) %}
+{% set shellFooterHasLocationPayload = shellFooterTopItems is not empty
+  or shellFooterLeftItems is not empty
+  or shellFooterContextItems is not empty
+  or shellFooterMainItems is not empty
+  or shellFooterRightItems is not empty %}
+{% if shellFooterHasLocationPayload %}
+  {% set shellFooterGroup = [] %}
+{% endif %}
+{% set shellLeftNavigationItems = shellNavigationLocations['shell.left.middle']|default([]) %}
+{% set shellContextNavigationItems = shellNavigationLocations['shell.context.middle']|default([]) %}
+{% set shellTopLinkLimit = shellCompact ? 3 : 8 %}
+{% set shellQuickMenuItemLimit = 999 %}
+{% set shellRightPanelItemLimit = shellCompact ? 0 : 999 %}
+{% set shellFooterLinkLimit = shellCompact ? 3 : 999 %}
+{% set fallbackPayload = fallbackPayload|default(null) %}
+{% set fallbackTitle = fallbackTitle|default('Payload') %}
+{% set fallbackDescription = fallbackDescription|default('Template lookup fell back to the root Interfacing base.') %}
+<!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title|default('Smart Response') }}</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/mandala.svg">
+  <link rel="apple-touch-icon" href="/mandala.svg">
+  {% include '@Interfacing/shell/partial/provider_assets.html.twig' %}
+  {% block head_extra %}{% endblock %}
+  <!-- interfacing-interfacing-shell-base: wave20.2 canonical four-column shell -->
+</head>
+<body class="interfacing-provider-body">
+  <div class="interfacing-shell" data-interfacing-shell="host-wide" data-interfacing-shell-base="interfacing-owned" data-interfacing-shell-contract="wave20.2" data-interfacing-shell-mode="{{ shellMode }}" data-interfacing-shell-compact="{{ shellCompact ? 'true' : 'false' }}">
+    {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.body.top', items: shellBodyTopItems} only %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+    {% include '@Interfacing/shell/partial/top_panel.html.twig' with {
+      shellSlotMap: shellSlotMap,
+      shellQuery: shellQuery,
+      shellSearch: shellSearch|default({}),
+      shellQuickMenuGroup: shellQuickMenuGroup,
+      shellQuickMenuItemLimit: shellQuickMenuItemLimit,
+      shellCompact: shellCompact,
+      shellRightPanelEnabled: shellRightPanelEnabled,
+      requestPath: app.request.pathInfo,
+      shellLocations: shellLocations
+    } only %}
 
-        {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
-        {% if frankenphpHotReload %}
-        <meta name="frankenphp-hot-reload:url" content="{{ frankenphpHotReload }}">
-        <script src="https://cdn.jsdelivr.net/npm/idiomorph"></script>
-        <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
-        {% endif %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    <div class="interfacing-shell-grid">
+      <aside class="interfacing-shell-panel interfacing-shell-panel--primary" data-interfacing-shell-slot="left-primary" data-interfacing-shell-location="shell.left" title="{{ shellSlotMap['shell.left']|default('Left panel') }}">
+        {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.left.top', items: shellLeftTopItems} only %}
+        {% include '@Interfacing/navigation/location.html.twig' with {
+          locationName: 'shell.left.middle',
+          items: shellLeftNavigationItems
+        } only %}
+        {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.left.bottom', items: shellLeftBottomItems} only %}
+      </aside>
+
+      {% if not shellCompact %}
+        <aside class="interfacing-shell-panel interfacing-shell-panel--secondary" data-interfacing-shell-slot="left-secondary" data-interfacing-shell-location="shell.context" title="{{ shellSlotMap['shell.context']|default('Context panel') }}">
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.context.top', items: shellContextTopItems} only %}
+          {% include '@Interfacing/navigation/location.html.twig' with {
+            locationName: 'shell.context.middle',
+            items: shellContextNavigationItems
+          } only %}
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.context.bottom', items: shellContextBottomItems} only %}
+        </aside>
+      {% endif %}
+
+      <main class="interfacing-shell-body" data-interfacing-shell-slot="body" data-interfacing-shell-location="shell.main" title="{{ shellSlotMap['shell.main']|default('Main content') }}">
+        <div class="interfacing-shell-body__inner">
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.main.top', items: shellMainTopItems} only %}
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.main.toolbar', items: shellLocations['shell.main.toolbar']|default([])} only %}
+          <div data-interfacing-shell-location="shell.main.content">
+            {% block page_content %}
+              {% block body %}{% endblock %}
+            {% endblock %}
+            {% if fallbackPayload is iterable and fallbackPayload is not empty %}
+              <section class="interfacing-root-fallback" data-interfacing-root-fallback="json">
+                <header class="interfacing-root-fallback__header">
+                  <div class="interfacing-root-fallback__eyebrow">Fallback</div>
+                  <h1>{{ fallbackTitle }}</h1>
+                  <p>{{ fallbackDescription }}</p>
+                </header>
+                <pre class="interfacing-root-fallback__json">{{ fallbackPayload|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_SLASHES')) }}</pre>
+              </section>
+            {% endif %}
+          </div>
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.main.content', items: shellMainContentItems} only %}
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.main.bottom', items: shellMainBottomItems} only %}
+        </div>
+      </main>
+
+      {% if shellRightPanelEnabled %}
+        <aside class="interfacing-shell-panel interfacing-shell-panel--right" data-interfacing-shell-slot="right-context" data-interfacing-shell-location="shell.right" title="{{ shellSlotMap['shell.right']|default('Right panel') }}">
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.right.top', items: shellRightTopItems} only %}
+          <div class="interfacing-shell-nav-title interfacing-right-title">Context</div>
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.right.tool', items: shellRightToolItems} only %}
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.right.filter', items: shellRightFilterItems} only %}
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.right.middle', items: shellRightMiddleItems} only %}
+          {% for g in shellRightPanelGroup %}
+            <section class="interfacing-right-card">
+              <div class="interfacing-right-card__title">{{ g.title }}</div>
+              <div class="interfacing-right-card__links">
+                {% for it in g.item|slice(0, shellRightPanelItemLimit) %}
+                  <a href="{{ it.url }}" class="interfacing-context-link">{{ it.title }}</a>
+                {% endfor %}
+              </div>
+            </section>
+          {% endfor %}
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.right.bottom', items: shellRightBottomItems} only %}
+        </aside>
+      {% endif %}
+    </div>
+
+    {% include '@Interfacing/shell/partial/system_footer.html.twig' with {
+      shellFooterGroup: shellFooterGroup,
+      shellFooterLinkLimit: shellFooterLinkLimit,
+      shellSlotMap: shellSlotMap,
+      shellLocations: shellLocations
+    } only %}
+  </div>
+</body>
 </html>

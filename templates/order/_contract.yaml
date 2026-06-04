@@ -1,0 +1,26 @@
+surface: order
+owner: Interfacing template layer
+purpose: Declares payload expectations for Viewing-rendered order surfaces.
+operations:
+  index:
+    expects: [orders, records, summary, actions]
+  history:
+    expects: [orders, filters, sort, pagination, metrics, actions]
+  detail:
+    expects: [order, lineItems, paymentSummary, shipmentSummary, actions]
+  payment:
+    expects: [payment, paymentSummary, attempts, transactions, actions]
+  shipment:
+    expects: [shipment, rates, tracking, actions]
+  invoice:
+    expects: [invoice, lines, lineItems, actions]
+  refund:
+    expects: [refunds, payment, timeline, actions]
+  timeline:
+    expects: [timeline, events, order, actions]
+  management:
+    expects: [orders, filters, metrics, actions]
+notes:
+  - Producer components own data preparation.
+  - Viewing owns response selection and fallback.
+  - Interfacing owns visual layout and reusable partials.

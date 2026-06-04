@@ -1,0 +1,22 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Project contribution') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'project', operationKey: 'contribution', title: title|default(meta.title|default('Project contribution')),
+    subtitle: meta.description|default('Contribution records, contribution actions, pledge context, and contributor state.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
+  } only %}
+  <section style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .9fr); gap: 16px;" data-ui-zone="project-contribution-layout">
+    <div style="display: grid; gap: 16px;">
+      {% include '@Interfacing/partial/contribution_panel.html.twig' with {contributions: data.contributions|default(data.records|default([])), title: 'Contribution activity'} only %}
+      {% include '@Interfacing/partial/pledge_tier_grid.html.twig' with {tiers: data.tiers|default(data.rewards|default([])), title: 'Available contribution levels'} only %}
+    </div>
+    <aside style="display: grid; gap: 16px;">
+      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: data.summary|default(data.totals|default({})), title: 'Contribution summary'} only %}
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Contributor context', record: data.contributor|default(data.context|default(meta|default({}))), data: data, meta: meta} only %}
+    </aside>
+  </section>
+{% endblock %}

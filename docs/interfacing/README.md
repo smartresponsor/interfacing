@@ -6,8 +6,8 @@ Goal:
   2) Security-aware access resolver (Symfony isGranted / voters) that consumes host security services.
 
 What you get:
-- BaseContextProviderInterface + RequestBaseContextProvider (request/query/locale + optional security token info).
-- ScreenContextResolverInterface + ScreenContextAssembler (tagged resolvers).
+- InterfaceBaseContextProviderInterface + InterfaceRequestBaseContextProviderService (request/query/locale + optional security token info).
+- InterfaceScreenContextResolverInterface + InterfaceScreenContextAssemblerService (tagged resolvers).
 - SymfonyAccessResolver (AuthorizationCheckerInterface) with simple capability parsing:
   - role:ROLE_ADMIN
   - attr:some_attribute
@@ -43,6 +43,6 @@ Routes:
 CLI:
 - php bin/console interfacing:doctor            # human (primary)
 - php bin/console interfacing:doctor-json       # machine-readable JSON
-- php bin/console interfacing:doctor-summary    # legacy summary (kept for compatibility)
+- php bin/console interfacing:doctor-summary    # screen/layout summary
 - php bin/console interfacing:permission-sample # permission naming samples
 - php bin/console interfacing:doctor-json

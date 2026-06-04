@@ -6,11 +6,11 @@ Design
   - Interfacing only depends on HTTP API (no direct DB).
   - Endpoints configurable via env.
 - Provide stable DTOs in Interfacing domain for UI consumption:
-  - BillingMeterRow/BillingMeterPage
-  - OrderSummaryRow/OrderSummaryPage
+  - InterfaceBillingMeterRow/InterfaceBillingMeterPage
+  - InterfaceOrderSummaryRow/InterfaceOrderSummaryPage
 - Provide ServiceInterface layer for Interfacing runtime:
-  - BillingMeterQueryServiceInterface
-  - OrderSummaryQueryServiceInterface
+  - InterfaceBillingMeterQueryServiceInterface
+  - InterfaceOrderSummaryQueryServiceInterface
 
 Integration
 - Bind Interfacing screen providers:

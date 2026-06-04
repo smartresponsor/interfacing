@@ -19,7 +19,7 @@ The default mode is four-column: primary left, secondary left, body and right co
 
 The base layout renders a safe fallback navigation set when a controller does not pass a `shell` variable. This is intentional: host pages must not lose the shell merely because they are not Interfacing diagnostic pages.
 
-When a controller passes `shell` from `ShellChromeProvider`, those groups override the fallback groups.
+When a controller passes `shell` from `InterfaceShellChromeProviderService`, those groups override the fallback groups.
 
 ## Boundaries
 

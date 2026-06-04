@@ -1,0 +1,26 @@
+{# Commerce support operation template for billing/account. #}
+{% extends '@Interfacing/billing/base.html.twig' %}
+{% block title %}{{ title|default('Billing Account') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'billing',
+    operationKey: 'account',
+    title: title|default(meta.title|default('Billing Account')),
+    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Billing'))
+  } only %}
+  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-surface="billing" data-operation="account">
+    <article data-ui-zone="support-primary">
+      {% include '@Interfacing/partial/billing_account_panel.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Billing Account')} only %}
+    </article>
+    <article data-ui-zone="support-secondary">
+      {% include '@Interfacing/partial/payment_status_panel.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
+    </article>
+  </section>
+{% endblock %}

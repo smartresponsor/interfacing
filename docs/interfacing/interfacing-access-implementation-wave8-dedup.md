@@ -4,12 +4,12 @@ Wave8 keeps the wave7 access-contract split and makes the concrete Symfony-backe
 
 ## Canonical implementations
 
-- `Service/Interfacing/Access/SymfonyScreenActionAccessResolver.php` implements request-aware screen/action decisions.
-- `Service/Interfacing/Access/SymfonyRoleAccessResolver.php` implements legacy role-list checks.
-- `Service/Interfacing/Security/SymfonyScreenAccessResolver.php` implements screen-spec access checks.
-- `Service/Interfacing/Shell/SymfonyCapabilityAccessResolver.php` implements shell capability checks.
-- `Service/Interfacing/Security/AllowAllScreenAccessResolver.php` is the standalone fallback for screen-spec access.
-- `Service/Interfacing/Shell/AllowAllCapabilityAccessResolver.php` is the standalone fallback for shell capability access.
+- `Service/Interfacing/Access/InterfaceSymfonyScreenActionAccessResolverService.php` implements request-aware screen/action decisions.
+- `Service/Interfacing/Access/InterfaceSymfonyRoleAccessResolverService.php` implements legacy role-list checks.
+- `Service/Interfacing/Security/InterfaceSymfonyScreenAccessResolverService.php` implements screen-spec access checks.
+- `Service/Interfacing/Shell/InterfaceSymfonyCapabilityAccessResolverService.php` implements shell capability checks.
+- `Service/Interfacing/Security/InterfaceAllowAllScreenAccessResolverService.php` is the standalone fallback for screen-spec access.
+- `Service/Interfacing/Shell/InterfaceAllowAllCapabilityAccessResolverService.php` is the standalone fallback for shell capability access.
 
 ## Compatibility classes retained
 

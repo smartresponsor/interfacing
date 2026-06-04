@@ -1,0 +1,65 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set vendorData = data|default(vendor|default(payload|default({}))) %}
+{% set vendorPublicName = vendorData.publicName|default('My profile') %}
+{% set vendorBrandName = vendorData.brandName|default(vendorPublicName) %}
+{% set vendorStatus = vendorData.vendorStatus|default('unknown') %}
+{% set vendorProfileStatus = vendorData.profileStatus|default('draft') %}
+{% set vendorPublishedAt = vendorData.publishedAt|default(null) %}
+{% set vendorId = vendorData.vendorId|default(null) %}
+{% set vendorProfileUrl = vendorData.profileUrl|default(vendorId is not empty ? '/vendor/' ~ vendorId : '/vendor/') %}
+{% set vendorSummary = vendorData.summary|default('Your vendor identity and public business profile.') %}
+{% set vendorAvatar = vendorData.avatar|default({}) %}
+{% set vendorAvatarUrl = vendorAvatar.url|default(vendorData.avatarUrl|default(null)) %}
+{% set vendorCover = vendorData.cover|default({}) %}
+{% set vendorCoverUrl = vendorCover.url|default(vendorData.coverUrl|default(null)) %}
+
+{% block page_content %}
+  <section class="interfacing-vendor-profile" data-interfacing-vendor-surface="profile">
+    <header class="interfacing-vendor-profile__header">
+      <div class="interfacing-vendor-profile__eyebrow">Vendor profile</div>
+      <h1>{{ vendorPublicName }}</h1>
+      <p>{{ vendorSummary }}</p>
+    </header>
+
+    <div class="interfacing-vendor-profile__grid">
+      <section class="interfacing-vendor-profile__panel">
+        <h2>Identity</h2>
+        <ul>
+          <li><strong>Vendor ID:</strong> {{ vendorId|default('n/a') }}</li>
+          <li><strong>Brand:</strong> {{ vendorBrandName }}</li>
+          <li><strong>Profile status:</strong> {{ vendorProfileStatus }}</li>
+          <li><strong>Vendor status:</strong> {{ vendorStatus }}</li>
+          <li><strong>Published at:</strong> {{ vendorPublishedAt|default('n/a') }}</li>
+        </ul>
+      </section>
+
+      <section class="interfacing-vendor-profile__panel">
+        <h2>Shortcuts</h2>
+        <ul>
+          <li><a href="{{ vendorProfileUrl }}">My profile</a></li>
+          <li><a href="/vendor/">Vendor index</a></li>
+        </ul>
+      </section>
+
+      <section class="interfacing-vendor-profile__panel">
+        <h2>Media</h2>
+        <ul>
+          <li><strong>Avatar:</strong> {{ vendorAvatarUrl|default('missing') }}</li>
+          <li><strong>Cover:</strong> {{ vendorCoverUrl|default('missing') }}</li>
+        </ul>
+      </section>
+
+      <section class="interfacing-vendor-profile__panel">
+        <h2>Business</h2>
+        <p>{{ vendorSummary }}</p>
+        <ul>
+          <li><strong>Route:</strong> {{ vendorProfileUrl }}</li>
+          <li><strong>Visibility:</strong> Public vendor profile</li>
+          <li><strong>Mode:</strong> Business-facing</li>
+        </ul>
+      </section>
+    </div>
+  </section>
+{% endblock %}

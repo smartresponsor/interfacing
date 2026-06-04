@@ -4,12 +4,12 @@ Wave12 continues the thin-controller cleanup started in waves 10 and 11.
 
 ## Canonical decision
 
-`CrudExplorerController` owns HTTP routes, response type, and rendering only.
+`InterfaceCrudExplorerController` owns HTTP routes, response type, and rendering only.
 
 CRUD Explorer payload assembly now belongs to:
 
-- `Service/Interfacing/View/CrudExplorerViewBuilder.php`
-- `ServiceInterface/Interfacing/View/CrudExplorerViewBuilderInterface.php`
+- `Service/Interfacing/View/InterfaceCrudExplorerViewBuilderService.php`
+- `ServiceInterface/Interfacing/View/InterfaceCrudExplorerViewBuilderInterface.php`
 
 ## Routes preserved
 
@@ -28,4 +28,4 @@ The controller must not own sorting, grouping, route expectation rows, operation
 
 ## Follow-up candidates
 
-Do not split the builder further unless it becomes overloaded beyond CRUD Explorer. The next practical controller cleanup target is `GenericCrudWorkbenchController`.
+Do not split the builder further unless it becomes overloaded beyond CRUD Explorer. The next practical controller cleanup target is `InterfaceGenericCrudWorkbenchController`.

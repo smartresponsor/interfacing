@@ -1,0 +1,41 @@
+{# Shared two-column workbench partial for commerce and neighboring business surfaces. #}
+{% set data = data|default({}) %}
+{% set meta = meta|default({}) %}
+{% set view = view|default({}) %}
+{% set surfaceKey = surfaceKey|default(surface|default(view.surface|default('surface'))) %}
+{% set operationKey = operationKey|default(operation|default(view.operation|default('index'))) %}
+<div class="interfacing-surface-workbench" data-ui-zone="surface-workbench" data-surface="{{ surfaceKey|e('html_attr') }}" data-operation="{{ operationKey|e('html_attr') }}">
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: surfaceKey,
+    operationKey: operationKey,
+    title: title|default(null),
+    subtitle: subtitle|default(null),
+    actions: actions|default(data.actions|default([])),
+    data: data,
+    meta: meta,
+    view: view,
+    component: component|default(view.component|default(surfaceKey|title))
+  } only %}
+
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: metrics|default(data.metrics|default(data.summary|default({}))), data: data, meta: meta} only %}
+
+  <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;" data-ui-zone="surface-body">
+    <article data-ui-zone="primary-records">
+      {% include '@Interfacing/partial/record_grid.html.twig' with {
+        title: primaryTitle|default('Records'),
+        records: primaryRecords|default(data.items|default(data.records|default(data.rows|default([])))),
+        emptyLabel: primaryEmptyLabel|default('The producer payload did not provide primary records yet.'),
+        limit: primaryLimit|default(12)
+      } only %}
+    </article>
+    <article data-ui-zone="secondary-detail">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {
+        title: secondaryTitle|default('Context'),
+        record: secondaryRecord|default(data.context|default(data.detail|default(data.summary|default(meta|default({}))))),
+        limit: secondaryLimit|default(12),
+        data: data,
+        meta: meta
+      } only %}
+    </article>
+  </section>
+</div>

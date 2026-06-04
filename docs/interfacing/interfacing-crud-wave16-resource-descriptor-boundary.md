@@ -6,9 +6,9 @@ Wave16 separates CRUD resource contribution metadata from generated view links.
 
 Owning components and internal contribution classes should publish URL-free CRUD resource descriptors through:
 
-- `App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceDescriptorContributionInterface`
-- `App\Interfacing\Contract\Crud\CrudResourceDescriptorInterface`
-- `App\Interfacing\Contract\Crud\CrudResourceDescriptor`
+- `App\Interfacing\ContributionInterface\Crud\InterfaceCrudResourceDescriptorContributionInterface`
+- `App\Interfacing\Contract\Crud\InterfaceCrudResourceDescriptorInterface`
+- `App\Interfacing\Contract\Crud\InterfaceCrudResourceDescriptor`
 
 The Interfacing provider layer remains responsible for:
 
@@ -16,11 +16,11 @@ The Interfacing provider layer remains responsible for:
 - fallback URL materialization,
 - sample operation URLs,
 - priority/deduplication,
-- conversion into `Contract\View\CrudResourceLinkSetInterface` for existing views.
+- conversion into `Contract\View\InterfaceCrudResourceLinkSetInterface` for existing views.
 
 ## Compatibility
 
-`CrudResourceContributionInterface` remains as a deprecated compatibility alias extending the descriptor contribution contract. Existing contribution classes still compile while the canonical vocabulary moves to descriptors.
+`InterfaceCrudResourceContributionInterface` remains as a deprecated compatibility alias extending the descriptor contribution contract. Existing contribution classes still compile while the canonical vocabulary moves to descriptors.
 
 ## Boundary rule
 

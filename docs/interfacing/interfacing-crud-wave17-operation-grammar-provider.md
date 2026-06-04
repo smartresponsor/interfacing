@@ -4,10 +4,10 @@ Wave17 moves the generic CRUD bridge operation grammar into a canonical provider
 
 ## Canonical contracts
 
-- `src/Contract/Crud/CrudOperationGrammarInterface.php`
-- `src/Contract/Crud/CrudOperationGrammar.php`
-- `src/ServiceInterface/Interfacing/Crud/CrudOperationGrammarProviderInterface.php`
-- `src/Service/Interfacing/Crud/DefaultCrudOperationGrammarProvider.php`
+- `src/Contract/Crud/InterfaceCrudOperationGrammarInterface.php`
+- `src/Contract/Crud/InterfaceCrudOperationGrammar.php`
+- `src/ProviderInterface/Crud/InterfaceCrudOperationGrammarProviderInterface.php`
+- `src/Provider/Crud/InterfaceDefaultCrudOperationGrammarProvider.php`
 
 ## Responsibility split
 
@@ -19,12 +19,12 @@ The operation grammar provider owns the canonical CRUD bridge vocabulary:
 - UI variant metadata for launch surfaces
 - route parameters for sample URLs
 
-`CrudExplorerViewBuilder` consumes the provider for link payloads, operation launchpad payloads, route expectation payloads, and route grammar summaries.
+`InterfaceCrudExplorerViewBuilderService` consumes the provider for link payloads, operation launchpad payloads, route expectation payloads, and route grammar summaries.
 
-`CrudResourceExplorerProvider` also consumes the provider for sample show/edit/delete route generation, so route-name knowledge is not duplicated in descriptor normalization.
+`InterfaceCrudResourceExplorerProviderService` also consumes the provider for sample show/edit/delete route generation, so route-name knowledge is not duplicated in descriptor normalization.
 
 ## Compatibility notes
 
 Existing public route names and URL shapes are unchanged. The provider only centralizes the vocabulary that was previously hardcoded in multiple service methods.
 
-`Contract/View/CrudResourceLinkSet` still exposes compatibility methods such as `operationUrls()` and `operationPatterns()`. A later wave can move those operation arrays fully behind the grammar provider if the view contract needs to become URL-grammar neutral.
+`Contract/View/InterfaceCrudResourceLinkSet` still exposes compatibility methods such as `operationUrls()` and `operationPatterns()`. A later wave can move those operation arrays fully behind the grammar provider if the view contract needs to become URL-grammar neutral.

@@ -7,10 +7,10 @@ Controller action methods named `json(): JsonResponse` therefore override the fr
 
 The route paths and route names remain unchanged. Only action method names are made explicit:
 
-- `ShellPanelDiagnosticsController::shellDiagnosticsJson()`
-- `ShellNavigationMapController::shellNavigationMapJson()`
-- `ShellApplicationDashboardController::shellApplicationsJson()`
-- `ShellScreenCatalogController::shellScreenCatalogJson()`
-- `ShellLayoutPreviewController::shellLayoutPreviewJson()`
+- `InterfaceShellPanelDiagnosticsController::shellDiagnosticsJson()`
+- `InterfaceShellNavigationMapController::shellNavigationMapJson()`
+- `InterfaceShellApplicationDashboardController::shellApplicationsJson()`
+- `InterfaceShellScreenCatalogController::shellScreenCatalogJson()`
+- `InterfaceShellLayoutPreviewController::shellLayoutPreviewJson()`
 
 This keeps the public URLs stable while avoiding the inherited helper method collision.

@@ -12,5 +12,4 @@ UI contracts; route/screen/view-model/error semantics, aligned with docs/interfa
 - AdminBodyVisiblePageProviderMigrationContract.php — Visible page provider migration contract.
 - `AdminBodyConsumerProviderMigrationExecutorContract` — known consumer template migration executor contract for provider-owned UI adoption.
 
-- Bridge provider surface: Bridge owns route/resource adoption; Interfacing renders provider-owned UI; direct consumer template rewrite is not the primary path.
-- AdminBodyBridgeProviderSurfaceContract — bridge-owned route/resource provider surface.
+Provider handoff canon: owning components expose route/resource context; Interfacing renders a provider-native handoff schema and must not own component persistence, local tables, or root-level catch-all screens.

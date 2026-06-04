@@ -6,21 +6,21 @@ Wave 15 removes the last order-specific DTO dependency from the generic CRUD wor
 
 Generic CRUD bridge preview providers return Interfacing-owned neutral DTOs:
 
-- `src/Contract/Crud/CrudPreviewPage.php`
-- `src/Contract/Crud/CrudPreviewRow.php`
+- `src/Contract/Crud/InterfaceCrudPreviewPage.php`
+- `src/Contract/Crud/InterfaceCrudPreviewRow.php`
 
 The provider contract is now:
 
-- `src/ServiceInterface/Interfacing/Crud/CrudWorkbenchPreviewProviderInterface.php`
+- `src/ProviderInterface/Crud/InterfaceCrudWorkbenchPreviewProviderInterface.php`
 
 Owning components may publish resource-specific providers, but those providers must map their internal query/read models into the neutral preview DTOs before handing data to Interfacing.
 
 ## What changed
 
-- `DefaultCrudWorkbenchPreviewProvider` no longer returns `OrderSummaryPage`.
-- `CrudWorkbenchPreviewProviderInterface` now returns `CrudPreviewPage`.
-- `GenericCrudWorkbenchViewBuilder` now calls `CrudWorkbenchFactory::buildCrudPreviewView()`.
-- `CrudWorkbenchFactory::buildOrderSummaryView()` remains for the dedicated order-summary screen.
+- `InterfaceDefaultCrudWorkbenchPreviewProviderService` no longer returns `InterfaceOrderSummaryPage`.
+- `InterfaceCrudWorkbenchPreviewProviderInterface` now returns `InterfaceCrudPreviewPage`.
+- `InterfaceGenericCrudWorkbenchViewBuilderService` now calls `InterfaceCrudWorkbenchFactoryService::buildCrudPreviewView()`.
+- `InterfaceCrudWorkbenchFactoryService::buildOrderSummaryView()` remains for the dedicated order-summary screen.
 
 ## Compatibility
 
@@ -28,4 +28,4 @@ Public URLs and route names are unchanged. The rendered Twig payload shape is in
 
 ## Retirement note
 
-`OrderSummaryPage` and `OrderSummaryRow` are not retired globally. They are still valid for order-specific demonstration/query screens, but they are no longer the canonical generic CRUD bridge preview contract.
+`InterfaceOrderSummaryPage` and `InterfaceOrderSummaryRow` are not retired globally. They are still valid for order-specific demonstration/query screens, but they are no longer the canonical generic CRUD bridge preview contract.

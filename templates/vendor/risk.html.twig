@@ -1,0 +1,21 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor risk') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'risk',
+    title:title|default(meta.title|default('Vendor risk')),
+    subtitle:meta.description|default('Merchant risk, compliance status, disputes, holds, and operational review state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/merchant_risk_panel.html.twig' with {risk:data.risk|default(data.compliance|default({})), data:data} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Risk events', records:data.events|default(data.disputes|default(data.records|default([]))), emptyLabel:'No risk events were provided.'} only %}
+
+{% endblock %}

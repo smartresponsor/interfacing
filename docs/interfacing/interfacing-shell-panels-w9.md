@@ -13,4 +13,5 @@ The default shell mode is now the four-column operator layout: two left navigati
 
 The right panel intentionally exposes known Smart Responsor component/entity CRUD links, including connected and planned resources. This keeps the main screen useful even when a host application has not wired every component yet. Links use the generic CRUD bridge grammar instead of placeholder-only navigation.
 
-The reusable Twig partials live under `template/interfacing/shell/partial/` and are included by `template/interfacing/base.html.twig`.
+The reusable Twig partials live under `templates/shell/partial/` and are included by `templates/base.html.twig`.
+

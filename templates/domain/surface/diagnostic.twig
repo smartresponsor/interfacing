@@ -1,0 +1,15 @@
+<section class="interfacing-domain-panel interfacing-domain-panel--diagnostic" data-ui-provider="prime-react" data-ui-role="status-card-timeline">
+  <div class="interfacing-domain-panel__heading">
+    <h2>Live diagnostics</h2>
+    <p>PrimeReact owns compact operational widgets: status chips, issue cards and timeline-style summaries.</p>
+  </div>
+
+  {% include 'domain/provider/prime-react/domain-diagnostic-card.twig' with {
+    diagnostic: diagnostic|default({})
+  } only %}
+
+  {% include 'domain/partial/location_bucket.twig' with {
+    bucket: locations['diagnostic.after']|default([]),
+    empty_label: 'No diagnostic extensions.'
+  } only %}
+</section>

@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Payout account') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'payout-account',
+    title:title|default(meta.title|default('Payout account')),
+    subtitle:meta.description|default('Merchant payout account, verification, settlement readiness, and provider references.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.payoutAccount|default(data.account|default(data.method|default({}))), data:data} only %}
+  {% include '@Interfacing/partial/settlement_schedule.html.twig' with {schedule:data.schedule|default([]), data:data} only %}
+  {% include '@Interfacing/partial/merchant_action_rail.html.twig' with {actions:data.actions|default([]), data:data} only %}
+
+{% endblock %}

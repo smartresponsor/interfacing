@@ -1,0 +1,22 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% set locationName = locationName|default('navigation') %}
+{% set items = items|default([]) %}
+{% set locationLabelMap = {
+  'shell.left.middle': 'Primary navigation',
+  'shell.context.middle': 'Context navigation'
+} %}
+{% set locationLabel = locationLabelMap[locationName]|default(locationName) %}
+
+<section class="interfacing-navigation-location" data-interfacing-navigation-location="{{ locationName }}">
+  <div class="interfacing-navigation-location__title">{{ locationLabel }}</div>
+
+  {% include '@Interfacing/navigation/provider.html.twig' with {
+    navigation: {locations: {(locationName): items}},
+    locations: {(locationName): items},
+    locationName: locationName,
+    items: items,
+    provider: provider|default('antd-pro'),
+    secondaryProvider: secondaryProvider|default('primereact'),
+    component: locationName == 'shell.context.middle' ? 'navigation-section-menu' : 'navigation-primary-menu'
+  } only %}
+</section>

@@ -2,87 +2,73 @@
 # Canonical attribute route imports for Interfacing-owned controllers.
 # Keep broad/catch-all controllers last so specific screen routes win first.
 
-interfacing_access_index:
-  path: /access/
-  controller: App\Interfacing\Presentation\Controller\Interfacing\GenericCrudWorkbenchController::show
-  methods: [GET]
 
-interfacing_vendor_index:
-  path: /vendor/
-  controller: App\Interfacing\Presentation\Controller\Interfacing\BridgeProviderSurfaceController::visible
-  methods: [GET]
-  defaults:
-    visiblePath: vendor
+interfacing_welcome_access_controller:
+  resource: '../../src/Presentation/Controller/InterfaceWelcomeAccessController.php'
+  type: attribute
+
+interfacing_compliance_surface_controller:
+  resource: '../../src/Presentation/Controller/InterfaceComplianceSurfaceController.php'
+  type: attribute
+
 
 interfacing_billing_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/BillingMeterScreenController.php'
+  resource: '../../src/Presentation/Controller/InterfaceBillingMeterScreenController.php'
   type: attribute
 
 interfacing_order_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/OrderSummaryScreenController.php'
+  resource: '../../src/Presentation/Controller/InterfaceOrderSummaryScreenController.php'
   type: attribute
 
 interfacing_crud_explorer_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/CrudExplorerController.php'
+  resource: '../../src/Presentation/Controller/InterfaceCrudExplorerController.php'
   type: attribute
 
 interfacing_doctor_json_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/DoctorJsonController.php'
+  resource: '../../src/Presentation/Controller/InterfaceDoctorJsonController.php'
   type: attribute
 
 interfacing_doctor_page_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/InterfacingDoctorController.php'
+  resource: '../../src/Presentation/Controller/InterfaceDoctorController.php'
   type: attribute
 
 interfacing_doctor_infra_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/InterfacingDoctorInfraController.php'
+  resource: '../../src/Presentation/Controller/InterfaceDoctorInfraController.php'
   type: attribute
 
 interfacing_metrics_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/InterfacingMetricController.php'
+  resource: '../../src/Presentation/Controller/InterfaceMetricController.php'
   type: attribute
 
 
-interfacing_bridge_provider_surface_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/BridgeProviderSurfaceController.php'
-  type: attribute
-
-interfacing_shell_demo_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/InterfacingShellController.php'
+interfacing_provider_handoff_surface_controller:
+  resource: '../../src/Presentation/Controller/InterfaceProviderHandoffSurfaceController.php'
   type: attribute
 
 interfacing_whoami_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/InterfacingWhoAmIController.php'
-  type: attribute
-
-interfacing_shell_legacy_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/ShellController.php'
+  resource: '../../src/Presentation/Controller/InterfaceWhoAmIController.php'
   type: attribute
 
 interfacing_shell_panel_diagnostics_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/ShellPanelDiagnosticsController.php'
+  resource: '../../src/Presentation/Controller/InterfaceShellPanelDiagnosticsController.php'
   type: attribute
 
 interfacing_shell_navigation_map_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/ShellNavigationMapController.php'
+  resource: '../../src/Presentation/Controller/InterfaceShellNavigationMapController.php'
   type: attribute
 
 interfacing_shell_application_dashboard_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/ShellApplicationDashboardController.php'
+  resource: '../../src/Presentation/Controller/InterfaceShellApplicationDashboardController.php'
   type: attribute
 
 interfacing_shell_screen_catalog_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/ShellScreenCatalogController.php'
-  type: attribute
-
-interfacing_shell_layout_preview_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/ShellLayoutPreviewController.php'
+  resource: '../../src/Presentation/Controller/InterfaceShellScreenCatalogController.php'
   type: attribute
 
 interfacing_catalog_screen_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/ScreenController.php'
+  resource: '../../src/Presentation/Controller/InterfaceScreenController.php'
   type: attribute
 
 interfacing_workspace_controller:
-  resource: '../../src/Presentation/Controller/Interfacing/InterfacingController.php'
+  resource: '../../src/Presentation/Controller/InterfaceController.php'
   type: attribute

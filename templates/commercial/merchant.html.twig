@@ -1,0 +1,12 @@
+{% extends '@Interfacing/commercial/base.html.twig' %}
+{% block title %}{{ title|default('Merchant commerce') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'commercial', operationKey:'merchant', title:title|default(meta.title|default('Merchant commerce')), subtitle:meta.description|default('Merchant commerce control surface across vendor profile, payout, transactions, and risk.'), actions:data.actions|default([]), data:data, meta:meta, view:view|default({}), component:component|default(view.component|default('Commerce'))} only %}
+
+  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.merchant|default(data.vendor|default({})), data:data} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default([]), title:'Merchant transactions'} only %}
+  {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.payoutAccount|default({}), data:data} only %}
+
+{% endblock %}

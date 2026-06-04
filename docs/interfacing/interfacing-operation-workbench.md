@@ -12,4 +12,4 @@ The page is intentionally generated from the canonical CRUD registry instead of 
 
 `show`, `edit`, and `delete` use a sample identifier only to expose the canonical route grammar before the owning component provides real records. Real rows, fixtures, identifiers, and delete semantics remain the responsibility of the owning Smart Responsor component.
 
-The workbench is a fast EasyAdmin-style compensation surface: it gives the operator one predictable place to open all known commerce/admin resources while preserving the boundary that Interfacing owns shell, navigation, route grammar, and rendering contracts only.
+The workbench is a fast admin-provider-style compensation surface: it gives the operator one predictable place to open all known commerce/admin resources while preserving the boundary that Interfacing owns shell, navigation, route grammar, and rendering contracts only.

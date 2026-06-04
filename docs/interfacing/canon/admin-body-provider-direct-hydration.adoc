@@ -1,5 +1,0 @@
-= Admin Body Provider Direct Hydration
-
-Interfacing Wave 53 hardens browser hydration after dashboard schema publication.
-
-The runtime may directly register `window.InterfacingAntDesignProAdminBodyProvider` when the adapter event ordering is missed. This keeps Ant Design ProComponents as the primary provider and avoids any Twig, Bootstrap, EasyAdmin, or handmade CSS fallback path.

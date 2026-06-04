@@ -1,0 +1,24 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/checkout/base.html.twig' %}
+{% block title %}{{ title|default('Checkout review') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'checkout',
+    operationKey: 'review',
+    title: title|default(meta.title|default('Checkout review')),
+    subtitle: meta.description|default('Review cart, shipping, payment, tax, and totals before final submission.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Checkout'))
+  } only %}
+  {% include '@Interfacing/partial/checkout_stepper.html.twig' with {current: 'review', steps: data.steps|default(['cart','shipping','payment','review','success'])} only %}
+  <section data-ui-zone="checkout-layout" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:18px;margin-top:18px;align-items:start;">
+    <div data-ui-zone="checkout-primary">
+      <div style="display:grid;gap:16px;">{% include '@Interfacing/partial/cart_line_table.html.twig' with {lines: data.items|default(data.lines|default([]))} only %}{% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Checkout context', record: data.context|default(data.checkout|default(meta|default({}))), data: data, meta: meta} only %}</div>
+    </div>
+    <div data-ui-zone="checkout-summary">
+      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Checkout summary'} only %}
+    </div>
+  </section>
+{% endblock %}

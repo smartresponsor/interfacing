@@ -3,11 +3,11 @@
 The Ant Design / ProComponents center-body discipline is now driven by explicit screen metadata rather than per-screen Twig duplication.
 
 Current contract objects:
-- `CrudWorkbenchView`
-- `CrudAction`
-- `CrudFilterField`
-- `CrudTableColumn`
-- `CrudSidebarSection`
+- `InterfaceCrudWorkbenchView`
+- `InterfaceCrudAction`
+- `InterfaceCrudFilterField`
+- `InterfaceCrudTableColumn`
+- `InterfaceCrudSidebarSection`
 
 Current rendering rule:
 - controllers build a workbench contract;

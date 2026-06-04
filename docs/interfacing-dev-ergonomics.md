@@ -7,13 +7,13 @@ Goal
 1) Attribute registration
 Add attributes to your screen/action classes:
 
-#[AsInterfacingScreen(
+#[InterfaceAsScreen(
   id: 'category.admin',
   title: 'Category Admin',
   navGroup: 'Catalog',
   navOrder: 10,
 )]
-final class CategoryAdminScreenDescriptor implements ScreenDescriptorInterface
+final class CategoryAdminScreenDescriptor implements InterfaceScreenDescriptorInterface
 {
   public function screenId(): string { return 'category.admin'; }
   public function title(): string { return 'Category Admin'; }
@@ -22,28 +22,28 @@ final class CategoryAdminScreenDescriptor implements ScreenDescriptorInterface
   public function isVisible(): bool { return true; }
 }
 
-#[AsInterfacingAction(
+#[InterfaceAsAction(
   screenId: 'category.admin',
   id: 'save',
   title: 'Save',
 )]
-final class CategoryAdminSaveAction implements ActionEndpointInterface
+final class CategoryAdminSaveAction implements InterfaceActionEndpointInterface
 {
   public function screenId(): string { return 'category.admin'; }
   public function actionId(): string { return 'save'; }
   public function title(): string { return 'Save'; }
   public function order(): int { return 10; }
 
-  public function handle(ActionRequest $request): ActionResult
+  public function handle(InterfaceActionRequest $request): InterfaceActionResult
   {
-    return ActionResult::ok();
+    return InterfaceActionResult::ok();
   }
 }
 
 1) Builders
 Use builders to produce specs:
 
-$form = FormSpecBuilder::create('category.edit')
+$form = InterfaceFormSpecBuilderService::create('category.edit')
   ->text('name', label: 'Name', required: true)
   ->slug('slug', label: 'Slug', required: true)
   ->select('status', label: 'Status', option: ['draft' => 'Draft', 'live' => 'Live'])
@@ -51,6 +51,6 @@ $form = FormSpecBuilder::create('category.edit')
   ->build();
 
 1) Catalog bootstrap
-InterfacingCatalogCompilerPass collects:
-- services annotated with AsInterfacingScreen and registers them into ScreenCatalog
-- services annotated with AsInterfacingAction and registers them into ActionCatalog
+InterfaceCatalogCompilerPass collects:
+- services annotated with InterfaceAsScreen and registers them into InterfaceScreenCatalogService
+- services annotated with InterfaceAsAction and registers them into InterfaceActionCatalogService

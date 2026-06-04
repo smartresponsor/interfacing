@@ -1,0 +1,21 @@
+{# Shared merchant profile and readiness panel for vendor-facing commerce surfaces. #}
+{% set merchant = merchant|default(profile|default(vendor|default({}))) %}
+{% set title = title|default('Merchant profile') %}
+<section class="interfacing-merchant-profile-panel" data-ui-zone="merchant-profile-panel">
+  <header data-ui-zone="panel-header">
+    <h2>{{ title }}</h2>
+    <p>{{ subtitle|default('Merchant identity, operating status, and readiness context.') }}</p>
+  </header>
+  {% if merchant is iterable and merchant|length > 0 %}
+    <dl data-ui-zone="merchant-profile-fields">
+      {% for key, value in merchant|slice(0, limit|default(12)) %}
+        <div data-ui-zone="merchant-profile-field" data-field-key="{{ key|e('html_attr') }}">
+          <dt>{{ key|replace({'_':' ', '-':' '})|title }}</dt>
+          <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
+        </div>
+      {% endfor %}
+    </dl>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No merchant profile', message:'The producer payload did not provide merchant profile data yet.'} only %}
+  {% endif %}
+</section>

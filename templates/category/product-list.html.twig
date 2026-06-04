@@ -1,0 +1,11 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/category/base.html.twig' %}
+{% block title %}{{ title|default('Category products') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'category', operationKey: 'product-list', title: title|default(meta.title|default('Category products')), subtitle: meta.description|default('Products assigned to the selected category.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Cataloging'))} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {surfaceKey: 'category', operationKey: 'product-list', data: data, meta: meta, filters: data.facets|default(data.filters|default([])), title: 'Product controls'} only %}
+  {% include '@Interfacing/partial/product_grid.html.twig' with {products: data.products|default(data.items|default(data.records|default([]))), data: data, title: 'Category product list'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {data: data, meta: meta} only %}
+{% endblock %}

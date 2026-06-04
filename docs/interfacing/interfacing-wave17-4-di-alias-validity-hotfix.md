@@ -8,6 +8,6 @@ This hotfix keeps the canonical contracts intact and redirects deprecated access
 aliases to compatibility wrapper classes that explicitly implement the deprecated
 interfaces.
 
-It also makes `ActionCatalog` explicitly implement the deprecated root
-`ActionCatalogInterface` while it remains primarily typed by the canonical
-`Catalog\ActionEndpointCatalogInterface`.
+It also makes `InterfaceActionCatalogService` explicitly implement the deprecated root
+`InterfaceActionCatalogInterface` while it remains primarily typed by the canonical
+`Catalog\InterfaceActionEndpointCatalogInterface`.

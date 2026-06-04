@@ -1,0 +1,18 @@
+{# Pledge/reward tier grid for funding and contribution screens. #}
+{% set tiers = tiers|default(pledgeTiers|default(rewards|default([]))) %}
+<section class="interfacing-pledge-tier-grid" data-ui-zone="pledge-tier-grid">
+  <h2 style="margin: 0 0 12px; font-size: 1.1rem;">{{ title|default('Pledge tiers') }}</h2>
+  {% if tiers is iterable and tiers|length > 0 %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+      {% for tier in tiers %}
+        <article style="border: 1px solid #d9d9d9; border-radius: 14px; padding: 14px; background: #fff;">
+          <strong>{{ tier.title|default(tier.name|default('Tier')) }}</strong>
+          <p style="margin: 6px 0; color: #667085;">{{ tier.description|default(tier.summary|default('Funding tier')) }}</p>
+          <span>{{ tier.amount|default(tier.price|default(tier.minimum|default(''))) }}</span>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No pledge tiers', message: emptyLabel|default('No pledge or reward tiers were provided yet.')} only %}
+  {% endif %}
+</section>

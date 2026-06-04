@@ -57,7 +57,7 @@ Intent:
 - `Presentation` exposes screens, forms, live components, and view-facing runtime.
 - `Persistence` contains storage-facing work only.
 - `Service` and `ServiceInterface` stay mirrored and responsibility-explicit.
-- `Integration` hosts framework, browser automation, provider, and vendor bridges.
+- `Integration` hosts framework, browser automation, provider, and vendor integrations and handoff providers.
 - `Contract` declares DTO, readonly builder specs, UI contracts, view models, zones, and typed contract artifacts.
 - `Support` hosts fixtures, doctor, smoke, QA, reports, and demo helpers.
 

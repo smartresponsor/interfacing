@@ -1,0 +1,14 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/operating/base.html.twig' %}
+
+{% block title %}{{ data.component_name|default('Operating') }}{% endblock %}
+
+{% block page_content %}
+  {% include '@Interfacing/partial/viewing_surface_payload.html.twig' with {
+    surfaceTitle: data.component_name|default('Operating'),
+    surfaceSummary: 'Operating surface rendered from a normalized Viewing payload.',
+    surfaceSlots: locations|default({}),
+    view: view|default({}),
+    word: 'operating'
+  } only %}
+{% endblock %}

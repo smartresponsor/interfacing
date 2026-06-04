@@ -4,9 +4,9 @@ The first CRUD workbench screen was intentionally not left as a one-off `order s
 
 This wave extracts a reusable Twig discipline for host-facing CRUD body rendering:
 
-- `interfacing/crud/partial/page_head.html.twig`
-- `interfacing/crud/partial/workbench_panel.html.twig`
-- `interfacing/crud/partial/sidebar_card.html.twig`
+- `crud/partial/page_head.html.twig`
+- `crud/partial/workbench_panel.html.twig`
+- `crud/partial/sidebar_card.html.twig`
 
 ## Canonical intent
 

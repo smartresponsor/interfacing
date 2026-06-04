@@ -1,0 +1,24 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/checkout/base.html.twig' %}
+{% block title %}{{ title|default('Checkout shipping') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'checkout',
+    operationKey: 'shipping',
+    title: title|default(meta.title|default('Checkout shipping')),
+    subtitle: meta.description|default('Select shipping method and delivery information.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Checkout'))
+  } only %}
+  {% include '@Interfacing/partial/checkout_stepper.html.twig' with {current: 'shipping', steps: data.steps|default(['cart','shipping','payment','review','success'])} only %}
+  <section data-ui-zone="checkout-layout" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:18px;margin-top:18px;align-items:start;">
+    <div data-ui-zone="checkout-primary">
+      {% include '@Interfacing/partial/shipping_method_list.html.twig' with {methods: data.shippingMethods|default(data.rates|default([]))} only %}
+    </div>
+    <div data-ui-zone="checkout-summary">
+      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Checkout summary'} only %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% set shellQuickMenuGroup = shellQuickMenuGroup|default(shell.quickMenuGroup|default([])) %}
+{% set shellQuickMenuItemLimit = shellQuickMenuItemLimit|default(999) %}
+{% set quickMenuPopoverId = quickMenuPopoverId|default('interfacing-top-quick-menu-popover') %}
+<div class="interfacing-quick-menu" data-interfacing-shell-slot="quick-menu" data-interfacing-shell-location="shell.header.right.toggle" data-interfacing-shell-contract="single-top-menu-source" data-interfacing-provider-menu="top" data-interfacing-provider-menu-mode="popover">
+  <button class="interfacing-quick-menu__trigger" type="button" popovertarget="{{ quickMenuPopoverId }}" popovertargetaction="toggle" aria-label="Open application menu" title="Menu">
+    <span class="interfacing-quick-menu__summary-icon" aria-hidden="true">☰</span>
+  </button>
+  <div id="{{ quickMenuPopoverId }}" class="interfacing-quick-menu__panel" popover="auto" data-interfacing-provider-menu-popover="top">
+    {% for g in shellQuickMenuGroup %}
+      <section class="interfacing-quick-menu__section">
+        <div class="interfacing-quick-menu__title">{{ g.title }}</div>
+        <ul class="interfacing-menu-list">
+          {% for it in g.item|slice(0, shellQuickMenuItemLimit) %}
+            {% if it.id != 'quick.sign-out' %}
+              <li class="interfacing-list-item">
+                {% if app.user and it.id == 'quick.switch-account' %}
+                  <form class="interfacing-inline-form" method="post" action="{{ it.url }}">
+                    <button class="interfacing-menu-link interfacing-menu-button" type="submit">{{ it.title }}</button>
+                  </form>
+                {% else %}
+                  <a class="interfacing-menu-link" href="{{ it.url }}">{{ it.title }}</a>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+    {% if app.user %}
+      <section class="interfacing-quick-menu__section interfacing-quick-menu__section--session">
+        <div class="interfacing-quick-menu__title">Session</div>
+        <ul class="interfacing-menu-list">
+          <li class="interfacing-list-item">
+            <form class="interfacing-inline-form" method="post" action="/interfacing/access/sign-out">
+              <button class="interfacing-menu-link interfacing-menu-button interfacing-menu-link--danger" type="submit">Sign out</button>
+            </form>
+          </li>
+        </ul>
+      </section>
+    {% endif %}
+  </div>
+  <script type="application/json" data-interfacing-provider-menu-schema="top">{{ {provider: 'antd-pro', secondaryProvider: 'primereact', placement: 'bottomRight', trigger: 'click', groups: shellQuickMenuGroup}|json_encode|raw }}</script>
+</div>

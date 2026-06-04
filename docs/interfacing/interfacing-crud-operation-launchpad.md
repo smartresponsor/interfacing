@@ -2,7 +2,7 @@
 
 W6 adds an operation-oriented export for the CRUD Explorer.
 
-The purpose is to compensate for the default EasyAdmin navigation surface without moving ownership of business persistence into Interfacing.
+The purpose is to compensate for the default admin-generator navigation surface without moving ownership of business persistence into Interfacing.
 
 ## Endpoint
 
@@ -28,7 +28,7 @@ The owning component still owns persistence, validation, domain rules, destructi
 
 ## Expected use
 
-Use the operation launchpad when validating that a host application exposes an equivalent action surface to the old EasyAdmin default experience:
+Use the operation launchpad when validating that a host application exposes an equivalent action surface to the old admin-generator default experience:
 
 - all resources have index and new links;
 - all resources expose sample show/edit/delete links;

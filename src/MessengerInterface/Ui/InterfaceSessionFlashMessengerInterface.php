@@ -1,0 +1,23 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+*/
+
+namespace App\Interfacing\MessengerInterface\Ui;
+
+use App\Interfacing\Contract\Ui\InterfaceUiMessage;
+use App\Interfacing\Contract\Ui\InterfaceUiMessageBag;
+
+interface InterfaceSessionFlashMessengerInterface
+{
+    public function push(InterfaceUiMessage $message): void;
+
+    /**
+     * Pulls and clears all Interfacing messages from the session flash bag.
+     * When the session is not available, returns an empty bag.
+     */
+    public function pull(): InterfaceUiMessageBag;
+}

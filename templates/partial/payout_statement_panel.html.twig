@@ -1,0 +1,14 @@
+{# Shared vendor payout statement renderer. #}
+{% set statement = statement|default(record|default({})) %}
+<section class="interfacing-payout-statement-panel" data-ui-zone="payout-statement-panel">
+  <header class="interfacing-panel-header">
+    <h2>{{ title|default('Payout statement') }}</h2>
+    {% if statement.period|default(statement.window|default(null)) %}<span>{{ statement.period|default(statement.window) }}</span>{% endif %}
+  </header>
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {
+    title: detailTitle|default('Statement summary'),
+    record: statement,
+    emptyLabel: emptyLabel|default('No payout statement data is available yet.'),
+    limit: limit|default(12)
+  } only %}
+</section>

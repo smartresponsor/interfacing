@@ -1,0 +1,9 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product gallery') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'gallery', title: title|default(meta.title|default('Product gallery')), subtitle: meta.description|default('Product gallery surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/product_gallery.html.twig' with {images: data.images|default(data.gallery|default(data.media|default([]))), data: data, title: 'Product media'} only %}
+{% endblock %}

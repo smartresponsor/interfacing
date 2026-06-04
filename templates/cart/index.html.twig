@@ -1,0 +1,13 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/cart/base.html.twig' %}
+{% block title %}{{ title|default('Cart') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set lines = data.items|default(data.lines|default(data.cartItems|default([]))) %}
+  {% if lines is iterable and lines|length > 0 %}
+    {% include '@Interfacing/cart/summary.html.twig' with {data: data, meta: meta, view: view|default({}), component: component|default('Carting'), title: title|default('Cart')} only %}
+  {% else %}
+    {% include '@Interfacing/cart/empty.html.twig' with {data: data, meta: meta, view: view|default({}), component: component|default('Carting'), title: title|default('Cart')} only %}
+  {% endif %}
+{% endblock %}

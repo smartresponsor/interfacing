@@ -1,0 +1,32 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/catalog/base.html.twig' %}
+{% block title %}{{ title|default('Catalog browser') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set categories = data.categories|default(data.collections|default([])) %}
+  {% set products = data.products|default(data.items|default(data.records|default([]))) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'catalog',
+    operationKey: 'browse',
+    title: title|default(meta.title|default('Catalog browser')),
+    subtitle: meta.description|default('Browse, refine, and open catalog commerce surfaces.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Cataloging'))
+  } only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {surfaceKey: 'catalog', operationKey: 'browse', data: data, meta: meta, filters: data.facets|default(data.filters|default([])), title: 'Catalog controls'} only %}
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: data.metrics|default(data.summary|default({})), data: data, meta: meta} only %}
+  <section class="interfacing-provider-fallback-grid" data-ui-zone="catalog-browse-layout" style="margin-top: 16px;">
+    <article data-ui-zone="catalog-primary">
+      {% include '@Interfacing/partial/category_grid.html.twig' with {categorys: categorys, data: data, title: 'Categories', emptyLabel: 'No categories were supplied by the producer payload.'} only %}
+    </article>
+    <aside data-ui-zone="catalog-context">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: meta.secondaryTitle|default('Catalog context'), record: data.context|default(data.detail|default(data.summary|default(meta|default({})))), data: data, meta: meta} only %}
+    </aside>
+  </section>
+
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {data: data, meta: meta} only %}
+{% endblock %}

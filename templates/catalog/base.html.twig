@@ -1,0 +1,15 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Thin Catalog surface adapter.
+
+  This file must remain a local adapter to the canonical Interfacing document base.
+  Visible provider/workbench markup belongs in catalog/surface.html.twig or a concrete page template,
+  not in this base file.
+#}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% block title %}{{ title|default('Catalog') }}{% endblock %}
+
+{% block body %}
+  {% block catalog_body %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor transactions') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'vendor', operationKey:'transaction', title:title|default('Vendor transactions'), subtitle:meta.description|default('Vendor transaction ledger and operational filters.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Vendoring')} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters:data.filters|default({}), sort:data.sort|default({}), query:data.query|default(null)} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.records|default(data.items|default([]))), title:'Transaction ledger'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination:data.pagination|default({})} only %}
+{% endblock %}

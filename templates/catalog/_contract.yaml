@@ -1,0 +1,22 @@
+surface: catalog
+owner: Interfacing template layer
+purpose: Catalog browsing and merchandising surfaces rendered through Viewing.
+operations:
+  index:
+    expects: [categories, products, collections, metrics, actions]
+  browse:
+    expects: [categories, facets, filters, products, pagination, actions]
+  search:
+    expects: [products, query, filters, sortOptions, pagination]
+  facet:
+    expects: [facets, categories, products, filters]
+  collection:
+    expects: [collection, products, categories, pagination]
+  category-list:
+    expects: [categories, tree, filters]
+  merchandising:
+    expects: [sections, campaigns, placements, actions]
+notes:
+  - Producer components own catalog data and route semantics.
+  - Interfacing owns Twig layout, empty states, and partial composition.
+  - ID and slug routing policy remains outside template ownership.

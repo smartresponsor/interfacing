@@ -1,0 +1,20 @@
+{# Shared monetary/order summary partial for cart and checkout. #}
+{% set summary = summary|default({}) %}
+<aside class="interfacing-order-summary-panel" data-ui-zone="order-summary-panel" style="border:1px solid #e5e7eb;border-radius:18px;padding:16px;background:#fff;">
+  <h3 style="margin:0 0 12px;">{{ title|default('Order summary') }}</h3>
+  {% set rows = {
+    'Subtotal': summary.subtotal|default(summary.itemsTotal|default(null)),
+    'Discount': summary.discount|default(summary.promotionDiscount|default(null)),
+    'Shipping': summary.shipping|default(summary.shippingTotal|default(null)),
+    'Tax': summary.tax|default(summary.taxTotal|default(null)),
+    'Total': summary.total|default(summary.grandTotal|default(null))
+  } %}
+  <dl style="display:grid;gap:8px;margin:0;">
+    {% for label, value in rows %}
+      <div style="display:flex;justify-content:space-between;gap:12px;{% if label == 'Total' %}border-top:1px solid #e5e7eb;padding-top:10px;font-weight:700;{% endif %}">
+        <dt>{{ label }}</dt>
+        <dd style="margin:0;">{{ value is not same as(null) ? value : '—' }}</dd>
+      </div>
+    {% endfor %}
+  </dl>
+</aside>

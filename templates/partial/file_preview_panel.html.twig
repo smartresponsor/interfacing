@@ -1,0 +1,9 @@
+{# Shared file preview / media detail partial. #}
+{% set file = file|default(data.file|default(data.attachment|default(data.document|default(data.media|default({}))))) %}
+<section class="interfacing-file-preview-panel" data-ui-zone="file-preview-panel">
+  <header>
+    <h3>{{ title|default('File preview') }}</h3>
+    <p>{{ subtitle|default('Preview metadata, storage context, access policy, and download actions.') }}</p>
+  </header>
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title: file.name|default(file.filename|default('Selected file')), record: file, limit: limit|default(12), data: data|default({}), meta: meta|default({})} only %}
+</section>

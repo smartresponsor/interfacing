@@ -1,0 +1,23 @@
+{% set issues = diagnostic.issues|default([]) %}
+{% set warnings = diagnostic.warnings|default([]) %}
+{% set generatedAt = diagnostic.generatedAt|default(diagnostic.generated_at|default('')) %}
+
+<div class="p-card interfacing-domain-prime-diagnostic" data-ui-provider="prime-react" data-ui-component="Card,Tag,Timeline">
+  <div class="p-card-body">
+    <div class="p-card-title">Operational posture</div>
+    <div class="p-card-subtitle">{{ generatedAt ?: 'No diagnostic timestamp received.' }}</div>
+
+    <div class="interfacing-domain-prime-metric-row">
+      <span class="p-tag">Issues: {{ issues|length }}</span>
+      <span class="p-tag">Warnings: {{ warnings|length }}</span>
+    </div>
+
+    <ol class="p-timeline interfacing-domain-prime-timeline">
+      {% for issue in issues %}
+        <li><strong>{{ issue.code|default('issue') }}</strong> — {{ issue.message|default(issue.description|default('Review required.')) }}</li>
+      {% else %}
+        <li>No blocking diagnostic issues.</li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>

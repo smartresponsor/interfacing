@@ -1,0 +1,17 @@
+<div class="interfacing-live-card">
+  <div class="interfacing-live-card__title">{{ block.props.title }}</div>
+  {% if component.state.error is defined and component.state.error %}
+    <div class="interfacing-flash-message interfacing-flash-message--error">{{ component.state.error }}</div>
+  {% endif %}
+  <form method="post" class="interfacing-form">
+    {% for field in block.props.fields ?? [] %}
+      <label class="interfacing-form-label">
+        {{ field.label|default(field.name) }}
+        <input name="{{ field.name }}" value="{{ attribute(component.state.form ?? {}, field.name)|default('') }}">
+      </label>
+    {% endfor %}
+    <div class="interfacing-action-row interfacing-action-row--compact-spaced">
+      <button class="interfacing-link-button interfacing-link-button--primary" type="submit">{{ block.props.submitLabel|default('Save') }}</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+{# Shell-native admin toolbar shared by Interfacing directory/workbench pages. #}
+{% set actions = actions|default([]) %}
+{% set status = status|default(null) %}
+<section class="interfacing-admin-toolbar">
+  <div class="interfacing-admin-toolbar__inner">
+    <div class="interfacing-admin-toolbar__body">
+      <div class="interfacing-panel-eyebrow interfacing-panel-eyebrow--flush">{{ eyebrow|default('Interfacing') }}</div>
+      <h1 class="interfacing-admin-toolbar__title">{{ heading|default(title|default('Interfacing')) }}</h1>
+      {% if text|default(null) %}
+        <div class="interfacing-admin-toolbar__text">{{ text }}</div>
+      {% endif %}
+      {% if status %}
+        <div class="interfacing-admin-toolbar__status-list">
+          {% for label, value in status %}
+            <span class="interfacing-admin-toolbar__status"><strong>{{ value }}</strong> {{ label }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="interfacing-admin-toolbar__actions">
+      {% for action in actions %}
+        <a href="{{ action.url }}" class="interfacing-link-button{% if action.primary|default(false) %} interfacing-link-button--primary{% endif %}">{{ action.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

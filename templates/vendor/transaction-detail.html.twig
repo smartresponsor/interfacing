@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Transaction detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'transaction-detail',
+    title:title|default(meta.title|default('Transaction detail')),
+    subtitle:meta.description|default('Single vendor transaction detail, lifecycle, settlement, and operational context.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.transaction ? [data.transaction] : data.records|default([])), title:'Transaction'} only %}
+  {% include '@Interfacing/partial/status_timeline.html.twig' with {events:data.timeline|default(data.events|default([])), title:'Transaction timeline'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Transaction context', record:data.transaction|default(data.detail|default(data.context|default({}))), data:data, meta:meta} only %}
+
+{% endblock %}

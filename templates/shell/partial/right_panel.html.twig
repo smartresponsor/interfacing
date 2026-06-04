@@ -1,0 +1,19 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<aside title="{{ shellSlotMap['shell.context.right']|default('Right context panel') }}" class="interfacing-shell-panel interfacing-shell-panel--right">
+  <section class="interfacing-right-card interfacing-right-card--metric">
+    <div class="interfacing-panel-eyebrow interfacing-panel-eyebrow--flush">Known CRUD resources</div>
+    <div class="interfacing-right-metric-value">{{ shellKnownCrudResources|length }}</div>
+    <div class="interfacing-right-metric-text">Connected, canonical and planned component/entity links.</div>
+  </section>
+
+  {% for g in shellRightPanelGroup %}
+    <section class="interfacing-shell-nav-section">
+      <div class="interfacing-shell-nav-title interfacing-shell-nav-title--flush">{{ g.title }}</div>
+      <div class="interfacing-right-card__links">
+        {% for it in g.item %}
+          <a href="{{ it.url }}" class="interfacing-context-link">{{ it.title }}</a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</aside>

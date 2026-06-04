@@ -1,0 +1,20 @@
+{# Shared shipment tracking panel for shipment/order support surfaces. #}
+{% set tracking = tracking|default(data.tracking|default(data.shipment|default({}))) %}
+<section class="interfacing-shipment-tracking-panel" data-ui-zone="shipment-tracking-panel">
+  <header>
+    <h3>{{ title|default('Shipment tracking') }}</h3>
+    <p>{{ subtitle|default('Carrier, tracking, status, and delivery progress.') }}</p>
+  </header>
+  {% if tracking is iterable and tracking is not empty %}
+    <dl>
+      {% for key, value in tracking|slice(0, limit|default(10)) %}
+        <div data-ui-field="{{ key|e('html_attr') }}">
+          <dt>{{ key|replace({'_':' ', '-':' '})|title }}</dt>
+          <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
+        </div>
+      {% endfor %}
+    </dl>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No tracking data yet', message: 'The producer payload did not provide carrier or tracking events.'} only %}
+  {% endif %}
+</section>

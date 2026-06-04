@@ -1,0 +1,45 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Shell-first CRUD workbench adapter.
+
+  This partial keeps CRUD content inside the canonical Interfacing base shell and
+  avoids owning a document-level layout. Provider-capable workbench data is
+  exposed as a JSON contract for Ant Design ProComponents / PrimeReact hydration.
+#}
+{% set workbench = workbench|default({}) %}
+{% set crud = crud|default({}) %}
+{% set title = workbench.title|default(crud.title|default('CRUD workbench')) %}
+{% set description = workbench.description|default(crud.description|default('Provider-native CRUD surface contract.')) %}
+{% set providerSchema = {
+  schema: 'interfacing.crud.workbench.provider.v1',
+  version: '1.0',
+  owner: 'interfacing',
+  provider: workbench.primaryProvider|default('ant-design-procomponents'),
+  secondaryProvider: workbench.secondaryProvider|default('primereact'),
+  workbench: workbench,
+  crud: crud,
+  rendering: {
+    mode: 'provider-native-only',
+    fallbackAllowed: false
+  }
+} %}
+
+<section class="interfacing-provider-fallback-page" data-interfacing-crud-workbench="provider-native">
+  <header class="interfacing-provider-fallback-card interfacing-provider-fallback-header">
+    <div class="interfacing-provider-fallback-heading">
+      <div class="interfacing-eyebrow interfacing-eyebrow--flush">CRUD</div>
+      <h1 class="interfacing-provider-fallback-title">{{ title }}</h1>
+      <p class="interfacing-provider-fallback-description">{{ description }}</p>
+    </div>
+  </header>
+
+  <section
+    class="interfacing-provider-document-shell"
+    data-interfacing-provider-document="true"
+    data-interfacing-provider="ant-design-procomponents"
+    data-interfacing-secondary-provider="primereact"
+    data-interfacing-provider-component="crud-workbench"
+  >
+    <script type="application/json" data-interfacing-crud-workbench-provider-schema="true">{{ providerSchema|json_encode(constant('JSON_UNESCAPED_SLASHES'))|raw }}</script>
+  </section>
+</section>

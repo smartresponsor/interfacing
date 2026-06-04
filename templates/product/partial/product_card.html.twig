@@ -1,0 +1,53 @@
+{% set product = product|default({}) %}
+{% set tags = product.tags|default([]) %}
+<article id="{{ product.id|default('product-card') }}" class="interfacing-commerce-card" data-interfacing-commerce-card="product">
+  <div class="interfacing-commerce-card__visual">
+    <div class="interfacing-commerce-card__visual-top">
+      <span class="interfacing-commerce-card__accent">{{ product.accent|default('Product') }}</span>
+      <span class="interfacing-commerce-card__status">{{ product.status|default('Preview') }}</span>
+    </div>
+    <div>
+      <div class="interfacing-commerce-card__visual-title">{{ product.visual|default('Product card') }}</div>
+      <div class="interfacing-tag-list">
+        {% for tag in tags|slice(0, 3) %}
+          <span class="interfacing-tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="interfacing-commerce-card__body">
+    <div>
+      <p class="interfacing-card-eyebrow">{{ product.eyebrow|default('Product') }}</p>
+      <h3 class="interfacing-card-title">{{ product.title|default('Product') }}</h3>
+      <p class="interfacing-card-summary">{{ product.summary|default('Product summary unavailable.') }}</p>
+    </div>
+
+    <dl class="interfacing-card-metrics">
+      <div class="interfacing-card-metric">
+        <dt>Rating</dt>
+        <dd>★ {{ product.rating|default('—') }}</dd>
+      </div>
+      <div class="interfacing-card-metric">
+        <dt>Stock</dt>
+        <dd>{{ product.inventory|default('Available') }}</dd>
+      </div>
+    </dl>
+
+    <div class="interfacing-card-footer">
+      <div>
+        <div class="interfacing-price-row">
+          <span class="interfacing-price">{{ product.price|default('$0') }}</span>
+          {% if product.oldPrice|default(null) %}
+            <span class="interfacing-old-price">{{ product.oldPrice }}</span>
+          {% endif %}
+        </div>
+        <div class="interfacing-price-note">{{ product.priceNote|default('provider price') }}</div>
+        {% if product.saving|default(null) %}
+          <div class="interfacing-saving">{{ product.saving }}</div>
+        {% endif %}
+      </div>
+      <a href="{{ product.href|default('#') }}" class="interfacing-card-action">View</a>
+    </div>
+  </div>
+</article>

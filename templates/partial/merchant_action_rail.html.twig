@@ -1,0 +1,20 @@
+{# Shared action rail for merchant and vendor operational workbenches. #}
+{% set actions = actions|default(data.actions|default([])) %}
+<aside class="interfacing-merchant-action-rail" data-ui-zone="merchant-action-rail">
+  <h2>{{ title|default('Actions') }}</h2>
+  {% if actions is iterable and actions|length > 0 %}
+    <ul>
+      {% for action in actions %}
+        <li data-ui-zone="merchant-action">
+          {% if action.href is defined %}
+            <a href="{{ action.href }}">{{ action.label|default(action.name|default('Action')) }}</a>
+          {% else %}
+            <span>{{ action.label|default(action.name|default(action|json_encode)) }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No actions', message:'No merchant actions were provided for this state.'} only %}
+  {% endif %}
+</aside>

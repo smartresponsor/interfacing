@@ -1,0 +1,18 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/navigation/base.html.twig' %}
+
+{% block body %}
+  <section class="interfacing-page">
+    <header class="interfacing-page__header">
+      <h1 class="interfacing-page__title">{{ title|default('Navigation') }}</h1>
+      <p class="interfacing-page__lead">Provider-native navigation menu rendered from the canonical component payload.</p>
+    </header>
+
+    {% include '@Interfacing/navigation/provider.html.twig' with {
+      navigation: navigation|default({}),
+      provider: provider|default('antd-pro'),
+      secondaryProvider: secondaryProvider|default('primereact'),
+      component: 'navigation-menu'
+    } only %}
+  </section>
+{% endblock %}

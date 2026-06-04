@@ -1,0 +1,13 @@
+{# Shared usage meter panel for billing, subscription, and metered-commerce surfaces. #}
+{% set usage = usage|default(data.usage|default(data.meters|default(data.consumption|default([])))) %}
+<section class="interfacing-usage-meter-panel" data-ui-zone="usage-meter-panel">
+  <header>
+    <h3>{{ title|default('Usage meters') }}</h3>
+    <p>{{ subtitle|default('Metered usage, thresholds, billing windows, and projected charges.') }}</p>
+  </header>
+  {% if usage is iterable and usage is not empty %}
+    {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: usage, data: data|default({}), meta: meta|default({})} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No usage data', message: 'The producer payload did not provide metered usage yet.'} only %}
+  {% endif %}
+</section>

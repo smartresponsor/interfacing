@@ -1,0 +1,9 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/governance/base.html.twig' %}
+
+{% block page_content %}
+  {% include '@Interfacing/partial/viewing_surface_payload.html.twig' with {
+    surfaceTitle: 'Governance',
+    surfaceSummary: 'Governance surface rendered through Viewing and Interfacing.'
+  } %}
+{% endblock %}

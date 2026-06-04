@@ -1,0 +1,8 @@
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment refund') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'payment', operationKey:'refund', title:title|default('Payment refund'), subtitle:meta.description|default('Refund details and refund lifecycle for a payment.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
+  {% include '@Interfacing/partial/refund_panel.html.twig' with {refunds:data.refunds|default(data.records|default([])), title:'Refund records'} only %}
+  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.payment|default({}), title:'Related payment'} only %}
+{% endblock %}

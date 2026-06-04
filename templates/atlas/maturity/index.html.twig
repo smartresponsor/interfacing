@@ -1,0 +1,28 @@
+{#
+  Atlas surface template.
+  Owner: Interfacing.
+  Data owner: Atlassing/Atlas.
+  Render owner: Viewing.
+
+  This file is intentionally provider-neutral. Host UI implementations map the
+  same payload to Ant Design, ProComponents, or PrimeReact primitives.
+#}
+<section data-surface="{{ surface|default('atlas') }}" data-template="atlas/index">
+  <header>
+    <h1>{{ title|default('Atlas Maturity') }}</h1>
+  </header>
+
+  {% if locations.top is defined %}
+    <div data-location="top">{{ locations.top|json_encode(constant('JSON_PRETTY_PRINT')) }}</div>
+  {% endif %}
+
+  <main data-location="body">
+    {% if locations.body is defined %}
+      {{ locations.body|json_encode(constant('JSON_PRETTY_PRINT')) }}
+    {% endif %}
+  </main>
+
+  {% if locations.right is defined %}
+    <aside data-location="right">{{ locations.right|json_encode(constant('JSON_PRETTY_PRINT')) }}</aside>
+  {% endif %}
+</section>

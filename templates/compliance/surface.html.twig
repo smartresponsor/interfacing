@@ -1,0 +1,92 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Entity/surface template base. This folder is a UI surface noun, not an ecosystem component owner. #}
+{% extends '@Interfacing/compliance/base.html.twig' %}
+
+{% set showcase = showcase|default({}) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
+
+{% block title %}{{ showcase.title|default('Compliance') }}{% endblock %}
+
+{% block body %}
+  <main class="interfacing-surface interfacing-surface--compliance">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">{{ showcase.eyebrow|default('Governance') }}</p>
+      <h1>{{ showcase.title|default('Compliance') }}</h1>
+      <p>{{ showcase.summary|default('Canonical compliance surface rendered from the compliance business word.') }}</p>
+    </header>
+
+    <section class="interfacing-surface__grid">
+      {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
+
+          {% if slotKey == 'top.search' and value is iterable %}
+            <form method="{{ value.method|default('get') }}" action="{{ value.action|default('/interfacing/surface/compliance') }}" class="interfacing-surface__search">
+              <input name="{{ value.queryName|default('q') }}" value="{{ value.query|default('') }}" placeholder="{{ value.placeholder|default('Search compliance...') }}">
+              <button type="submit">Search</button>
+            </form>
+          {% elseif slotKey == 'left.panel' and value is iterable %}
+            <ul>
+              {% for item in value.items|default([]) %}
+                <li><a href="{{ item.href|default('#') }}">{{ item.title|default('Item') }}</a></li>
+              {% else %}
+                <li>No compliance filters.</li>
+              {% endfor %}
+            </ul>
+          {% elseif slotKey == 'main.body' and value is iterable %}
+            {% for section in value.sections|default([]) %}
+              <section class="interfacing-surface__section">
+                <h3>{{ section.title|default('Section') }}</h3>
+                <p>{{ section.summary|default('') }}</p>
+                <div class="interfacing-surface__card-grid">
+                  {% for card in section.cards|default([]) %}
+                    <article class="interfacing-surface__card">
+                      <p>{{ card.eyebrow|default('Compliance') }}</p>
+                      <h4>{{ card.title|default('Compliance item') }}</h4>
+                      <p>{{ card.summary|default('') }}</p>
+                      <a href="{{ card.href|default('#') }}">Open</a>
+                    </article>
+                  {% else %}
+                    <article class="interfacing-surface__card">
+                      <p>Compliance</p>
+                      <h4>No items configured</h4>
+                      <p>This surface is ready to receive compliance rules, checks, and obligations.</p>
+                    </article>
+                  {% endfor %}
+                </div>
+              </section>
+            {% else %}
+              <div class="interfacing-surface__empty">No compliance sections configured.</div>
+            {% endfor %}
+          {% elseif slotKey == 'right.panel' and value is iterable %}
+            <dl class="interfacing-surface__stats">
+              {% for stat in value.stats|default([]) %}
+                <div>
+                  <dt>{{ stat.label|default('Stat') }}</dt>
+                  <dd>{{ stat.value|default('0') }}</dd>
+                </div>
+              {% else %}
+                <div>
+                  <dt>Status</dt>
+                  <dd>Ready</dd>
+                </div>
+              {% endfor %}
+            </dl>
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </section>
+  </main>
+{% endblock %}

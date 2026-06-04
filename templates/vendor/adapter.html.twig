@@ -1,0 +1,21 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor adapter') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'adapter',
+    title:title|default(meta.title|default('Vendor adapter')),
+    subtitle:meta.description|default('Vendor integration adapters, provider status, routing, and operational readiness.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/adapter_status_panel.html.twig' with {adapters:data.adapters|default(data.records|default([])), data:data} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Adapter context', record:data.context|default(data.detail|default({})), data:data, meta:meta} only %}
+
+{% endblock %}

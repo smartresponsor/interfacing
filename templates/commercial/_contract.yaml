@@ -1,0 +1,21 @@
+surface: commercial
+owner: Interfacing template layer
+purpose: Commerce-wide merchant and marketplace surfaces rendered through Viewing.
+operations:
+  index:
+    expects: [items, records, rows, metrics, summary, context, actions]
+  dashboard:
+    expects: [items, records, metrics, summary, context, actions]
+  marketplace:
+    expects: [marketplace, vendors, products, categories, metrics, actions]
+  payout:
+    expects: [payouts, payoutAccount, statements, metrics, actions]
+  merchant:
+    expects: [merchant, vendor, transactions, payoutAccount, metrics, actions]
+  merchant-risk:
+    expects: [risk, compliance, events, records, actions]
+  settlement:
+    expects: [schedule, settlements, entries, transactions, reconciliation, actions]
+notes:
+  - Use vendor surface for vendor-specific screens and commercial surface for commerce-wide aggregation.
+  - Interfacing templates must remain passive and receive prepared payloads from producer components.

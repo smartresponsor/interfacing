@@ -15,4 +15,4 @@ Evolve toward:
 
 ## Wave 9 route boundary
 
-Controller-owned routes are imported from `config/routes/interfacing_attributes.yaml`; YAML route files are reserved for bridge/scoped-layout routes.
+Controller-owned routes are imported from `config/routes/interfacing_attributes.yaml`; YAML route files are reserved for provider-handoff/scoped-layout routes.

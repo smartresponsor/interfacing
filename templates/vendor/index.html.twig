@@ -1,0 +1,30 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor workbench') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'index',
+    title:title|default(meta.title|default('Vendor workbench')),
+    subtitle:meta.description|default('Vendor workbench for profile, transaction, payout, integration, and risk operations.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey:'vendor', operationKey:operation|default(view.operation|default('index')),
+    title:title|default(meta.title|default('Vendor workbench')),
+    subtitle:meta.description|default('Merchant/vendor operational surface rendered through Interfacing.'),
+    primaryTitle:meta.primaryTitle|default('Vendor records'),
+    primaryRecords:data.vendors|default(data.items|default(data.records|default([]))),
+    secondaryTitle:meta.secondaryTitle|default('Merchant context'),
+    secondaryRecord:data.context|default(data.summary|default(meta|default({}))),
+    metrics:data.metrics|default(data.summary|default({})),
+    actions:data.actions|default([]), data:data, meta:meta, view:view|default({}), component:component|default('Vendoring')
+  } only %}
+
+{% endblock %}

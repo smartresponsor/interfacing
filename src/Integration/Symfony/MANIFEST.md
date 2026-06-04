@@ -9,10 +9,10 @@ It must not define a second Symfony bundle or a second dependency-injection exte
 
 Canonical runtime entrypoints are:
 
-- `src/InterfacingBundle.php`
-- `src/DependencyInjection/InterfacingExtension.php`
+- `src/InterfaceBundle.php`
+- `src/DependencyInjection/InterfaceExtension.php`
 
 Retired duplicate entrypoints:
 
-- `src/Integration/Symfony/InterfacingBundle.php`
-- `src/Integration/Symfony/DependencyInjection/InterfacingExtension.php`
+- `src/Integration/Symfony/InterfaceBundle.php`
+- `src/Integration/Symfony/DependencyInjection/InterfaceExtension.php`

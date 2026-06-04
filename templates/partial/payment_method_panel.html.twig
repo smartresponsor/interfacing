@@ -1,0 +1,18 @@
+{# Shared payment method panel partial. #}
+{% set methods = methods|default(paymentMethods|default([])) %}
+<section class="interfacing-payment-method-panel" data-ui-zone="payment-method-panel">
+  <h3 style="margin:0 0 12px;">{{ title|default('Payment methods') }}</h3>
+  {% if methods is iterable and methods|length > 0 %}
+    <div style="display:grid;gap:10px;">
+      {% for method in methods %}
+        {% set row = method is iterable ? method : {'name': method} %}
+        <article data-ui-zone="payment-method" style="border:1px solid #e5e7eb;border-radius:16px;padding:14px;background:#fff;">
+          <strong>{{ row.label|default(row.name|default(row.brand|default('Payment method #' ~ loop.index))) }}</strong>
+          <div style="font-size:13px;color:#6b7280;margin-top:4px;">{{ row.type|default(row.provider|default('payment')) }} · {{ row.status|default('available') }}</div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No payment methods', message: emptyLabel|default('The producer payload did not provide payment methods yet.')} only %}
+  {% endif %}
+</section>

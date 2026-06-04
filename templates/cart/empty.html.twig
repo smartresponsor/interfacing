@@ -1,0 +1,15 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/cart/base.html.twig' %}
+{% block title %}{{ title|default('Empty cart') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'cart', operationKey: 'empty', title: title|default('Empty cart'),
+    subtitle: meta.description|default('The cart is ready to receive catalog and product selections.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Carting')
+  } only %}
+  <div style="margin-top:18px;">
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'Your cart is empty', message: 'Add products from catalog/product surfaces to start checkout.'} only %}
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set fallbackTitle = fallbackTitle|default(view.surface|default('Interfacing')|title ~ ' surface') %}
+{% set fallbackDescription = fallbackDescription|default('Root Interfacing fallback for a normalized Viewing payload. Add a noun-surface template to replace this generic page.') %}
+{% set fallbackPayload = fallbackPayload|default({
+  view: view|default({}),
+  locations: locations|default({}),
+  data: data|default({}),
+  meta: meta|default({}),
+  viewing: viewing|default({})
+}) %}
+
+{% block title %}{{ fallbackTitle }}{% endblock %}
+
+{% block page_content %}
+  {% include '@Interfacing/partial/viewing_surface_payload.html.twig' with {
+    surfaceTitle: fallbackTitle,
+    surfaceSummary: fallbackDescription,
+    surfaceSlots: locations|default({}),
+    surfaceSlotMap: data.slotMap|default(slotMap|default({})),
+    view: view|default({}),
+    word: view.surface|default('interfacing')
+  } only %}
+{% endblock %}

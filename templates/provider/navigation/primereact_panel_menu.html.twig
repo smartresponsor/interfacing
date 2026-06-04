@@ -1,0 +1,36 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  PrimeReact provider-native static navigation template.
+
+  This is a provider-specific PanelMenu/MegaMenu-compatible contract, not a
+  generic Twig list fallback. It keeps anchors visible until a real PrimeReact
+  provider hydrates or replaces the shell menu.
+#}
+{% set items = items|default([]) %}
+{% set locationName = locationName|default('navigation') %}
+{% set component = component|default('navigation-menu') %}
+
+<nav
+  class="p-panelmenu p-component interfacing-provider-navigation-menu interfacing-provider-navigation-menu--primereact"
+  role="menu"
+  aria-label="{{ label|default(locationName) }}"
+  data-interfacing-provider-navigation-template="primereact-panel-menu"
+  data-interfacing-provider="primereact"
+  data-interfacing-navigation-location="{{ locationName }}"
+  data-interfacing-provider-component="{{ component }}"
+>
+  {% for item in items %}
+    {% set href = item.url|default(item.href|default('#')) %}
+    {% set title = item.label|default(item.title|default(href)) %}
+    <a
+      class="p-menuitem-link interfacing-provider-navigation-menu__item{{ item.active|default(false) ? ' p-highlight is-active' : '' }}"
+      role="menuitem"
+      href="{{ href }}"
+      data-menu-id="{{ item.key|default(loop.index) }}"
+      data-interfacing-provider-navigation-item="true"
+      {% if item.active|default(false) %}aria-current="page"{% endif %}
+    >
+      <span class="p-menuitem-text">{{ title }}</span>
+    </a>
+  {% endfor %}
+</nav>

@@ -1,0 +1,21 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor profile') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'profile',
+    title:title|default(meta.title|default('Vendor profile')),
+    subtitle:meta.description|default('Vendor profile, storefront identity, merchant readiness, and integration context.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.profile|default(data.vendor|default(data.merchant|default({}))), data:data} only %}
+  {% include '@Interfacing/partial/adapter_status_panel.html.twig' with {adapters:data.adapters|default(data.integrations|default([])), data:data} only %}
+
+{% endblock %}

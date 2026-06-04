@@ -1,0 +1,20 @@
+<section class="interfacing-domain-panel interfacing-domain-panel--workbench" data-ui-provider="pro-components" data-ui-role="pro-card-pro-table">
+  <div class="interfacing-domain-panel__heading">
+    <h2>Operator workbench</h2>
+    <p>ProComponents owns dense operational review: state export, policy, diagnostics, runtime handoff and release actions.</p>
+  </div>
+
+  {% include 'domain/provider/pro-component/domain-workbench.twig' with {
+    payload: payload|default({}),
+    binding: binding|default({}),
+    verification: verification|default({}),
+    publication: publication|default({}),
+    diagnostic: diagnostic|default({}),
+    release: release|default({})
+  } only %}
+
+  {% include 'domain/partial/location_bucket.twig' with {
+    bucket: locations['workbench.after']|default([]),
+    empty_label: 'No additional workbench extensions.'
+  } only %}
+</section>

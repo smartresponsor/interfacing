@@ -2,7 +2,7 @@ Scope
 - Close Gate A (security + tenant context) at the Interfacing layer without coupling to Role domain.
 
 Tenant resolution
-- Header: X-SR-Tenant
+- Header: X-interfacing-Tenant
 - Request attribute: tenantId
 - Default: SR_TENANT_DEFAULT
 

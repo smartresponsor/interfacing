@@ -33,7 +33,7 @@ Testing design
 
 - Fake HttpClients:
   - Implement HttpClientInterface / ResponseInterface.
-  - Enough behavior to cover usage in HttpBillingMeterQueryService / HttpOrderSummaryQueryService.
+  - Enough behavior to cover usage in InterfaceHttpBillingMeterQueryService / InterfaceHttpOrderSummaryQueryService.
 
 Result
 - Interfacing RC1 is now better instrumented:

@@ -1,0 +1,9 @@
+{# Shared adapter status panel for payment/vendor/order integration adapters. #}
+{% set adapters = adapters|default(data.adapters|default(data.adapterStatus|default(data.integrations|default([])))) %}
+<section class="interfacing-adapter-status-panel" data-ui-zone="adapter-status-panel">
+  <header data-ui-zone="panel-header">
+    <h2>{{ title|default('Adapter status') }}</h2>
+    <p>{{ subtitle|default('Integration adapter readiness, provider state, and operational signals.') }}</p>
+  </header>
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Adapters', records:adapters, limit:limit|default(10), emptyLabel:'No adapter status records were provided.'} only %}
+</section>

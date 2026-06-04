@@ -1,0 +1,23 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/category/base.html.twig' %}
+{% block title %}{{ title|default('Category workbench') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'category',
+    operationKey: operation|default(view.operation|default('index')),
+    title: title|default(meta.title|default('Category workbench')),
+    subtitle: meta.description|default('Commerce surface rendered through shared Interfacing partials.'),
+    primaryTitle: meta.primaryTitle|default('Records'),
+    primaryRecords: data.items|default(data.records|default(data.rows|default([]))),
+    secondaryTitle: meta.secondaryTitle|default('Context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
+  } only %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor payout') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'payout',
+    title:title|default(meta.title|default('Vendor payout')),
+    subtitle:meta.description|default('Payout readiness, settlement schedule, statement context, and payout actions.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.payoutAccount|default(data.account|default({})), data:data} only %}
+  {% include '@Interfacing/partial/payout_statement_panel.html.twig' with {statement:data.statement|default(data.payoutStatement|default({})), lines:data.lines|default(data.transactions|default([])), title:'Current payout statement'} only %}
+  {% include '@Interfacing/partial/settlement_schedule.html.twig' with {schedule:data.schedule|default(data.settlements|default([])), data:data} only %}
+
+{% endblock %}

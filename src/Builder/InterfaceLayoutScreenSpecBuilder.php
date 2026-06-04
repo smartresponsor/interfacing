@@ -1,0 +1,72 @@
+<?php
+
+declare(strict_types=1);
+
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+
+namespace App\Interfacing\Builder;
+
+use App\Interfacing\BuilderInterface\InterfaceLayoutScreenSpecBuilderInterface;
+use App\Interfacing\Contract\View\InterfaceLayoutBlockSpec;
+use App\Interfacing\Contract\View\InterfaceLayoutScreenSpec;
+
+final class InterfaceLayoutScreenSpecBuilder implements InterfaceLayoutScreenSpecBuilderInterface
+{
+    /** @var list<array{type:string, id:string, title?:string}> */
+    private array $block = [];
+
+    private function __construct(
+        private readonly string $id,
+    ) {
+    }
+
+    public static function create(string $id): self
+    {
+        return new self($id);
+    }
+
+    public function block(string $type, string $id, ?string $title = null): self
+    {
+        $b = ['type' => $type, 'id' => $id];
+        if (null !== $title) {
+            $b['title'] = $title;
+        }
+        $this->block[] = $b;
+
+        return $this;
+    }
+
+    public function form(string $id, ?string $title = null): self
+    {
+        return $this->block('form', $id, $title);
+    }
+
+    public function metric(string $id, ?string $title = null): self
+    {
+        return $this->block('metric', $id, $title);
+    }
+
+    public function collection(string $id, ?string $title = null): self
+    {
+        return $this->block('collection', $id, $title);
+    }
+
+    public function wizard(string $id, ?string $title = null): self
+    {
+        return $this->block('wizard', $id, $title);
+    }
+
+    public function build(): InterfaceLayoutScreenSpec
+    {
+        $block = [];
+        foreach ($this->block as $item) {
+            $props = [];
+            if (isset($item['title'])) {
+                $props['title'] = $item['title'];
+            }
+            $block[] = new InterfaceLayoutBlockSpec($item['type'], $item['id'], $props);
+        }
+
+        return new InterfaceLayoutScreenSpec(block: $block, id: $this->id, title: ucfirst(str_replace(['.', '-', '_'], ' ', $this->id)));
+    }
+}

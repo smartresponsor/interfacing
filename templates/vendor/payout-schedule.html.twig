@@ -1,0 +1,21 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Payout schedule') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'payout-schedule',
+    title:title|default(meta.title|default('Payout schedule')),
+    subtitle:meta.description|default('Settlement cadence, upcoming payout windows, holds, and cutoff state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/settlement_schedule.html.twig' with {schedule:data.schedule|default(data.settlementSchedule|default([])), data:data, title:'Upcoming payouts'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Payout policy', record:data.policy|default(data.context|default({})), data:data, meta:meta} only %}
+
+{% endblock %}

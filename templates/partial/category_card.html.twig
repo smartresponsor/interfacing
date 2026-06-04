@@ -1,0 +1,12 @@
+{% set category = category|default(record|default({})) %}
+{% set title = category.title|default(category.name|default(category.label|default(category.slug|default('Category')))) %}
+<article class="interfacing-provider-record" data-ui-zone="category-card" data-category-id="{{ category.id|default('')|e('html_attr') }}">
+  <div class="interfacing-provider-record__title">{{ title }}</div>
+  <div class="interfacing-provider-record__meta">{{ category.summary|default(category.description|default(category.path|default(category.status|default('Catalog section')))) }}</div>
+  {% if category.count is defined or category.productCount is defined or category.total is defined %}
+    <div style="margin-top: 8px;" data-ui-zone="category-card-count">{{ category.productCount|default(category.count|default(category.total)) }} items</div>
+  {% endif %}
+  {% if category.url is defined or category.href is defined %}
+    <div style="margin-top: 10px;"><a class="interfacing-link-button" href="{{ category.url|default(category.href) }}">Browse</a></div>
+  {% endif %}
+</article>

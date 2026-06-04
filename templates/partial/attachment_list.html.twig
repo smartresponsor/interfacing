@@ -1,0 +1,13 @@
+{# Shared attachment/document/media list partial. #}
+{% set attachments = attachments|default(data.attachments|default(data.documents|default(data.media|default(data.files|default([]))))) %}
+<section class="interfacing-attachment-list" data-ui-zone="attachment-list">
+  <header>
+    <h3>{{ title|default('Attachments') }}</h3>
+    <p>{{ subtitle|default('Documents, media, previews, storage status, and related records.') }}</p>
+  </header>
+  {% if attachments is iterable and attachments is not empty %}
+    {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Files', records: attachments, emptyLabel: 'No attachments were provided.', limit: limit|default(12)} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No attachments', message: 'The producer payload did not provide files or media records yet.'} only %}
+  {% endif %}
+</section>

@@ -1,0 +1,11 @@
+{% extends '@Interfacing/commercial/base.html.twig' %}
+{% block title %}{{ title|default('Merchant risk') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'commercial', operationKey:'merchant-risk', title:title|default(meta.title|default('Merchant risk')), subtitle:meta.description|default('Merchant operational risk, compliance, payout hold, and dispute context.'), actions:data.actions|default([]), data:data, meta:meta, view:view|default({}), component:component|default(view.component|default('Commerce'))} only %}
+
+  {% include '@Interfacing/partial/merchant_risk_panel.html.twig' with {risk:data.risk|default(data.compliance|default({})), data:data} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Risk records', records:data.records|default(data.events|default([])), emptyLabel:'No merchant risk records were provided.'} only %}
+
+{% endblock %}

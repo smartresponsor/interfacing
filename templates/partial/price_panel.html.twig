@@ -1,0 +1,12 @@
+{% set data = data|default({}) %}
+{% set price = price|default(data.price|default(data.pricing|default(data.amount|default(null)))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="price-panel">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Pricing') }}</div>
+  {% if price is iterable %}
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Price breakdown', record: price, limit: 12, data: data, meta: meta|default({})} only %}
+  {% elseif price is not null %}
+    <div class="interfacing-provider-record__title">{% include '@Interfacing/partial/value.html.twig' with {value: price} only %}</div>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No price available', message: 'The producer payload did not include pricing yet.'} only %}
+  {% endif %}
+</section>

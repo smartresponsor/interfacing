@@ -1,0 +1,45 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set homePage = page|default({}) %}
+{% set homeTitle = homePage.title|default('Interfacing workspace') %}
+{% set homeDescription = homePage.description|default('Canonical shell entry for components, screens, and routing surfaces.') %}
+
+{% block page_content %}
+  <section class="interfacing-provider-fallback-page" data-interfacing-interface-home="true">
+    <header class="interfacing-provider-fallback-card interfacing-provider-fallback-header">
+      <div class="interfacing-provider-fallback-heading">
+        <div class="interfacing-eyebrow interfacing-eyebrow--flush">Workspace</div>
+        <h1 class="interfacing-provider-fallback-title">{{ homeTitle }}</h1>
+        <p class="interfacing-provider-fallback-description">{{ homeDescription }}</p>
+      </div>
+      <div class="interfacing-provider-fallback-actions">
+        <a class="interfacing-button interfacing-link-button--primary" href="/interfacing/components">Components</a>
+        <a class="interfacing-button" href="/interfacing/crud/explorer">CRUD Explorer</a>
+        <a class="interfacing-button" href="/interfacing/screens">Screens</a>
+      </div>
+    </header>
+
+    <div class="interfacing-provider-fallback-grid">
+      <section class="interfacing-provider-fallback-panel">
+        <h2 class="interfacing-provider-fallback-panel-title">Primary surfaces</h2>
+        <ul class="interfacing-provider-fallback-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/vendor/">Vendor index</a></li>
+          <li><a href="/payment/">Payment index</a></li>
+          <li><a href="/catalog/">Catalog index</a></li>
+        </ul>
+      </section>
+
+      <section class="interfacing-provider-fallback-panel">
+        <h2 class="interfacing-provider-fallback-panel-title">Workspace tools</h2>
+        <ul class="interfacing-provider-fallback-list">
+          <li><a href="/interfacing/applications">Applications</a></li>
+          <li><a href="/interfacing/operations">Operations</a></li>
+          <li><a href="/interfacing/surface">Surface audit</a></li>
+          <li><a href="/interfacing/runtime-handoff">Runtime handoff</a></li>
+        </ul>
+      </section>
+    </div>
+  </section>
+{% endblock %}

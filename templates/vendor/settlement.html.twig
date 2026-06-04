@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor settlement') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'settlement',
+    title:title|default(meta.title|default('Vendor settlement')),
+    subtitle:meta.description|default('Settlement batches, reconciliation entries, reserves, and accounting signals.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.settlement|default(data.status|default({})), title:'Settlement status'} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.entries|default(data.transactions|default(data.records|default([]))), title:'Settlement ledger'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Reconciliation context', record:data.reconciliation|default(data.context|default({})), data:data, meta:meta} only %}
+
+{% endblock %}

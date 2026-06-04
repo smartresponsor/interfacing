@@ -15,4 +15,4 @@ Routes:
 - `/interfacing/shell/screens`
 - `/interfacing/shell/screens.json`
 
-This keeps the EasyAdmin replacement visible through the common shell. Any page exposed from this catalog must render with the shared Top, left primary, left secondary, body, optional right context, and footer panels.
+This keeps the admin-provider replacement visible through the common shell. Any page exposed from this catalog must render with the shared Top, left primary, left secondary, body, optional right context, and footer panels.

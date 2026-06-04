@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor commission') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'commission',
+    title:title|default(meta.title|default('Vendor commission')),
+    subtitle:meta.description|default('Commission rules, fees, deductions, and revenue-share breakdown.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics:data.commissionSummary|default(data.metrics|default({})), data:data, meta:meta} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Commission lines', records:data.commissions|default(data.lines|default(data.records|default([]))), emptyLabel:'No commission lines were provided.'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Commission policy', record:data.policy|default(data.context|default({})), data:data, meta:meta} only %}
+
+{% endblock %}

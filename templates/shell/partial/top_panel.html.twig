@@ -1,0 +1,66 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<header class="interfacing-shell-top" data-interfacing-shell-slot="top" data-interfacing-shell-location="shell.header">
+  <div class="interfacing-shell-grid">
+    <aside class="interfacing-shell-panel interfacing-shell-panel--primary" data-interfacing-shell-slot="top-primary" data-interfacing-shell-location="shell.header.left" title="Header left">
+      <a href="/interfacing" class="interfacing-shell-brand">
+        <img class="interfacing-shell-brand__logo" data-interfacing-shell-location="shell.header.left.logo" src="{{ asset('mandala.svg') }}" alt="" aria-hidden="true">
+        <span class="interfacing-shell-brand__text">
+          <span class="interfacing-shell-brand__title" data-interfacing-shell-location="shell.header.left.name">Smart Response</span>
+          <span class="interfacing-shell-brand__subtitle" data-interfacing-shell-location="shell.header.left.title">Host-wide application shell</span>
+        </span>
+      </a>
+    </aside>
+
+    {% if not shellCompact %}
+      <aside class="interfacing-shell-panel interfacing-shell-panel--secondary" data-interfacing-shell-slot="top-secondary" data-interfacing-shell-location="shell.header.context" title="Header context">
+        <div class="interfacing-shell-nav-title">Section navigation</div>
+      </aside>
+    {% endif %}
+
+    <main class="interfacing-shell-body" data-interfacing-shell-slot="top-main" data-interfacing-shell-location="shell.header.main" title="Header main">
+      {% set shellSearch = shellSearch|default({}) %}
+      <form method="{{ shellSearch.submitMethod|default('get') }}" action="{{ shellSearch.submitAction|default('/search/result') }}" role="search" class="{{ shellSearch.fallbackClass|default('interfacing-provider-input-group') }}" data-interfacing-shell-slot="top-search" data-interfacing-shell-location="shell.header.main.search" data-interfacing-provider-control="{{ shellSearch.control|default('search-input-group') }}" data-interfacing-provider-control-provider="{{ shellSearch.provider|default('antd-pro') }}" data-interfacing-provider-control-owner="{{ shellSearch.ownerComponent|default('searching') }}">
+        <input class="interfacing-provider-input-group__input" name="{{ shellSearch.queryName|default('q') }}" value="{{ shellSearch.value|default(shellQuery) }}" placeholder="{{ shellSearch.placeholder|default('Search products, categories, orders, screens...') }}">
+        <button class="interfacing-provider-input-group__button" type="submit" aria-label="Search" title="Search">
+          <span class="interfacing-provider-input-group__icon" aria-hidden="true">⌕</span>
+        </button>
+      </form>
+      <script type="application/json" data-interfacing-provider-control-schema="top-search">{{ {
+        provider: shellSearch.provider|default('antd-pro'),
+        secondaryProvider: shellSearch.secondaryProvider|default('primereact'),
+        control: shellSearch.control|default('search-input-group'),
+        placement: 'shell.header.main',
+        nativeComponent: 'Input.Search',
+        fallbackClass: shellSearch.fallbackClass|default('interfacing-provider-input-group'),
+        submitMethod: shellSearch.submitMethod|default('get'),
+        submitAction: shellSearch.submitAction|default('/search/result'),
+        queryName: shellSearch.queryName|default('q'),
+        value: shellSearch.value|default(shellQuery),
+        placeholder: shellSearch.placeholder|default('Search products, categories, orders, screens...'),
+        ownerComponent: shellSearch.ownerComponent|default('searching')
+      }|json_encode|raw }}</script>
+
+      {% if not shellRightPanelEnabled %}
+        <nav class="interfacing-topbar-right interfacing-topbar-right--inline" title="{{ shellSlotMap['shell.header.right']|default(shellSlotMap['shell.topbar.right']|default('Header right')) }}" data-interfacing-shell-slot="topbar-right" data-interfacing-shell-location="shell.header.right">
+          {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
+            shellQuickMenuGroup: shellQuickMenuGroup,
+            shellQuickMenuItemLimit: shellQuickMenuItemLimit
+          } only %}
+        </nav>
+      {% endif %}
+    </main>
+
+    {% if shellRightPanelEnabled %}
+      <aside class="interfacing-shell-panel interfacing-shell-panel--right" data-interfacing-shell-slot="top-right" data-interfacing-shell-location="shell.header.right" title="{{ shellSlotMap['shell.header.right']|default(shellSlotMap['shell.topbar.right']|default('Header right')) }}">
+        <nav class="interfacing-topbar-right">
+          {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
+            shellQuickMenuGroup: shellQuickMenuGroup,
+            shellQuickMenuItemLimit: shellQuickMenuItemLimit
+          } only %}
+        </nav>
+      </aside>
+    {% endif %}
+  </div>
+  {% set shellHeaderBottomItems = shellLocations['shell.header.bottom']|default(shellLocations['top.bottom']|default([])) %}
+  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.header.bottom', items: shellHeaderBottomItems} only %}
+</header>

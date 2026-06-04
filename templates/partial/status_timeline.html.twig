@@ -1,0 +1,23 @@
+{# Shared chronological status/timeline renderer for order, payment, refund and transaction surfaces. #}
+{% set events = events|default(timeline|default([])) %}
+{% set title = title|default('Timeline') %}
+<section class="interfacing-status-timeline" data-ui-zone="status-timeline">
+  <header class="interfacing-panel-header">
+    <h2>{{ title }}</h2>
+    {% if subtitle|default(null) %}<p>{{ subtitle }}</p>{% endif %}
+  </header>
+  {% if events is iterable and events|length > 0 %}
+    <ol class="interfacing-timeline-list">
+      {% for event in events %}
+        {% set item = event is iterable ? event : {'label': event} %}
+        <li class="interfacing-timeline-item" data-status="{{ item.status|default(item.state|default('event'))|e('html_attr') }}">
+          <strong>{{ item.label|default(item.title|default(item.status|default('Event'))) }}</strong>
+          {% if item.time|default(item.createdAt|default(null)) %}<span>{{ item.time|default(item.createdAt) }}</span>{% endif %}
+          {% if item.description|default(item.message|default(null)) %}<p>{{ item.description|default(item.message) }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {label: emptyLabel|default('No timeline events are available yet.')} only %}
+  {% endif %}
+</section>

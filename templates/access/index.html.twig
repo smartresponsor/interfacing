@@ -1,0 +1,17 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/access/base.html.twig' %}
+
+{% block access_body %}
+  <div class="interfacing-access-stack">
+    <div>
+      <p class="interfacing-eyebrow">Public access</p>
+      <h2>Welcome to Smart Responsor</h2>
+      <p class="interfacing-muted">Continue with an existing account or create a new one.</p>
+    </div>
+
+    <div class="interfacing-action-row">
+      <a class="interfacing-link-button interfacing-link-button--primary" href="{{ path('interfacing_welcome_sign_in') }}">Sign in</a>
+      <a class="interfacing-link-button" href="{{ path('accessing_sign_up') }}">Create account</a>
+    </div>
+  </div>
+{% endblock %}

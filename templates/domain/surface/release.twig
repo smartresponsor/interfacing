@@ -1,0 +1,15 @@
+<section class="interfacing-domain-panel interfacing-domain-panel--release" data-ui-provider="pro-components" data-ui-role="release-review-card">
+  <div class="interfacing-domain-panel__heading">
+    <h2>Release and runtime review</h2>
+    <p>ProComponents owns the release package/review surface because it is a dense operator workflow.</p>
+  </div>
+
+  {% include 'domain/provider/pro-component/domain-release-review.twig' with {
+    release: release|default({})
+  } only %}
+
+  {% include 'domain/partial/location_bucket.twig' with {
+    bucket: locations['release.after']|default([]),
+    empty_label: 'No release review extensions.'
+  } only %}
+</section>

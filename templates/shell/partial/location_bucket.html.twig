@@ -1,0 +1,58 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% set locationItems = locationItems|default(items|default([])) %}
+{% set locationName = locationName|default(location|default('unknown')) %}
+{% set bucket = locationItems %}
+{% set providerMenuLocations = ['shell.footer.left', 'shell.footer.context', 'shell.footer.main', 'shell.footer.right', 'shell.left.middle', 'shell.context.middle', 'shell.main.toolbar', 'shell.right.tool', 'shell.right.filter'] %}
+{% if bucket is iterable and bucket is not empty and locationName in providerMenuLocations %}
+  {% include '@Interfacing/navigation/provider.html.twig' with {
+    navigation: {locations: {(locationName): bucket}},
+    locations: {(locationName): bucket},
+    locationName: locationName,
+    items: bucket,
+    provider: provider|default('antd-pro'),
+    secondaryProvider: secondaryProvider|default('primereact'),
+    component: 'footer-navigation-menu'
+  } only %}
+{% elseif bucket is iterable and bucket is not empty %}
+  <div class="interfacing-location-bucket" data-interfacing-location="{{ locationName }}">
+    {% for item in bucket %}
+      {% set itemType = item.type|default('text') %}
+      {% set itemLabel = item.label is defined and item.label is not same as(null) and item.label is not same as('') ? item.label : (item.title is defined and item.title is not same as(null) and item.title is not same as('') ? item.title : '') %}
+      <div class="interfacing-location-item interfacing-location-item--{{ itemType|replace({'_': '-'}) }}" data-interfacing-location-item="{{ itemType }}">
+        {% if itemType == 'media' and item.src is defined and item.src %}
+          <div class="interfacing-location-media">
+            <img
+              class="interfacing-location-image"
+              src="{{ item.src }}"
+              alt="{{ item.alt|default(itemLabel) }}"
+            >
+          </div>
+        {% elseif item.href is defined and item.href %}
+          <a class="interfacing-location-link" href="{{ item.href }}">{{ itemLabel|default(item.href) }}</a>
+        {% elseif itemLabel is not empty %}
+          <div class="interfacing-location-label">{{ itemLabel }}</div>
+        {% endif %}
+
+        {% if item.description is defined and item.description %}
+          <div class="interfacing-location-description">{{ item.description }}</div>
+        {% endif %}
+
+        {% if item.value is defined %}
+          <div class="interfacing-location-value">{{ item.value }}</div>
+        {% endif %}
+
+        {% if item.items is defined and item.items is iterable and item.items is not empty %}
+          {% include '@Interfacing/navigation/provider.html.twig' with {
+            navigation: {locations: {(locationName ~ '.' ~ loop.index): item.items}},
+            locations: {(locationName ~ '.' ~ loop.index): item.items},
+            locationName: locationName ~ '.' ~ loop.index,
+            items: item.items,
+            provider: provider|default('antd-pro'),
+            secondaryProvider: secondaryProvider|default('primereact'),
+            component: 'location-nested-navigation-menu'
+          } only %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

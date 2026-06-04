@@ -1,0 +1,95 @@
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set workbench = workbench|default({}) %}
+{% set routeContext = workbench.routeContext|default({}) %}
+{% set dashboardTitle = title|default(workbench.title|default('Commerce Control Center')) %}
+{% set dashboardLabel = routeContext.resourceLabel|default(dashboardTitle) %}
+{% set dashboardSummary = workbench.paginationLabel|default('App-owned dashboard sections rendered through the shared Interfacing shell.') %}
+{% set dashboardRows = workbench.rows|default([]) %}
+{% set dashboardActions = workbench.headerActions|default([]) %}
+{% set dashboardColumns = workbench.columns|default([]) %}
+{% set dashboardFilters = workbench.filters|default([]) %}
+
+{% block page_content %}
+  <section class="interfacing-provider-fallback-page" data-interfacing-application-dashboard="true">
+    <div class="interfacing-provider-fallback-card">
+      <header class="interfacing-provider-fallback-header">
+        <div class="interfacing-provider-fallback-heading">
+          <p class="interfacing-eyebrow interfacing-eyebrow--flush">Application dashboard</p>
+          <h1 class="interfacing-provider-fallback-title">{{ dashboardTitle }}</h1>
+          <p class="interfacing-provider-fallback-description">{{ dashboardSummary }}</p>
+        </div>
+
+        <div class="interfacing-provider-fallback-actions">
+          <a href="/" class="interfacing-button interfacing-button-primary">Home</a>
+          {% for action in dashboardActions %}
+            <a href="{{ action.href|default('/') }}" class="interfacing-button">{{ action.label|default('Action') }}</a>
+          {% endfor %}
+        </div>
+      </header>
+
+      <div class="interfacing-provider-fallback-grid">
+        <section class="interfacing-provider-fallback-panel">
+          <h2 class="interfacing-provider-fallback-panel-title">Route context</h2>
+          <dl class="interfacing-provider-fallback-definition-list">
+            <div class="interfacing-definition-row"><dt>Resource</dt><dd>{{ routeContext.resourcePath|default('app-dashboard') }}</dd></div>
+            <div class="interfacing-definition-row"><dt>Label</dt><dd>{{ dashboardLabel }}</dd></div>
+            <div class="interfacing-definition-row"><dt>Operation</dt><dd>{{ routeContext.operation|default('overview') }}</dd></div>
+            <div class="interfacing-definition-row"><dt>Surface</dt><dd>{{ routeContext.surface|default('dashboard') }}</dd></div>
+          </dl>
+        </section>
+
+        <section class="interfacing-provider-fallback-panel">
+          <h2 class="interfacing-provider-fallback-panel-title">Filters</h2>
+          {% if dashboardFilters is iterable and dashboardFilters is not empty %}
+            <div class="interfacing-provider-record-list">
+              {% for filter in dashboardFilters %}
+                <div class="interfacing-provider-record">
+                  <div class="interfacing-provider-record__title">{{ filter.label|default(filter.name|default('Filter')) }}</div>
+                  <div class="interfacing-provider-record__meta">{{ filter.placeholder|default('No placeholder configured.') }}</div>
+                </div>
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="interfacing-provider-record interfacing-provider-record--empty">No filters configured.</div>
+          {% endif %}
+        </section>
+
+        <section class="interfacing-provider-fallback-panel">
+          <h2 class="interfacing-provider-fallback-panel-title">Columns</h2>
+          <ul class="interfacing-provider-fallback-list">
+            {% for column in dashboardColumns %}
+              <li><strong>{{ column.label|default(column.key|default('Column')) }}</strong> <span class="interfacing-muted">({{ column.key|default('n/a') }})</span></li>
+            {% endfor %}
+          </ul>
+        </section>
+      </div>
+
+      <section class="interfacing-provider-fallback-panel interfacing-provider-fallback-panel--spaced">
+        <h2 class="interfacing-provider-fallback-panel-title">Records</h2>
+        <div class="interfacing-provider-record-list">
+          {% if dashboardRows is not empty %}
+            {% for row in dashboardRows %}
+              <article class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">
+                  {{ row.title|default(row.id|default('Record')) }} <span class="interfacing-muted">#{{ row.id|default('n/a') }}</span>
+                </div>
+                <div class="interfacing-provider-record__meta">
+                  Code: <code>{{ row.code|default('n/a') }}</code>
+                  |
+                  Owner: {{ row.owner|default('application') }}
+                  |
+                  Status: {{ row.status|default('n/a') }}
+                  |
+                  Locale: {{ row.locale|default('n/a') }}
+                </div>
+              </article>
+            {% endfor %}
+          {% else %}
+            <div class="interfacing-provider-record interfacing-provider-record--empty">No dashboard records loaded yet.</div>
+          {% endif %}
+        </div>
+      </section>
+    </div>
+  </section>
+{% endblock %}

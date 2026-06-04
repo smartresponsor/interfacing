@@ -4,10 +4,10 @@ This hotfix closes a runtime signature drift introduced during the neutral CRUD 
 
 ## Fixed
 
-`CrudWorkbenchPreviewProviderInterface::provide()` returns `Contract\Crud\CrudPreviewPage`.
+`InterfaceCrudWorkbenchPreviewProviderInterface::provide()` returns `Contract\Crud\InterfaceCrudPreviewPage`.
 
-`Service\Interfacing\Crud\CrudWorkbenchPreviewProviderChain::provide()` now uses the same return type and imports `CrudPreviewPage` instead of the legacy order-specific `OrderSummaryPage`.
+`Service\Interfacing\Crud\InterfaceCrudWorkbenchPreviewProviderChainService::provide()` now uses the same return type and imports `InterfaceCrudPreviewPage` instead of the legacy order-specific `InterfaceOrderSummaryPage`.
 
 ## Boundary
 
-The generic CRUD workbench preview provider chain remains Interfacing-owned and neutral. Order-specific `OrderSummaryPage` is still allowed only for dedicated order summary screens, not for generic CRUD preview providers.
+The generic CRUD workbench preview provider chain remains Interfacing-owned and neutral. Order-specific `InterfaceOrderSummaryPage` is still allowed only for dedicated order summary screens, not for generic CRUD preview providers.

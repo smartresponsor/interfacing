@@ -1,0 +1,62 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/payment/base.html.twig' %}
+
+{% set slots = slots|default(locations|default({})) %}
+{% set slotMap = slotMap|default(data.slotMap|default({})) %}
+{% set search = slots['top.search']|default({}) %}
+{% set leftPanel = slots['left.panel']|default({}) %}
+{% set body = slots['main.body']|default({}) %}
+{% set rightPanel = slots['right.panel']|default({}) %}
+{% set payments = payments|default(body.payments|default([])) %}
+{% set webhookEvents = webhookEvents|default(body.events|default([])) %}
+{% set selectedPayment = selectedPayment|default(rightPanel.selectedPayment|default(null)) %}
+
+{% block title %}Payment console{% endblock %}
+
+{% block body %}
+  <main class="interfacing-surface interfacing-surface--payment">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Payment</p>
+      <h1>Payment console</h1>
+      <p>Payment operator surface rendered through Viewing and Interfacing.</p>
+    </header>
+
+    <section class="interfacing-surface__grid">
+      <article class="interfacing-surface__panel">
+        <h2>{{ slotMap['top.search']|default('Search') }}</h2>
+        <form class="interfacing-surface__search" method="{{ search.method|default('get') }}" action="{{ search.action|default('/payment/console/') }}">
+          <input name="{{ search.queryName|default('q') }}" value="{{ search.query|default(query|default('')) }}" placeholder="{{ search.placeholder|default('Search payments...') }}">
+          <input name="status" value="{{ search.status|default(status|default('all')) }}" placeholder="Status">
+          <button type="submit">Search</button>
+        </form>
+      </article>
+
+      <article class="interfacing-surface__panel">
+        <h2>{{ slotMap['main.body']|default('Payments') }}</h2>
+        <div class="interfacing-provider-record-list">
+          {% for payment in payments %}
+            <article class="interfacing-provider-record">
+              <div class="interfacing-provider-record__title">{{ payment.id|default('payment') }} · {{ payment.status|default('unknown') }}</div>
+              <div class="interfacing-provider-record__meta">Order {{ payment.orderId|default('—') }} · {{ payment.amount|default('0') }} {{ payment.currency|default('') }} · {{ payment.provider|default('provider') }}</div>
+            </article>
+          {% else %}
+            <div class="interfacing-provider-record interfacing-provider-record--empty">No payments found.</div>
+          {% endfor %}
+        </div>
+      </article>
+
+      <article class="interfacing-surface__panel">
+        <h2>{{ slotMap['right.panel']|default('Selected payment') }}</h2>
+        {% if selectedPayment is iterable %}
+          <dl class="interfacing-surface__stats">
+            <div><dt>ID</dt><dd><code>{{ selectedPayment.id|default('—') }}</code></dd></div>
+            <div><dt>Status</dt><dd>{{ selectedPayment.status|default('—') }}</dd></div>
+            <div><dt>Provider</dt><dd>{{ selectedPayment.provider|default('—') }}</dd></div>
+          </dl>
+        {% else %}
+          <div class="interfacing-surface__empty">No payment selected.</div>
+        {% endif %}
+      </article>
+    </section>
+  </main>
+{% endblock %}

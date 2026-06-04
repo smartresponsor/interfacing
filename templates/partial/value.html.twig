@@ -1,0 +1,12 @@
+{# Render a scalar-ish display value without leaking raw nested structures into commerce templates. #}
+{% if value is iterable %}
+  {{ value|length }} item{{ value|length == 1 ? '' : 's' }}
+{% elseif value is same as(true) %}
+  Yes
+{% elseif value is same as(false) %}
+  No
+{% elseif value is null %}
+  —
+{% else %}
+  {{ value }}
+{% endif %}

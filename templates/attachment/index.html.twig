@@ -1,0 +1,26 @@
+{# Commerce support operation template for attachment/index. #}
+{% extends '@Interfacing/attachment/base.html.twig' %}
+{% block title %}{{ title|default('Attachment Index') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'attachment',
+    operationKey: 'index',
+    title: title|default(meta.title|default('Attachment Index')),
+    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Attachment'))
+  } only %}
+  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-surface="attachment" data-operation="index">
+    <article data-ui-zone="support-primary">
+      {% include '@Interfacing/partial/attachment_list.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Attachment Index')} only %}
+    </article>
+    <article data-ui-zone="support-secondary">
+      {% include '@Interfacing/partial/file_preview_panel.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
+    </article>
+  </section>
+{% endblock %}

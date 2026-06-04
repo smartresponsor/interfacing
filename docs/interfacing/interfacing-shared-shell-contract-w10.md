@@ -1,6 +1,6 @@
 # Interfacing shared shell contract W10
 
-W10 hardens the Interfacing UI shell after the current slice review. Every page extending `interfacing/base.html.twig` now receives the same shared chrome:
+W10 hardens the Interfacing UI shell after the current slice review. Every page extending `base.html.twig` now receives the same shared chrome:
 
 - mandatory top panel;
 - mandatory primary left panel;

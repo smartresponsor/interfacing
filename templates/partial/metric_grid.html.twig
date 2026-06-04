@@ -1,0 +1,14 @@
+{# Shared metric grid for commerce/workbench-like surfaces. #}
+{% set data = data|default({}) %}
+{% set meta = meta|default({}) %}
+{% set metricSource = metrics|default(data.metrics|default(data.summary|default(meta.summary|default({})))) %}
+{% if metricSource is iterable and metricSource is not empty %}
+  <section class="interfacing-provider-fallback-grid" data-ui-zone="metric-grid">
+    {% for key, value in metricSource|slice(0, limit|default(8)) %}
+      <article class="interfacing-provider-fallback-panel" data-ui-zone="metric-card">
+        <div class="interfacing-provider-fallback-panel-title">{{ key|replace({'_':' ', '-':' '})|title }}</div>
+        <div class="interfacing-provider-record__title">{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</div>
+      </article>
+    {% endfor %}
+  </section>
+{% endif %}

@@ -1,0 +1,13 @@
+{# Canonical CRUD route grammar. This is intentionally UI-only and data-free. #}
+<section id="crud-pattern" class="interfacing-provider-fallback-panel interfacing-crud-route-grammar">
+  <div class="interfacing-panel-eyebrow interfacing-panel-eyebrow--flush">Canonical CRUD internal handoff</div>
+  <div class="interfacing-block-muted">All operation links in Interfacing must be generated from this scoped internal handoff grammar. Sample links are navigation probes only; real identifiers belong to the owning component fixtures/runtime.</div>
+  <div class="interfacing-crud-route-grammar__list">
+    <div><strong>Index</strong> · <code>/interfacing/crud/{resourcePath}/</code></div>
+    <div><strong>New</strong> · <code>/interfacing/crud/{resourcePath}/new/</code></div>
+    <div><strong>Show</strong> · <code>/interfacing/crud/{resourcePath}/{id}</code></div>
+    <div><strong>Edit</strong> · <code>/interfacing/crud/{resourcePath}/edit/{id}</code></div>
+    <div><strong>Delete</strong> · <code>/interfacing/crud/{resourcePath}/delete/{id}</code></div>
+  </div>
+  <div class="interfacing-crud-route-grammar__meta">Symfony route names: <code>app_crud_index</code>, <code>app_crud_new</code>, <code>app_crud_show</code>, <code>app_crud_edit</code>, <code>app_crud_delete</code>.</div>
+</section>

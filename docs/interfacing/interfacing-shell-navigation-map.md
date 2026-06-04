@@ -9,7 +9,7 @@ W12 adds a dedicated shared-shell navigation map so the common panels are visibl
 
 ## Contract
 
-The map is generated from `ShellChromeProvider`; it does not duplicate manual screen lists. This keeps Top, left primary, left secondary, right context, footer and known CRUD resource links aligned with the runtime shell.
+The map is generated from `InterfaceShellChromeProviderService`; it does not duplicate manual screen lists. This keeps Top, left primary, left secondary, right context, footer and known CRUD resource links aligned with the runtime shell.
 
 The page is intentionally complementary to `/interfacing/shell/diagnostics`:
 
@@ -18,4 +18,4 @@ The page is intentionally complementary to `/interfacing/shell/diagnostics`:
 
 ## CRUD rule
 
-Known component/entity links continue to use `CrudResourceExplorerProvider` and the generic CRUD bridge URL grammar. Planned resources may not resolve to owning persistence yet, but the visible URLs still follow the same CRUD bridge pattern.
+Known component/entity links continue to use `InterfaceCrudResourceExplorerProviderService` and the generic CRUD bridge URL grammar. Planned resources may not resolve to owning persistence yet, but the visible URLs still follow the same CRUD bridge pattern.

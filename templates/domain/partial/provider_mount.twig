@@ -1,0 +1,14 @@
+{#
+  Generic React-provider mount helper.
+  Use this only when a host asset layer mounts actual Ant Design, ProComponents or PrimeReact components.
+  Twig fallback surfaces above remain readable without JavaScript.
+#}
+{% set providerName = provider|default('ant-design') %}
+{% set componentName = component|default('DomainSurface') %}
+{% set mountPayload = payload|default({}) %}
+<div
+  class="interfacing-provider-mount"
+  data-interfacing-provider="{{ providerName }}"
+  data-interfacing-component="{{ componentName }}"
+  data-interfacing-payload="{{ mountPayload|json_encode|e('html_attr') }}"
+></div>

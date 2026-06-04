@@ -1,0 +1,13 @@
+{# Shared merchant risk and compliance signal panel. #}
+{% set risk = risk|default(data.risk|default(data.riskSignals|default(data.compliance|default({})))) %}
+<section class="interfacing-merchant-risk-panel" data-ui-zone="merchant-risk-panel">
+  <header data-ui-zone="panel-header">
+    <h2>{{ title|default('Risk and compliance') }}</h2>
+    <p>{{ subtitle|default('Operational risk, policy state, dispute exposure, and review signals.') }}</p>
+  </header>
+  {% if risk is iterable and risk|length > 0 %}
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Risk context', record:risk, limit:limit|default(12)} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No risk signals', message:'No risk or compliance signals were provided for this merchant surface.'} only %}
+  {% endif %}
+</section>

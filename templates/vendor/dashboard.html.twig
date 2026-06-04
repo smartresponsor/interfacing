@@ -1,0 +1,26 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Merchant dashboard') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'dashboard',
+    title:title|default(meta.title|default('Merchant dashboard')),
+    subtitle:meta.description|default('Merchant operations overview for transactions, payouts, risk, and integration state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics:data.metrics|default(data.summary|default({})), data:data, meta:meta} only %}
+  <section class="interfacing-merchant-dashboard-grid" data-ui-zone="merchant-dashboard-grid">
+    {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.vendor|default(data.merchant|default(data.profile|default({}))), data:data} only %}
+    {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.payoutAccount|default(data.account|default({})), data:data} only %}
+    {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.records|default([])), title:'Recent transactions'} only %}
+    {% include '@Interfacing/partial/merchant_risk_panel.html.twig' with {risk:data.risk|default(data.compliance|default({})), data:data} only %}
+  </section>
+
+{% endblock %}

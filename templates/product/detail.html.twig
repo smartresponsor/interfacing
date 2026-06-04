@@ -1,0 +1,20 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set product = data.product|default(data.detail|default(data.item|default({}))) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'detail', title: title|default(product.title|default(product.name|default(meta.title|default('Product detail')))), subtitle: meta.description|default(product.summary|default(product.description|default('Product detail, price, inventory, media, and recommendations.'))), actions: data.actions|default(product.actions|default([])), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  <section class="interfacing-provider-fallback-grid" data-ui-zone="product-detail-layout" style="margin-top: 16px;">
+    <article data-ui-zone="product-primary">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Product', record: product, data: data, meta: meta, limit: 18} only %}
+      {% include '@Interfacing/partial/product_gallery.html.twig' with {images: data.images|default(product.images|default(data.gallery|default([]))), data: data, title: 'Product media'} only %}
+    </article>
+    <aside data-ui-zone="product-commerce-context">
+      {% include '@Interfacing/partial/price_panel.html.twig' with {price: data.price|default(product.price|default(data.pricing|default({}))), data: data, meta: meta, title: 'Price'} only %}
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Inventory context', record: data.inventory|default(product.inventory|default(data.availability|default({}))), data: data, meta: meta, limit: 10} only %}
+    </aside>
+  </section>
+  {% include '@Interfacing/partial/product_grid.html.twig' with {products: data.recommendations|default(data.related|default([])), data: data, title: 'Recommended products', emptyLabel: 'No recommendations were supplied by the producer payload.'} only %}
+{% endblock %}

@@ -16,7 +16,7 @@ screens:
     internal: false
     output:
       content_type: text/html
-      template: interfacing/doctor.html.twig
+      template: doctor.html.twig
     error:
       - code: http.500
         when: unexpected_failure
@@ -76,35 +76,35 @@ screens:
       body: null
     output:
       content_type: text/html
-      template: interfacing/layout/shell.html.twig
+      template: layout/shell.html.twig
       view_model:
-        layout: LayoutShell
+        layout: InterfaceLayoutShellService
         screenComponent: string
         screenContext: mixed # serialized as Twig-compatible array/scalar
     access:
       mode: guard
-      guard: LayoutGuardInterface::canView
+      guard: InterfaceLayoutGuardInterface::canView
       token: security.token_storage.getToken()
       on_forbidden: http.403
     service_call:
       - kind: query
-        name: LayoutCatalogInterface::findBySlug
+        name: InterfaceLayoutCatalogInterface::findBySlug
         in: slug
         out: LayoutSpec|null
       - kind: query
-        name: LayoutCatalogInterface::list
+        name: InterfaceLayoutCatalogInterface::list
         out: LayoutSpec[]
       - kind: guard
-        name: LayoutGuardInterface::canView
+        name: InterfaceLayoutGuardInterface::canView
         in: LayoutSpec + Token|null
         out: bool
       - kind: build
-        name: LayoutShellInterface::build
+        name: InterfaceLayoutShellInterface::build
         in: LayoutSpec + LayoutSpec[]
-        out: LayoutShell
+        out: InterfaceLayoutShellService
       - kind: resolve
-        name: InterfacingRuntimeInterface::resolveScreenComponentName
-        in: LayoutId|ScreenId
+        name: InterfaceRuntimeInterface::resolveScreenComponentName
+        in: InterfaceLayoutId|InterfaceScreenId
         out: string
     error:
       - code: http.404

@@ -1,86 +1,86 @@
 # Wave 10 Delete List
 
 Deleted moved donor files:
-- src/Domain/Interfacing/Model/Form/FormFieldSpec.php
-- src/Domain/Interfacing/Model/Form/FormSpec.php
-- src/Domain/Interfacing/Model/Form/FormSubmitResult.php
-- src/DomainInterface/Interfacing/Model/Form/FormFieldSpecInterface.php
-- src/DomainInterface/Interfacing/Model/Form/FormSpecInterface.php
-- src/DomainInterface/Interfacing/Model/Form/FormSubmitResultInterface.php
-- src/Domain/Interfacing/Model/Metric/MetricCard.php
-- src/Domain/Interfacing/Model/Metric/MetricDatum.php
-- src/Domain/Interfacing/Model/Metric/MetricQuery.php
-- src/Domain/Interfacing/Model/Metric/MetricSpec.php
-- src/DomainInterface/Interfacing/Model/Metric/MetricCardInterface.php
-- src/DomainInterface/Interfacing/Model/Metric/MetricDatumInterface.php
-- src/DomainInterface/Interfacing/Model/Metric/MetricQueryInterface.php
-- src/DomainInterface/Interfacing/Model/Metric/MetricSpecInterface.php
-- src/Domain/Interfacing/Model/Wizard/WizardProgress.php
-- src/Domain/Interfacing/Model/Wizard/WizardSpec.php
-- src/Domain/Interfacing/Model/Wizard/WizardStepSpec.php
-- src/DomainInterface/Interfacing/Model/Wizard/WizardProgressInterface.php
-- src/DomainInterface/Interfacing/Model/Wizard/WizardSpecInterface.php
-- src/DomainInterface/Interfacing/Model/Wizard/WizardStepSpecInterface.php
-- src/Domain/Interfacing/Spec/FormFieldSpec.php
-- src/Domain/Interfacing/Spec/FormSpec.php
-- src/Domain/Interfacing/Spec/MetricSpec.php
-- src/Domain/Interfacing/Spec/WizardStepSpec.php
-- src/Domain/Interfacing/Spec/WizardSpec.php
+- src/Domain/Interfacing/Model/Form/InterfaceFormFieldSpec.php
+- src/Domain/Interfacing/Model/Form/InterfaceFormSpec.php
+- src/Domain/Interfacing/Model/Form/InterfaceFormSubmitResult.php
+- src/DomainInterface/Interfacing/Model/Form/InterfaceFormFieldSpecInterface.php
+- src/DomainInterface/Interfacing/Model/Form/InterfaceFormSpecInterface.php
+- src/DomainInterface/Interfacing/Model/Form/InterfaceFormSubmitResultInterface.php
+- src/Domain/Interfacing/Model/Metric/InterfaceMetricCard.php
+- src/Domain/Interfacing/Model/Metric/InterfaceMetricDatum.php
+- src/Domain/Interfacing/Model/Metric/InterfaceMetricQuery.php
+- src/Domain/Interfacing/Model/Metric/InterfaceMetricSpec.php
+- src/DomainInterface/Interfacing/Model/Metric/InterfaceMetricCardInterface.php
+- src/DomainInterface/Interfacing/Model/Metric/InterfaceMetricDatumInterface.php
+- src/DomainInterface/Interfacing/Model/Metric/InterfaceMetricQueryInterface.php
+- src/DomainInterface/Interfacing/Model/Metric/InterfaceMetricSpecInterface.php
+- src/Domain/Interfacing/Model/Wizard/InterfaceWizardProgress.php
+- src/Domain/Interfacing/Model/Wizard/InterfaceWizardSpec.php
+- src/Domain/Interfacing/Model/Wizard/InterfaceWizardStepSpec.php
+- src/DomainInterface/Interfacing/Model/Wizard/InterfaceWizardProgressInterface.php
+- src/DomainInterface/Interfacing/Model/Wizard/InterfaceWizardSpecInterface.php
+- src/DomainInterface/Interfacing/Model/Wizard/InterfaceWizardStepSpecInterface.php
+- src/Domain/Interfacing/Spec/InterfaceFormFieldSpec.php
+- src/Domain/Interfacing/Spec/InterfaceFormSpec.php
+- src/Domain/Interfacing/Spec/InterfaceMetricSpec.php
+- src/Domain/Interfacing/Spec/InterfaceWizardStepSpec.php
+- src/Domain/Interfacing/Spec/InterfaceWizardSpec.php
 
 # Wave 11 Delete List
 
 Deleted moved donor files:
-- src/Domain/Interfacing/Model/BulkAction/BulkActionResult.php
-- src/Domain/Interfacing/Model/BulkAction/BulkActionSpec.php
-- src/DomainInterface/Interfacing/Model/BulkAction/BulkActionResultInterface.php
-- src/DomainInterface/Interfacing/Model/BulkAction/BulkActionSpecInterface.php
-- src/Domain/Interfacing/Model/DataGrid/DataGridColumnSpec.php
-- src/Domain/Interfacing/Model/DataGrid/DataGridQuery.php
-- src/Domain/Interfacing/Model/DataGrid/DataGridResult.php
-- src/Domain/Interfacing/Model/DataGrid/DataGridRow.php
-- src/DomainInterface/Interfacing/Model/DataGrid/DataGridColumnSpecInterface.php
-- src/DomainInterface/Interfacing/Model/DataGrid/DataGridQueryInterface.php
-- src/DomainInterface/Interfacing/Model/DataGrid/DataGridResultInterface.php
-- src/DomainInterface/Interfacing/Model/DataGrid/DataGridRowInterface.php
-- src/Domain/Interfacing/Model/Shell/ShellNavGroup.php
-- src/Domain/Interfacing/Model/Shell/ShellNavItem.php
-- src/Domain/Interfacing/Model/Shell/ShellView.php
-- src/DomainInterface/Interfacing/Model/Shell/ShellNavGroupInterface.php
-- src/DomainInterface/Interfacing/Model/Shell/ShellNavItemInterface.php
-- src/DomainInterface/Interfacing/Model/Shell/ShellViewInterface.php
-- src/Domain/Interfacing/Query/BillingMeterPage.php
-- src/Domain/Interfacing/Query/BillingMeterRow.php
-- src/Domain/Interfacing/Query/OrderSummaryPage.php
-- src/Domain/Interfacing/Query/OrderSummaryRow.php
+- src/Domain/Interfacing/Model/BulkAction/InterfaceBulkActionResult.php
+- src/Domain/Interfacing/Model/BulkAction/InterfaceBulkActionSpec.php
+- src/DomainInterface/Interfacing/Model/BulkAction/InterfaceBulkActionResultInterface.php
+- src/DomainInterface/Interfacing/Model/BulkAction/InterfaceBulkActionSpecInterface.php
+- src/Domain/Interfacing/Model/DataGrid/InterfaceDataGridColumnSpec.php
+- src/Domain/Interfacing/Model/DataGrid/InterfaceDataGridQuery.php
+- src/Domain/Interfacing/Model/DataGrid/InterfaceDataGridResult.php
+- src/Domain/Interfacing/Model/DataGrid/InterfaceDataGridRow.php
+- src/DomainInterface/Interfacing/Model/DataGrid/InterfaceDataGridColumnSpecInterface.php
+- src/DomainInterface/Interfacing/Model/DataGrid/InterfaceDataGridQueryInterface.php
+- src/DomainInterface/Interfacing/Model/DataGrid/InterfaceDataGridResultInterface.php
+- src/DomainInterface/Interfacing/Model/DataGrid/InterfaceDataGridRowInterface.php
+- src/Domain/Interfacing/Model/Shell/InterfaceShellNavGroup.php
+- src/Domain/Interfacing/Model/Shell/InterfaceShellNavItem.php
+- src/Domain/Interfacing/Model/Shell/InterfaceShellView.php
+- src/DomainInterface/Interfacing/Model/Shell/InterfaceShellNavGroupInterface.php
+- src/DomainInterface/Interfacing/Model/Shell/InterfaceShellNavItemInterface.php
+- src/DomainInterface/Interfacing/Model/Shell/InterfaceShellViewInterface.php
+- src/Domain/Interfacing/Query/InterfaceBillingMeterPage.php
+- src/Domain/Interfacing/Query/InterfaceBillingMeterRow.php
+- src/Domain/Interfacing/Query/InterfaceOrderSummaryPage.php
+- src/Domain/Interfacing/Query/InterfaceOrderSummaryRow.php
 - src/DomainInterface/Interfacing/Query/BillingMeterQueryInterface.php
 - src/DomainInterface/Interfacing/Query/OrderSummaryQueryInterface.php
 
-- src/Domain/Interfacing/Attribute/AsInterfacingAction.php
-- src/Domain/Interfacing/Attribute/AsInterfacingScreen.php
-- src/Domain/Interfacing/Demo/DemoUserProfileInput.php
+- src/Domain/Interfacing/Attribute/InterfaceAsAction.php
+- src/Domain/Interfacing/Attribute/InterfaceAsScreen.php
+- src/Domain/Interfacing/Demo/InterfaceDemoUserProfileInput.php
 - src/Domain/Interfacing/Model/CategoryFormModel.php
-- src/Domain/Interfacing/Model/CategoryItemView.php
-- src/Domain/Interfacing/Model/TelemetryEvent.php
-- src/Domain/Interfacing/Model/UiState.php
-- src/Domain/Interfacing/Model/WidgetId.php
-- src/Domain/Interfacing/Action/ActionId.php
-- src/DomainInterface/Interfacing/Model/UiStateInterface.php
-- src/DomainInterface/Interfacing/Model/WidgetIdInterface.php
+- src/Domain/Interfacing/Model/InterfaceCategoryItemView.php
+- src/Domain/Interfacing/Model/InterfaceTelemetryEvent.php
+- src/Domain/Interfacing/Model/InterfaceUiState.php
+- src/Domain/Interfacing/Model/InterfaceWidgetId.php
+- src/Domain/Interfacing/Action/InterfaceActionId.php
+- src/DomainInterface/Interfacing/Model/InterfaceUiStateInterface.php
+- src/DomainInterface/Interfacing/Model/InterfaceWidgetIdInterface.php
 
 Wave 13 deleted donor files:
-- src/Domain/Interfacing/Layout/LayoutId.php
+- src/Domain/Interfacing/Layout/InterfaceLayoutId.php
 - src/Domain/Interfacing/Layout/LayoutSpec.php
-- src/Domain/Interfacing/Screen/ScreenId.php
-- src/Domain/Interfacing/Screen/ScreenSpec.php
-- src/Domain/Interfacing/Spec/LayoutScreenSpec.php
-- src/DomainInterface/Interfacing/Layout/LayoutIdInterface.php
+- src/Domain/Interfacing/Screen/InterfaceScreenId.php
+- src/Domain/Interfacing/Screen/InterfaceScreenSpec.php
+- src/Domain/Interfacing/Spec/InterfaceLayoutScreenSpec.php
+- src/DomainInterface/Interfacing/Layout/InterfaceLayoutIdInterface.php
 - src/DomainInterface/Interfacing/Layout/LayoutSpecInterface.php
-- src/DomainInterface/Interfacing/Layout/LayoutProviderInterface.php
-- src/DomainInterface/Interfacing/Screen/ScreenIdInterface.php
-- src/DomainInterface/Interfacing/Screen/ScreenSpecInterface.php
-- src/DomainInterface/Interfacing/Screen/ScreenProviderInterface.php
-- src/DomainInterface/Interfacing/Value/ScreenIdInterface.php
-- src/Service/Interfacing/Access/AllowAllAccessResolver.php
+- src/DomainInterface/Interfacing/Layout/InterfaceLayoutProviderInterface.php
+- src/DomainInterface/Interfacing/Screen/InterfaceScreenIdInterface.php
+- src/DomainInterface/Interfacing/Screen/InterfaceScreenSpecInterface.php
+- src/DomainInterface/Interfacing/Screen/InterfaceScreenProviderInterface.php
+- src/DomainInterface/Interfacing/Value/InterfaceScreenIdInterface.php
+- src/Service/Access/AllowAllAccessResolver.php
 
 ## Wave 14
 - removed src/Domain and src/DomainInterface after final consumer cutover
@@ -92,154 +92,175 @@ Wave 13 deleted donor files:
 Retirement candidates identified in the current Interfacing slice. These are not removed by overlay application; review and delete explicitly in a cleanup wave.
 
 - pack/src/ — retired package-prototype namespace `SmartResponsor\Interfacing\...`; conflicts with active `App\Interfacing\...` source boundary.
-- pack/templates/ — prototype template root; migrate unique templates to `template/` before removal.
-- CrudRouteContext.php — root donor; canonical file already exists at `src/Contract/Crud/CrudRouteContext.php`.
-- CrudWorkbenchFactory.php — root donor; canonical file already exists at `src/Service/Interfacing/Crud/CrudWorkbenchFactory.php`.
-- base.html.twig — root donor; canonical Interfacing Twig root is `template/`.
-- templates/base.html.twig — duplicate template root candidate; prefer `template/base.html.twig` or explicit host mapping.
-- crud/ — root template donor candidate; prefer `template/interfacing/...` for active Twig surfaces.
-- src/Integration/Symfony/InterfacingBundle.php — duplicate bundle entrypoint candidate; active bundle is `src/InterfacingBundle.php`.
-- src/Integration/Symfony/DependencyInjection/InterfacingExtension.php — duplicate extension candidate; active extension is `src/DependencyInjection/InterfacingExtension.php`.
+- pack/templates/ — prototype template root; migrate unique templates to `templates/` before removal.
+- InterfaceCrudRouteContext.php — root donor; canonical file already exists at `src/Contract/Crud/InterfaceCrudRouteContext.php`.
+- InterfaceCrudWorkbenchFactoryService.php — root donor; canonical file already exists at `src/Factory/Crud/InterfaceCrudWorkbenchFactory.php`.
+- base.html.twig — root donor; canonical Interfacing Twig root is `templates/`.
+- templates/base.html.twig — duplicate template root candidate; prefer `templates/base.html.twig` or explicit host mapping.
+- crud/ — root template donor candidate; prefer `templates/...` for active Twig surfaces.
+- src/Integration/Symfony/InterfaceBundle.php — duplicate bundle entrypoint candidate; active bundle is `src/InterfaceBundle.php`.
+- src/Integration/Symfony/DependencyInjection/InterfaceExtension.php — duplicate extension candidate; active extension is `src/DependencyInjection/InterfaceExtension.php`.
 
 ## Wave 2 closed retirements
 
 Explicitly retired from the cumulative snapshot because canonical active equivalents already exist:
 
-- `src/Integration/Symfony/InterfacingBundle.php` -> duplicate bundle entrypoint; use `src/InterfacingBundle.php`.
-- `src/Integration/Symfony/DependencyInjection/InterfacingExtension.php` -> duplicate DI extension; use `src/DependencyInjection/InterfacingExtension.php`.
-- `CrudRouteContext.php` -> root donor; use `src/Contract/Crud/CrudRouteContext.php`.
-- `CrudWorkbenchFactory.php` -> root donor; use `src/Service/Interfacing/Crud/CrudWorkbenchFactory.php`.
-- `base.html.twig` -> root donor; use `template/base.html.twig`.
-- `crud/screen.html.twig` -> root donor; use `template/interfacing/crud/screen.html.twig`.
-- `crud/workbench_base.html.twig` -> root donor; use `template/interfacing/crud/workbench_base.html.twig`.
-- `templates/base.html.twig` -> duplicate donor; use `template/base.html.twig`.
+- `src/Integration/Symfony/InterfaceBundle.php` -> duplicate bundle entrypoint; use `src/InterfaceBundle.php`.
+- `src/Integration/Symfony/DependencyInjection/InterfaceExtension.php` -> duplicate DI extension; use `src/DependencyInjection/InterfaceExtension.php`.
+- `InterfaceCrudRouteContext.php` -> root donor; use `src/Contract/Crud/InterfaceCrudRouteContext.php`.
+- `InterfaceCrudWorkbenchFactoryService.php` -> root donor; use `src/Factory/Crud/InterfaceCrudWorkbenchFactory.php`.
+- `base.html.twig` -> root donor; use `templates/base.html.twig`.
+- `crud/screen.html.twig` -> root donor; use `templates/crud/screen.html.twig`.
+- `crud/workbench_base.html.twig` -> root donor; use `templates/crud/workbench_base.html.twig`.
+- `templates/base.html.twig` -> duplicate donor; use `templates/base.html.twig`.
 
 ## Wave3 service-interface dedup notes
 
 No files are deleted in wave3. The following aliases are now explicitly transitional and are candidates for a later explicit-retirement wave after imports are migrated:
 
-- `src/ServiceInterface/Interfacing/ScreenProviderInterface.php`
-- `src/ServiceInterface/Interfacing/Screen/ScreenProviderInterface.php`
-- `src/ServiceInterface/Interfacing/BaseContextProviderInterface.php`
+- `src/ServiceInterface/InterfaceScreenProviderInterface.php`
+- `src/ServiceInterface/Screen/InterfaceScreenProviderInterface.php`
+- `src/ServiceInterface/InterfaceBaseContextProviderInterface.php`
 
 ## Wave4 follow-up candidates
 
-- `src/ServiceInterface/Interfacing/ScreenCatalogInterface.php` — deprecated compatibility interface; retire after all consumers use `Catalog/ScreenSpecCatalogInterface`.
-- `src/ServiceInterface/Interfacing/Screen/ScreenCatalogInterface.php` — value-object-id variant; keep only if a concrete use case remains.
-- `src/Service/Interfacing/Screen/ScreenCatalog.php` — duplicate screen-spec catalog implementation; compare against canonical `Service/Interfacing/ScreenCatalog.php` before retirement.
-- `src/ServiceInterface/Interfacing/Registry/ScreenRegistryInterface.php` — spec-based registry name may be misleading; rename or retire after consumer migration.
+- `src/ServiceInterface/InterfaceScreenCatalogInterface.php` — deprecated compatibility interface; retire after all consumers use `Catalog/InterfaceScreenSpecCatalogInterface`.
+- `src/ServiceInterface/Screen/InterfaceScreenCatalogInterface.php` — value-object-id variant; keep only if a concrete use case remains.
+- `src/Service/Screen/InterfaceScreenCatalogService.php` — duplicate screen-spec catalog implementation; compare against canonical `Service/Interfacing/InterfaceScreenCatalogService.php` before retirement.
+- `src/RegistryInterface/AttributeRegistry/InterfaceScreenRegistryInterface.php` — spec-based registry name may be misleading; rename or retire after consumer migration.
 
 
 ## Wave5 follow-up candidates
 
-- `src/ServiceInterface/Interfacing/ActionCatalogInterface.php` — deprecated compatibility interface; retire after consumers use `Catalog/ActionEndpointCatalogInterface`.
-- `src/ServiceInterface/Interfacing/ActionEndpointInterface.php` — root endpoint contract; decide whether to move under `Catalog/` after endpoint consumers are classified.
-- `src/Service/Interfacing/ActionCatalog.php` — legacy/root endpoint catalog; compare against `Service/Interfacing/Action/ActionCatalog.php` after runtime and bridge consumers are separated.
-- `src/ServiceInterface/Interfacing/Registry/ActionCatalogInterface.php` — keep for screen-scoped registry/runtime use; do not merge into endpoint catalog.
+- `src/ServiceInterface/InterfaceActionCatalogInterface.php` — deprecated compatibility interface; retire after consumers use `Catalog/InterfaceActionEndpointCatalogInterface`.
+- `src/ServiceInterface/InterfaceActionEndpointInterface.php` — root endpoint contract; decide whether to move under `Catalog/` after endpoint consumers are classified.
+- `src/Service/InterfaceActionCatalogService.php` — legacy/root endpoint catalog; compare against `Service/Interfacing/Action/InterfaceActionCatalogService.php` after runtime and bridge consumers are separated.
+- `src/CatalogInterface/AttributeRegistry/InterfaceActionCatalogInterface.php` — keep for screen-scoped registry/runtime use; do not merge into endpoint catalog.
 
 ## Wave6 — action endpoint compatibility alias
 
 Retain for now, but treat as deprecated after the canonical endpoint split:
 
-- `src/ServiceInterface/Interfacing/ActionEndpointInterface.php`
+- `src/ServiceInterface/InterfaceActionEndpointInterface.php`
 
 Canonical replacement:
 
-- `src/ServiceInterface/Interfacing/Catalog/ActionEndpointInterface.php`
+- `src/EndpointInterface/Catalog/InterfaceActionEndpointInterface.php`
 
 ## Wave7 follow-up candidates
 
 Retain for compatibility in wave7, then retire after all consumers and host services use canonical contracts:
 
-- `src/ServiceInterface/Interfacing/Access/AccessResolverInterface.php` — deprecated alias for `Access/ScreenActionAccessResolverInterface.php`.
-- `src/ServiceInterface/Interfacing/AccessResolverInterface.php` — deprecated alias for `Access/RoleAccessResolverInterface.php`.
-- `src/ServiceInterface/Interfacing/Security/AccessResolverInterface.php` — deprecated alias for `Security/ScreenAccessResolverInterface.php`.
-- `src/ServiceInterface/Interfacing/Shell/AccessResolverInterface.php` — deprecated alias for `Shell/CapabilityAccessResolverInterface.php`.
+- `src/ServiceInterface/Access/AccessResolverInterface.php` — deprecated alias for `Access/InterfaceScreenActionAccessResolverInterface.php`.
+- `src/ServiceInterface/AccessResolverInterface.php` — deprecated alias for `Access/InterfaceRoleAccessResolverInterface.php`.
+- `src/ServiceInterface/Security/AccessResolverInterface.php` — deprecated alias for `Security/InterfaceScreenAccessResolverInterface.php`.
+- `src/ServiceInterface/Shell/AccessResolverInterface.php` — deprecated alias for `Shell/InterfaceCapabilityAccessResolverInterface.php`.
 
 
 ## Wave8 follow-up candidates
 
 Retain for compatibility after wave8, then retire after host references and imports move to canonical implementation names:
 
-- `src/Service/Interfacing/Access/SymfonyAccessResolver.php` — wrapper for `Access/SymfonyScreenActionAccessResolver.php`.
-- `src/Service/Interfacing/SymfonyAccessResolver.php` — wrapper for `Access/SymfonyRoleAccessResolver.php`.
-- `src/Service/Interfacing/Security/SymfonyAccessResolver.php` — wrapper for `Security/SymfonyScreenAccessResolver.php`.
-- `src/Service/Interfacing/Shell/SymfonyAccessResolver.php` — wrapper for `Shell/SymfonyCapabilityAccessResolver.php`.
-- `src/Service/Interfacing/Security/AllowAllAccessResolver.php` — wrapper for `Security/AllowAllScreenAccessResolver.php`.
-- `src/Service/Interfacing/Shell/AllowAllAccessResolver.php` — wrapper for `Shell/AllowAllCapabilityAccessResolver.php`.
+- `src/Service/Access/SymfonyAccessResolver.php` — wrapper for `Access/InterfaceSymfonyScreenActionAccessResolverService.php`.
+- `src/Service/SymfonyAccessResolver.php` — wrapper for `Access/InterfaceSymfonyRoleAccessResolverService.php`.
+- `src/Service/Security/SymfonyAccessResolver.php` — wrapper for `Security/InterfaceSymfonyScreenAccessResolverService.php`.
+- `src/Service/Shell/SymfonyAccessResolver.php` — wrapper for `Shell/InterfaceSymfonyCapabilityAccessResolverService.php`.
+- `src/Service/Security/AllowAllAccessResolver.php` — wrapper for `Security/InterfaceAllowAllScreenAccessResolverService.php`.
+- `src/Service/Shell/AllowAllAccessResolver.php` — wrapper for `Shell/InterfaceAllowAllCapabilityAccessResolverService.php`.
 
 ## Wave 9 route/controller retirement candidates
 
-- `config/routes.yaml` active controller imports — not used by the standalone `Kernel`; keep only as host compatibility note.
+- `config/routes.yaml` active controller imports — not used by the standalone `InterfaceKernel`; keep only as host compatibility note.
 - Explicit `config/routes/interfacing.yaml` route declarations for billing/order/screen — retired in favor of attribute imports.
 - Duplicate `/interfacing` ownership in `config/routes/interfacing_layout.yaml` — retired; layout routes are now scoped under `/interfacing/layout`.
 
 ## Wave10 controller decomposition note
 
-No files are deleted in wave10. The old direct ecommerce-provider injections inside `InterfacingController` are retired by code change, not by file removal.
+No files are deleted in wave10. The old direct ecommerce-provider injections inside `InterfaceController` are retired by code change, not by file removal.
 
 Next candidates:
 
-- Move dynamic `/interfacing/{id}` screen payload assembly to `ScreenViewBuilderInterface` once HTTP exception mapping is aligned.
+- Move dynamic `/interfacing/{id}` screen payload assembly to `InterfaceScreenViewBuilderInterface` once HTTP exception mapping is aligned.
 - Split `InterfacingWorkspaceViewBuilder` into narrower page-family builders if it grows beyond dashboard/workbench aggregation responsibility.
 
 ## Wave 11 follow-up candidates
 
-- Review `InterfacingController` after dynamic route extraction; it should now remain a static workspace/page controller only.
+- Review `InterfaceController` after dynamic route extraction; it should now remain a static workspace/page controller only.
 - Review legacy route `/interfacing/screen/{id}` for eventual retirement once external consumers use `/interfacing/{id}` or the catalog route.
 
 ## Wave 12 controller decomposition note
 
-No files are deleted in wave12. The old direct CRUD provider/router orchestration inside `CrudExplorerController` is retired by code change, not by file removal.
+No files are deleted in wave12. The old direct CRUD provider/router orchestration inside `InterfaceCrudExplorerController` is retired by code change, not by file removal.
 
 Next candidates:
 
-- Split `CrudExplorerViewBuilder` into narrower `CrudLinkPayloadBuilder`, `CrudRouteExpectationBuilder`, and `CrudOperationLaunchpadBuilder` only if it grows beyond CRUD Explorer responsibility.
-- Review `GenericCrudWorkbenchController` for similar route grammar/payload extraction after CRUD Explorer stabilizes.
+- Split `InterfaceCrudExplorerViewBuilderService` into narrower `CrudLinkPayloadBuilder`, `CrudRouteExpectationBuilder`, and `CrudOperationLaunchpadBuilder` only if it grows beyond CRUD Explorer responsibility.
+- Review `InterfaceGenericCrudWorkbenchController` for similar route grammar/payload extraction after CRUD Explorer stabilizes.
 
 
 ## Wave13 follow-up candidates
 
-- Replace demo-backed sample row construction in `GenericCrudWorkbenchViewBuilder` with resource-specific provider contributions once owning CRUD components publish concrete preview providers.
-- Keep `GenericCrudWorkbenchController` thin; do not reintroduce route-context or workbench payload assembly into the controller.
+- Replace demo-backed sample row construction in `InterfaceGenericCrudWorkbenchViewBuilderService` with resource-specific provider contributions once owning CRUD components publish concrete preview providers.
+- Keep `InterfaceGenericCrudWorkbenchController` thin; do not reintroduce route-context or workbench payload assembly into the controller.
 
 ## Wave14 follow-up candidates
 
-No files are deleted in wave14. The old inline sample-page construction inside `GenericCrudWorkbenchViewBuilder` is retired by code change, not file removal.
+No files are deleted in wave14. The old inline sample-page construction inside `InterfaceGenericCrudWorkbenchViewBuilderService` is retired by code change, not file removal.
 
 Next candidates:
 
-- Add component-owned `CrudWorkbenchPreviewProviderInterface` implementations for high-value resources once their repositories expose preview/query contracts.
-- Consider splitting `OrderSummaryPage`-based preview into a generic table preview DTO if non-order resources need a neutral payload model.
+- Add component-owned `InterfaceCrudWorkbenchPreviewProviderInterface` implementations for high-value resources once their repositories expose preview/query contracts.
+- Consider splitting `InterfaceOrderSummaryPage`-based preview into a generic table preview DTO if non-order resources need a neutral payload model.
 
 
 ## Wave 15 follow-up candidates
 
-- Audit external component preview providers to ensure they return `CrudPreviewPage` rather than order-specific read models.
-- Keep `OrderSummaryPage` only for order-specific screens; do not use it as the generic CRUD bridge preview contract.
+- Audit external component preview providers to ensure they return `InterfaceCrudPreviewPage` rather than order-specific read models.
+- Keep `InterfaceOrderSummaryPage` only for order-specific screens; do not use it as the generic CRUD bridge preview contract.
 
 
 ## Boundary wave16 retirement candidates
 
-- `App\Interfacing\ServiceInterface\Interfacing\Crud\CrudResourceContributionInterface` remains a deprecated compatibility alias; new contribution code should implement `CrudResourceDescriptorContributionInterface`.
-- Direct construction of `Contract\View\CrudResourceLinkSet` inside contribution classes should be avoided. Contributions should publish `Contract\Crud\CrudResourceDescriptorInterface` instead.
+- `App\Interfacing\ContributionInterface\Crud\InterfaceCrudResourceContributionInterface` remains a deprecated compatibility alias; new contribution code should implement `InterfaceCrudResourceDescriptorContributionInterface`.
+- Direct construction of `Contract\View\InterfaceCrudResourceLinkSet` inside contribution classes should be avoided. Contributions should publish `Contract\Crud\InterfaceCrudResourceDescriptorInterface` instead.
 
 ## Wave 17 follow-up candidates
 
-- Hardcoded CRUD operation arrays inside `Contract/View/CrudResourceLinkSet` are retained for compatibility. A later wave can move those view operation arrays behind `CrudOperationGrammarProviderInterface` if the link-set view model should become fully grammar-provider driven.
-- Avoid adding new `app_crud_*` route-name arrays in controllers or view builders; route grammar belongs to `CrudOperationGrammarProviderInterface`.
+- Hardcoded CRUD operation arrays inside `Contract/View/InterfaceCrudResourceLinkSet` are retained for compatibility. A later wave can move those view operation arrays behind `InterfaceCrudOperationGrammarProviderInterface` if the link-set view model should become fully grammar-provider driven.
+- Avoid adding new `app_crud_*` route-name arrays in controllers or view builders; route grammar belongs to `InterfaceCrudOperationGrammarProviderInterface`.
 ## Wave 17.1 runtime hotfix note
 
 - No new delete candidates.
-- Fixed `CrudWorkbenchPreviewProviderChain` return type drift from order-specific `OrderSummaryPage` to neutral `CrudPreviewPage`.
+- Fixed `InterfaceCrudWorkbenchPreviewProviderChainService` return type drift from order-specific `InterfaceOrderSummaryPage` to neutral `InterfaceCrudPreviewPage`.
 
-## Wave18 PSR-4 hygiene
+## Wave18 Pinterfacing-4 hygiene
 
 Explicit retired PHP marker files after Markdown replacement:
 
-- `src/Service/Interfacing/README.php` → replaced by `src/Service/Interfacing/README.md`
-- `src/ServiceInterface/Interfacing/README.php` → replaced by `src/ServiceInterface/Interfacing/README.md`
+- `src/Service/README.php` → replaced by `src/Service/README.md`
+- `src/ServiceInterface/README.php` → replaced by `src/ServiceInterface/README.md`
 
 ## Wave19 note
 
 No retirement/delete candidates were introduced. Commerce finance coverage was added through canonical Symfony service/contribution classes and shell navigation edits.
+
+## Src Wave 3 - route/layer ownership cleanup
+
+- `src/Support/Doctor/InterfaceDoctorIssueInterface.php`
+- `src/Support/Doctor/InterfaceDoctorReportInterface.php`
+- `src/Presentation/LiveComponent/Screen/InterfaceScreenEmptyComponentInterface.php`
+- `src/Presentation/LiveComponent/Screen/InterfaceScreenFormDemoComponentInterface.php`
+- `src/Presentation/LiveComponent/Screen/InterfaceScreenGridDemoComponentInterface.php`
+- `src/Presentation/LiveComponent/Screen/InterfaceScreenHealthComponentInterface.php`
+- `src/Presentation/LiveComponent/Screen/InterfaceScreenHomeComponentInterface.php`
+- `src/Presentation/LiveComponent/Screen/InterfaceScreenMetricDemoComponentInterface.php`
+- `src/Presentation/LiveComponent/Screen/InterfaceScreenWizardDemoComponentInterface.php`
+- `src/Presentation/LiveComponent/Widget/DataGrid/InterfaceDataGridWidgetComponentInterface.php`
+- `src/Presentation/LiveComponent/Widget/DataGrid/InterfaceDataGridWidgetInterface.php`
+- `src/Presentation/LiveComponent/Widget/Form/InterfaceFormWidgetComponentInterface.php`
+- `src/Presentation/LiveComponent/Widget/Metric/InterfaceMetricWidgetComponentInterface.php`
+- `src/Presentation/LiveComponent/Widget/Wizard/InterfaceWizardWidgetComponentInterface.php`
+- `src/Integration/Twig/InterfaceClassNameTwigExtensionInterface.php`
+- `src/Integration/Twig/InterfaceTwigExtensionInterface.php`
+- `src/Application/Security/InterfacePermissionVoter.php`
+

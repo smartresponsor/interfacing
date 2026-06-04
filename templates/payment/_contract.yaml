@@ -1,0 +1,21 @@
+surface: payment
+owner: Interfacing template layer
+purpose: Declares payload expectations for Viewing-rendered payment surfaces.
+operations:
+  index:
+    expects: [payments, records, metrics, actions]
+  history:
+    expects: [payments, filters, sort, pagination, actions]
+  detail:
+    expects: [payment, method, settlement, refunds, actions]
+  refund:
+    expects: [payment, refunds, timeline, actions]
+  method:
+    expects: [methods, paymentMethods, selectedMethod, actions]
+  adapter:
+    expects: [adapters, provider, readiness, actions]
+  settlement:
+    expects: [settlement, entries, transactions, actions]
+notes:
+  - Payment templates must preserve payment/refund status visibility.
+  - Payment actions are rendered as actions only; command execution stays in producer components.

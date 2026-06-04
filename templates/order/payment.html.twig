@@ -1,0 +1,8 @@
+{% extends '@Interfacing/order/base.html.twig' %}
+{% block title %}{{ title|default('Order payment') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'order', operationKey:'payment', title:title|default('Order payment'), subtitle:meta.description|default('Payment state, attempts and method details for an order.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
+  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.payment|default(data.paymentSummary|default(data.detail|default({}))), title:'Current payment state'} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.attempts|default(data.transactions|default([])), title:'Payment attempts', emptyLabel:'No payment attempts are available yet.'} only %}
+{% endblock %}

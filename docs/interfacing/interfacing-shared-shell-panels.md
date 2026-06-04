@@ -29,6 +29,7 @@ Primary left | Section left | Body
 Footer
 ```
 
-The shared panels are implemented as Twig partials under `template/interfacing/shell/partial/` so CRUD screens, launchpads, diagnostics, screen directories and component workbenches use the same shell chrome instead of per-page fragments.
+The shared panels are implemented as Twig partials under `templates/shell/partial/` so CRUD screens, launchpads, diagnostics, screen directories and component workbenches use the same shell chrome instead of per-page fragments.
 
 The workspace home also exposes component/entity CRUD quick links generated from the canonical screen matrix. Connected, canonical and planned resources are all visible so operators can click real CRUD bridge URLs even before every owning component is fully connected in the host application.
+

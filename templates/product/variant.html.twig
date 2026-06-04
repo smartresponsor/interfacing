@@ -1,0 +1,9 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product variants') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'variant', title: title|default(meta.title|default('Product variants')), subtitle: meta.description|default('Product variants surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Product variants', records: data.variants|default(data.items|default(data.records|default([]))), emptyLabel: 'No product variants were supplied by the producer payload.', data: data} only %}
+{% endblock %}

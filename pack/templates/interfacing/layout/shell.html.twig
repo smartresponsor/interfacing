@@ -1,8 +1,0 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'interfacing/base.html.twig' %}
-
-{% block title %}{{ shell.title|default('Interfacing') }}{% endblock %}
-
-{% block body %}
-  {% include 'interfacing/layout/screen.html.twig' with { screenSpec: screenSpec, layoutSpec: layoutSpec, context: context } %}
-{% endblock %}

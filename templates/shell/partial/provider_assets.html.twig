@@ -1,0 +1,47 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Single Interfacing provider asset contract.
+
+  CSS baseline is package-owned and always emitted inline so the shell keeps
+  its layout even when the host application does not expose package-local
+  public files as web assets.
+
+  Browser provider JavaScript remains opt-in because module URLs must be
+  served by the host asset pipeline as real JavaScript, not HTML fallbacks.
+#}
+{% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(false) %}
+{% set providerAssetVersion = interfacing_provider_asset_version|default('w69-static-slot-location-contract') %}
+{% set providerAssetManifest = {
+  inlineBaselineStyle: 'shell/partial/provider_baseline_style.html.twig',
+  canonicalStylesheet: 'provider/canonical-providers.interfacing-interface-ui.css',
+  designStylesheet: 'design/provider-baseline.css',
+  designTokens: 'design/provider-baseline-tokens.js',
+  processEnv: 'provider/process-env.js',
+  providerRegistry: 'provider/provider-registry.js',
+  canonicalProviders: 'provider/canonical-providers.js',
+  antdProProvider: 'provider/providers/antd-pro.js',
+  primeReactProvider: 'provider/providers/primereact.js',
+  runtime: 'provider/runtime.js'
+} %}
+<style id="interfacing-provider-baseline-inline-style" data-interfacing-provider-baseline-inline-style="true" data-interfacing-provider-asset-version="{{ providerAssetVersion }}">
+{% include '@Interfacing/shell/partial/provider_baseline_style.html.twig' %}
+</style>
+<script type="application/json" id="interfacing-provider-asset-manifest" data-interfacing-provider-asset-manifest="true">{{ {
+  enabled: externalProviderAssetsEnabled,
+  cssMode: 'inline-package-owned-baseline',
+  jsMode: externalProviderAssetsEnabled ? 'host-owned-web-asset-exposure' : 'disabled-until-host-owned-web-asset-exposure',
+  version: providerAssetVersion,
+  owner: 'Interfacing',
+  servingContract: 'inline-css-plus-opt-in-host-served-provider-js',
+  paths: providerAssetManifest,
+  fallback: 'twig-navigation-and-shell-rendering'
+}|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}</script>
+{% if externalProviderAssetsEnabled %}
+<script src="{{ asset(providerAssetManifest.designTokens) }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-baseline-tokens="true"></script>
+<script src="{{ asset(providerAssetManifest.processEnv) }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-process-env="true"></script>
+<script type="module" src="{{ asset(providerAssetManifest.providerRegistry) }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>
+<script type="module" src="{{ asset(providerAssetManifest.canonicalProviders) }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-providers="true"></script>
+<script type="module" src="{{ asset(providerAssetManifest.antdProProvider) }}?v={{ providerAssetVersion }}" data-interfacing-provider-antd-pro="true"></script>
+<script type="module" src="{{ asset(providerAssetManifest.primeReactProvider) }}?v={{ providerAssetVersion }}" data-interfacing-provider-primereact="true"></script>
+<script type="module" src="{{ asset(providerAssetManifest.runtime) }}?v={{ providerAssetVersion }}" data-interfacing-provider-runtime="true"></script>
+{% endif %}

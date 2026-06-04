@@ -1,0 +1,22 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor metric') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'metric',
+    title:title|default(meta.title|default('Vendor metric')),
+    subtitle:meta.description|default('Merchant metrics, transaction health, payout readiness, and trend context.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics:data.metrics|default(data.summary|default({})), data:data, meta:meta} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Metric records', records:data.series|default(data.records|default([])), emptyLabel:'No vendor metric records were provided.'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Metric context', record:data.context|default(data.detail|default({})), data:data, meta:meta} only %}
+
+{% endblock %}

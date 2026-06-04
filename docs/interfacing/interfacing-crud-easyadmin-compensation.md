@@ -20,4 +20,4 @@ Interfacing owns the shell, table, form, command affordances, and navigation dir
 
 ## Drift corrected
 
-The explorer previously rendered operation buttons, but there was no reusable operation matrix contract on the resource link set itself. This made it easy for future Twig screens to drift by hardcoding different action lists. `CrudResourceLinkSetInterface::operationUrls()` is now the stable source for Index/New/Show/Edit/Delete navigation.
+The explorer previously rendered operation buttons, but there was no reusable operation matrix contract on the resource link set itself. This made it easy for future Twig screens to drift by hardcoding different action lists. `InterfaceCrudResourceLinkSetInterface::operationUrls()` is now the stable source for Index/New/Show/Edit/Delete navigation.

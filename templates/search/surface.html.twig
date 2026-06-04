@@ -1,0 +1,109 @@
+{% extends '@Interfacing/search/base.html.twig' %}
+
+{% set query = query|default('') %}
+{% set result = result|default(null) %}
+{% set error = error|default(null) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
+
+{% block title %}{{ query is not empty ? 'Search: ' ~ query : 'Search results' }}{% endblock %}
+
+{% block body %}
+  <main class="interfacing-surface interfacing-surface--search">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Searching</p>
+      <h1>{{ query is not empty ? 'Search: ' ~ query : 'Search results' }}</h1>
+      <p>Canonical search surface for the ecosystem.</p>
+    </header>
+
+    <section class="interfacing-surface__grid">
+      {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
+
+          {% if slotKey == 'top.search' and value is iterable %}
+            <form class="interfacing-surface__search" method="{{ value.method|default('get') }}" action="{{ value.action|default('/search/result') }}">
+              <input name="{{ value.queryName|default('q') }}" value="{{ value.query|default('') }}" placeholder="{{ value.placeholder|default('Search...') }}">
+              <button type="submit">Search</button>
+            </form>
+          {% elseif slotKey == 'left.panel' and value is iterable %}
+            <div class="interfacing-surface__panel-group">
+              <h3>Facets</h3>
+              <ul>
+                {% for facet in value.facets|default([]) %}
+                  <li>
+                    <strong>{{ facet.name|default('Facet') }}</strong>
+                    <span>{{ facet.buckets|default({})|length }} buckets</span>
+                  </li>
+                {% else %}
+                  <li>No facets.</li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="interfacing-surface__panel-group">
+              <h3>Suggestions</h3>
+              <ul>
+                {% for suggestion in value.suggestions|default([]) %}
+                  <li>{{ suggestion.text|default('Suggestion') }}</li>
+                {% else %}
+                  <li>No suggestions.</li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% elseif slotKey == 'main.body' and value is iterable %}
+            {% if error is not null %}
+              <div class="interfacing-surface__alert">
+                Search is temporarily limited.
+              </div>
+            {% endif %}
+
+            {% if value.result is iterable and value.result.items is defined %}
+              <div class="interfacing-surface__meta">{{ value.result.total|default(0) }} hits</div>
+              <div class="interfacing-surface__card-grid">
+                {% for item in value.result.items %}
+                  <article class="interfacing-surface__card">
+                    <p>{{ item.component|default('search') }} / {{ item.resourceType|default('result') }}</p>
+                    <h3>{{ item.title|default('Result') }}</h3>
+                    {% if item.summary is not empty %}
+                      <p>{{ item.summary }}</p>
+                    {% endif %}
+                    {% if item.routeName is not empty %}
+                      <p>{{ item.routeName }}</p>
+                    {% endif %}
+                  </article>
+                {% else %}
+                  <div class="interfacing-surface__empty">No results found.</div>
+                {% endfor %}
+              </div>
+            {% else %}
+              <div class="interfacing-surface__empty">Enter a query to see results.</div>
+            {% endif %}
+          {% elseif slotKey == 'right.panel' and value is iterable %}
+            <dl class="interfacing-surface__stats">
+              {% for stat in value.stats|default([]) %}
+                <div>
+                  <dt>{{ stat.label|default('Stat') }}</dt>
+                  <dd>{{ stat.value|default('0') }}</dd>
+                </div>
+              {% endfor %}
+            </dl>
+            {% if value.metadata is iterable and value.metadata is not empty %}
+              <pre class="interfacing-surface__meta-block">{{ value.metadata|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+            {% endif %}
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </section>
+  </main>
+{% endblock %}

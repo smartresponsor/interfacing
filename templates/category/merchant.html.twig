@@ -1,0 +1,24 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/category/base.html.twig' %}
+{% block title %}{{ title|default('Merchant category workbench') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'category',
+    operationKey: 'merchant',
+    title: title|default(meta.title|default('Merchant category workbench')),
+    subtitle: meta.description|default('Merchant category workbench surface for commerce workflows rendered through Viewing.'),
+    primaryTitle: meta.primaryTitle|default('Merchant category workbench records'),
+    primaryRecords: data.categories|default(data.items|default(data.records|default([]))),
+    primaryEmptyLabel: 'No merchant category workbench records are available yet.',
+    secondaryTitle: meta.secondaryTitle|default('Surface context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
+  } only %}
+{% endblock %}

@@ -26,7 +26,7 @@ HostHub / ecosystem shell
   primary integration model.
 - No Twig adapter should exist only to wrap Cruding into another adapter chain.
 - Component pages should extend `base.html.twig` when running in the host app,
-  or `interfacing/base.html.twig` for Interfacing-local pages.
+  or `base.html.twig` for Interfacing-local pages.
 - CRUD screens should provide content/view-models, not a separate shell.
 
 ## Guard

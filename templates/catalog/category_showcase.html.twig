@@ -1,0 +1,91 @@
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set showcase = categoryShowcase|default({}) %}
+{% set sections = showcase.sections|default([]) %}
+
+{% block title %}{{ showcase.title|default('Categories') }} · Smart Responsor{% endblock %}
+
+{% block body %}
+  <main data-interfacing-commerce-showcase="category" class="interfacing-commerce-showcase">
+    <section class="interfacing-commerce-hero-grid">
+      <div class="interfacing-commerce-hero">
+        <div>
+          <p class="interfacing-commerce-hero__eyebrow">{{ showcase.eyebrow|default('Catalog storefront') }}</p>
+          <h1 class="interfacing-commerce-hero__title">{{ showcase.title|default('Categories') }}</h1>
+          <p class="interfacing-commerce-hero__summary">{{ showcase.summary|default('Category storefront') }}</p>
+        </div>
+
+        <div class="interfacing-commerce-hero__bottom">
+          <div class="interfacing-commerce-stat-list">
+            {% for stat in showcase.stats|default([]) %}
+              <div class="interfacing-commerce-stat">
+                <div class="interfacing-commerce-stat__value">{{ stat.value }}</div>
+                <div class="interfacing-commerce-stat__label">{{ stat.label }}</div>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="interfacing-commerce-action-list">
+            {% for action in showcase.heroActions|default([]) %}
+              <a href="{{ action.url }}" class="interfacing-action-link{{ action.primary|default(false) ? ' interfacing-action-link--primary' : '' }}">{{ action.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <aside class="interfacing-commerce-controls">
+        <div class="interfacing-commerce-controls__header">
+          <div>
+            <p class="interfacing-eyebrow">Category browsing</p>
+            <h2>Catalog controls</h2>
+          </div>
+          <span class="interfacing-badge">Provider data</span>
+        </div>
+
+        <form method="get" action="{{ showcase.route|default('/interfacing/showcase/catalog/category') }}" class="interfacing-commerce-search">
+          <input name="q" value="{{ showcase.query|default('') }}" placeholder="Search categories, departments, tags...">
+          {% if showcase.activeSection|default('all') != 'all' %}
+            <input type="hidden" name="section" value="{{ showcase.activeSection }}">
+          {% endif %}
+          <button class="interfacing-button-primary" type="submit">Search categories</button>
+        </form>
+
+        <nav aria-label="Category storefront sections">
+          <ul class="interfacing-commerce-filter-list">
+            {% for filter in showcase.filters|default([]) %}
+              {% set active = showcase.activeSection|default('all') == filter.id %}
+              <li class="interfacing-list-item">
+                <a href="{{ filter.url }}" class="interfacing-commerce-filter-link{{ active ? ' is-active' : '' }}">
+                  <span>{{ filter.title }}</span>
+                  <span aria-hidden="true">›</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </aside>
+    </section>
+
+    {% for section in sections %}
+      <section id="{{ section.id }}" class="interfacing-commerce-section">
+        <div class="interfacing-commerce-section__header">
+          <div>
+            <p class="interfacing-eyebrow">Catalog section</p>
+            <h2>{{ section.title }}</h2>
+            <p class="interfacing-commerce-section__summary">{{ section.summary }}</p>
+          </div>
+          <span class="interfacing-badge">{{ section.cards|length }} cards</span>
+        </div>
+
+        <div class="interfacing-commerce-card-grid">
+          {% for category in section.cards %}
+            {% include '@Interfacing/catalog/partial/category_card.html.twig' with { category: category } only %}
+          {% endfor %}
+        </div>
+      </section>
+    {% else %}
+      <article class="interfacing-empty-card">
+        No categories matched the current storefront filter.
+      </article>
+    {% endfor %}
+  </main>
+{% endblock %}

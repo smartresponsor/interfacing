@@ -1,0 +1,42 @@
+{% extends '@Interfacing/access/base.html.twig' %}
+
+{% block access_body %}
+  <div class="interfacing-access-stack">
+    <div>
+      <p class="interfacing-eyebrow">Security</p>
+      <h1>{{ title|default('Sign in') }}</h1>
+      <p class="interfacing-muted">This route is rendered by Viewing; authentication logic remains in the owner component.</p>
+    </div>
+
+    {% if error is defined and error %}
+      <div class="interfacing-alert interfacing-alert-danger" role="alert">
+        {{ error.messageKey|default('Authentication failed')|trans(error.messageData|default({}), 'security') }}
+      </div>
+    {% endif %}
+
+    {% if loginForm is defined and loginForm %}
+      {{ form_start(loginForm, {attr: {class: 'interfacing-form'}}) }}
+      {{ form_widget(loginForm._target_path|default(null)) }}
+      {% if csrf_token is defined %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate_workbench') }}">
+      {% endif %}
+      {% if loginForm.identifier is defined %}
+        {{ form_row(loginForm.identifier) }}
+      {% else %}
+        {{ form_widget(loginForm) }}
+      {% endif %}
+      <button class="interfacing-button-primary" type="submit">Sign in</button>
+      {{ form_end(loginForm, {render_rest: false}) }}
+    {% else %}
+      <form method="post" class="interfacing-form" data-interfacing-access-form="sign-in">
+        <label class="interfacing-form-label">Email
+          <input name="email" type="email" autocomplete="email" value="{{ last_username|default('') }}" required>
+        </label>
+        <label class="interfacing-form-label">Password
+          <input name="password" type="password" autocomplete="current-password" required>
+        </label>
+        <button class="interfacing-button-primary" type="submit">Sign in</button>
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}

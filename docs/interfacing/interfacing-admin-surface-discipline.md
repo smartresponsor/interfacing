@@ -4,7 +4,7 @@ This wave standardizes the shell-native admin surface for CRUD discovery, screen
 
 ## Rules
 
-- All admin-like pages extend `interfacing/base.html.twig`.
+- All admin-like pages extend `base.html.twig`.
 - Page headers use the shared admin toolbar partial.
 - CRUD route grammar is displayed from one shared partial.
 - Status language is consistent: `connected`, `canonical`, `planned`.

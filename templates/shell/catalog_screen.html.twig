@@ -1,0 +1,19 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Screen catalog provider handoff template.
+
+  Shell-visible screens share the canonical provider page contract; the
+  screen/catalog data is supplied as provider context instead of becoming a
+  second shell engine.
+#}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set screenTitle = title|default(payload.screen.title|default(activeScreenId|default('Screen'))) %}
+{% set normalizedScreenId = activeScreenId|default(screenId|default('interfacing_screen'))|replace({'.':'_', '-':'_'}) %}
+{% set adminProviderPageTitle = screenTitle %}
+{% set adminProviderResourceName = 'interfacing_screen_' ~ normalizedScreenId %}
+{% set adminProviderResourceLabel = screenTitle %}
+{% set adminProviderOperation = 'show' %}
+{% set adminProviderSurface = 'admin' %}
+{% set adminProviderDefaultView = 'cards' %}
+{% set adminProviderViewModes = ['cards', 'table'] %}

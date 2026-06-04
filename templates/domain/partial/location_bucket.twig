@@ -1,0 +1,49 @@
+{% set items = bucket|default([]) %}
+{% set emptyLabel = empty_label|default('') %}
+{% set slotName = slot|default('') %}
+
+{% if items is iterable and items|length > 0 %}
+  <div class="interfacing-domain-location-bucket"{% if slotName %} data-shell-slot="{{ slotName }}"{% endif %}>
+    {% for item in items %}
+      {% set itemType = item.type|default('text') %}
+      {% set itemLabel = item.label|default(item.title|default(item.name|default(item.component|default('Item')))) %}
+      {% set itemDescription = item.description|default(item.text|default('')) %}
+      {% set itemHref = item.href|default(item.url|default(null)) %}
+      {% set itemValue = item.value|default(null) %}
+      {% set itemProvider = item.provider|default(null) %}
+      {% set itemPayload = item.payload|default({}) %}
+
+      <article class="interfacing-domain-location-item interfacing-domain-location-item--{{ itemType }}" data-location-item-type="{{ itemType }}"{% if itemProvider %} data-ui-provider="{{ itemProvider }}"{% endif %}>
+        {% if itemType == 'component' %}
+          {% include 'domain/partial/provider_mount.twig' with {
+            provider: itemProvider|default('ant-design'),
+            component: item.component|default(itemLabel),
+            payload: itemPayload
+          } only %}
+          <div class="interfacing-domain-component-fallback">
+            <strong>{{ itemLabel }}</strong>
+            {% if itemProvider %}<span>{{ itemProvider }}</span>{% endif %}
+          </div>
+        {% elseif itemType == 'image' %}
+          <img class="interfacing-domain-location-image" src="{{ item.src|default('') }}" alt="{{ item.alt|default(itemLabel) }}">
+          <span>{{ itemLabel }}</span>
+        {% elseif itemType == 'metric' or itemType == 'status' %}
+          <span class="interfacing-domain-location-label">{{ itemLabel }}</span>
+          <strong class="interfacing-domain-location-value">{{ itemValue|default(itemDescription) }}</strong>
+        {% elseif itemType == 'action' %}
+          <button type="button" class="interfacing-domain-action" data-domain-action="{{ item.action|default(itemLabel) }}">{{ itemLabel }}</button>
+          {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
+        {% elseif itemHref %}
+          <a href="{{ itemHref }}">{{ itemLabel }}</a>
+          {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
+        {% else %}
+          <strong>{{ itemLabel }}</strong>
+          {% if itemValue is not null %}<span>{{ itemValue }}</span>{% endif %}
+          {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+{% elseif emptyLabel %}
+  <p class="interfacing-domain-location-empty">{{ emptyLabel }}</p>
+{% endif %}

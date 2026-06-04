@@ -1,0 +1,21 @@
+surface: billing
+owner: Interfacing
+purpose: Billing account, usage, invoice, subscription, and payment-method support surfaces.
+operations:
+  account:
+    expects: [account, billingAccount, customer, summary, actions]
+  history:
+    expects: [records, invoices, payments, pagination, actions]
+  invoice:
+    expects: [invoice, lines, totals, payment, actions]
+  meter:
+    expects: [usage, meters, consumption, thresholds, actions]
+  usage:
+    expects: [usage, meters, records, billingWindow, actions]
+  subscription:
+    expects: [subscription, plan, usage, billingAccount, actions]
+  payment-method:
+    expects: [paymentMethods, methods, defaultMethod, actions]
+notes:
+  - Billing producer owns monetary/account rules.
+  - Interfacing renders normalized billing support surfaces.

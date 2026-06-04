@@ -1,0 +1,15 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Shell demo provider handoff template.
+
+  This file must not render a bespoke shell, inline styles, or local demo cards.
+  It enters the same provider-visible page contract as every other Interfacing
+  screen so diagnostics cannot drift from the runtime shell.
+#}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set adminProviderPageTitle = title|default('Shell') %}
+{% set adminProviderResourceName = screenId|default('interfacing_shell')|replace({'.':'_', '-':'_'}) %}
+{% set adminProviderResourceLabel = adminProviderPageTitle %}
+{% set adminProviderOperation = 'index' %}
+{% set adminProviderSurface = 'admin' %}

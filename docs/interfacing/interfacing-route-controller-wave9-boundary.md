@@ -10,7 +10,7 @@ Interfacing-owned controller routes are attribute-owned and imported through:
 config/routes/interfacing_attributes.yaml
 ```
 
-The import file is intentionally ordered. Specific controllers are imported first, while `InterfacingController` is imported last because it owns broad workspace routes such as `/interfacing/{id}`.
+The import file is intentionally ordered. Specific controllers are imported first, while `InterfaceController` is imported last because it owns broad workspace routes such as `/interfacing/{id}`.
 
 ## YAML route ownership
 
@@ -35,13 +35,13 @@ Two historically similar screen routes now have different responsibilities:
 /interfacing/catalog/screen/{screenId}
 ```
 
-Uses `ScreenController` and the UI screen-spec catalog.
+Uses `InterfaceScreenController` and the UI screen-spec catalog.
 
 ```text
-/interfacing/screen/{id}
+/interfacing/{id}
 ```
 
-Remains a legacy workspace/layout resolution route owned by `InterfacingController`.
+Remains a legacy workspace/layout resolution route owned by `InterfaceController`.
 
 ## Host compatibility
 
@@ -49,4 +49,4 @@ Remains a legacy workspace/layout resolution route owned by `InterfacingControll
 
 ## Next recommended step
 
-After route ownership is stable, split the overloaded `InterfacingController` into thin page controllers or provider-backed view builders.
+After route ownership is stable, split the overloaded `InterfaceController` into thin page controllers or provider-backed view builders.

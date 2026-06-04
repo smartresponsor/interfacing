@@ -1,0 +1,19 @@
+surface: attachment
+owner: Interfacing
+purpose: Attachment, document, media, upload, preview, and storage support surfaces.
+operations:
+  index:
+    expects: [attachments, documents, media, files, actions]
+  document:
+    expects: [document, file, metadata, actions]
+  media:
+    expects: [media, file, preview, actions]
+  upload:
+    expects: [upload, presign, policy, actions]
+  preview:
+    expects: [file, attachment, document, media, actions]
+  storage:
+    expects: [storage, quota, usage, attachments, actions]
+notes:
+  - Attachment producer owns storage, preview, upload and security policies.
+  - Interfacing owns visual document/media support layouts.

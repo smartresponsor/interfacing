@@ -1,13 +1,13 @@
-Sketch-13: Action endpoint + unified ActionResult
+Sketch-13: Action endpoint + unified InterfaceActionResult
 
 Why
 - Interfacing needs a single canonical way to execute actions from server-driven UI (Livewire-like).
 - Actions must return a normalized result that the UI can apply without custom glue per screen.
 
 Key pieces
-- ActionEndpointInterface: a screen action handler (server side).
-- ActionDispatcher: access + context + dispatch + exception-to-result mapping.
-- ActionResult: ok | validation_error | domain_error | redirect | reload
+- InterfaceActionEndpointInterface: a screen action handler (server side).
+- InterfaceActionDispatcherService: access + context + dispatch + exception-to-result mapping.
+- InterfaceActionResult: ok | validation_error | domain_error | redirect | reload
 
 Demo
 - demo.form: save-profile action

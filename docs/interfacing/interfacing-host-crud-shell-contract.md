@@ -14,25 +14,25 @@ the central body slot of the same base used by all connected applications.
 ```text
 component or Interfacing page template
   -> base.html.twig
-  -> interfacing/shell/base.html.twig
+  -> shell/base.html.twig
 ```
 
 For Interfacing-local templates the explicit equivalent is:
 
 ```text
 interfacing/... page template
-  -> interfacing/base.html.twig
-  -> interfacing/shell/base.html.twig
+  -> base.html.twig
+  -> shell/base.html.twig
 ```
 
 For the generic CRUD workbench preview owned by Interfacing:
 
 ```text
-interfacing/crud/generic.html.twig
-  -> interfacing/crud/screen.html.twig
-  -> interfacing/crud/workbench_base.html.twig
-  -> interfacing/base.html.twig
-  -> interfacing/shell/base.html.twig
+crud/generic.html.twig
+  -> crud/screen.html.twig
+  -> crud/workbench_base.html.twig
+  -> base.html.twig
+  -> shell/base.html.twig
 ```
 
 ## Rule
@@ -42,4 +42,4 @@ override surface in Interfacing. Cruding and every other connected application
 should resolve to the same base shell and fill only the body/content block.
 
 The generic bridge must not render an order-specific template such as
-`interfacing/order/summary.html.twig`.
+`order/summary.html.twig`.

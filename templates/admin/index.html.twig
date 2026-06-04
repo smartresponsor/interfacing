@@ -1,0 +1,471 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/admin/base.html.twig' %}
+
+{% block page_content %}
+  {% set body = locations.body|default({}) %}
+  {% set data = data|default({}) %}
+  <section class="interfacing-provider-fallback-page" data-interfacing-admin-surface="true">
+    <header class="interfacing-provider-fallback-card">
+      <div class="interfacing-provider-fallback-header">
+        <div class="interfacing-provider-fallback-heading">
+          <div class="interfacing-eyebrow interfacing-eyebrow--flush">Administering</div>
+          <h1 class="interfacing-provider-fallback-title">{{ body.title|default(meta.title|default('Admin surface')) }}</h1>
+          {% if body.summary is defined and body.summary is not empty %}
+            <p class="interfacing-provider-fallback-description">{{ body.summary }}</p>
+          {% elseif meta.description is defined and meta.description is not empty %}
+            <p class="interfacing-provider-fallback-description">{{ meta.description }}</p>
+          {% endif %}
+        </div>
+
+        {% if action_links is defined and action_links is iterable and action_links is not empty %}
+          <div class="interfacing-provider-fallback-actions">
+            {% for link in action_links %}
+              <a class="interfacing-link-button{% if link.variant is defined and 'primary' == link.variant %} interfacing-link-button--primary{% endif %}" href="{{ link.url }}">{{ link.label }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </header>
+
+    {% if summary_items is defined and summary_items is iterable and summary_items is not empty %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Summary</div>
+        <dl class="interfacing-provider-fallback-definition-list">
+          {% for item in summary_items %}
+            <div class="interfacing-definition-row">
+              <dt>{{ item.label|default('Item') }}</dt>
+              <dd>{{ item.value|default('') }}</dd>
+            </div>
+          {% endfor %}
+        </dl>
+      </section>
+    {% endif %}
+
+    {% if data.projections is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Projections</div>
+        {% if data.projections is iterable and data.projections is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for projection in data.projections %}
+              <article class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ projection.displayLabel|default(projection.label|default('Projection')) }}</div>
+                <div class="interfacing-provider-record__meta">{{ projection.subjectIdentifier|default(projection.id|default('n/a')) }}</div>
+              </article>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No projections available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.action_rows is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if data.action_rows is iterable and data.action_rows is not empty %}
+          {% for row in data.action_rows %}
+            <article class="interfacing-provider-fallback-panel">
+              <div class="interfacing-provider-fallback-panel-title">Action</div>
+              <div class="interfacing-strong">{{ row.descriptor.label|default(row.descriptor.key|default('Action')) }}</div>
+              {% if row.descriptor.description is defined and row.descriptor.description is not empty %}
+                <p class="interfacing-muted">{{ row.descriptor.description }}</p>
+              {% endif %}
+              {% if row.form is defined and row.form %}
+                <div style="margin-top: 12px;">
+                  {{ form_start(row.form) }}
+                  {{ form_widget(row.form) }}
+                  {{ form_end(row.form) }}
+                </div>
+              {% endif %}
+            </article>
+          {% endfor %}
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.menu_items is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Menu</div>
+        {% if data.menu_items is iterable and data.menu_items is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for item in data.menu_items %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ item.label|default('Menu item') }}</div>
+                <div class="interfacing-provider-record__meta">
+                  {{ item.type|default('') }}{% if item.icon is defined and item.icon is not empty %} · {{ item.icon }}{% endif %}
+                </div>
+                {% if item.linkUrl is defined and item.linkUrl is not empty %}
+                  <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ item.linkUrl }}">Open</a></div>
+                {% endif %}
+                {% if item.subItems is defined and item.subItems is iterable and item.subItems is not empty %}
+                  <div class="interfacing-provider-record-list" style="margin-top: 10px;">
+                    {% for subItem in item.subItems %}
+                      <div class="interfacing-provider-record">
+                        <div class="interfacing-provider-record__title">{{ subItem.label|default('Sub item') }}</div>
+                        <div class="interfacing-provider-record__meta">{{ subItem.type|default('') }}</div>
+                        {% if subItem.linkUrl is defined and subItem.linkUrl is not empty %}
+                          <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ subItem.linkUrl }}">Open</a></div>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No menu items available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.detail is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        <article class="interfacing-provider-fallback-panel">
+          <div class="interfacing-provider-fallback-panel-title">Section</div>
+          <dl class="interfacing-provider-fallback-definition-list">
+            {% for key, value in data.detail.section|default({}) %}
+              <div class="interfacing-definition-row">
+                <dt>{{ key }}</dt>
+                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        </article>
+        <article class="interfacing-provider-fallback-panel">
+          <div class="interfacing-provider-fallback-panel-title">Tool</div>
+          <dl class="interfacing-provider-fallback-definition-list">
+            {% for key, value in data.detail.tool|default({}) %}
+              <div class="interfacing-definition-row">
+                <dt>{{ key }}</dt>
+                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        </article>
+      </section>
+    {% endif %}
+
+    {% if data.record is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Record</div>
+        <dl class="interfacing-provider-fallback-definition-list">
+          {% for key, value in data.record %}
+            <div class="interfacing-definition-row">
+              <dt>{{ key }}</dt>
+              <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+            </div>
+          {% endfor %}
+        </dl>
+      </section>
+    {% endif %}
+
+    {% if data.descriptors is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Descriptors</div>
+        {% if data.descriptors is iterable and data.descriptors is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for descriptor in data.descriptors %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ descriptor.label|default(descriptor.key|default('Descriptor')) }}</div>
+                <div class="interfacing-provider-record__meta">{{ descriptor.description|default('') }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No descriptors available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.items is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Items</div>
+        {% if data.items is iterable and data.items is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for item in data.items %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ item.label|default(item.key|default(item.title|default('Item'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ item.description|default(item.value|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No items available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.rows is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Rows</div>
+        {% if data.rows is iterable and data.rows is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for row in data.rows %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ row.label|default(row.title|default(row.key|default('Row'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ row.description|default(row.value|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No rows available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.shapes is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Shapes</div>
+        {% if data.shapes is iterable and data.shapes is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for shape in data.shapes %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ shape.label|default(shape.title|default(shape.key|default('Shape'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ shape.description|default(shape.value|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No shapes available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.steps is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Steps</div>
+        {% if data.steps is iterable and data.steps is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for step in data.steps %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ step.label|default(step.title|default(step.key|default('Step'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ step.description|default(step.value|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No steps available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.scenarios is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Scenarios</div>
+        {% if data.scenarios is iterable and data.scenarios is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for scenario in data.scenarios %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ scenario.label|default(scenario.title|default(scenario.key|default('Scenario'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ scenario.description|default(scenario.value|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No scenarios available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.operations is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if data.operations is iterable and data.operations is not empty %}
+          {% for operation in data.operations %}
+            <article class="interfacing-provider-fallback-panel">
+              <div class="interfacing-provider-fallback-panel-title">Operation</div>
+              <div class="interfacing-strong">{{ operation.type|default(operation.label|default('Operation')) }}</div>
+              {% if operation.form is defined and operation.form %}
+                <div style="margin-top: 12px;">
+                  {{ form_start(operation.form) }}
+                  {{ form_widget(operation.form) }}
+                  {{ form_end(operation.form) }}
+                </div>
+              {% endif %}
+            </article>
+          {% endfor %}
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.recentRuns is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Recent runs</div>
+        {% if data.recentRuns is iterable and data.recentRuns is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for run in data.recentRuns %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ run.operationKey|default(run.operationType|default('Run')) }}</div>
+                <div class="interfacing-provider-record__meta">{{ run.status|default('') }}{% if run.createdAt is defined %} · {{ run.createdAt }}{% endif %}</div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No recent runs available.</div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.report is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Report</div>
+        {% if data.report is iterable %}
+          <dl class="interfacing-provider-fallback-definition-list">
+            {% for key, value in data.report %}
+              <div class="interfacing-definition-row">
+                <dt>{{ key }}</dt>
+                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+              </div>
+            {% endfor %}
+          </dl>
+        {% elseif data.report is not empty %}
+          <pre class="interfacing-provider-fallback-list">{{ data.report }}</pre>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.redirect_to is defined and data.redirect_to is not empty %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Next</div>
+        <a class="interfacing-link-button" href="{{ data.redirect_to }}">Continue</a>
+      </section>
+    {% endif %}
+
+    {% if summary_json is defined and summary_json is not empty %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Summary</div>
+        <pre class="interfacing-provider-fallback-list">{{ summary_json }}</pre>
+      </section>
+    {% endif %}
+
+    {% if data.operationRun is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Operation run</div>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <div class="interfacing-definition-row">
+            <dt>Operation key</dt>
+            <dd>{{ data.operationRun.operationKey|default(data.operationRun.key|default('n/a')) }}</dd>
+          </div>
+          <div class="interfacing-definition-row">
+            <dt>Status</dt>
+            <dd>{{ data.operationRun.status|default('n/a') }}</dd>
+          </div>
+          <div class="interfacing-definition-row">
+            <dt>Created at</dt>
+            <dd>{{ data.operationRun.createdAt|default('n/a') }}</dd>
+          </div>
+          <div class="interfacing-definition-row">
+            <dt>Updated at</dt>
+            <dd>{{ data.operationRun.updatedAt|default('n/a') }}</dd>
+          </div>
+        </dl>
+        {% if data.reportUrl is defined %}
+          <div style="margin-top: 10px;">
+            <a class="interfacing-link-button" href="{{ data.reportUrl }}">Open report</a>
+          </div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if data.applications is defined or data.tools is defined %}
+      <section class="interfacing-provider-fallback-grid">
+        {% if data.applications is defined %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Applications</div>
+            <div class="interfacing-provider-record-list">
+              {% if data.applications is iterable and data.applications is not empty %}
+                {% for application in data.applications %}
+                  <div class="interfacing-provider-record">
+                    <div class="interfacing-provider-record__title">{{ application.label|default(application.code|default(application.id|default('Application'))) }}</div>
+                    <div class="interfacing-provider-record__meta">{{ application.description|default(application.status|default('')) }}</div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div class="interfacing-provider-record interfacing-provider-record--empty">No applications available.</div>
+              {% endif %}
+            </div>
+          </article>
+        {% endif %}
+
+        {% if data.tools is defined %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Tools</div>
+            <div class="interfacing-provider-record-list">
+              {% if data.tools is iterable and data.tools is not empty %}
+                {% for tool in data.tools %}
+                  <div class="interfacing-provider-record">
+                    <div class="interfacing-provider-record__title">{{ tool.label|default(tool.toolCode|default(tool.id|default('Tool'))) }}</div>
+                    <div class="interfacing-provider-record__meta">{{ tool.description|default(tool.status|default('')) }}</div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div class="interfacing-provider-record interfacing-provider-record--empty">No tools available.</div>
+              {% endif %}
+            </div>
+          </article>
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if form is defined and form %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Form</div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+      </section>
+    {% endif %}
+
+    {% if data.table_sections is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if data.table_sections is iterable and data.table_sections is not empty %}
+          {% for section in data.table_sections %}
+            <article class="interfacing-provider-fallback-panel">
+              <div class="interfacing-provider-fallback-panel-title">{{ section.title|default('Table') }}</div>
+              {% if section.headers is defined and section.headers is iterable and section.headers is not empty %}
+                <div class="interfacing-provider-record-list">
+                  {% for row in section.rows|default([]) %}
+                    <div class="interfacing-provider-record">
+                      {% for header in section.headers %}
+                        <div><strong>{{ header }}:</strong> {{ row[header]|default('') }}</div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% else %}
+                <div class="interfacing-provider-record interfacing-provider-record--empty">No rows available.</div>
+              {% endif %}
+            </article>
+          {% endfor %}
+        {% endif %}
+      </section>
+    {% endif %}
+
+    {% if result_title is defined or result_json is defined or error_message is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if result_title is defined and result_title is not empty %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Result</div>
+            <div class="interfacing-strong">{{ result_title }}</div>
+            {% if result_html is defined and result_html is not empty %}
+              <div style="margin-top: 8px;">{{ result_html|raw }}</div>
+            {% endif %}
+          </article>
+        {% endif %}
+
+        {% if result_json is defined and result_json is not empty %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Payload</div>
+            <pre class="interfacing-provider-fallback-list">{{ result_json }}</pre>
+          </article>
+        {% endif %}
+
+        {% if error_message is defined and error_message is not empty %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Error</div>
+            <div class="interfacing-provider-record interfacing-provider-record--empty">{{ error_message }}</div>
+          </article>
+        {% endif %}
+      </section>
+    {% endif %}
+  </section>
+{% endblock %}

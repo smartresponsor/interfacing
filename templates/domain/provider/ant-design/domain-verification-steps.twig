@@ -1,0 +1,21 @@
+{% set status = verification.status|default(verification.verificationStatus|default('pending')) %}
+{% set recordType = verification.recordType|default(verification.record_type|default('TXT')) %}
+{% set recordName = verification.recordName|default(verification.record_name|default('_smartresponsor')) %}
+{% set recordValue = verification.recordValue|default(verification.record_value|default('sr-domain-verification=...')) %}
+
+<div class="ant-card ant-card-bordered interfacing-domain-ant-steps" data-ui-provider="ant-design" data-ui-component="Steps,Alert,Typography">
+  <div class="ant-card-body">
+    <ol class="ant-steps ant-steps-horizontal">
+      <li class="ant-steps-item ant-steps-item-finish">Claim domain</li>
+      <li class="ant-steps-item {{ status in ['verified', 'active'] ? 'ant-steps-item-finish' : 'ant-steps-item-process' }}">Add DNS record</li>
+      <li class="ant-steps-item {{ status in ['verified', 'active'] ? 'ant-steps-item-finish' : 'ant-steps-item-wait' }}">Verify ownership</li>
+      <li class="ant-steps-item {{ status == 'active' ? 'ant-steps-item-finish' : 'ant-steps-item-wait' }}">Prepare publication</li>
+    </ol>
+
+    <div class="ant-alert ant-alert-warning interfacing-domain-dns-record" role="note">
+      <strong>{{ recordType }}</strong>
+      <code>{{ recordName }}</code>
+      <code>{{ recordValue }}</code>
+    </div>
+  </div>
+</div>

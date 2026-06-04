@@ -1,0 +1,14 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% block page_content %}
+  <section class="interfacing-provider-fallback-page" data-interfacing-vendor-identity="true">
+    <header class="interfacing-provider-fallback-card interfacing-provider-fallback-header">
+      <div class="interfacing-provider-fallback-heading">
+        <div class="interfacing-eyebrow interfacing-eyebrow--flush">Vendor identity</div>
+        <h1 class="interfacing-provider-fallback-title">{{ title|default('Vendor identity') }}</h1>
+        <p class="interfacing-provider-fallback-description">Provider-owned vendor identity surface rendered through the canonical Interfacing base.</p>
+      </div>
+    </header>
+  </section>
+{% endblock %}

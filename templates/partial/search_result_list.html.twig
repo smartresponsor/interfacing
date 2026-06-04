@@ -1,0 +1,13 @@
+{# Shared search result list partial. #}
+{% set results = results|default(data.results|default(data.items|default(data.records|default([])))) %}
+<section class="interfacing-search-result-list" data-ui-zone="search-result-list">
+  <header>
+    <h3>{{ title|default('Search results') }}</h3>
+    <p>{{ subtitle|default('Ranked records, matching snippets, facets, and permission-aware result context.') }}</p>
+  </header>
+  {% if results is iterable and results is not empty %}
+    {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Results', records: results, emptyLabel: 'No results were provided.', limit: limit|default(15)} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No results', message: 'Try a broader query or adjust filters.'} only %}
+  {% endif %}
+</section>

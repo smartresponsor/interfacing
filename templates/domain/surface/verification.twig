@@ -1,0 +1,18 @@
+{% set currentVerification = verification|default({}) %}
+{% set currentBinding = binding|default({}) %}
+<section class="interfacing-domain-panel interfacing-domain-panel--verification" data-ui-provider="ant-design" data-ui-role="steps-alert-instruction">
+  <div class="interfacing-domain-panel__heading">
+    <h2>DNS ownership verification</h2>
+    <p>Ant Design steps and alert patterns are used for the user-facing DNS instruction flow.</p>
+  </div>
+
+  {% include 'domain/provider/ant-design/domain-verification-steps.twig' with {
+    verification: currentVerification,
+    binding: currentBinding
+  } only %}
+
+  {% include 'domain/partial/location_bucket.twig' with {
+    bucket: locations['verification.after']|default([]),
+    empty_label: 'No additional verification messages.'
+  } only %}
+</section>

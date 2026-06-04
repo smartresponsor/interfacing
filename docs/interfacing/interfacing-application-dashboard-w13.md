@@ -13,7 +13,7 @@ The dashboard makes connected, canonical, and planned Smart Responsor component 
 
 ## Contract
 
-The dashboard is generated from the existing CRUD resource explorer contributions. Each resource keeps the CRUD bridge URL grammar used by the generic CRUD bridge:
+The dashboard is generated from the existing CRUD resource explorer contributions. Each resource keeps the scoped CRUD handoff URL grammar used by the internal CRUD handoff:
 
 - index
 - new

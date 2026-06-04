@@ -1,0 +1,27 @@
+{% set items = component.state.collection.items ?? [] %}
+<div class="interfacing-live-card">
+  <div class="interfacing-live-card__title">{{ block.props.title }}</div>
+  {% if block.props.subtitle is defined %}
+    <div class="interfacing-live-card__subtitle">{{ block.props.subtitle }}</div>
+  {% endif %}
+  <div class="interfacing-live-list">
+    {% for item in items %}
+      <article class="interfacing-provider-record">
+        <div class="interfacing-provider-record__title">{{ item.title ?? item.name ?? ('Item ' ~ loop.index) }}</div>
+        {% if item.subtitle is defined %}
+          <div class="interfacing-provider-record__meta">{{ item.subtitle }}</div>
+        {% endif %}
+        {% if item.body is defined %}
+          <div class="interfacing-provider-record__meta">{{ item.body }}</div>
+        {% endif %}
+        {% if item.action is defined %}
+          <div class="interfacing-action-row interfacing-action-row--compact-spaced">
+            <a class="interfacing-link-button" href="{{ item.action.href|default('#') }}">{{ item.action.label|default('Open') }}</a>
+          </div>
+        {% endif %}
+      </article>
+    {% else %}
+      <div class="interfacing-provider-record interfacing-provider-record--empty">No items.</div>
+    {% endfor %}
+  </div>
+</div>

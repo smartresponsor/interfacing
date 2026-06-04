@@ -1,0 +1,15 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{#
+  Thin Billing surface adapter.
+
+  This file must remain a local adapter to the canonical Interfacing document base.
+  Visible provider/workbench markup belongs in billing/surface.html.twig or a concrete page template,
+  not in this base file.
+#}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% block title %}{{ title|default('Billing') }}{% endblock %}
+
+{% block body %}
+  {% block billing_body %}{% endblock %}
+{% endblock %}

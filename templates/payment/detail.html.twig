@@ -1,0 +1,11 @@
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'payment', operationKey:'detail', title:title|default('Payment detail'), subtitle:meta.description|default('Payment intent, method, settlement and refund context.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
+  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.payment|default(data.detail|default({})), title:'Payment state'} only %}
+  <section class="interfacing-provider-fallback-grid" data-ui-zone="payment-detail-layout">
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Method', record:data.method|default(data.paymentMethod|default({})), emptyLabel:'No payment method details are available yet.', limit:8} only %}
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Settlement', record:data.settlement|default({}), emptyLabel:'No settlement data is available yet.', limit:8} only %}
+  </section>
+{% endblock %}

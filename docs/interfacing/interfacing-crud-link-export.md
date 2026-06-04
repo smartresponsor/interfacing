@@ -17,6 +17,6 @@ The endpoint publishes:
 
 The export is an Interfacing navigation contract. It does not claim that an owning component has already implemented persistence or business handlers. Planned resources intentionally resolve through the generic bridge so the host application can expose real address-bar links before every component is wired.
 
-## EasyAdmin compensation
+## admin-provider compensation
 
-This gives the host application a quick replacement for the default EasyAdmin route index habit: operators can see, click and export every known Smart Responsor CRUD surface from one place.
+This gives the host application a quick replacement for the default admin-generator route index habit: operators can see, click and export every known Smart Responsor CRUD surface from one place.

@@ -1,0 +1,38 @@
+{# Shared filter/search/sort bar for catalog, category, and product surfaces. #}
+{% set data = data|default({}) %}
+{% set meta = meta|default({}) %}
+{% set filters = filters|default(data.filters|default(data.facets|default([]))) %}
+{% set sortOptions = sortOptions|default(data.sortOptions|default(meta.sortOptions|default([]))) %}
+{% set query = query|default(data.query|default(app.request.query.get('q', ''))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="filter-bar" data-surface="{{ surfaceKey|default(surface|default('commerce'))|e('html_attr') }}" data-operation="{{ operationKey|default(operation|default('index'))|e('html_attr') }}">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Find and refine') }}</div>
+  <form method="get" action="{{ action|default(app.request.pathInfo) }}" data-ui-zone="filter-form">
+    <div class="interfacing-provider-fallback-grid" style="align-items: end;">
+      <label data-ui-zone="filter-query">
+        <span class="interfacing-provider-record__meta">Search</span>
+        <input name="{{ queryName|default('q') }}" value="{{ query }}" placeholder="{{ placeholder|default('Search by title, SKU, category, vendor, or tag') }}" style="width: 100%;">
+      </label>
+      {% if sortOptions is iterable and sortOptions is not empty %}
+        <label data-ui-zone="filter-sort">
+          <span class="interfacing-provider-record__meta">Sort</span>
+          <select name="sort" style="width: 100%;">
+            {% for option in sortOptions %}
+              {% set optionValue = option.value|default(option.id|default(option.key|default(option))) %}
+              <option value="{{ optionValue }}" {{ optionValue == data.sort|default(app.request.query.get('sort', '')) ? 'selected' : '' }}>{{ option.label|default(option.title|default(optionValue|replace({'_':' ', '-':' '})|title)) }}</option>
+            {% endfor %}
+          </select>
+        </label>
+      {% endif %}
+      <button class="interfacing-link-button" type="submit">Apply</button>
+    </div>
+  </form>
+  {% if filters is iterable and filters is not empty %}
+    <div data-ui-zone="facet-chip-list" style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+      {% for filter in filters|slice(0, limit|default(16)) %}
+        {% set label = filter.label|default(filter.title|default(filter.name|default(filter.key|default(filter.id|default('Filter'))))) %}
+        {% set href = filter.url|default(filter.href|default('#')) %}
+        <a class="interfacing-link-button" href="{{ href }}" data-ui-zone="facet-chip">{{ label }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>

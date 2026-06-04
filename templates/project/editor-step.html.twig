@@ -1,0 +1,53 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% set fallbackPayload = {} %}
+
+{% block title %}Project Editor{% endblock %}
+
+{% block page_content %}
+  <section class="interfacing-surface interfacing-surface--project-editor" data-interfacing-surface="project" data-project-step="{{ step|default('base') }}">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Projecting</p>
+      <h1>Project Editor</h1>
+      <p>
+        {% if project|default(null) %}
+          Project #{{ project.id }} · Kind: {{ project.kind.value }} · Step: {{ step }}
+        {% else %}
+          New Project · Step: {{ step|default('base') }}
+        {% endif %}
+      </p>
+    </header>
+
+    {% if stepList is defined and stepList|length > 1 %}
+      <nav class="interfacing-surface__toolbar" aria-label="Project editor steps">
+        {% for s in stepList %}
+          {% set active = (s == step) %}
+          <a href="{{ project ? path('projecting_project_edit', {id: project.id, step: s}) : path('projecting_project_new') }}" class="interfacing-context-link" aria-current="{{ active ? 'step' : 'false' }}">
+            {{ s|replace({'_': ' ', '-': ' '})|title }}
+          </a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+
+    <section class="interfacing-surface__panel">
+      {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <div class="interfacing-surface__toolbar">
+          <button type="submit">Save &amp; Continue</button>
+
+          {% if project|default(null) %}
+            <a href="{{ path('projecting_project_edit', {id: project.id, step: step}) }}" class="interfacing-context-link">Reload</a>
+          {% endif %}
+        </div>
+      {{ form_end(form) }}
+    </section>
+
+    {% if project|default(null) %}
+      <aside class="interfacing-surface__panel">
+        <h2>Authoring note</h2>
+        <p>This editor stores structured project sections. AI suggestions can be layered later without returning rendering control to the controller.</p>
+      </aside>
+    {% endif %}
+  </section>
+{% endblock %}

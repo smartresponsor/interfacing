@@ -4,28 +4,28 @@ Scope
 Flow (Billing)
 - Request: GET /interfacing/billing/meter
 - Context:
-  - tenantId, userId resolved via BaseContextProviderInterface
+  - tenantId, userId resolved via InterfaceBaseContextProviderInterface
 - Access:
   - canOpenScreen("billing-meter", request, token)
 - Data:
-  - BillingMeterQueryServiceInterface::fetchPage(tenantId, page, pageSize, status, periodFrom, periodTo)
+  - InterfaceBillingMeterQueryServiceInterface::fetchPage(tenantId, page, pageSize, status, periodFrom, periodTo)
 - View:
   - meter.html.twig renders filters, grid and pager
 - Audit:
-  - AuditEventType::ScreenOpen with screenId "billing-meter"
+  - InterfaceAuditEventType::ScreenOpen with screenId "billing-meter"
 
 Flow (Order)
 - Request: GET /interfacing/order/summary
 - Context:
-  - tenantId, userId via BaseContextProviderInterface
+  - tenantId, userId via InterfaceBaseContextProviderInterface
 - Access:
   - canOpenScreen("order-summary", request, token)
 - Data:
-  - OrderSummaryQueryServiceInterface::fetchPage(tenantId, page, pageSize, status, createdFrom, createdTo)
+  - InterfaceOrderSummaryQueryServiceInterface::fetchPage(tenantId, page, pageSize, status, createdFrom, createdTo)
 - View:
   - summary.html.twig renders filters, grid and pager
 - Audit:
-  - AuditEventType::ScreenOpen with screenId "order-summary"
+  - InterfaceAuditEventType::ScreenOpen with screenId "order-summary"
 
 SLO notes
 - These screens are thin; main SLO impact is in:

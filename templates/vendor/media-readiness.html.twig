@@ -1,0 +1,21 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor media readiness') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'media-readiness',
+    title:title|default(meta.title|default('Vendor media readiness')),
+    subtitle:meta.description|default('Merchant media readiness, destination constraints, fallback candidates, and policy preference.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Media readiness', records:data.media|default(data.assets|default(data.records|default([]))), emptyLabel:'No media readiness records were provided.'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Media policy', record:data.policy|default(data.preference|default(data.context|default({}))), data:data, meta:meta} only %}
+
+{% endblock %}

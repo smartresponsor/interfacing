@@ -1,0 +1,13 @@
+{# Shared settlement schedule partial for merchant payout and payment operations. #}
+{% set schedule = schedule|default(data.schedule|default(data.settlementSchedule|default([]))) %}
+<section class="interfacing-settlement-schedule" data-ui-zone="settlement-schedule">
+  <header data-ui-zone="panel-header">
+    <h2>{{ title|default('Settlement schedule') }}</h2>
+    <p>{{ subtitle|default('Upcoming payout windows, settlement timing, and processing checkpoints.') }}</p>
+  </header>
+  {% if schedule is iterable and schedule|length > 0 %}
+    {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Schedule', records:schedule, limit:limit|default(8), emptyLabel:'No settlement windows are available.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No settlement schedule', message:'The producer payload did not provide payout schedule entries yet.'} only %}
+  {% endif %}
+</section>

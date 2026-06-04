@@ -1,0 +1,9 @@
+{# Shared saved filter / facet / query state partial. #}
+{% set filters = filters|default(data.filters|default(data.facets|default(data.savedFilters|default({})))) %}
+<section class="interfacing-saved-filter-panel" data-ui-zone="saved-filter-panel">
+  <header>
+    <h3>{{ title|default('Filters') }}</h3>
+    <p>{{ subtitle|default('Search filters, facets, scopes, sorting and saved query context.') }}</p>
+  </header>
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Filter context', record: filters, limit: limit|default(10), data: data|default({}), meta: meta|default({})} only %}
+</section>

@@ -1,0 +1,104 @@
+{% extends '@Interfacing/order/base.html.twig' %}
+
+{% set orders = orders|default([]) %}
+{% set createForm = createForm|default(null) %}
+{% set paymentForms = paymentForms|default({}) %}
+{% set shipmentForms = shipmentForms|default({}) %}
+{% set refundForms = refundForms|default({}) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
+
+{% block title %}Order Management{% endblock %}
+
+{% block body %}
+  <main class="interfacing-surface interfacing-surface--order">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Ordering</p>
+      <h1>Create demo order</h1>
+      <p>Canonical order surface rendered from the `order` business word.</p>
+    </header>
+
+    <section class="interfacing-surface__grid">
+      {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
+
+          {% if slotKey == 'left.panel' and value is iterable %}
+            {% if value.createForm is defined and value.createForm is not null %}
+              {{ form_start(value.createForm) }}
+              <div class="interfacing-surface__form-stack">
+                {{ form_row(value.createForm.currency) }}
+                {{ form_row(value.createForm.grandTotal) }}
+              </div>
+              {{ form_row(value.createForm.submit, { attr: { class: 'btn btn-primary' } }) }}
+              {{ form_end(value.createForm) }}
+            {% endif %}
+          {% elseif slotKey == 'main.body' and value is iterable %}
+            {% if orders is empty %}
+              <div class="interfacing-surface__empty">Load fixtures or create an order to start the demo flow.</div>
+            {% else %}
+              <div class="interfacing-surface__card-grid">
+                {% for order in orders %}
+                  <article class="interfacing-surface__card">
+                    <p>{{ order.slug }}</p>
+                    <h3>{{ order.number|default(order.slug) }}</h3>
+                    <p>Status: {{ order.status|upper }} | Currency: {{ order.currency }} | Created: {{ order.createdAt|date('Y-m-d H:i') }}</p>
+                    <p>Grand: {{ order.grandTotal }} | Paid: {{ order.paidTotal }} | Refunded: {{ order.refundedTotal }}</p>
+
+                    <div class="interfacing-surface__card-actions">
+                      {% if paymentForms[order.slug] is defined %}
+                        {{ form_start(paymentForms[order.slug]) }}
+                        {{ form_row(paymentForms[order.slug].amount) }}
+                        {{ form_row(paymentForms[order.slug].externalRef) }}
+                        {{ form_row(paymentForms[order.slug].submit, { attr: { class: 'btn btn-outline-success w-100' } }) }}
+                        {{ form_end(paymentForms[order.slug]) }}
+                      {% endif %}
+
+                      {% if shipmentForms[order.slug] is defined %}
+                        {{ form_start(shipmentForms[order.slug]) }}
+                        {{ form_row(shipmentForms[order.slug].carrier) }}
+                        {{ form_row(shipmentForms[order.slug].note) }}
+                        {{ form_row(shipmentForms[order.slug].submit, { attr: { class: 'btn btn-outline-primary w-100' } }) }}
+                        {{ form_end(shipmentForms[order.slug]) }}
+                      {% endif %}
+
+                      {% if refundForms[order.slug] is defined %}
+                        {{ form_start(refundForms[order.slug]) }}
+                        {{ form_row(refundForms[order.slug].amount) }}
+                        {{ form_row(refundForms[order.slug].reason) }}
+                        {{ form_row(refundForms[order.slug].submit, { attr: { class: 'btn btn-outline-danger w-100' } }) }}
+                        {{ form_end(refundForms[order.slug]) }}
+                      {% endif %}
+                    </div>
+                  </article>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% elseif slotKey == 'right.panel' and value is iterable %}
+            <dl class="interfacing-surface__stats">
+              <div>
+                <dt>Orders</dt>
+                <dd>{{ value.orderCount|default(0) }}</dd>
+              </div>
+            </dl>
+
+            {% if value.statuses is iterable and value.statuses is not empty %}
+              <pre class="interfacing-surface__meta-block">{{ value.statuses|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+            {% endif %}
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </section>
+  </main>
+{% endblock %}

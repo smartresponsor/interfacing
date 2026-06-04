@@ -1,0 +1,19 @@
+surface: shipment
+owner: Interfacing
+purpose: Shipment, carrier, rate, tracking, label, delivery, and exception support surfaces.
+operations:
+  tracking:
+    expects: [tracking, shipment, events, carrier, actions]
+  rate:
+    expects: [rates, shippingRates, address, package, actions]
+  label:
+    expects: [label, file, shipment, tracking, actions]
+  delivery:
+    expects: [delivery, tracking, address, timeline, actions]
+  carrier:
+    expects: [carrier, rates, services, actions]
+  exception:
+    expects: [exceptions, tracking, shipment, actions]
+notes:
+  - Shipment producer components own carrier logic and labels.
+  - Interfacing owns only Twig rendering and reusable support partials.

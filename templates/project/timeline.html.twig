@@ -1,0 +1,16 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Project timeline') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey: 'project', operationKey: 'timeline', title: title|default(meta.title|default('Project timeline')),
+    subtitle: meta.description|default('Milestones, delivery checkpoints, funding events, and moderation history.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
+  } only %}
+  <section style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .9fr); gap: 16px;" data-ui-zone="project-timeline-layout">
+    {% include '@Interfacing/partial/project_milestone_timeline.html.twig' with {milestones: data.milestones|default(data.timeline|default(data.events|default([])))} only %}
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Timeline context', record: data.context|default(data.project|default(meta|default({}))), data: data, meta: meta} only %}
+  </section>
+{% endblock %}

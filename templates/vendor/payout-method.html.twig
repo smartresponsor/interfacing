@@ -1,0 +1,21 @@
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Payout method') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {
+    surfaceKey:'vendor',
+    operationKey:'payout-method',
+    title:title|default(meta.title|default('Payout method')),
+    subtitle:meta.description|default('Payout destination, method verification, provider references, and readiness details.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
+  } only %}
+
+  {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.method|default(data.payoutMethod|default(data.payoutAccount|default({}))), title:'Payout method', data:data} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Verification context', record:data.verification|default(data.context|default({})), data:data, meta:meta} only %}
+
+{% endblock %}

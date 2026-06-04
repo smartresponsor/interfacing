@@ -1,0 +1,18 @@
+{# Shared promotion/coupon panel partial. #}
+{% set promotions = promotions|default([]) %}
+<section class="interfacing-promotion-panel" data-ui-zone="promotion-panel" style="border:1px solid #e5e7eb;border-radius:18px;padding:16px;background:#fff;">
+  <h3 style="margin:0 0 10px;">{{ title|default('Promotion') }}</h3>
+  {% if promotions is iterable and promotions|length > 0 %}
+    <ul style="display:grid;gap:8px;margin:0;padding:0;list-style:none;">
+      {% for promotion in promotions %}
+        {% set item = promotion is iterable ? promotion : {'code': promotion} %}
+        <li style="display:flex;justify-content:space-between;gap:12px;border:1px solid #f3f4f6;border-radius:12px;padding:10px;">
+          <span>{{ item.code|default(item.title|default('Promotion #' ~ loop.index)) }}</span>
+          <strong>{{ item.amount|default(item.discount|default(item.status|default('active'))) }}</strong>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p style="margin:0;color:#6b7280;">{{ emptyLabel|default('No promotion has been applied yet.') }}</p>
+  {% endif %}
+</section>

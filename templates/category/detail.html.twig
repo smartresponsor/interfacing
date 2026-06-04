@@ -1,0 +1,16 @@
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/category/base.html.twig' %}
+{% block title %}{{ title|default('Category detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'category', operationKey: 'detail', title: title|default(meta.title|default('Category detail')), subtitle: meta.description|default('Category detail, merchandising rules, and product placement.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Cataloging'))} only %}
+  <section class="interfacing-provider-fallback-grid" data-ui-zone="category-detail-layout" style="margin-top: 16px;">
+    <article data-ui-zone="category-detail">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Category', record: data.category|default(data.detail|default(data.context|default({}))), data: data, meta: meta, limit: 18} only %}
+    </article>
+    <aside data-ui-zone="category-products">
+      {% include '@Interfacing/partial/product_grid.html.twig' with {products: data.products|default(data.items|default([])), data: data, title: 'Products in category'} only %}
+    </aside>
+  </section>
+{% endblock %}

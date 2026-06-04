@@ -1,0 +1,19 @@
+{% set step = component.state.wizard.step ?? 0 %}
+{% set steps = block.props.steps ?? [] %}
+{% set active = steps[step] ?? {} %}
+<div class="interfacing-live-card">
+  <div class="interfacing-live-card__title">{{ block.props.title }}</div>
+  <div class="interfacing-live-chip-list">
+    {% for item in steps %}
+      <div class="interfacing-live-chip{% if loop.index0 == step %} is-active{% endif %}">{{ item.label|default(loop.index) }}</div>
+    {% endfor %}
+  </div>
+  <div class="interfacing-live-card__title">{{ active.title|default('Step') }}</div>
+  {% if active.body is defined %}
+    <div class="interfacing-live-card__subtitle">{{ active.body }}</div>
+  {% endif %}
+  <div class="interfacing-action-row interfacing-action-row--compact-spaced">
+    <button class="interfacing-link-button" type="button">Back</button>
+    <button class="interfacing-link-button interfacing-link-button--primary" type="button">Next</button>
+  </div>
+</div>

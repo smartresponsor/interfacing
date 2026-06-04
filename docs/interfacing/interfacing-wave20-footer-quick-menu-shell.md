@@ -19,7 +19,7 @@ The canonical footer groups are:
 - `System links`
 - `Support & policy`
 
-`ShellFooterProvider` also keeps a dedicated `Locale` group because it has request-aware locale-selector state.
+`InterfaceShellFooterProviderService` also keeps a dedicated `Locale` group because it has request-aware locale-selector state.
 
 ## Quick menu taxonomy
 
@@ -37,4 +37,4 @@ The menu is intentionally HTML/CSS-only through `<details>` so it works in the s
 - No CRUD bridge URLs were changed.
 - The footer is available through `shell.footerGroup`.
 - The quick menu is available through `shell.quickMenuGroup`.
-- Existing `InterfacingRendererInterface` shell injection continues to make the footer available to all templates using the canonical base shell.
+- Existing `InterfaceRendererInterface` shell injection continues to make the footer available to all templates using the canonical base shell.

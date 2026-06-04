@@ -1,0 +1,79 @@
+{% extends '@Interfacing/catalog/base.html.twig' %}
+{% set showcase = showcase|default({}) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
+
+{% block title %}Catalog{% endblock %}
+
+{% block body %}
+  <main class="interfacing-surface interfacing-surface--catalog">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Catalog</p>
+      <h1>Catalog</h1>
+      <p>Canonical catalog surface rendered from the `catalog` business word.</p>
+    </header>
+
+    <section class="interfacing-surface__grid">
+        {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
+
+          {% if slotKey == 'top.search' and value is iterable %}
+            <form method="{{ value.method|default('get') }}" action="{{ value.action|default('/catalog/') }}" class="interfacing-surface__search">
+              <input name="{{ value.queryName|default('q') }}" value="{{ value.query|default('') }}" placeholder="{{ value.placeholder|default('Search catalog...') }}">
+              <button type="submit">Search</button>
+            </form>
+          {% elseif slotKey == 'left.panel' and value is iterable %}
+            <ul>
+              {% for filter in value.filters|default([]) %}
+                <li><a href="{{ filter.url|default('#') }}">{{ filter.title|default(filter.id|default('Filter')) }}</a></li>
+              {% endfor %}
+            </ul>
+          {% elseif slotKey == 'main.body' and value is iterable %}
+            {% for section in value.sections|default([]) %}
+              <section class="interfacing-surface__section">
+                <h3>{{ section.title|default('Section') }}</h3>
+                <p>{{ section.summary|default('') }}</p>
+                <div class="interfacing-surface__card-grid">
+                  {% for card in section.cards|default([]) %}
+                    <article class="interfacing-surface__card">
+                      <p>{{ card.eyebrow|default('Category') }}</p>
+                      <h4>{{ card.title|default('Category') }}</h4>
+                      <p>{{ card.summary|default('') }}</p>
+                      <a href="{{ card.href|default('#') }}">Open</a>
+                    </article>
+                  {% endfor %}
+                </div>
+              </section>
+            {% endfor %}
+          {% elseif slotKey == 'right.panel' and value is iterable %}
+            <dl class="interfacing-surface__stats">
+              {% for stat in value.stats|default([]) %}
+                <div>
+                  <dt>{{ stat.label|default('Stat') }}</dt>
+                  <dd>{{ stat.value|default('0') }}</dd>
+                </div>
+              {% endfor %}
+            </dl>
+            <div class="interfacing-surface__actions">
+              {% for action in value.actions|default([]) %}
+                <a href="{{ action.url|default('#') }}">{{ action.title|default('Open') }}</a>
+              {% endfor %}
+            </div>
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </section>
+  </main>
+{% endblock %}

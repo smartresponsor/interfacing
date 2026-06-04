@@ -1,0 +1,18 @@
+<article id="{{ message.id }}" class="interfacing-message-card">
+  <div class="interfacing-message-card__header">
+    <div>
+      <p class="interfacing-message-card__from">{{ message.from }}</p>
+      <h3 class="interfacing-message-card__title">{{ message.title }}</h3>
+    </div>
+    <span class="interfacing-badge">{{ message.status }}</span>
+  </div>
+  <p class="interfacing-card-summary">{{ message.summary }}</p>
+  <div class="interfacing-message-card__footer">
+    <div class="interfacing-message-card__tags">
+      {% for tag in message.tags|default([]) %}
+        <span class="interfacing-tag interfacing-tag--light">{{ tag }}</span>
+      {% endfor %}
+    </div>
+    <span class="interfacing-message-card__time">{{ message.time }}</span>
+  </div>
+</article>
