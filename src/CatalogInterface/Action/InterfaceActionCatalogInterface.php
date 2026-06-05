@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Interfacing\CatalogInterface\Action;
 
 use App\Interfacing\Contract\ValueObject\InterfaceActionIdInterface;
+use App\Interfacing\EndpointInterface\Action\InterfaceActionEndpointInterface;
 
 interface InterfaceActionCatalogInterface
 {
