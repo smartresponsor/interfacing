@@ -1,4 +1,1 @@
-# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-# Generic CRUD catch-all handoff routes were removed from Interfacing.
-# CRUD route/controller ownership belongs to Cruding or to the host producer component.
-# This file is intentionally route-empty for BC with kernels importing config/routes/*.yaml.
+# Route file intentionally left without public Interfacing route exposure.

@@ -780,10 +780,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     controllers_json?: scalar|Param|null, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
  * }
- * @psalm-type LiveComponentConfig = array{
- *     secret?: scalar|Param|null, // The secret used to compute fingerprints and checksums // Default: "%kernel.secret%"
- *     fetch_credentials?: "same-origin"|"include"|"omit"|Param, // The default fetch credentials mode for all Live Components ('same-origin', 'include', 'omit') // Default: "same-origin"
- * }
  * @psalm-type DebugConfig = array{
  *     max_items?: int|Param, // Max number of displayed items past the first level, -1 means no limit. // Default: 2500
  *     min_depth?: int|Param, // Minimum tree depth to clone all the items, 1 is default. // Default: 1
@@ -813,7 +809,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     twig_extra?: TwigExtraConfig,
  *     stimulus?: StimulusConfig,
  *     twig_component?: TwigComponentConfig,
- *     live_component?: LiveComponentConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,
@@ -823,7 +818,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         stimulus?: StimulusConfig,
  *         twig_component?: TwigComponentConfig,
- *         live_component?: LiveComponentConfig,
  *         debug?: DebugConfig,
  *         maker?: MakerConfig,
  *         web_profiler?: WebProfilerConfig,
@@ -837,7 +831,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         stimulus?: StimulusConfig,
  *         twig_component?: TwigComponentConfig,
- *         live_component?: LiveComponentConfig,
  *     },
  *     "when@test"?: array{
  *         imports?: ImportsConfig,
@@ -848,7 +841,6 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *         twig_extra?: TwigExtraConfig,
  *         stimulus?: StimulusConfig,
  *         twig_component?: TwigComponentConfig,
- *         live_component?: LiveComponentConfig,
  *         debug?: DebugConfig,
  *         web_profiler?: WebProfilerConfig,
  *     },

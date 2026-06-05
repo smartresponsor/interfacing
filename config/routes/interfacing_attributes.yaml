@@ -1,5 +1,1 @@
-# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-# Canonical attribute route imports for Interfacing-owned controllers.
-# Keep broad/catch-all controllers last so specific screen routes win first.
-
-
+# Route file intentionally left without public Interfacing route exposure.

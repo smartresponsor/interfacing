@@ -1,4 +1,2 @@
-# This standalone kernel imports config/routes/*.yaml.
-# Keep this file for Symfony host compatibility only.
-# Canonical Interfacing controller route imports live in:
-#   config/routes/interfacing_attributes.yaml
+# Interfacing route imports intentionally disabled.
+# This package is route-less; host applications own public HTTP entrypoints.

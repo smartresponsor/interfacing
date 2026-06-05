@@ -6,7 +6,6 @@ namespace App\Interfacing\Service\Rendering;
 
 use App\Interfacing\Contract\Surface\InterfaceSurfaceRenderableInterface;
 use App\Interfacing\Contract\ValueObject\InterfaceShellSlot;
-use App\Interfacing\ProviderInterface\Shell\InterfaceShellChromeProviderInterface;
 use App\Interfacing\ServiceInterface\Rendering\InterfaceRendererInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +16,6 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
 {
     public function __construct(
         private Environment $twig,
-        private InterfaceShellChromeProviderInterface $shellChromeProvider,
         #[Autowire(service: 'profiler')]
         private ?Profiler $profiler = null,
     ) {
@@ -57,7 +55,7 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
         $activeId = isset($context['screenId']) && is_string($context['screenId']) ? $context['screenId'] : null;
 
         if (!array_key_exists('shell', $context) || null === $context['shell']) {
-            $context['shell'] = $this->shellChromeProvider->provide($activeId);
+            $context['shell'] = [];
         }
 
         if (($context['shellCompact'] ?? false) && is_array($context['shell'])) {

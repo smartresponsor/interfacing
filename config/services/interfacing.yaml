@@ -1,23 +1,5 @@
 parameters:
   env(SR_TENANT_DEFAULT): 'default'
-  env(SR_BILLING_API_BASE): 'http://127.0.0.1'
-  env(SR_BILLING_API_METER_PATH): '/billing/meter'
-  env(SR_ORDER_API_BASE): 'http://127.0.0.1'
-  env(SR_ORDER_API_SUMMARY_PATH): '/order/summary'
-  env(INTERFACING_CATEGORY_API_BASE_URL): 'http://127.0.0.1:8080'
-  env(INTERFACING_CATEGORY_API_TIMEOUT_MS): '2500'
-  env(INTERFACING_CATEGORY_API_LIST_PATH): '/category/admin/category'
-  env(INTERFACING_CATEGORY_API_READ_PATH): '/category/admin/category/{id}'
-  env(INTERFACING_CATEGORY_API_SAVE_PATH): '/category/admin/category/{id}'
-  interfacing.demo_user_profile_path: '%kernel.project_dir%/var/interfacing/demo-user-profile.json'
-  interfacing.screens:
-    - { id: 'billing-meter', route: 'interfacing_billing_meter', domain: 'billing', notes: 'Billing meter grid' }
-    - { id: 'order-summary', route: 'interfacing_order_summary', domain: 'order', notes: 'Order summary grid' }
-    - { id: 'message.digest', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging digest screen' }
-    - { id: 'message.notification.inbox', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging notification inbox screen' }
-    - { id: 'message.search.result', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging search results screen' }
-    - { id: 'message.room.collection', route: 'interfacing_screen_controller', domain: 'message', notes: 'Messaging rooms collection screen' }
-
 services:
   _defaults:
     autowire: true
@@ -26,13 +8,4 @@ services:
   _instanceof:
     App\Interfacing\ProviderInterface\InterfaceScreenProviderInterface:
       tags: ['interfacing.screen_provider']
-
-    App\Interfacing\ProviderInterface\InterfaceActionProviderInterface:
-      tags: ['interfacing.action_provider']
-
-    App\Interfacing\ProviderInterface\Layout\InterfaceLayoutProviderInterface:
-      tags: ['interfacing.layout_provider']
-
-    App\Interfacing\ProviderInterface\Runtime\InterfaceScreenProviderInterface:
-      tags: ['interfacing.runtime_screen_provider']
 

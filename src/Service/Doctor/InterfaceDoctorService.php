@@ -18,13 +18,11 @@ use App\Interfacing\RegistryInterface\Widget\Wizard\InterfaceWizardHandlerRegist
 use App\Interfacing\ServiceInterface\Doctor\InterfaceDoctorInterface;
 use App\Interfacing\ServiceInterface\Doctor\InterfaceDoctorReportInterface;
 use App\Interfacing\ServiceInterface\Doctor\InterfaceDoctorServiceInterface;
-use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
 final class InterfaceDoctorService implements InterfaceDoctorInterface, InterfaceDoctorServiceInterface
 {
     public function __construct(
-        private readonly RouterInterface $router,
         private readonly Environment $twig,
         private readonly InterfaceLayoutCatalogInterface $layout,
         private readonly InterfaceScreenRegistryInterface $screen,
@@ -38,11 +36,7 @@ final class InterfaceDoctorService implements InterfaceDoctorInterface, Interfac
     {
         $item = [];
 
-        $item[] = $this->checkClass('ux_live_component', 'Symfony\\UX\\LiveComponent\\Attribute\\AsLiveComponent');
         $item[] = $this->checkClass('ux_twig_component', 'Symfony\\UX\\TwigComponent\\Attribute\\AsTwigComponent');
-
-        $item[] = $this->checkRoute('route_index', 'interfacing_index');
-        $item[] = $this->checkRoute('route_screen_show', 'interfacing_screen_show');
 
         $item[] = $this->checkTwig('twig_index', 'page/index.html.twig');
         $item[] = $this->checkTwig('twig_screen', 'page/screen.html.twig');
@@ -91,17 +85,6 @@ final class InterfaceDoctorService implements InterfaceDoctorInterface, Interfac
             'code' => $code,
             'ok' => class_exists($class),
             'message' => class_exists($class) ? 'ok' : 'missing class: '.$class,
-        ];
-    }
-
-    private function checkRoute(string $code, string $name): array
-    {
-        $route = $this->router->getRouteCollection()->get($name);
-
-        return [
-            'code' => $code,
-            'ok' => null !== $route,
-            'message' => null !== $route ? 'ok' : 'missing route: '.$name,
         ];
     }
 

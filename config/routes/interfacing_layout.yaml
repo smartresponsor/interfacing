@@ -1,4 +1,1 @@
-# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-# Layout routes are scoped under /interfacing/layout to avoid collisions with
-# InterfaceController attribute routes and the generic /interfacing/{id} workspace screen route.
-
+# Route file intentionally left without public Interfacing route exposure.

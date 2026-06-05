@@ -1,18 +1,3 @@
-# Config Manifest
+# Interfacing config manifest
 
-Configuration must support the living Symfony runtime and the governed UI upstream.
-
-Keep:
-- current Interfacing routes and services;
-- Twig/UX LiveComponent integration;
-- health/doctor/observability endpoints.
-
-Evolve toward:
-- component-prefixed config names where practical;
-- explicit feature toggles for facade/workbench zones;
-- minimal, readable config files grouped by concern;
-- Symfony-oriented autowiring/autoconfiguration/container clarity.
-
-## Wave 9 route boundary
-
-Controller-owned routes are imported from `config/routes/interfacing_attributes.yaml`; YAML route files are reserved for provider-handoff/scoped-layout routes.
+This package intentionally exposes no public Interfacing HTTP routes. Route files under `config/routes/` are left as inert placeholders for host compatibility only.

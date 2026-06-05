@@ -32,7 +32,6 @@
         "symfony/string": "8.0.*",
         "symfony/twig-bundle": "8.0.*",
         "symfony/uid": "8.0.*",
-        "symfony/ux-live-component": "^2.35 || ^3.0",
         "symfony/ux-twig-component": "^2.35 || ^3.0",
         "symfony/validator": "8.0.*",
         "symfony/yaml": "8.0.*",
