@@ -42,7 +42,7 @@ final class InterfaceDoctorService implements InterfaceDoctorInterface, Interfac
         $item[] = $this->checkClass('ux_twig_component', 'Symfony\\UX\\TwigComponent\\Attribute\\AsTwigComponent');
 
         $item[] = $this->checkRoute('route_index', 'interfacing_index');
-        $item[] = $this->checkRoute('route_screen', 'interfacing_screen');
+        $item[] = $this->checkRoute('route_screen_show', 'interfacing_screen_show');
 
         $item[] = $this->checkTwig('twig_index', 'page/index.html.twig');
         $item[] = $this->checkTwig('twig_screen', 'page/screen.html.twig');

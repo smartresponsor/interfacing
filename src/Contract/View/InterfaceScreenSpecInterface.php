@@ -19,6 +19,8 @@ interface InterfaceScreenSpecInterface
 
     public function layout(): InterfaceLayoutScreenSpecInterface;
 
+    public function layoutId(): string;
+
     /** @return array<string, mixed> */
     public function defaultState(): array;
 }

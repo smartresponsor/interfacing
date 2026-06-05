@@ -10,6 +10,7 @@ use App\Interfacing\Contract\Ui\InterfaceUiMessage;
 use App\Interfacing\Contract\Ui\InterfaceUiMessageBag;
 use App\Interfacing\MessengerInterface\Ui\InterfaceSessionFlashMessengerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\FlashBagAwareSessionInterface;
 
 final class InterfaceSessionFlashMessenger implements InterfaceSessionFlashMessengerInterface
 {
@@ -22,15 +23,14 @@ final class InterfaceSessionFlashMessenger implements InterfaceSessionFlashMesse
     public function push(InterfaceUiMessage $message): void
     {
         $request = $this->requestStack->getCurrentRequest();
-        if (null === $request) {
-            return;
-        }
-
-        if (!$request->hasSession()) {
+        if (null === $request || !$request->hasSession()) {
             return;
         }
 
         $session = $request->getSession();
+        if (!$session instanceof FlashBagAwareSessionInterface) {
+            return;
+        }
 
         $session->getFlashBag()->add(self::FLASH_KEY, $message->toArray());
     }
@@ -38,18 +38,18 @@ final class InterfaceSessionFlashMessenger implements InterfaceSessionFlashMesse
     public function pull(): InterfaceUiMessageBag
     {
         $request = $this->requestStack->getCurrentRequest();
-        if (null === $request) {
-            return new InterfaceUiMessageBag();
-        }
-
-        if (!$request->hasSession()) {
+        if (null === $request || !$request->hasSession()) {
             return new InterfaceUiMessageBag();
         }
 
         $session = $request->getSession();
+        if (!$session instanceof FlashBagAwareSessionInterface) {
+            return new InterfaceUiMessageBag();
+        }
 
         $bag = new InterfaceUiMessageBag();
         $items = $session->getFlashBag()->get(self::FLASH_KEY);
+
         foreach ($items as $row) {
             if (is_array($row)) {
                 $bag->add(InterfaceUiMessage::fromArray($row));

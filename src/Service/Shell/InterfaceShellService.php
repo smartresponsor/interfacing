@@ -36,7 +36,7 @@ final class InterfaceShellService implements InterfaceShellInterface
         if (null !== $req) {
             $query = (string) $req->query->get('q', '');
             $rid = $req->attributes->get('_route');
-            if ('interfacing_screen' === $rid) {
+            if ('interfacing_screen_show' === $rid) {
                 $activeId = (string) $req->attributes->get('id', '');
                 $activeId = '' !== trim($activeId) ? trim($activeId) : null;
             }
@@ -52,7 +52,7 @@ final class InterfaceShellService implements InterfaceShellInterface
                 continue;
             }
 
-            $url = $this->url->generate('interfacing_screen', ['id' => $spec->id()]);
+            $url = $this->url->generate('interfacing_screen_show', ['id' => $spec->id()]);
             if ('' !== $queryNorm) {
                 $url .= '?q='.rawurlencode($queryNorm);
             }

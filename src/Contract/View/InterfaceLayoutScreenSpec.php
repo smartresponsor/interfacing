@@ -61,6 +61,11 @@ final class InterfaceLayoutScreenSpec implements InterfaceLayoutScreenSpecInterf
         return $this->navGroup;
     }
 
+    public function icon(): ?string
+    {
+        return null;
+    }
+
     public function screenId(): InterfaceScreenIdInterface
     {
         return $this->screenId;

@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace App\Interfacing\Registry\Runtime;
 
 use App\Interfacing\CatalogInterface\Runtime\InterfaceScreenCatalogInterface;
-use App\Interfacing\Contract\ValueObject\InterfaceScreenId;
+use App\Interfacing\Contract\ValueObject\InterfaceScreenIdInterface;
 use App\Interfacing\ProviderInterface\Runtime\InterfaceScreenProviderInterface;
 use App\Interfacing\RegistryInterface\Runtime\InterfaceScreenRegistryInterface;
 
@@ -43,12 +43,12 @@ final class InterfaceScreenRegistry implements InterfaceScreenRegistryInterface,
         }
     }
 
-    public function has(InterfaceScreenId $id): bool
+    public function has(InterfaceScreenIdInterface $id): bool
     {
         return isset($this->map[$id->toString()]);
     }
 
-    public function componentName(InterfaceScreenId $id): string
+    public function componentName(InterfaceScreenIdInterface $id): string
     {
         $k = $id->toString();
         if (!isset($this->map[$k])) {

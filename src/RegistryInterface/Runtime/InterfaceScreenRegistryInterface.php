@@ -8,11 +8,11 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
 namespace App\Interfacing\RegistryInterface\Runtime;
 
-use App\Interfacing\Contract\ValueObject\InterfaceScreenId;
+use App\Interfacing\Contract\ValueObject\InterfaceScreenIdInterface;
 
 interface InterfaceScreenRegistryInterface
 {
-    public function has(InterfaceScreenId $id): bool;
+    public function has(InterfaceScreenIdInterface $id): bool;
 
-    public function componentName(InterfaceScreenId $id): string;
+    public function componentName(InterfaceScreenIdInterface $id): string;
 }

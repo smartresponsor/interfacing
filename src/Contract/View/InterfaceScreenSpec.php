@@ -51,6 +51,11 @@ final readonly class InterfaceScreenSpec implements InterfaceScreenSpecInterface
         return $this->layout;
     }
 
+    public function layoutId(): string
+    {
+        return $this->layout->id();
+    }
+
     public function defaultState(): array
     {
         return $this->defaultState;

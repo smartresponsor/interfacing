@@ -16,10 +16,10 @@ final class InterfaceMessageScreenProvider implements InterfaceScreenProviderInt
     public function map(): array
     {
         return [
-            'message.digest' => 'interfacing_screen',
-            'message.notifications.inbox' => 'interfacing_screen',
-            'message.search.results' => 'interfacing_screen',
-            'message.rooms.collection' => 'interfacing_screen',
+            'message.digest' => 'interfacing_screen_show',
+            'message.notification.inbox' => 'interfacing_screen_show',
+            'message.search.result' => 'interfacing_screen_show',
+            'message.room.collection' => 'interfacing_screen_show',
         ];
     }
 }

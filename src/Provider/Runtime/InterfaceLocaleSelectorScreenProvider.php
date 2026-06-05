@@ -16,7 +16,7 @@ final class InterfaceLocaleSelectorScreenProvider implements InterfaceScreenProv
     public function map(): array
     {
         return [
-            'localizing.locale.selector' => 'interfacing_screen',
+            'localizing.locale.selector' => 'interfacing_screen_show',
         ];
     }
 }

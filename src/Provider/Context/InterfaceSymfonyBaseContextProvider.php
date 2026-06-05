@@ -21,7 +21,7 @@ final readonly class InterfaceSymfonyBaseContextProvider implements InterfaceReq
     }
 
     /**
-     * @return array|mixed[]
+     * @return array<string, mixed>
      */
     public function provide(?Request $request = null, ?TokenInterface $token = null): array
     {
@@ -41,11 +41,7 @@ final readonly class InterfaceSymfonyBaseContextProvider implements InterfaceReq
         $userId = null;
         if (null !== $token) {
             $user = $token->getUser();
-            if (is_object($user) && method_exists($user, 'getUserIdentifier')) {
-                $userId = (string) $user->getUserIdentifier();
-            } elseif (is_string($user)) {
-                $userId = $user;
-            }
+            $userId = $user?->getUserIdentifier();
         }
 
         return [

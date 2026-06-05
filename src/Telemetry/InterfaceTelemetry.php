@@ -11,15 +11,11 @@ namespace App\Interfacing\Telemetry;
 
 use App\Interfacing\TelemetryInterface\InterfaceTelemetryInterface;
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Stopwatch\Stopwatch;
 
 final class InterfaceTelemetry implements InterfaceTelemetryInterface
 {
-    private ?Stopwatch $stopwatch;
-
-    public function __construct(private readonly LoggerInterface $logger, ?Stopwatch $stopwatch = null)
+    public function __construct(private readonly LoggerInterface $logger)
     {
-        $this->stopwatch = $stopwatch;
     }
 
     public function mark(string $name, array $meta = []): void

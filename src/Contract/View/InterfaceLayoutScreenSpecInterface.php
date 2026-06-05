@@ -24,6 +24,8 @@ interface InterfaceLayoutScreenSpecInterface
 
     public function navGroup(): string;
 
+    public function icon(): ?string;
+
     public function screenId(): InterfaceScreenIdInterface;
 
     public function guardKey(): ?string;

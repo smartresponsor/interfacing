@@ -28,7 +28,7 @@ final class InterfaceMessageLayoutProvider implements InterfaceLayoutProviderInt
                 navOrder: 5,
             ),
             $this->collectionScreen(
-                id: 'message.notifications.inbox',
+                id: 'message.notification.inbox',
                 title: 'Notification inbox',
                 blockId: 'notifications',
                 blockTitle: 'Notification inbox',
@@ -36,7 +36,7 @@ final class InterfaceMessageLayoutProvider implements InterfaceLayoutProviderInt
                 navOrder: 10,
             ),
             $this->collectionScreen(
-                id: 'message.search.results',
+                id: 'message.search.result',
                 title: 'Search results',
                 blockId: 'search-results',
                 blockTitle: 'Search results',
@@ -44,7 +44,7 @@ final class InterfaceMessageLayoutProvider implements InterfaceLayoutProviderInt
                 navOrder: 20,
             ),
             $this->collectionScreen(
-                id: 'message.rooms.collection',
+                id: 'message.room.collection',
                 title: 'Rooms collection',
                 blockId: 'rooms',
                 blockTitle: 'Room collection',

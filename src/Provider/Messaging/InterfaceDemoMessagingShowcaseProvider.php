@@ -53,9 +53,9 @@ final readonly class InterfaceDemoMessagingShowcaseProvider implements Interface
             'handoff' => [
                 'status' => 'partially connected',
                 'connectedScreens' => [
-                    ['title' => 'Notification inbox', 'url' => '/interfacing/showcase/message/notifications/inbox'],
-                    ['title' => 'Rooms collection', 'url' => '/interfacing/showcase/message/rooms/collection'],
-                    ['title' => 'Search results', 'url' => '/interfacing/showcase/message/search/results'],
+                    ['title' => 'Notification inbox', 'url' => '/interfacing/showcase/message/notification/inbox'],
+                    ['title' => 'Rooms collection', 'url' => '/interfacing/showcase/message/room/collection'],
+                    ['title' => 'Search results', 'url' => '/interfacing/showcase/message/search/result'],
                     ['title' => 'Digest', 'url' => '/interfacing/showcase/message/digest'],
                 ],
                 'note' => 'Existing Interfacing layout/screen providers expose Messaging screens, but the user-facing left navigation now points to the dedicated Messaging showcase entry first.',

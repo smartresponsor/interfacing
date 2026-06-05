@@ -68,10 +68,6 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
             $context['shell'] = $this->applyMeaningfulSlotDefaults($context['shell'], $context);
         }
 
-        if (!array_key_exists('shellKnownCrudResources', $context) && is_array($context['shell'])) {
-            $context['shellKnownCrudResources'] = $context['shell']['knownCrudResources'] ?? [];
-        }
-
         $response = new Response($this->twig->render($template, $context), $status);
         $response->headers->set('X-Interfacing-Render-ms', number_format((hrtime(true) - $startedAt) / 1_000_000, 2, '.', ''));
 
@@ -213,7 +209,7 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
                 'label' => 'Surface status',
                 'value' => $status ?: 'ready',
             ]] : [],
-            InterfaceShellSlot::MAIN_TOP => [] !== $coverUrl || '' !== $title ? [[
+            InterfaceShellSlot::MAIN_TOP => '' !== $coverUrl || '' !== $title ? [[
                 'type' => 'media',
                 'src' => '' !== $coverUrl ? $coverUrl : ('' !== $avatarUrl ? $avatarUrl : '/mandala.svg'),
                 'alt' => $title,
