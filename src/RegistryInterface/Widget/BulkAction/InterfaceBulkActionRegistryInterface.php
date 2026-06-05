@@ -9,6 +9,7 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 namespace App\Interfacing\RegistryInterface\Widget\BulkAction;
 
 use App\Interfacing\Contract\View\InterfaceBulkActionSpec;
+use App\Interfacing\HandlerInterface\Widget\BulkAction\InterfaceBulkActionHandlerInterface;
 
 interface InterfaceBulkActionRegistryInterface
 {

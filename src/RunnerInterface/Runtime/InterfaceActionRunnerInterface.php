@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\RunnerInterface\Runtime;
 
+use App\Interfacing\Contract\Runtime\InterfaceActionResult;
 use Symfony\Component\HttpFoundation\Request;
 
 interface InterfaceActionRunnerInterface

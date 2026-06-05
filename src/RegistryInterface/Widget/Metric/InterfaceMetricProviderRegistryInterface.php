@@ -8,13 +8,12 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
 namespace App\Interfacing\RegistryInterface\Widget\Metric;
 
+use App\Interfacing\ProviderInterface\Widget\Metric\InterfaceMetricProviderInterface;
+
 interface InterfaceMetricProviderRegistryInterface
 {
     public function has(string $id): bool;
 
-    /**
-     * @return \App\Interfacing\ProviderInterface\Widget\Metric\InterfaceMetricProviderInterface
-     */
     public function get(string $id): InterfaceMetricProviderInterface;
 
     /**

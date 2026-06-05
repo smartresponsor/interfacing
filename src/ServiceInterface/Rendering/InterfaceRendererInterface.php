@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\ServiceInterface\Rendering;
 
+use App\Interfacing\Contract\Surface\InterfaceSurfaceRenderableInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 interface InterfaceRendererInterface

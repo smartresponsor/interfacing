@@ -8,13 +8,12 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 
 namespace App\Interfacing\RegistryInterface\Widget\DataGrid;
 
+use App\Interfacing\ProviderInterface\Widget\DataGrid\InterfaceDataGridProviderInterface;
+
 interface InterfaceDataGridProviderRegistryInterface
 {
     public function has(string $key): bool;
 
-    /**
-     * @return \App\Interfacing\ProviderInterface\Widget\DataGrid\InterfaceDataGridProviderInterface
-     */
     public function get(string $key): InterfaceDataGridProviderInterface;
 
     /**
