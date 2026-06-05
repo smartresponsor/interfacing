@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace App\Interfacing\CatalogInterface\AttributeRegistry;
 
+use App\Interfacing\DescriptorInterface\AttributeRegistry\InterfaceScreenDescriptorInterface;
+
 interface InterfaceScreenCatalogInterface
 {
     /**
@@ -13,8 +15,5 @@ interface InterfaceScreenCatalogInterface
      */
     public function all(): array;
 
-    /**
-     * @return \App\Interfacing\DescriptorInterface\AttributeRegistry\InterfaceScreenDescriptorInterface
-     */
     public function get(string $screenId): InterfaceScreenDescriptorInterface;
 }
