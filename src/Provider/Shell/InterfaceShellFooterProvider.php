@@ -67,7 +67,7 @@ final class InterfaceShellFooterProvider implements InterfaceShellFooterProvider
             new InterfaceShellFooterGroup('application-indexes', 'Application indexes', [
                 new InterfaceShellFooterLink('Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications')),
                 new InterfaceShellFooterLink('Components', $this->safeUrl('interfacing_component_roadmap', '/interfacing/components')),
-                new InterfaceShellFooterLink('CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer')),
+                new InterfaceShellFooterLink('CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/resource/explorer')),
                 new InterfaceShellFooterLink('Screen Directory', $this->safeUrl('interfacing_screen_directory', '/interfacing/screens')),
                 new InterfaceShellFooterLink('Screen Catalog', $this->safeUrl('interfacing_shell_screen_catalog', '/interfacing/shell/screens')),
                 new InterfaceShellFooterLink('Operations', $this->safeUrl('interfacing_operation_workbench', '/interfacing/operations')),

@@ -111,7 +111,7 @@ final class InterfaceShellChromeProvider implements InterfaceShellChromeProvider
             new InterfaceShellNavItem('applications.dashboard', 'Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications'), 'workspace', null, 15),
             new InterfaceShellNavItem('notifications', 'Notifications', $this->screenUrl('message.notifications.inbox'), 'workspace', null, 20),
             new InterfaceShellNavItem('admin.launchpad', 'Launchpad', $this->safeUrl('interfacing_admin_launchpad', '/interfacing/launchpad'), 'workspace', null, 28),
-            new InterfaceShellNavItem('crud.explorer', 'CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'workspace', null, 30),
+            new InterfaceShellNavItem('crud.explorer', 'CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/resource/explorer'), 'workspace', null, 30),
             new InterfaceShellNavItem('screen.directory', 'Screens', $this->safeUrl('interfacing_screen_directory', '/interfacing/screens'), 'workspace', null, 35),
             new InterfaceShellNavItem('shell.screens', 'Screen Catalog', $this->safeUrl('interfacing_shell_screen_catalog', '/interfacing/shell/screens'), 'workspace', null, 36),
             new InterfaceShellNavItem('shell.layout.preview', 'Layout Preview', $this->safeUrl('interfacing_shell_layout_preview', '/interfacing/shell/layout-preview'), 'workspace', null, 365),
@@ -170,7 +170,7 @@ final class InterfaceShellChromeProvider implements InterfaceShellChromeProvider
             new InterfaceShellFooterGroup('application-indexes', 'Application indexes', [
                 new InterfaceShellFooterLink('Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications')),
                 new InterfaceShellFooterLink('Components', $this->safeUrl('interfacing_component_roadmap', '/interfacing/components')),
-                new InterfaceShellFooterLink('CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer')),
+                new InterfaceShellFooterLink('CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/resource/explorer')),
                 new InterfaceShellFooterLink('Screen Directory', $this->safeUrl('interfacing_screen_directory', '/interfacing/screens')),
                 new InterfaceShellFooterLink('Screen Catalog', $this->safeUrl('interfacing_shell_screen_catalog', '/interfacing/shell/screens')),
                 new InterfaceShellFooterLink('Operations', $this->safeUrl('interfacing_operation_workbench', '/interfacing/operations')),
@@ -215,7 +215,7 @@ final class InterfaceShellChromeProvider implements InterfaceShellChromeProvider
             new InterfaceShellNavGroup('system-quick', 'System shortcuts', [
                 new InterfaceShellNavItem('quick.applications', 'Applications', $this->safeUrl('interfacing_application_dashboard', '/interfacing/applications'), 'system-quick', null, 10),
                 new InterfaceShellNavItem('quick.components', 'Components', $this->safeUrl('interfacing_component_roadmap', '/interfacing/components'), 'system-quick', null, 20),
-                new InterfaceShellNavItem('quick.crud', 'CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'system-quick', null, 30),
+                new InterfaceShellNavItem('quick.crud', 'CRUD Explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/resource/explorer'), 'system-quick', null, 30),
                 new InterfaceShellNavItem('quick.shell', 'Shell Map', $this->safeUrl('interfacing_shell_navigation', '/interfacing/shell/navigation'), 'system-quick', null, 40),
             ]),
         ];
@@ -225,7 +225,7 @@ final class InterfaceShellChromeProvider implements InterfaceShellChromeProvider
     private function crudSectionItems(): array
     {
         $items = [
-            new InterfaceShellNavItem('crud.explorer', 'CRUD explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/crud/explorer'), 'crud', null, 10),
+            new InterfaceShellNavItem('crud.explorer', 'CRUD explorer', $this->safeUrl('interfacing_crud_explorer', '/interfacing/resource/explorer'), 'crud', null, 10),
         ];
 
         $order = 20;
@@ -331,10 +331,10 @@ final class InterfaceShellChromeProvider implements InterfaceShellChromeProvider
                 new InterfaceShellNavItem('applications.dashboard.json', 'Applications JSON', $this->safeUrl('interfacing_application_dashboard_json', '/interfacing/applications.json'), 'applications', null, 20),
             ]),
             new InterfaceShellNavGroup('crud-exports', 'CRUD exports', [
-                new InterfaceShellNavItem('crud.links.json', 'Links JSON', $this->safeUrl('interfacing_crud_explorer_links', '/interfacing/crud/explorer/links.json'), 'crud', null, 10),
-                new InterfaceShellNavItem('crud.route.expectations', 'Route expectations', $this->safeUrl('interfacing_crud_explorer_route_expectations', '/interfacing/crud/explorer/route-expectations.json'), 'crud', null, 20),
-                new InterfaceShellNavItem('crud.operations.json', 'Operations JSON', $this->safeUrl('interfacing_crud_explorer_operations', '/interfacing/crud/explorer/operations.json'), 'crud', null, 30),
-                new InterfaceShellNavItem('crud.screens.json', 'Screens JSON', $this->safeUrl('interfacing_crud_explorer_screens', '/interfacing/crud/explorer/screens.json'), 'crud', null, 40),
+                new InterfaceShellNavItem('crud.links.json', 'Links JSON', $this->safeUrl('interfacing_crud_explorer_links', '/interfacing/resource/explorer/links.json'), 'crud', null, 10),
+                new InterfaceShellNavItem('crud.route.expectations', 'Route expectations', $this->safeUrl('interfacing_crud_explorer_route_expectations', '/interfacing/resource/explorer/route-expectations.json'), 'crud', null, 20),
+                new InterfaceShellNavItem('crud.operations.json', 'Operations JSON', $this->safeUrl('interfacing_crud_explorer_operations', '/interfacing/resource/explorer/operations.json'), 'crud', null, 30),
+                new InterfaceShellNavItem('crud.screens.json', 'Screens JSON', $this->safeUrl('interfacing_crud_explorer_screens', '/interfacing/resource/explorer/screens.json'), 'crud', null, 40),
             ]),
             new InterfaceShellNavGroup('shell-guard', 'Shell guard', [
                 new InterfaceShellNavItem('shell.diagnostics', 'Panel diagnostics', $this->safeUrl('interfacing_shell_diagnostics', '/interfacing/shell/diagnostics'), 'shell', null, 10),

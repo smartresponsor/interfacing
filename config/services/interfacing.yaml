@@ -186,12 +186,6 @@ services:
   App\Interfacing\Presentation\Controller\InterfaceCrudExplorerController:
     tags: ['controller.service_arguments']
 
-  App\Interfacing\Presentation\Controller\InterfaceGenericCrudWorkbenchController:
-    arguments:
-      $messagingShowcaseProvider: '@App\Interfacing\ProviderInterface\Messaging\InterfaceMessagingShowcaseProviderInterface'
-    tags: ['controller.service_arguments']
-
-
   App\Interfacing\Presentation\Controller\InterfaceProviderHandoffSurfaceController:
     tags: ['controller.service_arguments']
 

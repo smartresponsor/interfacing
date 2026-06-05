@@ -14,11 +14,11 @@ final readonly class InterfaceDefaultCrudOperationGrammarProvider implements Int
     public function provide(): array
     {
         return [
-            'index' => new InterfaceCrudOperationGrammar('index', 'Index', 'app_crud_index', '/interfacing/crud/{resourcePath}/', 'primary'),
-            'new' => new InterfaceCrudOperationGrammar('new', 'New', 'app_crud_new', '/interfacing/crud/{resourcePath}/new/'),
-            'show' => new InterfaceCrudOperationGrammar('show', 'Show', 'app_crud_show', '/interfacing/crud/{resourcePath}/{id}'),
-            'edit' => new InterfaceCrudOperationGrammar('edit', 'Edit', 'app_crud_edit', '/interfacing/crud/{resourcePath}/edit/{id}'),
-            'delete' => new InterfaceCrudOperationGrammar('delete', 'Delete', 'app_crud_delete', '/interfacing/crud/{resourcePath}/delete/{id}', 'danger'),
+            'index' => new InterfaceCrudOperationGrammar('index', 'Index', 'host_crud_index', '/{resourcePath}/', 'primary'),
+            'new' => new InterfaceCrudOperationGrammar('new', 'New', 'host_crud_new', '/{resourcePath}/new/'),
+            'show' => new InterfaceCrudOperationGrammar('show', 'Show', 'host_crud_show', '/{resourcePath}/{id}'),
+            'edit' => new InterfaceCrudOperationGrammar('edit', 'Edit', 'host_crud_edit', '/{resourcePath}/edit/{id}'),
+            'delete' => new InterfaceCrudOperationGrammar('delete', 'Delete', 'host_crud_delete', '/{resourcePath}/delete/{id}', 'danger'),
         ];
     }
 

@@ -1,46 +1,4 @@
 # Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
-# Scoped Smart Responsor CRUD internal handoff.
-#
-# This file intentionally does not declare root-level /{resourcePath} catch-all
-# routes. Interfacing is an inert templates/layout package; producer components
-# own their visible URLs and may link to this scoped diagnostic/workbench path
-# when they need the generic CRUD internal handoff provider surface.
-
-app_crud_new:
-  path: /interfacing/crud/{resourcePath}/new/
-  controller: App\Interfacing\Presentation\Controller\InterfaceGenericCrudWorkbenchController::show
-  methods: [GET]
-  requirements:
-    resourcePath: '[a-z0-9][a-z0-9/-]{0,120}'
-
-app_crud_edit:
-  path: /interfacing/crud/{resourcePath}/edit/{id}
-  controller: App\Interfacing\Presentation\Controller\InterfaceGenericCrudWorkbenchController::show
-  methods: [GET]
-  requirements:
-    resourcePath: '[a-z0-9][a-z0-9/-]{0,120}'
-    id: '[^/]+'
-
-app_crud_delete:
-  path: /interfacing/crud/{resourcePath}/delete/{id}
-  controller: App\Interfacing\Presentation\Controller\InterfaceGenericCrudWorkbenchController::show
-  methods: [GET]
-  requirements:
-    resourcePath: '[a-z0-9][a-z0-9/-]{0,120}'
-    id: '[^/]+'
-
-app_crud_index:
-  path: /interfacing/crud/{resourcePath}/
-  controller: App\Interfacing\Presentation\Controller\InterfaceGenericCrudWorkbenchController::show
-  methods: [GET]
-  requirements:
-    resourcePath: '[a-z0-9][a-z0-9/-]{0,120}'
-
-app_crud_show:
-  path: /interfacing/crud/{resourcePath}/{id}
-  controller: App\Interfacing\Presentation\Controller\InterfaceGenericCrudWorkbenchController::show
-  methods: [GET]
-  requirements:
-    resourcePath: '[a-z0-9][a-z0-9/-]{0,120}'
-    id: '(?!new$|edit$|delete$)[^/]+'
-
+# Generic CRUD catch-all handoff routes were removed from Interfacing.
+# CRUD route/controller ownership belongs to Cruding or to the host producer component.
+# This file is intentionally route-empty for BC with kernels importing config/routes/*.yaml.

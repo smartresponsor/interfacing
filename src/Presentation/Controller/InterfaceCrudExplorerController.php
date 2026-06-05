@@ -18,7 +18,7 @@ final readonly class InterfaceCrudExplorerController
     ) {
     }
 
-    #[Route('/interfacing/crud/explorer', name: 'interfacing_crud_explorer', methods: ['GET'])]
+    #[Route('/interfacing/resource/explorer', name: 'interfacing_crud_explorer', methods: ['GET'])]
     public function index(): Response
     {
         return $this->interfacingRenderer->render(
@@ -27,19 +27,19 @@ final readonly class InterfaceCrudExplorerController
         );
     }
 
-    #[Route('/interfacing/crud/explorer/links.json', name: 'interfacing_crud_explorer_links', methods: ['GET'])]
+    #[Route('/interfacing/resource/explorer/links.json', name: 'interfacing_crud_explorer_links', methods: ['GET'])]
     public function links(): JsonResponse
     {
         return new JsonResponse($this->viewBuilder->buildLinksPayload());
     }
 
-    #[Route('/interfacing/crud/explorer/route-expectations.json', name: 'interfacing_crud_explorer_route_expectations', methods: ['GET'])]
+    #[Route('/interfacing/resource/explorer/route-expectations.json', name: 'interfacing_crud_explorer_route_expectations', methods: ['GET'])]
     public function routeExpectations(): JsonResponse
     {
         return new JsonResponse($this->viewBuilder->buildRouteExpectationsPayload());
     }
 
-    #[Route('/interfacing/crud/explorer/operations.json', name: 'interfacing_crud_explorer_operations', methods: ['GET'])]
+    #[Route('/interfacing/resource/explorer/operations.json', name: 'interfacing_crud_explorer_operations', methods: ['GET'])]
     public function operations(): JsonResponse
     {
         return new JsonResponse($this->viewBuilder->buildOperationsPayload());

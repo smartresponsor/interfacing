@@ -93,7 +93,7 @@ final readonly class InterfaceCrudRouteContextResolver
     private function inferSurface(Request $request, string $fallback): string
     {
         $path = '/'.trim($request->getPathInfo(), '/').'/';
-        if (str_contains($path, '/interfacing/crud/')) {
+        if (str_contains($path, '/interfacing/resource/')) {
             return 'admin';
         }
 

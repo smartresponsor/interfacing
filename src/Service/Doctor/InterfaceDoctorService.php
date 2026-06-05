@@ -9,15 +9,19 @@ Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
 namespace App\Interfacing\Service\Doctor;
 
 use App\Interfacing\CatalogInterface\Layout\InterfaceLayoutCatalogInterface;
+use App\Interfacing\Contract\Doctor\InterfaceDoctorIssue;
+use App\Interfacing\Contract\Doctor\InterfaceDoctorReport;
 use App\Interfacing\RegistryInterface\Runtime\InterfaceScreenRegistryInterface;
 use App\Interfacing\RegistryInterface\Widget\Form\InterfaceFormHandlerRegistryInterface;
 use App\Interfacing\RegistryInterface\Widget\Metric\InterfaceMetricProviderRegistryInterface;
 use App\Interfacing\RegistryInterface\Widget\Wizard\InterfaceWizardHandlerRegistryInterface;
 use App\Interfacing\ServiceInterface\Doctor\InterfaceDoctorInterface;
+use App\Interfacing\ServiceInterface\Doctor\InterfaceDoctorReportInterface;
+use App\Interfacing\ServiceInterface\Doctor\InterfaceDoctorServiceInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
-final class InterfaceDoctorService implements InterfaceDoctorInterface
+final class InterfaceDoctorService implements InterfaceDoctorInterface, InterfaceDoctorServiceInterface
 {
     public function __construct(
         private readonly RouterInterface $router,
@@ -58,6 +62,27 @@ final class InterfaceDoctorService implements InterfaceDoctorInterface
         }
 
         return ['ok' => $ok, 'item' => $item];
+    }
+
+    public function report(): InterfaceDoctorReportInterface
+    {
+        $check = $this->check();
+        $issue = [];
+
+        foreach ($check['item'] as $item) {
+            if (true === $item['ok']) {
+                continue;
+            }
+
+            $issue[] = new InterfaceDoctorIssue('error', $item['message'], $item['code']);
+        }
+
+        return new InterfaceDoctorReport(
+            [],
+            array_values($this->layout->all()),
+            [],
+            $issue,
+        );
     }
 
     private function checkClass(string $code, string $class): array

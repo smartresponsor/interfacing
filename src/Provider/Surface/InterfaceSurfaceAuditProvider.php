@@ -83,7 +83,7 @@ final readonly class InterfaceSurfaceAuditProvider implements InterfaceSurfaceAu
             new InterfaceSurfaceAuditItem('shell.contract-registry', 'Shell coverage', 'Contract registry', 'solid', '/interfacing/contracts', 'Shell-native contract registry for screen, data, operation, policy and evidence obligations.'),
             new InterfaceSurfaceAuditItem('shell.field-schema-registry', 'Shell coverage', 'Field schema registry', 'solid', '/interfacing/schemas', 'Shell-native field/schema checklist for CRUD tables and forms without Interfacing-owned data rows.'),
             new InterfaceSurfaceAuditItem('shell.component-roadmap', 'Shell coverage', 'Component roadmap', 'solid', '/interfacing/components', 'Shell-native full component and required e-commerce screen roadmap.'),
-            new InterfaceSurfaceAuditItem('shell.crud', 'Shell coverage', 'CRUD Explorer', 'solid', '/interfacing/crud/explorer', 'CRUD route grammar and resource list are rendered through the standard shell.'),
+            new InterfaceSurfaceAuditItem('shell.crud', 'Shell coverage', 'CRUD Explorer', 'solid', '/interfacing/resource/explorer', 'CRUD route grammar and resource list are rendered through the standard shell.'),
         ];
     }
 

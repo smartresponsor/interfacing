@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
+/* Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp */
+
 namespace App\Interfacing;
 
-use Symfony\Bundle\FrameworkBundle\InterfaceKernel\MicroKernelTrait;
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symfony\Component\HttpKernel\InterfaceKernel as BaseKernel;
+use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 final class InterfaceKernel extends BaseKernel
@@ -32,15 +34,24 @@ final class InterfaceKernel extends BaseKernel
         $configDir = $this->getProjectDir().'/config';
 
         $container->import($configDir.'/packages/*.yaml');
-        $container->import($configDir.'/packages/'.$this->environment.'/*.yaml');
+
+        $environmentPackageDir = $configDir.'/packages/'.$this->environment;
+        if (is_dir($environmentPackageDir)) {
+            $container->import($environmentPackageDir.'/*.yaml');
+        }
+
         $container->import($configDir.'/services.yaml');
     }
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $configDir = $this->getProjectDir().'/config/routes';
+        $routeDir = $this->getProjectDir().'/config/routes';
 
-        $routes->import($configDir.'/*.yaml');
-        $routes->import($configDir.'/'.$this->environment.'/*.yaml');
+        $routes->import($routeDir.'/*.yaml');
+
+        $environmentRouteDir = $routeDir.'/'.$this->environment;
+        if (is_dir($environmentRouteDir)) {
+            $routes->import($environmentRouteDir.'/*.yaml');
+        }
     }
 }
