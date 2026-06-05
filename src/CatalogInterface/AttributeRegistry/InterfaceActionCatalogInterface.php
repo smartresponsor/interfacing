@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace App\Interfacing\CatalogInterface\AttributeRegistry;
 
+use App\Interfacing\EndpointInterface\AttributeRegistry\InterfaceActionEndpointInterface;
+
 interface InterfaceActionCatalogInterface
 {
     /**
@@ -13,8 +15,5 @@ interface InterfaceActionCatalogInterface
      */
     public function allForScreen(string $screenId): array;
 
-    /**
-     * @return \App\Interfacing\EndpointInterface\AttributeRegistry\InterfaceActionEndpointInterface
-     */
     public function get(string $screenId, string $actionId): InterfaceActionEndpointInterface;
 }
