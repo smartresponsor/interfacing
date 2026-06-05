@@ -3,10 +3,6 @@
 # Keep broad/catch-all controllers last so specific screen routes win first.
 
 
-interfacing_welcome_access_controller:
-  resource: '../../src/Presentation/Controller/InterfaceWelcomeAccessController.php'
-  type: attribute
-
 interfacing_compliance_surface_controller:
   resource: '../../src/Presentation/Controller/InterfaceComplianceSurfaceController.php'
   type: attribute

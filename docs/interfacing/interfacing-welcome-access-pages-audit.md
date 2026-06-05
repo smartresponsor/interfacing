@@ -20,7 +20,7 @@ The canonical Interfacing responsibility is:
 
 ## Implemented surface
 
-- `GET /access/signin` renders `accessin/signin/index.html.twig`.
+- Accessing owns `GET /access/signin`; Interfacing must not register or process this route.
 - `GET /sign-up` renders `access/sign_up.html.twig`.
 - `GET /sign-out` renders `access/sign_out.html.twig` as a visual exit/return page only.
 

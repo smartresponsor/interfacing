@@ -167,8 +167,6 @@ services:
   App\Interfacing\Presentation\Controller\InterfaceHealthController:
     tags: ['controller.service_arguments']
 
-  App\Interfacing\Presentation\Controller\InterfaceWelcomeAccessController:
-    tags: ['controller.service_arguments']
 
   App\Interfacing\Presentation\Controller\InterfaceComplianceSurfaceController:
     arguments:

@@ -2,7 +2,7 @@
 
 Interfacing is a templates/layout/rendering component. It may expose scoped diagnostics, demo, showcase, handoff, and internal CRUD routes under `/interfacing/*`, but it must not own business-looking public routes such as `/product`, `/project`, `/category`, `/message`, `/access`, `/sign-up`, or `/sign-out`.
 
-Exception: the public access welcome surface `GET /access/signin` is a shared entrypoint for the access flow. Interfacing owns the visual response, while Accessing owns the credential-processing POST route on the same canonical path.
+No exception: the account/security component owns `/access/*`, including sign-in page routes, credential-processing POST routes, registration, logout, and session/security routes. Interfacing must not register account routes or depend on foreign account/security runtime services.
 
 Producer components own business public URLs. Interfacing owns the shell, provider-native render surfaces, slot/location contract, and optional scoped showcase/demo routes.
 

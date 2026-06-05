@@ -31,7 +31,7 @@ The following development/internal surfaces were intentionally removed from the 
 - Promotion gates.
 - Contracts.
 - Schemas.
-- Surface Audit.
+- Shell Audit.
 - Shell Guard.
 - Shell Map.
 - URL/JSON-style diagnostic surfaces.

@@ -81,10 +81,10 @@ final class InterfaceController extends AbstractController
         return $this->renderPage('page/operation_workbench.html.twig', 'operation.workbench');
     }
 
-    #[Route('/interfacing/surface', name: 'interfacing_surface_audit', methods: ['GET'])]
+    #[Route('/interfacing/surface', name: 'interfacing_shell_audit', methods: ['GET'])]
     public function surfaceAudit(): Response
     {
-        return $this->renderPage('page/surface_audit.html.twig', 'surface.audit');
+        return $this->renderPage('page/shell_audit.html.twig', 'shell.audit');
     }
 
     #[Route('/interfacing/components', name: 'interfacing_component_roadmap', methods: ['GET'])]

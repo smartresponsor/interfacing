@@ -84,10 +84,10 @@ This wave intentionally keeps `HttpInterface`, `Domain`, and `Infra` as donor tr
 - `DomainInterface/Interfacing/Model/InterfaceScreenIdInterface.php` -> `Contract/ValueObject/InterfaceScreenIdInterface.php`
 
 ## Wave 9
-- `Domain/Interfacing/Access/*` -> `Contract/Access/*`
+- legacy UI authorization domain objects -> explicit screen/action authorization resolver contracts
 - `Domain/Interfacing/Action/{InterfaceActionRequest,InterfaceActionResult,InterfaceActionRuntime}` -> `Contract/Action/*`
 - `Domain/Interfacing/Audit/*` -> `Support/Audit/*`
-- `DomainInterface/Interfacing/Access/AccessResolverInterface` -> `ServiceInterface/Interfacing/Access/AccessResolverInterface`
+- legacy domain-level authorization resolver interface -> `ResolverInterface/Access/InterfaceScreenActionAccessResolverInterface` or `ResolverInterface/Access/InterfaceRoleAccessResolverInterface`, depending on call site
 - `DomainInterface/Interfacing/Audit/InterfaceAuditSinkInterface` -> `ServiceInterface/Support/Audit/InterfaceAuditSinkInterface`
 - `DomainInterface/Interfacing/Action/{InterfaceActionIdInterface,InterfaceActionResultInterface,InterfaceActionRuntimeInterface}` -> contract/value-contract layer
 

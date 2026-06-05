@@ -9,7 +9,7 @@
       <p class="interfacing-muted">This Interfacing page owns the visual shell only. The actual credential check remains in the Accessing/security component.</p>
     </div>
 
-    <form method="post" action="{{ path('accessing_sign_in_submit') }}" class="interfacing-form" data-interfacing-access-form="sign-in">
+    <form method="post" action="/access/signin" class="interfacing-form" data-interfacing-access-form="sign-in">
       <label class="interfacing-form-label">Email
         <input name="account_sign_in[emailAddress]" type="email" autocomplete="email" required>
       </label>
@@ -23,6 +23,6 @@
       <button class="interfacing-button-primary" type="submit">Sign in</button>
     </form>
 
-    <p class="interfacing-muted">New here? <a href="{{ path('interfacing_welcome_sign_up') }}">Create an account</a>.</p>
+    <p class="interfacing-muted">New here? <a href="/access/sign-up">Create an account</a>.</p>
   </div>
 {% endblock %}

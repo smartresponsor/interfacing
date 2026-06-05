@@ -126,7 +126,7 @@ final class InterfaceShellChromeProvider implements InterfaceShellChromeProvider
             new InterfaceShellNavItem('evidence.registry', 'Evidence', $this->safeUrl('interfacing_evidence_registry', '/interfacing/evidence'), 'workspace', null, 391),
             new InterfaceShellNavItem('contract.registry', 'Contracts', $this->safeUrl('interfacing_contract_registry', '/interfacing/contracts'), 'workspace', null, 392),
             new InterfaceShellNavItem('field.schema.registry', 'Schemas', $this->safeUrl('interfacing_field_schema_registry', '/interfacing/schemas'), 'workspace', null, 393),
-            new InterfaceShellNavItem('surface.audit', 'Surface Audit', $this->safeUrl('interfacing_surface_audit', '/interfacing/surface'), 'workspace', null, 39),
+            new InterfaceShellNavItem('shell.audit', 'Shell Audit', $this->safeUrl('interfacing_shell_audit', '/interfacing/surface'), 'workspace', null, 39),
             new InterfaceShellNavItem('shell.diagnostics', 'Shell Guard', $this->safeUrl('interfacing_shell_diagnostics', '/interfacing/shell/diagnostics'), 'workspace', null, 395),
             new InterfaceShellNavItem('shell.navigation', 'Shell Map', $this->safeUrl('interfacing_shell_navigation', '/interfacing/shell/navigation'), 'workspace', null, 396),
             new InterfaceShellNavItem('component.roadmap', 'Connected surfaces', $this->safeUrl('interfacing_component_roadmap', '/interfacing/components'), 'workspace', null, 40),
@@ -204,7 +204,7 @@ final class InterfaceShellChromeProvider implements InterfaceShellChromeProvider
                 new InterfaceShellNavItem('quick.notifications', 'Notifications', $this->screenUrl('message.notifications.inbox'), 'account-quick', null, 30),
                 new InterfaceShellNavItem('quick.locale', 'Locale selector', $this->screenUrl('localizing.locale.selector'), 'account-quick', null, 40),
                 new InterfaceShellNavItem('quick.switch-account', 'Switch account', $this->safeUrl('accessing_switch_account', '/switch-account'), 'account-quick', null, 50),
-                new InterfaceShellNavItem('quick.sign-out', 'Sign out', $this->safeUrl('accessing_sign_out', '/interfacing/access/sign-out'), 'account-quick', null, 60),
+                new InterfaceShellNavItem('quick.sign-out', 'Sign out', $this->safeUrl('accessing_sign_out', '/access/sign-out'), 'account-quick', null, 60),
             ]),
             new InterfaceShellNavGroup('commerce-quick', 'My commerce', [
                 new InterfaceShellNavItem('quick.cart', 'My cart', '/cart/', 'commerce-quick', null, 10),
