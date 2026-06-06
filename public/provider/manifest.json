@@ -1,13 +1,20 @@
 {
-  "_registry-DKMsX4ZK.js": {
-    "file": "chunks/registry-DKMsX4ZK.js",
+  "_navigation-YDCojqpq.js": {
+    "file": "chunks/navigation-YDCojqpq.js",
+    "name": "navigation",
+    "imports": [
+      "_registry-D80JVzsO.js"
+    ]
+  },
+  "_registry-D80JVzsO.js": {
+    "file": "chunks/registry-D80JVzsO.js",
     "name": "registry"
   },
-  "_workbench-D0e03a_h.js": {
-    "file": "chunks/workbench-D0e03a_h.js",
+  "_workbench-CYwhX3Ar.js": {
+    "file": "chunks/workbench-CYwhX3Ar.js",
     "name": "workbench",
     "imports": [
-      "_registry-DKMsX4ZK.js"
+      "_registry-D80JVzsO.js"
     ]
   },
   "src/provider/canonical-providers.ts": {
@@ -19,8 +26,24 @@
       "src/provider/provider-registry.ts",
       "src/provider/providers/antd-pro.tsx",
       "src/provider/providers/primereact.tsx",
-      "_registry-DKMsX4ZK.js",
-      "_workbench-D0e03a_h.js"
+      "_registry-D80JVzsO.js",
+      "_navigation-YDCojqpq.js",
+      "_workbench-CYwhX3Ar.js"
+    ],
+    "css": [
+      "assets/canonical-providers.css"
+    ]
+  },
+  "src/provider/component/antd-pro-workbench.tsx": {
+    "file": "chunks/antd-pro-workbench-BfVvK6DF.js",
+    "name": "antd-pro-workbench",
+    "src": "src/provider/component/antd-pro-workbench.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_navigation-YDCojqpq.js",
+      "_registry-D80JVzsO.js",
+      "_workbench-CYwhX3Ar.js",
+      "src/provider/providers/antd-pro.tsx"
     ],
     "css": [
       "assets/canonical-providers.css"
@@ -32,7 +55,7 @@
     "src": "src/provider/provider-registry.ts",
     "isEntry": true,
     "imports": [
-      "_registry-DKMsX4ZK.js"
+      "_registry-D80JVzsO.js"
     ]
   },
   "src/provider/providers/antd-pro.tsx": {
@@ -41,8 +64,11 @@
     "src": "src/provider/providers/antd-pro.tsx",
     "isEntry": true,
     "imports": [
-      "_workbench-D0e03a_h.js",
-      "_registry-DKMsX4ZK.js"
+      "_navigation-YDCojqpq.js",
+      "_registry-D80JVzsO.js"
+    ],
+    "dynamicImports": [
+      "src/provider/component/antd-pro-workbench.tsx"
     ],
     "css": [
       "assets/canonical-providers.css"
@@ -54,8 +80,9 @@
     "src": "src/provider/providers/primereact.tsx",
     "isEntry": true,
     "imports": [
-      "_workbench-D0e03a_h.js",
-      "_registry-DKMsX4ZK.js"
+      "_navigation-YDCojqpq.js",
+      "_registry-D80JVzsO.js",
+      "_workbench-CYwhX3Ar.js"
     ],
     "css": [
       "assets/canonical-providers.css"
@@ -70,8 +97,9 @@
       "src/provider/provider-registry.ts",
       "src/provider/providers/antd-pro.tsx",
       "src/provider/providers/primereact.tsx",
-      "_registry-DKMsX4ZK.js",
-      "_workbench-D0e03a_h.js"
+      "_registry-D80JVzsO.js",
+      "_navigation-YDCojqpq.js",
+      "_workbench-CYwhX3Ar.js"
     ],
     "css": [
       "assets/canonical-providers.css"
