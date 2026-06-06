@@ -6,24 +6,13 @@ Producer components own business logic, template lookup decisions, fallback deci
 
 Interfacing must not provide a live component resolver, business-aware dispatcher, component registry, or template lookup service as the general integration path.
 
-## Canonical shell locations
+## Canonical content-output shell locations
+
+Only these keys are public payload locations. Provider/header implementation anchors are not part of this contract.
 
 Document/body:
 
 - `shell.body.top`
-
-Header:
-
-- `shell.header.left.logo`
-- `shell.header.left.name`
-- `shell.header.left.title`
-- `shell.header.context`
-- `shell.header.main`
-- `shell.header.right.user`
-- `shell.header.right.cart`
-- `shell.header.right.notification`
-- `shell.header.right.toggle`
-- `shell.header.bottom`
 
 Left primary column:
 
@@ -59,6 +48,10 @@ Footer:
 - `shell.footer.context`
 - `shell.footer.main`
 - `shell.footer.right`
+
+Header output strip:
+
+- `shell.header.bottom`
 
 ## Template-side usage
 

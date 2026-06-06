@@ -28,7 +28,7 @@
 {% set shellLocations = locations|default(shell.locations|default(shellNavigationLocations|default({}))) %}
 {#
   Semantic shell location canon.
-  Canonical keys use shell.header / shell.left / shell.context / shell.main / shell.right / shell.footer only.
+  Canonical output keys are explicit; header output is limited to shell.header.bottom.
 #}
 {% set shellBodyTopItems = shellLocations['shell.body.top']|default([]) %}
 {% set shellLeftTopItems = shellLocations['shell.left.top']|default([]) %}

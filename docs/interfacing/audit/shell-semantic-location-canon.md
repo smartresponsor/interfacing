@@ -1,74 +1,45 @@
-= Interfacing Semantic Shell Location Canon
+# Shell content-output location canon
 
-This wave replaces geometry-driven names such as `top-primary`, `left-secondary`, `body`, and `right-context` with stable semantic shell locations.
+This audit fixes the public content-output location contract and removes legacy header-anchor drift from Twig markup.
 
-== Canonical structure
+## Public content-output locations
 
-[source,html]
-----
-<body>
-  <section>shell.body.top</section>
+```text
+shell.body.top
 
-  <header>
-    <aside>
-      shell.header.left.logo
-      shell.header.left.name
-      shell.header.left.title
-    </aside>
-    <aside>shell.header.context</aside>
-    <main>shell.header.main</main>
-    <aside>
-      shell.header.right.user
-      shell.header.right.cart
-      shell.header.right.notification
-      shell.header.right.toggle
-    </aside>
-    <section>shell.header.bottom</section>
-  </header>
+shell.left.top
+shell.left.middle
+shell.left.bottom
 
-  <aside>shell.left.top / shell.left.middle / shell.left.bottom</aside>
-  <aside>shell.context.top / shell.context.middle / shell.context.bottom</aside>
-  <main>shell.main.top / shell.main.content / shell.main.bottom</main>
-  <aside>shell.right.top / shell.right.middle / shell.right.bottom</aside>
+shell.context.top
+shell.context.middle
+shell.context.bottom
 
-  <footer>
-    <section>shell.footer.top</section>
-    <aside>shell.footer.left</aside>
-    <aside>shell.footer.context</aside>
-    <main>shell.footer.main</main>
-    <aside>shell.footer.right</aside>
-  </footer>
-</body>
-----
+shell.main.top
+shell.main.toolbar
+shell.main.content
+shell.main.bottom
 
-== Canonical rules
+shell.right.top
+shell.right.tool
+shell.right.filter
+shell.right.middle
+shell.right.bottom
 
-* `templates/base.html.twig` remains the only HTML document owner. `templates/shell/base.html.twig` is retired.
-* All new payload locations must use `shell.*` semantic names.
-* Header locations use `shell.header.*`, not `shell.head.*`.
-* Footer top row is `shell.footer.top`, not `shell.footer.banner`.
-* `shell.left.middle` is primary navigation.
-* `shell.context.middle` is section/context navigation.
-* Legacy names remain readable for one transition period only.
+shell.footer.top
+shell.footer.left
+shell.footer.context
+shell.footer.main
+shell.footer.right
 
-== Transition aliases
+shell.header.bottom
+```
 
-[cols="1,1",options="header"]
-|===
-| Legacy | Canonical
-| `shell.top.primary` | `shell.header.left`
-| `shell.top.secondary` | `shell.header.context`
-| `shell.top.main` | `shell.header.main`
-| `shell.top.right` | `shell.header.right`
-| `shell.left.primary` | `shell.left.middle`
-| `shell.left.section` | `shell.context.middle`
-| `body.header` | `shell.main.top`
-| `body.content` | `shell.main.content`
-| `body.footer` | `shell.main.bottom`
-| `right.context` | `shell.right.middle`
-| `footer.primary` | `shell.footer.left`
-| `footer.secondary` | `shell.footer.context`
-| `footer.main` | `shell.footer.main`
-| `footer.right` | `shell.footer.right`
-|===
+## Header markup rule
 
+Header brand/search/menu markup is internal provider structure. It must use neutral provider attributes such as `data-interfacing-provider-region` or `data-interfacing-provider-part`, not legacy `shell.header.*` anchors. The only public header output location is `shell.header.bottom`.
+
+## Canonical rule
+
+Public payload flows through `location_bucket.html.twig` or `navigation/location.html.twig`.
+Twig must not expose legacy `shell.header.left.*`, `shell.header.main`, or `shell.header.right.*` names as provider anchors or public output locations.

@@ -2,17 +2,17 @@
 
 Canonical machine-readable source: `config/interfacing/shell_location.yaml`.
 
-Stable root namespaces:
+Stable public output locations:
 
 * `shell.body.top`
-* `shell.header.*`
-* `shell.left.*`
-* `shell.context.*`
-* `shell.main.*`
-* `shell.right.*`
-* `shell.footer.*`
+* `shell.left.top|middle|bottom`
+* `shell.context.top|middle|bottom`
+* `shell.main.top|toolbar|content|bottom`
+* `shell.right.top|tool|filter|middle|bottom`
+* `shell.footer.top|left|context|main|right`
+* `shell.header.bottom`
 
-Producer components must publish location payloads only to these keys. Interfacing no longer reads legacy alias keys in the root document base, navigation map, layout preview, panel diagnostics, or footer partials.
+Producer components must publish location payloads only to these keys. Header brand/search/menu internals are provider markup and must not be exposed as `shell.header.*` payload anchors. Interfacing no longer reads legacy alias keys in the root document base, navigation map, layout preview, panel diagnostics, or footer partials.
 
 Retired examples:
 

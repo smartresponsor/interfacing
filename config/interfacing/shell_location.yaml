@@ -6,114 +6,89 @@ normal_rendering_path: base.html.twig
 locations:
   shell.body.top:
     label: Body top
-    kind: full_width_strip
-    html: section
-  shell.header.left.logo:
-    label: Header logo
-    kind: header_brand_asset
-    html: img
-  shell.header.left.name:
-    label: Header name
-    kind: header_brand_text
-    html: span
-  shell.header.left.title:
-    label: Header title
-    kind: header_brand_subtitle
-    html: span
-  shell.header.context:
-    label: Header context
-    kind: header_context
-    html: aside
-  shell.header.main:
-    label: Header main
-    kind: header_main
-    html: main
-  shell.header.right.user:
-    label: Header user
-    kind: header_tool
-    html: slot
-  shell.header.right.cart:
-    label: Header cart
-    kind: header_tool
-    html: slot
-  shell.header.right.notification:
-    label: Header notification
-    kind: header_tool
-    html: slot
-  shell.header.right.toggle:
-    label: Header toggle
-    kind: header_toggle
-    html: div
-  shell.header.bottom:
-    label: Header bottom
-    kind: header_bottom_strip
+    kind: output_location
     html: section
   shell.left.top:
     label: Left top
-    kind: left_panel_region
+    kind: output_location
     html: aside_region
   shell.left.middle:
     label: Left middle
-    kind: primary_navigation
+    kind: output_location
     html: aside_region
   shell.left.bottom:
     label: Left bottom
-    kind: left_panel_region
+    kind: output_location
     html: aside_region
   shell.context.top:
     label: Context top
-    kind: context_panel_region
+    kind: output_location
     html: aside_region
   shell.context.middle:
     label: Context middle
-    kind: context_navigation
+    kind: output_location
     html: aside_region
   shell.context.bottom:
     label: Context bottom
-    kind: context_panel_region
+    kind: output_location
     html: aside_region
   shell.main.top:
     label: Main top
-    kind: main_region
+    kind: output_location
+    html: main_region
+  shell.main.toolbar:
+    label: Main toolbar
+    kind: output_location
     html: main_region
   shell.main.content:
     label: Main content
-    kind: main_content
+    kind: output_location
     html: main_region
   shell.main.bottom:
     label: Main bottom
-    kind: main_region
+    kind: output_location
     html: main_region
   shell.right.top:
     label: Right top
-    kind: right_panel_region
+    kind: output_location
+    html: aside_region
+  shell.right.tool:
+    label: Right tool
+    kind: output_location
+    html: aside_region
+  shell.right.filter:
+    label: Right filter
+    kind: output_location
     html: aside_region
   shell.right.middle:
     label: Right middle
-    kind: right_panel_region
+    kind: output_location
     html: aside_region
   shell.right.bottom:
     label: Right bottom
-    kind: right_panel_region
+    kind: output_location
     html: aside_region
   shell.footer.top:
     label: Footer top
-    kind: footer_top_strip
+    kind: output_location
     html: section
   shell.footer.left:
     label: Footer left
-    kind: footer_panel
+    kind: output_location
     html: aside
   shell.footer.context:
     label: Footer context
-    kind: footer_panel
+    kind: output_location
     html: aside
   shell.footer.main:
     label: Footer main
-    kind: footer_panel
+    kind: output_location
     html: main
   shell.footer.right:
     label: Footer right
-    kind: footer_panel
+    kind: output_location
     html: aside
-
+  shell.header.bottom:
+    label: Header bottom
+    kind: output_location
+    html: section

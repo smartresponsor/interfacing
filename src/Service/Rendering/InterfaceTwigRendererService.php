@@ -168,45 +168,6 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
                 'label' => $title,
                 'description' => $subtitle,
             ]],
-            InterfaceShellSlot::HEADER_LEFT_LOGO => '' !== $avatarUrl ? [[
-                'type' => 'media',
-                'src' => $avatarUrl,
-                'alt' => $title,
-                'label' => $title,
-                'description' => $subtitle,
-            ]] : [],
-            InterfaceShellSlot::HEADER_LEFT_NAME => [[
-                'type' => 'text',
-                'label' => $title,
-                'description' => $subtitle,
-            ]],
-            InterfaceShellSlot::HEADER_LEFT_TITLE => '' !== $subtitle ? [[
-                'type' => 'text',
-                'label' => $subtitle,
-                'description' => $resourcePath,
-            ]] : [],
-            InterfaceShellSlot::HEADER_CONTEXT => $items,
-            InterfaceShellSlot::HEADER_MAIN => '' !== $mainUrl ? [[
-                'type' => 'link',
-                'label' => 'Open current surface',
-                'href' => $mainUrl,
-                'description' => $title,
-            ]] : [],
-            InterfaceShellSlot::HEADER_RIGHT_USER => '' !== $profileUrl ? [[
-                'type' => 'link',
-                'label' => $profileLabel,
-                'href' => $profileUrl,
-                'description' => $profileDescription,
-            ]] : [],
-            InterfaceShellSlot::HEADER_RIGHT_CART => '' !== $avatarUrl || '' !== $coverUrl ? [
-                ['type' => 'text', 'label' => 'Avatar', 'value' => '' !== $avatarUrl ? 'available' : 'missing'],
-                ['type' => 'text', 'label' => 'Cover', 'value' => '' !== $coverUrl ? 'available' : 'missing'],
-            ] : [],
-            InterfaceShellSlot::HEADER_RIGHT_NOTIFICATION => [] !== $items ? [[
-                'type' => 'text',
-                'label' => 'Surface status',
-                'value' => $status ?: 'ready',
-            ]] : [],
             InterfaceShellSlot::MAIN_TOP => '' !== $coverUrl || '' !== $title ? [[
                 'type' => 'media',
                 'src' => '' !== $coverUrl ? $coverUrl : ('' !== $avatarUrl ? $avatarUrl : '/mandala.svg'),
@@ -214,12 +175,28 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
                 'label' => $title,
                 'description' => $subtitle,
             ]] : [],
+            InterfaceShellSlot::MAIN_TOOLBAR => '' !== $mainUrl ? [[
+                'type' => 'link',
+                'label' => 'Open current surface',
+                'href' => $mainUrl,
+                'description' => $title,
+            ]] : [],
             InterfaceShellSlot::MAIN_CONTENT => [[
                 'type' => 'text',
                 'label' => $title,
                 'description' => $subtitle,
             ]],
             InterfaceShellSlot::MAIN_BOTTOM => [] !== $items ? $items : [],
+            InterfaceShellSlot::RIGHT_TOOL => '' !== $profileUrl ? [[
+                'type' => 'link',
+                'label' => $profileLabel,
+                'href' => $profileUrl,
+                'description' => $profileDescription,
+            ]] : [],
+            InterfaceShellSlot::RIGHT_FILTER => '' !== $avatarUrl || '' !== $coverUrl ? [
+                ['type' => 'text', 'label' => 'Avatar', 'value' => '' !== $avatarUrl ? 'available' : 'missing'],
+                ['type' => 'text', 'label' => 'Cover', 'value' => '' !== $coverUrl ? 'available' : 'missing'],
+            ] : [],
             InterfaceShellSlot::RIGHT_MIDDLE => [] !== $items ? $items : [],
             InterfaceShellSlot::FOOTER_TOP => [[
                 'type' => 'text',
@@ -231,6 +208,11 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
                 'label' => 'Surface',
                 'value' => $resourcePath ?: 'interfacing',
             ]],
+            InterfaceShellSlot::HEADER_BOTTOM => [] !== $items ? [[
+                'type' => 'text',
+                'label' => 'Surface status',
+                'value' => $status ?: 'ready',
+            ]] : [],
         ];
 
         return array_filter($locations, static fn (array $value): bool => [] !== $value);
@@ -248,14 +230,15 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
 
         return array_filter([
             InterfaceShellSlot::BODY_TOP => $title,
-            InterfaceShellSlot::HEADER_LEFT_NAME => $title,
-            InterfaceShellSlot::HEADER_LEFT_TITLE => $subtitle,
-            InterfaceShellSlot::HEADER_CONTEXT => $this->stringValue($context['status'] ?? $context['profileStatus'] ?? $context['vendorStatus'] ?? null, 'Context'),
-            InterfaceShellSlot::HEADER_MAIN => 'Current surface',
-            InterfaceShellSlot::HEADER_RIGHT_USER => 'User',
             InterfaceShellSlot::MAIN_TOP => 'Main hero',
+            InterfaceShellSlot::MAIN_TOOLBAR => 'Main toolbar',
             InterfaceShellSlot::MAIN_CONTENT => 'Main content',
+            InterfaceShellSlot::MAIN_BOTTOM => 'Main bottom',
+            InterfaceShellSlot::RIGHT_TOOL => 'Right tool',
+            InterfaceShellSlot::RIGHT_FILTER => 'Right filter',
+            InterfaceShellSlot::RIGHT_MIDDLE => $this->stringValue($context['status'] ?? $context['profileStatus'] ?? $context['vendorStatus'] ?? null, 'Right context'),
             InterfaceShellSlot::FOOTER_TOP => $title,
+            InterfaceShellSlot::HEADER_BOTTOM => $subtitle,
         ], static fn (string $value): bool => '' !== trim($value));
     }
 

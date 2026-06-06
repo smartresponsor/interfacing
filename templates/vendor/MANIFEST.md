@@ -13,19 +13,9 @@ renders those payloads into the canonical shell contract.
 
 ## Slot contract
 
-The vendor surface uses these shell slot groups:
+The vendor surface may pass payload only to these public content-output shell locations:
 
 - `shell.body.top`
-- `shell.head.left.logo`
-- `shell.head.left.name`
-- `shell.head.left.title`
-- `shell.head.context`
-- `shell.head.main`
-- `shell.head.right.user`
-- `shell.head.right.cart`
-- `shell.head.right.notification`
-- `shell.head.right.toggle`
-- `shell.head.bottom`
 - `shell.left.top`
 - `shell.left.middle`
 - `shell.left.bottom`
@@ -33,9 +23,12 @@ The vendor surface uses these shell slot groups:
 - `shell.context.middle`
 - `shell.context.bottom`
 - `shell.main.top`
+- `shell.main.toolbar`
 - `shell.main.content`
 - `shell.main.bottom`
 - `shell.right.top`
+- `shell.right.tool`
+- `shell.right.filter`
 - `shell.right.middle`
 - `shell.right.bottom`
 - `shell.footer.top`
@@ -43,6 +36,9 @@ The vendor surface uses these shell slot groups:
 - `shell.footer.context`
 - `shell.footer.main`
 - `shell.footer.right`
+- `shell.header.bottom`
+
+Header brand/search/menu points are provider-owned anchors and are not vendor payload locations.
 
 ## Provider policy
 

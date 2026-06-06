@@ -89,11 +89,13 @@ body,
 [data-interfacing-shell-slot="left-secondary"],
 [data-interfacing-shell-slot="right-context"],
 [data-interfacing-access-footer-mode],
-[data-interfacing-access-slot="body"] > section,
+[data-interfacing-access-slot="body"] > section {
+  border-color: var(--interfacing-provider-border) !important;
+}
+
 [data-interfacing-shell-slot="left-primary"],
 [data-interfacing-shell-slot="left-secondary"],
 [data-interfacing-shell-slot="right-context"] {
-  padding: var(--interfacing-provider-panel-padding) 10px !important;
   background: var(--interfacing-provider-surface) !important;
 }
 
