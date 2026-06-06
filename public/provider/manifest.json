@@ -1,0 +1,85 @@
+{
+  "_registry-DKMsX4ZK.js": {
+    "file": "chunks/registry-DKMsX4ZK.js",
+    "name": "registry"
+  },
+  "_workbench-D0e03a_h.js": {
+    "file": "chunks/workbench-D0e03a_h.js",
+    "name": "workbench",
+    "imports": [
+      "_registry-DKMsX4ZK.js"
+    ]
+  },
+  "src/provider/canonical-providers.ts": {
+    "file": "canonical-providers.js",
+    "name": "canonical-providers",
+    "src": "src/provider/canonical-providers.ts",
+    "isEntry": true,
+    "imports": [
+      "src/provider/provider-registry.ts",
+      "src/provider/providers/antd-pro.tsx",
+      "src/provider/providers/primereact.tsx",
+      "_registry-DKMsX4ZK.js",
+      "_workbench-D0e03a_h.js"
+    ],
+    "css": [
+      "assets/canonical-providers.css"
+    ]
+  },
+  "src/provider/provider-registry.ts": {
+    "file": "provider-registry.js",
+    "name": "provider-registry",
+    "src": "src/provider/provider-registry.ts",
+    "isEntry": true,
+    "imports": [
+      "_registry-DKMsX4ZK.js"
+    ]
+  },
+  "src/provider/providers/antd-pro.tsx": {
+    "file": "providers/antd-pro.js",
+    "name": "providers/antd-pro",
+    "src": "src/provider/providers/antd-pro.tsx",
+    "isEntry": true,
+    "imports": [
+      "_workbench-D0e03a_h.js",
+      "_registry-DKMsX4ZK.js"
+    ],
+    "css": [
+      "assets/canonical-providers.css"
+    ]
+  },
+  "src/provider/providers/primereact.tsx": {
+    "file": "providers/primereact.js",
+    "name": "providers/primereact",
+    "src": "src/provider/providers/primereact.tsx",
+    "isEntry": true,
+    "imports": [
+      "_workbench-D0e03a_h.js",
+      "_registry-DKMsX4ZK.js"
+    ],
+    "css": [
+      "assets/canonical-providers.css"
+    ]
+  },
+  "src/provider/runtime.ts": {
+    "file": "runtime.js",
+    "name": "runtime",
+    "src": "src/provider/runtime.ts",
+    "isEntry": true,
+    "imports": [
+      "src/provider/provider-registry.ts",
+      "src/provider/providers/antd-pro.tsx",
+      "src/provider/providers/primereact.tsx",
+      "_registry-DKMsX4ZK.js",
+      "_workbench-D0e03a_h.js"
+    ],
+    "css": [
+      "assets/canonical-providers.css"
+    ]
+  },
+  "src/provider/styles/canonical-providers.interfacing-interface-ui.css": {
+    "file": "assets/canonical-providers.css",
+    "src": "src/provider/styles/canonical-providers.interfacing-interface-ui.css",
+    "isEntry": true
+  }
+}

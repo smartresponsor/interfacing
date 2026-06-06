@@ -33,7 +33,7 @@
       <div class="interfacing-access-card" data-interfacing-access-card data-interfacing-access-footer-mode="{{ accessFooterMode }}">
         {% for label, messages in app.flashes %}
           {% for message in messages %}
-            <div class="alert alert-{{ label == 'danger' ? 'danger' : (label == 'success' ? 'success' : 'secondary') }} interfacing-access-flash" role="alert">
+            <div class="interfacing-alert interfacing-alert--{{ label == 'danger' ? 'danger' : (label == 'success' ? 'success' : 'neutral') }} interfacing-access-flash" role="alert">
               {{ message }}
             </div>
           {% endfor %}
@@ -48,4 +48,3 @@
     </section>
   </main>
 {% endblock %}
-

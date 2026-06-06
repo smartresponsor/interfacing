@@ -10,7 +10,7 @@
   served by the host asset pipeline as real JavaScript, not HTML fallbacks.
 #}
 {% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(false) %}
-{% set providerAssetVersion = interfacing_provider_asset_version|default('w69-static-slot-location-contract') %}
+{% set providerAssetVersion = interfacing_provider_asset_version|default('w70-react-provider-materialization') %}
 {% set providerAssetManifest = {
   inlineBaselineStyle: 'shell/partial/provider_baseline_style.html.twig',
   canonicalStylesheet: 'provider/canonical-providers.interfacing-interface-ui.css',
@@ -37,6 +37,7 @@
   fallback: 'twig-navigation-and-shell-rendering'
 }|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}</script>
 {% if externalProviderAssetsEnabled %}
+<link rel="stylesheet" href="{{ asset(providerAssetManifest.canonicalStylesheet) }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-stylesheet="true">
 <script src="{{ asset(providerAssetManifest.designTokens) }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-baseline-tokens="true"></script>
 <script src="{{ asset(providerAssetManifest.processEnv) }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-process-env="true"></script>
 <script type="module" src="{{ asset(providerAssetManifest.providerRegistry) }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>

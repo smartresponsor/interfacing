@@ -2,19 +2,15 @@
 
 {% block title %}Verify Phone | {{ accessing_product_name }}{% endblock %}
 
-{% block body %}
-    <div class="row justify-content-center">
-        <div class="col-lg-6">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h1 class="h4">Request phone verification</h1>
-                    <p class="text-body-secondary">Provide the phone number you want this account to trust for recovery and sign-in hardening.</p>
-                    {{ form_start(form) }}
-                        {{ form_row(form.phoneNumber) }}
-                        <button class="btn btn-primary">Send phone verification code</button>
-                    {{ form_end(form) }}
-                </div>
-            </div>
-        </div>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Request phone verification</h1>
+      <p class="interfacing-muted">Provide the phone number you want this account to trust for recovery and sign-in hardening.</p>
     </div>
+    {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.phoneNumber) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Send phone verification code</button>
+    {{ form_end(form) }}
+  </div>
 {% endblock %}

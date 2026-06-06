@@ -2,26 +2,20 @@
 
 {% block title %}Verify Email | {{ accessing_product_name }}{% endblock %}
 
-{% block body %}
-    <div class="row g-4">
-        <div class="col-lg-6">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h1 class="h4">Verify email ownership</h1>
-                    <p class="text-body-secondary">Confirm {{ account.emailAddress }} with the most recent email verification code.</p>
-
-                    {{ form_start(form) }}
-                        {{ form_row(form.code) }}
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-primary" type="submit">Complete email verification</button>
-                        </div>
-                    {{ form_end(form) }}
-
-                    <form method="post" action="{{ path('accessing_verify_email_resend') }}" class="mt-3">
-                        <button class="btn btn-outline-secondary" type="submit">Resend code</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Verify email ownership</h1>
+      <p class="interfacing-muted">Confirm {{ account.emailAddress }} with the most recent email verification code.</p>
     </div>
+
+    {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.code) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Complete email verification</button>
+    {{ form_end(form) }}
+
+    <form method="post" action="{{ path('accessing_verify_email_resend') }}" class="interfacing-form interfacing-form--inline-start">
+      <button class="interfacing-button interfacing-button--secondary-outline" type="submit">Resend code</button>
+    </form>
+  </div>
 {% endblock %}
