@@ -11,7 +11,7 @@ use App\Interfacing\Integration\Symfony\Compiler\InterfaceCatalogCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class InterfaceBundle extends Bundle
+final class InterfacingBundle extends Bundle
 {
     public function build(ContainerBuilder $container): void
     {
