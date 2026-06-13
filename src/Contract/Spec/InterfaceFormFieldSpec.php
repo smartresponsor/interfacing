@@ -12,7 +12,7 @@ final readonly class InterfaceFormFieldSpec
      * @param array<string, scalar|null> $option
      */
     public function __construct(
-        public string $name,
+        public string $nameEntity,
         public string $type,
         public string $label,
         public bool $required = false,

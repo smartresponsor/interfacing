@@ -25,10 +25,10 @@ final readonly class InterfaceDefaultLocaleTemplateSelectorProvider implements I
         ];
 
         $options = [];
-        foreach ($known as [$code, $name, $nativeName]) {
+        foreach ($known as [$code, $nameEntity, $nativeName]) {
             $options[] = new InterfaceLocaleTemplateSelectorOption(
                 $code,
-                $name,
+                $nameEntity,
                 $nativeName,
                 $code === $currentLocaleCode,
                 'en' === $code,

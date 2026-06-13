@@ -6,8 +6,10 @@ namespace App\Interfacing\Service\Rendering;
 
 use App\Interfacing\Contract\Surface\InterfaceSurfaceRenderableInterface;
 use App\Interfacing\Contract\ValueObject\InterfaceShellSlot;
+use App\Interfacing\ProviderInterface\Shell\InterfaceShellChromeProviderInterface;
 use App\Interfacing\ServiceInterface\Rendering\InterfaceRendererInterface;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Profiler\Profiler;
 use Twig\Environment;
@@ -16,6 +18,8 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
 {
     public function __construct(
         private Environment $twig,
+        private RequestStack $requestStack,
+        private ?InterfaceShellChromeProviderInterface $shellChromeProvider = null,
         #[Autowire(service: 'profiler')]
         private ?Profiler $profiler = null,
     ) {
@@ -56,6 +60,18 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
 
         if (!array_key_exists('shell', $context) || null === $context['shell']) {
             $context['shell'] = [];
+        }
+
+        if (is_array($context['shell']) && $this->shellChromeProvider instanceof InterfaceShellChromeProviderInterface) {
+            $request = $this->requestStack->getCurrentRequest();
+            $context['shell'] = array_replace_recursive(
+                $this->shellChromeProvider->provide($activeId, false, false),
+                $context['shell'],
+            );
+
+            if (null !== $request) {
+                $context['shell']['requestPath'] = $request->getPathInfo();
+            }
         }
 
         if (($context['shellCompact'] ?? false) && is_array($context['shell'])) {

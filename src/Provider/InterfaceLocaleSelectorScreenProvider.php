@@ -28,7 +28,7 @@ final class InterfaceLocaleSelectorScreenProvider implements InterfaceScreenProv
         $items = [];
         foreach ($context->selectorOptions as $option) {
             $items[] = [
-                'title' => $option->name.' ('.$option->code.')',
+                'title' => $option->nameEntity.' ('.$option->code.')',
                 'subtitle' => $option->nativeName,
                 'meta' => [
                     'code' => $option->code,

@@ -10,14 +10,14 @@ final class InterfaceCategoryFormInput
 {
     public string $id = '';
     public string $slug = '';
-    public string $name = '';
+    public string $nameEntity = '';
     public string $locale = 'en';
     public string $status = 'active';
 
     /** @return array<string,string> */
     public function toPayload(): array
     {
-        return ['id' => $this->id, 'slug' => $this->slug, 'name' => $this->name, 'locale' => $this->locale, 'status' => $this->status];
+        return ['id' => $this->id, 'slug' => $this->slug, 'nameEntity' => $this->nameEntity, 'locale' => $this->locale, 'status' => $this->status];
     }
 
     /** @param array<string,mixed> $data */
@@ -25,7 +25,7 @@ final class InterfaceCategoryFormInput
     {
         $this->id = (string) ($data['id'] ?? '');
         $this->slug = (string) ($data['slug'] ?? '');
-        $this->name = (string) ($data['name'] ?? '');
+        $this->nameEntity = (string) ($data['nameEntity'] ?? '');
         $this->locale = (string) ($data['locale'] ?? 'en');
         $this->status = (string) ($data['status'] ?? 'active');
     }

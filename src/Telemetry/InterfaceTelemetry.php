@@ -18,23 +18,23 @@ final class InterfaceTelemetry implements InterfaceTelemetryInterface
     {
     }
 
-    public function mark(string $name, array $meta = []): void
+    public function mark(string $nameEntity, array $meta = []): void
     {
-        $this->logger->info('[interfacing] mark '.$name, $this->meta($meta));
+        $this->logger->info('[interfacing] mark '.$nameEntity, $this->meta($meta));
     }
 
-    public function timing(string $name, float $ms, array $meta = []): void
+    public function timing(string $nameEntity, float $ms, array $meta = []): void
     {
         $data = $this->meta($meta);
         $data['ms'] = $ms;
-        $this->logger->info('[interfacing] timing '.$name, $data);
+        $this->logger->info('[interfacing] timing '.$nameEntity, $data);
     }
 
-    public function count(string $name, int $value = 1, array $meta = []): void
+    public function count(string $nameEntity, int $value = 1, array $meta = []): void
     {
         $data = $this->meta($meta);
         $data['value'] = $value;
-        $this->logger->info('[interfacing] count '.$name, $data);
+        $this->logger->info('[interfacing] count '.$nameEntity, $data);
     }
 
     /** @return array<string, mixed> */

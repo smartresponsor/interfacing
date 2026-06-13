@@ -2,47 +2,48 @@
 {#
   Single Interfacing provider asset contract.
 
-  CSS baseline is package-owned and always emitted inline so the shell keeps
-  its layout even when the host application does not expose package-local
-  public files as web assets.
+  CSS is package-owned and served as stable bundle assets. No inline CSS, no
+  hashed AssetMapper filenames, no CDN, and no React/Ant/Prime runtime required
+  for the native Twig shell.
 
-  Browser provider JavaScript remains opt-in because module URLs must be
-  served by the host asset pipeline as real JavaScript, not HTML fallbacks.
+  Browser provider JavaScript remains opt-in because module URLs must be served
+  by the host asset pipeline as real JavaScript, not HTML fallbacks.
 #}
 {% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(false) %}
-{% set providerAssetVersion = interfacing_provider_asset_version|default('w70-react-provider-materialization') %}
+{% set providerAssetVersion = interfacing_provider_asset_version|default('w73-native-ant-icon-provider') %}
+{% set providerAssetBasePath = interfacing_provider_asset_base_path|default('') %}
 {% set providerAssetManifest = {
-  inlineBaselineStyle: 'shell/partial/provider_baseline_style.html.twig',
-  canonicalStylesheet: 'provider/canonical-providers.interfacing-interface-ui.css',
-  designStylesheet: 'design/provider-baseline.css',
-  designTokens: 'design/provider-baseline-tokens.js',
-  processEnv: 'provider/process-env.js',
-  providerRegistry: 'provider/provider-registry.js',
-  canonicalProviders: 'provider/canonical-providers.js',
-  antdProProvider: 'provider/providers/antd-pro.js',
-  primeReactProvider: 'provider/providers/primereact.js',
-  runtime: 'provider/runtime.js'
+  baselineStylesheet: 'bundles/interfacing/interfacing/design/provider-baseline.css',
+  menuStylesheet: 'bundles/interfacing/interfacing/design/provider-menu.css',
+  canonicalStylesheet: 'bundles/interfacing/provider/canonical-providers.interfacing-interface-ui.css',
+  designTokens: 'bundles/interfacing/interfacing/design/provider-baseline-tokens.js',
+  processEnv: 'bundles/interfacing/provider/process-env.js',
+  providerRegistry: 'bundles/interfacing/provider/provider-registry.js',
+  canonicalProviders: 'bundles/interfacing/provider/canonical-providers.js',
+  antdProProvider: 'bundles/interfacing/provider/providers/antd-pro.js',
+  primeReactProvider: 'bundles/interfacing/provider/providers/primereact.js',
+  runtime: 'bundles/interfacing/provider/runtime.js'
 } %}
-<style id="interfacing-provider-baseline-inline-style" data-interfacing-provider-baseline-inline-style="true" data-interfacing-provider-asset-version="{{ providerAssetVersion }}">
-{% include '@Interfacing/shell/partial/provider_baseline_style.html.twig' %}
-</style>
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.baselineStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-baseline-stylesheet="true">
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-stylesheet="true">
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.menuStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-menu-stylesheet="true">
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ interfaceStyleProvider.stylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-theme-stylesheet="{{ interfaceStyleProvider.key }}">
 <script type="application/json" id="interfacing-provider-asset-manifest" data-interfacing-provider-asset-manifest="true">{{ {
   enabled: externalProviderAssetsEnabled,
-  cssMode: 'inline-package-owned-baseline',
+  cssMode: 'stable-bundle-assets',
   jsMode: externalProviderAssetsEnabled ? 'host-owned-web-asset-exposure' : 'disabled-until-host-owned-web-asset-exposure',
   version: providerAssetVersion,
   owner: 'Interfacing',
-  servingContract: 'inline-css-plus-opt-in-host-served-provider-js',
+  servingContract: 'stable-bundle-css-plus-opt-in-provider-js',
   paths: providerAssetManifest,
   fallback: 'twig-navigation-and-shell-rendering'
 }|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}</script>
 {% if externalProviderAssetsEnabled %}
-<link rel="stylesheet" href="{{ asset(providerAssetManifest.canonicalStylesheet) }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-stylesheet="true">
-<script src="{{ asset(providerAssetManifest.designTokens) }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-baseline-tokens="true"></script>
-<script src="{{ asset(providerAssetManifest.processEnv) }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-process-env="true"></script>
-<script type="module" src="{{ asset(providerAssetManifest.providerRegistry) }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>
-<script type="module" src="{{ asset(providerAssetManifest.canonicalProviders) }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-providers="true"></script>
-<script type="module" src="{{ asset(providerAssetManifest.antdProProvider) }}?v={{ providerAssetVersion }}" data-interfacing-provider-antd-pro="true"></script>
-<script type="module" src="{{ asset(providerAssetManifest.primeReactProvider) }}?v={{ providerAssetVersion }}" data-interfacing-provider-primereact="true"></script>
-<script type="module" src="{{ asset(providerAssetManifest.runtime) }}?v={{ providerAssetVersion }}" data-interfacing-provider-runtime="true"></script>
+<script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.designTokens }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-baseline-tokens="true"></script>
+<script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.processEnv }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-process-env="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.providerRegistry }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalProviders }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-providers="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.antdProProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-antd-pro="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.primeReactProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-primereact="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.runtime }}?v={{ providerAssetVersion }}" data-interfacing-provider-runtime="true"></script>
 {% endif %}

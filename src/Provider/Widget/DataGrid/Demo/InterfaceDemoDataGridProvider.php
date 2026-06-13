@@ -28,7 +28,7 @@ final class InterfaceDemoDataGridProvider implements InterfaceDataGridProviderIn
         $search = mb_strtolower(trim($query->search()));
         if ('' !== $search) {
             $item = array_values(array_filter($item, static function (array $row) use ($search): bool {
-                $haystack = mb_strtolower((string) ($row['id'].' '.$row['name'].' '.$row['status'].' '.$row['updatedAt']));
+                $haystack = mb_strtolower((string) ($row['id'].' '.$row['nameEntity'].' '.$row['status'].' '.$row['updatedAt']));
 
                 return str_contains($haystack, $search);
             }));
@@ -52,7 +52,7 @@ final class InterfaceDemoDataGridProvider implements InterfaceDataGridProviderIn
         foreach ($pageItem as $entry) {
             $row[] = new InterfaceDataGridRow((string) $entry['id'], [
                 'id' => (string) $entry['id'],
-                'name' => (string) $entry['name'],
+                'nameEntity' => (string) $entry['nameEntity'],
                 'status' => (string) $entry['status'],
                 'updatedAt' => (string) $entry['updatedAt'],
             ]);
@@ -70,7 +70,7 @@ final class InterfaceDemoDataGridProvider implements InterfaceDataGridProviderIn
         for ($i = 1; $i <= 57; ++$i) {
             $out[] = [
                 'id' => (string) $i,
-                'name' => 'Demo item '.$i,
+                'nameEntity' => 'Demo item '.$i,
                 'status' => (0 === $i % 3) ? 'pending' : ((0 === $i % 2) ? 'done' : 'open'),
                 'updatedAt' => $now->sub(new \DateInterval('PT'.($i * 7).'M'))->format('Y-m-d H:i'),
             ];

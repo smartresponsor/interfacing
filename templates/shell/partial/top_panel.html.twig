@@ -17,7 +17,7 @@
       </aside>
     {% endif %}
 
-    <main class="interfacing-shell-body" data-interfacing-shell-slot="top-main" data-interfacing-provider-region="main" title="Header main">
+    <main class="interfacing-shell-panel interfacing-shell-panel--secondary interfacing-shell-body" data-interfacing-shell-slot="top-main" data-interfacing-provider-region="main" title="Header main">
       {% set shellSearch = shellSearch|default({}) %}
       <form method="{{ shellSearch.submitMethod|default('get') }}" action="{{ shellSearch.submitAction|default('/search/result') }}" role="search" class="{{ shellSearch.fallbackClass|default('interfacing-provider-input-group') }}" data-interfacing-shell-slot="top-search" data-interfacing-provider-part="main-search" data-interfacing-provider-control="{{ shellSearch.control|default('search-input-group') }}" data-interfacing-provider-control-provider="{{ shellSearch.provider|default('antd-pro') }}" data-interfacing-provider-control-owner="{{ shellSearch.ownerComponent|default('searching') }}">
         <input class="interfacing-provider-input-group__input" name="{{ shellSearch.queryName|default('q') }}" value="{{ shellSearch.value|default(shellQuery) }}" placeholder="{{ shellSearch.placeholder|default('Search products, categories, orders, screens...') }}">
@@ -44,7 +44,8 @@
         <nav class="interfacing-topbar-right interfacing-topbar-right--inline" title="{{ 'Header right' }}" data-interfacing-shell-slot="topbar-right" data-interfacing-provider-region="right">
           {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
             shellQuickMenuGroup: shellQuickMenuGroup,
-            shellQuickMenuItemLimit: shellQuickMenuItemLimit
+            shellQuickMenuItemLimit: shellQuickMenuItemLimit,
+            interface: interface|default({})
           } only %}
         </nav>
       {% endif %}
@@ -55,7 +56,8 @@
         <nav class="interfacing-topbar-right">
           {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
             shellQuickMenuGroup: shellQuickMenuGroup,
-            shellQuickMenuItemLimit: shellQuickMenuItemLimit
+            shellQuickMenuItemLimit: shellQuickMenuItemLimit,
+            interface: interface|default({})
           } only %}
         </nav>
       </aside>

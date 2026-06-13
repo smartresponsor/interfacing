@@ -8,4 +8,22 @@ services:
   _instanceof:
     App\Interfacing\ProviderInterface\InterfaceScreenProviderInterface:
       tags: ['interfacing.screen_provider']
+    App\Interfacing\ProviderInterface\Style\InterfaceStyleProviderInterface:
+      tags: ['interfacing.style_provider']
 
+  App\Interfacing\Service\Location\InterfaceLocationRenderService: ~
+
+  App\Interfacing\Service\Twig\InterfaceLocationTwigExtension:
+    tags:
+      - { name: twig.extension }
+
+  App\Interfacing\Provider\Style\AntDesignInterfaceStyleProvider: ~
+  App\Interfacing\Provider\Style\PrimeReactInterfaceStyleProvider: ~
+
+  App\Interfacing\Registry\Style\InterfaceStyleProviderRegistry:
+    arguments:
+      $providers: !tagged_iterator interfacing.style_provider
+
+  App\Interfacing\Service\Twig\InterfaceStyleProviderTwigExtension:
+    tags:
+      - { name: twig.extension }

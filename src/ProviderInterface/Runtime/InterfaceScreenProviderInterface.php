@@ -13,7 +13,7 @@ interface InterfaceScreenProviderInterface
     public function id(): string;
 
     /**
-     * @return array<string,string> screenId => live component name
+     * @return array<string,string> screenId => live component nameEntity
      */
     public function map(): array;
 }

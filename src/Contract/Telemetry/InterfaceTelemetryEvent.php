@@ -10,18 +10,18 @@ final class InterfaceTelemetryEvent
 {
     /** @param array<string,string|int|float|bool> $tag */
     public function __construct(
-        private readonly string $name,
+        private readonly string $nameEntity,
         private readonly array $tag,
         private readonly float $durationMs,
     ) {
-        if ('' === $name) {
-            throw new \InvalidArgumentException('Telemetry event name must not be empty.');
+        if ('' === $nameEntity) {
+            throw new \InvalidArgumentException('Telemetry event nameEntity must not be empty.');
         }
     }
 
-    public function name(): string
+    public function nameEntity(): string
     {
-        return $this->name;
+        return $this->nameEntity;
     }
 
     /** @return array<string,string|int|float|bool> */

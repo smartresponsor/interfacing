@@ -13,7 +13,7 @@ use App\Interfacing\TelemetryInterface\InterfaceEventTelemetryInterface;
 
 final class InterfaceNullTelemetry implements InterfaceEventTelemetryInterface
 {
-    public function event(string $name, array $meta = []): void
+    public function event(string $nameEntity, array $meta = []): void
     {
         // no-op
     }

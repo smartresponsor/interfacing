@@ -36,7 +36,6 @@
     "autoload":  {
                      "psr-4":  {
                                     "App\\Interfacing\\":  "src/",
-                                    "Symfony\\Contracts\\Cache\\":  "vendor/symfony/cache-contracts/",
                                     "Symfony\\Contracts\\EventDispatcher\\":  "vendor/symfony/event-dispatcher-contracts/",
                                     "Symfony\\Contracts\\Service\\":  "vendor/symfony/service-contracts/",
                                     "Symfony\\Contracts\\Translation\\":  "vendor/symfony/translation-contracts/"

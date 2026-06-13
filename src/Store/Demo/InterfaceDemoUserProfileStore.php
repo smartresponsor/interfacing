@@ -23,26 +23,26 @@ final class InterfaceDemoUserProfileStore implements InterfaceDemoUserProfileSto
     public function load(): array
     {
         if (!is_file($this->path)) {
-            return ['name' => 'Demo User', 'email' => 'demo@example.com'];
+            return ['nameEntity' => 'Demo User', 'email' => 'demo@example.com'];
         }
 
         $raw = file_get_contents($this->path);
         if (false === $raw) {
-            return ['name' => 'Demo User', 'email' => 'demo@example.com'];
+            return ['nameEntity' => 'Demo User', 'email' => 'demo@example.com'];
         }
 
         $data = json_decode($raw, true);
         if (!is_array($data)) {
-            return ['name' => 'Demo User', 'email' => 'demo@example.com'];
+            return ['nameEntity' => 'Demo User', 'email' => 'demo@example.com'];
         }
 
         return [
-            'name' => (string) ($data['name'] ?? 'Demo User'),
+            'nameEntity' => (string) ($data['nameEntity'] ?? 'Demo User'),
             'email' => (string) ($data['email'] ?? 'demo@example.com'),
         ];
     }
 
-    public function save(string $name, string $email): void
+    public function save(string $nameEntity, string $email): void
     {
         if (self::BLOCKED_EMAIL === mb_strtolower(trim($email))) {
             throw new InterfaceDomainOperationFailed('Email is blocked by demo policy.', ['email' => 'This email is not allowed.']);
@@ -65,7 +65,7 @@ final class InterfaceDemoUserProfileStore implements InterfaceDemoUserProfileSto
             }
         }
 
-        $payload = json_encode(['name' => $name, 'email' => $email], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $payload = json_encode(['nameEntity' => $nameEntity, 'email' => $email], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         if (false === $payload) {
             throw new InterfaceDomainOperationFailed('Failed to encode profile payload.');
         }

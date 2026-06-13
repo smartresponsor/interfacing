@@ -8,9 +8,9 @@ namespace App\Interfacing\MetricInterface;
 
 interface InterfaceUiMetricInterface
 {
-    public function inc(string $name, array $label = []): void;
+    public function inc(string $nameEntity, array $label = []): void;
 
-    public function observeMs(string $name, float $ms, array $label = []): void;
+    public function observeMs(string $nameEntity, float $ms, array $label = []): void;
 
     public function render(): string;
 }

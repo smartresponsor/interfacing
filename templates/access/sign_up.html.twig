@@ -9,7 +9,7 @@
       <p class="interfacing-muted">Interfacing supplies the public registration surface; account creation policy and persistence belong to the owning access/user component.</p>
     </div>
 
-    <form method="post" action="{{ path('accessing_sign_up') }}" class="interfacing-form" data-interfacing-access-form="sign-up">
+    <form method="post" action="{{ path('access.register') }}" class="interfacing-form" data-interfacing-access-form="signup">
       <label class="interfacing-form-label">Name
         <input name="account_registration[displayName]" type="text" autocomplete="name" required>
       </label>

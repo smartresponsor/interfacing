@@ -88,14 +88,14 @@ final class InterfaceDoctorService implements InterfaceDoctorInterface, Interfac
         ];
     }
 
-    private function checkTwig(string $code, string $name): array
+    private function checkTwig(string $code, string $nameEntity): array
     {
-        $exists = $this->twig->getLoader()->exists($name);
+        $exists = $this->twig->getLoader()->exists($nameEntity);
 
         return [
             'code' => $code,
             'ok' => $exists,
-            'message' => $exists ? 'ok' : 'missing twig template: '.$name,
+            'message' => $exists ? 'ok' : 'missing twig template: '.$nameEntity,
         ];
     }
 

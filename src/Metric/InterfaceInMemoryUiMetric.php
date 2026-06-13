@@ -16,15 +16,15 @@ final class InterfaceInMemoryUiMetric implements InterfaceUiMetricInterface
     /** @var array<string,float[]> */
     private array $sample = [];
 
-    public function inc(string $name, array $label = []): void
+    public function inc(string $nameEntity, array $label = []): void
     {
-        $k = $this->key($name, $label);
+        $k = $this->key($nameEntity, $label);
         $this->counter[$k] = ($this->counter[$k] ?? 0) + 1;
     }
 
-    public function observeMs(string $name, float $ms, array $label = []): void
+    public function observeMs(string $nameEntity, float $ms, array $label = []): void
     {
-        $k = $this->key($name, $label);
+        $k = $this->key($nameEntity, $label);
         $this->sample[$k] ??= [];
         $this->sample[$k][] = $ms;
     }
@@ -43,10 +43,10 @@ final class InterfaceInMemoryUiMetric implements InterfaceUiMetricInterface
         return \implode("\n", $out)."\n";
     }
 
-    private function key(string $name, array $label): string
+    private function key(string $nameEntity, array $label): string
     {
         if ([] === $label) {
-            return $name;
+            return $nameEntity;
         }
         \ksort($label);
         $parts = [];
@@ -54,7 +54,7 @@ final class InterfaceInMemoryUiMetric implements InterfaceUiMetricInterface
             $parts[] = $k.'="'.$this->esc((string) $v).'"';
         }
 
-        return $name.'{'.\implode(',', $parts).'}';
+        return $nameEntity.'{'.\implode(',', $parts).'}';
     }
 
     private function line(string $k, string $v): string

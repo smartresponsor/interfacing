@@ -1,0 +1,17 @@
+{% extends 'crud/workbench_base.html.twig' %}
+
+{% set crud = crud|default({})|merge({
+  operation: crud.operation|default('index'),
+  mode: crud.mode|default('collection')
+}) %}
+
+{% set workbench = workbench|default({})|merge({
+  title: workbench.title|default('CRUD index'),
+  description: workbench.description|default('Provider-native CRUD collection entrypoint for Ant Design ProComponents or PrimeReact.'),
+  primaryProvider: workbench.primaryProvider|default('ant-design-procomponents'),
+  secondaryProvider: workbench.secondaryProvider|default('primereact'),
+  routeContext: (workbench.routeContext|default({}))|merge({
+    operation: (workbench.routeContext.operation|default(crud.operation)),
+    mode: (workbench.routeContext.mode|default(crud.mode))
+  })
+}) %}

@@ -28,9 +28,9 @@ final class InterfaceFormSpecBuilder implements InterfaceFormSpecBuilderInterfac
     /**
      * @return $this
      */
-    public function text(string $name, string $label, bool $required = false, ?string $placeholder = null): self
+    public function text(string $nameEntity, string $label, bool $required = false, ?string $placeholder = null): self
     {
-        $this->field[] = new InterfaceFormFieldSpec($name, 'text', $label, $required, $placeholder);
+        $this->field[] = new InterfaceFormFieldSpec($nameEntity, 'text', $label, $required, $placeholder);
 
         return $this;
     }
@@ -38,9 +38,9 @@ final class InterfaceFormSpecBuilder implements InterfaceFormSpecBuilderInterfac
     /**
      * @return $this
      */
-    public function slug(string $name, string $label, bool $required = false, ?string $placeholder = null): self
+    public function slug(string $nameEntity, string $label, bool $required = false, ?string $placeholder = null): self
     {
-        $this->field[] = new InterfaceFormFieldSpec($name, 'slug', $label, $required, $placeholder);
+        $this->field[] = new InterfaceFormFieldSpec($nameEntity, 'slug', $label, $required, $placeholder);
 
         return $this;
     }
@@ -48,9 +48,9 @@ final class InterfaceFormSpecBuilder implements InterfaceFormSpecBuilderInterfac
     /**
      * @param array<string, scalar|null> $option
      */
-    public function select(string $name, string $label, array $option, bool $required = false): self
+    public function select(string $nameEntity, string $label, array $option, bool $required = false): self
     {
-        $this->field[] = new InterfaceFormFieldSpec($name, 'select', $label, $required, null, $option);
+        $this->field[] = new InterfaceFormFieldSpec($nameEntity, 'select', $label, $required, null, $option);
 
         return $this;
     }
@@ -58,9 +58,9 @@ final class InterfaceFormSpecBuilder implements InterfaceFormSpecBuilderInterfac
     /**
      * @return $this
      */
-    public function submit(string $name, string $label = 'Submit'): self
+    public function submit(string $nameEntity, string $label = 'Submit'): self
     {
-        $this->field[] = new InterfaceFormFieldSpec($name, 'submit', $label, false);
+        $this->field[] = new InterfaceFormFieldSpec($nameEntity, 'submit', $label, false);
 
         return $this;
     }

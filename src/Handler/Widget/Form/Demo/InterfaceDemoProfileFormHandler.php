@@ -32,7 +32,7 @@ final class InterfaceDemoProfileFormHandler implements InterfaceFormHandlerInter
             id: 'demo-profile',
             title: 'Profile',
             field: [
-                new InterfaceFormFieldSpec('name', 'Name', 'text', true, 'John Doe'),
+                new InterfaceFormFieldSpec('nameEntity', 'Name', 'text', true, 'John Doe'),
                 new InterfaceFormFieldSpec('email', 'Email', 'email', true, 'john@example.com'),
                 new InterfaceFormFieldSpec('status', 'Status', 'select', true, '', [
                     ['value' => 'active', 'label' => 'Active'],
@@ -53,7 +53,7 @@ final class InterfaceDemoProfileFormHandler implements InterfaceFormHandlerInter
     public function initialValue(array $context = []): array
     {
         return [
-            'name' => 'Demo user',
+            'nameEntity' => 'Demo user',
             'email' => 'demo@example.com',
             'status' => 'active',
             'note' => '',
@@ -64,13 +64,13 @@ final class InterfaceDemoProfileFormHandler implements InterfaceFormHandlerInter
     public function submit(array $value, array $context = []): InterfaceFormSubmitResult
     {
         $fieldError = [];
-        $name = trim((string) ($value['name'] ?? ''));
+        $nameEntity = trim((string) ($value['nameEntity'] ?? ''));
         $email = trim((string) ($value['email'] ?? ''));
         $status = (string) ($value['status'] ?? '');
         $notify = ($value['notify'] ?? null) === true || ($value['notify'] ?? null) === 'on' || ($value['notify'] ?? null) === '1' || ($value['notify'] ?? null) === 1;
 
-        if ('' === $name) {
-            $fieldError['name'] = 'Name is required.';
+        if ('' === $nameEntity) {
+            $fieldError['nameEntity'] = 'Name is required.';
         }
         if ('' === $email) {
             $fieldError['email'] = 'Email is required.';
@@ -87,7 +87,7 @@ final class InterfaceDemoProfileFormHandler implements InterfaceFormHandlerInter
             return new InterfaceFormSubmitResult(false, 'Please fix validation errors.', $fieldError, $value);
         }
 
-        $msg = 'Saved: '.$name.' ('.$email.')';
+        $msg = 'Saved: '.$nameEntity.' ('.$email.')';
         if ($notify) {
             $msg .= ' | notify enabled';
         }

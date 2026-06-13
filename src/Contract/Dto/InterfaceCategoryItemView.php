@@ -11,11 +11,11 @@ final class InterfaceCategoryItemView
     public function __construct(
         private readonly string $id,
         private readonly string $slug,
-        private readonly string $name,
+        private readonly string $nameEntity,
         private readonly string $locale,
         private readonly string $status,
     ) {
-        if ('' === $id || '' === $slug || '' === $name || '' === $locale) {
+        if ('' === $id || '' === $slug || '' === $nameEntity || '' === $locale) {
             throw new \InvalidArgumentException('InterfaceCategoryItemView fields must not be empty.');
         }
     }
@@ -23,6 +23,6 @@ final class InterfaceCategoryItemView
     /** @return array<string,string> */
     public function toArray(): array
     {
-        return ['id' => $this->id, 'slug' => $this->slug, 'name' => $this->name, 'locale' => $this->locale, 'status' => $this->status];
+        return ['id' => $this->id, 'slug' => $this->slug, 'nameEntity' => $this->nameEntity, 'locale' => $this->locale, 'status' => $this->status];
     }
 }

@@ -40,7 +40,7 @@ final class InterfaceDemoOnboardingWizardHandler implements InterfaceWizardHandl
                     ]),
                 ], 'Basic tenant settings.'),
                 new InterfaceWizardStepSpec('contact', 'Contact', [
-                    new InterfaceFormFieldSpec('name', 'Full name', 'text', true, 'Oleksandr T.'),
+                    new InterfaceFormFieldSpec('nameEntity', 'Full nameEntity', 'text', true, 'Oleksandr T.'),
                     new InterfaceFormFieldSpec('email', 'Email', 'email', true, 'dev@example.com'),
                 ], 'Main contact person.'),
                 new InterfaceWizardStepSpec('policy', 'Policy', [
@@ -70,7 +70,7 @@ final class InterfaceDemoOnboardingWizardHandler implements InterfaceWizardHandl
         return [
             'company' => 'Marketing America Corp',
             'plan' => 'pro',
-            'name' => '',
+            'nameEntity' => '',
             'email' => '',
             'region' => $region,
             'agree' => false,
@@ -92,8 +92,8 @@ final class InterfaceDemoOnboardingWizardHandler implements InterfaceWizardHandl
         }
 
         if ('contact' === $stepId) {
-            if ('' === trim((string) ($value['name'] ?? ''))) {
-                $err['name'] = 'Name is required.';
+            if ('' === trim((string) ($value['nameEntity'] ?? ''))) {
+                $err['nameEntity'] = 'Name is required.';
             }
             $email = trim((string) ($value['email'] ?? ''));
             if ('' === $email) {
@@ -144,7 +144,7 @@ final class InterfaceDemoOnboardingWizardHandler implements InterfaceWizardHandl
         $out = [];
         $out['company'] = is_scalar($value['company'] ?? null) ? (string) $value['company'] : '';
         $out['plan'] = is_scalar($value['plan'] ?? null) ? (string) $value['plan'] : 'free';
-        $out['name'] = is_scalar($value['name'] ?? null) ? (string) $value['name'] : '';
+        $out['nameEntity'] = is_scalar($value['nameEntity'] ?? null) ? (string) $value['nameEntity'] : '';
         $out['email'] = is_scalar($value['email'] ?? null) ? (string) $value['email'] : '';
         $out['region'] = is_scalar($value['region'] ?? null) ? (string) $value['region'] : 'us';
         $a = $value['agree'] ?? null;

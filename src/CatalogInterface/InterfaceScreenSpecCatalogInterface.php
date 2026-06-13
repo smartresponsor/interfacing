@@ -10,7 +10,7 @@ use App\Interfacing\Contract\View\InterfaceScreenSpecInterface;
  * Canonical catalog contract for UI screen specifications consumed by controllers,
  * doctor reports, and view builders.
  *
- * Runtime component-name lookup and registry descriptor catalogs intentionally stay
+ * Runtime component-nameEntity lookup and registry descriptor catalogs intentionally stay
  * on their own interfaces and must not be collapsed into this contract.
  */
 interface InterfaceScreenSpecCatalogInterface

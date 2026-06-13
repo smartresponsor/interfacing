@@ -18,5 +18,5 @@ interface InterfaceDemoUserProfileStoreInterface
     /**
      * @throws InterfaceDomainOperationFailed
      */
-    public function save(string $name, string $email): void;
+    public function save(string $nameEntity, string $email): void;
 }

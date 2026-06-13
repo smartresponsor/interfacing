@@ -18,8 +18,8 @@ final readonly class InterfaceLoggerTelemetry implements InterfaceEventTelemetry
     {
     }
 
-    public function event(string $name, array $meta = []): void
+    public function event(string $nameEntity, array $meta = []): void
     {
-        $this->logger->info('[interfacing] '.$name, $meta);
+        $this->logger->info('[interfacing] '.$nameEntity, $meta);
     }
 }

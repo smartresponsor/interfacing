@@ -7,5 +7,5 @@ namespace App\Interfacing\TelemetryInterface;
 interface InterfaceEventTelemetryInterface
 {
     /** @param array<string, mixed> $meta */
-    public function event(string $name, array $meta = []): void;
+    public function event(string $nameEntity, array $meta = []): void;
 }

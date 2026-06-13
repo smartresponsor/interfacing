@@ -28,7 +28,7 @@
       <button class="interfacing-button-primary" type="submit">Sign in</button>
       {{ form_end(loginForm, {render_rest: false}) }}
     {% else %}
-      <form method="post" class="interfacing-form" data-interfacing-access-form="sign-in">
+      <form method="post" class="interfacing-form" data-interfacing-access-form="signin">
         <label class="interfacing-form-label">Email
           <input name="email" type="email" autocomplete="email" value="{{ last_username|default('') }}" required>
         </label>

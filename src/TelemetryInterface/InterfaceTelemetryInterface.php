@@ -12,11 +12,11 @@ namespace App\Interfacing\TelemetryInterface;
 interface InterfaceTelemetryInterface
 {
     /** @param array<string, string|int|float|bool> $meta */
-    public function mark(string $name, array $meta = []): void;
+    public function mark(string $nameEntity, array $meta = []): void;
 
     /** @param array<string, string|int|float|bool> $meta */
-    public function timing(string $name, float $ms, array $meta = []): void;
+    public function timing(string $nameEntity, float $ms, array $meta = []): void;
 
     /** @param array<string, string|int|float|bool> $meta */
-    public function count(string $name, int $value = 1, array $meta = []): void;
+    public function count(string $nameEntity, int $value = 1, array $meta = []): void;
 }

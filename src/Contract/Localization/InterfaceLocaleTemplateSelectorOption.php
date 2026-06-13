@@ -15,7 +15,7 @@ final readonly class InterfaceLocaleTemplateSelectorOption
 {
     public function __construct(
         public string $code,
-        public string $name,
+        public string $nameEntity,
         public string $nativeName,
         public bool $current = false,
         public bool $default = false,
