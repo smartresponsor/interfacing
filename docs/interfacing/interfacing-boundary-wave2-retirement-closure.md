@@ -12,8 +12,8 @@ The active PHP runtime remains under `src/`. The active Twig runtime remains und
 
 The component has one canonical Symfony bundle and one canonical DI extension:
 
-- `src/InterfaceBundle.php`
-- `src/DependencyInjection/InterfaceExtension.php`
+- `src/InterfacingBundle.php`
+- `src/DependencyInjection/InterfacingExtension.php`
 
 The duplicate package-era entrypoints under `src/Integration/Symfony` are retired. The `Integration/Symfony`
 folder remains valid for attributes and compiler passes only.
@@ -39,4 +39,3 @@ by the Interfacing overlay config.
 
 This wave does not decompose controllers, collapse duplicated service interfaces, remove `pack/src`, or rewrite
 CRUD runtime semantics. Those belong to later waves after the active source boundary is stable.
-

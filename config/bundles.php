@@ -5,5 +5,5 @@ declare(strict_types=1);
 return [
     Symfony\Bundle\FrameworkBundle\FrameworkBundle::class => ['all' => true],
     Symfony\Bundle\TwigBundle\TwigBundle::class => ['all' => true],
-    App\Interfacing\InterfaceBundle::class => ['all' => true],
+    App\Interfacing\InterfacingBundle::class => ['all' => true],
 ];

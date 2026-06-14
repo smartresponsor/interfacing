@@ -35,10 +35,7 @@
                     },
     "autoload":  {
                      "psr-4":  {
-                                    "App\\Interfacing\\":  "src/",
-                                    "Symfony\\Contracts\\EventDispatcher\\":  "vendor/symfony/event-dispatcher-contracts/",
-                                    "Symfony\\Contracts\\Service\\":  "vendor/symfony/service-contracts/",
-                                    "Symfony\\Contracts\\Translation\\":  "vendor/symfony/translation-contracts/"
+                                    "App\\Interfacing\\":  "src/"
                                 }
                   },
     "autoload-dev":  {

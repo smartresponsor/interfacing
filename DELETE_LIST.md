@@ -89,31 +89,6 @@ Wave 13 deleted donor files:
 
 ## Boundary audit wave retirement candidates
 
-Retirement candidates identified in the current Interfacing slice. These are not removed by overlay application; review and delete explicitly in a cleanup wave.
-
-- pack/src/ — retired package-prototype namespace `SmartResponsor\Interfacing\...`; conflicts with active `App\Interfacing\...` source boundary.
-- pack/templates/ — prototype template root; migrate unique templates to `templates/` before removal.
-- InterfaceCrudRouteContext.php — root donor; canonical file already exists at `src/Contract/Crud/InterfaceCrudRouteContext.php`.
-- InterfaceCrudWorkbenchFactoryService.php — root donor; canonical file already exists at `src/Factory/Crud/InterfaceCrudWorkbenchFactory.php`.
-- base.html.twig — root donor; canonical Interfacing Twig root is `templates/`.
-- templates/base.html.twig — duplicate template root candidate; prefer `templates/base.html.twig` or explicit host mapping.
-- crud/ — root template donor candidate; prefer `templates/...` for active Twig surfaces.
-- src/Integration/Symfony/InterfaceBundle.php — duplicate bundle entrypoint candidate; active bundle is `src/InterfaceBundle.php`.
-- src/Integration/Symfony/DependencyInjection/InterfaceExtension.php — duplicate extension candidate; active extension is `src/DependencyInjection/InterfaceExtension.php`.
-
-## Wave 2 closed retirements
-
-Explicitly retired from the cumulative snapshot because canonical active equivalents already exist:
-
-- `src/Integration/Symfony/InterfaceBundle.php` -> duplicate bundle entrypoint; use `src/InterfaceBundle.php`.
-- `src/Integration/Symfony/DependencyInjection/InterfaceExtension.php` -> duplicate DI extension; use `src/DependencyInjection/InterfaceExtension.php`.
-- `InterfaceCrudRouteContext.php` -> root donor; use `src/Contract/Crud/InterfaceCrudRouteContext.php`.
-- `InterfaceCrudWorkbenchFactoryService.php` -> root donor; use `src/Factory/Crud/InterfaceCrudWorkbenchFactory.php`.
-- `base.html.twig` -> root donor; use `templates/base.html.twig`.
-- `crud/screen.html.twig` -> root donor; use `templates/crud/screen.html.twig`.
-- `crud/workbench_base.html.twig` -> root donor; use `templates/crud/workbench_base.html.twig`.
-- `templates/base.html.twig` -> duplicate donor; use `templates/base.html.twig`.
-
 ## Wave3 service-interface dedup notes
 
 No files are deleted in wave3. The following aliases are now explicitly transitional and are candidates for a later explicit-retirement wave after imports are migrated:
@@ -263,4 +238,3 @@ No retirement/delete candidates were introduced. Commerce finance coverage was a
 - `src/Integration/Twig/InterfaceClassNameTwigExtensionInterface.php`
 - `src/Integration/Twig/InterfaceTwigExtensionInterface.php`
 - `src/Application/Security/InterfacePermissionVoter.php`
-

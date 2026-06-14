@@ -8,13 +8,13 @@ Requirements:
 Package posture:
 - Composer package: `smartresponsor/interfacing`
 - Pinterfacing-4 root: `App\Interfacing\ => src/`
-- Bundle class: `App\Interfacing\InterfaceBundle`
+- Bundle class: `App\Interfacing\InterfacingBundle`
 - Primary runtime templates stay under `templates/`, with `templates/` kept as fallback handoff surface
 
 Host wiring expectations:
 1) Require the package in the host application
-2) Enable `App\Interfacing\InterfaceBundle` in the host bundle map
-3) Import package routes from `@InterfaceBundle/config/routes/` as needed
+2) Enable `App\Interfacing\InterfacingBundle` in the host bundle map
+3) Import package routes from `@InterfacingBundle/config/routes/` as needed
 4) Configure the bundle through the `interfacing:` config tree instead of host-side service glue
 5) Do not duplicate Interfacing tags, aliases, or scalar query-service arguments in the host application
 6) Keep visual proving and runtime inspection in the host app, not by turning this repository back into a standalone product app
@@ -56,4 +56,3 @@ Notes:
 - Health wiring remains in `config/routes/interfacing_health.yaml`
 - UX LiveComponent routes stay exposed under `/_components` when the host imports the UX route file
 - Local `bin/console` and `InterfaceKernel` remain only as sandbox/development support for the package repository itself
-
