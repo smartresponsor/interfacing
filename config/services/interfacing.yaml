@@ -12,6 +12,11 @@ services:
       tags: ['interfacing.style_provider']
 
   App\Interfacing\Service\Location\InterfaceLocationRenderService: ~
+  App\Interfacing\Service\Twig\InterfaceLocaleSelectorTwigExtension:
+    tags:
+      - { name: twig.extension }
+  App\Interfacing\Provider\Localization\InterfaceDefaultLocaleTemplateSelectorProvider: ~
+  App\Interfacing\Provider\Localization\InterfaceDefaultLocaleTemplateContextProvider: ~
 
   App\Interfacing\ProviderInterface\Localization\InterfaceLocaleTemplateSelectorProviderInterface:
     alias: App\Interfacing\Provider\Localization\InterfaceDefaultLocaleTemplateSelectorProvider
