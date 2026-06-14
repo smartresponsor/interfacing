@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Twig;
 
-use App\ServiceInterface\Template\LocaleTemplateSelectorProviderInterface;
+use App\Localizing\ServiceInterface\Template\LocaleTemplateSelectorProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
