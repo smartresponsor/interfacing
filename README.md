@@ -1,25 +1,62 @@
-# Interfacing padding fix kit
+# Interfacing
 
-Current slice source: `Interfacing(13).zip`.
+Interfacing is a Symfony runtime application and bundle for shared interface templates.
 
-## Change
+From the outside, Interfacing is passive: it does not query sibling components,
+discover external business state, or own upstream data lookup. Inside its own
+runtime, it may expose business routes and business controllers when those routes
+belong to the interface experience itself.
 
-Removes the slot-level `padding: var(--interfacing-provider-panel-padding) 10px !important;` rule from the provider baseline selector group.
+For local development, this repository may keep a small standalone runtime only
+to debug Composer, Symfony container wiring, Twig registration, and package
+assets. That runtime is not the product boundary.
 
-The broad selector was affecting shell/access slots such as:
+## Responsibility
 
-- `[data-interfacing-shell-slot="top"]`
-- `[data-interfacing-shell-slot="footer"]`
-- `[data-interfacing-access-footer-mode]`
-- `[data-interfacing-access-slot="body"] > section`
+Interfacing owns:
 
-The fix keeps border color ownership in the grouped data-attribute selector and keeps surface background only on side/context shell slots.
+- reusable Twig templates under `templates/`;
+- the `@Interfacing` Twig namespace;
+- passive shell, layout, slot, partial, and provider template structure;
+- static public assets required by those templates;
+- minimal bundle/container registration needed for template use;
+- Interfacing-owned business routes and controllers when they express real interface behavior;
+- EasyAdmin admin runtime, including its required CRUD controllers;
+- local debug commands and QA scripts that validate this package.
 
-## Files
+Interfacing does not own:
 
-- `templates/shell/partial/provider_baseline_style.html.twig`
-- `public/interfacing/design/provider-baseline.css`
+- generic CRUD route grammar or generic CRUD execution outside EasyAdmin;
+- generic CRUD controllers outside EasyAdmin;
+- runtime discovery of external components;
+- persistence, repository access, or business queries;
+- legacy compatibility wrappers.
 
-## Notes
+## Runtime model
 
-Panel spacing remains available through `.interfacing-shell-panel` without the duplicated data-attribute `!important` override.
+```text
+production host
+  -> installs InterfacingBundle
+  -> receives @Interfacing Twig namespace
+  -> chooses and renders templates from host/runtime code
+
+local development
+  -> uses this repository as a sibling package
+  -> may boot a debug kernel
+  -> validates Composer, Symfony container, Twig, assets, and QA gates
+```
+
+## Template model
+
+The most valuable part of this repository is the `templates/` tree. Template
+folders describe passive template areas and view fragments. They are not proof
+of business ownership.
+
+Use neutral template language such as `template`, `view`, `screen`, `slot`,
+`partial`, `layout`, and `fragment` for new code and documentation. Avoid using
+`Surface` as a folder, class, route, runtime token, or compatibility wrapper.
+
+## Development checks
+
+Available Composer scripts include:
+

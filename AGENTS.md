@@ -56,6 +56,32 @@
 
 Сначала определи роль репозитория по `composer.json`, `MANIFEST.json`, bundle-классу и текущему коду.
 
+### Interfacing
+
+- Interfacing is a Symfony runtime application and bundle for shared interface templates.
+- From the outside, Interfacing is passive: it does not query sibling components, discover external business state, or own upstream data lookup.
+- Its primary production asset is the `templates/` tree plus the `@Interfacing` Twig namespace.
+- Interfacing may own business routes and business controllers when they express real interface behavior.
+- Interfacing must not own generic CRUD route grammar, generic CRUD operation dispatch, or generic CRUD controllers outside an explicit EasyAdmin admin runtime.
+- EasyAdmin is an allowed exception: its admin runtime may define CRUD controllers and may read the business controllers/services it needs inside that admin boundary.
+- Interfacing must not query external components or discover business runtime state.
+- Interfacing may keep a small standalone runtime only for local Composer, Symfony container, Twig, asset, and QA debugging.
+- Local debug runtime must not become product ownership.
+- Prefer `template`, `view`, `screen`, `slot`, `partial`, `layout`, and `fragment` vocabulary.
+- Do not introduce `Surface` as a source folder, class name, route name, runtime token, DTO name, provider component token, or compatibility wrapper.
+- Do not keep legacy compatibility wrappers after callers are migrated.
+- Do not preserve migration-wave notes, delete lists, backup files, or patch-kit README content as active repository documentation.
+- CSS provider-library tokens may keep existing vendor-facing design names only when they are style implementation details, not PHP/runtime concepts.
+
+Canonical active shape:
+
+```text
+templates/             # primary value
+src/InterfacingBundle.php
+src/DependencyInjection/InterfacingExtension.php
+config/routes.yaml     # route-less host ownership statement
+```
+
 ### Обычное приложение или компонент
 
 - Хранит собственную бизнес-ответственность.
