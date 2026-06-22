@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Interfacing\Contract\Template;
 
 /**
- * Canonical shell location keys for neutral surface payloads.
+ * Canonical shell location keys for neutral view payloads.
  */
 final class InterfaceShellLocation
 {

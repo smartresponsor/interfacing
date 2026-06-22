@@ -9,7 +9,7 @@ interface InterfaceSearchHandoffProviderInterface
     /**
      * @return array<string, mixed>
      */
-    public function getSurfaceConfig(array $context = []): array;
+    public function getViewConfig(array $context = []): array;
 
     /**
      * @param array<string, mixed> $criteria

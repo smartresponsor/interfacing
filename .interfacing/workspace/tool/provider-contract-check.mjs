@@ -103,7 +103,7 @@ function assertSourceContract() {
   requireComponents(parseComponents(antdProvider, 'AntD'), [
     'navigation-menu',
     'domain-workbench',
-    'domain-surface',
+    'domain-view',
     'workbench',
     'provider-handoff'
   ], 'AntD');
@@ -114,7 +114,7 @@ function assertSourceContract() {
     'navigation-menu',
     'domain-diagnostic-card',
     'diagnostic-card',
-    'domain-surface',
+    'domain-view',
     'workbench'
   ], 'PrimeReact');
 

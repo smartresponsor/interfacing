@@ -42,7 +42,7 @@ export function resolveWorkbenchData(payload: Record<string, unknown>, schema: R
 
   return {
     title: asString(workbench.title, asString(routeContext.resourceLabel, 'Provider workbench')),
-    description: asString(workbench.description, 'React provider-mounted Interfacing surface.'),
+    description: asString(workbench.description, 'React provider-mounted Interfacing view.'),
     columns,
     rows: rawRows.map((row, index) => ({ key: asString(row.key, asString(row.id, String(index + 1))), ...row })),
     headerActions: asRecordArray(workbench.headerActions ?? payload.headerActions ?? payload.header_actions),

@@ -14,7 +14,7 @@ final readonly class InterfaceLocationPayload
      * @param array<string, mixed>                      $metadata
      */
     public function __construct(
-        public string $surface,
+        public string $view,
         public InterfaceTemplateCandidate $candidate,
         public array $location,
         public array $metadata = [],
@@ -27,9 +27,9 @@ final readonly class InterfaceLocationPayload
     public function toArray(): array
     {
         return [
-            'surface' => $this->surface,
+            'view' => $this->view,
             'candidate' => [
-                'surface' => $this->candidate->surface,
+                'view' => $this->candidate->view,
                 'template' => $this->candidate->template,
                 'candidate' => $this->candidate->candidate,
                 'matched' => $this->candidate->matched,

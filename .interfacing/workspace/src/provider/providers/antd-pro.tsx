@@ -36,7 +36,7 @@ function ProviderLoading(): React.ReactElement {
   );
 }
 
-function WorkbenchSurface({ context }: { context: InterfacingProviderMountContext }): React.ReactElement {
+function WorkbenchView({ context }: { context: InterfacingProviderMountContext }): React.ReactElement {
   return React.createElement(React.Suspense, { fallback: React.createElement(ProviderLoading) },
     React.createElement(LazyWorkbench, { context })
   );
@@ -59,8 +59,8 @@ function renderComponent(context: InterfacingProviderMountContext): React.ReactE
     return React.createElement(NavigationMenu, { context });
   }
 
-  if (['domain-workbench', 'domain-surface', 'workbench', 'provider-handoff'].includes(component)) {
-    return React.createElement(WorkbenchSurface, { context });
+  if (['domain-workbench', 'domain-view', 'workbench', 'provider-handoff'].includes(component)) {
+    return React.createElement(WorkbenchView, { context });
   }
 
   return React.createElement(ProviderFallback, { context });
@@ -68,7 +68,7 @@ function renderComponent(context: InterfacingProviderMountContext): React.ReactE
 
 export const antdProProvider: InterfacingProviderDefinition = {
   provider: 'antd-pro',
-  components: ['navigation-menu', 'domain-workbench', 'domain-surface', 'workbench', 'provider-handoff'],
+  components: ['navigation-menu', 'domain-workbench', 'domain-view', 'workbench', 'provider-handoff'],
   mount(context: InterfacingProviderMountContext): void {
     const root = createRoot(context.element);
 

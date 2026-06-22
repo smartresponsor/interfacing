@@ -1,20 +1,20 @@
 {
-  "_navigation-YDCojqpq.js": {
-    "file": "chunks/navigation-YDCojqpq.js",
+  "_navigation-me2RlgO4.js": {
+    "file": "chunks/navigation-me2RlgO4.js",
     "name": "navigation",
     "imports": [
-      "_registry-D80JVzsO.js"
+      "_registry-V5OFkfe5.js"
     ]
   },
-  "_registry-D80JVzsO.js": {
-    "file": "chunks/registry-D80JVzsO.js",
+  "_registry-V5OFkfe5.js": {
+    "file": "chunks/registry-V5OFkfe5.js",
     "name": "registry"
   },
-  "_workbench-CYwhX3Ar.js": {
-    "file": "chunks/workbench-CYwhX3Ar.js",
+  "_workbench-CCEbgzjT.js": {
+    "file": "chunks/workbench-CCEbgzjT.js",
     "name": "workbench",
     "imports": [
-      "_registry-D80JVzsO.js"
+      "_registry-V5OFkfe5.js"
     ]
   },
   "src/provider/canonical-providers.ts": {
@@ -26,23 +26,23 @@
       "src/provider/provider-registry.ts",
       "src/provider/providers/antd-pro.tsx",
       "src/provider/providers/primereact.tsx",
-      "_registry-D80JVzsO.js",
-      "_navigation-YDCojqpq.js",
-      "_workbench-CYwhX3Ar.js"
+      "_registry-V5OFkfe5.js",
+      "_navigation-me2RlgO4.js",
+      "_workbench-CCEbgzjT.js"
     ],
     "css": [
       "assets/canonical-providers.css"
     ]
   },
   "src/provider/component/antd-pro-workbench.tsx": {
-    "file": "chunks/antd-pro-workbench-BfVvK6DF.js",
+    "file": "chunks/antd-pro-workbench-BJYdBpbG.js",
     "name": "antd-pro-workbench",
     "src": "src/provider/component/antd-pro-workbench.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_navigation-YDCojqpq.js",
-      "_registry-D80JVzsO.js",
-      "_workbench-CYwhX3Ar.js",
+      "_navigation-me2RlgO4.js",
+      "_registry-V5OFkfe5.js",
+      "_workbench-CCEbgzjT.js",
       "src/provider/providers/antd-pro.tsx"
     ],
     "css": [
@@ -55,7 +55,7 @@
     "src": "src/provider/provider-registry.ts",
     "isEntry": true,
     "imports": [
-      "_registry-D80JVzsO.js"
+      "_registry-V5OFkfe5.js"
     ]
   },
   "src/provider/providers/antd-pro.tsx": {
@@ -64,8 +64,8 @@
     "src": "src/provider/providers/antd-pro.tsx",
     "isEntry": true,
     "imports": [
-      "_navigation-YDCojqpq.js",
-      "_registry-D80JVzsO.js"
+      "_navigation-me2RlgO4.js",
+      "_registry-V5OFkfe5.js"
     ],
     "dynamicImports": [
       "src/provider/component/antd-pro-workbench.tsx"
@@ -80,9 +80,9 @@
     "src": "src/provider/providers/primereact.tsx",
     "isEntry": true,
     "imports": [
-      "_navigation-YDCojqpq.js",
-      "_registry-D80JVzsO.js",
-      "_workbench-CYwhX3Ar.js"
+      "_navigation-me2RlgO4.js",
+      "_registry-V5OFkfe5.js",
+      "_workbench-CCEbgzjT.js"
     ],
     "css": [
       "assets/canonical-providers.css"
@@ -97,9 +97,9 @@
       "src/provider/provider-registry.ts",
       "src/provider/providers/antd-pro.tsx",
       "src/provider/providers/primereact.tsx",
-      "_registry-D80JVzsO.js",
-      "_navigation-YDCojqpq.js",
-      "_workbench-CYwhX3Ar.js"
+      "_registry-V5OFkfe5.js",
+      "_navigation-me2RlgO4.js",
+      "_workbench-CCEbgzjT.js"
     ],
     "css": [
       "assets/canonical-providers.css"

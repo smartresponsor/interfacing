@@ -23,7 +23,7 @@ function resolveMountContext(element: HTMLElement): InterfacingProviderMountCont
   const component = normalizeComponentName(
     element.dataset.interfacingComponent
       || element.dataset.interfacingProviderComponent
-      || (navigationMount ? 'navigation-menu' : 'domain-surface')
+      || (navigationMount ? 'navigation-menu' : 'domain-view')
   );
   const payload = readJsonAttribute(element, 'data-interfacing-payload');
   const schema = navigationMount

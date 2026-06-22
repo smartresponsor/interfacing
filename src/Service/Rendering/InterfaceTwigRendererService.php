@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Rendering;
 
-use App\Interfacing\Contract\Surface\InterfaceSurfaceRenderableInterface;
+use App\Interfacing\Contract\Template\InterfaceTemplateRenderableInterface;
 use App\Interfacing\Contract\ValueObject\InterfaceShellSlot;
 use App\Interfacing\ProviderInterface\Shell\InterfaceShellChromeProviderInterface;
 use App\Interfacing\ServiceInterface\Rendering\InterfaceRendererInterface;
@@ -30,14 +30,14 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
         return $this->renderTwig($template, $context, $status);
     }
 
-    public function renderSurface(InterfaceSurfaceRenderableInterface $surface, array $context = [], int $status = 200): Response
+    public function renderTemplate(InterfaceTemplateRenderableInterface $templateContract, array $context = [], int $status = 200): Response
     {
-        $template = $surface->templateName();
+        $template = $templateContract->templateName();
         if (!$this->twig->getLoader()->exists($template)) {
-            throw new \RuntimeException(sprintf('Surface template "%s" was not found for "%s".', $template, $surface::class));
+            throw new \RuntimeException(sprintf('Template "%s" was not found for "%s".', $template, $templateContract::class));
         }
 
-        return $this->renderTwig($template, $context + $surface->toTemplateContext(), $status);
+        return $this->renderTwig($template, $context + $templateContract->toTemplateContext(), $status);
     }
 
     /**
@@ -143,14 +143,14 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
         $items = [];
 
         $profileLabel = '/vendor/' === $profileUrl ? 'Vendor index' : 'My profile';
-        $profileDescription = '/vendor/' === $profileUrl ? 'Vendor landing surface' : $title;
+        $profileDescription = '/vendor/' === $profileUrl ? 'Vendor landing view' : $title;
 
         if ('' !== $profileUrl) {
             $items[] = [
                 'type' => 'link',
                 'label' => '/vendor/' === $profileUrl ? 'Open vendor index' : 'Open',
                 'href' => $profileUrl,
-                'description' => 'Primary action for the current surface',
+                'description' => 'Primary action for the current view',
             ];
         }
 
@@ -193,7 +193,7 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
             ]] : [],
             InterfaceShellSlot::MAIN_TOOLBAR => '' !== $mainUrl ? [[
                 'type' => 'link',
-                'label' => 'Open current surface',
+                'label' => 'Open current view',
                 'href' => $mainUrl,
                 'description' => $title,
             ]] : [],
@@ -221,12 +221,12 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
             ]],
             InterfaceShellSlot::FOOTER_MAIN => [[
                 'type' => 'text',
-                'label' => 'Surface',
+                'label' => 'View',
                 'value' => $resourcePath ?: 'interfacing',
             ]],
             InterfaceShellSlot::HEADER_BOTTOM => [] !== $items ? [[
                 'type' => 'text',
-                'label' => 'Surface status',
+                'label' => 'View status',
                 'value' => $status ?: 'ready',
             ]] : [],
         ];

@@ -30,13 +30,13 @@ export function AntdProWorkbench({ context }: { context: InterfacingProviderMoun
         component: asString(workbench.routeContext.component, 'Interfacing'),
         resource: asString(workbench.routeContext.resourcePath, asString(workbench.routeContext.resourceLabel, 'resource')),
         operation: asString(workbench.routeContext.operation, 'index'),
-        surface: asString(workbench.routeContext.surface, 'admin')
+        view: asString(workbench.routeContext.view, 'admin')
       },
       columns: [
         { title: 'Component', dataIndex: 'component' },
         { title: 'Resource', dataIndex: 'resource' },
         { title: 'Operation', dataIndex: 'operation' },
-        { title: 'Surface', dataIndex: 'surface' }
+        { title: 'View', dataIndex: 'view' }
       ]
     }),
     React.createElement(ProTable, {

@@ -91,7 +91,7 @@ function renderComponent(context: InterfacingProviderMountContext): React.ReactE
 
 export const primeReactProvider: InterfacingProviderDefinition = {
   provider: 'primereact',
-  components: ['navigation-menu', 'domain-diagnostic-card', 'diagnostic-card', 'domain-surface', 'workbench'],
+  components: ['navigation-menu', 'domain-diagnostic-card', 'diagnostic-card', 'domain-view', 'workbench'],
   mount(context: InterfacingProviderMountContext): void {
     const root = createRoot(context.element);
 

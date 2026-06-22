@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Interfacing\Contract\Surface;
+namespace App\Interfacing\Contract\Template;
 
-interface InterfaceSurfaceRenderableInterface
+interface InterfaceTemplateRenderableInterface
 {
     public function templateName(): string;
 
@@ -16,5 +16,3 @@ interface InterfaceSurfaceRenderableInterface
     /**
      * @return array<string, mixed>
      */
-    public function toFallbackData(): array;
-}

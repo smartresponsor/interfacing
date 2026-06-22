@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Contract\View;
 
-final readonly class InterfaceSurfaceAuditItem
+final readonly class InterfaceViewAuditItem
 {
     public function __construct(
         private string $id,
@@ -44,5 +44,3 @@ final readonly class InterfaceSurfaceAuditItem
     public function note(): string
     {
         return $this->note;
-    }
-}

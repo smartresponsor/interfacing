@@ -55,13 +55,13 @@ function Workbench({ context }: { context: InterfacingProviderMountContext }): R
         component: asString(workbench.routeContext.component, 'Interfacing'),
         resource: asString(workbench.routeContext.resourcePath, asString(workbench.routeContext.resourceLabel, 'resource')),
         operation: asString(workbench.routeContext.operation, 'index'),
-        surface: asString(workbench.routeContext.surface, 'admin')
+        view: asString(workbench.routeContext.view, 'admin')
       },
       columns: [
         { title: 'Component', dataIndex: 'component' },
         { title: 'Resource', dataIndex: 'resource' },
         { title: 'Operation', dataIndex: 'operation' },
-        { title: 'Surface', dataIndex: 'surface' }
+        { title: 'View', dataIndex: 'view' }
       ]
     }),
     React.createElement(ProTable, {
@@ -93,7 +93,7 @@ function renderComponent(context: InterfacingProviderMountContext): React.ReactE
     return React.createElement(NavigationMenu, { context });
   }
 
-  if (['domain-workbench', 'domain-surface', 'workbench', 'provider-handoff'].includes(component)) {
+  if (['domain-workbench', 'domain-view', 'workbench', 'provider-handoff'].includes(component)) {
     return React.createElement(Workbench, { context });
   }
 
@@ -102,7 +102,7 @@ function renderComponent(context: InterfacingProviderMountContext): React.ReactE
 
 export const antdProProvider: InterfacingProviderDefinition = {
   provider: 'antd-pro',
-  components: ['navigation-menu', 'domain-workbench', 'domain-surface', 'workbench', 'provider-handoff'],
+  components: ['navigation-menu', 'domain-workbench', 'domain-view', 'workbench', 'provider-handoff'],
   mount(context: InterfacingProviderMountContext): void {
     const root = createRoot(context.element);
 

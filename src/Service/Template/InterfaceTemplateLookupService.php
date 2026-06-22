@@ -11,7 +11,7 @@ use App\Interfacing\ServiceInterface\Template\InterfaceTemplateLookupServiceInte
 use Twig\Environment;
 
 /**
- * Looks up neutral Interfacing surface templates without knowing producer ownership.
+ * Looks up neutral Interfacing view templates without knowing producer ownership.
  */
 final readonly class InterfaceTemplateLookupService implements InterfaceTemplateLookupServiceInterface
 {
@@ -19,35 +19,35 @@ final readonly class InterfaceTemplateLookupService implements InterfaceTemplate
     {
     }
 
-    public function resolve(string $surface, string $operation = 'index'): InterfaceTemplateCandidate
+    public function resolve(string $view, string $operation = 'index'): InterfaceTemplateCandidate
     {
-        $surface = $this->normalizeSurface($surface);
+        $view = $this->normalizeView($view);
         $operation = $this->normalizeOperation($operation);
         $candidates = [
-            $surface.'/'.$operation.'.html.twig',
-            $surface.'/index.html.twig',
+            $view.'/'.$operation.'.html.twig',
+            $view.'/index.html.twig',
         ];
 
         foreach ($candidates as $candidate) {
             if ($this->twig->getLoader()->exists($candidate)) {
-                return new InterfaceTemplateCandidate($surface, $candidate, $candidates, true);
+                return new InterfaceTemplateCandidate($view, $candidate, $candidates, true);
             }
         }
 
-        return new InterfaceTemplateCandidate($surface, 'data-only', $candidates, false);
+        return new InterfaceTemplateCandidate($view, 'data-only', $candidates, false);
     }
 
-    public function payloadForSurface(string $surface, string $operation, string $title, array $metadata = []): InterfaceLocationPayload
+    public function payloadForView(string $view, string $operation, string $title, array $metadata = []): InterfaceLocationPayload
     {
-        $surface = $this->normalizeSurface($surface);
+        $view = $this->normalizeView($view);
         $operation = $this->normalizeOperation($operation);
-        $candidate = $this->resolve($surface, $operation);
+        $candidate = $this->resolve($view, $operation);
 
-        return new InterfaceLocationPayload($surface, $candidate, [
+        return new InterfaceLocationPayload($view, $candidate, [
             InterfaceShellLocation::BODY_HEADER => [[
                 'type' => 'heading',
                 'label' => $title,
-                'description' => 'Surface payload provided through template lookup and shell locations.',
+                'description' => 'View payload provided through template lookup and shell locations.',
             ]],
             InterfaceShellLocation::BODY_TOOLBAR => [[
                 'type' => 'toolbar',
@@ -56,26 +56,26 @@ final readonly class InterfaceTemplateLookupService implements InterfaceTemplate
             ]],
             InterfaceShellLocation::RIGHT_CONTEXT => [[
                 'type' => 'metadata',
-                'label' => 'Surface',
-                'value' => $surface,
+                'label' => 'View',
+                'value' => $view,
             ], [
                 'type' => 'metadata',
                 'label' => 'Template',
                 'value' => $candidate->matched ? $candidate->template : 'data-only',
             ]],
         ], $metadata + [
-            'surface' => $surface,
+            'view' => $view,
             'operation' => $operation,
             'templateMatched' => $candidate->matched,
         ]);
     }
 
-    private function normalizeSurface(string $surface): string
+    private function normalizeView(string $view): string
     {
-        $surface = strtolower(trim(str_replace('_', '-', $surface), '/'));
-        $first = strtok(str_replace('_', '/', $surface), '/') ?: $surface;
+        $view = strtolower(trim(str_replace('_', '-', $view), '/'));
+        $first = strtok(str_replace('_', '/', $view), '/') ?: $view;
 
-        $componentToSurface = [
+        $componentToView = [
             'accessing' => 'access',
             'addressing' => 'address',
             'adjudicating' => 'adjudication',
@@ -144,7 +144,7 @@ final readonly class InterfaceTemplateLookupService implements InterfaceTemplate
             'media' => 'attachment',
             'index-record' => 'search',
             'commission-plan' => 'commission',
-            default => $componentToSurface[$first] ?? ('' !== $first ? $first : 'surface'),
+            default => $componentToView[$first] ?? ('' !== $first ? $first : 'view'),
         };
     }
 
