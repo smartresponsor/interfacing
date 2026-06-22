@@ -1,6 +1,6 @@
 # Interfacing partial templates
 
-Shared Twig fragments used by noun-surface templates.
+Shared Twig fragments used by noun-view templates.
 
 Rules:
 

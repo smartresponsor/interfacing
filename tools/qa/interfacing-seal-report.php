@@ -65,7 +65,7 @@ if (is_dir($path('template'))) {
 sort($templateRoots);
 
 $twigFiles = $allFiles('template', static fn (string $file): bool => str_ends_with($file, '.twig'));
-$surfaceBases = array_values(array_filter($twigFiles, static fn (string $file): bool => preg_match('#^templates/[^/]+/base\.html\.twig$#', $file) === 1));
+$viewBases = array_values(array_filter($twigFiles, static fn (string $file): bool => preg_match('#^templates/[^/]+/base\.html\.twig$#', $file) === 1));
 $fullDocumentTemplates = [];
 foreach ($twigFiles as $file) {
     $source = $read($file);
@@ -125,18 +125,18 @@ $runtimeEndpointFiles = array_merge(
     $allFiles('src', static fn (string $file): bool => str_ends_with($file, '.php')),
     $allFiles('config', static fn (string $file): bool => str_ends_with($file, '.yaml') || str_ends_with($file, '.yml')),
 );
-$surfaceBaseRenderTargets = [];
+$viewBaseRenderTargets = [];
 foreach ($runtimeEndpointFiles as $file) {
     $source = $read($file);
     if (str_contains($source, "'/base.html.twig'") || str_contains($source, '"/base.html.twig"')) {
-        $surfaceBaseRenderTargets[] = $file.': dynamic /base.html.twig candidate';
+        $viewBaseRenderTargets[] = $file.': dynamic /base.html.twig candidate';
     }
     if (preg_match_all('/[\'\"]([a-z0-9][a-z0-9-]*)\/base\.html\.twig[\'\"]/', $source, $matches)) {
-        foreach ($matches[1] as $surfaceName) {
-            if ('shell' === $surfaceName || 'tax' === $surfaceName || 'accessing' === $surfaceName) {
+        foreach ($matches[1] as $viewName) {
+            if ('shell' === $viewName || 'tax' === $viewName || 'accessing' === $viewName) {
                 continue;
             }
-            $surfaceBaseRenderTargets[] = $file.': '.$surfaceName.'/base.html.twig';
+            $viewBaseRenderTargets[] = $file.': '.$viewName.'/base.html.twig';
         }
     }
 }
@@ -299,14 +299,14 @@ $report[] = '## Summary';
 $report[] = '';
 $report[] = sprintf('- Template roots: %d', count($templateRoots));
 $report[] = sprintf('- Twig templates: %d', count($twigFiles));
-$report[] = sprintf('- Surface base adapters: %d', count($surfaceBases));
+$report[] = sprintf('- View base adapters: %d', count($viewBases));
 $report[] = sprintf('- Full document templates: %d', count($fullDocumentTemplates));
 $report[] = sprintf('- Literal Twig references scanned: %d', $literalRefs);
 $report[] = sprintf('- Missing literal Twig references: %d', count($missingRefs));
 $report[] = sprintf('- Root-level catch-all routes: %d', count($rootCatchAllRoutes));
 $report[] = sprintf('- Retired active-runtime vocabulary hits: %d', count($retiredHits));
 $report[] = sprintf('- Inline `style=` template files: %d', count($inlineStyleFiles));
-$report[] = sprintf('- Runtime surface-base render targets: %d', count($surfaceBaseRenderTargets));
+$report[] = sprintf('- Runtime view-base render targets: %d', count($viewBaseRenderTargets));
 $report[] = sprintf('- Double Interfacing source stem directories: %d', count($doubleSourceStemDirectories));
 $report[] = sprintf('- Double Interfacing namespace hits: %d', count($doubleSourceNamespaceHits));
 $report[] = sprintf('- Forbidden source catalog/runtime alias files: %d', count($forbiddenSourceCatalogHits));
@@ -334,7 +334,7 @@ $report[] = count($missingRefs) === 0 ? '- Missing Twig references: none.' : '- 
 $report[] = count($rootCatchAllRoutes) === 0 ? '- Root catch-all routes: none.' : '- Root catch-all routes:'."\n  - ".implode("\n  - ", $rootCatchAllRoutes);
 $report[] = count($retiredHits) === 0 ? '- Retired runtime vocabulary: none in active `src`, `config`, or `template` files.' : '- Retired runtime vocabulary:'."\n  - ".implode("\n  - ", $retiredHits);
 $report[] = count($inlineStyleFiles) === 0 ? '- Inline `style=` attributes: none outside the provider baseline emitter.' : '- Inline `style=` attributes:'."\n  - ".implode("\n  - ", $inlineStyleFiles);
-$report[] = count($surfaceBaseRenderTargets) === 0 ? '- Runtime surface-base render targets: none.' : '- Runtime surface-base render targets:' . "\n  - " . implode("\n  - ", $surfaceBaseRenderTargets);
+$report[] = count($viewBaseRenderTargets) === 0 ? '- Runtime view-base render targets: none.' : '- Runtime view-base render targets:' . "\n  - " . implode("\n  - ", $viewBaseRenderTargets);
 $report[] = count($doubleSourceStemDirectories) === 0 ? '- Double Interfacing source stem directories: none.' : '- Double Interfacing source stem directories:' . "\n  - " . implode("\n  - ", $doubleSourceStemDirectories);
 $report[] = count($doubleSourceNamespaceHits) === 0 ? '- Double Interfacing namespace references: none.' : '- Double Interfacing namespace references:' . "\n  - " . implode("\n  - ", $doubleSourceNamespaceHits);
 $report[] = count($forbiddenSourceCatalogHits) === 0 ? '- Forbidden source catalog/runtime alias files: none.' : '- Forbidden source catalog/runtime alias files:' . "\n  - " . implode("\n  - ", $forbiddenSourceCatalogHits);
@@ -352,7 +352,7 @@ $sealed = count($fullDocumentTemplates) === 1
     && count($rootCatchAllRoutes) === 0
     && count($retiredHits) === 0
     && count($inlineStyleFiles) === 0
-    && count($surfaceBaseRenderTargets) === 0
+    && count($viewBaseRenderTargets) === 0
     && count($doubleSourceStemDirectories) === 0
     && count($doubleSourceNamespaceHits) === 0
     && count($forbiddenSourceCatalogHits) === 0

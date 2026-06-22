@@ -79,7 +79,7 @@ Canonical active shape:
 templates/             # primary value
 src/InterfacingBundle.php
 src/DependencyInjection/InterfacingExtension.php
-config/routes.yaml     # route-less host ownership statement
+config/routes.yaml     # Interfacing-owned runtime routes only
 ```
 
 ### Обычное приложение или компонент

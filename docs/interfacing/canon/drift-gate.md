@@ -14,7 +14,7 @@ The command runs `tools/qa/interfacing-canon-lint.php` and is also part of `comp
 
 - `templates/base.html.twig` is the only canonical document base.
 - `templates/shell/base.html.twig` is retired and must not be recreated.
-- Surface bases under `templates/<surface>/base.html.twig` must be thin adapters extending `@Interfacing/base.html.twig`.
+- View bases under `templates/<view>/base.html.twig` must be thin adapters extending `@Interfacing/base.html.twig`.
 - Legacy/component template roots such as `accessing`, `accessing-ui`, `app-host`, `bridge`, `component`, `interfacing`, `tax`, and `taxating` are forbidden.
 - Literal Twig `extends/include/embed/import/from` references must resolve to existing templates.
 - Root-level catch-all routes such as `/{resourcePath}` or `/{visiblePath}` are forbidden.

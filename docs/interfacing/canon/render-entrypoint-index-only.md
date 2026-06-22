@@ -6,25 +6,25 @@ They must not be treated as visible renderer endpoints.
 
 ## Runtime lookup rule
 
-A producer or renderer may resolve a surface through concrete visible templates only:
+A producer or renderer may resolve a view through concrete visible templates only:
 
-1. `templates/<surface>/<operation>.html.twig`
-2. `templates/<surface>/index.html.twig`
+1. `templates/<view>/<operation>.html.twig`
+2. `templates/<view>/index.html.twig`
 3. data-only handoff when no visible template exists
 
-The resolver must not fall through to `templates/<surface>/base.html.twig`.
-A surface base can be extended by concrete templates, but rendering it directly is
+The resolver must not fall through to `templates/<view>/base.html.twig`.
+A view base can be extended by concrete templates, but rendering it directly is
 ambiguous because it mixes layout inheritance with screen ownership.
 
 ## Naming rule
 
-- `index.html.twig` means the default visible surface endpoint.
+- `index.html.twig` means the default visible view endpoint.
 - `surface.html.twig`, `show.html.twig`, `form.html.twig`, and similar files are concrete screen variants.
 - `base.html.twig` means inheritance adapter only.
 
 ## Gate rule
 
-`composer canon:interfacing` forbids direct surface-base render targets in active
+`composer canon:interfacing` forbids direct view-base render targets in active
 PHP/config runtime declarations, while still allowing Twig templates to extend a
-surface adapter.
+view adapter.
 

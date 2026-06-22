@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Interfacing\ResolverInterface\Access;
 
 /**
- * Legacy screen-spec role resolver used by older InterfaceScreenController flows.
+ * Screen-spec role resolver used by InterfaceScreenController flows.
  */
 interface InterfaceRoleAccessResolverInterface
 {

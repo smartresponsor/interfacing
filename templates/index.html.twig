@@ -2,7 +2,7 @@
 {% extends '@Interfacing/base.html.twig' %}
 
 {% set fallbackTitle = fallbackTitle|default(view.surface|default('Interfacing')|title ~ ' surface') %}
-{% set fallbackDescription = fallbackDescription|default('Root Interfacing fallback for a normalized Viewing payload. Add a noun-surface template to replace this generic page.') %}
+{% set fallbackDescription = fallbackDescription|default('Root Interfacing fallback for a normalized Viewing payload. Add a noun-view template to replace this generic page.') %}
 {% set fallbackPayload = fallbackPayload|default({
   view: view|default({}),
   locations: locations|default({}),

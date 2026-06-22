@@ -1,2 +1,2 @@
-# Interfacing route imports intentionally disabled.
-# This package is route-less; host applications own public HTTP entrypoints.
+# Interfacing may own internal business routes that express interface behavior.
+# Generic CRUD route grammar belongs outside Interfacing, except EasyAdmin admin runtime.

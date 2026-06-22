@@ -1,5 +1,5 @@
-# compliance surface templates
+# compliance view templates
 
-This directory is an Interfacing UI surface tree. It is named after a neutral entity/surface noun, not after an ecosystem `*ing` component.
+This directory is an Interfacing UI view tree. It is named after a neutral entity/view noun, not after an ecosystem `*ing` component.
 
-Templates in this directory inherit the central Interfacing shell contract directly and receive location-based payload data. The compliance surface is an Interfacing-owned noun surface, not a legacy provider/default fallback.
+Templates in this directory inherit the central Interfacing shell contract directly and receive location-based payload data. The compliance view is an Interfacing-owned noun-view template tree, not a provider/default fallback.

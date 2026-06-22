@@ -35,7 +35,7 @@ npm run ui:build
 
 - `navigation-menu`
 - `domain-workbench`
-- `domain-surface`
+- `domain-view`
 - `workbench`
 - `provider-handoff`
 
@@ -44,7 +44,7 @@ npm run ui:build
 - `navigation-menu`
 - `domain-diagnostic-card`
 - `diagnostic-card`
-- `domain-surface`
+- `domain-view`
 - `workbench`
 
 ## Bootstrap cleanup

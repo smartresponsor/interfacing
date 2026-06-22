@@ -30,7 +30,7 @@
     <main class="interfacing-shell-body interfacing-footer-panel interfacing-footer-panel--main" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellSlotMap['shell.footer.main']|default('Footer main') }}">
       {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.main', items: shellFooterMainItems} only %}
       {% if shellFooterGroup is not empty %}
-        <div class="interfacing-footer-group-grid" data-interfacing-footer-legacy-group="true">
+        <div class="interfacing-footer-group-grid" data-interfacing-footer-group="true">
           {% for g in shellFooterGroup %}
             <section class="interfacing-footer-group">
               <div class="interfacing-footer__title">{{ g.title }}</div>

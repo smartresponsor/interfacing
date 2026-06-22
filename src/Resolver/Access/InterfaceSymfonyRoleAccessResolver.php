@@ -8,7 +8,7 @@ use App\Interfacing\ResolverInterface\Access\InterfaceRoleAccessResolverInterfac
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 /**
- * Symfony-backed legacy role-list resolver for screen specs that still expose requireRole().
+ * Symfony-backed role-list resolver for screen specs that expose requireRole().
  */
 class InterfaceSymfonyRoleAccessResolver implements InterfaceRoleAccessResolverInterface
 {

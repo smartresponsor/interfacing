@@ -24,7 +24,7 @@ final class InterfaceLocationTwigExtensionTest extends TestCase
         self::assertSame('From interface', $locations['shell.left.middle'][0]['label']);
     }
 
-    public function testLocationNormalizationIgnoresLegacyNavigationFallback(): void
+    public function testLocationNormalizationIgnoresNavigationFallbackAlias(): void
     {
         $extension = new InterfaceLocationTwigExtension(new InterfaceLocationContextService());
 

@@ -9,7 +9,7 @@ declare(strict_types=1);
  * This repository is intentionally a Symfony-oriented templates/layout package.
  * The checks below guard the invariants that previously drifted: a single
  * document base, noun/surface template roots, provider-native rendering, scoped
- * CRUD handoff routes, and thin surface base adapters.
+ * CRUD handoff routes, and thin view base adapters.
  */
 
 $root = realpath($argv[1] ?? getcwd());
@@ -142,10 +142,10 @@ foreach ($forbiddenTemplateRoots as $dir) {
     }
 }
 
-// 3. Surface base files must be thin adapters to @Interfacing/base.html.twig.
-foreach (glob($path('templates/*/base.html.twig')) ?: [] as $surfaceBasePath) {
-    $relative = $relativePath($surfaceBasePath);
-    $source = file_get_contents($surfaceBasePath) ?: '';
+// 3. View base files must be thin adapters to @Interfacing/base.html.twig.
+foreach (glob($path('templates/*/base.html.twig')) ?: [] as $viewBasePath) {
+    $relative = $relativePath($viewBasePath);
+    $source = file_get_contents($viewBasePath) ?: '';
 
     if (!preg_match("/\{%\s*extends\s+['\"]@Interfacing\/base\.html\.twig['\"]\s*%\}/", $source)) {
         $fail(sprintf('%s must extend @Interfacing/base.html.twig as a thin surface adapter.', $relative));
@@ -158,8 +158,8 @@ foreach (glob($path('templates/*/base.html.twig')) ?: [] as $surfaceBasePath) {
 
 
 
-// 3b. Visible render lookup must not use surface base adapters as endpoints.
-// Twig templates may extend a surface base, but PHP/config runtime declarations
+// 3b. Visible render lookup must not use view base adapters as endpoints.
+// Twig templates may extend a view base, but PHP/config runtime declarations
 // must resolve concrete screens such as <surface>/index.html.twig or data-only handoff.
 $runtimeEndpointFiles = array_merge(
     $allFiles('src', static fn (string $file): bool => str_ends_with($file, '.php')),
@@ -174,12 +174,12 @@ foreach ($runtimeEndpointFiles as $file) {
     }
 
     if (preg_match_all('/[\'\"]([a-z0-9][a-z0-9-]*)\/base\.html\.twig[\'\"]/', $source, $matches)) {
-        foreach ($matches[1] as $surfaceName) {
-            if ('shell' === $surfaceName || 'tax' === $surfaceName || 'accessing' === $surfaceName) {
+        foreach ($matches[1] as $viewName) {
+            if ('shell' === $viewName || 'tax' === $viewName || 'accessing' === $viewName) {
                 continue;
             }
 
-            $fail(sprintf('Runtime direct surface-base render target is forbidden in %s: %s/base.html.twig', $file, $surfaceName));
+            $fail(sprintf('Runtime direct view-base render target is forbidden in %s: %s/base.html.twig', $file, $viewName));
         }
     }
 }
