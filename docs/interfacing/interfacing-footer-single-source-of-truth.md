@@ -15,5 +15,5 @@ Rules:
 - footer groups render as native `ul`/`li` vertical lists;
 - shell-specific templates may pass data/attributes, but may not own footer markup.
 
-This keeps the footer as a single source of truth across anonymous, access, and authenticated surfaces.
+This keeps the footer as a single source of truth across anonymous, access, and authenticated views.
 

@@ -4,7 +4,7 @@ Interfacing is a templates/layout/rendering component. It may expose scoped diag
 
 No exception: the account/security component owns `/access/*`, including sign-in page routes, credential-processing POST routes, registration, logout, and session/security routes. Interfacing must not register account routes or depend on foreign account/security runtime services.
 
-Producer components own business public URLs. Interfacing owns the shell, provider-native render surfaces, slot/location contract, and optional scoped showcase/demo routes.
+Producer components own business public URLs. Interfacing owns the shell, provider-native render views, slot/location contract, and optional scoped showcase/demo routes.
 
 ## Route rule
 

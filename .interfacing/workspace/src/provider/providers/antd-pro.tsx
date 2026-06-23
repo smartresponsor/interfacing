@@ -32,7 +32,7 @@ function NavigationMenu({ context }: { context: InterfacingProviderMountContext 
 function ProviderLoading(): React.ReactElement {
   return React.createElement('div', { className: 'interfacing-react-provider-loading' },
     React.createElement(Spin, { size: 'small' }),
-    React.createElement('span', {}, 'Loading provider surface…')
+    React.createElement('span', {}, 'Loading provider view...')
   );
 }
 

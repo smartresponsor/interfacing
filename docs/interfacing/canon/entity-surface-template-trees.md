@@ -1,8 +1,8 @@
-# Entity/surface template trees canon
+# Entity/view template trees canon
 
-Interfacing template folders are named by neutral entity/surface nouns, not by ecosystem component names.
+Interfacing template folders are named by neutral entity/view nouns, not by ecosystem component names.
 
-The component name is producer/source identity. The template folder is a presentation surface.
+The component name is producer/source identity. The template folder is a presentation view.
 
 ## Rule
 
@@ -24,7 +24,7 @@ templates/Currencing/
 templates/Searching/
 ```
 
-Components may request a template by their own identity, but lookup normalizes the request to an entity/surface folder. This is lookup normalization, not component ownership inference.
+Components may request a template by their own identity, but lookup normalizes the request to an entity/view folder. This is lookup normalization, not component ownership inference.
 
 ## Canonical mapping
 
@@ -95,19 +95,19 @@ Components may request a template by their own identity, but lookup normalizes t
 
 ## Required inheritance
 
-Each surface tree should expose at least:
+Each view tree should expose at least:
 
 ```text
-templates/<surface>/base.html.twig
-templates/<surface>/index.html.twig
-templates/<surface>/default.html.twig
+templates/<view>/base.html.twig
+templates/<view>/index.html.twig
+templates/<view>/default.html.twig
 ```
 
 The default inheritance chain is:
 
 ```text
-templates/<surface>/index.html.twig
-  -> templates/<surface>/base.html.twig
+templates/<view>/index.html.twig
+  -> templates/<view>/base.html.twig
       -> templates/base.html.twig
 ```
 

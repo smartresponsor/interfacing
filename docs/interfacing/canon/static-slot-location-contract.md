@@ -68,7 +68,7 @@ Legacy aliases are retired from active runtime rendering. Producer components mu
 
 ## Producer-side usage
 
-A producer component may look for Interfacing templates by its own convention. Example candidate order for a `payment` surface can be:
+A producer component may look for Interfacing templates by its own convention. Example candidate order for a `payment` view can be:
 
 1. `payment/index.html.twig`
 2. `payment/default.html.twig`
@@ -91,6 +91,6 @@ If no template is found, the producer may return structured data arrays to its c
 - Static Twig inheritance.
 - Static Twig blocks and includes.
 - Shared partials/macros for repeated shell pieces.
-- Noun-based surface template folders.
+- Noun-based view template folders.
 - Documentation and guards enforcing the slot names.
 

@@ -8,7 +8,7 @@ Wave 3 locks the local view base convention.
 pages.
 
 Visible provider/workbench markup belongs in a concrete page template such as
-`templates/<view>/surface.html.twig`, not in the local `base.html.twig`.
+`templates/<view>/view.html.twig`, not in the local `base.html.twig`.
 
 This keeps noun/view folders useful while preventing parallel document bases,
 local mini-shells, or component-name template roots.

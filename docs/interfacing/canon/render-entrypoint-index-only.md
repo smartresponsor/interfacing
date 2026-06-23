@@ -1,7 +1,7 @@
 # Render entrypoint index-only canon
 
 Interfacing uses `templates/base.html.twig` as the only document-level shell.
-Surface-level `base.html.twig` files are allowed only as thin inheritance adapters.
+View-level `base.html.twig` files are allowed only as thin inheritance adapters.
 They must not be treated as visible renderer endpoints.
 
 ## Runtime lookup rule
@@ -19,7 +19,7 @@ ambiguous because it mixes layout inheritance with screen ownership.
 ## Naming rule
 
 - `index.html.twig` means the default visible view endpoint.
-- `surface.html.twig`, `show.html.twig`, `form.html.twig`, and similar files are concrete screen variants.
+- `view.html.twig`, `show.html.twig`, `form.html.twig`, and similar files are concrete screen variants.
 - `base.html.twig` means inheritance adapter only.
 
 ## Gate rule

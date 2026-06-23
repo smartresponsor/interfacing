@@ -2,7 +2,7 @@
 
 ## Decision
 
-The application left navigation is user-facing chrome. It must not behave as a development directory of every Interfacing route, form, screen, shell diagnostic, JSON endpoint, or CRUD/test surface.
+The application left navigation is user-facing chrome. It must not behave as a development directory of every Interfacing route, form, screen, shell diagnostic, JSON endpoint, or CRUD/test view.
 
 ## Implemented contract
 
@@ -15,7 +15,7 @@ The primary left navigation now exposes ecosystem business bricks only:
 
 ## Removed from primary left navigation
 
-The following development/internal surfaces were intentionally removed from the primary user chrome:
+The following development/internal views were intentionally removed from the primary user chrome:
 
 - Launchpad.
 - CRUD Explorer.
@@ -34,11 +34,11 @@ The following development/internal surfaces were intentionally removed from the 
 - Shell Audit.
 - Shell Guard.
 - Shell Map.
-- URL/JSON-style diagnostic surfaces.
+- URL/JSON-style diagnostic views.
 
 ## Template contract
 
-The left navigation now renders groups as native `ul/li` lists with no bullets and vertical spacing, matching the same list-based direction used for footer and top quick-menu surfaces.
+The left navigation now renders groups as native `ul/li` lists with no bullets and vertical spacing, matching the same list-based direction used for footer and top quick-menu views.
 
 ## Cache note
 

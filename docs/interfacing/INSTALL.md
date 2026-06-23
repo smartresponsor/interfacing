@@ -9,7 +9,7 @@ Package posture:
 - Composer package: `smartresponsor/interfacing`
 - Pinterfacing-4 root: `App\Interfacing\ => src/`
 - Bundle class: `App\Interfacing\InterfacingBundle`
-- Primary runtime templates stay under `templates/`, with `templates/` kept as fallback handoff surface
+- Primary runtime templates stay under `templates/`, with `templates/` kept as fallback handoff view
 
 Host wiring expectations:
 1) Require the package in the host application
@@ -25,7 +25,7 @@ Security boundary:
 - Firewalls, access_control, authenticators, providers, and password hashers belong to the host application.
 - The package only consumes host security services through access-resolver abstractions.
 
-Canonical host config surface:
+Canonical host config view:
 ```yaml
 interfacing:
   tenant_default: default

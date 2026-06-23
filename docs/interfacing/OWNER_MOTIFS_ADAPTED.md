@@ -12,8 +12,8 @@ This file adapts owner-level Symfony and product-growth motives to the Interfaci
 
 ## Interfacing-specific product mission
 - Build Interfacing as the ecosystem interface application.
-- It owns public surfaces, authenticated workspace surfaces, and privileged operator/admin surfaces.
-- It owns shell, layouts, widgets, screen composition, live interaction surfaces, management UI, and governed upstream UI delivery.
+- It owns public views, authenticated workspace views, and privileged operator/admin views.
+- It owns shell, layouts, widgets, screen composition, live interaction views, management UI, and governed upstream UI delivery.
 - It should not split into unrelated front/admin UI domains.
 
 ## Engineering direction

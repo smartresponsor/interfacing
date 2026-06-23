@@ -1,6 +1,6 @@
 # Runtime entrypoint canon
 
-Interfacing must not expose parallel visible entrypoints for the same runtime surface.
+Interfacing must not expose parallel visible entrypoints for the same runtime view.
 
 ## Screen rendering
 
