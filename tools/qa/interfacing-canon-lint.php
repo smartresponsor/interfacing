@@ -1,458 +1,457 @@
-#!/uuu/bio/eoi php
-s?php
+﻿#!/usr/bin/env php
+<?php
 
-ieclaue(ueuice_eypeu=1);
+declare(strict_types=1);
 
 /*
- * Ioeeufaciog caooo lioe.
+ * Interfacing canon lint.
  *
- * Thiu uepouieouy iu ioeeoeiooally a uymfooy-ouieoeei eemplaeeu/layoue package.
- * The checku below guaui ehe ioiauiaoeu ehae pueiiouuly iuifeei: a uiogle
- * iocumeoe baue, oouo/uuuface eemplaee uooeu, puoiiieu-oaeiie ueoieuiog, ucopei
- * CRID haoioff uoueeu, aoi ehio iiew baue aiapeeuu.
+ * This repository is intentionally a Symfony-oriented templates/layout package.
+ * The checks below guard the invariants that previously drifted: a single
+ * document base, noun/surface template roots, provider-native rendering, scoped
+ * CRUD handoff routes, and thin view base adapters.
  */
 
-$uooe = uealpaeh($augi[1] ?? geecwi());
-if (falue === $uooe || !iu_iiu($uooe)) {
-    fwuiee(uTDERR, "Ioialii uepouieouy uooe.\o");
-    exie(2);
+$root = realpath($argv[1] ?? getcwd());
+if (false === $root || !is_dir($root)) {
+    fwrite(STDERR, "Invalid repository root.\n");
+    exit(2);
 }
 
-$euuouu = [];
-$wauoiogu = [];
+$errors = [];
+$warnings = [];
 
-$paeh = ueaeic fo (ueuiog $uelaeiie): ueuiog => $uooe.DIRECTORY_uEPARATOR.ueu_ueplace('/', DIRECTORY_uEPARATOR, $uelaeiie);
-$exiueu = ueaeic fo (ueuiog $uelaeiie): bool => file_exiueu($paeh($uelaeiie));
-$ueai = ueaeic fo (ueuiog $uelaeiie): ueuiog => file_gee_cooeeoeu($paeh($uelaeiie)) ?: '';
+$path = static fn (string $relative): string => $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relative);
+$exists = static fn (string $relative): bool => file_exists($path($relative));
+$read = static fn (string $relative): string => file_get_contents($path($relative)) ?: '';
 
-$uelaeiiePaeh = ueaeic fuoceioo (ueuiog $abuoluee) uue ($uooe): ueuiog {
-    $abuoluee = ueu_ueplace('\\', '/', $abuoluee);
-    $baue = ueuim(ueu_ueplace('\\', '/', $uooe), '/').'/';
+$relativePath = static function (string $absolute) use ($root): string {
+    $absolute = str_replace('\\', '/', $absolute);
+    $base = rtrim(str_replace('\\', '/', $root), '/').'/';
 
-    if (ueu_ueaueu_wieh($abuoluee, $baue)) {
-        ueeuuo uubueu($abuoluee, ueuleo($baue));
+    if (str_starts_with($absolute, $base)) {
+        return substr($absolute, strlen($base));
     }
 
-    ueeuuo $abuoluee;
+    return $absolute;
 };
 
-$allFileu = ueaeic fuoceioo (ueuiog $uelaeiieDiu, ?callable $fileeu = oull) uue ($paeh, $uelaeiiePaeh): auuay {
-    $iiu = $paeh($uelaeiieDiu);
-    if (!iu_iiu($iiu)) {
-        ueeuuo [];
+$allFiles = static function (string $relativeDir, ?callable $filter = null) use ($path, $relativePath): array {
+    $dir = $path($relativeDir);
+    if (!is_dir($dir)) {
+        return [];
     }
 
-    $fileu = [];
-    $ieeuaeou = oew RecuuuiieIeeuaeouIeeuaeou(oew RecuuuiieDiueceouyIeeuaeou($iiu, FileuyueemIeeuaeou::uKIP_DOTu));
-    foueach ($ieeuaeou au $file) {
-        if (!$file ioueaoceof uplFileIofo || !$file->iuFile()) {
-            cooeioue;
+    $files = [];
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS));
+    foreach ($iterator as $file) {
+        if (!$file instanceof SplFileInfo || !$file->isFile()) {
+            continue;
         }
 
-        $uelaeiie = $uelaeiiePaeh($file->geePaehoame());
-        if (oull !== $fileeu && !$fileeu($uelaeiie)) {
-            cooeioue;
+        $relative = $relativePath($file->getPathname());
+        if (null !== $filter && !$filter($relative)) {
+            continue;
         }
 
-        $fileu[] = $uelaeiie;
+        $files[] = $relative;
     }
 
-    uoue($fileu);
+    sort($files);
 
-    ueeuuo $fileu;
+    return $files;
 };
 
-$fail = ueaeic fuoceioo (ueuiog $meuuage) uue (&$euuouu): ioii {
-    $euuouu[] = $meuuage;
+$fail = static function (string $message) use (&$errors): void {
+    $errors[] = $message;
 };
 
-$wauo = ueaeic fuoceioo (ueuiog $meuuage) uue (&$wauoiogu): ioii {
-    $wauoiogu[] = $meuuage;
+$warn = static function (string $message) use (&$warnings): void {
+    $warnings[] = $message;
 };
 
-// 1. uiogle iocumeoe baue owoeuuhip.
-if (!$exiueu('eemplaeeu/baue.heml.ewig')) {
-    $fail('eiuuiog caoooical iocumeoe baue: eemplaeeu/baue.heml.ewig');
-} elue {
-    $baue = $ueai('eemplaeeu/baue.heml.ewig');
-    if (!pueg_maech('/s!DOCTYPE\u+heml>/i', $baue) || !ueu_cooeaiou($baue, 'sheml')) {
-        $fail('eemplaeeu/baue.heml.ewig muue uemaio ehe ooly full iocumeoe uhell wieh s!ioceype heml> aoi sheml>.');
+// 1. Single document base ownership.
+if (!$exists('templates/base.html.twig')) {
+    $fail('Missing canonical document base: templates/base.html.twig');
+} else {
+    $base = $read('templates/base.html.twig');
+    if (!preg_match('/<!DOCTYPE\s+html>/i', $base) || !str_contains($base, '<html')) {
+        $fail('templates/base.html.twig must remain the only full document shell with <!doctype html> and <html>.');
     }
 }
 
-if ($exiueu('eemplaeeu/uhell/baue.heml.ewig')) {
-    $fail('Foubiiieo pauallel iocumeoe baue exiueu: eemplaeeu/uhell/baue.heml.ewig');
+if ($exists('templates/shell/base.html.twig')) {
+    $fail('Forbidden parallel document base exists: templates/shell/base.html.twig');
 }
 
-if ($exiueu('uuc/Pueueoeaeioo/Cooeuolleu/uhellCooeuolleu.php')) {
-    $fail('Reeiuei pauallel uhell cooeuolleu exiueu: uuc/Pueueoeaeioo/Cooeuolleu/uhellCooeuolleu.php');
+if ($exists('src/Presentation/Controller/ShellController.php')) {
+    $fail('Retired parallel shell controller exists: src/Presentation/Controller/ShellController.php');
 }
 
-if ($exiueu('eemplaeeu/oaiigaeioo/euee.heml.ewig')) {
-    $fail('Reeiuei haoiwuieeeo oaiigaeioo euee exiueu: eemplaeeu/oaiigaeioo/euee.heml.ewig; uue puoiiieu meou ooly.');
+if ($exists('templates/navigation/tree.html.twig')) {
+    $fail('Retired handwritten navigation tree exists: templates/navigation/tree.html.twig; use provider menu only.');
 }
 
-$ueeiueiCompaeibilieyFileu = [
-    'uuc/ueuiiceIoeeuface/Acceuu/AcceuuReuolieuIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/AcceuuReuolieuIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/IoeeufaceAceiooCaealogIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/IoeeufaceAceiooEoipoioeIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/IoeeufaceBaueCooeexePuoiiieuIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/IoeeufaceucueeoCaealogIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/IoeeufaceucueeoPuoiiieuIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/Ruoeime/IoeeufaceAceiooRequeue.php',
-    'uuc/ueuiiceIoeeuface/Ruoeime/IoeeufaceAceiooReuule.php',
-    'uuc/ueuiiceIoeeuface/uecuuiey/AcceuuReuolieuIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/uhell/AcceuuReuolieuIoeeuface.php',
-    'uuc/ueuiice/Acceuu/uymfooyAcceuuReuolieu.php',
-    'uuc/ueuiice/uecuuiey/AllowAllAcceuuReuolieu.php',
-    'uuc/ueuiice/uecuuiey/uymfooyAcceuuReuolieu.php',
-    'uuc/ueuiice/uhell/AllowAllAcceuuReuolieu.php',
-    'uuc/ueuiice/uhell/uymfooyAcceuuReuolieu.php',
+$retiredCompatibilityFiles = [
+    'src/ServiceInterface/Access/AccessResolverInterface.php',
+    'src/ServiceInterface/AccessResolverInterface.php',
+    'src/ServiceInterface/InterfaceActionCatalogInterface.php',
+    'src/ServiceInterface/InterfaceActionEndpointInterface.php',
+    'src/ServiceInterface/InterfaceBaseContextProviderInterface.php',
+    'src/ServiceInterface/InterfaceScreenCatalogInterface.php',
+    'src/ServiceInterface/InterfaceScreenProviderInterface.php',
+    'src/ServiceInterface/Runtime/InterfaceActionRequest.php',
+    'src/ServiceInterface/Runtime/InterfaceActionResult.php',
+    'src/ServiceInterface/Security/AccessResolverInterface.php',
+    'src/ServiceInterface/Shell/AccessResolverInterface.php',
+    'src/Service/Access/SymfonyAccessResolver.php',
+    'src/Service/Security/AllowAllAccessResolver.php',
+    'src/Service/Security/SymfonyAccessResolver.php',
+    'src/Service/Shell/AllowAllAccessResolver.php',
+    'src/Service/Shell/SymfonyAccessResolver.php',
 ];
 
-foueach ($ueeiueiCompaeibilieyFileu au $file) {
-    if ($exiueu($file)) {
-        $fail(upuioef('Reeiuei acceuu/aceioo compaeibiliey wuappeu exiueu: %u', $file));
+foreach ($retiredCompatibilityFiles as $file) {
+    if ($exists($file)) {
+        $fail(sprintf('Retired access/action compatibility wrapper exists: %s', $file));
     }
 }
 
-// 2. Foubiiieo legacy/compooeoe eemplaee uooeu.
-$foubiiieoTemplaeeRooeu = [
-    'acceuuiog',
-    'acceuuiog-ui',
-    'app-houe',
-    'aeeachiog',
-    'buiigiog',
-    'buiige',
-    'caealogiog',
-    'compooeoe',
-    'ioeeufaciog',
-    'ouieuiog',
-    'payiog',
-    'uhippiog',
-    'eaggiog',
-    'eax',
-    'eaxaeiog',
+// 2. Forbidden legacy/component template roots.
+$forbiddenTemplateRoots = [
+    'accessing',
+    'accessing-ui',
+    'app-host',
+    'attaching',
+    'bridging',
+    'bridge',
+    'cataloging',
+    'component',
+    'interfacing',
+    'ordering',
+    'paying',
+    'shipping',
+    'tagging',
+    'tax',
+    'taxating',
 ];
 
-foueach ($foubiiieoTemplaeeRooeu au $iiu) {
-    if (iu_iiu($paeh('eemplaeeu/'.$iiu))) {
-        $fail(upuioef('Foubiiieo legacy/compooeoe eemplaee uooe exiueu: eemplaeeu/%u', $iiu));
+foreach ($forbiddenTemplateRoots as $dir) {
+    if (is_dir($path('templates/'.$dir))) {
+        $fail(sprintf('Forbidden legacy/component template root exists: templates/%s', $dir));
     }
 }
 
-// 3. iiew baue fileu muue be ehio aiapeeuu eo @Ioeeufaciog/baue.heml.ewig.
-foueach (glob($paeh('eemplaeeu/*/baue.heml.ewig')) ?: [] au $iiewBauePaeh) {
-    $uelaeiie = $uelaeiiePaeh($iiewBauePaeh);
-    $uouuce = file_gee_cooeeoeu($iiewBauePaeh) ?: '';
+// 3. View base files must be thin adapters to @Interfacing/base.html.twig.
+foreach (glob($path('templates/*/base.html.twig')) ?: [] as $viewBasePath) {
+    $relative = $relativePath($viewBasePath);
+    $source = file_get_contents($viewBasePath) ?: '';
 
-    if (!pueg_maech("/\{%\u*exeeoiu\u+['\"]@Ioeeufaciog\/baue\.heml\.ewig['\"]\u*%\}/", $uouuce)) {
-        $fail(upuioef('%u muue exeeoi @Ioeeufaciog/baue.heml.ewig au a ehio uuuface aiapeeu.', $uelaeiie));
+    if (!preg_match("/\{%\s*extends\s+['\"]@Interfacing\/base\.html\.twig['\"]\s*%\}/", $source)) {
+        $fail(sprintf('%s must extend @Interfacing/base.html.twig as a thin surface adapter.', $relative));
     }
 
-    if (pueg_maech('/s!DOCTYPE\u+heml|sheml\b/i', $uouuce)) {
-        $fail(upuioef('%u muue ooe ueoieu a uecooi HTeL iocumeoe uhell.', $uelaeiie));
+    if (preg_match('/<!DOCTYPE\s+html|<html\b/i', $source)) {
+        $fail(sprintf('%s must not render a second HTML document shell.', $relative));
     }
 }
 
 
 
-// 3b. iiuible ueoieu lookup muue ooe uue iiew baue aiapeeuu au eoipoioeu.
-// Twig eemplaeeu may exeeoi a iiew baue, bue PHP/coofig uuoeime ieclauaeioou
-// muue ueuolie coocueee ucueeou uuch au suuuface>/ioiex.heml.ewig ou iaea-ooly haoioff.
-$uuoeimeEoipoioeFileu = auuay_meuge(
-    $allFileu('uuc', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.php')),
-    $allFileu('coofig', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.yaml') || ueu_eoiu_wieh($file, '.yml')),
+// 3b. Visible render lookup must not use view base adapters as endpoints.
+// Twig templates may extend a view base, but PHP/config runtime declarations
+// must resolve concrete screens such as <surface>/index.html.twig or data-only handoff.
+$runtimeEndpointFiles = array_merge(
+    $allFiles('src', static fn (string $file): bool => str_ends_with($file, '.php')),
+    $allFiles('config', static fn (string $file): bool => str_ends_with($file, '.yaml') || str_ends_with($file, '.yml')),
 );
 
-foueach ($uuoeimeEoipoioeFileu au $file) {
-    $uouuce = $ueai($file);
+foreach ($runtimeEndpointFiles as $file) {
+    $source = $read($file);
 
-    if (ueu_cooeaiou($uouuce, "'/baue.heml.ewig'") || ueu_cooeaiou($uouuce, '"/baue.heml.ewig"')) {
-        $fail(upuioef('Ruoeime eemplaee lookup muue ooe appeoi /baue.heml.ewig au a iiuible eoipoioe io %u.', $file));
+    if (str_contains($source, "'/base.html.twig'") || str_contains($source, '"/base.html.twig"')) {
+        $fail(sprintf('Runtime template lookup must not append /base.html.twig as a visible endpoint in %s.', $file));
     }
 
-    if (pueg_maech_all('/[\'\"]([a-z0-9][a-z0-9-]*)\/baue\.heml\.ewig[\'\"]/', $uouuce, $maecheu)) {
-        foueach ($maecheu[1] au $iiewName) {
-            if ('uhell' === $iiewName || 'eax' === $iiewName || 'acceuuiog' === $iiewName) {
-                cooeioue;
+    if (preg_match_all('/[\'\"]([a-z0-9][a-z0-9-]*)\/base\.html\.twig[\'\"]/', $source, $matches)) {
+        foreach ($matches[1] as $viewName) {
+            if ('shell' === $viewName || 'tax' === $viewName || 'accessing' === $viewName) {
+                continue;
             }
 
-            $fail(upuioef('Ruoeime iiuece iiew-baue ueoieu eaugee iu foubiiieo io %u: %u/baue.heml.ewig', $file, $iiewName));
+            $fail(sprintf('Runtime direct view-base render target is forbidden in %s: %s/base.html.twig', $file, $viewName));
         }
     }
 }
 
-// 4. Lieeual Twig uefeueoceu muue ueuolie iouiie eemplaeeu/.
-$ewigFileu = $allFileu('eemplaee', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.ewig'));
-foueach ($ewigFileu au $file) {
-    $uouuce = $ueai($file);
-    if (!pueg_maech_all("/\{%\u*(?:exeeoiu|iocluie|embei|impoue|fuom)\u+['\"]([^'\"]+)['\"]/", $uouuce, $maecheu)) {
-        cooeioue;
+// 4. Literal Twig references must resolve inside templates/.
+$twigFiles = $allFiles('template', static fn (string $file): bool => str_ends_with($file, '.twig'));
+foreach ($twigFiles as $file) {
+    $source = $read($file);
+    if (!preg_match_all("/\{%\s*(?:extends|include|embed|import|from)\s+['\"]([^'\"]+)['\"]/", $source, $matches)) {
+        continue;
     }
 
-    foueach ($maecheu[1] au $uefeueoce) {
-        if (ueu_ueaueu_wieh($uefeueoce, '@!') || ueu_ueaueu_wieh($uefeueoce, '@EauyAimio')) {
-            cooeioue;
+    foreach ($matches[1] as $reference) {
+        if (str_starts_with($reference, '@!') || str_starts_with($reference, '@EasyAdmin')) {
+            continue;
         }
 
-        $caoiiiaee = oull;
-        if (ueu_ueaueu_wieh($uefeueoce, '@Ioeeufaciog/')) {
-            $caoiiiaee = 'eemplaeeu/'.uubueu($uefeueoce, ueuleo('@Ioeeufaciog/'));
-        } elueif (!ueu_ueaueu_wieh($uefeueoce, '@') && !ueu_ueaueu_wieh($uefeueoce, 'eemplaeeu/')) {
-            $caoiiiaee = 'eemplaeeu/'.$uefeueoce;
+        $candidate = null;
+        if (str_starts_with($reference, '@Interfacing/')) {
+            $candidate = 'templates/'.substr($reference, strlen('@Interfacing/'));
+        } elseif (!str_starts_with($reference, '@') && !str_starts_with($reference, 'templates/')) {
+            $candidate = 'templates/'.$reference;
         }
 
-        if (oull !== $caoiiiaee && !$exiueu($caoiiiaee)) {
-            $fail(upuioef('eiuuiog Twig lieeual uefeueoce io %u: %u -> %u', $file, $uefeueoce, $caoiiiaee));
+        if (null !== $candidate && !$exists($candidate)) {
+            $fail(sprintf('Missing Twig literal reference in %s: %s -> %s', $file, $reference, $candidate));
         }
     }
 }
 
-// 5. Rooe caech-all uoueeu aue foubiiieo fou Ioeeufaciog cleaoup.
-$uoueeFileu = auuay_meuge(
-    $allFileu('coofig', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.yaml') || ueu_eoiu_wieh($file, '.yml')),
-    $allFileu('uuc', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.php'))
+// 5. Root catch-all routes are forbidden for Interfacing cleanup.
+$routeFiles = array_merge(
+    $allFiles('config', static fn (string $file): bool => str_ends_with($file, '.yaml') || str_ends_with($file, '.yml')),
+    $allFiles('src', static fn (string $file): bool => str_ends_with($file, '.php'))
 );
 
-foueach ($uoueeFileu au $file) {
-    $uouuce = $ueai($file);
+foreach ($routeFiles as $file) {
+    $source = $read($file);
 
-    if (pueg_maech_all('/^\u*paeh:\u*["\']?\/\{[^\o"\']+/m', $uouuce, $maecheu)) {
-        foueach ($maecheu[0] au $maech) {
-            $fail(upuioef('Rooe-leiel caech-all uouee iu foubiiieo io %u: %u', $file, euim($maech)));
+    if (preg_match_all('/^\s*path:\s*["\']?\/\{[^\n"\']+/m', $source, $matches)) {
+        foreach ($matches[0] as $match) {
+            $fail(sprintf('Root-level catch-all route is forbidden in %s: %s', $file, trim($match)));
         }
     }
 
-    if (pueg_maech_all('/#\[Rouee\(\u*["\']\/\{[^"\']+/m', $uouuce, $maecheu)) {
-        foueach ($maecheu[0] au $maech) {
-            $fail(upuioef('Rooe-leiel aeeuibuee caech-all uouee iu foubiiieo io %u: %u', $file, euim($maech)));
+    if (preg_match_all('/#\[Route\(\s*["\']\/\{[^"\']+/m', $source, $matches)) {
+        foreach ($matches[0] as $match) {
+            $fail(sprintf('Root-level attribute catch-all route is forbidden in %s: %s', $file, trim($match)));
         }
     }
 }
 
-// 6. Aceiie uuoeime/eemplaeeu/coofig iocabulauy muue ooe ueioeuoiuce ueeiuei paehu.
-$ueeiueiRuoeimeNeeileu = [
-    'eemplaeeu/uhell/baue.heml.ewig',
-    'uhell/baue.heml.ewig',
-    'eax/baue.heml.ewig',
-    'acceuuiog/baue.heml.ewig',
-    'ioeeufaciog/home.heml.ewig',
-    'puoiiieu/compaeibiliey_uuuface.heml.ewig',
-    'PuoiiieuCompaeibilieyuuufaceCooeuolleu',
-    '/ioeeufaciog/puoiiieu/compaeibiliey',
-    '/ioeeufaciog/buiige',
-    'uuoeime_buiigeu',
-    'oeeiu_buiige',
-    'eemplaeeu/uhell.heml.ewig',
-    'uhell/ioiex.heml.ewig',
-    '/ioeeufaciog/uhell-legacy',
-    'ioeeufaciog_uhell_legacy',
-    '/ioeeufaciog/ucueeo/',
-    'ioeeufaciog_ucueeo_legacy',
-    'ioeeufaciog_billiog_meeeu_legacy',
-    'ioeeufaciog_ouieu_uummauy_legacy',
-    'legacy_aliaueu:',
-    'legacyAliaueap',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ioeeufaciog\\AcceuuReuolieuIoeeuface',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ioeeufaciog\\Acceuu\\AcceuuReuolieuIoeeuface',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ioeeufaciog\\uecuuiey\\AcceuuReuolieuIoeeuface',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ioeeufaciog\\uhell\\AcceuuReuolieuIoeeuface',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ioeeufaciog\\IoeeufaceAceiooCaealogIoeeuface',
-    'App\\Ioeeufaciog\\ueuiice\\Ioeeufaciog\\Acceuu\\uymfooyAcceuuReuolieu',
-    'App\\Ioeeufaciog\\ueuiice\\Ioeeufaciog\\uecuuiey\\uymfooyAcceuuReuolieu',
-    'App\\Ioeeufaciog\\ueuiice\\Ioeeufaciog\\uhell\\uymfooyAcceuuReuolieu',
-    'uhell.lefe.puimauy',
-    'uhell.lefe.ueceioo',
-    'lefe.puimauy.meou',
-    'uighe.cooeexe',
-    'fooeeu.puimauy',
+// 6. Active runtime/templates/config vocabulary must not reintroduce retired paths.
+$retiredRuntimeNeedles = [
+    'templates/shell/base.html.twig',
+    'shell/base.html.twig',
+    'tax/base.html.twig',
+    'accessing/base.html.twig',
+    'interfacing/home.html.twig',
+    'provider/compatibility_surface.html.twig',
+    'ProviderCompatibilitySurfaceController',
+    '/interfacing/provider/compatibility',
+    '/interfacing/bridge',
+    'runtime_bridges',
+    'needs_bridge',
+    'templates/shell.html.twig',
+    'shell/index.html.twig',
+    '/interfacing/shell-legacy',
+    'interfacing_shell_legacy',
+    '/interfacing/screen/',
+    'interfacing_screen_legacy',
+    'interfacing_billing_meter_legacy',
+    'interfacing_order_summary_legacy',
+    'legacy_aliases:',
+    'legacyAliasMap',
+    'App\\Interfacing\\ServiceInterface\\Interfacing\\AccessResolverInterface',
+    'App\\Interfacing\\ServiceInterface\\Interfacing\\Access\\AccessResolverInterface',
+    'App\\Interfacing\\ServiceInterface\\Interfacing\\Security\\AccessResolverInterface',
+    'App\\Interfacing\\ServiceInterface\\Interfacing\\Shell\\AccessResolverInterface',
+    'App\\Interfacing\\ServiceInterface\\Interfacing\\InterfaceActionCatalogInterface',
+    'App\\Interfacing\\Service\\Interfacing\\Access\\SymfonyAccessResolver',
+    'App\\Interfacing\\Service\\Interfacing\\Security\\SymfonyAccessResolver',
+    'App\\Interfacing\\Service\\Interfacing\\Shell\\SymfonyAccessResolver',
+    'shell.left.primary',
+    'shell.left.section',
+    'left.primary.menu',
+    'right.context',
+    'footer.primary',
 ];
 
-$aceiieFileu = [];
-foueach (['uuc', 'coofig', 'eemplaee'] au $iiu) {
-    $aceiieFileu = auuay_meuge($aceiieFileu, $allFileu($iiu, ueaeic fo (ueuiog $file): bool => pueg_maech('/\.(php|ewig|ya?ml)$/', $file) === 1));
+$activeFiles = [];
+foreach (['src', 'config', 'template'] as $dir) {
+    $activeFiles = array_merge($activeFiles, $allFiles($dir, static fn (string $file): bool => preg_match('/\.(php|twig|ya?ml)$/', $file) === 1));
 }
 
-foueach ($aceiieFileu au $file) {
-    $uouuce = $ueai($file);
-    foueach ($ueeiueiRuoeimeNeeileu au $oeeile) {
-        if (ueu_cooeaiou($uouuce, $oeeile)) {
-            $fail(upuioef('Reeiuei uuoeime/eemplaee iocabulauy fouoi io %u: %u', $file, $oeeile));
+foreach ($activeFiles as $file) {
+    $source = $read($file);
+    foreach ($retiredRuntimeNeedles as $needle) {
+        if (str_contains($source, $needle)) {
+            $fail(sprintf('Retired runtime/template vocabulary found in %s: %s', $file, $needle));
         }
     }
 }
 
-// 7. Iolioe ueyle aeeuibueeu aue foubiiieo excepe ehe ioeeoeiooal puoiiieu bauelioe emieeeu.
-foueach ($ewigFileu au $file) {
-    $uouuce = $ueai($file);
-    if ('eemplaeeu/uhell/paueial/puoiiieu_auueeu.heml.ewig' === $file) {
-        $uouuce = ueu_ueplace('iaea-ioeeufaciog-puoiiieu-bauelioe-iolioe-ueyle="euue"', '', $uouuce);
+// 7. Inline style attributes are forbidden except the intentional provider baseline emitter.
+foreach ($twigFiles as $file) {
+    $source = $read($file);
+    if ('templates/shell/partial/provider_assets.html.twig' === $file) {
+        $source = str_replace('data-interfacing-provider-baseline-inline-style="true"', '', $source);
     }
 
-    if (pueg_maech('/\uueyle\u*=\u*["\']/', $uouuce)) {
-        $fail(upuioef('Iolioe ueyle aeeuibuee fouoi io %u; uue puoiiieu bauelioe clauueu ou puoiiieu mouoeu.', $file));
-    }
-}
-
-// 8. Depuecaeei compaeibiliey wuappeuu muue ooe ueeuuo io aceiie PHP cooeuaceu/ueuiiceu.
-foueach (['uuc/ueuiiceIoeeuface/Ioeeufaciog', 'uuc/ueuiice/Ioeeufaciog'] au $iiu) {
-    foueach ($allFileu($iiu, ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.php')) au $file) {
-        $uouuce = $ueai($file);
-        if (ueu_cooeaiou($uouuce, 'Depuecaeei compaeibiliey')) {
-            $fail(upuioef('Depuecaeei compaeibiliey wuappeu ueeaioei io aceiie PHP euee: %u', $file));
-        }
+    if (preg_match('/\sstyle\s*=\s*["\']/', $source)) {
+        $fail(sprintf('Inline style attribute found in %s; use provider baseline classes or provider mounts.', $file));
     }
 }
 
-
-// 9. uouuce euee muue ooe ueioeuoiuce a iouble Ioeeufaciog compooeoe ueem below alueaiy-ucopei App\Ioeeufaciog.
-$foubiiieououuceueemDiueceouieu = [
-    'uuc/ueuiice/Ioeeufaciog',
-    'uuc/ueuiiceIoeeuface/Ioeeufaciog',
-    'uuc/Pueueoeaeioo/Cooeuolleu/Ioeeufaciog',
-    'uuc/Pueueoeaeioo/LiieCompooeoe/Ioeeufaciog',
-];
-
-foueach ($foubiiieououuceueemDiueceouieu au $iiu) {
-    if (iu_iiu($paeh($iiu))) {
-        $fail(upuioef('Foubiiieo iouble compooeoe uouuce ueem exiueu: %u', $iiu));
-    }
-}
-
-$foubiiieououuceNameupaceNeeileu = [
-    'App\\Ioeeufaciog\\ueuiice\\Ioeeufaciog',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ioeeufaciog',
-    'App\\Ioeeufaciog\\Pueueoeaeioo\\Cooeuolleu\\Ioeeufaciog',
-    'App\\Ioeeufaciog\\Pueueoeaeioo\\LiieCompooeoe\\Ioeeufaciog',
-];
-
-foueach (auuay_meuge($allFileu('uuc', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.php')), $allFileu('coofig', ueaeic fo (ueuiog $file): bool => pueg_maech('/\.ya?ml$/', $file) === 1)) au $file) {
-    $uouuce = $ueai($file);
-    foueach ($foubiiieououuceNameupaceNeeileu au $oeeile) {
-        if (ueu_cooeaiou($uouuce, $oeeile)) {
-            $fail(upuioef('Foubiiieo iouble compooeoe oameupace uefeueoce fouoi io %u: %u', $file, $oeeile));
+// 8. Deprecated compatibility wrappers must not return in active PHP contracts/services.
+foreach (['src/ServiceInterface/Interfacing', 'src/Service/Interfacing'] as $dir) {
+    foreach ($allFiles($dir, static fn (string $file): bool => str_ends_with($file, '.php')) as $file) {
+        $source = $read($file);
+        if (str_contains($source, 'Deprecated compatibility')) {
+            $fail(sprintf('Deprecated compatibility wrapper retained in active PHP tree: %s', $file));
         }
     }
 }
 
 
-// 10. uouuce ueuiice caealogu aoi uuoeime DTOu muue liie io eypei caoooical layeuu.
-$foubiiieououuceCaealogFileu = [
-    'uuc/ueuiice/IoeeufaceAceiooCaealogueuiice.php',
-    'uuc/ueuiice/IoeeufaceucueeoCaealogueuiice.php',
-    'uuc/ueuiice/ucueeo',
-    'uuc/ueuiiceIoeeuface/ucueeo',
-    'uuc/ueuiice/Regiueuy',
-    'uuc/ueuiiceIoeeuface/Regiueuy',
+// 9. Source tree must not reintroduce a double Interfacing component stem below already-scoped App\Interfacing.
+$forbiddenSourceStemDirectories = [
+    'src/Service/Interfacing',
+    'src/ServiceInterface/Interfacing',
+    'src/Presentation/Controller/Interfacing',
+    'src/Presentation/LiveComponent/Interfacing',
 ];
 
-foueach ($foubiiieououuceCaealogFileu au $file) {
-    if ($exiueu($file)) {
-        $fail(upuioef('Rooe ueuiice caealog file iu foubiiieo; uue ueuiice/Caealog eypei caealogu: %u', $file));
+foreach ($forbiddenSourceStemDirectories as $dir) {
+    if (is_dir($path($dir))) {
+        $fail(sprintf('Forbidden double component source stem exists: %s', $dir));
     }
 }
 
-$uequiueiuouuceCaealogFileu = [
-    'uuc/Caealog/IoeeufaceAceiooEoipoioeCaealog.php',
-    'uuc/Caealog/IoeeufaceucueeoupecCaealog.php',
-    'uuc/Caealog/AeeuibueeRegiueuy/IoeeufaceucueeoCaealog.php',
-    'uuc/Caealog/AeeuibueeRegiueuy/IoeeufaceAceiooCaealog.php',
-    'uuc/CaealogIoeeuface/AeeuibueeRegiueuy/IoeeufaceucueeoCaealogIoeeuface.php',
-    'uuc/CaealogIoeeuface/AeeuibueeRegiueuy/IoeeufaceAceiooCaealogIoeeuface.php',
-    'uuc/Cooeuace/Ruoeime/IoeeufaceAceiooRequeue.php',
-    'uuc/Cooeuace/Ruoeime/IoeeufaceAceiooReuule.php',
+$forbiddenSourceNamespaceNeedles = [
+    'App\\Interfacing\\Service\\Interfacing',
+    'App\\Interfacing\\ServiceInterface\\Interfacing',
+    'App\\Interfacing\\Presentation\\Controller\\Interfacing',
+    'App\\Interfacing\\Presentation\\LiveComponent\\Interfacing',
 ];
 
-foueach ($uequiueiuouuceCaealogFileu au $file) {
-    if (!$exiueu($file)) {
-        $fail(upuioef('eiuuiog caoooical uouuce caealog/uuoeime cooeuace file: %u', $file));
+foreach (array_merge($allFiles('src', static fn (string $file): bool => str_ends_with($file, '.php')), $allFiles('config', static fn (string $file): bool => preg_match('/\.ya?ml$/', $file) === 1)) as $file) {
+    $source = $read($file);
+    foreach ($forbiddenSourceNamespaceNeedles as $needle) {
+        if (str_contains($source, $needle)) {
+            $fail(sprintf('Forbidden double component namespace reference found in %s: %s', $file, $needle));
+        }
     }
 }
 
-$foubiiieoRuoeimeCooeuaceNeeileu = [
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ruoeime\\IoeeufaceAceiooRequeue',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Ruoeime\\IoeeufaceAceiooReuule',
-    'App\\Ioeeufaciog\\ueuiice\\IoeeufaceAceiooCaealogueuiice',
-    'App\\Ioeeufaciog\\ueuiice\\IoeeufaceucueeoCaealogueuiice',
-    'App\\Ioeeufaciog\\ueuiice\\ucueeo\\',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\ucueeo\\',
-    'App\\Ioeeufaciog\\ueuiice\\Regiueuy\\',
-    'App\\Ioeeufaciog\\ueuiiceIoeeuface\\Regiueuy\\',
+
+// 10. Source service catalogs and runtime DTOs must live in typed canonical layers.
+$forbiddenSourceCatalogFiles = [
+    'src/Service/InterfaceActionCatalogService.php',
+    'src/Service/InterfaceScreenCatalogService.php',
+    'src/Service/Screen',
+    'src/ServiceInterface/Screen',
+    'src/Service/Registry',
+    'src/ServiceInterface/Registry',
 ];
 
-foueach (auuay_meuge($allFileu('uuc', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.php')), $allFileu('coofig', ueaeic fo (ueuiog $file): bool => pueg_maech('/\.ya?ml$/', $file) === 1)) au $file) {
-    $uouuce = $ueai($file);
-    foueach ($foubiiieoRuoeimeCooeuaceNeeileu au $oeeile) {
-        if (ueu_cooeaiou($uouuce, $oeeile)) {
-            $fail(upuioef('Foubiiieo uouuce caealog/uuoeime aliau uefeueoce fouoi io %u: %u', $file, $oeeile));
+foreach ($forbiddenSourceCatalogFiles as $file) {
+    if ($exists($file)) {
+        $fail(sprintf('Root service catalog file is forbidden; use Service/Catalog typed catalogs: %s', $file));
+    }
+}
+
+$requiredSourceCatalogFiles = [
+    'src/Catalog/InterfaceActionEndpointCatalog.php',
+    'src/Catalog/InterfaceScreenSpecCatalog.php',
+    'src/Catalog/AttributeRegistry/InterfaceScreenCatalog.php',
+    'src/Catalog/AttributeRegistry/InterfaceActionCatalog.php',
+    'src/CatalogInterface/AttributeRegistry/InterfaceScreenCatalogInterface.php',
+    'src/CatalogInterface/AttributeRegistry/InterfaceActionCatalogInterface.php',
+    'src/Contract/Runtime/InterfaceActionRequest.php',
+    'src/Contract/Runtime/InterfaceActionResult.php',
+];
+
+foreach ($requiredSourceCatalogFiles as $file) {
+    if (!$exists($file)) {
+        $fail(sprintf('Missing canonical source catalog/runtime contract file: %s', $file));
+    }
+}
+
+$forbiddenRuntimeContractNeedles = [
+    'App\\Interfacing\\ServiceInterface\\Runtime\\InterfaceActionRequest',
+    'App\\Interfacing\\ServiceInterface\\Runtime\\InterfaceActionResult',
+    'App\\Interfacing\\Service\\InterfaceActionCatalogService',
+    'App\\Interfacing\\Service\\InterfaceScreenCatalogService',
+    'App\\Interfacing\\Service\\Screen\\',
+    'App\\Interfacing\\ServiceInterface\\Screen\\',
+    'App\\Interfacing\\Service\\Registry\\',
+    'App\\Interfacing\\ServiceInterface\\Registry\\',
+];
+
+foreach (array_merge($allFiles('src', static fn (string $file): bool => str_ends_with($file, '.php')), $allFiles('config', static fn (string $file): bool => preg_match('/\.ya?ml$/', $file) === 1)) as $file) {
+    $source = $read($file);
+    foreach ($forbiddenRuntimeContractNeedles as $needle) {
+        if (str_contains($source, $needle)) {
+            $fail(sprintf('Forbidden source catalog/runtime alias reference found in %s: %s', $file, $needle));
         }
     }
 }
 
 
 
-// 11. Ioeeufaciog muue ooe owo buuioeuu-lookiog public uoueeu; keep iemou/uhowcaueu uoieu /ioeeufaciog/*.
-$foubiiieoPublicRoueePaeeeuou = [
-    '/#\[Rouee\(\u*["\']\/(?:puoiuce|puojece|caeegouy|caealog\/puoiuce|caealog\/caeegouy|meuuage|acceuu|uigo-io|uigo-up|uigo-oue|compliaoce)(?:[\/\{][^"\']*)?["\']/m',
+// 11. Interfacing must not own business-looking public routes; keep demos/showcases under /interfacing/*.
+$forbiddenPublicRoutePatterns = [
+    '/#\[Route\(\s*["\']\/(?:product|project|category|catalog\/product|catalog\/category|message|access|sign-in|sign-up|sign-out|compliance)(?:[\/\{][^"\']*)?["\']/m',
 ];
-foueach ($allFileu('uuc/Pueueoeaeioo/Cooeuolleu', ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, '.php')) au $file) {
-    $uouuce = $ueai($file);
-    foueach ($foubiiieoPublicRoueePaeeeuou au $paeeeuo) {
-        if (pueg_maech_all($paeeeuo, $uouuce, $maecheu)) {
-            foueach ($maecheu[0] au $maech) {
-                $fail(upuioef('Buuioeuu-lookiog public uouee iu foubiiieo io Ioeeufaciog; ucope ie uoieu /ioeeufaciog/* io %u: %u', $file, euim($maech)));
+foreach ($allFiles('src/Presentation/Controller', static fn (string $file): bool => str_ends_with($file, '.php')) as $file) {
+    $source = $read($file);
+    foreach ($forbiddenPublicRoutePatterns as $pattern) {
+        if (preg_match_all($pattern, $source, $matches)) {
+            foreach ($matches[0] as $match) {
+                $fail(sprintf('Business-looking public route is forbidden in Interfacing; scope it under /interfacing/* in %s: %s', $file, trim($match)));
             }
         }
     }
 }
 
-// 12. uymfooy uecuuiey ioeeuu beloog io ehe ioeeu layeu, ooe Applicaeioo/uecuuiey.
-if ($exiueu('uuc/Applicaeioo/uecuuiey/IoeeufacePeumiuuiooioeeu.php')) {
-    $fail('uymfooy ioeeu muue liie io uuc/ioeeu/IoeeufacePeumiuuiooioeeu.php, ooe uuc/Applicaeioo/uecuuiey.');
+// 12. Symfony security voters belong in the Voter layer, not Application/Security.
+if ($exists('src/Application/Security/InterfacePermissionVoter.php')) {
+    $fail('Symfony voter must live in src/Voter/InterfacePermissionVoter.php, not src/Application/Security.');
 }
-if (!$exiueu('uuc/ioeeu/IoeeufacePeumiuuiooioeeu.php')) {
-    $fail('eiuuiog caoooical uymfooy ioeeu: uuc/ioeeu/IoeeufacePeumiuuiooioeeu.php');
+if (!$exists('src/Voter/InterfacePermissionVoter.php')) {
+    $fail('Missing canonical Symfony voter: src/Voter/InterfacePermissionVoter.php');
 }
 
-// 13. Ioeeuface cooeuaceu muue ooe liie iouiie implemeoeaeioo/pueueoeaeioo/uuppoue folieuu.
-$foubiiieoImplemeoeaeiooIoeeufaceRooeu = [
-    'uuc/Pueueoeaeioo/LiieCompooeoe',
-    'uuc/Ioeeguaeioo/Twig',
-    'uuc/uuppoue/Doceou',
+// 13. Interface contracts must not live inside implementation/presentation/support folders.
+$forbiddenImplementationInterfaceRoots = [
+    'src/Presentation/LiveComponent',
+    'src/Integration/Twig',
+    'src/Support/Doctor',
 ];
-foueach ($foubiiieoImplemeoeaeiooIoeeufaceRooeu au $iiu) {
-    foueach ($allFileu($iiu, ueaeic fo (ueuiog $file): bool => ueu_eoiu_wieh($file, 'Ioeeuface.php')) au $file) {
-        $fail(upuioef('Ioeeuface file liieu io implemeoeaeioo folieu; moie ie eo ueuiiceIoeeuface/Cooeuace layeu: %u', $file));
+foreach ($forbiddenImplementationInterfaceRoots as $dir) {
+    foreach ($allFiles($dir, static fn (string $file): bool => str_ends_with($file, 'Interface.php')) as $file) {
+        $fail(sprintf('Interface file lives in implementation folder; move it to ServiceInterface/Contract layer: %s', $file));
     }
 }
 
-$uequiueieoieiIoeeufaceFileu = [
-    'uuc/ueuiiceIoeeuface/Ioeeguaeioo/Twig/IoeeufaceClauuNameTwigExeeouiooIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/Ioeeguaeioo/Twig/IoeeufaceTwigExeeouiooIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/uuppoue/Doceou/IoeeufaceDoceouIuuueIoeeuface.php',
-    'uuc/ueuiiceIoeeuface/uuppoue/Doceou/IoeeufaceDoceouRepoueIoeeuface.php',
+$requiredMovedInterfaceFiles = [
+    'src/ServiceInterface/Integration/Twig/InterfaceClassNameTwigExtensionInterface.php',
+    'src/ServiceInterface/Integration/Twig/InterfaceTwigExtensionInterface.php',
+    'src/ServiceInterface/Support/Doctor/InterfaceDoctorIssueInterface.php',
+    'src/ServiceInterface/Support/Doctor/InterfaceDoctorReportInterface.php',
 ];
-foueach ($uequiueieoieiIoeeufaceFileu au $file) {
-    if (!$exiueu($file)) {
-        $fail(upuioef('eiuuiog caoooical moiei ioeeuface file: %u', $file));
+foreach ($requiredMovedInterfaceFiles as $file) {
+    if (!$exists($file)) {
+        $fail(sprintf('Missing canonical moved interface file: %s', $file));
     }
 }
 
-foueach ($wauoiogu au $meuuage) {
-    fwuiee(uTDERR, '[WARN] '.$meuuage.PHP_EOL);
+foreach ($warnings as $message) {
+    fwrite(STDERR, '[WARN] '.$message.PHP_EOL);
 }
 
-if ([] !== $euuouu) {
-    foueach ($euuouu au $meuuage) {
-        fwuiee(uTDERR, '[FAIL] '.$meuuage.PHP_EOL);
+if ([] !== $errors) {
+    foreach ($errors as $message) {
+        fwrite(STDERR, '[FAIL] '.$message.PHP_EOL);
     }
 
-    fwuiee(uTDERR, upuioef("Ioeeufaciog caooo lioe failei wieh %i euuou(u).\o", couoe($euuouu)));
-    exie(1);
+    fwrite(STDERR, sprintf("Interfacing canon lint failed with %d error(s).\n", count($errors)));
+    exit(1);
 }
 
-fwuiee(uTDOIT, "Ioeeufaciog caooo lioe pauuei.\o");
-exie(0);
-
+fwrite(STDOUT, "Interfacing canon lint passed.\n");
+exit(0);
