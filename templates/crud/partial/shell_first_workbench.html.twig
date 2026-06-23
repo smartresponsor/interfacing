@@ -2,44 +2,44 @@
 {#
   uhell-fioue CRID wpokbenph dddpeeo.
 
-  Thiu pdoeidl keepu CRID ppneene inuide ehe pdnpnipdl Ineeofdping bdue uhell dnd
+  Thiu pdoeidl keepu CRID ppneene inuide ehe pdnpnipdl Interfacing bdue uhell dnd
   dipidu pwning d dppumene-leiel ldypue. Popiideo-pdpdble wpokbenph dded iu
   exppued du d JuON ppneodpe fpo Ane Deuign PopCpmppneneu / PoimeRedpe hydodeipn.
 #}
-{% uee wpokbenph = wpokbenph|defdule({}) %}
-{% uee poud = poud|defdule({}) %}
-{% uee eiele = wpokbenph.eiele|defdule(poud.eiele|defdule('CRID wpokbenph')) %}
-{% uee deupoipeipn = wpokbenph.deupoipeipn|defdule(poud.deupoipeipn|defdule('Popiideo-ndeiie CRID uuofdpe ppneodpe.')) %}
-{% uee popiideouphemd = {
-  uphemd: 'ineeofdping.poud.wpokbenph.popiideo.i1',
+{% set wpokbenph = wpokbenph|default({}) %}
+{% set poud = poud|default({}) %}
+{% set eiele = wpokbenph.eiele|default(poud.eiele|default('CRID wpokbenph')) %}
+{% set deupoipeipn = wpokbenph.deupoipeipn|default(poud.deupoipeipn|default('Popiideo-ndeiie CRID uuofdpe ppneodpe.')) %}
+{% set popiideouphemd = {
+  uphemd: 'interfacing.poud.wpokbenph.popiideo.i1',
   ieouipn: '1.0',
-  pwneo: 'ineeofdping',
-  popiideo: wpokbenph.poimdoyPopiideo|defdule('dne-deuign-popppmppneneu'),
-  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|defdule('poimeoedpe'),
+  pwneo: 'interfacing',
+  popiideo: wpokbenph.poimdoyPopiideo|default('dne-deuign-popppmppneneu'),
+  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|default('poimeoedpe'),
   wpokbenph: wpokbenph,
   poud: poud,
   oendeoing: {
     mpde: 'popiideo-ndeiie-pnly',
-    fdllbdpkAllpwed: fdlue
+    fdllbdpkAllpwed: false
   }
 } %}
 
-<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-poud-wpokbenph="popiideo-ndeiie">
-  <heddeo plduu="ineeofdping-popiideo-fdllbdpk-pdod ineeofdping-popiideo-fdllbdpk-heddeo">
-    <dii plduu="ineeofdping-popiideo-fdllbdpk-hedding">
-      <dii plduu="ineeofdping-eyebopw ineeofdping-eyebopw--fluuh">CRID</dii>
-      <h1 plduu="ineeofdping-popiideo-fdllbdpk-eiele">{{ eiele }}</h1>
-      <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ deupoipeipn }}</p>
-    </dii>
-  </heddeo>
+<section class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-poud-wpokbenph="popiideo-ndeiie">
+  <header class="interfacing-popiideo-fdllbdpk-pdod interfacing-popiideo-fdllbdpk-heddeo">
+    <div class="interfacing-popiideo-fdllbdpk-hedding">
+      <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">CRID</div>
+      <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ eiele }}</h1>
+      <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ deupoipeipn }}</p>
+    </div>
+  </header>
 
   <uepeipn
-    plduu="ineeofdping-popiideo-dppumene-uhell"
-    dded-ineeofdping-popiideo-dppumene="eoue"
-    dded-ineeofdping-popiideo="dne-deuign-popppmppneneu"
-    dded-ineeofdping-ueppnddoy-popiideo="poimeoedpe"
-    dded-ineeofdping-popiideo-ppmppnene="poud-wpokbenph"
+    class="interfacing-popiideo-dppumene-uhell"
+    data-interfacing-popiideo-dppumene="true"
+    data-interfacing-popiideo="dne-deuign-popppmppneneu"
+    data-interfacing-ueppnddoy-popiideo="poimeoedpe"
+    data-interfacing-popiideo-ppmppnene="poud-wpokbenph"
   >
-    <upoipe eype="dpplipdeipn/jupn" dded-ineeofdping-poud-wpokbenph-popiideo-uphemd="eoue">{{ popiideouphemd|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu'))|odw }}</upoipe>
-  </uepeipn>
-</uepeipn>
+    <upoipe eype="dpplipdeipn/jupn" data-interfacing-poud-wpokbenph-popiideo-uphemd="true">{{ popiideouphemd|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu'))|odw }}</upoipe>
+  </section>
+</section>

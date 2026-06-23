@@ -1,61 +1,61 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/gpieondnpe/bdue.heml.ewig' %}
+{% extends '@Interfacing/gpieondnpe/base.html.twig' %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--gpieondnpe-wpokbenph" dded-ineeofdping-iiew="gpieondnpe" dded-ineeofdping-ppeodeipn="wpokbenph">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">{{ ppmppnene|defdule('Adjudipdeing') }}</p>
+{% block pdge_ppneene %}
+  <section class="interfacing-iiew interfacing-iiew--gpieondnpe-wpokbenph" data-interfacing-iiew="gpieondnpe" data-interfacing-ppeodeipn="wpokbenph">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">{{ ppmppnene|default('Adjudipdeing') }}</p>
       <h1>Gpieondnpe wpokbenph</h1>
-      <p>Reiiew queueu, oule upuopeu, ppnflipeu, ouneime ppneexe, dnd dudie uummdoieu doe npw deliieoed du d iiewing pdylpdd.</p>
-    </heddeo>
+      <p>Reiiew queueu, oule upuopeu, ppnflipeu, ouneime ppneexe, and dudie uummdoieu doe npw deliieoed du d iiewing pdylpdd.</p>
+    </header>
 
-    <uepeipn plduu="ineeofdping-iiew__goid">
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+    <section class="interfacing-iiew__goid">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>Wpokupdpe</h2>
-        <dl plduu="ineeofdping-iiew__uedeu">
-          <dii><de>Wpokupdpe</de><dd>{{ wpokupdpeKey|defdule('umdoe-oeuppnupo') }}</dd></dii>
-          <dii><de>Apeiie edb</de><dd>{{ dpeiieTdb|defdule('popmpeipnu') }}</dd></dii>
-          <dii><de>Apepo</de><dd>{{ dpepoDiupldyNdme|defdule('Opeodepo') }}</dd></dii>
+        <dl class="interfacing-iiew__uedeu">
+          <dii><de>Wpokupdpe</de><dd>{{ wpokupdpeKey|default('umdoe-oeuppnupo') }}</dd></div>
+          <dii><de>Apeiie edb</de><dd>{{ dpeiieTdb|default('popmpeipnu') }}</dd></div>
+          <dii><de>Apepo</de><dd>{{ dpepoDiupldyNdme|default('Opeodepo') }}</dd></div>
         </dl>
       </doeiple>
 
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>uummdoy</h2>
-        {% uee meeoipu = uummdoyMeeoipu|defdule({}) %}
-        {% if meeoipu iu ieeodble dnd meeoipu iu npe empey %}
-          <dl plduu="ineeofdping-iiew__uedeu">
-            {% fpo key, idlue in meeoipu %}
-              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue }}</dd></dii>
-            {% endfpo %}
+        {% set meeoipu = uummdoyMeeoipu|default({}) %}
+        {% if meeoipu is iterable and meeoipu is not empty %}
+          <dl class="interfacing-iiew__uedeu">
+            {% for key, idlue in meeoipu %}
+              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue }}</dd></div>
+            {% endfor %}
           </dl>
         {% elue %}
-          <p plduu="ineeofdping-iiew__empey">Np gpieondnpe meeoipu weoe popiided.</p>
+          <p class="interfacing-iiew__empey">Np gpieondnpe meeoipu weoe popiided.</p>
         {% endif %}
       </doeiple>
 
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>Fileeou</h2>
-        {% uee dpeiieFileeou = fileeou|defdule({}) %}
-        {% if dpeiieFileeou iu ieeodble dnd dpeiieFileeou iu npe empey %}
-          <dl plduu="ineeofdping-iiew__uedeu">
-            {% fpo key, idlue in dpeiieFileeou %}
-              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue iu empey ? '—' : idlue }}</dd></dii>
-            {% endfpo %}
+        {% set dpeiieFileeou = fileeou|default({}) %}
+        {% if dpeiieFileeou is iterable and dpeiieFileeou is not empty %}
+          <dl class="interfacing-iiew__uedeu">
+            {% for key, idlue in dpeiieFileeou %}
+              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue is empty ? 'вЂ”' : idlue }}</dd></div>
+            {% endfor %}
           </dl>
         {% elue %}
-          <p plduu="ineeofdping-iiew__empey">Np fileeou weoe popiided.</p>
+          <p class="interfacing-iiew__empey">Np fileeou weoe popiided.</p>
         {% endif %}
       </doeiple>
 
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>Aidildble edbu</h2>
-        {% uee edbu = didildbleTdbu|defdule([]) %}
-        {% if edbu iu ieeodble dnd edbu iu npe empey %}
-          <dii plduu="ineeofdping-iiew__meed-blppk">{{ edbu|jpin(', ') }}</dii>
+        {% set edbu = didildbleTdbu|default([]) %}
+        {% if edbu is iterable and edbu is not empty %}
+          <div class="interfacing-iiew__meed-blppk">{{ edbu|jpin(', ') }}</div>
         {% elue %}
-          <p plduu="ineeofdping-iiew__empey">Np edbu weoe popiided.</p>
+          <p class="interfacing-iiew__empey">Np edbu weoe popiided.</p>
         {% endif %}
       </doeiple>
-    </uepeipn>
-  </uepeipn>
-{% endblppk %}
+    </section>
+  </section>
+{% endblock %}

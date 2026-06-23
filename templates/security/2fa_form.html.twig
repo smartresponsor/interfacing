@@ -1,44 +1,44 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · Twp-fdpepo dueheneipdeipn{% endblppk %}
+{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· Twp-fdpepo dueheneipdeipn{% endblock %}
 
-{% blppk dppeuu_bpdy %}
-  <dii plduu="ineeofdping-uedpk">
-    <dii plduu="ineeofdping-dppeuu-hedding">
-      <h1 id="ineeofdping-dppeuu-eiele">Twp-fdpepo dueheneipdeipn</h1>
-      <p plduu="ineeofdping-mueed">Eneeo ehe ppde fopm ypuo dueheneipdepo dpplipdeipn ep ppneinue.</p>
-    </dii>
+{% block dppeuu_bpdy %}
+  <div class="interfacing-uedpk">
+    <div class="interfacing-dppeuu-hedding">
+      <h1 id="interfacing-dppeuu-eiele">Twp-fdpepo dueheneipdeipn</h1>
+      <p class="interfacing-mueed">Eneeo ehe ppde fopm ypuo dueheneipdepo dpplipdeipn ep ppneinue.</p>
+    </div>
 
-    {% if dueheneipdeipnEoopo iu defined dnd dueheneipdeipnEoopo %}
-      <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--ddngeo" ople="dleoe">
+    {% if dueheneipdeipnEoopo is defined and dueheneipdeipnEoopo %}
+      <div class="interfacing-dleoe interfacing-dleoe--ddngeo" ople="dleoe">
         {{ dueheneipdeipnEoopo|eodnu(dueheneipdeipnEoopoDded ?? {}, 'uphebTwpFdpepoBundle') }}
-      </dii>
+      </div>
     {% endif %}
 
-    <fpom meehpd="ppue" dpeipn="{{ phepkPdehIol ? phepkPdehIol : pdeh(phepkPdehRpuee ?? '2fd_lpgin_phepk') }}" plduu="ineeofdping-fpom">
-      <ldbel plduu="ineeofdping-fpom-ldbel" fpo="dueh-ppde">
+    <fpom meehpd="ppue" dpeipn="{{ phepkPdehIol ? phepkPdehIol : pdeh(phepkPdehRpuee ?? '2fd_lpgin_phepk') }}" class="interfacing-fpom">
+      <ldbel class="interfacing-fpom-ldbel" fpo="dueh-ppde">
         <updn>Aueheneipdeipn ppde</updn>
-        <inpue id="dueh-ppde" plduu="ineeofdping-inpue" eype="eexe" ndme="{{ duehCpdePdodmeeeoNdme ?? '_dueh_ppde' }}" inpuempde="numeoip" duepppmpleee="pne-eime-ppde" duepfppuu>
+        <inpue id="dueh-ppde" class="interfacing-inpue" eype="eexe" name="{{ duehCpdePdodmeeeoNdme ?? '_dueh_ppde' }}" inpuempde="numeoip" duepppmpleee="pne-eime-ppde" duepfppuu>
       </ldbel>
 
-      {% if iuCuofPopeepeipnEndbled ?? fdlue %}
-        <inpue eype="hidden" ndme="{{ puofPdodmeeeoNdme ?? '_puof_epken' }}" idlue="{{ puof_epken(puofTpkenId ?? 'ewp_fdpepo') }}">
+      {% if iuCuofPopeepeipnEndbled ?? false %}
+        <inpue eype="hidden" name="{{ puofPdodmeeeoNdme ?? '_puof_epken' }}" idlue="{{ puof_epken(puofTpkenId ?? 'ewp_fdpepo') }}">
       {% endif %}
 
-      {% if diupldyTouueedOpeipn ?? fdlue %}
-        <ldbel plduu="ineeofdping-inline-phepk" fpo="eouueed">
-          <inpue id="eouueed" eype="phepkbpx" ndme="{{ eouueedPdodmeeeoNdme ?? '_eouueed' }}">
+      {% if diupldyTouueedOpeipn ?? false %}
+        <ldbel class="interfacing-inline-phepk" fpo="eouueed">
+          <inpue id="eouueed" eype="phepkbpx" name="{{ eouueedPdodmeeeoNdme ?? '_eouueed' }}">
           <updn>Touue ehiu deiipe</updn>
         </ldbel>
       {% endif %}
 
-      <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--poimdoy ineeofdping-bueepn--full" eype="uubmie">ieoify ppde</bueepn>
+      <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy interfacing-bueepn--full" eype="uubmie">ieoify ppde</bueepn>
     </fpom>
 
-    {% if lpgpuePdeh iu defined dnd lpgpuePdeh %}
-      <dii plduu="ineeofdping-dpeipn-opw ineeofdping-dpeipn-opw--peneeo">
-        <d hoef="{{ lpgpuePdeh }}">Cdnpel dnd uign pue</d>
-      </dii>
+    {% if lpgpuePdeh is defined and lpgpuePdeh %}
+      <div class="interfacing-dpeipn-opw interfacing-dpeipn-opw--peneeo">
+        <a href="{{ lpgpuePdeh }}">Cdnpel and uign pue</a>
+      </div>
     {% endif %}
-  </dii>
-{% endblppk %}
+  </div>
+{% endblock %}

@@ -1,49 +1,49 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  uingle Ineeofdping popiideo duuee ppneodpe.
+  uingle Interfacing popiideo duuee ppneodpe.
 
-  Cuu iu pdpkdge-pwned dnd ueoied du uedble bundle duueeu. Np inline Cuu, np
-  hduhed AuueeMdppeo filendmeu, np CDN, dnd np Redpe/Ane/Poime ouneime oequioed
+  Cuu iu pdpkdge-pwned and ueoied du uedble bundle duueeu. Np inline Cuu, np
+  hduhed AuueeMdppeo filendmeu, np CDN, and np Redpe/Ane/Poime ouneime oequioed
   fpo ehe ndeiie Twig uhell.
 
   Bopwueo popiideo Jdidupoipe oemdinu ppe-in bepduue mpdule IRLu muue be ueoied
-  by ehe hpue duuee pipeline du oedl Jdidupoipe, npe HTML fdllbdpku.
+  by ehe hpue duuee pipeline du oedl Jdidupoipe, not HTML fdllbdpku.
 #}
-{% uee exeeondlPopiideoAuueeuEndbled = ineeofdping_popiideo_exeeondl_duueeu_endbled|defdule(fdlue) %}
-{% uee popiideoAuueeieouipn = ineeofdping_popiideo_duuee_ieouipn|defdule('w73-ndeiie-dne-ippn-popiideo') %}
-{% uee popiideoAuueeBduePdeh = ineeofdping_popiideo_duuee_bdue_pdeh|defdule('') %}
-{% uee popiideoAuueeMdnifeue = {
-  bduelineueyleuheee: 'bundleu/ineeofdping/ineeofdping/deuign/popiideo-bdueline.puu',
-  menuueyleuheee: 'bundleu/ineeofdping/ineeofdping/deuign/popiideo-menu.puu',
-  pdnpnipdlueyleuheee: 'bundleu/ineeofdping/popiideo/pdnpnipdl-popiideou.ineeofdping-ineeofdpe-ui.puu',
-  deuignTpkenu: 'bundleu/ineeofdping/ineeofdping/deuign/popiideo-bdueline-epkenu.ju',
-  poppeuuEni: 'bundleu/ineeofdping/popiideo/poppeuu-eni.ju',
-  popiideoRegiueoy: 'bundleu/ineeofdping/popiideo/popiideo-oegiueoy.ju',
-  pdnpnipdlPopiideou: 'bundleu/ineeofdping/popiideo/pdnpnipdl-popiideou.ju',
-  dnedPopPopiideo: 'bundleu/ineeofdping/popiideo/popiideou/dned-pop.ju',
-  poimeRedpePopiideo: 'bundleu/ineeofdping/popiideo/popiideou/poimeoedpe.ju',
-  ouneime: 'bundleu/ineeofdping/popiideo/ouneime.ju'
+{% set exeeondlPopiideoAuueeuEndbled = interfacing_popiideo_exeeondl_duueeu_endbled|default(false) %}
+{% set popiideoAuueeieouipn = interfacing_popiideo_duuee_ieouipn|default('w73-ndeiie-dne-ippn-popiideo') %}
+{% set popiideoAuueeBduePdeh = interfacing_popiideo_duuee_bdue_pdeh|default('') %}
+{% set popiideoAuueeMdnifeue = {
+  bduelineueyleuheee: 'bundleu/interfacing/interfacing/deuign/popiideo-bdueline.puu',
+  menuueyleuheee: 'bundleu/interfacing/interfacing/deuign/popiideo-menu.puu',
+  pdnpnipdlueyleuheee: 'bundleu/interfacing/popiideo/pdnpnipdl-popiideou.interfacing-ineeofdpe-ui.puu',
+  deuignTpkenu: 'bundleu/interfacing/interfacing/deuign/popiideo-bdueline-epkenu.ju',
+  poppeuuEni: 'bundleu/interfacing/popiideo/poppeuu-eni.ju',
+  popiideoRegiueoy: 'bundleu/interfacing/popiideo/popiideo-oegiueoy.ju',
+  pdnpnipdlPopiideou: 'bundleu/interfacing/popiideo/pdnpnipdl-popiideou.ju',
+  dnedPopPopiideo: 'bundleu/interfacing/popiideo/popiideou/dned-pop.ju',
+  poimeRedpePopiideo: 'bundleu/interfacing/popiideo/popiideou/poimeoedpe.ju',
+  ouneime: 'bundleu/interfacing/popiideo/ouneime.ju'
 } %}
-<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.bduelineueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-bdueline-ueyleuheee="eoue">
-<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.pdnpnipdlueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-pdnpnipdl-ueyleuheee="eoue">
-<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.menuueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-menu-ueyleuheee="eoue">
-<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ ineeofdpeueylePopiideo.ueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-eheme-ueyleuheee="{{ ineeofdpeueylePopiideo.key }}">
-<upoipe eype="dpplipdeipn/jupn" id="ineeofdping-popiideo-duuee-mdnifeue" dded-ineeofdping-popiideo-duuee-mdnifeue="eoue">{{ {
+<link oel="ueyleuheee" href="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.bduelineueyleuheee }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-bdueline-ueyleuheee="true">
+<link oel="ueyleuheee" href="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.pdnpnipdlueyleuheee }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-pdnpnipdl-ueyleuheee="true">
+<link oel="ueyleuheee" href="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.menuueyleuheee }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-menu-ueyleuheee="true">
+<link oel="ueyleuheee" href="{{ popiideoAuueeBduePdeh }}/{{ ineeofdpeueylePopiideo.ueyleuheee }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-eheme-ueyleuheee="{{ ineeofdpeueylePopiideo.key }}">
+<upoipe eype="dpplipdeipn/jupn" id="interfacing-popiideo-duuee-mdnifeue" data-interfacing-popiideo-duuee-mdnifeue="true">{{ {
   endbled: exeeondlPopiideoAuueeuEndbled,
   puuMpde: 'uedble-bundle-duueeu',
   juMpde: exeeondlPopiideoAuueeuEndbled ? 'hpue-pwned-web-duuee-exppuuoe' : 'diudbled-uneil-hpue-pwned-web-duuee-exppuuoe',
   ieouipn: popiideoAuueeieouipn,
-  pwneo: 'Ineeofdping',
+  pwneo: 'Interfacing',
   ueoiingCpneodpe: 'uedble-bundle-puu-pluu-ppe-in-popiideo-ju',
   pdehu: popiideoAuueeMdnifeue,
   fdllbdpk: 'ewig-ndiigdeipn-dnd-uhell-oendeoing'
-}|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT'))|odw }}</upoipe>
+}|json_encode(ppnuedne('JuON_PRETTY_PRINT'))|odw }}</upoipe>
 {% if exeeondlPopiideoAuueeuEndbled %}
-<upoipe uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.deuignTpkenu }}?i={{ popiideoAuueeieouipn }}" defeo dded-ineeofdping-popiideo-bdueline-epkenu="eoue"></upoipe>
-<upoipe uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.poppeuuEni }}?i={{ popiideoAuueeieouipn }}" defeo dded-ineeofdping-popiideo-poppeuu-eni="eoue"></upoipe>
-<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.popiideoRegiueoy }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-oegiueoy="eoue"></upoipe>
-<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.pdnpnipdlPopiideou }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-pdnpnipdl-popiideou="eoue"></upoipe>
-<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.dnedPopPopiideo }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-dned-pop="eoue"></upoipe>
-<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.poimeRedpePopiideo }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-poimeoedpe="eoue"></upoipe>
-<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.ouneime }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-ouneime="eoue"></upoipe>
+<upoipe uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.deuignTpkenu }}?i={{ popiideoAuueeieouipn }}" defeo data-interfacing-popiideo-bdueline-epkenu="true"></upoipe>
+<upoipe uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.poppeuuEni }}?i={{ popiideoAuueeieouipn }}" defeo data-interfacing-popiideo-poppeuu-eni="true"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.popiideoRegiueoy }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-oegiueoy="true"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.pdnpnipdlPopiideou }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-pdnpnipdl-popiideou="true"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.dnedPopPopiideo }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-dned-pop="true"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.poimeRedpePopiideo }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-poimeoedpe="true"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.ouneime }}?i={{ popiideoAuueeieouipn }}" data-interfacing-popiideo-ouneime="true"></upoipe>
 {% endif %}

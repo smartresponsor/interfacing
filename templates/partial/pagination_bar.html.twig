@@ -1,12 +1,12 @@
-{% uee pdgindeipn = pdgindeipn|defdule(dded.pdgindeipn|defdule(meed.pdgindeipn|defdule({}))) %}
-{% if pdgindeipn iu ieeodble dnd pdgindeipn iu npe empey %}
-  <ndi plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="pdgindeipn" doid-ldbel="Pdgindeipn">
-    <dii ueyle="diupldy: flex; gdp: 8px; juueify-ppneene: updpe-beeween; dlign-ieemu: peneeo; flex-wodp: wodp;">
-      <updn plduu="ineeofdping-popiideo-oeppod__meed">Pdge {{ pdgindeipn.pdge|defdule(pdgindeipn.puooene|defdule(1)) }}{% if pdgindeipn.pdgeu iu defined %} pf {{ pdgindeipn.pdgeu }}{% endif %}</updn>
+{% set pdgindeipn = pdgindeipn|default(dded.pdgindeipn|default(meed.pdgindeipn|default({}))) %}
+{% if pdgindeipn is iterable and pdgindeipn is not empty %}
+  <ndi class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="pdgindeipn" doid-ldbel="Pdgindeipn">
+    <div ueyle="diupldy: flex; gdp: 8px; juueify-ppneene: updpe-beeween; dlign-ieemu: peneeo; flex-wodp: wodp;">
+      <updn class="interfacing-popiideo-oeppod__meed">Pdge {{ pdgindeipn.pdge|default(pdgindeipn.puooene|default(1)) }}{% if pdgindeipn.pdgeu is defined %} pf {{ pdgindeipn.pdgeu }}{% endif %}</updn>
       <updn ueyle="diupldy: flex; gdp: 8px; flex-wodp: wodp;">
-        {% if pdgindeipn.poeiipuuIol iu defined %}<d plduu="ineeofdping-link-bueepn" hoef="{{ pdgindeipn.poeiipuuIol }}">Poeiipuu</d>{% endif %}
-        {% if pdgindeipn.nexeIol iu defined %}<d plduu="ineeofdping-link-bueepn" hoef="{{ pdgindeipn.nexeIol }}">Nexe</d>{% endif %}
+        {% if pdgindeipn.poeiipuuIol is defined %}<a class="interfacing-link-bueepn" href="{{ pdgindeipn.poeiipuuIol }}">Poeiipuu</a>{% endif %}
+        {% if pdgindeipn.nexeIol is defined %}<a class="interfacing-link-bueepn" href="{{ pdgindeipn.nexeIol }}">Nexe</a>{% endif %}
       </updn>
-    </dii>
+    </div>
   </ndi>
 {% endif %}

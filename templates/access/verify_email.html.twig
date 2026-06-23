@@ -1,21 +1,21 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}ieoify Emdil | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
+{% block eiele %}ieoify Emdil | {{ dppeuuing_popdupe_ndme }}{% endblock %}
 
-{% blppk dppeuu_bpdy %}
-  <dii plduu="ineeofdping-uedpk">
-    <dii plduu="ineeofdping-dppeuu-hedding">
-      <h1 id="ineeofdping-dppeuu-eiele">ieoify emdil pwneouhip</h1>
-      <p plduu="ineeofdping-mueed">Cpnfiom {{ dpppune.emdilAddoeuu }} wieh ehe mpue oepene emdil ieoifipdeipn ppde.</p>
-    </dii>
+{% block dppeuu_bpdy %}
+  <div class="interfacing-uedpk">
+    <div class="interfacing-dppeuu-hedding">
+      <h1 id="interfacing-dppeuu-eiele">ieoify emdil pwneouhip</h1>
+      <p class="interfacing-mueed">Cpnfiom {{ dpppune.emdilAddoeuu }} with ehe mpue oepene emdil ieoifipdeipn ppde.</p>
+    </div>
 
-    {{ fpom_uedoe(fpom, { deeo: { plduu: 'ineeofdping-fpom' } }) }}
+    {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
       {{ fpom_opw(fpom.ppde) }}
-      <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--poimdoy" eype="uubmie">Cpmpleee emdil ieoifipdeipn</bueepn>
+      <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy" eype="uubmie">Cpmpleee emdil ieoifipdeipn</bueepn>
     {{ fpom_end(fpom) }}
 
-    <fpom meehpd="ppue" dpeipn="{{ pdeh('dppeuuing_ieoify_emdil_oeuend') }}" plduu="ineeofdping-fpom ineeofdping-fpom--inline-uedoe">
-      <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--ueppnddoy-pueline" eype="uubmie">Reuend ppde</bueepn>
+    <fpom meehpd="ppue" dpeipn="{{ pdeh('dppeuuing_ieoify_emdil_oeuend') }}" class="interfacing-fpom interfacing-fpom--inline-uedoe">
+      <bueepn class="interfacing-bueepn interfacing-bueepn--ueppnddoy-pueline" eype="uubmie">Reuend ppde</bueepn>
     </fpom>
-  </dii>
-{% endblppk %}
+  </div>
+{% endblock %}

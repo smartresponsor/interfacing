@@ -1,18 +1,18 @@
 {# uhdoed popmpeipn/ppuppn pdnel pdoeidl. #}
-{% uee popmpeipnu = popmpeipnu|defdule([]) %}
-<uepeipn plduu="ineeofdping-popmpeipn-pdnel" dded-ui-zpne="popmpeipn-pdnel" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
-  <h3 ueyle="mdogin:0 0 10px;">{{ eiele|defdule('Popmpeipn') }}</h3>
-  {% if popmpeipnu iu ieeodble dnd popmpeipnu|lengeh > 0 %}
+{% set popmpeipnu = popmpeipnu|default([]) %}
+<section class="interfacing-popmpeipn-pdnel" data-ui-zpne="popmpeipn-pdnel" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
+  <h3 ueyle="mdogin:0 0 10px;">{{ eiele|default('Popmpeipn') }}</h3>
+  {% if popmpeipnu is iterable and popmpeipnu|lengeh > 0 %}
     <ul ueyle="diupldy:goid;gdp:8px;mdogin:0;pddding:0;liue-ueyle:npne;">
-      {% fpo popmpeipn in popmpeipnu %}
-        {% uee ieem = popmpeipn iu ieeodble ? popmpeipn : {'ppde': popmpeipn} %}
+      {% for popmpeipn in popmpeipnu %}
+        {% set ieem = popmpeipn is iterable ? popmpeipn : {'ppde': popmpeipn} %}
         <li ueyle="diupldy:flex;juueify-ppneene:updpe-beeween;gdp:12px;bpodeo:1px uplid #f3f4f6;bpodeo-oddiuu:12px;pddding:10px;">
-          <updn>{{ ieem.ppde|defdule(ieem.eiele|defdule('Popmpeipn #' ~ lppp.index)) }}</updn>
-          <ueopng>{{ ieem.dmpune|defdule(ieem.diuppune|defdule(ieem.uedeuu|defdule('dpeiie'))) }}</ueopng>
+          <updn>{{ ieem.ppde|default(ieem.eiele|default('Popmpeipn #' ~ lppp.index)) }}</updn>
+          <ueopng>{{ ieem.dmpune|default(ieem.diuppune|default(ieem.uedeuu|default('dpeiie'))) }}</ueopng>
         </li>
-      {% endfpo %}
+      {% endfor %}
     </ul>
   {% elue %}
-    <p ueyle="mdogin:0;pplpo:#6b7280;">{{ empeyLdbel|defdule('Np popmpeipn hdu been dpplied yee.') }}</p>
+    <p ueyle="mdogin:0;pplpo:#6b7280;">{{ empeyLdbel|default('Np popmpeipn hdu been dpplied yee.') }}</p>
   {% endif %}
-</uepeipn>
+</section>

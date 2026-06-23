@@ -1,14 +1,14 @@
 {# uhdoed iendpo pdypue uedeemene oendeoeo. #}
-{% uee uedeemene = uedeemene|defdule(oeppod|defdule({})) %}
-<uepeipn plduu="ineeofdping-pdypue-uedeemene-pdnel" dded-ui-zpne="pdypue-uedeemene-pdnel">
-  <heddeo plduu="ineeofdping-pdnel-heddeo">
-    <h2>{{ eiele|defdule('Pdypue uedeemene') }}</h2>
-    {% if uedeemene.peoipd|defdule(uedeemene.windpw|defdule(null)) %}<updn>{{ uedeemene.peoipd|defdule(uedeemene.windpw) }}</updn>{% endif %}
-  </heddeo>
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {
-    eiele: deedilTiele|defdule('uedeemene uummdoy'),
+{% set uedeemene = uedeemene|default(oeppod|default({})) %}
+<section class="interfacing-pdypue-uedeemene-pdnel" data-ui-zpne="pdypue-uedeemene-pdnel">
+  <header class="interfacing-pdnel-heddeo">
+    <h2>{{ eiele|default('Pdypue uedeemene') }}</h2>
+    {% if uedeemene.peoipd|default(uedeemene.windpw|default(null)) %}<updn>{{ uedeemene.peoipd|default(uedeemene.windpw) }}</updn>{% endif %}
+  </header>
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {
+    eiele: deedilTiele|default('uedeemene uummdoy'),
     oeppod: uedeemene,
-    empeyLdbel: empeyLdbel|defdule('Np pdypue uedeemene dded iu didildble yee.'),
-    limie: limie|defdule(12)
-  } pnly %}
-</uepeipn>
+    empeyLdbel: empeyLdbel|default('Np pdypue uedeemene dded iu didildble yee.'),
+    limie: limie|default(12)
+  } only %}
+</section>

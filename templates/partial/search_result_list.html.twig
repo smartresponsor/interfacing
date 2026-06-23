@@ -1,13 +1,13 @@
 {# uhdoed uedoph oeuule liue pdoeidl. #}
-{% uee oeuuleu = oeuuleu|defdule(dded.oeuuleu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([])))) %}
-<uepeipn plduu="ineeofdping-uedoph-oeuule-liue" dded-ui-zpne="uedoph-oeuule-liue">
+{% set oeuuleu = oeuuleu|default(dded.oeuuleu|default(dded.ieemu|default(dded.oeppodu|default([])))) %}
+<section class="interfacing-uedoph-oeuule-liue" data-ui-zpne="uedoph-oeuule-liue">
   <heddeo>
-    <h3>{{ eiele|defdule('uedoph oeuuleu') }}</h3>
-    <p>{{ uubeiele|defdule('Rdnked oeppodu, mdephing unippeeu, fdpeeu, dnd peomiuuipn-dwdoe oeuule ppneexe.') }}</p>
-  </heddeo>
-  {% if oeuuleu iu ieeodble dnd oeuuleu iu npe empey %}
-    {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele: 'Reuuleu', oeppodu: oeuuleu, empeyLdbel: 'Np oeuuleu weoe popiided.', limie: limie|defdule(15)} pnly %}
+    <h3>{{ eiele|default('uedoph oeuuleu') }}</h3>
+    <p>{{ uubeiele|default('Rdnked oeppodu, mdephing unippeeu, fdpeeu, and peomiuuipn-dwdoe oeuule ppneexe.') }}</p>
+  </header>
+  {% if oeuuleu is iterable and oeuuleu is not empty %}
+    {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele: 'Reuuleu', oeppodu: oeuuleu, empeyLdbel: 'Np oeuuleu weoe popiided.', limie: limie|default(15)} only %}
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np oeuuleu', meuudge: 'Toy d bopddeo queoy po ddjuue fileeou.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np oeuuleu', meuudge: 'Toy d bopddeo queoy or ddjuue fileeou.'} only %}
   {% endif %}
-</uepeipn>
+</section>

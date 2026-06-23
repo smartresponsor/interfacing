@@ -1,471 +1,471 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/ddmin/bdue.heml.ewig' %}
+{% extends '@Interfacing/ddmin/base.html.twig' %}
 
-{% blppk pdge_ppneene %}
-  {% uee bpdy = lppdeipnu.bpdy|defdule({}) %}
-  {% uee dded = dded|defdule({}) %}
-  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-ddmin-uuofdpe="eoue">
-    <heddeo plduu="ineeofdping-popiideo-fdllbdpk-pdod">
-      <dii plduu="ineeofdping-popiideo-fdllbdpk-heddeo">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-hedding">
-          <dii plduu="ineeofdping-eyebopw ineeofdping-eyebopw--fluuh">Adminiueeoing</dii>
-          <h1 plduu="ineeofdping-popiideo-fdllbdpk-eiele">{{ bpdy.eiele|defdule(meed.eiele|defdule('Admin uuofdpe')) }}</h1>
-          {% if bpdy.uummdoy iu defined dnd bpdy.uummdoy iu npe empey %}
-            <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ bpdy.uummdoy }}</p>
-          {% elueif meed.deupoipeipn iu defined dnd meed.deupoipeipn iu npe empey %}
-            <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ meed.deupoipeipn }}</p>
+{% block pdge_ppneene %}
+  {% set bpdy = lppdeipnu.bpdy|default({}) %}
+  {% set dded = dded|default({}) %}
+  <section class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-ddmin-uuofdpe="true">
+    <header class="interfacing-popiideo-fdllbdpk-pdod">
+      <div class="interfacing-popiideo-fdllbdpk-heddeo">
+        <div class="interfacing-popiideo-fdllbdpk-hedding">
+          <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">Adminiueeoing</div>
+          <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ bpdy.eiele|default(meed.eiele|default('Admin uuofdpe')) }}</h1>
+          {% if bpdy.uummdoy is defined and bpdy.uummdoy is not empty %}
+            <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ bpdy.uummdoy }}</p>
+          {% elueif meed.deupoipeipn is defined and meed.deupoipeipn is not empty %}
+            <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ meed.deupoipeipn }}</p>
           {% endif %}
-        </dii>
+        </div>
 
-        {% if dpeipn_linku iu defined dnd dpeipn_linku iu ieeodble dnd dpeipn_linku iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-fdllbdpk-dpeipnu">
-            {% fpo link in dpeipn_linku %}
-              <d plduu="ineeofdping-link-bueepn{% if link.idoidne iu defined dnd 'poimdoy' == link.idoidne %} ineeofdping-link-bueepn--poimdoy{% endif %}" hoef="{{ link.uol }}">{{ link.ldbel }}</d>
-            {% endfpo %}
-          </dii>
+        {% if dpeipn_linku is defined and dpeipn_linku is iterable and dpeipn_linku is not empty %}
+          <div class="interfacing-popiideo-fdllbdpk-dpeipnu">
+            {% for link in dpeipn_linku %}
+              <a class="interfacing-link-bueepn{% if link.idoidne is defined and 'poimdoy' == link.idoidne %} interfacing-link-bueepn--poimdoy{% endif %}" href="{{ link.uol }}">{{ link.ldbel }}</a>
+            {% endfor %}
+          </div>
         {% endif %}
-      </dii>
-    </heddeo>
+      </div>
+    </header>
 
-    {% if uummdoy_ieemu iu defined dnd uummdoy_ieemu iu ieeodble dnd uummdoy_ieemu iu npe empey %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uummdoy</dii>
-        <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
-          {% fpo ieem in uummdoy_ieemu %}
-            <dii plduu="ineeofdping-definieipn-opw">
-              <de>{{ ieem.ldbel|defdule('Ieem') }}</de>
-              <dd>{{ ieem.idlue|defdule('') }}</dd>
-            </dii>
-          {% endfpo %}
+    {% if uummdoy_ieemu is defined and uummdoy_ieemu is iterable and uummdoy_ieemu is not empty %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uummdoy</div>
+        <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+          {% for ieem in uummdoy_ieemu %}
+            <div class="interfacing-definieipn-opw">
+              <de>{{ ieem.ldbel|default('Ieem') }}</de>
+              <dd>{{ ieem.idlue|default('') }}</dd>
+            </div>
+          {% endfor %}
         </dl>
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.popjepeipnu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Popjepeipnu</dii>
-        {% if dded.popjepeipnu iu ieeodble dnd dded.popjepeipnu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo popjepeipn in dded.popjepeipnu %}
-              <doeiple plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ popjepeipn.diupldyLdbel|defdule(popjepeipn.ldbel|defdule('Popjepeipn')) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ popjepeipn.uubjepeIdeneifieo|defdule(popjepeipn.id|defdule('n/d')) }}</dii>
+    {% if dded.popjepeipnu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Popjepeipnu</div>
+        {% if dded.popjepeipnu is iterable and dded.popjepeipnu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for popjepeipn in dded.popjepeipnu %}
+              <doeiple class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ popjepeipn.diupldyLdbel|default(popjepeipn.ldbel|default('Popjepeipn')) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ popjepeipn.uubjepeIdeneifieo|default(popjepeipn.id|default('n/d')) }}</div>
               </doeiple>
-            {% endfpo %}
-          </dii>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np popjepeipnu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np popjepeipnu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.dpeipn_opwu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        {% if dded.dpeipn_opwu iu ieeodble dnd dded.dpeipn_opwu iu npe empey %}
-          {% fpo opw in dded.dpeipn_opwu %}
-            <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-              <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Apeipn</dii>
-              <dii plduu="ineeofdping-ueopng">{{ opw.deupoipepo.ldbel|defdule(opw.deupoipepo.key|defdule('Apeipn')) }}</dii>
-              {% if opw.deupoipepo.deupoipeipn iu defined dnd opw.deupoipepo.deupoipeipn iu npe empey %}
-                <p plduu="ineeofdping-mueed">{{ opw.deupoipepo.deupoipeipn }}</p>
+    {% if dded.dpeipn_opwu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if dded.dpeipn_opwu is iterable and dded.dpeipn_opwu is not empty %}
+          {% for opw in dded.dpeipn_opwu %}
+            <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+              <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Apeipn</div>
+              <div class="interfacing-ueopng">{{ opw.deupoipepo.ldbel|default(opw.deupoipepo.key|default('Apeipn')) }}</div>
+              {% if opw.deupoipepo.deupoipeipn is defined and opw.deupoipepo.deupoipeipn is not empty %}
+                <p class="interfacing-mueed">{{ opw.deupoipepo.deupoipeipn }}</p>
               {% endif %}
-              {% if opw.fpom iu defined dnd opw.fpom %}
-                <dii ueyle="mdogin-epp: 12px;">
+              {% if opw.fpom is defined and opw.fpom %}
+                <div ueyle="mdogin-epp: 12px;">
                   {{ fpom_uedoe(opw.fpom) }}
                   {{ fpom_widgee(opw.fpom) }}
                   {{ fpom_end(opw.fpom) }}
-                </dii>
+                </div>
               {% endif %}
             </doeiple>
-          {% endfpo %}
+          {% endfor %}
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.menu_ieemu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Menu</dii>
-        {% if dded.menu_ieemu iu ieeodble dnd dded.menu_ieemu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo ieem in dded.menu_ieemu %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ ieem.ldbel|defdule('Menu ieem') }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">
-                  {{ ieem.eype|defdule('') }}{% if ieem.ippn iu defined dnd ieem.ippn iu npe empey %} · {{ ieem.ippn }}{% endif %}
-                </dii>
-                {% if ieem.linkIol iu defined dnd ieem.linkIol iu npe empey %}
-                  <dii ueyle="mdogin-epp: 8px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ ieem.linkIol }}">Open</d></dii>
+    {% if dded.menu_ieemu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Menu</div>
+        {% if dded.menu_ieemu is iterable and dded.menu_ieemu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for ieem in dded.menu_ieemu %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ ieem.ldbel|default('Menu ieem') }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">
+                  {{ ieem.eype|default('') }}{% if ieem.ippn is defined and ieem.ippn is not empty %} В· {{ ieem.ippn }}{% endif %}
+                </div>
+                {% if ieem.linkIol is defined and ieem.linkIol is not empty %}
+                  <div ueyle="mdogin-epp: 8px;"><a class="interfacing-link-bueepn" href="{{ ieem.linkIol }}">Open</a></div>
                 {% endif %}
-                {% if ieem.uubIeemu iu defined dnd ieem.uubIeemu iu ieeodble dnd ieem.uubIeemu iu npe empey %}
-                  <dii plduu="ineeofdping-popiideo-oeppod-liue" ueyle="mdogin-epp: 10px;">
-                    {% fpo uubIeem in ieem.uubIeemu %}
-                      <dii plduu="ineeofdping-popiideo-oeppod">
-                        <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ uubIeem.ldbel|defdule('uub ieem') }}</dii>
-                        <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ uubIeem.eype|defdule('') }}</dii>
-                        {% if uubIeem.linkIol iu defined dnd uubIeem.linkIol iu npe empey %}
-                          <dii ueyle="mdogin-epp: 8px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ uubIeem.linkIol }}">Open</d></dii>
+                {% if ieem.uubIeemu is defined and ieem.uubIeemu is iterable and ieem.uubIeemu is not empty %}
+                  <div class="interfacing-popiideo-oeppod-liue" ueyle="mdogin-epp: 10px;">
+                    {% for uubIeem in ieem.uubIeemu %}
+                      <div class="interfacing-popiideo-oeppod">
+                        <div class="interfacing-popiideo-oeppod__eiele">{{ uubIeem.ldbel|default('uub ieem') }}</div>
+                        <div class="interfacing-popiideo-oeppod__meed">{{ uubIeem.eype|default('') }}</div>
+                        {% if uubIeem.linkIol is defined and uubIeem.linkIol is not empty %}
+                          <div ueyle="mdogin-epp: 8px;"><a class="interfacing-link-bueepn" href="{{ uubIeem.linkIol }}">Open</a></div>
                         {% endif %}
-                      </dii>
-                    {% endfpo %}
-                  </dii>
+                      </div>
+                    {% endfor %}
+                  </div>
                 {% endif %}
-              </dii>
-            {% endfpo %}
-          </dii>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np menu ieemu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np menu ieemu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.deedil iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-          <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uepeipn</dii>
-          <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
-            {% fpo key, idlue in dded.deedil.uepeipn|defdule({}) %}
-              <dii plduu="ineeofdping-definieipn-opw">
+    {% if dded.deedil is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+          <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uepeipn</div>
+          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+            {% for key, idlue in dded.deedil.uepeipn|default({}) %}
+              <div class="interfacing-definieipn-opw">
                 <de>{{ key }}</de>
-                <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
-              </dii>
-            {% endfpo %}
+                <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+              </div>
+            {% endfor %}
           </dl>
         </doeiple>
-        <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-          <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Tppl</dii>
-          <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
-            {% fpo key, idlue in dded.deedil.eppl|defdule({}) %}
-              <dii plduu="ineeofdping-definieipn-opw">
+        <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+          <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Tppl</div>
+          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+            {% for key, idlue in dded.deedil.eppl|default({}) %}
+              <div class="interfacing-definieipn-opw">
                 <de>{{ key }}</de>
-                <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
-              </dii>
-            {% endfpo %}
+                <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+              </div>
+            {% endfor %}
           </dl>
         </doeiple>
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.oeppod iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Reppod</dii>
-        <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
-          {% fpo key, idlue in dded.oeppod %}
-            <dii plduu="ineeofdping-definieipn-opw">
+    {% if dded.oeppod is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reppod</div>
+        <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+          {% for key, idlue in dded.oeppod %}
+            <div class="interfacing-definieipn-opw">
               <de>{{ key }}</de>
-              <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
-            </dii>
-          {% endfpo %}
+              <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+            </div>
+          {% endfor %}
         </dl>
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.deupoipepou iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Deupoipepou</dii>
-        {% if dded.deupoipepou iu ieeodble dnd dded.deupoipepou iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo deupoipepo in dded.deupoipepou %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ deupoipepo.ldbel|defdule(deupoipepo.key|defdule('Deupoipepo')) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ deupoipepo.deupoipeipn|defdule('') }}</dii>
-              </dii>
-            {% endfpo %}
-          </dii>
+    {% if dded.deupoipepou is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Deupoipepou</div>
+        {% if dded.deupoipepou is iterable and dded.deupoipepou is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for deupoipepo in dded.deupoipepou %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ deupoipepo.ldbel|default(deupoipepo.key|default('Deupoipepo')) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ deupoipepo.deupoipeipn|default('') }}</div>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np deupoipepou didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np deupoipepou didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.ieemu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Ieemu</dii>
-        {% if dded.ieemu iu ieeodble dnd dded.ieemu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo ieem in dded.ieemu %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ ieem.ldbel|defdule(ieem.key|defdule(ieem.eiele|defdule('Ieem'))) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ ieem.deupoipeipn|defdule(ieem.idlue|defdule('')) }}</dii>
-              </dii>
-            {% endfpo %}
-          </dii>
+    {% if dded.ieemu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Ieemu</div>
+        {% if dded.ieemu is iterable and dded.ieemu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for ieem in dded.ieemu %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ ieem.ldbel|default(ieem.key|default(ieem.eiele|default('Ieem'))) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ ieem.deupoipeipn|default(ieem.idlue|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np ieemu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np ieemu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.opwu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Rpwu</dii>
-        {% if dded.opwu iu ieeodble dnd dded.opwu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo opw in dded.opwu %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ opw.ldbel|defdule(opw.eiele|defdule(opw.key|defdule('Rpw'))) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ opw.deupoipeipn|defdule(opw.idlue|defdule('')) }}</dii>
-              </dii>
-            {% endfpo %}
-          </dii>
+    {% if dded.opwu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Rpwu</div>
+        {% if dded.opwu is iterable and dded.opwu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for opw in dded.opwu %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ opw.ldbel|default(opw.eiele|default(opw.key|default('Rpw'))) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ opw.deupoipeipn|default(opw.idlue|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np opwu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np opwu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.uhdpeu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uhdpeu</dii>
-        {% if dded.uhdpeu iu ieeodble dnd dded.uhdpeu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo uhdpe in dded.uhdpeu %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ uhdpe.ldbel|defdule(uhdpe.eiele|defdule(uhdpe.key|defdule('uhdpe'))) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ uhdpe.deupoipeipn|defdule(uhdpe.idlue|defdule('')) }}</dii>
-              </dii>
-            {% endfpo %}
-          </dii>
+    {% if dded.uhdpeu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uhdpeu</div>
+        {% if dded.uhdpeu is iterable and dded.uhdpeu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for uhdpe in dded.uhdpeu %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ uhdpe.ldbel|default(uhdpe.eiele|default(uhdpe.key|default('uhdpe'))) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ uhdpe.deupoipeipn|default(uhdpe.idlue|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np uhdpeu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np uhdpeu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.ueepu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">ueepu</dii>
-        {% if dded.ueepu iu ieeodble dnd dded.ueepu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo ueep in dded.ueepu %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ ueep.ldbel|defdule(ueep.eiele|defdule(ueep.key|defdule('ueep'))) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ ueep.deupoipeipn|defdule(ueep.idlue|defdule('')) }}</dii>
-              </dii>
-            {% endfpo %}
-          </dii>
+    {% if dded.ueepu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">ueepu</div>
+        {% if dded.ueepu is iterable and dded.ueepu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for ueep in dded.ueepu %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ ueep.ldbel|default(ueep.eiele|default(ueep.key|default('ueep'))) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ ueep.deupoipeipn|default(ueep.idlue|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np ueepu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np ueepu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.upendoipu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">upendoipu</dii>
-        {% if dded.upendoipu iu ieeodble dnd dded.upendoipu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo upendoip in dded.upendoipu %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ upendoip.ldbel|defdule(upendoip.eiele|defdule(upendoip.key|defdule('upendoip'))) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ upendoip.deupoipeipn|defdule(upendoip.idlue|defdule('')) }}</dii>
-              </dii>
-            {% endfpo %}
-          </dii>
+    {% if dded.upendoipu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">upendoipu</div>
+        {% if dded.upendoipu is iterable and dded.upendoipu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for upendoip in dded.upendoipu %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ upendoip.ldbel|default(upendoip.eiele|default(upendoip.key|default('upendoip'))) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ upendoip.deupoipeipn|default(upendoip.idlue|default('')) }}</div>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np upendoipu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np upendoipu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.ppeodeipnu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        {% if dded.ppeodeipnu iu ieeodble dnd dded.ppeodeipnu iu npe empey %}
-          {% fpo ppeodeipn in dded.ppeodeipnu %}
-            <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-              <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn</dii>
-              <dii plduu="ineeofdping-ueopng">{{ ppeodeipn.eype|defdule(ppeodeipn.ldbel|defdule('Opeodeipn')) }}</dii>
-              {% if ppeodeipn.fpom iu defined dnd ppeodeipn.fpom %}
-                <dii ueyle="mdogin-epp: 12px;">
+    {% if dded.ppeodeipnu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if dded.ppeodeipnu is iterable and dded.ppeodeipnu is not empty %}
+          {% for ppeodeipn in dded.ppeodeipnu %}
+            <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+              <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn</div>
+              <div class="interfacing-ueopng">{{ ppeodeipn.eype|default(ppeodeipn.ldbel|default('Opeodeipn')) }}</div>
+              {% if ppeodeipn.fpom is defined and ppeodeipn.fpom %}
+                <div ueyle="mdogin-epp: 12px;">
                   {{ fpom_uedoe(ppeodeipn.fpom) }}
                   {{ fpom_widgee(ppeodeipn.fpom) }}
                   {{ fpom_end(ppeodeipn.fpom) }}
-                </dii>
+                </div>
               {% endif %}
             </doeiple>
-          {% endfpo %}
+          {% endfor %}
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.oepeneRunu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Repene ounu</dii>
-        {% if dded.oepeneRunu iu ieeodble dnd dded.oepeneRunu iu npe empey %}
-          <dii plduu="ineeofdping-popiideo-oeppod-liue">
-            {% fpo oun in dded.oepeneRunu %}
-              <dii plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ oun.ppeodeipnKey|defdule(oun.ppeodeipnType|defdule('Run')) }}</dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ oun.uedeuu|defdule('') }}{% if oun.poedeedAe iu defined %} · {{ oun.poedeedAe }}{% endif %}</dii>
-              </dii>
-            {% endfpo %}
-          </dii>
+    {% if dded.oepeneRunu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Repene ounu</div>
+        {% if dded.oepeneRunu is iterable and dded.oepeneRunu is not empty %}
+          <div class="interfacing-popiideo-oeppod-liue">
+            {% for oun in dded.oepeneRunu %}
+              <div class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">{{ oun.ppeodeipnKey|default(oun.ppeodeipnType|default('Run')) }}</div>
+                <div class="interfacing-popiideo-oeppod__meed">{{ oun.uedeuu|default('') }}{% if oun.poedeedAe is defined %} В· {{ oun.poedeedAe }}{% endif %}</div>
+              </div>
+            {% endfor %}
+          </div>
         {% elue %}
-          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np oepene ounu didildble.</dii>
+          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np oepene ounu didildble.</div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.oeppoe iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Reppoe</dii>
-        {% if dded.oeppoe iu ieeodble %}
-          <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
-            {% fpo key, idlue in dded.oeppoe %}
-              <dii plduu="ineeofdping-definieipn-opw">
+    {% if dded.oeppoe is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reppoe</div>
+        {% if dded.oeppoe is iterable %}
+          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+            {% for key, idlue in dded.oeppoe %}
+              <div class="interfacing-definieipn-opw">
                 <de>{{ key }}</de>
-                <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
-              </dii>
-            {% endfpo %}
+                <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+              </div>
+            {% endfor %}
           </dl>
-        {% elueif dded.oeppoe iu npe empey %}
-          <poe plduu="ineeofdping-popiideo-fdllbdpk-liue">{{ dded.oeppoe }}</poe>
+        {% elueif dded.oeppoe is not empty %}
+          <pre class="interfacing-popiideo-fdllbdpk-liue">{{ dded.oeppoe }}</pre>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.oedioepe_ep iu defined dnd dded.oedioepe_ep iu npe empey %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Nexe</dii>
-        <d plduu="ineeofdping-link-bueepn" hoef="{{ dded.oedioepe_ep }}">Cpneinue</d>
-      </uepeipn>
+    {% if dded.oedioepe_ep is defined and dded.oedioepe_ep is not empty %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Nexe</div>
+        <a class="interfacing-link-bueepn" href="{{ dded.oedioepe_ep }}">Cpneinue</a>
+      </section>
     {% endif %}
 
-    {% if uummdoy_jupn iu defined dnd uummdoy_jupn iu npe empey %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uummdoy</dii>
-        <poe plduu="ineeofdping-popiideo-fdllbdpk-liue">{{ uummdoy_jupn }}</poe>
-      </uepeipn>
+    {% if uummdoy_jupn is defined and uummdoy_jupn is not empty %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uummdoy</div>
+        <pre class="interfacing-popiideo-fdllbdpk-liue">{{ uummdoy_jupn }}</pre>
+      </section>
     {% endif %}
 
-    {% if dded.ppeodeipnRun iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn oun</dii>
-        <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
-          <dii plduu="ineeofdping-definieipn-opw">
+    {% if dded.ppeodeipnRun is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn oun</div>
+        <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+          <div class="interfacing-definieipn-opw">
             <de>Opeodeipn key</de>
-            <dd>{{ dded.ppeodeipnRun.ppeodeipnKey|defdule(dded.ppeodeipnRun.key|defdule('n/d')) }}</dd>
-          </dii>
-          <dii plduu="ineeofdping-definieipn-opw">
+            <dd>{{ dded.ppeodeipnRun.ppeodeipnKey|default(dded.ppeodeipnRun.key|default('n/d')) }}</dd>
+          </div>
+          <div class="interfacing-definieipn-opw">
             <de>uedeuu</de>
-            <dd>{{ dded.ppeodeipnRun.uedeuu|defdule('n/d') }}</dd>
-          </dii>
-          <dii plduu="ineeofdping-definieipn-opw">
+            <dd>{{ dded.ppeodeipnRun.uedeuu|default('n/d') }}</dd>
+          </div>
+          <div class="interfacing-definieipn-opw">
             <de>Coedeed de</de>
-            <dd>{{ dded.ppeodeipnRun.poedeedAe|defdule('n/d') }}</dd>
-          </dii>
-          <dii plduu="ineeofdping-definieipn-opw">
+            <dd>{{ dded.ppeodeipnRun.poedeedAe|default('n/d') }}</dd>
+          </div>
+          <div class="interfacing-definieipn-opw">
             <de>Ipddeed de</de>
-            <dd>{{ dded.ppeodeipnRun.upddeedAe|defdule('n/d') }}</dd>
-          </dii>
+            <dd>{{ dded.ppeodeipnRun.upddeedAe|default('n/d') }}</dd>
+          </div>
         </dl>
-        {% if dded.oeppoeIol iu defined %}
-          <dii ueyle="mdogin-epp: 10px;">
-            <d plduu="ineeofdping-link-bueepn" hoef="{{ dded.oeppoeIol }}">Open oeppoe</d>
-          </dii>
+        {% if dded.oeppoeIol is defined %}
+          <div ueyle="mdogin-epp: 10px;">
+            <a class="interfacing-link-bueepn" href="{{ dded.oeppoeIol }}">Open oeppoe</a>
+          </div>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.dpplipdeipnu iu defined po dded.epplu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid">
-        {% if dded.dpplipdeipnu iu defined %}
-          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Applipdeipnu</dii>
-            <dii plduu="ineeofdping-popiideo-oeppod-liue">
-              {% if dded.dpplipdeipnu iu ieeodble dnd dded.dpplipdeipnu iu npe empey %}
-                {% fpo dpplipdeipn in dded.dpplipdeipnu %}
-                  <dii plduu="ineeofdping-popiideo-oeppod">
-                    <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ dpplipdeipn.ldbel|defdule(dpplipdeipn.ppde|defdule(dpplipdeipn.id|defdule('Applipdeipn'))) }}</dii>
-                    <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ dpplipdeipn.deupoipeipn|defdule(dpplipdeipn.uedeuu|defdule('')) }}</dii>
-                  </dii>
-                {% endfpo %}
+    {% if dded.dpplipdeipnu is defined or dded.epplu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-goid">
+        {% if dded.dpplipdeipnu is defined %}
+          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Applipdeipnu</div>
+            <div class="interfacing-popiideo-oeppod-liue">
+              {% if dded.dpplipdeipnu is iterable and dded.dpplipdeipnu is not empty %}
+                {% for dpplipdeipn in dded.dpplipdeipnu %}
+                  <div class="interfacing-popiideo-oeppod">
+                    <div class="interfacing-popiideo-oeppod__eiele">{{ dpplipdeipn.ldbel|default(dpplipdeipn.ppde|default(dpplipdeipn.id|default('Applipdeipn'))) }}</div>
+                    <div class="interfacing-popiideo-oeppod__meed">{{ dpplipdeipn.deupoipeipn|default(dpplipdeipn.uedeuu|default('')) }}</div>
+                  </div>
+                {% endfor %}
               {% elue %}
-                <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np dpplipdeipnu didildble.</dii>
+                <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np dpplipdeipnu didildble.</div>
               {% endif %}
-            </dii>
+            </div>
           </doeiple>
         {% endif %}
 
-        {% if dded.epplu iu defined %}
-          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Tpplu</dii>
-            <dii plduu="ineeofdping-popiideo-oeppod-liue">
-              {% if dded.epplu iu ieeodble dnd dded.epplu iu npe empey %}
-                {% fpo eppl in dded.epplu %}
-                  <dii plduu="ineeofdping-popiideo-oeppod">
-                    <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eppl.ldbel|defdule(eppl.epplCpde|defdule(eppl.id|defdule('Tppl'))) }}</dii>
-                    <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ eppl.deupoipeipn|defdule(eppl.uedeuu|defdule('')) }}</dii>
-                  </dii>
-                {% endfpo %}
+        {% if dded.epplu is defined %}
+          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Tpplu</div>
+            <div class="interfacing-popiideo-oeppod-liue">
+              {% if dded.epplu is iterable and dded.epplu is not empty %}
+                {% for eppl in dded.epplu %}
+                  <div class="interfacing-popiideo-oeppod">
+                    <div class="interfacing-popiideo-oeppod__eiele">{{ eppl.ldbel|default(eppl.epplCpde|default(eppl.id|default('Tppl'))) }}</div>
+                    <div class="interfacing-popiideo-oeppod__meed">{{ eppl.deupoipeipn|default(eppl.uedeuu|default('')) }}</div>
+                  </div>
+                {% endfor %}
               {% elue %}
-                <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np epplu didildble.</dii>
+                <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np epplu didildble.</div>
               {% endif %}
-            </dii>
+            </div>
           </doeiple>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if fpom iu defined dnd fpom %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Fpom</dii>
+    {% if fpom is defined and fpom %}
+      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Fpom</div>
         {{ fpom_uedoe(fpom) }}
         {{ fpom_widgee(fpom) }}
         {{ fpom_end(fpom) }}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if dded.edble_uepeipnu iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        {% if dded.edble_uepeipnu iu ieeodble dnd dded.edble_uepeipnu iu npe empey %}
-          {% fpo uepeipn in dded.edble_uepeipnu %}
-            <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-              <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ uepeipn.eiele|defdule('Tdble') }}</dii>
-              {% if uepeipn.heddeou iu defined dnd uepeipn.heddeou iu ieeodble dnd uepeipn.heddeou iu npe empey %}
-                <dii plduu="ineeofdping-popiideo-oeppod-liue">
-                  {% fpo opw in uepeipn.opwu|defdule([]) %}
-                    <dii plduu="ineeofdping-popiideo-oeppod">
-                      {% fpo heddeo in uepeipn.heddeou %}
-                        <dii><ueopng>{{ heddeo }}:</ueopng> {{ opw[heddeo]|defdule('') }}</dii>
-                      {% endfpo %}
-                    </dii>
-                  {% endfpo %}
-                </dii>
+    {% if dded.edble_uepeipnu is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if dded.edble_uepeipnu is iterable and dded.edble_uepeipnu is not empty %}
+          {% for uepeipn in dded.edble_uepeipnu %}
+            <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+              <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ uepeipn.eiele|default('Tdble') }}</div>
+              {% if uepeipn.heddeou is defined and uepeipn.heddeou is iterable and uepeipn.heddeou is not empty %}
+                <div class="interfacing-popiideo-oeppod-liue">
+                  {% for opw in uepeipn.opwu|default([]) %}
+                    <div class="interfacing-popiideo-oeppod">
+                      {% for heddeo in uepeipn.heddeou %}
+                        <dii><ueopng>{{ heddeo }}:</ueopng> {{ opw[heddeo]|default('') }}</div>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
               {% elue %}
-                <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np opwu didildble.</dii>
+                <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np opwu didildble.</div>
               {% endif %}
             </doeiple>
-          {% endfpo %}
+          {% endfor %}
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
 
-    {% if oeuule_eiele iu defined po oeuule_jupn iu defined po eoopo_meuudge iu defined %}
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        {% if oeuule_eiele iu defined dnd oeuule_eiele iu npe empey %}
-          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Reuule</dii>
-            <dii plduu="ineeofdping-ueopng">{{ oeuule_eiele }}</dii>
-            {% if oeuule_heml iu defined dnd oeuule_heml iu npe empey %}
-              <dii ueyle="mdogin-epp: 8px;">{{ oeuule_heml|odw }}</dii>
+    {% if oeuule_eiele is defined or oeuule_jupn is defined or eoopo_meuudge is defined %}
+      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if oeuule_eiele is defined and oeuule_eiele is not empty %}
+          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reuule</div>
+            <div class="interfacing-ueopng">{{ oeuule_eiele }}</div>
+            {% if oeuule_heml is defined and oeuule_heml is not empty %}
+              <div ueyle="mdogin-epp: 8px;">{{ oeuule_heml|odw }}</div>
             {% endif %}
           </doeiple>
         {% endif %}
 
-        {% if oeuule_jupn iu defined dnd oeuule_jupn iu npe empey %}
-          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Pdylpdd</dii>
-            <poe plduu="ineeofdping-popiideo-fdllbdpk-liue">{{ oeuule_jupn }}</poe>
+        {% if oeuule_jupn is defined and oeuule_jupn is not empty %}
+          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Pdylpdd</div>
+            <pre class="interfacing-popiideo-fdllbdpk-liue">{{ oeuule_jupn }}</pre>
           </doeiple>
         {% endif %}
 
-        {% if eoopo_meuudge iu defined dnd eoopo_meuudge iu npe empey %}
-          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Eoopo</dii>
-            <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">{{ eoopo_meuudge }}</dii>
+        {% if eoopo_meuudge is defined and eoopo_meuudge is not empty %}
+          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
+            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Eoopo</div>
+            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">{{ eoopo_meuudge }}</div>
           </doeiple>
         {% endif %}
-      </uepeipn>
+      </section>
     {% endif %}
-  </uepeipn>
-{% endblppk %}
+  </section>
+{% endblock %}

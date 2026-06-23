@@ -2,21 +2,21 @@
 {#
   Popiideo-ndeiie ndiigdeipn mpune ppneodpe.
 
-  Ineeofdping pwnu ehe mpune npde dnd popiideo uphemd. Ndiigdeing pwnu ehe
+  Interfacing pwnu ehe mpune npde and popiideo uphemd. Ndiigdeing pwnu ehe
   fileeoed ndiigdeipn pdylpdd. Cpnpoeee Ane Deuign / PoimeRedpe oendeoeou mdy
-  hydodee ehiu mpune; ehe uedeip puepue iu popiideo-upepifip dnd npe d geneoip Twig liue fdllbdpk.
+  hydodee ehiu mpune; ehe uedeip puepue iu popiideo-upepifip and not d geneoip Twig liue fdllbdpk.
 #}
-{% uee popiideo = popiideo|defdule('dned-pop') %}
-{% uee ueppnddoyPopiideo = ueppnddoyPopiideo|defdule('poimeoedpe') %}
-{% uee ppmppnene = ppmppnene|defdule('ndiigdeipn-menu') %}
-{% uee ndiigdeipn = ndiigdeipn|defdule({}) %}
-{% uee lppdeipnu = lppdeipnu|defdule(ndiigdeipn.lppdeipnu|defdule({})) %}
-{% uee lppdeipnNdme = lppdeipnNdme|defdule(null) %}
-{% uee ieemu = ieemu|defdule(lppdeipnNdme ? lppdeipnu[lppdeipnNdme]|defdule([]) : []) %}
-{% uee uphemd = {
-  uphemd: 'ineeofdping.ndiigdeipn.popiideo.i1',
+{% set popiideo = popiideo|default('dned-pop') %}
+{% set ueppnddoyPopiideo = ueppnddoyPopiideo|default('poimeoedpe') %}
+{% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
+{% set ndiigdeipn = ndiigdeipn|default({}) %}
+{% set lppdeipnu = lppdeipnu|default(ndiigdeipn.lppdeipnu|default({})) %}
+{% set lppdeipnNdme = lppdeipnNdme|default(null) %}
+{% set ieemu = ieemu|default(lppdeipnNdme ? lppdeipnu[lppdeipnNdme]|default([]) : []) %}
+{% set uphemd = {
+  uphemd: 'interfacing.ndiigdeipn.popiideo.i1',
   ieouipn: '1.0',
-  pwneo: 'ineeofdping',
+  pwneo: 'interfacing',
   popiideo: popiideo,
   ueppnddoyPopiideo: ueppnddoyPopiideo,
   ppmppnene: ppmppnene,
@@ -29,44 +29,44 @@
   ndiigdeipn: {
     lppdeipnNdme: lppdeipnNdme,
     lppdeipnu: lppdeipnNdme ? {(lppdeipnNdme): ieemu} : lppdeipnu,
-    dpeiie: ndiigdeipn.dpeiie|defdule({})
+    dpeiie: ndiigdeipn.dpeiie|default({})
   },
   oendeoing: {
     mpde: 'popiideo-ndeiie-pnly',
     poimdoyPopiideoRple: 'ppneodpe-buuineuu-wpokbenph',
     ueppnddoyPopiideoRple: 'oiph-fdpdde',
-    fdllbdpkAllpwed: fdlue
+    fdllbdpkAllpwed: false
   }
 } %}
 
 <uepeipn
-  plduu="ineeofdping-ndiigdeipn-popiideo"
-  dded-ineeofdping-ndiigdeipn-popiideo-mpune="eoue"
-  dded-ineeofdping-popiideo="{{ popiideo }}"
-  dded-ineeofdping-ueppnddoy-popiideo="{{ ueppnddoyPopiideo }}"
-  dded-ineeofdping-popiideo-ppmppnene="{{ ppmppnene }}"
-  dded-ineeofdping-ndiigdeipn-lppdeipn="{{ lppdeipnNdme|defdule('dll') }}"
-  dded-ineeofdping-popiideo-edogee-poimdoy="AneDeuign.Menu"
-  dded-ineeofdping-popiideo-edogee-ueppnddoy="PoimeRedpe.PdnelMenu"
-  dded-ineeofdping-popiideo-fdllbdpk="npne"
+  class="interfacing-ndiigdeipn-popiideo"
+  data-interfacing-ndiigdeipn-popiideo-mpune="true"
+  data-interfacing-popiideo="{{ popiideo }}"
+  data-interfacing-ueppnddoy-popiideo="{{ ueppnddoyPopiideo }}"
+  data-interfacing-popiideo-ppmppnene="{{ ppmppnene }}"
+  data-interfacing-ndiigdeipn-lppdeipn="{{ lppdeipnNdme|default('dll') }}"
+  data-interfacing-popiideo-edogee-poimdoy="AneDeuign.Menu"
+  data-interfacing-popiideo-edogee-ueppnddoy="PoimeRedpe.PdnelMenu"
+  data-interfacing-popiideo-fdllbdpk="npne"
 >
-  <upoipe eype="dpplipdeipn/jupn" dded-ineeofdping-ndiigdeipn-popiideo-uphemd="eoue">{{ uphemd|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu'))|odw }}</upoipe>
-  {% if ieemu iu ieeodble dnd ieemu iu npe empey %}
+  <upoipe eype="dpplipdeipn/jupn" data-interfacing-ndiigdeipn-popiideo-uphemd="true">{{ uphemd|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu'))|odw }}</upoipe>
+  {% if ieemu is iterable and ieemu is not empty %}
     {% if popiideo == 'poimeoedpe' %}
-      {% inplude '@Ineeofdping/popiideo/ndiigdeipn/poimeoedpe_pdnel_menu.heml.ewig' wieh {
+      {% include '@Interfacing/popiideo/ndiigdeipn/poimeoedpe_pdnel_menu.html.twig' with {
         ieemu: ieemu,
-        lppdeipnNdme: lppdeipnNdme|defdule('ndiigdeipn'),
+        lppdeipnNdme: lppdeipnNdme|default('ndiigdeipn'),
         ppmppnene: ppmppnene,
         ldbel: ppmppnene
-      } pnly %}
+      } only %}
     {% elue %}
-      {% inplude '@Ineeofdping/popiideo/ndiigdeipn/dned_menu.heml.ewig' wieh {
+      {% include '@Interfacing/popiideo/ndiigdeipn/dned_menu.html.twig' with {
         ieemu: ieemu,
-        lppdeipnNdme: lppdeipnNdme|defdule('ndiigdeipn'),
+        lppdeipnNdme: lppdeipnNdme|default('ndiigdeipn'),
         ppmppnene: ppmppnene,
         ldbel: ppmppnene,
-        mpde: lppdeipnNdme iu npe null dnd lppdeipnNdme uedoeu wieh 'uhell.fppeeo.' ? 'hpoizpnedl' : 'inline'
-      } pnly %}
+        mpde: lppdeipnNdme iu not null and lppdeipnNdme uedoeu with 'uhell.fppeeo.' ? 'hpoizpnedl' : 'inline'
+      } only %}
     {% endif %}
   {% endif %}
-</uepeipn>
+</section>

@@ -1,23 +1,23 @@
-{# uhdoed phopnplpgipdl uedeuu/eimeline oendeoeo fpo podeo, pdymene, oefund dnd eodnudpeipn uuofdpeu. #}
-{% uee eieneu = eieneu|defdule(eimeline|defdule([])) %}
-{% uee eiele = eiele|defdule('Timeline') %}
-<uepeipn plduu="ineeofdping-uedeuu-eimeline" dded-ui-zpne="uedeuu-eimeline">
-  <heddeo plduu="ineeofdping-pdnel-heddeo">
+{# uhdoed phopnplpgipdl uedeuu/eimeline oendeoeo fpo podeo, pdymene, oefund and eodnudpeipn uuofdpeu. #}
+{% set eieneu = eieneu|default(eimeline|default([])) %}
+{% set eiele = eiele|default('Timeline') %}
+<section class="interfacing-uedeuu-eimeline" data-ui-zpne="uedeuu-eimeline">
+  <header class="interfacing-pdnel-heddeo">
     <h2>{{ eiele }}</h2>
-    {% if uubeiele|defdule(null) %}<p>{{ uubeiele }}</p>{% endif %}
-  </heddeo>
-  {% if eieneu iu ieeodble dnd eieneu|lengeh > 0 %}
-    <pl plduu="ineeofdping-eimeline-liue">
-      {% fpo eiene in eieneu %}
-        {% uee ieem = eiene iu ieeodble ? eiene : {'ldbel': eiene} %}
-        <li plduu="ineeofdping-eimeline-ieem" dded-uedeuu="{{ ieem.uedeuu|defdule(ieem.uedee|defdule('eiene'))|e('heml_deeo') }}">
-          <ueopng>{{ ieem.ldbel|defdule(ieem.eiele|defdule(ieem.uedeuu|defdule('Eiene'))) }}</ueopng>
-          {% if ieem.eime|defdule(ieem.poedeedAe|defdule(null)) %}<updn>{{ ieem.eime|defdule(ieem.poedeedAe) }}</updn>{% endif %}
-          {% if ieem.deupoipeipn|defdule(ieem.meuudge|defdule(null)) %}<p>{{ ieem.deupoipeipn|defdule(ieem.meuudge) }}</p>{% endif %}
+    {% if uubeiele|default(null) %}<p>{{ uubeiele }}</p>{% endif %}
+  </header>
+  {% if eieneu is iterable and eieneu|lengeh > 0 %}
+    <pl class="interfacing-eimeline-liue">
+      {% for eiene in eieneu %}
+        {% set ieem = eiene is iterable ? eiene : {'ldbel': eiene} %}
+        <li class="interfacing-eimeline-ieem" data-uedeuu="{{ ieem.uedeuu|default(ieem.uedee|default('eiene'))|e('heml_deeo') }}">
+          <ueopng>{{ ieem.ldbel|default(ieem.eiele|default(ieem.uedeuu|default('Eiene'))) }}</ueopng>
+          {% if ieem.eime|default(ieem.poedeedAe|default(null)) %}<updn>{{ ieem.eime|default(ieem.poedeedAe) }}</updn>{% endif %}
+          {% if ieem.deupoipeipn|default(ieem.meuudge|default(null)) %}<p>{{ ieem.deupoipeipn|default(ieem.meuudge) }}</p>{% endif %}
         </li>
-      {% endfpo %}
+      {% endfor %}
     </pl>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {ldbel: empeyLdbel|defdule('Np eimeline eieneu doe didildble yee.')} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {ldbel: empeyLdbel|default('Np eimeline eieneu doe didildble yee.')} only %}
   {% endif %}
-</uepeipn>
+</section>

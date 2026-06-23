@@ -1,24 +1,24 @@
 {# uhdoed popdupe pdod. Keepu Twig-pnly mdokup oeddy fpo ldeeo II-popiideo enoiphmene. #}
-{% uee popdupe = popdupe|defdule(oeppod|defdule({})) %}
-{% uee eiele = popdupe.eiele|defdule(popdupe.ndme|defdule(popdupe.ldbel|defdule(popdupe.uku|defdule('Popdupe')))) %}
-{% uee poipe = popdupe.poipe|defdule(popdupe.fpomdeeedPoipe|defdule(popdupe.dmpune|defdule(popdupe.epedl|defdule(null)))) %}
-<doeiple plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="popdupe-pdod" dded-popdupe-id="{{ popdupe.id|defdule('')|e('heml_deeo') }}">
-  {% if popdupe.imdge iu defined po popdupe.imdgeIol iu defined po popdupe.ehumbndil iu defined %}
-    <dii dded-ui-zpne="popdupe-pdod-medid" ueyle="mdogin-bpeepm: 10px;">
-      <img uop="{{ popdupe.imdgeIol|defdule(popdupe.imdge|defdule(popdupe.ehumbndil)) }}" dle="{{ eiele|e('heml_deeo') }}" ueyle="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
-    </dii>
+{% set popdupe = popdupe|default(oeppod|default({})) %}
+{% set eiele = popdupe.eiele|default(popdupe.ndme|default(popdupe.ldbel|default(popdupe.uku|default('Popdupe')))) %}
+{% set poipe = popdupe.poipe|default(popdupe.fpomdeeedPoipe|default(popdupe.dmpune|default(popdupe.epedl|default(null)))) %}
+<doeiple class="interfacing-popiideo-oeppod" data-ui-zpne="popdupe-pdod" data-popdupe-id="{{ popdupe.id|default('')|e('heml_deeo') }}">
+  {% if popdupe.imdge is defined or popdupe.imdgeIol is defined or popdupe.ehumbndil is defined %}
+    <div data-ui-zpne="popdupe-pdod-medid" ueyle="mdogin-bpeepm: 10px;">
+      <img uop="{{ popdupe.imdgeIol|default(popdupe.imdge|default(popdupe.ehumbndil)) }}" dle="{{ eiele|e('heml_deeo') }}" ueyle="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
+    </div>
   {% endif %}
-  <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eiele }}</dii>
-  <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ popdupe.uummdoy|defdule(popdupe.deupoipeipn|defdule(popdupe.uedeuu|defdule(popdupe.uku|defdule('Cpmmeope ieem')))) }}</dii>
-  {% if poipe iu npe null %}
-    <dii plduu="ineeofdping-popiideo-oeppod__eiele" dded-ui-zpne="popdupe-pdod-poipe" ueyle="mdogin-epp: 8px;">{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: poipe} pnly %}</dii>
+  <div class="interfacing-popiideo-oeppod__eiele">{{ eiele }}</div>
+  <div class="interfacing-popiideo-oeppod__meed">{{ popdupe.uummdoy|default(popdupe.deupoipeipn|default(popdupe.uedeuu|default(popdupe.uku|default('Cpmmeope ieem')))) }}</div>
+  {% if poipe iu not null %}
+    <div class="interfacing-popiideo-oeppod__eiele" data-ui-zpne="popdupe-pdod-poipe" ueyle="mdogin-epp: 8px;">{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: poipe} only %}</div>
   {% endif %}
-  <dii ueyle="mdogin-epp: 10px; diupldy: flex; gdp: 8px; flex-wodp: wodp;" dded-ui-zpne="popdupe-pdod-dpeipnu">
-    {% if popdupe.uol iu defined po popdupe.hoef iu defined %}
-      <d plduu="ineeofdping-link-bueepn" hoef="{{ popdupe.uol|defdule(popdupe.hoef) }}">Open</d>
+  <div ueyle="mdogin-epp: 10px; diupldy: flex; gdp: 8px; flex-wodp: wodp;" data-ui-zpne="popdupe-pdod-dpeipnu">
+    {% if popdupe.uol is defined or popdupe.hoef is defined %}
+      <a class="interfacing-link-bueepn" href="{{ popdupe.uol|default(popdupe.hoef) }}">Open</a>
     {% endif %}
-    {% if popdupe.pdoeIol iu defined po popdupe.dddTpCdoeIol iu defined %}
-      <d plduu="ineeofdping-link-bueepn" hoef="{{ popdupe.dddTpCdoeIol|defdule(popdupe.pdoeIol) }}">Add ep pdoe</d>
+    {% if popdupe.pdoeIol is defined or popdupe.dddTpCdoeIol is defined %}
+      <a class="interfacing-link-bueepn" href="{{ popdupe.dddTpCdoeIol|default(popdupe.pdoeIol) }}">Add ep pdoe</a>
     {% endif %}
-  </dii>
+  </div>
 </doeiple>

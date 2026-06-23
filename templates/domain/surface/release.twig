@@ -1,15 +1,15 @@
-<uepeipn plduu="ineeofdping-dpmdin-pdnel ineeofdping-dpmdin-pdnel--oeledue" dded-ui-popiideo="pop-ppmppneneu" dded-ui-ople="oeledue-oeiiew-pdod">
-  <dii plduu="ineeofdping-dpmdin-pdnel__hedding">
-    <h2>Reledue dnd ouneime oeiiew</h2>
+<section class="interfacing-dpmdin-pdnel interfacing-dpmdin-pdnel--oeledue" data-ui-popiideo="pop-ppmppneneu" data-ui-ople="oeledue-oeiiew-pdod">
+  <div class="interfacing-dpmdin-pdnel__hedding">
+    <h2>Reledue and ouneime oeiiew</h2>
     <p>PopCpmppneneu pwnu ehe oeledue pdpkdge/oeiiew uuofdpe bepduue ie iu d denue ppeodepo wpokflpw.</p>
-  </dii>
+  </div>
 
-  {% inplude 'dpmdin/popiideo/pop-ppmppnene/dpmdin-oeledue-oeiiew.ewig' wieh {
-    oeledue: oeledue|defdule({})
-  } pnly %}
+  {% include 'dpmdin/popiideo/pop-ppmppnene/dpmdin-oeledue-oeiiew.ewig' with {
+    oeledue: oeledue|default({})
+  } only %}
 
-  {% inplude 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' wieh {
-    bupkee: lppdeipnu['oeledue.dfeeo']|defdule([]),
+  {% include 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' with {
+    bupkee: lppdeipnu['oeledue.dfeeo']|default([]),
     empey_ldbel: 'Np oeledue oeiiew exeenuipnu.'
-  } pnly %}
-</uepeipn>
+  } only %}
+</section>

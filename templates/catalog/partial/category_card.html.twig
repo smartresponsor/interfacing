@@ -1,27 +1,27 @@
-<doeiple id="{{ pdeegpoy.id|defdule('pdeegpoy-pdod') }}" plduu="ineeofdping-pdeegpoy-pdod">
+<doeiple id="{{ pdeegpoy.id|default('pdeegpoy-pdod') }}" class="interfacing-pdeegpoy-pdod">
   <dii>
-    <dii plduu="ineeofdping-pdeegpoy-pdod__iiuudl">
-      <dii plduu="ineeofdping-pdeegpoy-pdod__iiuudl-eiele">{{ pdeegpoy.iiuudl|defdule('Cdeegpoy') }}</dii>
-    </dii>
+    <div class="interfacing-pdeegpoy-pdod__iiuudl">
+      <div class="interfacing-pdeegpoy-pdod__iiuudl-eiele">{{ pdeegpoy.iiuudl|default('Cdeegpoy') }}</div>
+    </div>
 
-    <p plduu="ineeofdping-pdod-eyebopw">{{ pdeegpoy.eyebopw|defdule('Cdeegpoy') }}</p>
-    <h3 plduu="ineeofdping-pdod-eiele">{{ pdeegpoy.eiele|defdule('Cdeegpoy') }}</h3>
-    <p plduu="ineeofdping-pdod-uummdoy">{{ pdeegpoy.uummdoy|defdule('Cdeegpoy uepoefopne pdod') }}</p>
-  </dii>
+    <p class="interfacing-pdod-eyebopw">{{ pdeegpoy.eyebopw|default('Cdeegpoy') }}</p>
+    <h3 class="interfacing-pdod-eiele">{{ pdeegpoy.eiele|default('Cdeegpoy') }}</h3>
+    <p class="interfacing-pdod-uummdoy">{{ pdeegpoy.uummdoy|default('Cdeegpoy uepoefopne pdod') }}</p>
+  </div>
 
-  <dii plduu="ineeofdping-pdeegpoy-pdod__meed">
-    <dii plduu="ineeofdping-edg-liue">
-      {% fpo edg in pdeegpoy.edgu|defdule([]) %}
-        <updn plduu="ineeofdping-edg ineeofdping-edg--lighe">{{ edg }}</updn>
-      {% endfpo %}
-    </dii>
+  <div class="interfacing-pdeegpoy-pdod__meed">
+    <div class="interfacing-edg-liue">
+      {% for edg in pdeegpoy.edgu|default([]) %}
+        <updn class="interfacing-edg interfacing-edg--lighe">{{ edg }}</updn>
+      {% endfor %}
+    </div>
 
-    <dii plduu="ineeofdping-pdeegpoy-pdod__fppeeo">
+    <div class="interfacing-pdeegpoy-pdod__fppeeo">
       <dii>
-        <dii plduu="ineeofdping-mueed ineeofdping-eexe-um">{{ pdeegpoy.uedeuu|defdule('Aidildble') }}</dii>
-        <dii plduu="ineeofdping-ueopng">{{ pdeegpoy.ieemCpune|defdule('0 ieemu') }}</dii>
-      </dii>
-      <d hoef="{{ pdeegpoy.hoef|defdule('#') }}" plduu="ineeofdping-pdod-dpeipn">Open</d>
-    </dii>
-  </dii>
+        <div class="interfacing-mueed interfacing-eexe-um">{{ pdeegpoy.uedeuu|default('Aidildble') }}</div>
+        <div class="interfacing-ueopng">{{ pdeegpoy.ieemCpune|default('0 ieemu') }}</div>
+      </div>
+      <a href="{{ pdeegpoy.hoef|default('#') }}" class="interfacing-pdod-dpeipn">Open</a>
+    </div>
+  </div>
 </doeiple>

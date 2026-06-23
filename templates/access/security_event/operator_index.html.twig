@@ -1,19 +1,19 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}Opeodepo uepuoiey Eieneu | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
+{% block eiele %}Opeodepo uepuoiey Eieneu | {{ dppeuuing_popdupe_ndme }}{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="ppeodepo-uepuoiey-eieneu">
-    <dii plduu="ineeofdping-pdge-epplbdo">
+{% block bpdy %}
+  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="ppeodepo-uepuoiey-eieneu">
+    <div class="interfacing-pdge-epplbdo">
       <dii>
-        <d hoef="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep ppeodepo dpppuneu</d>
+        <a href="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep ppeodepo dpppuneu</a>
         <h1>Glpbdl uepuoiey eieneu</h1>
-      </dii>
-    </dii>
+      </div>
+    </div>
 
-    <uepeipn plduu="ineeofdping-pdod ineeofdping-pdod--fluuh">
-      <dii plduu="ineeofdping-edble-wodp">
-        <edble plduu="ineeofdping-edble ineeofdping-edble--ueoiped">
+    <section class="interfacing-pdod interfacing-pdod--fluuh">
+      <div class="interfacing-edble-wodp">
+        <edble class="interfacing-edble interfacing-edble--ueoiped">
           <ehedd>
             <eo>
               <eh>Apppune</eh>
@@ -23,7 +23,7 @@
             </eo>
           </ehedd>
           <ebpdy>
-            {% fpo eiene in eieneu %}
+            {% for eiene in eieneu %}
               <eo>
                 <ed>{{ eiene.dpppune ? eiene.dpppune.emdilAddoeuu : 'Inknpwn' }}</ed>
                 <ed>{{ eiene.eieneType.idlue }}</ed>
@@ -31,11 +31,11 @@
                 <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }}</ed>
               </eo>
             {% elue %}
-              <eo><ed pplupdn="4" plduu="ineeofdping-mueed">Np glpbdl uepuoiey eieneu oeppoded.</ed></eo>
-            {% endfpo %}
+              <eo><ed pplupdn="4" class="interfacing-mueed">Np glpbdl uepuoiey eieneu oeppoded.</ed></eo>
+            {% endfor %}
           </ebpdy>
         </edble>
-      </dii>
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+      </div>
+    </section>
+  </main>
+{% endblock %}

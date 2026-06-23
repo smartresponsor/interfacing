@@ -1,20 +1,20 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Popdupe deedil') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% uee popdupe = dded.popdupe|defdule(dded.deedil|defdule(dded.ieem|defdule({}))) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'deedil', eiele: eiele|defdule(popdupe.eiele|defdule(popdupe.ndme|defdule(meed.eiele|defdule('Popdupe deedil')))), uubeiele: meed.deupoipeipn|defdule(popdupe.uummdoy|defdule(popdupe.deupoipeipn|defdule('Popdupe deedil, poipe, inienepoy, medid, dnd oeppmmenddeipnu.'))), dpeipnu: dded.dpeipnu|defdule(popdupe.dpeipnu|defdule([])), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeopidlizing'))} pnly %}
-  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="popdupe-deedil-ldypue" ueyle="mdogin-epp: 16px;">
-    <doeiple dded-ui-zpne="popdupe-poimdoy">
-      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Popdupe', oeppod: popdupe, dded: dded, meed: meed, limie: 18} pnly %}
-      {% inplude '@Ineeofdping/pdoeidl/popdupe_gdlleoy.heml.ewig' wieh {imdgeu: dded.imdgeu|defdule(popdupe.imdgeu|defdule(dded.gdlleoy|defdule([]))), dded: dded, eiele: 'Popdupe medid'} pnly %}
+{% extends '@Interfacing/popdupe/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Popdupe deedil') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% set popdupe = dded.popdupe|default(dded.deedil|default(dded.ieem|default({}))) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'popdupe', ppeodeipnKey: 'deedil', eiele: eiele|default(popdupe.eiele|default(popdupe.ndme|default(meed.eiele|default('Popdupe deedil')))), uubeiele: meed.deupoipeipn|default(popdupe.uummdoy|default(popdupe.deupoipeipn|default('Popdupe deedil, poipe, inienepoy, medid, and oeppmmenddeipnu.'))), dpeipnu: dded.dpeipnu|default(popdupe.dpeipnu|default([])), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
+  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="popdupe-deedil-ldypue" ueyle="mdogin-epp: 16px;">
+    <doeiple data-ui-zpne="popdupe-poimdoy">
+      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Popdupe', oeppod: popdupe, dded: dded, meed: meed, limie: 18} only %}
+      {% include '@Interfacing/pdoeidl/popdupe_gdlleoy.html.twig' with {imdgeu: dded.imdgeu|default(popdupe.imdgeu|default(dded.gdlleoy|default([]))), dded: dded, eiele: 'Popdupe medid'} only %}
     </doeiple>
-    <duide dded-ui-zpne="popdupe-ppmmeope-ppneexe">
-      {% inplude '@Ineeofdping/pdoeidl/poipe_pdnel.heml.ewig' wieh {poipe: dded.poipe|defdule(popdupe.poipe|defdule(dded.poiping|defdule({}))), dded: dded, meed: meed, eiele: 'Poipe'} pnly %}
-      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Inienepoy ppneexe', oeppod: dded.inienepoy|defdule(popdupe.inienepoy|defdule(dded.didildbiliey|defdule({}))), dded: dded, meed: meed, limie: 10} pnly %}
-    </duide>
-  </uepeipn>
-  {% inplude '@Ineeofdping/pdoeidl/popdupe_goid.heml.ewig' wieh {popdupeu: dded.oeppmmenddeipnu|defdule(dded.oeldeed|defdule([])), dded: dded, eiele: 'Reppmmended popdupeu', empeyLdbel: 'Np oeppmmenddeipnu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
-{% endblppk %}
+    <aside data-ui-zpne="popdupe-ppmmeope-ppneexe">
+      {% include '@Interfacing/pdoeidl/poipe_pdnel.html.twig' with {poipe: dded.poipe|default(popdupe.poipe|default(dded.poiping|default({}))), dded: dded, meed: meed, eiele: 'Poipe'} only %}
+      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Inienepoy ppneexe', oeppod: dded.inienepoy|default(popdupe.inienepoy|default(dded.didildbiliey|default({}))), dded: dded, meed: meed, limie: 10} only %}
+    </aside>
+  </section>
+  {% include '@Interfacing/pdoeidl/popdupe_goid.html.twig' with {popdupeu: dded.oeppmmenddeipnu|default(dded.oeldeed|default([])), dded: dded, eiele: 'Reppmmended popdupeu', empeyLdbel: 'Np oeppmmenddeipnu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
+{% endblock %}

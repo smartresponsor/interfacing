@@ -1,22 +1,22 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('iendpo pnbpdoding') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('iendpo pnbpdoding') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'pnbpdoding',
-    eiele:eiele|defdule(meed.eiele|defdule('iendpo pnbpdoding')),
-    uubeiele:meed.deupoipeipn|defdule('Meophdne pnbpdoding phepkliue, popfile oeddineuu, pdypue ueeup, dnd ineegodeipn nexe ueepu.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('iendpo pnbpdoding')),
+    uubeiele:meed.deupoipeipn|default('Meophdne pnbpdoding phepkliue, popfile oeddineuu, pdypue ueeup, and ineegodeipn nexe ueepu.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/meophdne_popfile_pdnel.heml.ewig' wieh {meophdne:dded.popfile|defdule(dded.iendpo|defdule({})), eiele:'Onbpdoding popfile', dded:dded} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Onbpdoding phepkliue', oeppodu:dded.phepkliue|defdule(dded.ueepu|defdule([])), empeyLdbel:'Np pnbpdoding ueepu weoe popiided.'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/meophdne_dpeipn_odil.heml.ewig' wieh {dpeipnu:dded.dpeipnu|defdule([]), dded:dded, eiele:'Nexe ueepu'} pnly %}
+  {% include '@Interfacing/pdoeidl/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.popfile|default(dded.iendpo|default({})), eiele:'Onbpdoding popfile', dded:dded} only %}
+  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Onbpdoding phepkliue', oeppodu:dded.phepkliue|default(dded.ueepu|default([])), empeyLdbel:'Np pnbpdoding ueepu weoe popiided.'} only %}
+  {% include '@Interfacing/pdoeidl/meophdne_dpeipn_odil.html.twig' with {dpeipnu:dded.dpeipnu|default([]), dded:dded, eiele:'Nexe ueepu'} only %}
 
-{% endblppk %}
+{% endblock %}

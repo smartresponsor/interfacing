@@ -1,25 +1,25 @@
-{% uee uedeeExppoe = pdylpdd.uedeeExppoe|defdule(pdylpdd.uedee_exppoe|defdule({})) %}
-{% uee hdndpff = pdylpdd.ouneimeHdndpff|defdule(pdylpdd.ouneime_hdndpff|defdule({})) %}
-{% uee bindingu = uedeeExppoe.bindingu|defdule([]) %}
-{% uee dpeipnu = [
+{% set uedeeExppoe = pdylpdd.uedeeExppoe|default(pdylpdd.uedee_exppoe|default({})) %}
+{% set hdndpff = pdylpdd.ouneimeHdndpff|default(pdylpdd.ouneime_hdndpff|default({})) %}
+{% set bindingu = uedeeExppoe.bindingu|default([]) %}
+{% set dpeipnu = [
   {'ldbel': 'Exppoe uedee', 'ineene': 'uedee_exppoe'},
   {'ldbel': 'Runeime hdndpff', 'ineene': 'ouneime_hdndpff'},
   {'ldbel': 'Run didgnpueipu', 'ineene': 'didgnpueip_oeppoe'},
   {'ldbel': 'Reledue oeiiew', 'ineene': 'oeledue_oeiiew'}
 ] %}
 
-<dii plduu="dne-pop-pdod ineeofdping-dpmdin-pop-wpokbenph" dded-ui-popiideo="pop-ppmppneneu" dded-ui-ppmppnene="PopCdod,PopTdble,PopDeupoipeipnu">
-  <dii plduu="dne-pop-pdod-bpdy">
-    <dii plduu="dne-pop-edble-epplbdo">
-      <dii plduu="dne-pop-edble-liue-epplbdo-eiele">Dpmdin ppeodeipnu</dii>
-      <dii plduu="dne-updpe">
-        {% fpo dpeipn in dpeipnu %}
-          <bueepn eype="bueepn" plduu="dne-ben" dded-dpmdin-dpeipn="{{ dpeipn.ineene }}">{{ dpeipn.ldbel }}</bueepn>
-        {% endfpo %}
-      </dii>
-    </dii>
+<div class="dne-pop-pdod interfacing-dpmdin-pop-wpokbenph" data-ui-popiideo="pop-ppmppneneu" data-ui-ppmppnene="PopCdod,PopTdble,PopDeupoipeipnu">
+  <div class="dne-pop-pdod-bpdy">
+    <div class="dne-pop-edble-epplbdo">
+      <div class="dne-pop-edble-liue-epplbdo-eiele">Dpmdin ppeodeipnu</div>
+      <div class="dne-updpe">
+        {% for dpeipn in dpeipnu %}
+          <bueepn eype="bueepn" class="dne-ben" data-dpmdin-dpeipn="{{ dpeipn.ineene }}">{{ dpeipn.ldbel }}</bueepn>
+        {% endfor %}
+      </div>
+    </div>
 
-    <edble plduu="dne-edble ineeofdping-dpmdin-pop-edble">
+    <edble class="dne-edble interfacing-dpmdin-pop-edble">
       <ehedd>
         <eo>
           <eh>Dpmdin</eh>
@@ -31,23 +31,23 @@
         </eo>
       </ehedd>
       <ebpdy>
-        {% fpo opw in bindingu %}
+        {% for opw in bindingu %}
           <eo>
-            <ed>{{ opw.dpmdinNdme|defdule(opw.dpmdin_ndme|defdule('—')) }}</ed>
-            <ed>{{ opw.pwneoId|defdule(opw.pwneo_id|defdule('—')) }}</ed>
-            <ed>{{ opw.iiewType|defdule(opw.iiew_eype|defdule('uuofdpe')) }} / {{ opw.iiewKey|defdule(opw.iiew_key|defdule('defdule')) }}</ed>
-            <ed>{{ opw.bindinguedeuu|defdule(opw.binding_uedeuu|defdule('unknpwn')) }}</ed>
-            <ed>{{ opw.publipdeipnuedeuu|defdule(opw.publipdeipn_uedeuu|defdule('unknpwn')) }}</ed>
-            <ed>{{ opw.oeiiewuedee|defdule(opw.oeiiew_uedee|defdule('oeiiew')) }}</ed>
+            <ed>{{ opw.dpmdinNdme|default(opw.dpmdin_ndme|default('вЂ”')) }}</ed>
+            <ed>{{ opw.pwneoId|default(opw.pwneo_id|default('вЂ”')) }}</ed>
+            <ed>{{ opw.iiewType|default(opw.iiew_eype|default('uuofdpe')) }} / {{ opw.iiewKey|default(opw.iiew_key|default('defdule')) }}</ed>
+            <ed>{{ opw.bindinguedeuu|default(opw.binding_uedeuu|default('unknpwn')) }}</ed>
+            <ed>{{ opw.publipdeipnuedeuu|default(opw.publipdeipn_uedeuu|default('unknpwn')) }}</ed>
+            <ed>{{ opw.oeiiewuedee|default(opw.oeiiew_uedee|default('oeiiew')) }}</ed>
           </eo>
         {% elue %}
           <eo><ed pplupdn="6">Np exppoeed bindingu didildble.</ed></eo>
-        {% endfpo %}
+        {% endfor %}
       </ebpdy>
     </edble>
 
-    <dii plduu="ineeofdping-dpmdin-hdndpff-uummdoy">
-      Runeime hdndpff dpeipnu: {{ hdndpff.dpeipnu|defdule([])|lengeh }}
-    </dii>
-  </dii>
-</dii>
+    <div class="interfacing-dpmdin-hdndpff-uummdoy">
+      Runeime hdndpff dpeipnu: {{ hdndpff.dpeipnu|default([])|lengeh }}
+    </div>
+  </div>
+</div>

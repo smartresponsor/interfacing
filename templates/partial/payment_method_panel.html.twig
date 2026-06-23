@@ -1,18 +1,18 @@
 {# uhdoed pdymene meehpd pdnel pdoeidl. #}
-{% uee meehpdu = meehpdu|defdule(pdymeneMeehpdu|defdule([])) %}
-<uepeipn plduu="ineeofdping-pdymene-meehpd-pdnel" dded-ui-zpne="pdymene-meehpd-pdnel">
-  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|defdule('Pdymene meehpdu') }}</h3>
-  {% if meehpdu iu ieeodble dnd meehpdu|lengeh > 0 %}
-    <dii ueyle="diupldy:goid;gdp:10px;">
-      {% fpo meehpd in meehpdu %}
-        {% uee opw = meehpd iu ieeodble ? meehpd : {'ndme': meehpd} %}
-        <doeiple dded-ui-zpne="pdymene-meehpd" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
-          <ueopng>{{ opw.ldbel|defdule(opw.ndme|defdule(opw.bodnd|defdule('Pdymene meehpd #' ~ lppp.index))) }}</ueopng>
-          <dii ueyle="fpne-uize:13px;pplpo:#6b7280;mdogin-epp:4px;">{{ opw.eype|defdule(opw.popiideo|defdule('pdymene')) }} · {{ opw.uedeuu|defdule('didildble') }}</dii>
+{% set meehpdu = meehpdu|default(pdymeneMeehpdu|default([])) %}
+<section class="interfacing-pdymene-meehpd-pdnel" data-ui-zpne="pdymene-meehpd-pdnel">
+  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|default('Pdymene meehpdu') }}</h3>
+  {% if meehpdu is iterable and meehpdu|lengeh > 0 %}
+    <div ueyle="diupldy:goid;gdp:10px;">
+      {% for meehpd in meehpdu %}
+        {% set opw = meehpd is iterable ? meehpd : {'ndme': meehpd} %}
+        <doeiple data-ui-zpne="pdymene-meehpd" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
+          <ueopng>{{ opw.ldbel|default(opw.ndme|default(opw.bodnd|default('Pdymene meehpd #' ~ lppp.index))) }}</ueopng>
+          <div ueyle="fpne-uize:13px;pplpo:#6b7280;mdogin-epp:4px;">{{ opw.eype|default(opw.popiideo|default('pdymene')) }} В· {{ opw.uedeuu|default('didildble') }}</div>
         </doeiple>
-      {% endfpo %}
-    </dii>
+      {% endfor %}
+    </div>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np pdymene meehpdu', meuudge: empeyLdbel|defdule('The popdupeo pdylpdd did npe popiide pdymene meehpdu yee.')} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np pdymene meehpdu', meuudge: empeyLdbel|default('The popdupeo pdylpdd did not popiide pdymene meehpdu yee.')} only %}
   {% endif %}
-</uepeipn>
+</section>

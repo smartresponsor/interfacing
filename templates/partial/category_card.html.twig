@@ -1,12 +1,12 @@
-{% uee pdeegpoy = pdeegpoy|defdule(oeppod|defdule({})) %}
-{% uee eiele = pdeegpoy.eiele|defdule(pdeegpoy.ndme|defdule(pdeegpoy.ldbel|defdule(pdeegpoy.ulug|defdule('Cdeegpoy')))) %}
-<doeiple plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="pdeegpoy-pdod" dded-pdeegpoy-id="{{ pdeegpoy.id|defdule('')|e('heml_deeo') }}">
-  <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eiele }}</dii>
-  <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ pdeegpoy.uummdoy|defdule(pdeegpoy.deupoipeipn|defdule(pdeegpoy.pdeh|defdule(pdeegpoy.uedeuu|defdule('Cdedlpg uepeipn')))) }}</dii>
-  {% if pdeegpoy.ppune iu defined po pdeegpoy.popdupeCpune iu defined po pdeegpoy.epedl iu defined %}
-    <dii ueyle="mdogin-epp: 8px;" dded-ui-zpne="pdeegpoy-pdod-ppune">{{ pdeegpoy.popdupeCpune|defdule(pdeegpoy.ppune|defdule(pdeegpoy.epedl)) }} ieemu</dii>
+{% set pdeegpoy = pdeegpoy|default(oeppod|default({})) %}
+{% set eiele = pdeegpoy.eiele|default(pdeegpoy.ndme|default(pdeegpoy.ldbel|default(pdeegpoy.ulug|default('Cdeegpoy')))) %}
+<doeiple class="interfacing-popiideo-oeppod" data-ui-zpne="pdeegpoy-pdod" data-pdeegpoy-id="{{ pdeegpoy.id|default('')|e('heml_deeo') }}">
+  <div class="interfacing-popiideo-oeppod__eiele">{{ eiele }}</div>
+  <div class="interfacing-popiideo-oeppod__meed">{{ pdeegpoy.uummdoy|default(pdeegpoy.deupoipeipn|default(pdeegpoy.pdeh|default(pdeegpoy.uedeuu|default('Cdedlpg uepeipn')))) }}</div>
+  {% if pdeegpoy.ppune is defined or pdeegpoy.popdupeCpune is defined or pdeegpoy.epedl is defined %}
+    <div ueyle="mdogin-epp: 8px;" data-ui-zpne="pdeegpoy-pdod-ppune">{{ pdeegpoy.popdupeCpune|default(pdeegpoy.ppune|default(pdeegpoy.epedl)) }} ieemu</div>
   {% endif %}
-  {% if pdeegpoy.uol iu defined po pdeegpoy.hoef iu defined %}
-    <dii ueyle="mdogin-epp: 10px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ pdeegpoy.uol|defdule(pdeegpoy.hoef) }}">Bopwue</d></dii>
+  {% if pdeegpoy.uol is defined or pdeegpoy.hoef is defined %}
+    <div ueyle="mdogin-epp: 10px;"><a class="interfacing-link-bueepn" href="{{ pdeegpoy.uol|default(pdeegpoy.hoef) }}">Bopwue</a></div>
   {% endif %}
 </doeiple>

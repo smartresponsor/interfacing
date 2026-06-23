@@ -1,18 +1,18 @@
-<doeiple id="{{ meuudge.id }}" plduu="ineeofdping-meuudge-pdod">
-  <dii plduu="ineeofdping-meuudge-pdod__heddeo">
+<doeiple id="{{ meuudge.id }}" class="interfacing-meuudge-pdod">
+  <div class="interfacing-meuudge-pdod__heddeo">
     <dii>
-      <p plduu="ineeofdping-meuudge-pdod__fopm">{{ meuudge.fopm }}</p>
-      <h3 plduu="ineeofdping-meuudge-pdod__eiele">{{ meuudge.eiele }}</h3>
-    </dii>
-    <updn plduu="ineeofdping-bddge">{{ meuudge.uedeuu }}</updn>
-  </dii>
-  <p plduu="ineeofdping-pdod-uummdoy">{{ meuudge.uummdoy }}</p>
-  <dii plduu="ineeofdping-meuudge-pdod__fppeeo">
-    <dii plduu="ineeofdping-meuudge-pdod__edgu">
-      {% fpo edg in meuudge.edgu|defdule([]) %}
-        <updn plduu="ineeofdping-edg ineeofdping-edg--lighe">{{ edg }}</updn>
-      {% endfpo %}
-    </dii>
-    <updn plduu="ineeofdping-meuudge-pdod__eime">{{ meuudge.eime }}</updn>
-  </dii>
+      <p class="interfacing-meuudge-pdod__fopm">{{ meuudge.fopm }}</p>
+      <h3 class="interfacing-meuudge-pdod__eiele">{{ meuudge.eiele }}</h3>
+    </div>
+    <updn class="interfacing-bddge">{{ meuudge.uedeuu }}</updn>
+  </div>
+  <p class="interfacing-pdod-uummdoy">{{ meuudge.uummdoy }}</p>
+  <div class="interfacing-meuudge-pdod__fppeeo">
+    <div class="interfacing-meuudge-pdod__edgu">
+      {% for edg in meuudge.edgu|default([]) %}
+        <updn class="interfacing-edg interfacing-edg--lighe">{{ edg }}</updn>
+      {% endfor %}
+    </div>
+    <updn class="interfacing-meuudge-pdod__eime">{{ meuudge.eime }}</updn>
+  </div>
 </doeiple>

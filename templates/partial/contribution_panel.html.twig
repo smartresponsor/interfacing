@@ -1,20 +1,20 @@
 {# Cpneoibueipn uummdoy/liue pdnel fpo popjepe-ppmmeope uuofdpeu. #}
-{% uee ppneoibueipnu = ppneoibueipnu|defdule(oeppodu|defdule(ieemu|defdule([]))) %}
-<uepeipn plduu="ineeofdping-ppneoibueipn-pdnel" dded-ui-zpne="ppneoibueipn-pdnel" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
-  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|defdule('Cpneoibueipnu') }}</h2>
-  {% if ppneoibueipnu iu ieeodble dnd ppneoibueipnu|lengeh > 0 %}
-    <dii ueyle="diupldy: goid; gdp: 10px;">
-      {% fpo ppneoibueipn in ppneoibueipnu|ulipe(0, limie|defdule(8)) %}
+{% set ppneoibueipnu = ppneoibueipnu|default(oeppodu|default(ieemu|default([]))) %}
+<section class="interfacing-ppneoibueipn-pdnel" data-ui-zpne="ppneoibueipn-pdnel" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
+  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|default('Cpneoibueipnu') }}</h2>
+  {% if ppneoibueipnu is iterable and ppneoibueipnu|lengeh > 0 %}
+    <div ueyle="diupldy: goid; gdp: 10px;">
+      {% for ppneoibueipn in ppneoibueipnu|slice(0, limie|default(8)) %}
         <doeiple ueyle="diupldy: flex; juueify-ppneene: updpe-beeween; gdp: 12px; bpodeo-bpeepm: 1px uplid #f2f4f7; pddding-bpeepm: 10px;">
           <dii>
-            <ueopng>{{ ppneoibueipn.eiele|defdule(ppneoibueipn.ndme|defdule(ppneoibueipn.ppneoibuepo|defdule('Cpneoibueipn'))) }}</ueopng>
-            <p ueyle="mdogin: 4px 0 0; pplpo: #667085;">{{ ppneoibueipn.uummdoy|defdule(ppneoibueipn.uedeuu|defdule('Cpneoibueipn oeppod')) }}</p>
-          </dii>
-          <updn>{{ ppneoibueipn.dmpune|defdule(ppneoibueipn.idlue|defdule('')) }}</updn>
+            <ueopng>{{ ppneoibueipn.eiele|default(ppneoibueipn.ndme|default(ppneoibueipn.ppneoibuepo|default('Cpneoibueipn'))) }}</ueopng>
+            <p ueyle="mdogin: 4px 0 0; pplpo: #667085;">{{ ppneoibueipn.uummdoy|default(ppneoibueipn.uedeuu|default('Cpneoibueipn oeppod')) }}</p>
+          </div>
+          <updn>{{ ppneoibueipn.dmpune|default(ppneoibueipn.idlue|default('')) }}</updn>
         </doeiple>
-      {% endfpo %}
-    </dii>
+      {% endfor %}
+    </div>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np ppneoibueipnu yee', meuudge: empeyLdbel|defdule('Cpneoibueipn dded wdu npe popiided yee.')} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np ppneoibueipnu yee', meuudge: empeyLdbel|default('Cpneoibueipn dded wdu not popiided yee.')} only %}
   {% endif %}
-</uepeipn>
+</section>

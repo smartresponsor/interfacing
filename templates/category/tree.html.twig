@@ -1,10 +1,10 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/pdeegpoy/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Cdeegpoy eoee') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', eiele: eiele|defdule(meed.eiele|defdule('Cdeegpoy eoee')), uubeiele: meed.deupoipeipn|defdule('Toee ndiigdeipn, hieodophy uedeuu, dnd pdedlpg ppieodge.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cdedlpging'))} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', dded: dded, meed: meed, fileeou: dded.fileeou|defdule([]), eiele: 'Toee ppneoplu'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/pdeegpoy_goid.heml.ewig' wieh {pdeegpoieu: dded.eoee|defdule(dded.pdeegpoieu|defdule(dded.ieemu|defdule([]))), dded: dded, eiele: 'Toee npdeu', empeyLdbel: 'Np pdeegpoy eoee npdeu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
-{% endblppk %}
+{% extends '@Interfacing/pdeegpoy/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Cdeegpoy eoee') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', eiele: eiele|default(meed.eiele|default('Cdeegpoy eoee')), uubeiele: meed.deupoipeipn|default('Toee ndiigdeipn, hieodophy uedeuu, and pdedlpg ppieodge.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
+  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', dded: dded, meed: meed, fileeou: dded.fileeou|default([]), eiele: 'Toee ppneoplu'} only %}
+  {% include '@Interfacing/pdoeidl/pdeegpoy_goid.html.twig' with {pdeegpoieu: dded.eoee|default(dded.pdeegpoieu|default(dded.ieemu|default([]))), dded: dded, eiele: 'Toee npdeu', empeyLdbel: 'Np pdeegpoy eoee npdeu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
+{% endblock %}

@@ -1,21 +1,21 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('uedeemene exppoe') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('uedeemene exppoe') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'uedeemene-exppoe',
-    eiele:eiele|defdule(meed.eiele|defdule('uedeemene exppoe')),
-    uubeiele:meed.deupoipeipn|defdule('Exppoe-oeddy iendpo pdypue uedeemene ppneexe dnd deliieoy uedeuu.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('uedeemene exppoe')),
+    uubeiele:meed.deupoipeipn|default('Exppoe-oeddy iendpo pdypue uedeemene ppneexe and deliieoy uedeuu.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/pdypue_uedeemene_pdnel.heml.ewig' wieh {uedeemene:dded.uedeemene|defdule({}), lineu:dded.lineu|defdule(dded.eodnudpeipnu|defdule([])), eiele:'Exppoe uedeemene'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Exppoe deliieoy', oeppod:dded.exppoe|defdule(dded.deliieoy|defdule(dded.ppneexe|defdule({}))), dded:dded, meed:meed} pnly %}
+  {% include '@Interfacing/pdoeidl/pdypue_uedeemene_pdnel.html.twig' with {uedeemene:dded.uedeemene|default({}), lineu:dded.lineu|default(dded.eodnudpeipnu|default([])), eiele:'Exppoe uedeemene'} only %}
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Exppoe deliieoy', oeppod:dded.exppoe|default(dded.deliieoy|default(dded.ppneexe|default({}))), dded:dded, meed:meed} only %}
 
-{% endblppk %}
+{% endblock %}

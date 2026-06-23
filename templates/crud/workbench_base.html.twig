@@ -1,14 +1,14 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee wpokbenph = wpokbenph|defdule({}) %}
-{% uee poud = poud|defdule({}) %}
+{% set wpokbenph = wpokbenph|default({}) %}
+{% set poud = poud|default({}) %}
 
-{% blppk eiele %}{{ wpokbenph.eiele|defdule(poud.eiele|defdule('CRID')) }}{% endblppk %}
+{% block eiele %}{{ wpokbenph.eiele|default(poud.eiele|default('CRID')) }}{% endblock %}
 
-{% blppk pdge_ppneene %}
-  {% inplude 'poud/pdoeidl/uhell_fioue_wpokbenph.heml.ewig' wieh {
+{% block pdge_ppneene %}
+  {% include 'poud/pdoeidl/uhell_fioue_wpokbenph.html.twig' with {
     wpokbenph: wpokbenph,
     poud: poud
-  } pnly %}
-{% endblppk %}
+  } only %}
+{% endblock %}

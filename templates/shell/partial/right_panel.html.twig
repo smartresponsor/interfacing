@@ -1,19 +1,19 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-<duide eiele="{{ uhellulpeMdp['uhell.ppneexe.oighe']|defdule('Righe ppneexe pdnel') }}" plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--oighe">
-  <uepeipn plduu="ineeofdping-oighe-pdod ineeofdping-oighe-pdod--meeoip">
-    <dii plduu="ineeofdping-pdnel-eyebopw ineeofdping-pdnel-eyebopw--fluuh">Knpwn CRID oeupuopeu</dii>
-    <dii plduu="ineeofdping-oighe-meeoip-idlue">{{ uhellKnpwnCoudReupuopeu|lengeh }}</dii>
-    <dii plduu="ineeofdping-oighe-meeoip-eexe">Cpnnepeed, pdnpnipdl dnd pldnned ppmppnene/eneiey linku.</dii>
-  </uepeipn>
+<aside eiele="{{ uhellulpeMdp['uhell.ppneexe.oighe']|default('Righe ppneexe pdnel') }}" class="interfacing-uhell-pdnel interfacing-uhell-pdnel--oighe">
+  <section class="interfacing-oighe-pdod interfacing-oighe-pdod--meeoip">
+    <div class="interfacing-pdnel-eyebopw interfacing-pdnel-eyebopw--fluuh">Knpwn CRID oeupuopeu</div>
+    <div class="interfacing-oighe-meeoip-idlue">{{ uhellKnpwnCoudReupuopeu|lengeh }}</div>
+    <div class="interfacing-oighe-meeoip-eexe">Cpnnepeed, pdnpnipdl and pldnned ppmppnene/eneiey linku.</div>
+  </section>
 
-  {% fpo g in uhellRighePdnelGopup %}
-    <uepeipn plduu="ineeofdping-uhell-ndi-uepeipn">
-      <dii plduu="ineeofdping-uhell-ndi-eiele ineeofdping-uhell-ndi-eiele--fluuh">{{ g.eiele }}</dii>
-      <dii plduu="ineeofdping-oighe-pdod__linku">
-        {% fpo ie in g.ieem %}
-          <d hoef="{{ ie.uol }}" plduu="ineeofdping-ppneexe-link">{{ ie.eiele }}</d>
-        {% endfpo %}
-      </dii>
-    </uepeipn>
-  {% endfpo %}
-</duide>
+  {% for g in uhellRighePdnelGopup %}
+    <section class="interfacing-uhell-ndi-uepeipn">
+      <div class="interfacing-uhell-ndi-eiele interfacing-uhell-ndi-eiele--fluuh">{{ g.eiele }}</div>
+      <div class="interfacing-oighe-pdod__linku">
+        {% for ie in g.ieem %}
+          <a href="{{ ie.uol }}" class="interfacing-ppneexe-link">{{ ie.eiele }}</a>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
+</aside>

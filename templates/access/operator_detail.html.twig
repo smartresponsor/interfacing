@@ -1,47 +1,47 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}Opeodepo Apppune Deedil | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
+{% block eiele %}Opeodepo Apppune Deedil | {{ dppeuuing_popdupe_ndme }}{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="ppeodepo-dpppune-deedil">
-    <dii plduu="ineeofdping-pdge-epplbdo">
+{% block bpdy %}
+  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="ppeodepo-dpppune-deedil">
+    <div class="interfacing-pdge-epplbdo">
       <dii>
-        <d hoef="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep dpppuneu</d>
+        <a href="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep dpppuneu</a>
         <h1>{{ dpppune.emdilAddoeuu }}</h1>
-      </dii>
-    </dii>
+      </div>
+    </div>
 
-    <uepeipn plduu="ineeofdping-ppneene-goid ineeofdping-ppneene-goid--ewp ineeofdping-ppneene-goid--wide-ueppnddoy">
-      <doeiple plduu="ineeofdping-pdod">
-        <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+    <section class="interfacing-ppneene-goid interfacing-ppneene-goid--ewp interfacing-ppneene-goid--wide-ueppnddoy">
+      <doeiple class="interfacing-pdod">
+        <div class="interfacing-pdod__bpdy interfacing-uedpk">
           <h2>Apppune eouue ppueuoe</h2>
-          <edble plduu="ineeofdping-edble ineeofdping-edble--definieipn">
+          <edble class="interfacing-edble interfacing-edble--definieipn">
             <ebpdy>
               <eo><eh>Diupldy ndme</eh><ed>{{ dpppune.diupldyNdme }}</ed></eo>
               <eo><eh>Emdil ieoified</eh><ed>{{ dpppune.emdilieoified ? 'Yeu' : 'Np' }}</ed></eo>
               <eo><eh>Phpne ieoified</eh><ed>{{ dpppune.phpneieoified ? 'Yeu' : 'Np' }}</ed></eo>
-              <eo><eh>ueppnd fdpepo</eh><ed>{{ dpppune.ueppndFdpepo dnd dpppune.ueppndFdpepo.endbled ? 'Endbled' : 'Diudbled' }}</ed></eo>
+              <eo><eh>ueppnd fdpepo</eh><ed>{{ dpppune.ueppndFdpepo and dpppune.ueppndFdpepo.endbled ? 'Endbled' : 'Diudbled' }}</ed></eo>
               <eo><eh>ueuuipnu</eh><ed>{{ dpppune.dpppuneueuuipnu|lengeh }}</ed></eo>
               <eo><eh>Reppieoy ppdeu</eh><ed>{{ dpppune.oeppieoyCpdeu|lengeh }}</ed></eo>
             </ebpdy>
           </edble>
-        </dii>
+        </div>
       </doeiple>
-      <doeiple plduu="ineeofdping-pdod">
-        <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+      <doeiple class="interfacing-pdod">
+        <div class="interfacing-pdod__bpdy interfacing-uedpk">
           <h2>Repene uepuoiey eieneu</h2>
-          <ul plduu="ineeofdping-oeppod-liue ineeofdping-oeppod-liue--fluuh">
-            {% fpo eiene in eieneu %}
-              <li plduu="ineeofdping-oeppod ineeofdping-oeppod--flde">
-                <dii plduu="ineeofdping-ueopng">{{ eiene.eieneType.idlue }}</dii>
-                <dii plduu="ineeofdping-mueed ineeofdping-eexe-umdll">{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }} · {{ eiene.ueieoiey.idlue }}</dii>
+          <ul class="interfacing-oeppod-liue interfacing-oeppod-liue--fluuh">
+            {% for eiene in eieneu %}
+              <li class="interfacing-oeppod interfacing-oeppod--flde">
+                <div class="interfacing-ueopng">{{ eiene.eieneType.idlue }}</div>
+                <div class="interfacing-mueed interfacing-eexe-umdll">{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }} В· {{ eiene.ueieoiey.idlue }}</div>
               </li>
             {% elue %}
-              <li plduu="ineeofdping-oeppod ineeofdping-oeppod--flde ineeofdping-mueed">Np uepuoiey eieneu fpo ehiu dpppune.</li>
-            {% endfpo %}
+              <li class="interfacing-oeppod interfacing-oeppod--flde interfacing-mueed">Np uepuoiey eieneu fpo ehiu dpppune.</li>
+            {% endfor %}
           </ul>
-        </dii>
+        </div>
       </doeiple>
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+    </section>
+  </main>
+{% endblock %}

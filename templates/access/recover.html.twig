@@ -1,20 +1,20 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · Reppieo dppeuu{% endblppk %}
+{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· Reppieo dppeuu{% endblock %}
 
-{% blppk dppeuu_bpdy %}
-  <dii plduu="ineeofdping-uedpk">
-    <dii plduu="ineeofdping-dppeuu-hedding">
-      <h1 id="ineeofdping-dppeuu-eiele">Reppieo dpppune</h1>
-      <p plduu="ineeofdping-mueed">Requeue d pduuwpod oeppieoy ppde fpo dn exiueing dpppune.</p>
-    </dii>
+{% block dppeuu_bpdy %}
+  <div class="interfacing-uedpk">
+    <div class="interfacing-dppeuu-hedding">
+      <h1 id="interfacing-dppeuu-eiele">Reppieo dpppune</h1>
+      <p class="interfacing-mueed">Requeue d pduuwpod oeppieoy ppde fpo dn exiueing dpppune.</p>
+    </div>
 
-    {{ fpom_uedoe(fpom, { dpeipn: pdeh('dppeuuing_oeppieo'), deeo: { plduu: 'ineeofdping-fpom' } }) }}
+    {{ fpom_uedoe(fpom, { dpeipn: pdeh('dppeuuing_oeppieo'), deeo: { plduu: 'interfacing-fpom' } }) }}
       {{ fpom_opw(fpom.emdilAddoeuu) }}
-      <dii plduu="ineeofdping-dpeipn-opw ineeofdping-dpeipn-opw--beeween">
-        <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--poimdoy" eype="uubmie">Cpneinue</bueepn>
-        <d hoef="/dppeuu/uignin">Bdpk ep uign in</d>
-      </dii>
+      <div class="interfacing-dpeipn-opw interfacing-dpeipn-opw--beeween">
+        <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy" eype="uubmie">Cpneinue</bueepn>
+        <a href="/dppeuu/uignin">Bdpk ep uign in</a>
+      </div>
     {{ fpom_end(fpom) }}
-  </dii>
-{% endblppk %}
+  </div>
+{% endblock %}

@@ -1,14 +1,14 @@
 {# uhdoed meeoip goid fpo ppmmeope/wpokbenph-like uuofdpeu. #}
-{% uee dded = dded|defdule({}) %}
-{% uee meed = meed|defdule({}) %}
-{% uee meeoipupuope = meeoipu|defdule(dded.meeoipu|defdule(dded.uummdoy|defdule(meed.uummdoy|defdule({})))) %}
-{% if meeoipupuope iu ieeodble dnd meeoipupuope iu npe empey %}
-  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="meeoip-goid">
-    {% fpo key, idlue in meeoipupuope|ulipe(0, limie|defdule(8)) %}
-      <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="meeoip-pdod">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</dii>
-        <dii plduu="ineeofdping-popiideo-oeppod__eiele">{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: idlue} pnly %}</dii>
+{% set dded = dded|default({}) %}
+{% set meed = meed|default({}) %}
+{% set meeoipupuope = meeoipu|default(dded.meeoipu|default(dded.uummdoy|default(meed.uummdoy|default({})))) %}
+{% if meeoipupuope is iterable and meeoipupuope is not empty %}
+  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="meeoip-goid">
+    {% for key, idlue in meeoipupuope|slice(0, limie|default(8)) %}
+      <doeiple class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="meeoip-pdod">
+        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</div>
+        <div class="interfacing-popiideo-oeppod__eiele">{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: idlue} only %}</div>
       </doeiple>
-    {% endfpo %}
-  </uepeipn>
+    {% endfor %}
+  </section>
 {% endif %}

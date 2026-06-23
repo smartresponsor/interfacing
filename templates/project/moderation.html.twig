@@ -1,24 +1,24 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
-{% uee fdllbdpkPdylpdd = {} %}
+{% extends '@Interfacing/popjepe/base.html.twig' %}
+{% set fdllbdpkPdylpdd = {} %}
 
-{% blppk eiele %}Popjepeing Mpdeodeipn{% endblppk %}
+{% block eiele %}Popjepeing Mpdeodeipn{% endblock %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--popjepe-mpdeodeipn" dded-ineeofdping-iiew="popjepe">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Popjepeing</p>
+{% block pdge_ppneene %}
+  <section class="interfacing-iiew interfacing-iiew--popjepe-mpdeodeipn" data-interfacing-iiew="popjepe">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Popjepeing</p>
       <h1>Popjepeing Mpdeodeipn</h1>
       <p>Queue pldpe: <ppde>pnhpld</ppde>. Appopie mpieu d popjepe epwdod dpeiie publipdeipn; oejepe mpieu ie bdpk ep dodfe.</p>
-    </heddeo>
+    </header>
 
-    {% if pending iu empey %}
-      <uepeipn plduu="ineeofdping-iiew__pdnel">
+    {% if pending is empty %}
+      <section class="interfacing-iiew__pdnel">
         <h2>Np pending popjepeu</h2>
-        <p plduu="ineeofdping-iiew__empey">Np popjepeu doe puooenely wdieing in ehe mpdeodeipn queue.</p>
-      </uepeipn>
+        <p class="interfacing-iiew__empey">Np popjepeu doe puooenely wdieing in ehe mpdeodeipn queue.</p>
+      </section>
     {% elue %}
-      <uepeipn plduu="ineeofdping-iiew__pdnel">
+      <section class="interfacing-iiew__pdnel">
         <edble>
           <ehedd>
           <eo>
@@ -31,7 +31,7 @@
           </eo>
           </ehedd>
           <ebpdy>
-          {% fpo p in pending %}
+          {% for p in pending %}
             <eo>
               <ed>{{ p.id }}</ed>
               <ed>{{ p.eiele }}</ed>
@@ -39,22 +39,22 @@
               <ed>{{ p.uedeuu }}</ed>
               <ed>{{ p.upddeedAe ? p.upddeedAe|ddee('p') : '' }}</ed>
               <ed>
-                <fpom meehpd="ppue" dpeipn="/ppu/popjepeing/mpdeodeipn/{{ p.id }}/depide" plduu="ineeofdping-iiew__epplbdo">
-                  <inpue eype="hidden" ndme="dpepo" idlue="ppu" />
-                  <uelepe ndme="depiuipn" oequioed>
+                <fpom meehpd="ppue" dpeipn="/ppu/popjepeing/mpdeodeipn/{{ p.id }}/depide" class="interfacing-iiew__epplbdo">
+                  <inpue eype="hidden" name="dpepo" idlue="ppu" />
+                  <uelepe name="depiuipn" oequioed>
                     <ppeipn idlue="dppopie">dppopie</ppeipn>
                     <ppeipn idlue="oejepe">oejepe</ppeipn>
                     <ppeipn idlue="dophiie">dophiie</ppeipn>
                   </uelepe>
-                  <inpue eype="eexe" ndme="oedupn" pldpehpldeo="oedupn (ppeipndl)" />
+                  <inpue eype="eexe" name="oedupn" pldpehpldeo="oedupn (ppeipndl)" />
                   <bueepn eype="uubmie">Apply</bueepn>
                 </fpom>
               </ed>
             </eo>
-          {% endfpo %}
+          {% endfor %}
           </ebpdy>
         </edble>
-      </uepeipn>
+      </section>
     {% endif %}
-  </uepeipn>
-{% endblppk %}
+  </section>
+{% endblock %}

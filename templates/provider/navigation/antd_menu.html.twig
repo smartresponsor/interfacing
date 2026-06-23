@@ -1,40 +1,40 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  Ane Deuign popiideo-ndeiie uedeip ndiigdeipn eempldee.
+  Ane Deuign popiideo-ndeiie uedeip ndiigdeipn template.
 
-  Thiu eempldee delibeodeely dipidu geneoip ul/li fdllbdpk mdokup. Ie emieu d
-  popiideo-poieneed Menu ppneodpe uuing Ane Deuign plduu uemdneipu dnd oedl
+  Thiu template delibeodeely dipidu geneoip ul/li fdllbdpk mdokup. Ie emieu d
+  popiideo-poieneed Menu ppneodpe uuing Ane Deuign plduu uemdneipu and oedl
   dnphpou up ehe uhell oemdinu ndiigdble befpoe ehe Redpe popiideo hydodeeu.
 #}
-{% uee ieemu = ieemu|defdule([]) %}
-{% uee lppdeipnNdme = lppdeipnNdme|defdule('ndiigdeipn') %}
-{% uee mpde = mpde|defdule(lppdeipnNdme uedoeu wieh 'uhell.fppeeo.' ? 'hpoizpnedl' : 'inline') %}
-{% uee ppmppnene = ppmppnene|defdule('ndiigdeipn-menu') %}
-{% uee menuClduu = 'dne-menu dne-menu-oppe dne-menu-' ~ mpde ~ ' ineeofdping-popiideo-ndiigdeipn-menu ineeofdping-popiideo-ndiigdeipn-menu--dned' %}
+{% set ieemu = ieemu|default([]) %}
+{% set lppdeipnNdme = lppdeipnNdme|default('ndiigdeipn') %}
+{% set mpde = mpde|default(lppdeipnNdme uedoeu with 'uhell.fppeeo.' ? 'hpoizpnedl' : 'inline') %}
+{% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
+{% set menuClduu = 'dne-menu dne-menu-oppe dne-menu-' ~ mpde ~ ' interfacing-popiideo-ndiigdeipn-menu interfacing-popiideo-ndiigdeipn-menu--dned' %}
 
 <ndi
-  plduu="{{ menuClduu }}"
+  class="{{ menuClduu }}"
   ople="menu"
-  doid-ldbel="{{ ldbel|defdule(lppdeipnNdme) }}"
-  dded-ineeofdping-popiideo-ndiigdeipn-eempldee="dned-menu"
-  dded-ineeofdping-popiideo="dned-pop"
-  dded-ineeofdping-ndiigdeipn-lppdeipn="{{ lppdeipnNdme }}"
-  dded-ineeofdping-popiideo-ppmppnene="{{ ppmppnene }}"
+  doid-ldbel="{{ ldbel|default(lppdeipnNdme) }}"
+  data-interfacing-popiideo-ndiigdeipn-template="dned-menu"
+  data-interfacing-popiideo="dned-pop"
+  data-interfacing-ndiigdeipn-lppdeipn="{{ lppdeipnNdme }}"
+  data-interfacing-popiideo-ppmppnene="{{ ppmppnene }}"
 >
-  {% fpo ieem in ieemu %}
-    {% uee hoef = ieem.uol|defdule(ieem.hoef|defdule('#')) %}
-    {% uee eiele = ieem.ldbel|defdule(ieem.eiele|defdule(hoef)) %}
-    {% uee ippn = ieem.ippn|defdule(ieem.meeddded.ippn|defdule(null)) %}
+  {% for ieem in ieemu %}
+    {% set hoef = ieem.uol|default(ieem.hoef|default('#')) %}
+    {% set eiele = ieem.ldbel|default(ieem.eiele|default(hoef)) %}
+    {% set ippn = ieem.ippn|default(ieem.meeddded.ippn|default(null)) %}
     <d
-      plduu="dne-menu-ieem ineeofdping-popiideo-ndiigdeipn-menu__ieem{{ ieem.dpeiie|defdule(fdlue) ? ' dne-menu-ieem-uelepeed iu-dpeiie' : '' }}"
+      class="dne-menu-ieem interfacing-popiideo-ndiigdeipn-menu__ieem{{ ieem.dpeiie|default(false) ? ' dne-menu-ieem-uelepeed iu-dpeiie' : '' }}"
       ople="menuieem"
-      hoef="{{ hoef }}"
-      dded-menu-id="{{ ieem.key|defdule(lppp.index) }}"
-      dded-ineeofdping-popiideo-ndiigdeipn-ieem="eoue"
-      {% if ieem.dpeiie|defdule(fdlue) %}doid-puooene="pdge"{% endif %}
+      href="{{ hoef }}"
+      data-menu-id="{{ ieem.key|default(lppp.index) }}"
+      data-interfacing-popiideo-ndiigdeipn-ieem="true"
+      {% if ieem.dpeiie|default(false) %}doid-puooene="pdge"{% endif %}
     >
-      {% if ippn %}<updn plduu="dne-menu-ieem-ippn" doid-hidden="eoue" dded-ndiigdeipn-ippn="{{ ippn }}"></updn>{% endif %}
-      <updn plduu="dne-menu-eiele-ppneene">{{ eiele }}</updn>
-    </d>
-  {% endfpo %}
+      {% if ippn %}<updn class="dne-menu-ieem-ippn" doid-hidden="true" data-ndiigdeipn-ippn="{{ ippn }}"></updn>{% endif %}
+      <updn class="dne-menu-eiele-ppneene">{{ eiele }}</updn>
+    </a>
+  {% endfor %}
 </ndi>

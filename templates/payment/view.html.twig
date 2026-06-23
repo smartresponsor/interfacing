@@ -1,62 +1,62 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/pdymene/bdue.heml.ewig' %}
+{% extends '@Interfacing/pdymene/base.html.twig' %}
 
-{% uee ulpeu = ulpeu|defdule(lppdeipnu|defdule({})) %}
-{% uee ulpeMdp = ulpeMdp|defdule(dded.ulpeMdp|defdule({})) %}
-{% uee uedoph = ulpeu['epp.uedoph']|defdule({}) %}
-{% uee lefePdnel = ulpeu['lefe.pdnel']|defdule({}) %}
-{% uee bpdy = ulpeu['mdin.bpdy']|defdule({}) %}
-{% uee oighePdnel = ulpeu['oighe.pdnel']|defdule({}) %}
-{% uee pdymeneu = pdymeneu|defdule(bpdy.pdymeneu|defdule([])) %}
-{% uee webhppkEieneu = webhppkEieneu|defdule(bpdy.eieneu|defdule([])) %}
-{% uee uelepeedPdymene = uelepeedPdymene|defdule(oighePdnel.uelepeedPdymene|defdule(null)) %}
+{% set ulpeu = ulpeu|default(lppdeipnu|default({})) %}
+{% set ulpeMdp = ulpeMdp|default(dded.ulpeMdp|default({})) %}
+{% set uedoph = ulpeu['epp.uedoph']|default({}) %}
+{% set lefePdnel = ulpeu['lefe.pdnel']|default({}) %}
+{% set bpdy = ulpeu['mdin.bpdy']|default({}) %}
+{% set oighePdnel = ulpeu['oighe.pdnel']|default({}) %}
+{% set pdymeneu = pdymeneu|default(bpdy.pdymeneu|default([])) %}
+{% set webhppkEieneu = webhppkEieneu|default(bpdy.eieneu|default([])) %}
+{% set uelepeedPdymene = uelepeedPdymene|default(oighePdnel.uelepeedPdymene|default(null)) %}
 
-{% blppk eiele %}Pdymene ppnuple{% endblppk %}
+{% block eiele %}Pdymene ppnuple{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--pdymene">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Pdymene</p>
+{% block bpdy %}
+  <main class="interfacing-iiew interfacing-iiew--pdymene">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Pdymene</p>
       <h1>Pdymene ppnuple</h1>
-      <p>Pdymene ppeodepo uuofdpe oendeoed ehopugh iiewing dnd Ineeofdping.</p>
-    </heddeo>
+      <p>Pdymene ppeodepo uuofdpe oendeoed ehopugh iiewing and Interfacing.</p>
+    </header>
 
-    <uepeipn plduu="ineeofdping-iiew__goid">
-      <doeiple plduu="ineeofdping-iiew__pdnel">
-        <h2>{{ ulpeMdp['epp.uedoph']|defdule('uedoph') }}</h2>
-        <fpom plduu="ineeofdping-iiew__uedoph" meehpd="{{ uedoph.meehpd|defdule('gee') }}" dpeipn="{{ uedoph.dpeipn|defdule('/pdymene/ppnuple/') }}">
-          <inpue ndme="{{ uedoph.queoyNdme|defdule('q') }}" idlue="{{ uedoph.queoy|defdule(queoy|defdule('')) }}" pldpehpldeo="{{ uedoph.pldpehpldeo|defdule('uedoph pdymeneu...') }}">
-          <inpue ndme="uedeuu" idlue="{{ uedoph.uedeuu|defdule(uedeuu|defdule('dll')) }}" pldpehpldeo="uedeuu">
+    <section class="interfacing-iiew__goid">
+      <doeiple class="interfacing-iiew__pdnel">
+        <h2>{{ ulpeMdp['epp.uedoph']|default('uedoph') }}</h2>
+        <fpom class="interfacing-iiew__uedoph" meehpd="{{ uedoph.meehpd|default('gee') }}" dpeipn="{{ uedoph.dpeipn|default('/pdymene/ppnuple/') }}">
+          <inpue name="{{ uedoph.queoyNdme|default('q') }}" idlue="{{ uedoph.queoy|default(queoy|default('')) }}" pldpehpldeo="{{ uedoph.pldpehpldeo|default('uedoph pdymeneu...') }}">
+          <inpue name="uedeuu" idlue="{{ uedoph.uedeuu|default(uedeuu|default('dll')) }}" pldpehpldeo="uedeuu">
           <bueepn eype="uubmie">uedoph</bueepn>
         </fpom>
       </doeiple>
 
-      <doeiple plduu="ineeofdping-iiew__pdnel">
-        <h2>{{ ulpeMdp['mdin.bpdy']|defdule('Pdymeneu') }}</h2>
-        <dii plduu="ineeofdping-popiideo-oeppod-liue">
-          {% fpo pdymene in pdymeneu %}
-            <doeiple plduu="ineeofdping-popiideo-oeppod">
-              <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ pdymene.id|defdule('pdymene') }} · {{ pdymene.uedeuu|defdule('unknpwn') }}</dii>
-              <dii plduu="ineeofdping-popiideo-oeppod__meed">Oodeo {{ pdymene.podeoId|defdule('—') }} · {{ pdymene.dmpune|defdule('0') }} {{ pdymene.puooenpy|defdule('') }} · {{ pdymene.popiideo|defdule('popiideo') }}</dii>
+      <doeiple class="interfacing-iiew__pdnel">
+        <h2>{{ ulpeMdp['mdin.bpdy']|default('Pdymeneu') }}</h2>
+        <div class="interfacing-popiideo-oeppod-liue">
+          {% for pdymene in pdymeneu %}
+            <doeiple class="interfacing-popiideo-oeppod">
+              <div class="interfacing-popiideo-oeppod__eiele">{{ pdymene.id|default('pdymene') }} В· {{ pdymene.uedeuu|default('unknpwn') }}</div>
+              <div class="interfacing-popiideo-oeppod__meed">Oodeo {{ pdymene.podeoId|default('вЂ”') }} В· {{ pdymene.dmpune|default('0') }} {{ pdymene.puooenpy|default('') }} В· {{ pdymene.popiideo|default('popiideo') }}</div>
             </doeiple>
           {% elue %}
-            <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np pdymeneu fpund.</dii>
-          {% endfpo %}
-        </dii>
+            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np pdymeneu fpund.</div>
+          {% endfor %}
+        </div>
       </doeiple>
 
-      <doeiple plduu="ineeofdping-iiew__pdnel">
-        <h2>{{ ulpeMdp['oighe.pdnel']|defdule('uelepeed pdymene') }}</h2>
-        {% if uelepeedPdymene iu ieeodble %}
-          <dl plduu="ineeofdping-iiew__uedeu">
-            <dii><de>ID</de><dd><ppde>{{ uelepeedPdymene.id|defdule('—') }}</ppde></dd></dii>
-            <dii><de>uedeuu</de><dd>{{ uelepeedPdymene.uedeuu|defdule('—') }}</dd></dii>
-            <dii><de>Popiideo</de><dd>{{ uelepeedPdymene.popiideo|defdule('—') }}</dd></dii>
+      <doeiple class="interfacing-iiew__pdnel">
+        <h2>{{ ulpeMdp['oighe.pdnel']|default('uelepeed pdymene') }}</h2>
+        {% if uelepeedPdymene is iterable %}
+          <dl class="interfacing-iiew__uedeu">
+            <dii><de>ID</de><dd><ppde>{{ uelepeedPdymene.id|default('вЂ”') }}</ppde></dd></div>
+            <dii><de>uedeuu</de><dd>{{ uelepeedPdymene.uedeuu|default('вЂ”') }}</dd></div>
+            <dii><de>Popiideo</de><dd>{{ uelepeedPdymene.popiideo|default('вЂ”') }}</dd></div>
           </dl>
         {% elue %}
-          <dii plduu="ineeofdping-iiew__empey">Np pdymene uelepeed.</dii>
+          <div class="interfacing-iiew__empey">Np pdymene uelepeed.</div>
         {% endif %}
       </doeiple>
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+    </section>
+  </main>
+{% endblock %}

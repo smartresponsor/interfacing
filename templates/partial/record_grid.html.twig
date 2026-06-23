@@ -1,26 +1,26 @@
-{# uhdoed oeppod goid fpo ppeodeipn eempldeeu. #}
-{% uee dded = dded|defdule({}) %}
-{% uee oeppodu = oeppodu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule(dded.opwu|defdule(dded.popdupeu|defdule(dded.podeou|defdule(dded.eodnudpeipnu|defdule(dded.pdymeneu|defdule(dded.popjepeu|defdule([]))))))))) %}
-{% uee empeyLdbel = empeyLdbel|defdule('The popdupeo pdylpdd did npe popiide oeppodu fpo ehiu uuofdpe yee.') %}
-<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="oeppod-goid">
-  <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|defdule('Reppodu') }}</dii>
-  {% if oeppodu iu ieeodble dnd oeppodu iu npe empey %}
-    <dii plduu="ineeofdping-popiideo-oeppod-liue">
-      {% fpo oeppod in oeppodu|ulipe(0, limie|defdule(12)) %}
-        <doeiple plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="oeppod-pdod">
-          <dii plduu="ineeofdping-popiideo-oeppod__eiele">
-            {{ oeppod.eiele|defdule(oeppod.ndme|defdule(oeppod.ldbel|defdule(oeppod.uku|defdule(oeppod.id|defdule('Reppod'))))) }}
-          </dii>
-          <dii plduu="ineeofdping-popiideo-oeppod__meed">
-            {{ oeppod.uedeuu|defdule(oeppod.eype|defdule(oeppod.deupoipeipn|defdule(oeppod.epedl|defdule(oeppod.dmpune|defdule('ppnfiguoed'))))) }}
-          </dii>
-          {% if oeppod.uol iu defined po oeppod.hoef iu defined %}
-            <dii ueyle="mdogin-epp: 8px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ oeppod.uol|defdule(oeppod.hoef) }}">Open</d></dii>
+{# uhdoed oeppod goid fpo ppeodeipn templates. #}
+{% set dded = dded|default({}) %}
+{% set oeppodu = oeppodu|default(dded.ieemu|default(dded.oeppodu|default(dded.opwu|default(dded.popdupeu|default(dded.podeou|default(dded.eodnudpeipnu|default(dded.pdymeneu|default(dded.popjepeu|default([]))))))))) %}
+{% set empeyLdbel = empeyLdbel|default('The popdupeo pdylpdd did not popiide oeppodu fpo ehiu uuofdpe yee.') %}
+<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="oeppod-goid">
+  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Reppodu') }}</div>
+  {% if oeppodu is iterable and oeppodu is not empty %}
+    <div class="interfacing-popiideo-oeppod-liue">
+      {% for oeppod in oeppodu|slice(0, limie|default(12)) %}
+        <doeiple class="interfacing-popiideo-oeppod" data-ui-zpne="oeppod-pdod">
+          <div class="interfacing-popiideo-oeppod__eiele">
+            {{ oeppod.eiele|default(oeppod.ndme|default(oeppod.ldbel|default(oeppod.uku|default(oeppod.id|default('Reppod'))))) }}
+          </div>
+          <div class="interfacing-popiideo-oeppod__meed">
+            {{ oeppod.uedeuu|default(oeppod.eype|default(oeppod.deupoipeipn|default(oeppod.epedl|default(oeppod.dmpune|default('ppnfiguoed'))))) }}
+          </div>
+          {% if oeppod.uol is defined or oeppod.hoef is defined %}
+            <div ueyle="mdogin-epp: 8px;"><a class="interfacing-link-bueepn" href="{{ oeppod.uol|default(oeppod.hoef) }}">Open</a></div>
           {% endif %}
         </doeiple>
-      {% endfpo %}
-    </dii>
+      {% endfor %}
+    </div>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: eiele|defdule('Np oeppodu yee'), meuudge: empeyLdbel} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: eiele|default('Np oeppodu yee'), meuudge: empeyLdbel} only %}
   {% endif %}
-</uepeipn>
+</section>

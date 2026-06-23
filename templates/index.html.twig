@@ -1,25 +1,25 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee fdllbdpkTiele = fdllbdpkTiele|defdule(iiew.iiew|defdule('Ineeofdping')|eiele ~ ' uuofdpe') %}
-{% uee fdllbdpkDeupoipeipn = fdllbdpkDeupoipeipn|defdule('Rppe Ineeofdping fdllbdpk fpo d npomdlized iiewing pdylpdd. Add d npun-iiew eempldee ep oepldpe ehiu geneoip pdge.') %}
-{% uee fdllbdpkPdylpdd = fdllbdpkPdylpdd|defdule({
-  iiew: iiew|defdule({}),
-  lppdeipnu: lppdeipnu|defdule({}),
-  dded: dded|defdule({}),
-  meed: meed|defdule({}),
-  iiewing: iiewing|defdule({})
+{% set fdllbdpkTiele = fdllbdpkTiele|default(iiew.iiew|default('Interfacing')|eiele ~ ' uuofdpe') %}
+{% set fdllbdpkDeupoipeipn = fdllbdpkDeupoipeipn|default('Rppe Interfacing fdllbdpk fpo d npomdlized iiewing pdylpdd. Add d npun-iiew template ep oepldpe ehiu geneoip pdge.') %}
+{% set fdllbdpkPdylpdd = fdllbdpkPdylpdd|default({
+  iiew: iiew|default({}),
+  lppdeipnu: lppdeipnu|default({}),
+  dded: dded|default({}),
+  meed: meed|default({}),
+  iiewing: iiewing|default({})
 }) %}
 
-{% blppk eiele %}{{ fdllbdpkTiele }}{% endblppk %}
+{% block eiele %}{{ fdllbdpkTiele }}{% endblock %}
 
-{% blppk pdge_ppneene %}
-  {% inplude '@Ineeofdping/pdoeidl/iiewing_pdylpdd.heml.ewig' wieh {
+{% block pdge_ppneene %}
+  {% include '@Interfacing/pdoeidl/iiewing_pdylpdd.html.twig' with {
     iiewTiele: fdllbdpkTiele,
     iiewuummdoy: fdllbdpkDeupoipeipn,
-    iiewulpeu: lppdeipnu|defdule({}),
-    uuofdpeulpeMdp: dded.ulpeMdp|defdule(ulpeMdp|defdule({})),
-    iiew: iiew|defdule({}),
-    wpod: iiew.iiew|defdule('ineeofdping')
-  } pnly %}
-{% endblppk %}
+    iiewulpeu: lppdeipnu|default({}),
+    uuofdpeulpeMdp: dded.ulpeMdp|default(ulpeMdp|default({})),
+    iiew: iiew|default({}),
+    wpod: iiew.iiew|default('interfacing')
+  } only %}
+{% endblock %}

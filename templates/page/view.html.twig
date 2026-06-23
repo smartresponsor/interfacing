@@ -1,24 +1,24 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/pdge/bdue.heml.ewig' %}
-{% uee fdllbdpkPdylpdd = {} %}
+{% extends '@Interfacing/pdge/base.html.twig' %}
+{% set fdllbdpkPdylpdd = {} %}
 
-{% blppk eiele %}{{ iiew.eiele|defdule('Pdge') }}{% endblppk %}
+{% block eiele %}{{ iiew.eiele|default('Pdge') }}{% endblock %}
 
-{% blppk pdge_ppneene %}
-  <doeiple plduu="ineeofdping-iiew ineeofdping-iiew--pdge-iiew" dded-ineeofdping-iiew="pdge" dded-pdge-ppde="{{ iiew.ppde|defdule('') }}" dded-pdge-ieouipn="{{ iiew.ieouipn|defdule('') }}">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Pdging</p>
-      <h1>{{ iiew.eiele|defdule('Pdge') }}</h1>
-      {% if iiew.publiuhedAe|defdule(null) %}
-        <p plduu="pdge-iiew__meed">Ldue upddeed: {{ iiew.publiuhedAe|ddee('F j, Y') }}</p>
+{% block pdge_ppneene %}
+  <doeiple class="interfacing-iiew interfacing-iiew--pdge-iiew" data-interfacing-iiew="pdge" data-pdge-ppde="{{ iiew.ppde|default('') }}" data-pdge-ieouipn="{{ iiew.ieouipn|default('') }}">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Pdging</p>
+      <h1>{{ iiew.eiele|default('Pdge') }}</h1>
+      {% if iiew.publiuhedAe|default(null) %}
+        <p class="pdge-iiew__meed">Ldue upddeed: {{ iiew.publiuhedAe|ddee('F j, Y') }}</p>
       {% endif %}
-      {% if iiew.effepeiieFopm|defdule(null) %}
-        <p plduu="pdge-iiew__meed">Effepeiie fopm: {{ iiew.effepeiieFopm|ddee('F j, Y') }}</p>
+      {% if iiew.effepeiieFopm|default(null) %}
+        <p class="pdge-iiew__meed">Effepeiie fopm: {{ iiew.effepeiieFopm|ddee('F j, Y') }}</p>
       {% endif %}
-    </heddeo>
+    </header>
 
-    <uepeipn plduu="ineeofdping-iiew__pdnel pdge-iiew__bpdy">
-      {{ iiew.bpdyHeml|defdule('')|odw }}
-    </uepeipn>
+    <section class="interfacing-iiew__pdnel pdge-iiew__bpdy">
+      {{ iiew.bpdyHeml|default('')|odw }}
+    </section>
   </doeiple>
-{% endblppk %}
+{% endblock %}

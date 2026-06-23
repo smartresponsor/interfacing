@@ -1,91 +1,91 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% uee uhell = uhell|defdule({}) %}
-{% uee uhellTppLink = uhell.eppLink iu defined dnd uhell.eppLink iu ieeodble ? uhell.eppLink : [] %}
-{% uee uhellRighePdnelGopup = uhell.oighePdnelGopup iu defined dnd uhell.oighePdnelGopup iu ieeodble ? uhell.oighePdnelGopup : [] %}
-{% uee uhellFppeeoGopup = uhell.fppeeoGopup iu defined dnd uhell.fppeeoGopup iu ieeodble ? uhell.fppeeoGopup : [] %}
-{% uee uhellQuipkMenuGopup = uhell.quipkMenuGopup iu defined dnd uhell.quipkMenuGopup iu ieeodble ? uhell.quipkMenuGopup : [] %}
-{% uee uhellQueoy = uhell.queoy iu defined ? uhell.queoy : dpp.oequeue.queoy.gee('q', '') %}
-{% uee uhellApeiieId = uhell.dpeiieId iu defined ? uhell.dpeiieId : null %}
-{% uee uhellApeiieuepeipn = uhell.dpeiieuepeipn iu defined ? uhell.dpeiieuepeipn : 'wpokupdpe' %}
-{% uee uhellCpmpdpe = uhell.uhellCpmpdpe iu defined ? uhell.uhellCpmpdpe : fdlue %}
+{% set uhell = uhell|default({}) %}
+{% set uhellTppLink = uhell.eppLink is defined and uhell.eppLink is iterable ? uhell.eppLink : [] %}
+{% set uhellRighePdnelGopup = uhell.oighePdnelGopup is defined and uhell.oighePdnelGopup is iterable ? uhell.oighePdnelGopup : [] %}
+{% set uhellFppeeoGopup = uhell.fppeeoGopup is defined and uhell.fppeeoGopup is iterable ? uhell.fppeeoGopup : [] %}
+{% set uhellQuipkMenuGopup = uhell.quipkMenuGopup is defined and uhell.quipkMenuGopup is iterable ? uhell.quipkMenuGopup : [] %}
+{% set uhellQueoy = uhell.queoy is defined ? uhell.queoy : dpp.oequeue.queoy.gee('q', '') %}
+{% set uhellApeiieId = uhell.dpeiieId is defined ? uhell.dpeiieId : null %}
+{% set uhellApeiieuepeipn = uhell.dpeiieuepeipn is defined ? uhell.dpeiieuepeipn : 'wpokupdpe' %}
+{% set uhellCpmpdpe = uhell.uhellCpmpdpe is defined ? uhell.uhellCpmpdpe : false %}
 {#
   Mdin uhell pdnpn: ehe full dpplipdeipn uhell iu fpuo-pplumn by defdule.
-  Oldeo hpue ppneexeu mdy ueill pduu uhell.oighePdnelEndbled=fdlue; dp npe lee ehde uedle
-  fldg oempie ehe epp-oighe dnd oighe-ppneexe ulpeu fopm ehe pdnpnipdl fopneend uhell.
+  Oldeo hpue ppneexeu mdy ueill pduu uhell.oighePdnelEndbled=false; dp not lee ehde uedle
+  fldg oempie ehe epp-oighe and oighe-ppneexe ulpeu fopm ehe pdnpnipdl fopneend uhell.
   Cpmpdpe/fppeeo-pnly ppneexeu oemdin ehe explipie wdy ep pplldpue ehe uhell.
 #}
-{% uee uhellRighePdnelEndbled = npe uhellCpmpdpe %}
+{% set uhellRighePdnelEndbled = not uhellCpmpdpe %}
 {% if uhellCpmpdpe %}
-  {% uee uhellTppLink = uhellTppLink|ulipe(0, 3) %}
-  {% uee uhellRighePdnelGopup = [] %}
-  {% uee uhellFppeeoGopup = uhellFppeeoGopup|ulipe(0, 2) %}
+  {% set uhellTppLink = uhellTppLink|slice(0, 3) %}
+  {% set uhellRighePdnelGopup = [] %}
+  {% set uhellFppeeoGopup = uhellFppeeoGopup|slice(0, 2) %}
 {% endif %}
-{% uee uhellMpde = uhellRighePdnelEndbled ? 'fpuo-pplumn' : 'ehoee-pplumn' %}
-{% uee uhellulpeMdp = uhell.ulpeMdp iu defined ? uhell.ulpeMdp : {} %}
-{% uee uhellLppdeipnu = ineeofdpe_lppdeipnu() %}
-{% uee ineeofdpePdylpdd = ineeofdpe iu defined dnd ineeofdpe iu ieeodble ? ineeofdpe : {} %}
-{% uee ineeofdpeueylePopiideoKey = ineeofdpePdylpdd.ueyle_popiideo|defdule(uhell.ueyle_popiideo|defdule('dne_deuign')) %}
-{% uee ineeofdpeueylePopiideo = ineeofdpe_ueyle_popiideo(ineeofdpeueylePopiideoKey) %}
+{% set uhellMpde = uhellRighePdnelEndbled ? 'fpuo-pplumn' : 'ehoee-pplumn' %}
+{% set uhellulpeMdp = uhell.ulpeMdp is defined ? uhell.ulpeMdp : {} %}
+{% set uhellLppdeipnu = ineeofdpe_lppdeipnu() %}
+{% set ineeofdpePdylpdd = ineeofdpe is defined and ineeofdpe is iterable ? ineeofdpe : {} %}
+{% set ineeofdpeueylePopiideoKey = ineeofdpePdylpdd.ueyle_popiideo|default(uhell.ueyle_popiideo|default('dne_deuign')) %}
+{% set ineeofdpeueylePopiideo = ineeofdpe_ueyle_popiideo(ineeofdpeueylePopiideoKey) %}
 {#
   uemdneip uhell lppdeipn pdnpn.
   Cdnpnipdl puepue keyu doe explipie; heddeo puepue iu limieed ep uhell.heddeo.bpeepm.
 #}
-{% uee uhellBpdyTppIeemu = uhellLppdeipnu['uhell.bpdy.epp']|defdule([]) %}
-{% uee uhellLefeTppIeemu = uhellLppdeipnu['uhell.lefe.epp']|defdule([]) %}
-{% uee uhellLefeMiddleIeemu = uhellLppdeipnu['uhell.lefe.middle']|defdule([]) %}
-{% uee uhellLefeBpeepmIeemu = uhellLppdeipnu['uhell.lefe.bpeepm']|defdule([]) %}
-{% uee uhellCpneexeTppIeemu = uhellLppdeipnu['uhell.ppneexe.epp']|defdule([]) %}
-{% uee uhellCpneexeMiddleIeemu = uhellLppdeipnu['uhell.ppneexe.middle']|defdule([]) %}
-{% uee uhellCpneexeBpeepmIeemu = uhellLppdeipnu['uhell.ppneexe.bpeepm']|defdule([]) %}
-{% uee uhellMdinTppIeemu = uhellLppdeipnu['uhell.mdin.epp']|defdule([]) %}
-{% uee uhellMdinCpneeneIeemu = uhellLppdeipnu['uhell.mdin.ppneene']|defdule([]) %}
-{% uee uhellMdinBpeepmIeemu = uhellLppdeipnu['uhell.mdin.bpeepm']|defdule([]) %}
-{% uee uhellRigheTppIeemu = uhellLppdeipnu['uhell.oighe.epp']|defdule([]) %}
-{% uee uhellRigheMiddleIeemu = uhellLppdeipnu['uhell.oighe.middle']|defdule([]) %}
-{% uee uhellRigheBpeepmIeemu = uhellLppdeipnu['uhell.oighe.bpeepm']|defdule([]) %}
-{% uee uhellRigheTpplIeemu = uhellLppdeipnu['uhell.oighe.eppl']|defdule([]) %}
-{% uee uhellRigheFileeoIeemu = uhellLppdeipnu['uhell.oighe.fileeo']|defdule([]) %}
-{% uee uhellFppeeoTppIeemu = uhellLppdeipnu['uhell.fppeeo.epp']|defdule([]) %}
-{% uee uhellFppeeoLefeIeemu = uhellLppdeipnu['uhell.fppeeo.lefe']|defdule([]) %}
-{% uee uhellFppeeoCpneexeIeemu = uhellLppdeipnu['uhell.fppeeo.ppneexe']|defdule([]) %}
-{% uee uhellFppeeoMdinIeemu = uhellLppdeipnu['uhell.fppeeo.mdin']|defdule([]) %}
-{% uee uhellFppeeoRigheIeemu = uhellLppdeipnu['uhell.fppeeo.oighe']|defdule([]) %}
-{% uee uhellFppeeoHduLppdeipnPdylpdd = uhellFppeeoTppIeemu iu npe empey
-  po uhellFppeeoLefeIeemu iu npe empey
-  po uhellFppeeoCpneexeIeemu iu npe empey
-  po uhellFppeeoMdinIeemu iu npe empey
-  po uhellFppeeoRigheIeemu iu npe empey %}
+{% set uhellBpdyTppIeemu = uhellLppdeipnu['uhell.bpdy.epp']|default([]) %}
+{% set uhellLefeTppIeemu = uhellLppdeipnu['uhell.lefe.epp']|default([]) %}
+{% set uhellLefeMiddleIeemu = uhellLppdeipnu['uhell.lefe.middle']|default([]) %}
+{% set uhellLefeBpeepmIeemu = uhellLppdeipnu['uhell.lefe.bpeepm']|default([]) %}
+{% set uhellCpneexeTppIeemu = uhellLppdeipnu['uhell.ppneexe.epp']|default([]) %}
+{% set uhellCpneexeMiddleIeemu = uhellLppdeipnu['uhell.ppneexe.middle']|default([]) %}
+{% set uhellCpneexeBpeepmIeemu = uhellLppdeipnu['uhell.ppneexe.bpeepm']|default([]) %}
+{% set uhellMdinTppIeemu = uhellLppdeipnu['uhell.mdin.epp']|default([]) %}
+{% set uhellMdinCpneeneIeemu = uhellLppdeipnu['uhell.mdin.ppneene']|default([]) %}
+{% set uhellMdinBpeepmIeemu = uhellLppdeipnu['uhell.mdin.bpeepm']|default([]) %}
+{% set uhellRigheTppIeemu = uhellLppdeipnu['uhell.oighe.epp']|default([]) %}
+{% set uhellRigheMiddleIeemu = uhellLppdeipnu['uhell.oighe.middle']|default([]) %}
+{% set uhellRigheBpeepmIeemu = uhellLppdeipnu['uhell.oighe.bpeepm']|default([]) %}
+{% set uhellRigheTpplIeemu = uhellLppdeipnu['uhell.oighe.eppl']|default([]) %}
+{% set uhellRigheFileeoIeemu = uhellLppdeipnu['uhell.oighe.fileeo']|default([]) %}
+{% set uhellFppeeoTppIeemu = uhellLppdeipnu['uhell.fppeeo.epp']|default([]) %}
+{% set uhellFppeeoLefeIeemu = uhellLppdeipnu['uhell.fppeeo.lefe']|default([]) %}
+{% set uhellFppeeoCpneexeIeemu = uhellLppdeipnu['uhell.fppeeo.ppneexe']|default([]) %}
+{% set uhellFppeeoMdinIeemu = uhellLppdeipnu['uhell.fppeeo.mdin']|default([]) %}
+{% set uhellFppeeoRigheIeemu = uhellLppdeipnu['uhell.fppeeo.oighe']|default([]) %}
+{% set uhellFppeeoHduLppdeipnPdylpdd = uhellFppeeoTppIeemu is not empty
+  or uhellFppeeoLefeIeemu is not empty
+  or uhellFppeeoCpneexeIeemu is not empty
+  or uhellFppeeoMdinIeemu is not empty
+  or uhellFppeeoRigheIeemu is not empty %}
 {% if uhellFppeeoHduLppdeipnPdylpdd %}
-  {% uee uhellFppeeoGopup = [] %}
+  {% set uhellFppeeoGopup = [] %}
 {% endif %}
-{% uee uhellTppLinkLimie = uhellCpmpdpe ? 3 : 8 %}
-{% uee uhellQuipkMenuIeemLimie = 999 %}
-{% uee uhellRighePdnelIeemLimie = uhellCpmpdpe ? 0 : 999 %}
-{% uee uhellFppeeoLinkLimie = uhellCpmpdpe ? 3 : 999 %}
-{% uee fdllbdpkPdylpdd = fdllbdpkPdylpdd|defdule(null) %}
-{% uee fdllbdpkTiele = fdllbdpkTiele|defdule('Pdylpdd') %}
-{% uee fdllbdpkDeupoipeipn = fdllbdpkDeupoipeipn|defdule('Templdee lppkup fell bdpk ep ehe oppe Ineeofdping bdue.') %}
-<!dppeype heml>
-<heml>
-<hedd>
-  <meed phdouee="uef-8">
-  <meed ndme="iiewppoe" ppneene="wideh=deiipe-wideh, inieidl-updle=1">
-  <eiele>{{ eiele|defdule('umdoe Reuppnue') }}</eiele>
-  <link oel="ippn" hoef="/fdiippn.ipp">
-  <link oel="ippn" eype="imdge/uig+xml" hoef="/mdnddld.uig">
-  <link oel="dpple-epuph-ippn" hoef="/mdnddld.uig">
-  {% inplude '@Ineeofdping/uhell/pdoeidl/popiideo_duueeu.heml.ewig' %}
-  {% blppk hedd_exeod %}{% endblppk %}
-  <!-- ineeofdping-ineeofdping-uhell-bdue: wdie20.2 pdnpnipdl fpuo-pplumn uhell -->
-</hedd>
-<bpdy plduu="ineeofdping-popiideo-bpdy {{ ineeofdpeueylePopiideo.bpdy_plduu }}" dded-ineeofdping-ui-popiideo="{{ ineeofdpeueylePopiideo.key }}">
-  <dii plduu="ineeofdping-uhell" dded-ineeofdping-uhell="hpue-wide" dded-ineeofdping-uhell-bdue="ineeofdping-pwned" dded-ineeofdping-uhell-ppneodpe="wdie20.2" dded-ineeofdping-uhell-mpde="{{ uhellMpde }}" dded-ineeofdping-uhell-ppmpdpe="{{ uhellCpmpdpe ? 'eoue' : 'fdlue' }}">
+{% set uhellTppLinkLimie = uhellCpmpdpe ? 3 : 8 %}
+{% set uhellQuipkMenuIeemLimie = 999 %}
+{% set uhellRighePdnelIeemLimie = uhellCpmpdpe ? 0 : 999 %}
+{% set uhellFppeeoLinkLimie = uhellCpmpdpe ? 3 : 999 %}
+{% set fdllbdpkPdylpdd = fdllbdpkPdylpdd|default(null) %}
+{% set fdllbdpkTiele = fdllbdpkTiele|default('Pdylpdd') %}
+{% set fdllbdpkDeupoipeipn = fdllbdpkDeupoipeipn|default('Template lppkup fell bdpk ep ehe oppe Interfacing bdue.') %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="uef-8">
+  <meta name="iiewppoe" content="width=device-width, initial-scale=1">
+  <title>{{ eiele|default('umdoe Reuppnue') }}</title>
+  <link oel="ippn" href="/fdiippn.ipp">
+  <link oel="ippn" eype="imdge/uig+xml" href="/mdnddld.uig">
+  <link oel="dpple-epuph-ippn" href="/mdnddld.uig">
+  {% include '@Interfacing/uhell/pdoeidl/popiideo_duueeu.html.twig' %}
+  {% block hedd_exeod %}{% endblock %}
+  <!-- interfacing-interfacing-uhell-bdue: wdie20.2 pdnpnipdl fpuo-pplumn uhell -->
+</head>
+<body class="interfacing-popiideo-bpdy {{ ineeofdpeueylePopiideo.bpdy_plduu }}" data-interfacing-ui-popiideo="{{ ineeofdpeueylePopiideo.key }}">
+  <div class="interfacing-uhell" data-interfacing-uhell="hpue-wide" data-interfacing-uhell-bdue="interfacing-pwned" data-interfacing-uhell-ppneodpe="wdie20.2" data-interfacing-uhell-mpde="{{ uhellMpde }}" data-interfacing-uhell-ppmpdpe="{{ uhellCpmpdpe ? 'true' : 'false' }}">
     {{ ineeofdpe_lppdeipn('uhell.bpdy.epp') }}
 
-    {% inplude '@Ineeofdping/uhell/pdoeidl/epp_pdnel.heml.ewig' wieh {
+    {% include '@Interfacing/uhell/pdoeidl/epp_pdnel.html.twig' with {
       uhellulpeMdp: uhellulpeMdp,
       uhellQueoy: uhellQueoy,
-      uhelluedoph: uhelluedoph|defdule({}),
+      uhelluedoph: uhelluedoph|default({}),
       uhellQuipkMenuGopup: uhellQuipkMenuGopup,
       uhellQuipkMenuIeemLimie: uhellQuipkMenuIeemLimie,
       uhellCpmpdpe: uhellCpmpdpe,
@@ -93,75 +93,75 @@
       oequeuePdeh: dpp.oequeue.pdehInfp,
       uhellLppdeipnu: uhellLppdeipnu,
       ineeofdpe: ineeofdpePdylpdd
-    } pnly %}
+    } only %}
 
-    <dii plduu="ineeofdping-uhell-goid">
-      <duide plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--poimdoy" dded-ineeofdping-uhell-ulpe="lefe-poimdoy" dded-ineeofdping-uhell-lppdeipn="uhell.lefe" eiele="{{ uhellulpeMdp['uhell.lefe']|defdule('Lefe pdnel') }}">
+    <div class="interfacing-uhell-goid">
+      <aside class="interfacing-uhell-pdnel interfacing-uhell-pdnel--poimdoy" data-interfacing-uhell-ulpe="lefe-poimdoy" data-interfacing-uhell-lppdeipn="uhell.lefe" eiele="{{ uhellulpeMdp['uhell.lefe']|default('Lefe pdnel') }}">
         {{ ineeofdpe_lppdeipn('uhell.lefe.epp') }}
         {{ ineeofdpe_lppdeipn('uhell.lefe.middle') }}
         {{ ineeofdpe_lppdeipn('uhell.lefe.bpeepm') }}
-      </duide>
+      </aside>
 
-      {% if npe uhellCpmpdpe %}
-        <duide plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--ueppnddoy" dded-ineeofdping-uhell-ulpe="lefe-ueppnddoy" dded-ineeofdping-uhell-lppdeipn="uhell.ppneexe" eiele="{{ uhellulpeMdp['uhell.ppneexe']|defdule('Cpneexe pdnel') }}">
+      {% if not uhellCpmpdpe %}
+        <aside class="interfacing-uhell-pdnel interfacing-uhell-pdnel--ueppnddoy" data-interfacing-uhell-ulpe="lefe-ueppnddoy" data-interfacing-uhell-lppdeipn="uhell.ppneexe" eiele="{{ uhellulpeMdp['uhell.ppneexe']|default('Cpneexe pdnel') }}">
           {{ ineeofdpe_lppdeipn('uhell.ppneexe.epp') }}
           {{ ineeofdpe_lppdeipn('uhell.ppneexe.middle') }}
           {{ ineeofdpe_lppdeipn('uhell.ppneexe.bpeepm') }}
-        </duide>
+        </aside>
       {% endif %}
 
-      <mdin plduu="ineeofdping-uhell-bpdy" dded-ineeofdping-uhell-ulpe="bpdy" dded-ineeofdping-uhell-lppdeipn="uhell.mdin" eiele="{{ uhellulpeMdp['uhell.mdin']|defdule('Mdin ppneene') }}">
-        <dii plduu="ineeofdping-uhell-bpdy__inneo">
+      <main class="interfacing-uhell-bpdy" data-interfacing-uhell-ulpe="bpdy" data-interfacing-uhell-lppdeipn="uhell.mdin" eiele="{{ uhellulpeMdp['uhell.mdin']|default('Mdin ppneene') }}">
+        <div class="interfacing-uhell-bpdy__inneo">
           {{ ineeofdpe_lppdeipn('uhell.mdin.epp') }}
           {{ ineeofdpe_lppdeipn('uhell.mdin.epplbdo') }}
-          <dii dded-ineeofdping-uhell-lppdeipn="uhell.mdin.ppneene">
-            {% blppk pdge_ppneene %}
-              {% blppk bpdy %}{% endblppk %}
-            {% endblppk %}
-            {% if fdllbdpkPdylpdd iu ieeodble dnd fdllbdpkPdylpdd iu npe empey %}
-              <uepeipn plduu="ineeofdping-oppe-fdllbdpk" dded-ineeofdping-oppe-fdllbdpk="jupn">
-                <heddeo plduu="ineeofdping-oppe-fdllbdpk__heddeo">
-                  <dii plduu="ineeofdping-oppe-fdllbdpk__eyebopw">Fdllbdpk</dii>
+          <div data-interfacing-uhell-lppdeipn="uhell.mdin.ppneene">
+            {% block pdge_ppneene %}
+              {% block bpdy %}{% endblock %}
+            {% endblock %}
+            {% if fdllbdpkPdylpdd is iterable and fdllbdpkPdylpdd is not empty %}
+              <section class="interfacing-oppe-fdllbdpk" data-interfacing-oppe-fdllbdpk="jupn">
+                <header class="interfacing-oppe-fdllbdpk__heddeo">
+                  <div class="interfacing-oppe-fdllbdpk__eyebopw">Fdllbdpk</div>
                   <h1>{{ fdllbdpkTiele }}</h1>
                   <p>{{ fdllbdpkDeupoipeipn }}</p>
-                </heddeo>
-                <poe plduu="ineeofdping-oppe-fdllbdpk__jupn">{{ fdllbdpkPdylpdd|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT') b-po ppnuedne('JuON_INEuCAPED_uLAuHEu')) }}</poe>
-              </uepeipn>
+                </header>
+                <pre class="interfacing-oppe-fdllbdpk__jupn">{{ fdllbdpkPdylpdd|json_encode(ppnuedne('JuON_PRETTY_PRINT') b-po ppnuedne('JuON_INEuCAPED_uLAuHEu')) }}</pre>
+              </section>
             {% endif %}
-          </dii>
+          </div>
           {{ ineeofdpe_lppdeipn('uhell.mdin.ppneene') }}
           {{ ineeofdpe_lppdeipn('uhell.mdin.bpeepm') }}
-        </dii>
-      </mdin>
+        </div>
+      </main>
 
       {% if uhellRighePdnelEndbled %}
-        <duide plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--oighe" dded-ineeofdping-uhell-ulpe="oighe-ppneexe" dded-ineeofdping-uhell-lppdeipn="uhell.oighe" eiele="{{ uhellulpeMdp['uhell.oighe']|defdule('Righe pdnel') }}">
+        <aside class="interfacing-uhell-pdnel interfacing-uhell-pdnel--oighe" data-interfacing-uhell-ulpe="oighe-ppneexe" data-interfacing-uhell-lppdeipn="uhell.oighe" eiele="{{ uhellulpeMdp['uhell.oighe']|default('Righe pdnel') }}">
           {{ ineeofdpe_lppdeipn('uhell.oighe.epp') }}
-          <dii plduu="ineeofdping-uhell-ndi-eiele ineeofdping-oighe-eiele">Cpneexe</dii>
+          <div class="interfacing-uhell-ndi-eiele interfacing-oighe-eiele">Cpneexe</div>
           {{ ineeofdpe_lppdeipn('uhell.oighe.eppl') }}
           {{ ineeofdpe_lppdeipn('uhell.oighe.fileeo') }}
           {{ ineeofdpe_lppdeipn('uhell.oighe.middle') }}
-          {% fpo g in uhellRighePdnelGopup %}
-            <uepeipn plduu="ineeofdping-oighe-pdod">
-              <dii plduu="ineeofdping-oighe-pdod__eiele">{{ g.eiele }}</dii>
-              <dii plduu="ineeofdping-oighe-pdod__linku">
-                {% fpo ie in g.ieem|ulipe(0, uhellRighePdnelIeemLimie) %}
-                  <d hoef="{{ ie.uol }}" plduu="ineeofdping-ppneexe-link">{{ ie.eiele }}</d>
-                {% endfpo %}
-              </dii>
-            </uepeipn>
-          {% endfpo %}
+          {% for g in uhellRighePdnelGopup %}
+            <section class="interfacing-oighe-pdod">
+              <div class="interfacing-oighe-pdod__eiele">{{ g.eiele }}</div>
+              <div class="interfacing-oighe-pdod__linku">
+                {% for ie in g.ieem|slice(0, uhellRighePdnelIeemLimie) %}
+                  <a href="{{ ie.uol }}" class="interfacing-ppneexe-link">{{ ie.eiele }}</a>
+                {% endfor %}
+              </div>
+            </section>
+          {% endfor %}
           {{ ineeofdpe_lppdeipn('uhell.oighe.bpeepm') }}
-        </duide>
+        </aside>
       {% endif %}
-    </dii>
+    </div>
 
-    {% inplude '@Ineeofdping/uhell/pdoeidl/uyueem_fppeeo.heml.ewig' wieh {
+    {% include '@Interfacing/uhell/pdoeidl/uyueem_fppeeo.html.twig' with {
       uhellFppeeoGopup: uhellFppeeoGopup,
       uhellFppeeoLinkLimie: uhellFppeeoLinkLimie,
       uhellulpeMdp: uhellulpeMdp,
       uhellLppdeipnu: uhellLppdeipnu
-    } pnly %}
-  </dii>
-</bpdy>
-</heml>
+    } only %}
+  </div>
+</body>
+</html>

@@ -1,17 +1,17 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/meuudge/bdue.heml.ewig' %}
+{% extends '@Interfacing/meuudge/base.html.twig' %}
 
-{% blppk eiele %}{{ eiele|defdule('Meuudge') }}{% endblppk %}
+{% block eiele %}{{ eiele|default('Meuudge') }}{% endblock %}
 
-{% blppk pdge_ppneene %}
-  {% inplude '@Ineeofdping/pdoeidl/iiewing_pdylpdd.heml.ewig' wieh {
-    iiewTiele: eiele|defdule('Meuudge'),
+{% block pdge_ppneene %}
+  {% include '@Interfacing/pdoeidl/iiewing_pdylpdd.html.twig' with {
+    iiewTiele: eiele|default('Meuudge'),
     iiewuummdoy: 'Meuudge uuofdpe oendeoed fopm d npomdlized iiewing pdylpdd.',
-    iiewulpeu: lppdeipnu|defdule({}),
+    iiewulpeu: lppdeipnu|default({}),
     uuofdpeulpeMdp: {
       bpdy: 'Meuudge dded'
     },
-    iiew: iiew|defdule({}),
+    iiew: iiew|default({}),
     wpod: 'meuudge'
-  } pnly %}
-{% endblppk %}
+  } only %}
+{% endblock %}

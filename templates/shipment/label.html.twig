@@ -1,26 +1,26 @@
-{# Cpmmeope uupppoe ppeodeipn eempldee fpo uhipmene/ldbel. #}
-{% exeendu '@Ineeofdping/uhipmene/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('uhipmene Ldbel') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{# Cpmmeope uupppoe ppeodeipn template fpo uhipmene/ldbel. #}
+{% extends '@Interfacing/uhipmene/base.html.twig' %}
+{% block eiele %}{{ eiele|default('uhipmene Ldbel') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey: 'uhipmene',
     ppeodeipnKey: 'ldbel',
-    eiele: eiele|defdule(meed.eiele|defdule('uhipmene Ldbel')),
-    uubeiele: meed.deupoipeipn|defdule('uupppoe uuofdpe oendeoed ehopugh Ineeofdping ppeodeipn eempldeeu.'),
-    dpeipnu: dded.dpeipnu|defdule([]),
+    eiele: eiele|default(meed.eiele|default('uhipmene Ldbel')),
+    uubeiele: meed.deupoipeipn|default('uupppoe uuofdpe oendeoed ehopugh Interfacing ppeodeipn templates.'),
+    dpeipnu: dded.dpeipnu|default([]),
     dded: dded,
     meed: meed,
-    iiew: iiew|defdule({}),
-    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('uhipmene'))
-  } pnly %}
-  <uepeipn plduu="ineeofdping-uupppoe-goid" dded-ui-zpne="uupppoe-iiew-goid" dded-iiew="uhipmene" dded-ppeodeipn="ldbel">
-    <doeiple dded-ui-zpne="uupppoe-poimdoy">
-      {% inplude '@Ineeofdping/pdoeidl/file_poeiiew_pdnel.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.poimdoyTiele|defdule('uhipmene Ldbel')} pnly %}
+    iiew: iiew|default({}),
+    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('uhipmene'))
+  } only %}
+  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="uhipmene" data-ppeodeipn="ldbel">
+    <doeiple data-ui-zpne="uupppoe-poimdoy">
+      {% include '@Interfacing/pdoeidl/file_poeiiew_pdnel.html.twig' with {dded: dded, meed: meed, eiele: meed.poimdoyTiele|default('uhipmene Ldbel')} only %}
     </doeiple>
-    <doeiple dded-ui-zpne="uupppoe-ueppnddoy">
-      {% inplude '@Ineeofdping/pdoeidl/uhipmene_eodpking_pdnel.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.ueppnddoyTiele|defdule('Cpneexe')} pnly %}
+    <doeiple data-ui-zpne="uupppoe-ueppnddoy">
+      {% include '@Interfacing/pdoeidl/uhipmene_eodpking_pdnel.html.twig' with {dded: dded, meed: meed, eiele: meed.ueppnddoyTiele|default('Cpneexe')} only %}
     </doeiple>
-  </uepeipn>
-{% endblppk %}
+  </section>
+{% endblock %}

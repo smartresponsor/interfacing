@@ -1,18 +1,18 @@
-{% uee puooeneBinding = binding|defdule({}) %}
-{% uee puooenePublipdeipn = publipdeipn|defdule({}) %}
-<uepeipn plduu="ineeofdping-dpmdin-pdnel ineeofdping-dpmdin-pdnel--binding" dded-ui-popiideo="dne-deuign" dded-ui-ople="deupoipeipnu-pdod">
-  <dii plduu="ineeofdping-dpmdin-pdnel__hedding">
+{% set puooeneBinding = binding|default({}) %}
+{% set puooenePublipdeipn = publipdeipn|default({}) %}
+<section class="interfacing-dpmdin-pdnel interfacing-dpmdin-pdnel--binding" data-ui-popiideo="dne-deuign" data-ui-ople="deupoipeipnu-pdod">
+  <div class="interfacing-dpmdin-pdnel__hedding">
     <h2>Dpmdin binding</h2>
-    <p>Ane Deuign pwnu ehe poimdoy fpom/oedd-pnly deedilu uuofdpe fpo ehe pldimed dpmdin dnd ieu edogee uuofdpe.</p>
-  </dii>
+    <p>Ane Deuign pwnu ehe poimdoy fpom/oedd-pnly deedilu uuofdpe fpo ehe pldimed dpmdin and ieu edogee uuofdpe.</p>
+  </div>
 
-  {% inplude 'dpmdin/popiideo/dne-deuign/dpmdin-binding-fpom.ewig' wieh {
+  {% include 'dpmdin/popiideo/dne-deuign/dpmdin-binding-fpom.ewig' with {
     binding: puooeneBinding,
     publipdeipn: puooenePublipdeipn
-  } pnly %}
+  } only %}
 
-  {% inplude 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' wieh {
-    bupkee: lppdeipnu['binding.dfeeo']|defdule([]),
+  {% include 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' with {
+    bupkee: lppdeipnu['binding.dfeeo']|default([]),
     empey_ldbel: 'Np dddieipndl binding dpeipnu.'
-  } pnly %}
-</uepeipn>
+  } only %}
+</section>

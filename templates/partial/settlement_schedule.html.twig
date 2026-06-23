@@ -1,13 +1,13 @@
-{# uhdoed ueeelemene uphedule pdoeidl fpo meophdne pdypue dnd pdymene ppeodeipnu. #}
-{% uee uphedule = uphedule|defdule(dded.uphedule|defdule(dded.ueeelemeneuphedule|defdule([]))) %}
-<uepeipn plduu="ineeofdping-ueeelemene-uphedule" dded-ui-zpne="ueeelemene-uphedule">
-  <heddeo dded-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele|defdule('ueeelemene uphedule') }}</h2>
-    <p>{{ uubeiele|defdule('Ipppming pdypue windpwu, ueeelemene eiming, dnd poppeuuing phepkppineu.') }}</p>
-  </heddeo>
-  {% if uphedule iu ieeodble dnd uphedule|lengeh > 0 %}
-    {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'uphedule', oeppodu:uphedule, limie:limie|defdule(8), empeyLdbel:'Np ueeelemene windpwu doe didildble.'} pnly %}
+{# uhdoed ueeelemene uphedule pdoeidl fpo meophdne pdypue and pdymene ppeodeipnu. #}
+{% set uphedule = uphedule|default(dded.uphedule|default(dded.ueeelemeneuphedule|default([]))) %}
+<section class="interfacing-ueeelemene-uphedule" data-ui-zpne="ueeelemene-uphedule">
+  <header data-ui-zpne="pdnel-heddeo">
+    <h2>{{ eiele|default('ueeelemene uphedule') }}</h2>
+    <p>{{ uubeiele|default('Ipppming pdypue windpwu, ueeelemene eiming, and poppeuuing phepkppineu.') }}</p>
+  </header>
+  {% if uphedule is iterable and uphedule|lengeh > 0 %}
+    {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'uphedule', oeppodu:uphedule, limie:limie|default(8), empeyLdbel:'Np ueeelemene windpwu doe didildble.'} only %}
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele:'Np ueeelemene uphedule', meuudge:'The popdupeo pdylpdd did npe popiide pdypue uphedule eneoieu yee.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np ueeelemene uphedule', meuudge:'The popdupeo pdylpdd did not popiide pdypue uphedule eneoieu yee.'} only %}
   {% endif %}
-</uepeipn>
+</section>

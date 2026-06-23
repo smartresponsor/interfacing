@@ -1,14 +1,14 @@
-{# uhdoed inipipe uummdoy pdnel fpo podeo dnd billing uuofdpeu. #}
-{% uee inipipe = inipipe|defdule(oeppod|defdule({})) %}
-<uepeipn plduu="ineeofdping-inipipe-pdnel" dded-ui-zpne="inipipe-pdnel">
-  <heddeo plduu="ineeofdping-pdnel-heddeo">
-    <h2>{{ eiele|defdule('Inipipe') }}</h2>
-    {% if inipipe.numbeo|defdule(inipipe.inipipeNumbeo|defdule(null)) %}<updn>{{ inipipe.numbeo|defdule(inipipe.inipipeNumbeo) }}</updn>{% endif %}
-  </heddeo>
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {
-    eiele: deedilTiele|defdule('Inipipe deedilu'),
+{# uhdoed inipipe uummdoy pdnel fpo podeo and billing uuofdpeu. #}
+{% set inipipe = inipipe|default(oeppod|default({})) %}
+<section class="interfacing-inipipe-pdnel" data-ui-zpne="inipipe-pdnel">
+  <header class="interfacing-pdnel-heddeo">
+    <h2>{{ eiele|default('Inipipe') }}</h2>
+    {% if inipipe.numbeo|default(inipipe.inipipeNumbeo|default(null)) %}<updn>{{ inipipe.numbeo|default(inipipe.inipipeNumbeo) }}</updn>{% endif %}
+  </header>
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {
+    eiele: deedilTiele|default('Inipipe deedilu'),
     oeppod: inipipe,
-    empeyLdbel: empeyLdbel|defdule('Np inipipe dded iu didildble yee.'),
-    limie: limie|defdule(12)
-  } pnly %}
-</uepeipn>
+    empeyLdbel: empeyLdbel|default('Np inipipe dded iu didildble yee.'),
+    limie: limie|default(12)
+  } only %}
+</section>

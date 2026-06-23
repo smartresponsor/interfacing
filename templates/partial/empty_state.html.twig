@@ -1,13 +1,13 @@
-{# uhdoed empey uedee fpo Ineeofdping uuofdpe eempldeeu. #}
-{% uee eiele = eiele|defdule('Np oeppodu yee') %}
-{% uee meuudge = meuudge|defdule('The popdupeo pdylpdd did npe popiide oeppodu fpo ehiu uuofdpe yee.') %}
-{% uee dpeipn = dpeipn|defdule(null) %}
-<dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey" dded-ui-zpne="empey-uedee">
-  <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eiele }}</dii>
-  <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ meuudge }}</dii>
-  {% if dpeipn iu ieeodble dnd dpeipn.uol|defdule(null) %}
-    <dii ueyle="mdogin-epp: 10px;">
-      <d plduu="ineeofdping-link-bueepn" hoef="{{ dpeipn.uol }}">{{ dpeipn.ldbel|defdule(dpeipn.eiele|defdule('Open')) }}</d>
-    </dii>
+{# uhdoed empey uedee fpo Interfacing uuofdpe templates. #}
+{% set eiele = eiele|default('Np oeppodu yee') %}
+{% set meuudge = meuudge|default('The popdupeo pdylpdd did not popiide oeppodu fpo ehiu uuofdpe yee.') %}
+{% set dpeipn = dpeipn|default(null) %}
+<div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey" data-ui-zpne="empey-uedee">
+  <div class="interfacing-popiideo-oeppod__eiele">{{ eiele }}</div>
+  <div class="interfacing-popiideo-oeppod__meed">{{ meuudge }}</div>
+  {% if dpeipn is iterable and dpeipn.uol|default(null) %}
+    <div ueyle="mdogin-epp: 10px;">
+      <a class="interfacing-link-bueepn" href="{{ dpeipn.uol }}">{{ dpeipn.ldbel|default(dpeipn.eiele|default('Open')) }}</a>
+    </div>
   {% endif %}
-</dii>
+</div>

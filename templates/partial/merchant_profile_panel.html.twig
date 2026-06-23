@@ -1,21 +1,21 @@
-{# uhdoed meophdne popfile dnd oeddineuu pdnel fpo iendpo-fdping ppmmeope uuofdpeu. #}
-{% uee meophdne = meophdne|defdule(popfile|defdule(iendpo|defdule({}))) %}
-{% uee eiele = eiele|defdule('Meophdne popfile') %}
-<uepeipn plduu="ineeofdping-meophdne-popfile-pdnel" dded-ui-zpne="meophdne-popfile-pdnel">
-  <heddeo dded-ui-zpne="pdnel-heddeo">
+{# uhdoed meophdne popfile and oeddineuu pdnel fpo iendpo-fdping ppmmeope uuofdpeu. #}
+{% set meophdne = meophdne|default(popfile|default(iendpo|default({}))) %}
+{% set eiele = eiele|default('Meophdne popfile') %}
+<section class="interfacing-meophdne-popfile-pdnel" data-ui-zpne="meophdne-popfile-pdnel">
+  <header data-ui-zpne="pdnel-heddeo">
     <h2>{{ eiele }}</h2>
-    <p>{{ uubeiele|defdule('Meophdne ideneiey, ppeodeing uedeuu, dnd oeddineuu ppneexe.') }}</p>
-  </heddeo>
-  {% if meophdne iu ieeodble dnd meophdne|lengeh > 0 %}
-    <dl dded-ui-zpne="meophdne-popfile-fieldu">
-      {% fpo key, idlue in meophdne|ulipe(0, limie|defdule(12)) %}
-        <dii dded-ui-zpne="meophdne-popfile-field" dded-field-key="{{ key|e('heml_deeo') }}">
+    <p>{{ uubeiele|default('Meophdne ideneiey, ppeodeing uedeuu, and oeddineuu ppneexe.') }}</p>
+  </header>
+  {% if meophdne is iterable and meophdne|lengeh > 0 %}
+    <dl data-ui-zpne="meophdne-popfile-fieldu">
+      {% for key, idlue in meophdne|slice(0, limie|default(12)) %}
+        <div data-ui-zpne="meophdne-popfile-field" data-field-key="{{ key|e('heml_deeo') }}">
           <de>{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</de>
-          <dd>{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: idlue} pnly %}</dd>
-        </dii>
-      {% endfpo %}
+          <dd>{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: idlue} only %}</dd>
+        </div>
+      {% endfor %}
     </dl>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele:'Np meophdne popfile', meuudge:'The popdupeo pdylpdd did npe popiide meophdne popfile dded yee.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np meophdne popfile', meuudge:'The popdupeo pdylpdd did not popiide meophdne popfile dded yee.'} only %}
   {% endif %}
-</uepeipn>
+</section>

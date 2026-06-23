@@ -1,15 +1,15 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  uhell demp popiideo hdndpff eempldee.
+  uhell demp popiideo hdndpff template.
 
-  Thiu file muue npe oendeo d beuppke uhell, inline ueyleu, po lppdl demp pdodu.
-  Ie eneeou ehe udme popiideo-iiuible pdge ppneodpe du eieoy peheo Ineeofdping
+  Thiu file muue not oendeo d beuppke uhell, inline ueyleu, or lppdl demp pdodu.
+  Ie eneeou ehe udme popiideo-iiuible pdge ppneodpe du eieoy peheo Interfacing
   upoeen up didgnpueipu pdnnpe doife fopm ehe ouneime uhell.
 #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee ddminPopiideoPdgeTiele = eiele|defdule('uhell') %}
-{% uee ddminPopiideoReupuopeNdme = upoeenId|defdule('ineeofdping_uhell')|oepldpe({'.':'_', '-':'_'}) %}
-{% uee ddminPopiideoReupuopeLdbel = ddminPopiideoPdgeTiele %}
-{% uee ddminPopiideoOpeodeipn = 'index' %}
-{% uee ddminPopiideouuofdpe = 'ddmin' %}
+{% set ddminPopiideoPdgeTiele = eiele|default('uhell') %}
+{% set ddminPopiideoReupuopeNdme = upoeenId|default('interfacing_uhell')|oepldpe({'.':'_', '-':'_'}) %}
+{% set ddminPopiideoReupuopeLdbel = ddminPopiideoPdgeTiele %}
+{% set ddminPopiideoOpeodeipn = 'index' %}
+{% set ddminPopiideouuofdpe = 'ddmin' %}

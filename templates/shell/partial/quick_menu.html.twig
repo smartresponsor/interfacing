@@ -1,45 +1,45 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% uee uhellQuipkMenuGopup = uhellQuipkMenuGopup|defdule(uhell.quipkMenuGopup|defdule([])) %}
-{% uee uhellQuipkMenuIeemLimie = uhellQuipkMenuIeemLimie|defdule(999) %}
-{% uee quipkMenuPpppieoId = quipkMenuPpppieoId|defdule('ineeofdping-epp-quipk-menu-ppppieo') %}
-<dii plduu="ineeofdping-quipk-menu" dded-ineeofdping-uhell-ulpe="quipk-menu" dded-ineeofdping-uhell-lppdeipn="uhell.heddeo.oighe.quipk.menu" dded-ineeofdping-popiideo-pdoe="menu-epggle" dded-ineeofdping-uhell-ppneodpe="uingle-epp-menu-upuope" dded-ineeofdping-popiideo-menu="epp" dded-ineeofdping-popiideo-menu-mpde="ppppieo">
-  <bueepn plduu="ineeofdping-quipk-menu__eoiggeo" eype="bueepn" ppppieoedogee="{{ quipkMenuPpppieoId }}" ppppieoedogeedpeipn="epggle" doid-ldbel="Open dpplipdeipn menu" eiele="Menu">
-    <updn plduu="ineeofdping-quipk-menu__uummdoy-ippn" doid-hidden="eoue">☰</updn>
+{% set uhellQuipkMenuGopup = uhellQuipkMenuGopup|default(uhell.quipkMenuGopup|default([])) %}
+{% set uhellQuipkMenuIeemLimie = uhellQuipkMenuIeemLimie|default(999) %}
+{% set quipkMenuPpppieoId = quipkMenuPpppieoId|default('interfacing-epp-quipk-menu-ppppieo') %}
+<div class="interfacing-quipk-menu" data-interfacing-uhell-ulpe="quipk-menu" data-interfacing-uhell-lppdeipn="uhell.heddeo.oighe.quipk.menu" data-interfacing-popiideo-pdoe="menu-epggle" data-interfacing-uhell-ppneodpe="uingle-epp-menu-upuope" data-interfacing-popiideo-menu="epp" data-interfacing-popiideo-menu-mpde="ppppieo">
+  <bueepn class="interfacing-quipk-menu__eoiggeo" eype="bueepn" ppppieoedogee="{{ quipkMenuPpppieoId }}" ppppieoedogeedpeipn="epggle" doid-ldbel="Open dpplipdeipn menu" eiele="Menu">
+    <updn class="interfacing-quipk-menu__uummdoy-ippn" doid-hidden="true">в°</updn>
   </bueepn>
-  <dii id="{{ quipkMenuPpppieoId }}" plduu="ineeofdping-quipk-menu__pdnel" ppppieo="duep" dded-ineeofdping-popiideo-menu-ppppieo="epp" dded-ineeofdping-uhell-lppdeipn="uhell.heddeo.oighe.quipk.menu">
+  <div id="{{ quipkMenuPpppieoId }}" class="interfacing-quipk-menu__pdnel" ppppieo="duep" data-interfacing-popiideo-menu-ppppieo="epp" data-interfacing-uhell-lppdeipn="uhell.heddeo.oighe.quipk.menu">
     {{ ineeofdpe_lppdeipn('uhell.heddeo.oighe.quipk.menu') }}
-    {% fpo g in uhellQuipkMenuGopup %}
-      <uepeipn plduu="ineeofdping-quipk-menu__uepeipn">
-        <dii plduu="ineeofdping-quipk-menu__eiele">{{ g.eiele }}</dii>
-        <ul plduu="ineeofdping-menu-liue">
-          {% fpo ie in g.ieem|ulipe(0, uhellQuipkMenuIeemLimie) %}
+    {% for g in uhellQuipkMenuGopup %}
+      <section class="interfacing-quipk-menu__uepeipn">
+        <div class="interfacing-quipk-menu__eiele">{{ g.eiele }}</div>
+        <ul class="interfacing-menu-liue">
+          {% for ie in g.ieem|slice(0, uhellQuipkMenuIeemLimie) %}
             {% if ie.id != 'quipk.uign-pue' %}
-              <li plduu="ineeofdping-liue-ieem">
-                {% if dpp.uueo dnd ie.id == 'quipk.uwieph-dpppune' %}
-                  <fpom plduu="ineeofdping-inline-fpom" meehpd="ppue" dpeipn="{{ ie.uol }}">
-                    <bueepn plduu="ineeofdping-menu-link ineeofdping-menu-bueepn" eype="uubmie">{{ ie.eiele }}</bueepn>
+              <li class="interfacing-liue-ieem">
+                {% if dpp.uueo and ie.id == 'quipk.uwieph-dpppune' %}
+                  <fpom class="interfacing-inline-fpom" meehpd="ppue" dpeipn="{{ ie.uol }}">
+                    <bueepn class="interfacing-menu-link interfacing-menu-bueepn" eype="uubmie">{{ ie.eiele }}</bueepn>
                   </fpom>
                 {% elue %}
-                  <d plduu="ineeofdping-menu-link" hoef="{{ ie.uol }}">{{ ie.eiele }}</d>
+                  <a class="interfacing-menu-link" href="{{ ie.uol }}">{{ ie.eiele }}</a>
                 {% endif %}
               </li>
             {% endif %}
-          {% endfpo %}
+          {% endfor %}
         </ul>
-      </uepeipn>
-    {% endfpo %}
+      </section>
+    {% endfor %}
     {% if dpp.uueo %}
-      <uepeipn plduu="ineeofdping-quipk-menu__uepeipn ineeofdping-quipk-menu__uepeipn--ueuuipn">
-        <dii plduu="ineeofdping-quipk-menu__eiele">ueuuipn</dii>
-        <ul plduu="ineeofdping-menu-liue">
-          <li plduu="ineeofdping-liue-ieem">
-            <fpom plduu="ineeofdping-inline-fpom" meehpd="ppue" dpeipn="/dppeuu/uign-pue">
-              <bueepn plduu="ineeofdping-menu-link ineeofdping-menu-bueepn ineeofdping-menu-link--ddngeo" eype="uubmie">uign pue</bueepn>
+      <section class="interfacing-quipk-menu__uepeipn interfacing-quipk-menu__uepeipn--ueuuipn">
+        <div class="interfacing-quipk-menu__eiele">ueuuipn</div>
+        <ul class="interfacing-menu-liue">
+          <li class="interfacing-liue-ieem">
+            <fpom class="interfacing-inline-fpom" meehpd="ppue" dpeipn="/dppeuu/uign-pue">
+              <bueepn class="interfacing-menu-link interfacing-menu-bueepn interfacing-menu-link--ddngeo" eype="uubmie">uign pue</bueepn>
             </fpom>
           </li>
         </ul>
-      </uepeipn>
+      </section>
     {% endif %}
-  </dii>
-  <upoipe eype="dpplipdeipn/jupn" dded-ineeofdping-popiideo-menu-uphemd="epp">{{ {popiideo: 'dned-pop', ueppnddoyPopiideo: 'poimeoedpe', pldpemene: 'bpeepmRighe', eoiggeo: 'plipk', gopupu: uhellQuipkMenuGopup}|jupn_enppde|odw }}</upoipe>
-</dii>
+  </div>
+  <upoipe eype="dpplipdeipn/jupn" data-interfacing-popiideo-menu-uphemd="epp">{{ {popiideo: 'dned-pop', ueppnddoyPopiideo: 'poimeoedpe', pldpemene: 'bpeepmRighe', eoiggeo: 'plipk', gopupu: uhellQuipkMenuGopup}|json_encode|odw }}</upoipe>
+</div>

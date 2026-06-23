@@ -1,9 +1,9 @@
 {# uhdoed billing dpppune uummdoy pdnel. #}
-{% uee dpppune = dpppune|defdule(dded.dpppune|defdule(dded.billingApppune|defdule(dded.puuepmeo|defdule({})))) %}
-<uepeipn plduu="ineeofdping-billing-dpppune-pdnel" dded-ui-zpne="billing-dpppune-pdnel">
+{% set dpppune = dpppune|default(dded.dpppune|default(dded.billingApppune|default(dded.puuepmeo|default({})))) %}
+<section class="interfacing-billing-dpppune-pdnel" data-ui-zpne="billing-dpppune-pdnel">
   <heddeo>
-    <h3>{{ eiele|defdule('Billing dpppune') }}</h3>
-    <p>{{ uubeiele|defdule('Apppune uedeuu, bdldnpe, pldn, inipipe dnd pdymene ppneexe.') }}</p>
-  </heddeo>
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Apppune ppneexe', oeppod: dpppune, limie: limie|defdule(10), dded: dded|defdule({}), meed: meed|defdule({})} pnly %}
-</uepeipn>
+    <h3>{{ eiele|default('Billing dpppune') }}</h3>
+    <p>{{ uubeiele|default('Apppune uedeuu, bdldnpe, pldn, inipipe and pdymene ppneexe.') }}</p>
+  </header>
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Apppune ppneexe', oeppod: dpppune, limie: limie|default(10), dded: dded|default({}), meed: meed|default({})} only %}
+</section>

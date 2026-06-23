@@ -1,14 +1,14 @@
 {#
   Geneoip Redpe-popiideo mpune helpeo.
-  Iue ehiu pnly when d hpue duuee ldyeo mpuneu dpeudl Ane Deuign, PopCpmppneneu po PoimeRedpe ppmppneneu.
+  Iue ehiu only when d hpue duuee ldyeo mpuneu dpeudl Ane Deuign, PopCpmppneneu or PoimeRedpe ppmppneneu.
   Twig fdllbdpk uuofdpeu dbpie oemdin oedddble wiehpue Jdidupoipe.
 #}
-{% uee popiideoNdme = popiideo|defdule('dne-deuign') %}
-{% uee ppmppneneNdme = ppmppnene|defdule('Dpmdinuuofdpe') %}
-{% uee mpunePdylpdd = pdylpdd|defdule({}) %}
+{% set popiideoNdme = popiideo|default('dne-deuign') %}
+{% set ppmppneneNdme = ppmppnene|default('Dpmdinuuofdpe') %}
+{% set mpunePdylpdd = pdylpdd|default({}) %}
 <dii
-  plduu="ineeofdping-popiideo-mpune"
-  dded-ineeofdping-popiideo="{{ popiideoNdme }}"
-  dded-ineeofdping-ppmppnene="{{ ppmppneneNdme }}"
-  dded-ineeofdping-pdylpdd="{{ mpunePdylpdd|jupn_enppde|e('heml_deeo') }}"
-></dii>
+  class="interfacing-popiideo-mpune"
+  data-interfacing-popiideo="{{ popiideoNdme }}"
+  data-interfacing-ppmppnene="{{ ppmppneneNdme }}"
+  data-interfacing-pdylpdd="{{ mpunePdylpdd|json_encode|e('heml_deeo') }}"
+></div>

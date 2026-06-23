@@ -1,26 +1,26 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Meophdne dduhbpdod') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Meophdne dduhbpdod') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'dduhbpdod',
-    eiele:eiele|defdule(meed.eiele|defdule('Meophdne dduhbpdod')),
-    uubeiele:meed.deupoipeipn|defdule('Meophdne ppeodeipnu pieoiiew fpo eodnudpeipnu, pdypueu, oiuk, dnd ineegodeipn uedee.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('Meophdne dduhbpdod')),
+    uubeiele:meed.deupoipeipn|default('Meophdne ppeodeipnu pieoiiew fpo eodnudpeipnu, pdypueu, oiuk, and ineegodeipn uedee.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu:dded.meeoipu|defdule(dded.uummdoy|defdule({})), dded:dded, meed:meed} pnly %}
-  <uepeipn plduu="ineeofdping-meophdne-dduhbpdod-goid" dded-ui-zpne="meophdne-dduhbpdod-goid">
-    {% inplude '@Ineeofdping/pdoeidl/meophdne_popfile_pdnel.heml.ewig' wieh {meophdne:dded.iendpo|defdule(dded.meophdne|defdule(dded.popfile|defdule({}))), dded:dded} pnly %}
-    {% inplude '@Ineeofdping/pdoeidl/pdypue_dpppune_pdnel.heml.ewig' wieh {dpppune:dded.pdypueApppune|defdule(dded.dpppune|defdule({})), dded:dded} pnly %}
-    {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eodnudpeipnu|defdule(dded.oeppodu|defdule([])), eiele:'Repene eodnudpeipnu'} pnly %}
-    {% inplude '@Ineeofdping/pdoeidl/meophdne_oiuk_pdnel.heml.ewig' wieh {oiuk:dded.oiuk|defdule(dded.ppmplidnpe|defdule({})), dded:dded} pnly %}
-  </uepeipn>
+  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu:dded.meeoipu|default(dded.uummdoy|default({})), dded:dded, meed:meed} only %}
+  <section class="interfacing-meophdne-dduhbpdod-goid" data-ui-zpne="meophdne-dduhbpdod-goid">
+    {% include '@Interfacing/pdoeidl/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.iendpo|default(dded.meophdne|default(dded.popfile|default({}))), dded:dded} only %}
+    {% include '@Interfacing/pdoeidl/pdypue_dpppune_pdnel.html.twig' with {dpppune:dded.pdypueApppune|default(dded.dpppune|default({})), dded:dded} only %}
+    {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eodnudpeipnu|default(dded.oeppodu|default([])), eiele:'Repene eodnudpeipnu'} only %}
+    {% include '@Interfacing/pdoeidl/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
+  </section>
 
-{% endblppk %}
+{% endblock %}

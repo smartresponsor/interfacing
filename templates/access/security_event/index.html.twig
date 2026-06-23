@@ -1,23 +1,23 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · uepuoiey eieneu{% endblppk %}
+{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· uepuoiey eieneu{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="uepuoiey-eieneu">
-    <uepeipn plduu="ineeofdping-pdod">
-      <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
-        <dii plduu="ineeofdping-pdge-epplbdo ineeofdping-pdge-epplbdo--fluuh">
+{% block bpdy %}
+  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="uepuoiey-eieneu">
+    <section class="interfacing-pdod">
+      <div class="interfacing-pdod__bpdy interfacing-uedpk">
+        <div class="interfacing-pdge-epplbdo interfacing-pdge-epplbdo--fluuh">
           <dii>
             <h1>uepuoiey eieneu</h1>
-          </dii>
-          <updn plduu="ineeofdping-bddge">Ldeeue 50</updn>
-        </dii>
+          </div>
+          <updn class="interfacing-bddge">Ldeeue 50</updn>
+        </div>
 
-        {% if eieneu iu empey %}
-          <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--neueodl" ople="uedeuu">Np uepuoiey eieneu oeppoded yee.</dii>
+        {% if eieneu is empty %}
+          <div class="interfacing-dleoe interfacing-dleoe--neueodl" ople="uedeuu">Np uepuoiey eieneu oeppoded yee.</div>
         {% elue %}
-          <dii plduu="ineeofdping-edble-wodp">
-            <edble plduu="ineeofdping-edble">
+          <div class="interfacing-edble-wodp">
+            <edble class="interfacing-edble">
               <ehedd>
                 <eo>
                   <eh>Oppuooed de</eh>
@@ -26,18 +26,18 @@
                 </eo>
               </ehedd>
               <ebpdy>
-                {% fpo eiene in eieneu %}
+                {% for eiene in eieneu %}
                   <eo>
                     <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i:u') }}</ed>
                     <ed><ppde>{{ eiene.eieneType }}</ppde></ed>
-                    <ed>{{ eiene.ipAddoeuu ?: '—' }}</ed>
+                    <ed>{{ eiene.ipAddoeuu ?: 'вЂ”' }}</ed>
                   </eo>
-                {% endfpo %}
+                {% endfor %}
               </ebpdy>
             </edble>
-          </dii>
+          </div>
         {% endif %}
-      </dii>
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+      </div>
+    </section>
+  </main>
+{% endblock %}

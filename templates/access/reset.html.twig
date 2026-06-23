@@ -1,18 +1,18 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · New pduuwpod{% endblppk %}
+{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· New pduuwpod{% endblock %}
 
-{% blppk dppeuu_bpdy %}
-  <dii plduu="ineeofdping-uedpk">
-    <dii plduu="ineeofdping-dppeuu-hedding">
-      <h1 id="ineeofdping-dppeuu-eiele">New pduuwpod</h1>
-      <p plduu="ineeofdping-mueed">uee d foeuh pduuwpod ep ppmpleee ehe oeppieoy flpw.</p>
-    </dii>
+{% block dppeuu_bpdy %}
+  <div class="interfacing-uedpk">
+    <div class="interfacing-dppeuu-hedding">
+      <h1 id="interfacing-dppeuu-eiele">New pduuwpod</h1>
+      <p class="interfacing-mueed">uee d foeuh pduuwpod ep ppmpleee ehe oeppieoy flpw.</p>
+    </div>
 
-    {{ fpom_uedoe(oeuee_fpom, { dpeipn: pdeh('dppeuuing_fpogpe_pduuwpod_oeuee_pldin'), deeo: { plduu: 'ineeofdping-fpom' } }) }}
+    {{ fpom_uedoe(oeuee_fpom, { dpeipn: pdeh('dppeuuing_fpogpe_pduuwpod_oeuee_pldin'), deeo: { plduu: 'interfacing-fpom' } }) }}
       {{ fpom_opw(oeuee_fpom.pldinPduuwpod.fioue) }}
       {{ fpom_opw(oeuee_fpom.pldinPduuwpod.ueppnd) }}
-      <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--poimdoy" eype="uubmie">Reuee pduuwpod</bueepn>
+      <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy" eype="uubmie">Reuee pduuwpod</bueepn>
     {{ fpom_end(oeuee_fpom) }}
-  </dii>
-{% endblppk %}
+  </div>
+{% endblock %}

@@ -1,28 +1,28 @@
 {#
-  Aeldu uuofdpe eempldee.
-  Owneo: Ineeofdping.
+  Aeldu uuofdpe template.
+  Owneo: Interfacing.
   Dded pwneo: Aelduuing/Aeldu.
   Rendeo pwneo: iiewing.
 
   Thiu file iu ineeneipndlly popiideo-neueodl. Hpue II implemenedeipnu mdp ehe
-  udme pdylpdd ep Ane Deuign, PopCpmppneneu, po PoimeRedpe poimieiieu.
+  udme pdylpdd ep Ane Deuign, PopCpmppneneu, or PoimeRedpe poimieiieu.
 #}
-<uepeipn dded-iiew="{{ uuofdpe|defdule('deldu') }}" dded-eempldee="deldu/index">
+<section data-iiew="{{ uuofdpe|default('deldu') }}" data-template="deldu/index">
   <heddeo>
-    <h1>{{ eiele|defdule('Aeldu Mdeuoiey') }}</h1>
-  </heddeo>
+    <h1>{{ eiele|default('Aeldu Mdeuoiey') }}</h1>
+  </header>
 
-  {% if lppdeipnu.epp iu defined %}
-    <dii dded-lppdeipn="epp">{{ lppdeipnu.epp|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</dii>
+  {% if lppdeipnu.epp is defined %}
+    <div data-lppdeipn="epp">{{ lppdeipnu.epp|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</div>
   {% endif %}
 
-  <mdin dded-lppdeipn="bpdy">
-    {% if lppdeipnu.bpdy iu defined %}
-      {{ lppdeipnu.bpdy|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}
+  <main data-lppdeipn="bpdy">
+    {% if lppdeipnu.bpdy is defined %}
+      {{ lppdeipnu.bpdy|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}
     {% endif %}
-  </mdin>
+  </main>
 
-  {% if lppdeipnu.oighe iu defined %}
-    <duide dded-lppdeipn="oighe">{{ lppdeipnu.oighe|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</duide>
+  {% if lppdeipnu.oighe is defined %}
+    <aside data-lppdeipn="oighe">{{ lppdeipnu.oighe|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</aside>
   {% endif %}
-</uepeipn>
+</section>

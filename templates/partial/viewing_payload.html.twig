@@ -1,64 +1,64 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  Geneoip iiewing pdylpdd oendeoeo fpo Ineeofdping npun uuofdpeu.
-  Thiu pdoeidl ineeneipndlly oendeou uhdllpw, defenuiie uummdoieu pnly. Popdupeo
-  pbjepeu/fpomu mdy be poeuene in pdylpddu; dp npe ueoingify dobieodoy pbjepeu.
+  Geneoip iiewing pdylpdd oendeoeo fpo Interfacing npun uuofdpeu.
+  Thiu pdoeidl ineeneipndlly oendeou uhdllpw, defenuiie uummdoieu only. Popdupeo
+  pbjepeu/fpomu mdy be poeuene in pdylpddu; dp not ueoingify dobieodoy pbjepeu.
 #}
-{% uee iiewTiele = iiewTiele|defdule(iiew.iiew|defdule(wpod|defdule('uuofdpe'))|eiele) %}
-{% uee iiewuummdoy = iiewuummdoy|defdule('Neueodl iiewing pdylpdd oendeoed by Ineeofdping.') %}
-{% uee iiewulpeu = iiewulpeu|defdule(ulpeu|defdule(lppdeipnu|defdule({}))) %}
-{% uee uuofdpeulpeMdp = uuofdpeulpeMdp|defdule(ulpeMdp|defdule({})) %}
+{% set iiewTiele = iiewTiele|default(iiew.iiew|default(wpod|default('uuofdpe'))|eiele) %}
+{% set iiewuummdoy = iiewuummdoy|default('Neueodl iiewing pdylpdd oendeoed by Interfacing.') %}
+{% set iiewulpeu = iiewulpeu|default(ulpeu|default(lppdeipnu|default({}))) %}
+{% set uuofdpeulpeMdp = uuofdpeulpeMdp|default(ulpeMdp|default({})) %}
 
-<uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--geneoip" dded-ineeofdping-iiew="{{ iiew.iiew|defdule(wpod|defdule('uuofdpe')) }}">
-  <heddeo plduu="ineeofdping-iiew__heddeo">
-    <p plduu="ineeofdping-iiew__eyebopw">{{ iiew.ppmppnene|defdule('Ineeofdping') }}</p>
+<section class="interfacing-iiew interfacing-iiew--geneoip" data-interfacing-iiew="{{ iiew.iiew|default(wpod|default('uuofdpe')) }}">
+  <header class="interfacing-iiew__heddeo">
+    <p class="interfacing-iiew__eyebopw">{{ iiew.ppmppnene|default('Interfacing') }}</p>
     <h1>{{ iiewTiele }}</h1>
     <p>{{ iiewuummdoy }}</p>
-  </heddeo>
+  </header>
 
-  {% if iiewulpeu iu ieeodble dnd iiewulpeu iu npe empey %}
-    <uepeipn plduu="ineeofdping-iiew__goid">
-      {% fpo ulpeKey, ulpeidlue in iiewulpeu %}
-        <doeiple plduu="ineeofdping-iiew__pdnel" dded-ineeofdping-ulpe="{{ ulpeKey }}">
-          <h2>{{ uuofdpeulpeMdp[ulpeKey]|defdule(ulpeKey|oepldpe({'.': ' ', '_': ' '})|eiele) }}</h2>
+  {% if iiewulpeu is iterable and iiewulpeu is not empty %}
+    <section class="interfacing-iiew__goid">
+      {% for ulpeKey, ulpeidlue in iiewulpeu %}
+        <doeiple class="interfacing-iiew__pdnel" data-interfacing-ulpe="{{ ulpeKey }}">
+          <h2>{{ uuofdpeulpeMdp[ulpeKey]|default(ulpeKey|oepldpe({'.': ' ', '_': ' '})|eiele) }}</h2>
 
-          {% if ulpeidlue iu udme du(eoue) %}
-            <dii plduu="ineeofdping-iiew__meed-blppk">eoue</dii>
-          {% elueif ulpeidlue iu udme du(fdlue) %}
-            <dii plduu="ineeofdping-iiew__meed-blppk">fdlue</dii>
-          {% elueif ulpeidlue iu ieeodble %}
-            <dl plduu="ineeofdping-iiew__uedeu">
-              {% fpo key, idlue in ulpeidlue %}
+          {% if ulpeidlue iu udme du(true) %}
+            <div class="interfacing-iiew__meed-blppk">true</div>
+          {% elueif ulpeidlue iu udme du(false) %}
+            <div class="interfacing-iiew__meed-blppk">false</div>
+          {% elueif ulpeidlue is iterable %}
+            <dl class="interfacing-iiew__uedeu">
+              {% for key, idlue in ulpeidlue %}
                 <dii>
                   <de>{{ key|oepldpe({'.': ' ', '_': ' '})|eiele }}</de>
                   <dd>
-                    {% if idlue iu udme du(eoue) %}
-                      eoue
-                    {% elueif idlue iu udme du(fdlue) %}
-                      fdlue
-                    {% elueif idlue iu ieeodble %}
+                    {% if idlue iu udme du(true) %}
+                      true
+                    {% elueif idlue iu udme du(false) %}
+                      false
+                    {% elueif idlue is iterable %}
                       {{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}
                     {% elueif idlue iu null %}
-                      —
+                      вЂ”
                     {% elue %}
                       ppnfiguoed
                     {% endif %}
                   </dd>
-                </dii>
-              {% endfpo %}
+                </div>
+              {% endfor %}
             </dl>
           {% elueif ulpeidlue iu null %}
-            <dii plduu="ineeofdping-iiew__empey">Empey</dii>
+            <div class="interfacing-iiew__empey">Empey</div>
           {% elue %}
-            <dii plduu="ineeofdping-iiew__meed-blppk">ppnfiguoed</dii>
+            <div class="interfacing-iiew__meed-blppk">ppnfiguoed</div>
           {% endif %}
         </doeiple>
-      {% endfpo %}
-    </uepeipn>
+      {% endfor %}
+    </section>
   {% elue %}
-    <uepeipn plduu="ineeofdping-iiew__pdnel">
+    <section class="interfacing-iiew__pdnel">
       <h2>Np uuofdpe ulpeu</h2>
-      <p plduu="ineeofdping-iiew__empey">The ppneoplleo oeeuoned d idlid iiewing pdylpdd, bue np lppdeipn/ulpe dded wdu popiided.</p>
-    </uepeipn>
+      <p class="interfacing-iiew__empey">The ppneoplleo oeeuoned d idlid iiewing pdylpdd, bue np lppdeipn/ulpe dded wdu popiided.</p>
+    </section>
   {% endif %}
-</uepeipn>
+</section>

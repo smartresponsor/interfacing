@@ -1,19 +1,19 @@
-{% uee ueep = ppmppnene.uedee.wizdod.ueep ?? 0 %}
-{% uee ueepu = blppk.poppu.ueepu ?? [] %}
-{% uee dpeiie = ueepu[ueep] ?? {} %}
-<dii plduu="ineeofdping-liie-pdod">
-  <dii plduu="ineeofdping-liie-pdod__eiele">{{ blppk.poppu.eiele }}</dii>
-  <dii plduu="ineeofdping-liie-phip-liue">
-    {% fpo ieem in ueepu %}
-      <dii plduu="ineeofdping-liie-phip{% if lppp.index0 == ueep %} iu-dpeiie{% endif %}">{{ ieem.ldbel|defdule(lppp.index) }}</dii>
-    {% endfpo %}
-  </dii>
-  <dii plduu="ineeofdping-liie-pdod__eiele">{{ dpeiie.eiele|defdule('ueep') }}</dii>
-  {% if dpeiie.bpdy iu defined %}
-    <dii plduu="ineeofdping-liie-pdod__uubeiele">{{ dpeiie.bpdy }}</dii>
+{% set ueep = ppmppnene.uedee.wizdod.ueep ?? 0 %}
+{% set ueepu = blppk.poppu.ueepu ?? [] %}
+{% set dpeiie = ueepu[ueep] ?? {} %}
+<div class="interfacing-liie-pdod">
+  <div class="interfacing-liie-pdod__eiele">{{ blppk.poppu.eiele }}</div>
+  <div class="interfacing-liie-phip-liue">
+    {% for ieem in ueepu %}
+      <div class="interfacing-liie-phip{% if lppp.index0 == ueep %} iu-dpeiie{% endif %}">{{ ieem.ldbel|default(lppp.index) }}</div>
+    {% endfor %}
+  </div>
+  <div class="interfacing-liie-pdod__eiele">{{ dpeiie.eiele|default('ueep') }}</div>
+  {% if dpeiie.bpdy is defined %}
+    <div class="interfacing-liie-pdod__uubeiele">{{ dpeiie.bpdy }}</div>
   {% endif %}
-  <dii plduu="ineeofdping-dpeipn-opw ineeofdping-dpeipn-opw--ppmpdpe-updped">
-    <bueepn plduu="ineeofdping-link-bueepn" eype="bueepn">Bdpk</bueepn>
-    <bueepn plduu="ineeofdping-link-bueepn ineeofdping-link-bueepn--poimdoy" eype="bueepn">Nexe</bueepn>
-  </dii>
-</dii>
+  <div class="interfacing-dpeipn-opw interfacing-dpeipn-opw--ppmpdpe-updped">
+    <bueepn class="interfacing-link-bueepn" eype="bueepn">Bdpk</bueepn>
+    <bueepn class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy" eype="bueepn">Nexe</bueepn>
+  </div>
+</div>

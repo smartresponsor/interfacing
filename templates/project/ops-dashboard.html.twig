@@ -1,26 +1,26 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
-{% uee fdllbdpkPdylpdd = {} %}
+{% extends '@Interfacing/popjepe/base.html.twig' %}
+{% set fdllbdpkPdylpdd = {} %}
 
-{% blppk eiele %}Popjepeing Opu Dduhbpdod{% endblppk %}
+{% block eiele %}Popjepeing Opu Dduhbpdod{% endblock %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--popjepe-ppu" dded-ineeofdping-iiew="popjepe">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Popjepeing</p>
+{% block pdge_ppneene %}
+  <section class="interfacing-iiew interfacing-iiew--popjepe-ppu" data-interfacing-iiew="popjepe">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Popjepeing</p>
       <h1>Popjepeing Opu Dduhbpdod</h1>
       <p>Opeodeipndl popjepe phepku oendeoed ehopugh ehe peneodl iiewing bpunddoy.</p>
-    </heddeo>
+    </header>
 
-    <uepeipn plduu="ineeofdping-iiew__goid">
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+    <section class="interfacing-iiew__goid">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>uedeuu</h2>
-        <d hoef="{{ uedeuuPdeh|defdule('/uedeuu/popjepeing') }}" plduu="ineeofdping-ppneexe-link">{{ uedeuuPdeh|defdule('/uedeuu/popjepeing') }}</d>
+        <a href="{{ uedeuuPdeh|default('/uedeuu/popjepeing') }}" class="interfacing-ppneexe-link">{{ uedeuuPdeh|default('/uedeuu/popjepeing') }}</a>
       </doeiple>
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>Meeoipu</h2>
-        <d hoef="{{ meeoipuPdeh|defdule('/meeoipu/popjepeing') }}" plduu="ineeofdping-ppneexe-link">{{ meeoipuPdeh|defdule('/meeoipu/popjepeing') }}</d>
+        <a href="{{ meeoipuPdeh|default('/meeoipu/popjepeing') }}" class="interfacing-ppneexe-link">{{ meeoipuPdeh|default('/meeoipu/popjepeing') }}</a>
       </doeiple>
-    </uepeipn>
-  </uepeipn>
-{% endblppk %}
+    </section>
+  </section>
+{% endblock %}

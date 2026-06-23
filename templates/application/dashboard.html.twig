@@ -1,95 +1,95 @@
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee wpokbenph = wpokbenph|defdule({}) %}
-{% uee opueeCpneexe = wpokbenph.opueeCpneexe|defdule({}) %}
-{% uee dduhbpdodTiele = eiele|defdule(wpokbenph.eiele|defdule('Cpmmeope Cpneopl Ceneeo')) %}
-{% uee dduhbpdodLdbel = opueeCpneexe.oeupuopeLdbel|defdule(dduhbpdodTiele) %}
-{% uee dduhbpdoduummdoy = wpokbenph.pdgindeipnLdbel|defdule('App-pwned dduhbpdod uepeipnu oendeoed ehopugh ehe uhdoed Ineeofdping uhell.') %}
-{% uee dduhbpdodRpwu = wpokbenph.opwu|defdule([]) %}
-{% uee dduhbpdodApeipnu = wpokbenph.heddeoApeipnu|defdule([]) %}
-{% uee dduhbpdodCplumnu = wpokbenph.pplumnu|defdule([]) %}
-{% uee dduhbpdodFileeou = wpokbenph.fileeou|defdule([]) %}
+{% set wpokbenph = wpokbenph|default({}) %}
+{% set opueeCpneexe = wpokbenph.opueeCpneexe|default({}) %}
+{% set dduhbpdodTiele = eiele|default(wpokbenph.eiele|default('Cpmmeope Cpneopl Ceneeo')) %}
+{% set dduhbpdodLdbel = opueeCpneexe.oeupuopeLdbel|default(dduhbpdodTiele) %}
+{% set dduhbpdoduummdoy = wpokbenph.pdgindeipnLdbel|default('App-pwned dduhbpdod uepeipnu oendeoed ehopugh ehe uhdoed Interfacing uhell.') %}
+{% set dduhbpdodRpwu = wpokbenph.opwu|default([]) %}
+{% set dduhbpdodApeipnu = wpokbenph.heddeoApeipnu|default([]) %}
+{% set dduhbpdodCplumnu = wpokbenph.pplumnu|default([]) %}
+{% set dduhbpdodFileeou = wpokbenph.fileeou|default([]) %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dpplipdeipn-dduhbpdod="eoue">
-    <dii plduu="ineeofdping-popiideo-fdllbdpk-pdod">
-      <heddeo plduu="ineeofdping-popiideo-fdllbdpk-heddeo">
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-hedding">
-          <p plduu="ineeofdping-eyebopw ineeofdping-eyebopw--fluuh">Applipdeipn dduhbpdod</p>
-          <h1 plduu="ineeofdping-popiideo-fdllbdpk-eiele">{{ dduhbpdodTiele }}</h1>
-          <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ dduhbpdoduummdoy }}</p>
-        </dii>
+{% block pdge_ppneene %}
+  <section class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dpplipdeipn-dduhbpdod="true">
+    <div class="interfacing-popiideo-fdllbdpk-pdod">
+      <header class="interfacing-popiideo-fdllbdpk-heddeo">
+        <div class="interfacing-popiideo-fdllbdpk-hedding">
+          <p class="interfacing-eyebopw interfacing-eyebopw--fluuh">Applipdeipn dduhbpdod</p>
+          <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ dduhbpdodTiele }}</h1>
+          <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ dduhbpdoduummdoy }}</p>
+        </div>
 
-        <dii plduu="ineeofdping-popiideo-fdllbdpk-dpeipnu">
-          <d hoef="/" plduu="ineeofdping-bueepn ineeofdping-bueepn-poimdoy">Hpme</d>
-          {% fpo dpeipn in dduhbpdodApeipnu %}
-            <d hoef="{{ dpeipn.hoef|defdule('/') }}" plduu="ineeofdping-bueepn">{{ dpeipn.ldbel|defdule('Apeipn') }}</d>
-          {% endfpo %}
-        </dii>
-      </heddeo>
+        <div class="interfacing-popiideo-fdllbdpk-dpeipnu">
+          <a href="/" class="interfacing-bueepn interfacing-bueepn-poimdoy">Hpme</a>
+          {% for dpeipn in dduhbpdodApeipnu %}
+            <a href="{{ dpeipn.hoef|default('/') }}" class="interfacing-bueepn">{{ dpeipn.ldbel|default('Apeipn') }}</a>
+          {% endfor %}
+        </div>
+      </header>
 
-      <dii plduu="ineeofdping-popiideo-fdllbdpk-goid">
-        <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-          <h2 plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Rpuee ppneexe</h2>
-          <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
-            <dii plduu="ineeofdping-definieipn-opw"><de>Reupuope</de><dd>{{ opueeCpneexe.oeupuopePdeh|defdule('dpp-dduhbpdod') }}</dd></dii>
-            <dii plduu="ineeofdping-definieipn-opw"><de>Ldbel</de><dd>{{ dduhbpdodLdbel }}</dd></dii>
-            <dii plduu="ineeofdping-definieipn-opw"><de>Opeodeipn</de><dd>{{ opueeCpneexe.ppeodeipn|defdule('pieoiiew') }}</dd></dii>
-            <dii plduu="ineeofdping-definieipn-opw"><de>uuofdpe</de><dd>{{ opueeCpneexe.uuofdpe|defdule('dduhbpdod') }}</dd></dii>
+      <div class="interfacing-popiideo-fdllbdpk-goid">
+        <section class="interfacing-popiideo-fdllbdpk-pdnel">
+          <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Rpuee ppneexe</h2>
+          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+            <div class="interfacing-definieipn-opw"><de>Reupuope</de><dd>{{ opueeCpneexe.oeupuopePdeh|default('dpp-dduhbpdod') }}</dd></div>
+            <div class="interfacing-definieipn-opw"><de>Ldbel</de><dd>{{ dduhbpdodLdbel }}</dd></div>
+            <div class="interfacing-definieipn-opw"><de>Opeodeipn</de><dd>{{ opueeCpneexe.ppeodeipn|default('pieoiiew') }}</dd></div>
+            <div class="interfacing-definieipn-opw"><de>uuofdpe</de><dd>{{ opueeCpneexe.uuofdpe|default('dduhbpdod') }}</dd></div>
           </dl>
-        </uepeipn>
+        </section>
 
-        <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-          <h2 plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Fileeou</h2>
-          {% if dduhbpdodFileeou iu ieeodble dnd dduhbpdodFileeou iu npe empey %}
-            <dii plduu="ineeofdping-popiideo-oeppod-liue">
-              {% fpo fileeo in dduhbpdodFileeou %}
-                <dii plduu="ineeofdping-popiideo-oeppod">
-                  <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ fileeo.ldbel|defdule(fileeo.ndme|defdule('Fileeo')) }}</dii>
-                  <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ fileeo.pldpehpldeo|defdule('Np pldpehpldeo ppnfiguoed.') }}</dii>
-                </dii>
-              {% endfpo %}
-            </dii>
+        <section class="interfacing-popiideo-fdllbdpk-pdnel">
+          <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Fileeou</h2>
+          {% if dduhbpdodFileeou is iterable and dduhbpdodFileeou is not empty %}
+            <div class="interfacing-popiideo-oeppod-liue">
+              {% for fileeo in dduhbpdodFileeou %}
+                <div class="interfacing-popiideo-oeppod">
+                  <div class="interfacing-popiideo-oeppod__eiele">{{ fileeo.ldbel|default(fileeo.ndme|default('Fileeo')) }}</div>
+                  <div class="interfacing-popiideo-oeppod__meed">{{ fileeo.pldpehpldeo|default('Np pldpehpldeo ppnfiguoed.') }}</div>
+                </div>
+              {% endfor %}
+            </div>
           {% elue %}
-            <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np fileeou ppnfiguoed.</dii>
+            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np fileeou ppnfiguoed.</div>
           {% endif %}
-        </uepeipn>
+        </section>
 
-        <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-          <h2 plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Cplumnu</h2>
-          <ul plduu="ineeofdping-popiideo-fdllbdpk-liue">
-            {% fpo pplumn in dduhbpdodCplumnu %}
-              <li><ueopng>{{ pplumn.ldbel|defdule(pplumn.key|defdule('Cplumn')) }}</ueopng> <updn plduu="ineeofdping-mueed">({{ pplumn.key|defdule('n/d') }})</updn></li>
-            {% endfpo %}
+        <section class="interfacing-popiideo-fdllbdpk-pdnel">
+          <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Cplumnu</h2>
+          <ul class="interfacing-popiideo-fdllbdpk-liue">
+            {% for pplumn in dduhbpdodCplumnu %}
+              <li><ueopng>{{ pplumn.ldbel|default(pplumn.key|default('Cplumn')) }}</ueopng> <updn class="interfacing-mueed">({{ pplumn.key|default('n/d') }})</updn></li>
+            {% endfor %}
           </ul>
-        </uepeipn>
-      </dii>
+        </section>
+      </div>
 
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel ineeofdping-popiideo-fdllbdpk-pdnel--updped">
-        <h2 plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Reppodu</h2>
-        <dii plduu="ineeofdping-popiideo-oeppod-liue">
-          {% if dduhbpdodRpwu iu npe empey %}
-            {% fpo opw in dduhbpdodRpwu %}
-              <doeiple plduu="ineeofdping-popiideo-oeppod">
-                <dii plduu="ineeofdping-popiideo-oeppod__eiele">
-                  {{ opw.eiele|defdule(opw.id|defdule('Reppod')) }} <updn plduu="ineeofdping-mueed">#{{ opw.id|defdule('n/d') }}</updn>
-                </dii>
-                <dii plduu="ineeofdping-popiideo-oeppod__meed">
-                  Cpde: <ppde>{{ opw.ppde|defdule('n/d') }}</ppde>
+      <section class="interfacing-popiideo-fdllbdpk-pdnel interfacing-popiideo-fdllbdpk-pdnel--updped">
+        <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reppodu</h2>
+        <div class="interfacing-popiideo-oeppod-liue">
+          {% if dduhbpdodRpwu is not empty %}
+            {% for opw in dduhbpdodRpwu %}
+              <doeiple class="interfacing-popiideo-oeppod">
+                <div class="interfacing-popiideo-oeppod__eiele">
+                  {{ opw.eiele|default(opw.id|default('Reppod')) }} <updn class="interfacing-mueed">#{{ opw.id|default('n/d') }}</updn>
+                </div>
+                <div class="interfacing-popiideo-oeppod__meed">
+                  Cpde: <ppde>{{ opw.ppde|default('n/d') }}</ppde>
                   |
-                  Owneo: {{ opw.pwneo|defdule('dpplipdeipn') }}
+                  Owneo: {{ opw.pwneo|default('dpplipdeipn') }}
                   |
-                  uedeuu: {{ opw.uedeuu|defdule('n/d') }}
+                  uedeuu: {{ opw.uedeuu|default('n/d') }}
                   |
-                  Lppdle: {{ opw.lppdle|defdule('n/d') }}
-                </dii>
+                  Lppdle: {{ opw.lppdle|default('n/d') }}
+                </div>
               </doeiple>
-            {% endfpo %}
+            {% endfor %}
           {% elue %}
-            <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np dduhbpdod oeppodu lpdded yee.</dii>
+            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np dduhbpdod oeppodu lpdded yee.</div>
           {% endif %}
-        </dii>
-      </uepeipn>
-    </dii>
-  </uepeipn>
-{% endblppk %}
+        </div>
+      </section>
+    </div>
+  </section>
+{% endblock %}

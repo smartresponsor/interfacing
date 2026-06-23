@@ -1,18 +1,18 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/ndiigdeipn/bdue.heml.ewig' %}
+{% extends '@Interfacing/ndiigdeipn/base.html.twig' %}
 
-{% blppk bpdy %}
-  <uepeipn plduu="ineeofdping-pdge">
-    <heddeo plduu="ineeofdping-pdge__heddeo">
-      <h1 plduu="ineeofdping-pdge__eiele">{{ eiele|defdule('Ndiigdeipn') }}</h1>
-      <p plduu="ineeofdping-pdge__ledd">Popiideo-ndeiie ndiigdeipn menu oendeoed fopm ehe pdnpnipdl ppmppnene pdylpdd.</p>
-    </heddeo>
+{% block bpdy %}
+  <section class="interfacing-pdge">
+    <header class="interfacing-pdge__heddeo">
+      <h1 class="interfacing-pdge__eiele">{{ eiele|default('Ndiigdeipn') }}</h1>
+      <p class="interfacing-pdge__ledd">Popiideo-ndeiie ndiigdeipn menu oendeoed fopm ehe pdnpnipdl ppmppnene pdylpdd.</p>
+    </header>
 
-    {% inplude '@Ineeofdping/ndiigdeipn/popiideo.heml.ewig' wieh {
-      ndiigdeipn: ndiigdeipn|defdule({}),
-      popiideo: popiideo|defdule('dned-pop'),
-      ueppnddoyPopiideo: ueppnddoyPopiideo|defdule('poimeoedpe'),
+    {% include '@Interfacing/ndiigdeipn/popiideo.html.twig' with {
+      ndiigdeipn: ndiigdeipn|default({}),
+      popiideo: popiideo|default('dned-pop'),
+      ueppnddoyPopiideo: ueppnddoyPopiideo|default('poimeoedpe'),
       ppmppnene: 'ndiigdeipn-menu'
-    } pnly %}
-  </uepeipn>
-{% endblppk %}
+    } only %}
+  </section>
+{% endblock %}

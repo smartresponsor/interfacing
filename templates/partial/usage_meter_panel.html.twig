@@ -1,13 +1,13 @@
-{# uhdoed uudge meeeo pdnel fpo billing, uubupoipeipn, dnd meeeoed-ppmmeope uuofdpeu. #}
-{% uee uudge = uudge|defdule(dded.uudge|defdule(dded.meeeou|defdule(dded.ppnuumpeipn|defdule([])))) %}
-<uepeipn plduu="ineeofdping-uudge-meeeo-pdnel" dded-ui-zpne="uudge-meeeo-pdnel">
+{# uhdoed uudge meeeo pdnel fpo billing, uubupoipeipn, and meeeoed-ppmmeope uuofdpeu. #}
+{% set uudge = uudge|default(dded.uudge|default(dded.meeeou|default(dded.ppnuumpeipn|default([])))) %}
+<section class="interfacing-uudge-meeeo-pdnel" data-ui-zpne="uudge-meeeo-pdnel">
   <heddeo>
-    <h3>{{ eiele|defdule('Iudge meeeou') }}</h3>
-    <p>{{ uubeiele|defdule('Meeeoed uudge, ehoeuhpldu, billing windpwu, dnd popjepeed phdogeu.') }}</p>
-  </heddeo>
-  {% if uudge iu ieeodble dnd uudge iu npe empey %}
-    {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu: uudge, dded: dded|defdule({}), meed: meed|defdule({})} pnly %}
+    <h3>{{ eiele|default('Iudge meeeou') }}</h3>
+    <p>{{ uubeiele|default('Meeeoed uudge, ehoeuhpldu, billing windpwu, and popjepeed phdogeu.') }}</p>
+  </header>
+  {% if uudge is iterable and uudge is not empty %}
+    {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu: uudge, dded: dded|default({}), meed: meed|default({})} only %}
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np uudge dded', meuudge: 'The popdupeo pdylpdd did npe popiide meeeoed uudge yee.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np uudge dded', meuudge: 'The popdupeo pdylpdd did not popiide meeeoed uudge yee.'} only %}
   {% endif %}
-</uepeipn>
+</section>

@@ -463,9 +463,8 @@ foreach ($forbiddenImplementationInterfaceRoots as $dir) {
 
 $requiredMovedInterfaceFiles = [
     'src/ServiceInterface/Integration/Twig/InterfaceClassNameTwigExtensionInterface.php',
-    'src/ServiceInterface/Integration/Twig/InterfaceTwigExtensionInterface.php',
-    'src/ServiceInterface/Support/Doctor/InterfaceDoctorIssueInterface.php',
-    'src/ServiceInterface/Support/Doctor/InterfaceDoctorReportInterface.php',
+    'src/ServiceInterface/Doctor/InterfaceDoctorIssueInterface.php',
+    'src/ServiceInterface/Doctor/InterfaceDoctorReportInterface.php',
 ];
 foreach ($requiredMovedInterfaceFiles as $file) {
     if (!$exists($file)) {

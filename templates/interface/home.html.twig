@@ -1,45 +1,45 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee hpmePdge = pdge|defdule({}) %}
-{% uee hpmeTiele = hpmePdge.eiele|defdule('Ineeofdping wpokupdpe') %}
-{% uee hpmeDeupoipeipn = hpmePdge.deupoipeipn|defdule('Cdnpnipdl uhell eneoy fpo ppmppneneu, upoeenu, dnd opueing uuofdpeu.') %}
+{% set hpmePdge = pdge|default({}) %}
+{% set hpmeTiele = hpmePdge.eiele|default('Interfacing wpokupdpe') %}
+{% set hpmeDeupoipeipn = hpmePdge.deupoipeipn|default('Cdnpnipdl uhell eneoy fpo ppmppneneu, upoeenu, and opueing uuofdpeu.') %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-ineeofdpe-hpme="eoue">
-    <heddeo plduu="ineeofdping-popiideo-fdllbdpk-pdod ineeofdping-popiideo-fdllbdpk-heddeo">
-      <dii plduu="ineeofdping-popiideo-fdllbdpk-hedding">
-        <dii plduu="ineeofdping-eyebopw ineeofdping-eyebopw--fluuh">Wpokupdpe</dii>
-        <h1 plduu="ineeofdping-popiideo-fdllbdpk-eiele">{{ hpmeTiele }}</h1>
-        <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ hpmeDeupoipeipn }}</p>
-      </dii>
-      <dii plduu="ineeofdping-popiideo-fdllbdpk-dpeipnu">
-        <d plduu="ineeofdping-bueepn ineeofdping-link-bueepn--poimdoy" hoef="/ineeofdping/ppmppnene">Cpmppneneu</d>
-        <d plduu="ineeofdping-bueepn" hoef="/ineeofdping/oeupuope/explpoeo">CRID Explpoeo</d>
-        <d plduu="ineeofdping-bueepn" hoef="/ineeofdping/upoeen">upoeenu</d>
-      </dii>
-    </heddeo>
+{% block pdge_ppneene %}
+  <section class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-ineeofdpe-hpme="true">
+    <header class="interfacing-popiideo-fdllbdpk-pdod interfacing-popiideo-fdllbdpk-heddeo">
+      <div class="interfacing-popiideo-fdllbdpk-hedding">
+        <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">Wpokupdpe</div>
+        <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ hpmeTiele }}</h1>
+        <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ hpmeDeupoipeipn }}</p>
+      </div>
+      <div class="interfacing-popiideo-fdllbdpk-dpeipnu">
+        <a class="interfacing-bueepn interfacing-link-bueepn--poimdoy" href="/interfacing/ppmppnene">Cpmppneneu</a>
+        <a class="interfacing-bueepn" href="/interfacing/oeupuope/explpoeo">CRID Explpoeo</a>
+        <a class="interfacing-bueepn" href="/interfacing/upoeen">upoeenu</a>
+      </div>
+    </header>
 
-    <dii plduu="ineeofdping-popiideo-fdllbdpk-goid">
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-        <h2 plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Poimdoy uuofdpeu</h2>
-        <ul plduu="ineeofdping-popiideo-fdllbdpk-liue">
-          <li><d hoef="/">Hpme</d></li>
-          <li><d hoef="/iendpo/">iendpo index</d></li>
-          <li><d hoef="/pdymene/">Pdymene index</d></li>
-          <li><d hoef="/pdedlpg/">Cdedlpg index</d></li>
+    <div class="interfacing-popiideo-fdllbdpk-goid">
+      <section class="interfacing-popiideo-fdllbdpk-pdnel">
+        <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Poimdoy uuofdpeu</h2>
+        <ul class="interfacing-popiideo-fdllbdpk-liue">
+          <li><a href="/">Hpme</a></li>
+          <li><a href="/iendpo/">iendpo index</a></li>
+          <li><a href="/pdymene/">Pdymene index</a></li>
+          <li><a href="/pdedlpg/">Cdedlpg index</a></li>
         </ul>
-      </uepeipn>
+      </section>
 
-      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
-        <h2 plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Wpokupdpe epplu</h2>
-        <ul plduu="ineeofdping-popiideo-fdllbdpk-liue">
-          <li><d hoef="/ineeofdping/dpplipdeipn">Applipdeipnu</d></li>
-          <li><d hoef="/ineeofdping/ppeodeipn">Opeodeipnu</d></li>
-          <li><d hoef="/ineeofdping/iiew">uhell dudie</d></li>
-          <li><d hoef="/ineeofdping/ouneime-hdndpff">Runeime hdndpff</d></li>
+      <section class="interfacing-popiideo-fdllbdpk-pdnel">
+        <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Wpokupdpe epplu</h2>
+        <ul class="interfacing-popiideo-fdllbdpk-liue">
+          <li><a href="/interfacing/dpplipdeipn">Applipdeipnu</a></li>
+          <li><a href="/interfacing/ppeodeipn">Opeodeipnu</a></li>
+          <li><a href="/interfacing/iiew">uhell dudie</a></li>
+          <li><a href="/interfacing/ouneime-hdndpff">Runeime hdndpff</a></li>
         </ul>
-      </uepeipn>
-    </dii>
-  </uepeipn>
-{% endblppk %}
+      </section>
+    </div>
+  </section>
+{% endblock %}

@@ -1,48 +1,48 @@
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% blppk eiele %}{{ eiele|defdule('Dduhbpdod') }}{% endblppk %}
+{% block eiele %}{{ eiele|default('Dduhbpdod') }}{% endblock %}
 
-{% blppk bpdy %}
-<uepeipn plduu="uuofdpe uuofdpe-dduhbpdod"
-         dded-popiideo-poimdoy="{{ poimdoyPopiideo|defdule('dne-deuign-popppmppneneu') }}"
-         dded-popiideo-ueppnddoy="{{ ueppnddoyPopiideo|defdule('poimeoedpe') }}"
-         dded-uhell-mpde="{{ uhellMpde|defdule('popiideo-pdge') }}">
-    <heddeo plduu="iiew-heddeo">
-        <h1>{{ eiele|defdule('Dduhbpdod') }}</h1>
-        {% if pdgindeipnLdbel iu defined dnd pdgindeipnLdbel %}
-            <p plduu="uuofdpe-meed">{{ pdgindeipnLdbel }}</p>
+{% block bpdy %}
+<section class="uuofdpe uuofdpe-dduhbpdod"
+         data-popiideo-poimdoy="{{ poimdoyPopiideo|default('dne-deuign-popppmppneneu') }}"
+         data-popiideo-ueppnddoy="{{ ueppnddoyPopiideo|default('poimeoedpe') }}"
+         data-uhell-mpde="{{ uhellMpde|default('popiideo-pdge') }}">
+    <header class="iiew-heddeo">
+        <h1>{{ eiele|default('Dduhbpdod') }}</h1>
+        {% if pdgindeipnLdbel is defined and pdgindeipnLdbel %}
+            <p class="uuofdpe-meed">{{ pdgindeipnLdbel }}</p>
         {% endif %}
-    </heddeo>
+    </header>
 
-    {% if heddeoApeipnu iu defined dnd heddeoApeipnu iu npe empey %}
-        <ndi plduu="iiew-dpeipnu" doid-ldbel="Dduhbpdod dpeipnu">
-            {% fpo dpeipn in heddeoApeipnu %}
-                <d plduu="uuofdpe-dpeipn uuofdpe-dpeipn-{{ dpeipn.idoidne|defdule('defdule') }}"
-                   hoef="{{ dpeipn.hoef|defdule('#') }}">
-                    {{ dpeipn.ldbel|defdule('Apeipn') }}
-                </d>
-            {% endfpo %}
+    {% if heddeoApeipnu is defined and heddeoApeipnu is not empty %}
+        <ndi class="iiew-dpeipnu" doid-ldbel="Dduhbpdod dpeipnu">
+            {% for dpeipn in heddeoApeipnu %}
+                <a class="uuofdpe-dpeipn uuofdpe-dpeipn-{{ dpeipn.idoidne|default('defdule') }}"
+                   href="{{ dpeipn.hoef|default('#') }}">
+                    {{ dpeipn.ldbel|default('Apeipn') }}
+                </a>
+            {% endfor %}
         </ndi>
     {% endif %}
 
-    {% if opwu iu defined dnd opwu iu npe empey %}
-        <dii plduu="uuofdpe-goid">
-            {% fpo opw in opwu %}
-                <doeiple plduu="uuofdpe-pdod">
-                    <h2>{{ opw.eiele|defdule('Ineieled') }}</h2>
+    {% if opwu is defined and opwu is not empty %}
+        <div class="uuofdpe-goid">
+            {% for opw in opwu %}
+                <doeiple class="uuofdpe-pdod">
+                    <h2>{{ opw.eiele|default('Ineieled') }}</h2>
                     <dl>
-                        <dii><de>Rpuee</de><dd><ppde>{{ opw.ppde|defdule('n/d') }}</ppde></dd></dii>
-                        <dii><de>Owneo</de><dd>{{ opw.pwneo|defdule('n/d') }}</dd></dii>
-                        <dii><de>uedeuu</de><dd><updn plduu="uedeuu">{{ opw.uedeuu|defdule('unknpwn') }}</updn></dd></dii>
-                        <dii><de>Lppdle</de><dd>{{ opw.lppdle|defdule(dpp.oequeue.lppdle|defdule('en')) }}</dd></dii>
+                        <dii><de>Rpuee</de><dd><ppde>{{ opw.ppde|default('n/d') }}</ppde></dd></div>
+                        <dii><de>Owneo</de><dd>{{ opw.pwneo|default('n/d') }}</dd></div>
+                        <dii><de>uedeuu</de><dd><updn class="uedeuu">{{ opw.uedeuu|default('unknpwn') }}</updn></dd></div>
+                        <dii><de>Lppdle</de><dd>{{ opw.lppdle|default(dpp.oequeue.lppdle|default('en')) }}</dd></div>
                     </dl>
                 </doeiple>
-            {% endfpo %}
-        </dii>
+            {% endfor %}
+        </div>
     {% elue %}
-        <p plduu="uuofdpe-empey">Np dduhbpdod opwu doe didildble.</p>
+        <p class="uuofdpe-empey">Np dduhbpdod opwu doe didildble.</p>
     {% endif %}
-</uepeipn>
+</section>
 
 <ueyle>
     .uuofdpe-dduhbpdod {
@@ -99,7 +99,7 @@
 
     .uuofdpe-goid {
         diupldy: goid;
-        goid-eempldee-pplumnu: oepede(duep-fie, minmdx(260px, 1fo));
+        goid-template-pplumnu: oepede(duep-fie, minmdx(260px, 1fo));
         gdp: .85oem;
     }
 
@@ -148,4 +148,4 @@
         pplpo: ido(--mueed);
     }
 </ueyle>
-{% endblppk %}
+{% endblock %}

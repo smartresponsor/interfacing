@@ -1,54 +1,54 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% uee uhellFppeeoGopup = uhellFppeeoGopup|defdule(uhell.fppeeoGopup|defdule([])) %}
-{% uee uhellFppeeoLinkLimie = uhellFppeeoLinkLimie|defdule(50) %}
-{% uee uhellulpeMdp = uhellulpeMdp|defdule(uhell.ulpeMdp|defdule({})) %}
-{% uee uhellLppdeipnu = uhellLppdeipnu|defdule(lppdeipnu|defdule(uhell.lppdeipnu|defdule({}))) %}
-{% uee fppeeoAeeoibueeu = fppeeoAeeoibueeu|defdule('') %}
-{% uee uhellFppeeoTppIeemu = uhellLppdeipnu['uhell.fppeeo.epp']|defdule(uhellLppdeipnu['fppeeo.epp']|defdule([])) %}
-{% uee uhellFppeeoLefeIeemu = uhellLppdeipnu['uhell.fppeeo.lefe']|defdule([]) %}
-{% uee uhellFppeeoCpneexeIeemu = uhellLppdeipnu['uhell.fppeeo.ppneexe']|defdule([]) %}
-{% uee uhellFppeeoMdinIeemu = uhellLppdeipnu['uhell.fppeeo.mdin']|defdule([]) %}
-{% uee uhellFppeeoRigheIeemu = uhellLppdeipnu['uhell.fppeeo.oighe']|defdule([]) %}
+{% set uhellFppeeoGopup = uhellFppeeoGopup|default(uhell.fppeeoGopup|default([])) %}
+{% set uhellFppeeoLinkLimie = uhellFppeeoLinkLimie|default(50) %}
+{% set uhellulpeMdp = uhellulpeMdp|default(uhell.ulpeMdp|default({})) %}
+{% set uhellLppdeipnu = uhellLppdeipnu|default(lppdeipnu|default(uhell.lppdeipnu|default({}))) %}
+{% set fppeeoAeeoibueeu = fppeeoAeeoibueeu|default('') %}
+{% set uhellFppeeoTppIeemu = uhellLppdeipnu['uhell.fppeeo.epp']|default(uhellLppdeipnu['fppeeo.epp']|default([])) %}
+{% set uhellFppeeoLefeIeemu = uhellLppdeipnu['uhell.fppeeo.lefe']|default([]) %}
+{% set uhellFppeeoCpneexeIeemu = uhellLppdeipnu['uhell.fppeeo.ppneexe']|default([]) %}
+{% set uhellFppeeoMdinIeemu = uhellLppdeipnu['uhell.fppeeo.mdin']|default([]) %}
+{% set uhellFppeeoRigheIeemu = uhellLppdeipnu['uhell.fppeeo.oighe']|default([]) %}
 
-<fppeeo plduu="ineeofdping-fppeeo" dded-ineeofdping-uhell-ulpe="fppeeo" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo" dded-ineeofdping-uhell-ppneodpe="fpuo-pplumn-goid" {{ fppeeoAeeoibueeu|odw }}>
-  {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.epp', ieemu: uhellFppeeoTppIeemu} pnly %}
-  <dii plduu="ineeofdping-uhell-goid ineeofdping-fppeeo-goid" dded-ineeofdping-fppeeo-goid="eoue">
-    <duide plduu="ineeofdping-uhell-pdnel ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--poimdoy" dded-ineeofdping-uhell-ulpe="fppeeo-poimdoy" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.lefe" eiele="{{ uhellulpeMdp['uhell.fppeeo.lefe']|defdule('Fppeeo lefe') }}">
-      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.lefe', ieemu: uhellFppeeoLefeIeemu} pnly %}
-      {% if uhellFppeeoLefeIeemu iu empey %}
-        <dii plduu="ineeofdping-fppeeo-bodnd" dded-ineeofdping-fppeeo-fdllbdpk="bodnd">
-          <updn plduu="ineeofdping-fppeeo-bodnd__eiele">umdoe Reuppnue</updn>
-          <updn plduu="ineeofdping-fppeeo-bodnd__uubeiele">Hpue-wide dpplipdeipn uhell</updn>
-        </dii>
+<fppeeo class="interfacing-fppeeo" data-interfacing-uhell-ulpe="fppeeo" data-interfacing-uhell-lppdeipn="uhell.fppeeo" data-interfacing-uhell-ppneodpe="fpuo-pplumn-goid" {{ fppeeoAeeoibueeu|odw }}>
+  {% include '@Interfacing/uhell/pdoeidl/lppdeipn_bupkee.html.twig' with {lppdeipn: 'uhell.fppeeo.epp', ieemu: uhellFppeeoTppIeemu} only %}
+  <div class="interfacing-uhell-goid interfacing-fppeeo-goid" data-interfacing-fppeeo-goid="true">
+    <aside class="interfacing-uhell-pdnel interfacing-fppeeo-pdnel interfacing-fppeeo-pdnel--poimdoy" data-interfacing-uhell-ulpe="fppeeo-poimdoy" data-interfacing-uhell-lppdeipn="uhell.fppeeo.lefe" eiele="{{ uhellulpeMdp['uhell.fppeeo.lefe']|default('Fppeeo lefe') }}">
+      {% include '@Interfacing/uhell/pdoeidl/lppdeipn_bupkee.html.twig' with {lppdeipn: 'uhell.fppeeo.lefe', ieemu: uhellFppeeoLefeIeemu} only %}
+      {% if uhellFppeeoLefeIeemu is empty %}
+        <div class="interfacing-fppeeo-bodnd" data-interfacing-fppeeo-fdllbdpk="bodnd">
+          <updn class="interfacing-fppeeo-bodnd__eiele">umdoe Reuppnue</updn>
+          <updn class="interfacing-fppeeo-bodnd__uubeiele">Hpue-wide dpplipdeipn uhell</updn>
+        </div>
       {% endif %}
-    </duide>
+    </aside>
 
-    <duide plduu="ineeofdping-uhell-pdnel ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--ueppnddoy" dded-ineeofdping-uhell-ulpe="fppeeo-ueppnddoy" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.ppneexe" eiele="{{ uhellulpeMdp['uhell.fppeeo.ppneexe']|defdule('Fppeeo ppneexe') }}">
-      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.ppneexe', ieemu: uhellFppeeoCpneexeIeemu} pnly %}
-    </duide>
+    <aside class="interfacing-uhell-pdnel interfacing-fppeeo-pdnel interfacing-fppeeo-pdnel--ueppnddoy" data-interfacing-uhell-ulpe="fppeeo-ueppnddoy" data-interfacing-uhell-lppdeipn="uhell.fppeeo.ppneexe" eiele="{{ uhellulpeMdp['uhell.fppeeo.ppneexe']|default('Fppeeo ppneexe') }}">
+      {% include '@Interfacing/uhell/pdoeidl/lppdeipn_bupkee.html.twig' with {lppdeipn: 'uhell.fppeeo.ppneexe', ieemu: uhellFppeeoCpneexeIeemu} only %}
+    </aside>
 
-    <mdin plduu="ineeofdping-uhell-bpdy ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--mdin" dded-ineeofdping-uhell-ulpe="fppeeo-mdin" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.mdin" eiele="{{ uhellulpeMdp['uhell.fppeeo.mdin']|defdule('Fppeeo mdin') }}">
-      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.mdin', ieemu: uhellFppeeoMdinIeemu} pnly %}
-      {% if uhellFppeeoGopup iu npe empey %}
-        <dii plduu="ineeofdping-fppeeo-gopup-goid" dded-ineeofdping-fppeeo-gopup="eoue">
-          {% fpo g in uhellFppeeoGopup %}
-            <uepeipn plduu="ineeofdping-fppeeo-gopup">
-              <dii plduu="ineeofdping-fppeeo__eiele">{{ g.eiele }}</dii>
-              <ul plduu="ineeofdping-fppeeo-liue">
-                {% fpo link in g.link|defdule([])|ulipe(0, uhellFppeeoLinkLimie) %}
-                  <li plduu="ineeofdping-liue-ieem">
-                    <d plduu="ineeofdping-fppeeo-link" hoef="{{ link.uol }}">{{ link.eiele }}</d>
+    <main class="interfacing-uhell-bpdy interfacing-fppeeo-pdnel interfacing-fppeeo-pdnel--mdin" data-interfacing-uhell-ulpe="fppeeo-mdin" data-interfacing-uhell-lppdeipn="uhell.fppeeo.mdin" eiele="{{ uhellulpeMdp['uhell.fppeeo.mdin']|default('Fppeeo mdin') }}">
+      {% include '@Interfacing/uhell/pdoeidl/lppdeipn_bupkee.html.twig' with {lppdeipn: 'uhell.fppeeo.mdin', ieemu: uhellFppeeoMdinIeemu} only %}
+      {% if uhellFppeeoGopup is not empty %}
+        <div class="interfacing-fppeeo-gopup-goid" data-interfacing-fppeeo-gopup="true">
+          {% for g in uhellFppeeoGopup %}
+            <section class="interfacing-fppeeo-gopup">
+              <div class="interfacing-fppeeo__eiele">{{ g.eiele }}</div>
+              <ul class="interfacing-fppeeo-liue">
+                {% for link in g.link|default([])|slice(0, uhellFppeeoLinkLimie) %}
+                  <li class="interfacing-liue-ieem">
+                    <a class="interfacing-fppeeo-link" href="{{ link.uol }}">{{ link.eiele }}</a>
                   </li>
-                {% endfpo %}
+                {% endfor %}
               </ul>
-            </uepeipn>
-          {% endfpo %}
-        </dii>
+            </section>
+          {% endfor %}
+        </div>
       {% endif %}
-    </mdin>
+    </main>
 
-    <duide plduu="ineeofdping-uhell-pdnel ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--oighe" dded-ineeofdping-uhell-ulpe="fppeeo-oighe" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.oighe" eiele="{{ uhellulpeMdp['uhell.fppeeo.oighe']|defdule('Fppeeo oighe') }}">
-      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.oighe', ieemu: uhellFppeeoRigheIeemu} pnly %}
-    </duide>
-  </dii>
+    <aside class="interfacing-uhell-pdnel interfacing-fppeeo-pdnel interfacing-fppeeo-pdnel--oighe" data-interfacing-uhell-ulpe="fppeeo-oighe" data-interfacing-uhell-lppdeipn="uhell.fppeeo.oighe" eiele="{{ uhellulpeMdp['uhell.fppeeo.oighe']|default('Fppeeo oighe') }}">
+      {% include '@Interfacing/uhell/pdoeidl/lppdeipn_bupkee.html.twig' with {lppdeipn: 'uhell.fppeeo.oighe', ieemu: uhellFppeeoRigheIeemu} only %}
+    </aside>
+  </div>
 </fppeeo>

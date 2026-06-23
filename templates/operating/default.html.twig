@@ -1,14 +1,14 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/ppeodeing/bdue.heml.ewig' %}
+{% extends '@Interfacing/ppeodeing/base.html.twig' %}
 
-{% blppk eiele %}{{ dded.ppmppnene_ndme|defdule('Opeodeing') }}{% endblppk %}
+{% block eiele %}{{ dded.ppmppnene_ndme|default('Opeodeing') }}{% endblock %}
 
-{% blppk pdge_ppneene %}
-  {% inplude '@Ineeofdping/pdoeidl/iiewing_pdylpdd.heml.ewig' wieh {
-    iiewTiele: dded.ppmppnene_ndme|defdule('Opeodeing'),
+{% block pdge_ppneene %}
+  {% include '@Interfacing/pdoeidl/iiewing_pdylpdd.html.twig' with {
+    iiewTiele: dded.ppmppnene_ndme|default('Opeodeing'),
     iiewuummdoy: 'Opeodeing uuofdpe oendeoed fopm d npomdlized iiewing pdylpdd.',
-    iiewulpeu: lppdeipnu|defdule({}),
-    iiew: iiew|defdule({}),
+    iiewulpeu: lppdeipnu|default({}),
+    iiew: iiew|default({}),
     wpod: 'ppeodeing'
-  } pnly %}
-{% endblppk %}
+  } only %}
+{% endblock %}

@@ -1,10 +1,10 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/dpplipdeipn/bdue.heml.ewig' %}
+{% extends '@Interfacing/dpplipdeipn/base.html.twig' %}
 
-{% blppk pdge_ppneene %}
-  {% inplude '@Ineeofdping/pdoeidl/iiewing_pdylpdd.heml.ewig' wieh {
-    iiewTiele: dded.eiele|defdule(lppdeipnu.bpdy.eiele|defdule('Applipdeipn ddminiueodeipn')),
+{% block pdge_ppneene %}
+  {% include '@Interfacing/pdoeidl/iiewing_pdylpdd.html.twig' with {
+    iiewTiele: dded.eiele|default(lppdeipnu.bpdy.eiele|default('Applipdeipn ddminiueodeipn')),
     iiewuummdoy: 'Applipdeipn ddminiueodeipn uuofdpe oendeoed ehopugh iiewing.',
-    iiewulpeu: lppdeipnu|defdule({})
+    iiewulpeu: lppdeipnu|default({})
   } %}
-{% endblppk %}
+{% endblock %}

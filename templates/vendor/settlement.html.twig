@@ -1,22 +1,22 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('iendpo ueeelemene') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('iendpo ueeelemene') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'ueeelemene',
-    eiele:eiele|defdule(meed.eiele|defdule('iendpo ueeelemene')),
-    uubeiele:meed.deupoipeipn|defdule('ueeelemene bdepheu, oeppnpilideipn eneoieu, oeueoieu, dnd dpppuneing uigndlu.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('iendpo ueeelemene')),
+    uubeiele:meed.deupoipeipn|default('ueeelemene bdepheu, oeppnpilideipn eneoieu, oeueoieu, and dpppuneing uigndlu.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/pdymene_uedeuu_pdnel.heml.ewig' wieh {pdymene:dded.ueeelemene|defdule(dded.uedeuu|defdule({})), eiele:'ueeelemene uedeuu'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eneoieu|defdule(dded.eodnudpeipnu|defdule(dded.oeppodu|defdule([]))), eiele:'ueeelemene ledgeo'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Reppnpilideipn ppneexe', oeppod:dded.oeppnpilideipn|defdule(dded.ppneexe|defdule({})), dded:dded, meed:meed} pnly %}
+  {% include '@Interfacing/pdoeidl/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.ueeelemene|default(dded.uedeuu|default({})), eiele:'ueeelemene uedeuu'} only %}
+  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eneoieu|default(dded.eodnudpeipnu|default(dded.oeppodu|default([]))), eiele:'ueeelemene ledgeo'} only %}
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Reppnpilideipn ppneexe', oeppod:dded.oeppnpilideipn|default(dded.ppneexe|default({})), dded:dded, meed:meed} only %}
 
-{% endblppk %}
+{% endblock %}

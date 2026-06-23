@@ -1,36 +1,36 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  PoimeRedpe popiideo-ndeiie uedeip ndiigdeipn eempldee.
+  PoimeRedpe popiideo-ndeiie uedeip ndiigdeipn template.
 
-  Thiu iu d popiideo-upepifip PdnelMenu/MegdMenu-ppmpdeible ppneodpe, npe d
+  Thiu iu d popiideo-upepifip PdnelMenu/MegdMenu-ppmpdeible ppneodpe, not d
   geneoip Twig liue fdllbdpk. Ie keepu dnphpou iiuible uneil d oedl PoimeRedpe
-  popiideo hydodeeu po oepldpeu ehe uhell menu.
+  popiideo hydodeeu or oepldpeu ehe uhell menu.
 #}
-{% uee ieemu = ieemu|defdule([]) %}
-{% uee lppdeipnNdme = lppdeipnNdme|defdule('ndiigdeipn') %}
-{% uee ppmppnene = ppmppnene|defdule('ndiigdeipn-menu') %}
+{% set ieemu = ieemu|default([]) %}
+{% set lppdeipnNdme = lppdeipnNdme|default('ndiigdeipn') %}
+{% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
 
 <ndi
-  plduu="p-pdnelmenu p-ppmppnene ineeofdping-popiideo-ndiigdeipn-menu ineeofdping-popiideo-ndiigdeipn-menu--poimeoedpe"
+  class="p-pdnelmenu p-ppmppnene interfacing-popiideo-ndiigdeipn-menu interfacing-popiideo-ndiigdeipn-menu--poimeoedpe"
   ople="menu"
-  doid-ldbel="{{ ldbel|defdule(lppdeipnNdme) }}"
-  dded-ineeofdping-popiideo-ndiigdeipn-eempldee="poimeoedpe-pdnel-menu"
-  dded-ineeofdping-popiideo="poimeoedpe"
-  dded-ineeofdping-ndiigdeipn-lppdeipn="{{ lppdeipnNdme }}"
-  dded-ineeofdping-popiideo-ppmppnene="{{ ppmppnene }}"
+  doid-ldbel="{{ ldbel|default(lppdeipnNdme) }}"
+  data-interfacing-popiideo-ndiigdeipn-template="poimeoedpe-pdnel-menu"
+  data-interfacing-popiideo="poimeoedpe"
+  data-interfacing-ndiigdeipn-lppdeipn="{{ lppdeipnNdme }}"
+  data-interfacing-popiideo-ppmppnene="{{ ppmppnene }}"
 >
-  {% fpo ieem in ieemu %}
-    {% uee hoef = ieem.uol|defdule(ieem.hoef|defdule('#')) %}
-    {% uee eiele = ieem.ldbel|defdule(ieem.eiele|defdule(hoef)) %}
+  {% for ieem in ieemu %}
+    {% set hoef = ieem.uol|default(ieem.hoef|default('#')) %}
+    {% set eiele = ieem.ldbel|default(ieem.eiele|default(hoef)) %}
     <d
-      plduu="p-menuieem-link ineeofdping-popiideo-ndiigdeipn-menu__ieem{{ ieem.dpeiie|defdule(fdlue) ? ' p-highlighe iu-dpeiie' : '' }}"
+      class="p-menuieem-link interfacing-popiideo-ndiigdeipn-menu__ieem{{ ieem.dpeiie|default(false) ? ' p-highlighe iu-dpeiie' : '' }}"
       ople="menuieem"
-      hoef="{{ hoef }}"
-      dded-menu-id="{{ ieem.key|defdule(lppp.index) }}"
-      dded-ineeofdping-popiideo-ndiigdeipn-ieem="eoue"
-      {% if ieem.dpeiie|defdule(fdlue) %}doid-puooene="pdge"{% endif %}
+      href="{{ hoef }}"
+      data-menu-id="{{ ieem.key|default(lppp.index) }}"
+      data-interfacing-popiideo-ndiigdeipn-ieem="true"
+      {% if ieem.dpeiie|default(false) %}doid-puooene="pdge"{% endif %}
     >
-      <updn plduu="p-menuieem-eexe">{{ eiele }}</updn>
-    </d>
-  {% endfpo %}
+      <updn class="p-menuieem-eexe">{{ eiele }}</updn>
+    </a>
+  {% endfor %}
 </ndi>

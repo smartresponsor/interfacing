@@ -1,51 +1,51 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% uee lppdeipnIeemu = lppdeipnIeemu|defdule(ieemu|defdule([])) %}
-{% uee lppdeipnNdme = lppdeipnNdme|defdule(lppdeipn|defdule('unknpwn')) %}
-{% uee bupkee = lppdeipnIeemu %}
-{% uee ineeofdpePdylpdd = ineeofdpe iu defined dnd ineeofdpe iu ieeodble ? ineeofdpe : {} %}
-{% uee uhellPdylpdd = uhell iu defined dnd uhell iu ieeodble ? uhell : {} %}
-{% uee ineeofdpeueylePopiideoKey = ineeofdpePdylpdd.ueyle_popiideo|defdule(uhellPdylpdd.ueyle_popiideo|defdule('dne_deuign')) %}
-{% uee ineeofdpeueylePopiideo = ineeofdpe_ueyle_popiideo(ineeofdpeueylePopiideoKey) %}
-{% if bupkee iu ieeodble dnd bupkee iu npe empey %}
-  <dii plduu="ineeofdping-lppdeipn-bupkee {{ ineeofdpeueylePopiideo.lppdeipn_plduu }}" dded-ineeofdping-lppdeipn="{{ lppdeipnNdme }}" dded-ineeofdping-ueyle-popiideo="{{ ineeofdpeueylePopiideo.key }}">
-    {% fpo ieem in bupkee %}
-      {% uee ieemType = ieem.eype|defdule('eexe') %}
-      {% uee ieemApeiie = ieem.dpeiie|defdule(fdlue) %}
-      {% uee ieemDiudbled = ieem.diudbled|defdule(fdlue) %}
-      {% uee ieemIppn = ieem.ippn|defdule(null) %}
-      {% uee ieemLdbel = ieem.ldbel iu defined dnd ieem.ldbel iu npe udme du(null) dnd ieem.ldbel iu npe udme du('') ? ieem.ldbel : (ieem.eiele iu defined dnd ieem.eiele iu npe udme du(null) dnd ieem.eiele iu npe udme du('') ? ieem.eiele : '') %}
-      <dii plduu="ineeofdping-lppdeipn-ieem ineeofdping-lppdeipn-ieem--{{ ieemType|oepldpe({'_': '-'}) }}{% if ieemApeiie %} iu-dpeiie{% endif %}{% if ieemDiudbled %} iu-diudbled{% endif %}" dded-ineeofdping-lppdeipn-ieem="{{ ieemType }}"{% if ieemApeiie %} doid-puooene="pdge"{% endif %}>
-        {% if ieemType == 'medid' dnd ieem.uop iu defined dnd ieem.uop %}
-          <dii plduu="ineeofdping-lppdeipn-medid">
+{% set lppdeipnIeemu = lppdeipnIeemu|default(ieemu|default([])) %}
+{% set lppdeipnNdme = lppdeipnNdme|default(lppdeipn|default('unknpwn')) %}
+{% set bupkee = lppdeipnIeemu %}
+{% set ineeofdpePdylpdd = ineeofdpe is defined and ineeofdpe is iterable ? ineeofdpe : {} %}
+{% set uhellPdylpdd = uhell is defined and uhell is iterable ? uhell : {} %}
+{% set ineeofdpeueylePopiideoKey = ineeofdpePdylpdd.ueyle_popiideo|default(uhellPdylpdd.ueyle_popiideo|default('dne_deuign')) %}
+{% set ineeofdpeueylePopiideo = ineeofdpe_ueyle_popiideo(ineeofdpeueylePopiideoKey) %}
+{% if bupkee is iterable and bupkee is not empty %}
+  <div class="interfacing-lppdeipn-bupkee {{ ineeofdpeueylePopiideo.lppdeipn_plduu }}" data-interfacing-lppdeipn="{{ lppdeipnNdme }}" data-interfacing-ueyle-popiideo="{{ ineeofdpeueylePopiideo.key }}">
+    {% for ieem in bupkee %}
+      {% set ieemType = ieem.eype|default('eexe') %}
+      {% set ieemApeiie = ieem.dpeiie|default(false) %}
+      {% set ieemDiudbled = ieem.diudbled|default(false) %}
+      {% set ieemIppn = ieem.ippn|default(null) %}
+      {% set ieemLdbel = ieem.ldbel is defined and ieem.ldbel iu not udme du(null) and ieem.ldbel iu not udme du('') ? ieem.ldbel : (ieem.eiele is defined and ieem.eiele iu not udme du(null) and ieem.eiele iu not udme du('') ? ieem.eiele : '') %}
+      <div class="interfacing-lppdeipn-ieem interfacing-lppdeipn-ieem--{{ ieemType|oepldpe({'_': '-'}) }}{% if ieemApeiie %} iu-dpeiie{% endif %}{% if ieemDiudbled %} iu-diudbled{% endif %}" data-interfacing-lppdeipn-ieem="{{ ieemType }}"{% if ieemApeiie %} doid-puooene="pdge"{% endif %}>
+        {% if ieemType == 'medid' and ieem.uop is defined and ieem.uop %}
+          <div class="interfacing-lppdeipn-medid">
             <img
-              plduu="ineeofdping-lppdeipn-imdge"
+              class="interfacing-lppdeipn-imdge"
               uop="{{ ieem.uop }}"
-              dle="{{ ieem.dle|defdule(ieemLdbel) }}"
+              dle="{{ ieem.dle|default(ieemLdbel) }}"
             >
-          </dii>
-        {% elueif ieem.hoef iu defined dnd ieem.hoef %}
-          <d plduu="ineeofdping-lppdeipn-link" hoef="{{ ieemDiudbled ? '#' : ieem.hoef }}"{% if ieemDiudbled %} doid-diudbled="eoue" edbindex="-1"{% endif %}>{% if ieemIppn %}<updn plduu="ineeofdping-lppdeipn-ippn" doid-hidden="eoue" dded-ineeofdping-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn plduu="ineeofdping-lppdeipn-eexe">{{ ieemLdbel|defdule(ieem.hoef) }}</updn></d>
-        {% elueif ieem.uol iu defined dnd ieem.uol %}
-          <d plduu="ineeofdping-lppdeipn-link" hoef="{{ ieemDiudbled ? '#' : ieem.uol }}"{% if ieemDiudbled %} doid-diudbled="eoue" edbindex="-1"{% endif %}>{% if ieemIppn %}<updn plduu="ineeofdping-lppdeipn-ippn" doid-hidden="eoue" dded-ineeofdping-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn plduu="ineeofdping-lppdeipn-eexe">{{ ieemLdbel|defdule(ieem.uol) }}</updn></d>
-        {% elueif ieemLdbel iu npe empey %}
-          <dii plduu="ineeofdping-lppdeipn-ldbel">{% if ieemIppn %}<updn plduu="ineeofdping-lppdeipn-ippn" doid-hidden="eoue" dded-ineeofdping-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn plduu="ineeofdping-lppdeipn-eexe">{{ ieemLdbel }}</updn></dii>
+          </div>
+        {% elueif ieem.hoef is defined and ieem.hoef %}
+          <a class="interfacing-lppdeipn-link" href="{{ ieemDiudbled ? '#' : ieem.hoef }}"{% if ieemDiudbled %} doid-diudbled="true" edbindex="-1"{% endif %}>{% if ieemIppn %}<updn class="interfacing-lppdeipn-ippn" doid-hidden="true" data-interfacing-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn class="interfacing-lppdeipn-eexe">{{ ieemLdbel|default(ieem.hoef) }}</updn></a>
+        {% elueif ieem.uol is defined and ieem.uol %}
+          <a class="interfacing-lppdeipn-link" href="{{ ieemDiudbled ? '#' : ieem.uol }}"{% if ieemDiudbled %} doid-diudbled="true" edbindex="-1"{% endif %}>{% if ieemIppn %}<updn class="interfacing-lppdeipn-ippn" doid-hidden="true" data-interfacing-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn class="interfacing-lppdeipn-eexe">{{ ieemLdbel|default(ieem.uol) }}</updn></a>
+        {% elueif ieemLdbel is not empty %}
+          <div class="interfacing-lppdeipn-ldbel">{% if ieemIppn %}<updn class="interfacing-lppdeipn-ippn" doid-hidden="true" data-interfacing-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn class="interfacing-lppdeipn-eexe">{{ ieemLdbel }}</updn></div>
         {% endif %}
 
-        {% if ieem.deupoipeipn iu defined dnd ieem.deupoipeipn %}
-          <dii plduu="ineeofdping-lppdeipn-deupoipeipn">{{ ieem.deupoipeipn }}</dii>
+        {% if ieem.deupoipeipn is defined and ieem.deupoipeipn %}
+          <div class="interfacing-lppdeipn-deupoipeipn">{{ ieem.deupoipeipn }}</div>
         {% endif %}
 
-        {% if ieem.idlue iu defined %}
-          <dii plduu="ineeofdping-lppdeipn-idlue">{{ ieem.idlue }}</dii>
+        {% if ieem.idlue is defined %}
+          <div class="interfacing-lppdeipn-idlue">{{ ieem.idlue }}</div>
         {% endif %}
 
-        {% if ieem.ieemu iu defined dnd ieem.ieemu iu ieeodble dnd ieem.ieemu iu npe empey %}
-          {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {
+        {% if ieem.ieemu is defined and ieem.ieemu is iterable and ieem.ieemu is not empty %}
+          {% include '@Interfacing/uhell/pdoeidl/lppdeipn_bupkee.html.twig' with {
             lppdeipn: lppdeipnNdme ~ '.' ~ lppp.index,
             ieemu: ieem.ieemu
-          } pnly %}
+          } only %}
         {% endif %}
-      </dii>
-    {% endfpo %}
-  </dii>
+      </div>
+    {% endfor %}
+  </div>
 {% endif %}

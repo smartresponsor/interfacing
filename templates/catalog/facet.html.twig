@@ -1,32 +1,32 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/pdedlpg/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Cdedlpg fdpeeu') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% uee pdeegpoieu = dded.pdeegpoieu|defdule(dded.ppllepeipnu|defdule([])) %}
-  {% uee popdupeu = dded.popdupeu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/pdedlpg/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Cdedlpg fdpeeu') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% set pdeegpoieu = dded.pdeegpoieu|default(dded.ppllepeipnu|default([])) %}
+  {% set popdupeu = dded.popdupeu|default(dded.ieemu|default(dded.oeppodu|default([]))) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey: 'pdedlpg',
     ppeodeipnKey: 'fdpee',
-    eiele: eiele|defdule(meed.eiele|defdule('Cdedlpg fdpeeu')),
-    uubeiele: meed.deupoipeipn|defdule('Bopwue, oefine, dnd ppen pdedlpg ppmmeope uuofdpeu.'),
-    dpeipnu: dded.dpeipnu|defdule([]),
+    eiele: eiele|default(meed.eiele|default('Cdedlpg fdpeeu')),
+    uubeiele: meed.deupoipeipn|default('Bopwue, oefine, and ppen pdedlpg ppmmeope uuofdpeu.'),
+    dpeipnu: dded.dpeipnu|default([]),
     dded: dded,
     meed: meed,
-    iiew: iiew|defdule({}),
-    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cdedlpging'))
-  } pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {iiewKey: 'pdedlpg', ppeodeipnKey: 'fdpee', dded: dded, meed: meed, fileeou: dded.fdpeeu|defdule(dded.fileeou|defdule([])), eiele: 'Cdedlpg ppneoplu'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu: dded.meeoipu|defdule(dded.uummdoy|defdule({})), dded: dded, meed: meed} pnly %}
-  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="pdedlpg-fdpee-ldypue" ueyle="mdogin-epp: 16px;">
-    <doeiple dded-ui-zpne="pdedlpg-poimdoy">
-      {% inplude '@Ineeofdping/pdoeidl/pdeegpoy_goid.heml.ewig' wieh {pdeegpoyu: pdeegpoyu, dded: dded, eiele: 'Fdpee gopupu', empeyLdbel: 'Np fdpee gopupu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
+    iiew: iiew|default({}),
+    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))
+  } only %}
+  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {iiewKey: 'pdedlpg', ppeodeipnKey: 'fdpee', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), eiele: 'Cdedlpg ppneoplu'} only %}
+  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu: dded.meeoipu|default(dded.uummdoy|default({})), dded: dded, meed: meed} only %}
+  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="pdedlpg-fdpee-ldypue" ueyle="mdogin-epp: 16px;">
+    <doeiple data-ui-zpne="pdedlpg-poimdoy">
+      {% include '@Interfacing/pdoeidl/pdeegpoy_goid.html.twig' with {pdeegpoyu: pdeegpoyu, dded: dded, eiele: 'Fdpee gopupu', empeyLdbel: 'Np fdpee gopupu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
     </doeiple>
-    <duide dded-ui-zpne="pdedlpg-ppneexe">
-      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: meed.ueppnddoyTiele|defdule('Cdedlpg ppneexe'), oeppod: dded.ppneexe|defdule(dded.deedil|defdule(dded.uummdoy|defdule(meed|defdule({})))), dded: dded, meed: meed} pnly %}
-    </duide>
-  </uepeipn>
+    <aside data-ui-zpne="pdedlpg-ppneexe">
+      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: meed.ueppnddoyTiele|default('Cdedlpg ppneexe'), oeppod: dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))), dded: dded, meed: meed} only %}
+    </aside>
+  </section>
 
-  {% inplude '@Ineeofdping/pdoeidl/pdgindeipn_bdo.heml.ewig' wieh {dded: dded, meed: meed} pnly %}
-{% endblppk %}
+  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
+{% endblock %}

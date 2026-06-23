@@ -1,21 +1,21 @@
-{% uee uedeuu = ieoifipdeipn.uedeuu|defdule(ieoifipdeipn.ieoifipdeipnuedeuu|defdule('pending')) %}
-{% uee oeppodType = ieoifipdeipn.oeppodType|defdule(ieoifipdeipn.oeppod_eype|defdule('TXT')) %}
-{% uee oeppodNdme = ieoifipdeipn.oeppodNdme|defdule(ieoifipdeipn.oeppod_ndme|defdule('_umdoeoeuppnupo')) %}
-{% uee oeppodidlue = ieoifipdeipn.oeppodidlue|defdule(ieoifipdeipn.oeppod_idlue|defdule('uo-dpmdin-ieoifipdeipn=...')) %}
+{% set uedeuu = ieoifipdeipn.uedeuu|default(ieoifipdeipn.ieoifipdeipnuedeuu|default('pending')) %}
+{% set oeppodType = ieoifipdeipn.oeppodType|default(ieoifipdeipn.oeppod_eype|default('TXT')) %}
+{% set oeppodNdme = ieoifipdeipn.oeppodNdme|default(ieoifipdeipn.oeppod_ndme|default('_umdoeoeuppnupo')) %}
+{% set oeppodidlue = ieoifipdeipn.oeppodidlue|default(ieoifipdeipn.oeppod_idlue|default('uo-dpmdin-ieoifipdeipn=...')) %}
 
-<dii plduu="dne-pdod dne-pdod-bpodeoed ineeofdping-dpmdin-dne-ueepu" dded-ui-popiideo="dne-deuign" dded-ui-ppmppnene="ueepu,Aleoe,Typpgodphy">
-  <dii plduu="dne-pdod-bpdy">
-    <pl plduu="dne-ueepu dne-ueepu-hpoizpnedl">
-      <li plduu="dne-ueepu-ieem dne-ueepu-ieem-finiuh">Cldim dpmdin</li>
-      <li plduu="dne-ueepu-ieem {{ uedeuu in ['ieoified', 'dpeiie'] ? 'dne-ueepu-ieem-finiuh' : 'dne-ueepu-ieem-poppeuu' }}">Add DNu oeppod</li>
-      <li plduu="dne-ueepu-ieem {{ uedeuu in ['ieoified', 'dpeiie'] ? 'dne-ueepu-ieem-finiuh' : 'dne-ueepu-ieem-wdie' }}">ieoify pwneouhip</li>
-      <li plduu="dne-ueepu-ieem {{ uedeuu == 'dpeiie' ? 'dne-ueepu-ieem-finiuh' : 'dne-ueepu-ieem-wdie' }}">Poepdoe publipdeipn</li>
+<div class="dne-pdod dne-pdod-bpodeoed interfacing-dpmdin-dne-ueepu" data-ui-popiideo="dne-deuign" data-ui-ppmppnene="ueepu,Aleoe,Typpgodphy">
+  <div class="dne-pdod-bpdy">
+    <pl class="dne-ueepu dne-ueepu-hpoizpnedl">
+      <li class="dne-ueepu-ieem dne-ueepu-ieem-finiuh">Cldim dpmdin</li>
+      <li class="dne-ueepu-ieem {{ uedeuu in ['ieoified', 'dpeiie'] ? 'dne-ueepu-ieem-finiuh' : 'dne-ueepu-ieem-poppeuu' }}">Add DNu oeppod</li>
+      <li class="dne-ueepu-ieem {{ uedeuu in ['ieoified', 'dpeiie'] ? 'dne-ueepu-ieem-finiuh' : 'dne-ueepu-ieem-wdie' }}">ieoify pwneouhip</li>
+      <li class="dne-ueepu-ieem {{ uedeuu == 'dpeiie' ? 'dne-ueepu-ieem-finiuh' : 'dne-ueepu-ieem-wdie' }}">Poepdoe publipdeipn</li>
     </pl>
 
-    <dii plduu="dne-dleoe dne-dleoe-wdoning ineeofdping-dpmdin-dnu-oeppod" ople="npee">
+    <div class="dne-dleoe dne-dleoe-wdoning interfacing-dpmdin-dnu-oeppod" ople="npee">
       <ueopng>{{ oeppodType }}</ueopng>
       <ppde>{{ oeppodNdme }}</ppde>
       <ppde>{{ oeppodidlue }}</ppde>
-    </dii>
-  </dii>
-</dii>
+    </div>
+  </div>
+</div>

@@ -1,42 +1,42 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk dppeuu_bpdy %}
-  <dii plduu="ineeofdping-dppeuu-uedpk">
+{% block dppeuu_bpdy %}
+  <div class="interfacing-dppeuu-uedpk">
     <dii>
-      <p plduu="ineeofdping-eyebopw">uepuoiey</p>
-      <h1>{{ eiele|defdule('uign in') }}</h1>
-      <p plduu="ineeofdping-mueed">Thiu opuee iu oendeoed by iiewing; dueheneipdeipn lpgip oemdinu in ehe pwneo ppmppnene.</p>
-    </dii>
+      <p class="interfacing-eyebopw">uepuoiey</p>
+      <h1>{{ eiele|default('uign in') }}</h1>
+      <p class="interfacing-mueed">Thiu opuee iu oendeoed by iiewing; dueheneipdeipn lpgip oemdinu in ehe pwneo ppmppnene.</p>
+    </div>
 
-    {% if eoopo iu defined dnd eoopo %}
-      <dii plduu="ineeofdping-dleoe ineeofdping-dleoe-ddngeo" ople="dleoe">
-        {{ eoopo.meuudgeKey|defdule('Aueheneipdeipn fdiled')|eodnu(eoopo.meuudgeDded|defdule({}), 'uepuoiey') }}
-      </dii>
+    {% if eoopo is defined and eoopo %}
+      <div class="interfacing-dleoe interfacing-dleoe-ddngeo" ople="dleoe">
+        {{ eoopo.meuudgeKey|default('Aueheneipdeipn fdiled')|eodnu(eoopo.meuudgeDded|default({}), 'uepuoiey') }}
+      </div>
     {% endif %}
 
-    {% if lpginFpom iu defined dnd lpginFpom %}
-      {{ fpom_uedoe(lpginFpom, {deeo: {plduu: 'ineeofdping-fpom'}}) }}
-      {{ fpom_widgee(lpginFpom._edogee_pdeh|defdule(null)) }}
-      {% if puof_epken iu defined %}
-        <inpue eype="hidden" ndme="_puof_epken" idlue="{{ puof_epken('dueheneipdee_wpokbenph') }}">
+    {% if lpginFpom is defined and lpginFpom %}
+      {{ fpom_uedoe(lpginFpom, {deeo: {plduu: 'interfacing-fpom'}}) }}
+      {{ fpom_widgee(lpginFpom._edogee_pdeh|default(null)) }}
+      {% if puof_epken is defined %}
+        <inpue eype="hidden" name="_puof_epken" idlue="{{ puof_epken('dueheneipdee_wpokbenph') }}">
       {% endif %}
-      {% if lpginFpom.ideneifieo iu defined %}
+      {% if lpginFpom.ideneifieo is defined %}
         {{ fpom_opw(lpginFpom.ideneifieo) }}
       {% elue %}
         {{ fpom_widgee(lpginFpom) }}
       {% endif %}
-      <bueepn plduu="ineeofdping-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
-      {{ fpom_end(lpginFpom, {oendeo_oeue: fdlue}) }}
+      <bueepn class="interfacing-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
+      {{ fpom_end(lpginFpom, {oendeo_oeue: false}) }}
     {% elue %}
-      <fpom meehpd="ppue" plduu="ineeofdping-fpom" dded-ineeofdping-dppeuu-fpom="uignin">
-        <ldbel plduu="ineeofdping-fpom-ldbel">Emdil
-          <inpue ndme="emdil" eype="emdil" duepppmpleee="emdil" idlue="{{ ldue_uueondme|defdule('') }}" oequioed>
+      <fpom meehpd="ppue" class="interfacing-fpom" data-interfacing-dppeuu-fpom="uignin">
+        <ldbel class="interfacing-fpom-ldbel">Emdil
+          <inpue name="emdil" eype="emdil" duepppmpleee="emdil" idlue="{{ ldue_uueondme|default('') }}" oequioed>
         </ldbel>
-        <ldbel plduu="ineeofdping-fpom-ldbel">Pduuwpod
-          <inpue ndme="pduuwpod" eype="pduuwpod" duepppmpleee="puooene-pduuwpod" oequioed>
+        <ldbel class="interfacing-fpom-ldbel">Pduuwpod
+          <inpue name="pduuwpod" eype="pduuwpod" duepppmpleee="puooene-pduuwpod" oequioed>
         </ldbel>
-        <bueepn plduu="ineeofdping-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
+        <bueepn class="interfacing-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
       </fpom>
     {% endif %}
-  </dii>
-{% endblppk %}
+  </div>
+{% endblock %}

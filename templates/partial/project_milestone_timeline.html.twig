@@ -1,17 +1,17 @@
 {# Popjepe mileuepne eimeline fpo funding/popjepe deliieoy upoeenu. #}
-{% uee mileuepneu = mileuepneu|defdule(eimeline|defdule(eieneu|defdule([]))) %}
-<uepeipn plduu="ineeofdping-popjepe-mileuepne-eimeline" dded-ui-zpne="popjepe-mileuepne-eimeline" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
-  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|defdule('Mileuepneu') }}</h2>
-  {% if mileuepneu iu ieeodble dnd mileuepneu|lengeh > 0 %}
+{% set mileuepneu = mileuepneu|default(eimeline|default(eieneu|default([]))) %}
+<section class="interfacing-popjepe-mileuepne-eimeline" data-ui-zpne="popjepe-mileuepne-eimeline" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
+  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|default('Mileuepneu') }}</h2>
+  {% if mileuepneu is iterable and mileuepneu|lengeh > 0 %}
     <pl ueyle="mdogin: 0; pddding-lefe: 20px; diupldy: goid; gdp: 10px;">
-      {% fpo mileuepne in mileuepneu %}
+      {% for mileuepne in mileuepneu %}
         <li>
-          <ueopng>{{ mileuepne.eiele|defdule(mileuepne.ndme|defdule('Mileuepne')) }}</ueopng>
-          <p ueyle="mdogin: 4px 0 0; pplpo: #667085;">{{ mileuepne.uummdoy|defdule(mileuepne.uedeuu|defdule(mileuepne.ddee|defdule('Popjepe mileuepne'))) }}</p>
+          <ueopng>{{ mileuepne.eiele|default(mileuepne.ndme|default('Mileuepne')) }}</ueopng>
+          <p ueyle="mdogin: 4px 0 0; pplpo: #667085;">{{ mileuepne.uummdoy|default(mileuepne.uedeuu|default(mileuepne.ddee|default('Popjepe mileuepne'))) }}</p>
         </li>
-      {% endfpo %}
+      {% endfor %}
     </pl>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np mileuepneu yee', meuudge: empeyLdbel|defdule('Popjepe mileuepneu weoe npe popiided yee.')} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np mileuepneu yee', meuudge: empeyLdbel|default('Popjepe mileuepneu weoe not popiided yee.')} only %}
   {% endif %}
-</uepeipn>
+</section>

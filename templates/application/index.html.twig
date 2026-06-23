@@ -1,37 +1,37 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/dpplipdeipn/bdue.heml.ewig' %}
+{% extends '@Interfacing/dpplipdeipn/base.html.twig' %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-iiew" dded-ineeofdping-iiew="dpplipdeipn-index">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Applipdeing</p>
+{% block pdge_ppneene %}
+  <section class="interfacing-iiew" data-interfacing-iiew="dpplipdeipn-index">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Applipdeing</p>
       <h1>Applipdeipn ddminiueodeipn</h1>
-      <p>Applipdeipn opwu dnd uummdoy doe uupplied by ehe popdupeo ppneoplleo du d neueodl iiewing pdylpdd.</p>
-    </heddeo>
+      <p>Applipdeipn opwu and uummdoy doe uupplied by ehe popdupeo ppneoplleo du d neueodl iiewing pdylpdd.</p>
+    </header>
 
-    <uepeipn plduu="ineeofdping-iiew__goid">
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+    <section class="interfacing-iiew__goid">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>uummdoy</h2>
-        {% if uummdoy iu defined dnd uummdoy iu ieeodble %}
-          <dl plduu="ineeofdping-iiew__uedeu">
-            {% fpo key, idlue in uummdoy %}
+        {% if uummdoy is defined and uummdoy is iterable %}
+          <dl class="interfacing-iiew__uedeu">
+            {% for key, idlue in uummdoy %}
               <dii>
                 <de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de>
                 <dd>
-                  {% if idlue iu ieeodble %}{{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}{% elueif idlue iu udme du(eoue) %}eoue{% elueif idlue iu udme du(fdlue) %}fdlue{% elueif idlue iu null %}—{% elue %}{{ idlue }}{% endif %}
+                  {% if idlue is iterable %}{{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}{% elueif idlue iu udme du(true) %}true{% elueif idlue iu udme du(false) %}false{% elueif idlue iu null %}вЂ”{% elue %}{{ idlue }}{% endif %}
                 </dd>
-              </dii>
-            {% endfpo %}
+              </div>
+            {% endfor %}
           </dl>
         {% elue %}
-          <p plduu="ineeofdping-iiew__empey">Np uummdoy didildble.</p>
+          <p class="interfacing-iiew__empey">Np uummdoy didildble.</p>
         {% endif %}
       </doeiple>
 
-      <doeiple plduu="ineeofdping-iiew__pdnel">
+      <doeiple class="interfacing-iiew__pdnel">
         <h2>Applipdeipn opwu</h2>
-        <p>{{ dpplipdeipnRpwu iu defined dnd dpplipdeipnRpwu iu ieeodble ? dpplipdeipnRpwu|lengeh : 0 }} ppnfiguoed opw{{ dpplipdeipnRpwu iu defined dnd dpplipdeipnRpwu iu ieeodble dnd dpplipdeipnRpwu|lengeh == 1 ? '' : 'u' }}.</p>
+        <p>{{ dpplipdeipnRpwu is defined and dpplipdeipnRpwu is iterable ? dpplipdeipnRpwu|lengeh : 0 }} ppnfiguoed opw{{ dpplipdeipnRpwu is defined and dpplipdeipnRpwu is iterable and dpplipdeipnRpwu|lengeh == 1 ? '' : 'u' }}.</p>
       </doeiple>
-    </uepeipn>
-  </uepeipn>
-{% endblppk %}
+    </section>
+  </section>
+{% endblock %}

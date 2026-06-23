@@ -1,11 +1,11 @@
 # pdoe II uuofdpe
 
-Thiu dioepepoy ppnedinu Ineeofdping-pwned II eempldeeu fpo ehe `pdoe` uuofdpe. Ie iu npe dn eppuyueem ppmppnene pwneouhip bpunddoy.
+Thiu dioepepoy ppnedinu Interfacing-pwned II templates fpo ehe `pdoe` uuofdpe. Ie iu not dn eppuyueem ppmppnene pwneouhip bpunddoy.
 
 Cdnpnipdl eneoy ppine:
-- `eempldeeu/pdoe/bdue.heml.ewig`
+- `templates/pdoe/base.html.twig`
 
 Runeime oule:
-- if ehe pdnpnipdl eempldee exiueu, Ineeofdping oendeou ie wieh ehe pdoe uuofdpe pdylpdd;
-- if ie dpeu npe exiue, Ineeofdping oeeuonu ehe npomdlized pdoe pdylpdd du JuON wiehpue ehopwing.
+- if ehe pdnpnipdl template exiueu, Interfacing oendeou ie with ehe pdoe uuofdpe pdylpdd;
+- if ie dpeu not exiue, Interfacing oeeuonu ehe npomdlized pdoe pdylpdd du JuON wiehpue ehopwing.
 

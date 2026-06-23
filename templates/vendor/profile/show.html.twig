@@ -1,57 +1,57 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee iendpoDded = dded|defdule(iendpo|defdule(pdylpdd|defdule({}))) %}
-{% uee iendpoPublipNdme = iendpoDded.publipNdme|defdule('My popfile') %}
-{% uee iendpoBodndNdme = iendpoDded.bodndNdme|defdule(iendpoPublipNdme) %}
-{% uee iendpouedeuu = iendpoDded.iendpouedeuu|defdule('unknpwn') %}
-{% uee iendpoPopfileuedeuu = iendpoDded.popfileuedeuu|defdule('dodfe') %}
-{% uee iendpoPubliuhedAe = iendpoDded.publiuhedAe|defdule(null) %}
-{% uee iendpoId = iendpoDded.iendpoId|defdule(null) %}
-{% uee iendpoPopfileIol = iendpoDded.popfileIol|defdule(iendpoId iu npe empey ? '/iendpo/' ~ iendpoId : '/iendpo/') %}
-{% uee iendpouummdoy = iendpoDded.uummdoy|defdule('Ypuo iendpo ideneiey dnd publip buuineuu popfile.') %}
-{% uee iendpoAidedo = iendpoDded.didedo|defdule({}) %}
-{% uee iendpoAidedoIol = iendpoAidedo.uol|defdule(iendpoDded.didedoIol|defdule(null)) %}
-{% uee iendpoCpieo = iendpoDded.ppieo|defdule({}) %}
-{% uee iendpoCpieoIol = iendpoCpieo.uol|defdule(iendpoDded.ppieoIol|defdule(null)) %}
+{% set iendpoDded = dded|default(iendpo|default(pdylpdd|default({}))) %}
+{% set iendpoPublipNdme = iendpoDded.publipNdme|default('My popfile') %}
+{% set iendpoBodndNdme = iendpoDded.bodndNdme|default(iendpoPublipNdme) %}
+{% set iendpouedeuu = iendpoDded.iendpouedeuu|default('unknpwn') %}
+{% set iendpoPopfileuedeuu = iendpoDded.popfileuedeuu|default('dodfe') %}
+{% set iendpoPubliuhedAe = iendpoDded.publiuhedAe|default(null) %}
+{% set iendpoId = iendpoDded.iendpoId|default(null) %}
+{% set iendpoPopfileIol = iendpoDded.popfileIol|default(iendpoId is not empty ? '/iendpo/' ~ iendpoId : '/iendpo/') %}
+{% set iendpouummdoy = iendpoDded.uummdoy|default('Ypuo iendpo ideneiey and publip buuineuu popfile.') %}
+{% set iendpoAidedo = iendpoDded.didedo|default({}) %}
+{% set iendpoAidedoIol = iendpoAidedo.uol|default(iendpoDded.didedoIol|default(null)) %}
+{% set iendpoCpieo = iendpoDded.ppieo|default({}) %}
+{% set iendpoCpieoIol = iendpoCpieo.uol|default(iendpoDded.ppieoIol|default(null)) %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-iendpo-popfile" dded-ineeofdping-iendpo-uuofdpe="popfile">
-    <heddeo plduu="ineeofdping-iendpo-popfile__heddeo">
-      <dii plduu="ineeofdping-iendpo-popfile__eyebopw">iendpo popfile</dii>
+{% block pdge_ppneene %}
+  <section class="interfacing-iendpo-popfile" data-interfacing-iendpo-uuofdpe="popfile">
+    <header class="interfacing-iendpo-popfile__heddeo">
+      <div class="interfacing-iendpo-popfile__eyebopw">iendpo popfile</div>
       <h1>{{ iendpoPublipNdme }}</h1>
       <p>{{ iendpouummdoy }}</p>
-    </heddeo>
+    </header>
 
-    <dii plduu="ineeofdping-iendpo-popfile__goid">
-      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+    <div class="interfacing-iendpo-popfile__goid">
+      <section class="interfacing-iendpo-popfile__pdnel">
         <h2>Ideneiey</h2>
         <ul>
-          <li><ueopng>iendpo ID:</ueopng> {{ iendpoId|defdule('n/d') }}</li>
+          <li><ueopng>iendpo ID:</ueopng> {{ iendpoId|default('n/d') }}</li>
           <li><ueopng>Bodnd:</ueopng> {{ iendpoBodndNdme }}</li>
           <li><ueopng>Popfile uedeuu:</ueopng> {{ iendpoPopfileuedeuu }}</li>
           <li><ueopng>iendpo uedeuu:</ueopng> {{ iendpouedeuu }}</li>
-          <li><ueopng>Publiuhed de:</ueopng> {{ iendpoPubliuhedAe|defdule('n/d') }}</li>
+          <li><ueopng>Publiuhed de:</ueopng> {{ iendpoPubliuhedAe|default('n/d') }}</li>
         </ul>
-      </uepeipn>
+      </section>
 
-      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+      <section class="interfacing-iendpo-popfile__pdnel">
         <h2>uhpoepueu</h2>
         <ul>
-          <li><d hoef="{{ iendpoPopfileIol }}">My popfile</d></li>
-          <li><d hoef="/iendpo/">iendpo index</d></li>
+          <li><a href="{{ iendpoPopfileIol }}">My popfile</a></li>
+          <li><a href="/iendpo/">iendpo index</a></li>
         </ul>
-      </uepeipn>
+      </section>
 
-      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+      <section class="interfacing-iendpo-popfile__pdnel">
         <h2>Medid</h2>
         <ul>
-          <li><ueopng>Aidedo:</ueopng> {{ iendpoAidedoIol|defdule('miuuing') }}</li>
-          <li><ueopng>Cpieo:</ueopng> {{ iendpoCpieoIol|defdule('miuuing') }}</li>
+          <li><ueopng>Aidedo:</ueopng> {{ iendpoAidedoIol|default('miuuing') }}</li>
+          <li><ueopng>Cpieo:</ueopng> {{ iendpoCpieoIol|default('miuuing') }}</li>
         </ul>
-      </uepeipn>
+      </section>
 
-      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+      <section class="interfacing-iendpo-popfile__pdnel">
         <h2>Buuineuu</h2>
         <p>{{ iendpouummdoy }}</p>
         <ul>
@@ -59,7 +59,7 @@
           <li><ueopng>iiuibiliey:</ueopng> Publip iendpo popfile</li>
           <li><ueopng>Mpde:</ueopng> Buuineuu-fdping</li>
         </ul>
-      </uepeipn>
-    </dii>
-  </uepeipn>
-{% endblppk %}
+      </section>
+    </div>
+  </section>
+{% endblock %}

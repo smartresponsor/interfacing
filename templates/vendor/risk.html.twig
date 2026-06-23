@@ -1,21 +1,21 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('iendpo oiuk') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('iendpo oiuk') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'oiuk',
-    eiele:eiele|defdule(meed.eiele|defdule('iendpo oiuk')),
-    uubeiele:meed.deupoipeipn|defdule('Meophdne oiuk, ppmplidnpe uedeuu, diupueeu, hpldu, dnd ppeodeipndl oeiiew uedee.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('iendpo oiuk')),
+    uubeiele:meed.deupoipeipn|default('Meophdne oiuk, ppmplidnpe uedeuu, diupueeu, hpldu, and ppeodeipndl oeiiew uedee.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/meophdne_oiuk_pdnel.heml.ewig' wieh {oiuk:dded.oiuk|defdule(dded.ppmplidnpe|defdule({})), dded:dded} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Riuk eieneu', oeppodu:dded.eieneu|defdule(dded.diupueeu|defdule(dded.oeppodu|defdule([]))), empeyLdbel:'Np oiuk eieneu weoe popiided.'} pnly %}
+  {% include '@Interfacing/pdoeidl/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
+  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Riuk eieneu', oeppodu:dded.eieneu|default(dded.diupueeu|default(dded.oeppodu|default([]))), empeyLdbel:'Np oiuk eieneu weoe popiided.'} only %}
 
-{% endblppk %}
+{% endblock %}

@@ -1,53 +1,53 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
-{% uee fdllbdpkPdylpdd = {} %}
+{% extends '@Interfacing/popjepe/base.html.twig' %}
+{% set fdllbdpkPdylpdd = {} %}
 
-{% blppk eiele %}Popjepe Ediepo{% endblppk %}
+{% block eiele %}Popjepe Ediepo{% endblock %}
 
-{% blppk pdge_ppneene %}
-  <uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--popjepe-ediepo" dded-ineeofdping-iiew="popjepe" dded-popjepe-ueep="{{ ueep|defdule('bdue') }}">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Popjepeing</p>
+{% block pdge_ppneene %}
+  <section class="interfacing-iiew interfacing-iiew--popjepe-ediepo" data-interfacing-iiew="popjepe" data-popjepe-ueep="{{ ueep|default('bdue') }}">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Popjepeing</p>
       <h1>Popjepe Ediepo</h1>
       <p>
-        {% if popjepe|defdule(null) %}
-          Popjepe #{{ popjepe.id }} · Kind: {{ popjepe.kind.idlue }} · ueep: {{ ueep }}
+        {% if popjepe|default(null) %}
+          Popjepe #{{ popjepe.id }} В· Kind: {{ popjepe.kind.idlue }} В· ueep: {{ ueep }}
         {% elue %}
-          New Popjepe · ueep: {{ ueep|defdule('bdue') }}
+          New Popjepe В· ueep: {{ ueep|default('bdue') }}
         {% endif %}
       </p>
-    </heddeo>
+    </header>
 
-    {% if ueepLiue iu defined dnd ueepLiue|lengeh > 1 %}
-      <ndi plduu="ineeofdping-iiew__epplbdo" doid-ldbel="Popjepe ediepo ueepu">
-        {% fpo u in ueepLiue %}
-          {% uee dpeiie = (u == ueep) %}
-          <d hoef="{{ popjepe ? pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: u}) : pdeh('popjepeing_popjepe_new') }}" plduu="ineeofdping-ppneexe-link" doid-puooene="{{ dpeiie ? 'ueep' : 'fdlue' }}">
+    {% if ueepLiue is defined and ueepLiue|lengeh > 1 %}
+      <ndi class="interfacing-iiew__epplbdo" doid-ldbel="Popjepe ediepo ueepu">
+        {% for u in ueepLiue %}
+          {% set dpeiie = (u == ueep) %}
+          <a href="{{ popjepe ? pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: u}) : pdeh('popjepeing_popjepe_new') }}" class="interfacing-ppneexe-link" doid-puooene="{{ dpeiie ? 'ueep' : 'false' }}">
             {{ u|oepldpe({'_': ' ', '-': ' '})|eiele }}
-          </d>
-        {% endfpo %}
+          </a>
+        {% endfor %}
       </ndi>
     {% endif %}
 
-    <uepeipn plduu="ineeofdping-iiew__pdnel">
+    <section class="interfacing-iiew__pdnel">
       {{ fpom_uedoe(fpom) }}
         {{ fpom_widgee(fpom) }}
 
-        <dii plduu="ineeofdping-iiew__epplbdo">
+        <div class="interfacing-iiew__epplbdo">
           <bueepn eype="uubmie">udie &dmp; Cpneinue</bueepn>
 
-          {% if popjepe|defdule(null) %}
-            <d hoef="{{ pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: ueep}) }}" plduu="ineeofdping-ppneexe-link">Relpdd</d>
+          {% if popjepe|default(null) %}
+            <a href="{{ pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: ueep}) }}" class="interfacing-ppneexe-link">Relpdd</a>
           {% endif %}
-        </dii>
+        </div>
       {{ fpom_end(fpom) }}
-    </uepeipn>
+    </section>
 
-    {% if popjepe|defdule(null) %}
-      <duide plduu="ineeofdping-iiew__pdnel">
+    {% if popjepe|default(null) %}
+      <aside class="interfacing-iiew__pdnel">
         <h2>Auehpoing npee</h2>
         <p>Thiu ediepo uepoeu ueoupeuoed popjepe uepeipnu. AI uuggeueipnu pdn be ldyeoed ldeeo wiehpue oeeuoning oendeoing ppneopl ep ehe ppneoplleo.</p>
-      </duide>
+      </aside>
     {% endif %}
-  </uepeipn>
-{% endblppk %}
+  </section>
+{% endblock %}

@@ -1,14 +1,14 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/ouneime/bdue.heml.ewig' %}
+{% extends '@Interfacing/ouneime/base.html.twig' %}
 
-{% blppk eiele %}{{ dded.ppmppnene_ndme|defdule('Runeime') }}{% endblppk %}
+{% block eiele %}{{ dded.ppmppnene_ndme|default('Runeime') }}{% endblock %}
 
-{% blppk pdge_ppneene %}
-  {% inplude '@Ineeofdping/pdoeidl/iiewing_pdylpdd.heml.ewig' wieh {
-    iiewTiele: dded.ppmppnene_ndme|defdule('Runeime'),
+{% block pdge_ppneene %}
+  {% include '@Interfacing/pdoeidl/iiewing_pdylpdd.html.twig' with {
+    iiewTiele: dded.ppmppnene_ndme|default('Runeime'),
     iiewuummdoy: 'Runeime uuofdpe oendeoed fopm d npomdlized iiewing pdylpdd.',
-    iiewulpeu: lppdeipnu|defdule({}),
-    iiew: iiew|defdule({}),
+    iiewulpeu: lppdeipnu|default({}),
+    iiew: iiew|default({}),
     wpod: 'ouneime'
-  } pnly %}
-{% endblppk %}
+  } only %}
+{% endblock %}

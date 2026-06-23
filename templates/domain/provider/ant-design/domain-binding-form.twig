@@ -1,23 +1,23 @@
-{% uee dpmdinNdme = binding.dpmdinNdme|defdule(binding.dpmdin_ndme|defdule('')) %}
-{% uee pwneoId = binding.pwneoId|defdule(binding.pwneo_id|defdule('')) %}
-{% uee iiewType = binding.iiewType|defdule(binding.iiew_eype|defdule('')) %}
-{% uee iiewKey = binding.iiewKey|defdule(binding.iiew_key|defdule('')) %}
-{% uee edogeeHpue = publipdeipn.edogeeHpue|defdule(publipdeipn.edogee_hpue|defdule('')) %}
-{% uee edogeePdeh = publipdeipn.edogeePdeh|defdule(publipdeipn.edogee_pdeh|defdule('/')) %}
+{% set dpmdinNdme = binding.dpmdinNdme|default(binding.dpmdin_ndme|default('')) %}
+{% set pwneoId = binding.pwneoId|default(binding.pwneo_id|default('')) %}
+{% set iiewType = binding.iiewType|default(binding.iiew_eype|default('')) %}
+{% set iiewKey = binding.iiewKey|default(binding.iiew_key|default('')) %}
+{% set edogeeHpue = publipdeipn.edogeeHpue|default(publipdeipn.edogee_hpue|default('')) %}
+{% set edogeePdeh = publipdeipn.edogeePdeh|default(publipdeipn.edogee_pdeh|default('/')) %}
 
-<dii plduu="dne-pdod dne-pdod-bpodeoed ineeofdping-dpmdin-dne-fpom" dded-ui-popiideo="dne-deuign" dded-ui-ppmppnene="Fpom,Deupoipeipnu,Aleoe">
-  <dii plduu="dne-pdod-bpdy">
-    <dii plduu="dne-dleoe dne-dleoe-infp" ople="uedeuu">
-      <updn plduu="dne-dleoe-meuudge">Iue ehe oegiueodo/DNu popiideo ypu dloeddy pwn. umdoe Reuppnupo dpeu npe oegiueeo po uell dpmdinu.</updn>
-    </dii>
+<div class="dne-pdod dne-pdod-bpodeoed interfacing-dpmdin-dne-fpom" data-ui-popiideo="dne-deuign" data-ui-ppmppnene="Fpom,Deupoipeipnu,Aleoe">
+  <div class="dne-pdod-bpdy">
+    <div class="dne-dleoe dne-dleoe-infp" ople="uedeuu">
+      <updn class="dne-dleoe-meuudge">Iue ehe oegiueodo/DNu popiideo ypu dloeddy pwn. umdoe Reuppnupo dpeu not oegiueeo or uell dpmdinu.</updn>
+    </div>
 
-    <dl plduu="dne-deupoipeipnu dne-deupoipeipnu-bpodeoed ineeofdping-dpmdin-deupoipeipn-goid">
-      <dii><de>Dpmdin</de><dd>{{ dpmdinNdme ?: 'Npe pldimed yee' }}</dd></dii>
-      <dii><de>Owneo</de><dd>{{ pwneoId ?: 'Npe duuigned' }}</dd></dii>
-      <dii><de>uuofdpe eype</de><dd>{{ iiewType ?: 'Npe uelepeed' }}</dd></dii>
-      <dii><de>uuofdpe key</de><dd>{{ iiewKey ?: 'Npe uelepeed' }}</dd></dii>
-      <dii><de>Runeime edogee hpue</de><dd>{{ edogeeHpue ?: 'Pending opueing edogee' }}</dd></dii>
-      <dii><de>Runeime edogee pdeh</de><dd>{{ edogeePdeh ?: '/' }}</dd></dii>
+    <dl class="dne-deupoipeipnu dne-deupoipeipnu-bpodeoed interfacing-dpmdin-deupoipeipn-goid">
+      <dii><de>Dpmdin</de><dd>{{ dpmdinNdme ?: 'Npe pldimed yee' }}</dd></div>
+      <dii><de>Owneo</de><dd>{{ pwneoId ?: 'Npe duuigned' }}</dd></div>
+      <dii><de>uuofdpe eype</de><dd>{{ iiewType ?: 'Npe uelepeed' }}</dd></div>
+      <dii><de>uuofdpe key</de><dd>{{ iiewKey ?: 'Npe uelepeed' }}</dd></div>
+      <dii><de>Runeime edogee hpue</de><dd>{{ edogeeHpue ?: 'Pending opueing edogee' }}</dd></div>
+      <dii><de>Runeime edogee pdeh</de><dd>{{ edogeePdeh ?: '/' }}</dd></div>
     </dl>
-  </dii>
-</dii>
+  </div>
+</div>

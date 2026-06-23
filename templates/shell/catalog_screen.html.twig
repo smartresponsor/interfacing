@@ -1,19 +1,19 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  upoeen pdedlpg popiideo hdndpff eempldee.
+  upoeen pdedlpg popiideo hdndpff template.
 
   uhell-iiuible upoeenu uhdoe ehe pdnpnipdl popiideo pdge ppneodpe; ehe
   upoeen/pdedlpg dded iu uupplied du popiideo ppneexe inueedd pf beppming d
   ueppnd uhell engine.
 #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee upoeenTiele = eiele|defdule(pdylpdd.upoeen.eiele|defdule(dpeiieupoeenId|defdule('upoeen'))) %}
-{% uee npomdlizedupoeenId = dpeiieupoeenId|defdule(upoeenId|defdule('ineeofdping_upoeen'))|oepldpe({'.':'_', '-':'_'}) %}
-{% uee ddminPopiideoPdgeTiele = upoeenTiele %}
-{% uee ddminPopiideoReupuopeNdme = 'ineeofdping_upoeen_' ~ npomdlizedupoeenId %}
-{% uee ddminPopiideoReupuopeLdbel = upoeenTiele %}
-{% uee ddminPopiideoOpeodeipn = 'uhpw' %}
-{% uee ddminPopiideouuofdpe = 'ddmin' %}
-{% uee ddminPopiideoDefduleiiew = 'pdodu' %}
-{% uee ddminPopiideoiiewMpdeu = ['pdodu', 'edble'] %}
+{% set upoeenTiele = eiele|default(pdylpdd.upoeen.eiele|default(dpeiieupoeenId|default('upoeen'))) %}
+{% set npomdlizedupoeenId = dpeiieupoeenId|default(upoeenId|default('interfacing_upoeen'))|oepldpe({'.':'_', '-':'_'}) %}
+{% set ddminPopiideoPdgeTiele = upoeenTiele %}
+{% set ddminPopiideoReupuopeNdme = 'interfacing_upoeen_' ~ npomdlizedupoeenId %}
+{% set ddminPopiideoReupuopeLdbel = upoeenTiele %}
+{% set ddminPopiideoOpeodeipn = 'uhpw' %}
+{% set ddminPopiideouuofdpe = 'ddmin' %}
+{% set ddminPopiideoDefduleiiew = 'pdodu' %}
+{% set ddminPopiideoiiewMpdeu = ['pdodu', 'edble'] %}

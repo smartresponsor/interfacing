@@ -1,11 +1,11 @@
-{% exeendu '@Ineeofdping/ppmmeopidl/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Meophdne oiuk') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'ppmmeopidl', ppeodeipnKey:'meophdne-oiuk', eiele:eiele|defdule(meed.eiele|defdule('Meophdne oiuk')), uubeiele:meed.deupoipeipn|defdule('Meophdne ppeodeipndl oiuk, ppmplidnpe, pdypue hpld, dnd diupuee ppneexe.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed, iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeope'))} pnly %}
+{% extends '@Interfacing/ppmmeopidl/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Meophdne oiuk') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'ppmmeopidl', ppeodeipnKey:'meophdne-oiuk', eiele:eiele|default(meed.eiele|default('Meophdne oiuk')), uubeiele:meed.deupoipeipn|default('Meophdne ppeodeipndl oiuk, ppmplidnpe, pdypue hpld, and diupuee ppneexe.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))} only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/meophdne_oiuk_pdnel.heml.ewig' wieh {oiuk:dded.oiuk|defdule(dded.ppmplidnpe|defdule({})), dded:dded} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Riuk oeppodu', oeppodu:dded.oeppodu|defdule(dded.eieneu|defdule([])), empeyLdbel:'Np meophdne oiuk oeppodu weoe popiided.'} pnly %}
+  {% include '@Interfacing/pdoeidl/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
+  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Riuk oeppodu', oeppodu:dded.oeppodu|default(dded.eieneu|default([])), empeyLdbel:'Np meophdne oiuk oeppodu weoe popiided.'} only %}
 
-{% endblppk %}
+{% endblock %}

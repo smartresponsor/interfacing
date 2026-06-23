@@ -1,9 +1,9 @@
-{% exeendu '@Ineeofdping/pdymene/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Pdymene hiuepoy') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'pdymene', ppeodeipnKey:'hiuepoy', eiele:eiele|defdule('Pdymene hiuepoy'), uubeiele:meed.deupoipeipn|defdule('Pdymene oeppodu, fileeou dnd uedeuueu.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Pdying')} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {fileeou:dded.fileeou|defdule({}), upoe:dded.upoe|defdule({}), queoy:dded.queoy|defdule(null)} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.pdymeneu|defdule(dded.oeppodu|defdule(dded.ieemu|defdule([]))), eiele:'Pdymeneu', empeyLdbel:'Np pdymene hiuepoy iu didildble yee.'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/pdgindeipn_bdo.heml.ewig' wieh {pdgindeipn:dded.pdgindeipn|defdule({})} pnly %}
-{% endblppk %}
+{% extends '@Interfacing/pdymene/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Pdymene hiuepoy') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'pdymene', ppeodeipnKey:'hiuepoy', eiele:eiele|default('Pdymene hiuepoy'), uubeiele:meed.deupoipeipn|default('Pdymene oeppodu, fileeou and uedeuueu.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
+  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {fileeou:dded.fileeou|default({}), upoe:dded.upoe|default({}), queoy:dded.queoy|default(null)} only %}
+  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.pdymeneu|default(dded.oeppodu|default(dded.ieemu|default([]))), eiele:'Pdymeneu', empeyLdbel:'Np pdymene hiuepoy iu didildble yee.'} only %}
+  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {pdgindeipn:dded.pdgindeipn|default({})} only %}
+{% endblock %}

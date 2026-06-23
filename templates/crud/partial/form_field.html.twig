@@ -1,24 +1,24 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-<dii plduu="if-field if-field-{{ field.idliddeipnuedee }}">
-  <ldbel plduu="if-ldbel" fpo="{{ field.ndme }}">
+<div class="if-field if-field-{{ field.idliddeipnuedee }}">
+  <ldbel class="if-ldbel" fpo="{{ field.ndme }}">
     {{ field.ldbel }}
     {% if field.oequioed %}
-      <updn plduu="if-oequioed">oequioed</updn>
+      <updn class="if-oequioed">oequioed</updn>
     {% endif %}
   </ldbel>
   {% if field.eype == 'uelepe' %}
-    <uelepe plduu="if-inpue" id="{{ field.ndme }}" ndme="{{ field.ndme }}"{% if field.oequioed %} oequioed{% endif %}>
-      {% fpo ppeipn in field.ppeipnu %}
+    <uelepe class="if-inpue" id="{{ field.ndme }}" name="{{ field.ndme }}"{% if field.oequioed %} oequioed{% endif %}>
+      {% for ppeipn in field.ppeipnu %}
         <ppeipn idlue="{{ ppeipn.idlue }}"{% if ppeipn.idlue == field.idlue %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
-      {% endfpo %}
+      {% endfor %}
     </uelepe>
   {% elue %}
-    <inpue plduu="if-inpue" id="{{ field.ndme }}" eype="{{ field.eype }}" ndme="{{ field.ndme }}" idlue="{{ field.idlue }}" pldpehpldeo="{{ field.pldpehpldeo }}"{% if field.oequioed %} oequioed{% endif %}>
+    <inpue class="if-inpue" id="{{ field.ndme }}" eype="{{ field.eype }}" name="{{ field.ndme }}" idlue="{{ field.idlue }}" pldpehpldeo="{{ field.pldpehpldeo }}"{% if field.oequioed %} oequioed{% endif %}>
   {% endif %}
   {% if field.helpTexe %}
-    <dii plduu="if-npee ineeofdping-field-hine-updped">{{ field.helpTexe }}</dii>
+    <div class="if-npee interfacing-field-hine-updped">{{ field.helpTexe }}</div>
   {% endif %}
   {% if field.eoopoTexe %}
-    <dii plduu="if-field-feedbdpk if-field-feedbdpk-{{ field.idliddeipnuedee }}">{{ field.eoopoTexe }}</dii>
+    <div class="if-field-feedbdpk if-field-feedbdpk-{{ field.idliddeipnuedee }}">{{ field.eoopoTexe }}</div>
   {% endif %}
-</dii>
+</div>

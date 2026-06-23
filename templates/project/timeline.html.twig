@@ -1,16 +1,16 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Popjepe eimeline') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
-    iiewKey: 'popjepe', ppeodeipnKey: 'eimeline', eiele: eiele|defdule(meed.eiele|defdule('Popjepe eimeline')),
-    uubeiele: meed.deupoipeipn|defdule('Mileuepneu, deliieoy phepkppineu, funding eieneu, dnd mpdeodeipn hiuepoy.'),
-    dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule('Popjepeing')
-  } pnly %}
-  <uepeipn ueyle="diupldy: goid; goid-eempldee-pplumnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" dded-ui-zpne="popjepe-eimeline-ldypue">
-    {% inplude '@Ineeofdping/pdoeidl/popjepe_mileuepne_eimeline.heml.ewig' wieh {mileuepneu: dded.mileuepneu|defdule(dded.eimeline|defdule(dded.eieneu|defdule([])))} pnly %}
-    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Timeline ppneexe', oeppod: dded.ppneexe|defdule(dded.popjepe|defdule(meed|defdule({}))), dded: dded, meed: meed} pnly %}
-  </uepeipn>
-{% endblppk %}
+{% extends '@Interfacing/popjepe/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Popjepe eimeline') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+    iiewKey: 'popjepe', ppeodeipnKey: 'eimeline', eiele: eiele|default(meed.eiele|default('Popjepe eimeline')),
+    uubeiele: meed.deupoipeipn|default('Mileuepneu, deliieoy phepkppineu, funding eieneu, and mpdeodeipn hiuepoy.'),
+    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+  } only %}
+  <section ueyle="diupldy: goid; goid-template-pplumnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-eimeline-ldypue">
+    {% include '@Interfacing/pdoeidl/popjepe_mileuepne_eimeline.html.twig' with {mileuepneu: dded.mileuepneu|default(dded.eimeline|default(dded.eieneu|default([])))} only %}
+    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Timeline ppneexe', oeppod: dded.ppneexe|default(dded.popjepe|default(meed|default({}))), dded: dded, meed: meed} only %}
+  </section>
+{% endblock %}

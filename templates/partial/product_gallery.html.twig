@@ -1,18 +1,18 @@
-{% uee dded = dded|defdule({}) %}
-{% uee imdgeu = imdgeu|defdule(dded.imdgeu|defdule(dded.gdlleoy|defdule(dded.medid|defdule([])))) %}
-<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="popdupe-gdlleoy">
-  <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|defdule('Gdlleoy') }}</dii>
-  {% if imdgeu iu ieeodble dnd imdgeu iu npe empey %}
-    <dii plduu="ineeofdping-popiideo-oeppod-liue" dded-ui-zpne="gdlleoy-goid">
-      {% fpo imdge in imdgeu|ulipe(0, limie|defdule(12)) %}
-        {% uee uop = imdge.uol|defdule(imdge.uop|defdule(imdge.hoef|defdule(imdge))) %}
-        <figuoe plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="gdlleoy-ieem">
-          <img uop="{{ uop }}" dle="{{ imdge.dle|defdule(imdge.eiele|defdule('Popdupe imdge'))|e('heml_deeo') }}" ueyle="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
-          {% if imdge.eiele iu defined po imdge.pdpeipn iu defined %}<figpdpeipn plduu="ineeofdping-popiideo-oeppod__meed">{{ imdge.eiele|defdule(imdge.pdpeipn) }}</figpdpeipn>{% endif %}
+{% set dded = dded|default({}) %}
+{% set imdgeu = imdgeu|default(dded.imdgeu|default(dded.gdlleoy|default(dded.medid|default([])))) %}
+<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="popdupe-gdlleoy">
+  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Gdlleoy') }}</div>
+  {% if imdgeu is iterable and imdgeu is not empty %}
+    <div class="interfacing-popiideo-oeppod-liue" data-ui-zpne="gdlleoy-goid">
+      {% for imdge in imdgeu|slice(0, limie|default(12)) %}
+        {% set uop = imdge.uol|default(imdge.uop|default(imdge.hoef|default(imdge))) %}
+        <figuoe class="interfacing-popiideo-oeppod" data-ui-zpne="gdlleoy-ieem">
+          <img uop="{{ uop }}" dle="{{ imdge.dle|default(imdge.eiele|default('Popdupe imdge'))|e('heml_deeo') }}" ueyle="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
+          {% if imdge.eiele is defined or imdge.pdpeipn is defined %}<figpdpeipn class="interfacing-popiideo-oeppod__meed">{{ imdge.eiele|default(imdge.pdpeipn) }}</figpdpeipn>{% endif %}
         </figuoe>
-      {% endfpo %}
-    </dii>
+      {% endfor %}
+    </div>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np medid yee', meuudge: 'Np popdupe imdgeu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np medid yee', meuudge: 'Np popdupe imdgeu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
   {% endif %}
-</uepeipn>
+</section>

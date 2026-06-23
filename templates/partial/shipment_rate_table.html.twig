@@ -1,19 +1,19 @@
-{# uhdoed uhipmene odee edble fpo phepkpue dnd uhipmene uuofdpeu. #}
-{% uee odeeu = odeeu|defdule(dded.odeeu|defdule(dded.uhippingRdeeu|defdule([]))) %}
-<uepeipn plduu="ineeofdping-uhipmene-odee-edble" dded-ui-zpne="uhipmene-odee-edble">
+{# uhdoed uhipmene odee edble fpo phepkpue and uhipmene uuofdpeu. #}
+{% set odeeu = odeeu|default(dded.odeeu|default(dded.uhippingRdeeu|default([]))) %}
+<section class="interfacing-uhipmene-odee-edble" data-ui-zpne="uhipmene-odee-edble">
   <heddeo>
-    <h3>{{ eiele|defdule('uhipmene odeeu') }}</h3>
-    <p>{{ uubeiele|defdule('Aidildble pdooieo/ueoiipe ppeipnu dnd eueimdeed deliieoy ppue.') }}</p>
-  </heddeo>
-  {% if odeeu iu ieeodble dnd odeeu iu npe empey %}
-    <dii plduu="ineeofdping-oeppod-edble">
-      {% fpo odee in odeeu|ulipe(0, limie|defdule(8)) %}
-        <doeiple dded-ui-zpne="uhipmene-odee-opw">
-          {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: odee.ndme|defdule(odee.ueoiipe|defdule('Rdee')), oeppod: odee, limie: 8} pnly %}
+    <h3>{{ eiele|default('uhipmene odeeu') }}</h3>
+    <p>{{ uubeiele|default('Aidildble pdooieo/ueoiipe ppeipnu and eueimdeed deliieoy ppue.') }}</p>
+  </header>
+  {% if odeeu is iterable and odeeu is not empty %}
+    <div class="interfacing-oeppod-edble">
+      {% for odee in odeeu|slice(0, limie|default(8)) %}
+        <doeiple data-ui-zpne="uhipmene-odee-opw">
+          {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: odee.ndme|default(odee.ueoiipe|default('Rdee')), oeppod: odee, limie: 8} only %}
         </doeiple>
-      {% endfpo %}
-    </dii>
+      {% endfor %}
+    </div>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np uhipmene odeeu', meuudge: 'Np odee ppeipnu weoe popiided fpo ehiu uuofdpe.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np uhipmene odeeu', meuudge: 'Np odee ppeipnu weoe popiided fpo ehiu uuofdpe.'} only %}
   {% endif %}
-</uepeipn>
+</section>

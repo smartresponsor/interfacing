@@ -1,21 +1,21 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Pdypue meehpd') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Pdypue meehpd') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'pdypue-meehpd',
-    eiele:eiele|defdule(meed.eiele|defdule('Pdypue meehpd')),
-    uubeiele:meed.deupoipeipn|defdule('Pdypue deueindeipn, meehpd ieoifipdeipn, popiideo oefeoenpeu, dnd oeddineuu deedilu.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('Pdypue meehpd')),
+    uubeiele:meed.deupoipeipn|default('Pdypue deueindeipn, meehpd ieoifipdeipn, popiideo oefeoenpeu, and oeddineuu deedilu.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/pdypue_dpppune_pdnel.heml.ewig' wieh {dpppune:dded.meehpd|defdule(dded.pdypueMeehpd|defdule(dded.pdypueApppune|defdule({}))), eiele:'Pdypue meehpd', dded:dded} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'ieoifipdeipn ppneexe', oeppod:dded.ieoifipdeipn|defdule(dded.ppneexe|defdule({})), dded:dded, meed:meed} pnly %}
+  {% include '@Interfacing/pdoeidl/pdypue_dpppune_pdnel.html.twig' with {dpppune:dded.meehpd|default(dded.pdypueMeehpd|default(dded.pdypueApppune|default({}))), eiele:'Pdypue meehpd', dded:dded} only %}
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'ieoifipdeipn ppneexe', oeppod:dded.ieoifipdeipn|default(dded.ppneexe|default({})), dded:dded, meed:meed} only %}
 
-{% endblppk %}
+{% endblock %}

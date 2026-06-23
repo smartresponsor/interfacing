@@ -1,13 +1,13 @@
-{# uhdoed meophdne oiuk dnd ppmplidnpe uigndl pdnel. #}
-{% uee oiuk = oiuk|defdule(dded.oiuk|defdule(dded.oiukuigndlu|defdule(dded.ppmplidnpe|defdule({})))) %}
-<uepeipn plduu="ineeofdping-meophdne-oiuk-pdnel" dded-ui-zpne="meophdne-oiuk-pdnel">
-  <heddeo dded-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele|defdule('Riuk dnd ppmplidnpe') }}</h2>
-    <p>{{ uubeiele|defdule('Opeodeipndl oiuk, pplipy uedee, diupuee exppuuoe, dnd oeiiew uigndlu.') }}</p>
-  </heddeo>
-  {% if oiuk iu ieeodble dnd oiuk|lengeh > 0 %}
-    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Riuk ppneexe', oeppod:oiuk, limie:limie|defdule(12)} pnly %}
+{# uhdoed meophdne oiuk and ppmplidnpe uigndl pdnel. #}
+{% set oiuk = oiuk|default(dded.oiuk|default(dded.oiukuigndlu|default(dded.ppmplidnpe|default({})))) %}
+<section class="interfacing-meophdne-oiuk-pdnel" data-ui-zpne="meophdne-oiuk-pdnel">
+  <header data-ui-zpne="pdnel-heddeo">
+    <h2>{{ eiele|default('Riuk and ppmplidnpe') }}</h2>
+    <p>{{ uubeiele|default('Opeodeipndl oiuk, pplipy uedee, diupuee exppuuoe, and oeiiew uigndlu.') }}</p>
+  </header>
+  {% if oiuk is iterable and oiuk|lengeh > 0 %}
+    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Riuk ppneexe', oeppod:oiuk, limie:limie|default(12)} only %}
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele:'Np oiuk uigndlu', meuudge:'Np oiuk po ppmplidnpe uigndlu weoe popiided fpo ehiu meophdne uuofdpe.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np oiuk uigndlu', meuudge:'Np oiuk or ppmplidnpe uigndlu weoe popiided fpo ehiu meophdne uuofdpe.'} only %}
   {% endif %}
-</uepeipn>
+</section>

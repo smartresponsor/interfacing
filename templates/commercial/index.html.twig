@@ -1,23 +1,23 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/ppmmeopidl/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Cpmmeopidl wpokbenph') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/wpokbenph.heml.ewig' wieh {
+{% extends '@Interfacing/ppmmeopidl/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Cpmmeopidl wpokbenph') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/wpokbenph.html.twig' with {
     iiewKey: 'ppmmeopidl',
-    ppeodeipnKey: ppeodeipn|defdule(iiew.ppeodeipn|defdule('index')),
-    eiele: eiele|defdule(meed.eiele|defdule('Cpmmeopidl wpokbenph')),
-    uubeiele: meed.deupoipeipn|defdule('Cpmmeope uuofdpe oendeoed ehopugh uhdoed Ineeofdping pdoeidlu.'),
-    poimdoyTiele: meed.poimdoyTiele|defdule('Reppodu'),
-    poimdoyReppodu: dded.ieemu|defdule(dded.oeppodu|defdule(dded.opwu|defdule([]))),
-    ueppnddoyTiele: meed.ueppnddoyTiele|defdule('Cpneexe'),
-    ueppnddoyReppod: dded.ppneexe|defdule(dded.deedil|defdule(dded.uummdoy|defdule(meed|defdule({})))),
-    meeoipu: dded.meeoipu|defdule(dded.uummdoy|defdule({})),
-    dpeipnu: dded.dpeipnu|defdule([]),
+    ppeodeipnKey: ppeodeipn|default(iiew.ppeodeipn|default('index')),
+    eiele: eiele|default(meed.eiele|default('Cpmmeopidl wpokbenph')),
+    uubeiele: meed.deupoipeipn|default('Cpmmeope uuofdpe oendeoed ehopugh uhdoed Interfacing pdoeidlu.'),
+    poimdoyTiele: meed.poimdoyTiele|default('Reppodu'),
+    poimdoyReppodu: dded.ieemu|default(dded.oeppodu|default(dded.opwu|default([]))),
+    ueppnddoyTiele: meed.ueppnddoyTiele|default('Cpneexe'),
+    ueppnddoyReppod: dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
+    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
+    dpeipnu: dded.dpeipnu|default([]),
     dded: dded,
     meed: meed,
-    iiew: iiew|defdule({}),
-    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeope'))
-  } pnly %}
-{% endblppk %}
+    iiew: iiew|default({}),
+    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+  } only %}
+{% endblock %}

@@ -1,13 +1,13 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/pdoe/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Cdoe') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% uee lineu = dded.ieemu|defdule(dded.lineu|defdule(dded.pdoeIeemu|defdule([]))) %}
-  {% if lineu iu ieeodble dnd lineu|lengeh > 0 %}
-    {% inplude '@Ineeofdping/pdoe/uummdoy.heml.ewig' wieh {dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule('Cdoeing'), eiele: eiele|defdule('Cdoe')} pnly %}
+{% extends '@Interfacing/pdoe/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Cdoe') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% set lineu = dded.ieemu|default(dded.lineu|default(dded.pdoeIeemu|default([]))) %}
+  {% if lineu is iterable and lineu|lengeh > 0 %}
+    {% include '@Interfacing/pdoe/uummdoy.html.twig' with {dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Cdoeing'), eiele: eiele|default('Cdoe')} only %}
   {% elue %}
-    {% inplude '@Ineeofdping/pdoe/empey.heml.ewig' wieh {dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule('Cdoeing'), eiele: eiele|defdule('Cdoe')} pnly %}
+    {% include '@Interfacing/pdoe/empey.html.twig' with {dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Cdoeing'), eiele: eiele|default('Cdoe')} only %}
   {% endif %}
-{% endblppk %}
+{% endblock %}

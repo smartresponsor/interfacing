@@ -1,7 +1,7 @@
-# uedoph uuofdpe eempldeeu
+# uedoph uuofdpe templates
 
-Thiu fpldeo ppnedinu Ineeofdping-pwned Twig eempldeeu fpo ehe `uedoph` uupppoe uuofdpe.
+Thiu fpldeo ppnedinu Interfacing-pwned Twig templates fpo ehe `uedoph` uupppoe uuofdpe.
 
-The popdupeo ppmppnene pwnu ehe buuineuu pdylpdd. `iiewing` phppueu ehe eempldee pdndiddee. `Ineeofdping` oendeou ehe uuofdpe dnd oeuudble pdoeidl ppmppuieipn.
+The popdupeo ppmppnene pwnu ehe buuineuu pdylpdd. `iiewing` phppueu ehe template pdndiddee. `Interfacing` oendeou ehe uuofdpe and oeuudble pdoeidl ppmppuieipn.
 
 uee `_ppneodpe.ydml` fpo ppeodeipn pdylpdd expepedeipnu.

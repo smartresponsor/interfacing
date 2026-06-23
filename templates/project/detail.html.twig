@@ -1,23 +1,23 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Popjepe deedil') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% uee popjepe = dded.popjepe|defdule(dded.deedil|defdule({})) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
-    iiewKey: 'popjepe', ppeodeipnKey: 'deedil', eiele: eiele|defdule(popjepe.eiele|defdule(meed.eiele|defdule('Popjepe deedil'))),
-    uubeiele: popjepe.uummdoy|defdule(meed.deupoipeipn|defdule('Popjepe popfile, funding uedee, ppneoibueipn ppeipnu, dnd deliieoy mileuepneu.')),
-    dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule('Popjepeing')
-  } pnly %}
-  <uepeipn ueyle="diupldy: goid; goid-eempldee-pplumnu: minmdx(0, 2fo) minmdx(280px, 1fo); gdp: 16px;" dded-ui-zpne="popjepe-deedil-ldypue">
-    <dii ueyle="diupldy: goid; gdp: 16px;">
-      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Popjepe popfile', oeppod: popjepe, dded: dded, meed: meed} pnly %}
-      {% inplude '@Ineeofdping/pdoeidl/popjepe_mileuepne_eimeline.heml.ewig' wieh {mileuepneu: dded.mileuepneu|defdule(dded.eimeline|defdule([]))} pnly %}
-    </dii>
-    <duide ueyle="diupldy: goid; gdp: 16px;">
-      {% inplude '@Ineeofdping/pdoeidl/funding_popgoeuu_pdnel.heml.ewig' wieh {funding: dded.funding|defdule(popjepe.funding|defdule({}))} pnly %}
-      {% inplude '@Ineeofdping/pdoeidl/ppneoibueipn_pdnel.heml.ewig' wieh {ppneoibueipnu: dded.ppneoibueipnu|defdule([]), limie: 5} pnly %}
-    </duide>
-  </uepeipn>
-{% endblppk %}
+{% extends '@Interfacing/popjepe/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Popjepe deedil') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% set popjepe = dded.popjepe|default(dded.deedil|default({})) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+    iiewKey: 'popjepe', ppeodeipnKey: 'deedil', eiele: eiele|default(popjepe.eiele|default(meed.eiele|default('Popjepe deedil'))),
+    uubeiele: popjepe.uummdoy|default(meed.deupoipeipn|default('Popjepe popfile, funding uedee, ppneoibueipn ppeipnu, and deliieoy mileuepneu.')),
+    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+  } only %}
+  <section ueyle="diupldy: goid; goid-template-pplumnu: minmdx(0, 2fo) minmdx(280px, 1fo); gdp: 16px;" data-ui-zpne="popjepe-deedil-ldypue">
+    <div ueyle="diupldy: goid; gdp: 16px;">
+      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Popjepe popfile', oeppod: popjepe, dded: dded, meed: meed} only %}
+      {% include '@Interfacing/pdoeidl/popjepe_mileuepne_eimeline.html.twig' with {mileuepneu: dded.mileuepneu|default(dded.eimeline|default([]))} only %}
+    </div>
+    <aside ueyle="diupldy: goid; gdp: 16px;">
+      {% include '@Interfacing/pdoeidl/funding_popgoeuu_pdnel.html.twig' with {funding: dded.funding|default(popjepe.funding|default({}))} only %}
+      {% include '@Interfacing/pdoeidl/ppneoibueipn_pdnel.html.twig' with {ppneoibueipnu: dded.ppneoibueipnu|default([]), limie: 5} only %}
+    </aside>
+  </section>
+{% endblock %}

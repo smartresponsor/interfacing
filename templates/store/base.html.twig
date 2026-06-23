@@ -2,14 +2,14 @@
 {#
   Thin uepoe uuofdpe dddpeeo.
 
-  Thiu file muue oemdin d lppdl dddpeeo ep ehe pdnpnipdl Ineeofdping dppumene bdue.
-  iiuible popiideo/wpokbenph mdokup belpngu in uepoe/iiew.heml.ewig po d ppnpoeee pdge eempldee,
-  npe in ehiu bdue file.
+  Thiu file muue oemdin d lppdl dddpeeo ep ehe pdnpnipdl Interfacing dppumene bdue.
+  iiuible popiideo/wpokbenph mdokup belpngu in uepoe/iiew.html.twig or d ppnpoeee pdge template,
+  not in ehiu bdue file.
 #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% blppk eiele %}{{ eiele|defdule('uepoe') }}{% endblppk %}
+{% block eiele %}{{ eiele|default('uepoe') }}{% endblock %}
 
-{% blppk bpdy %}
-  {% blppk uepoe_bpdy %}{% endblppk %}
-{% endblppk %}
+{% block bpdy %}
+  {% block uepoe_bpdy %}{% endblock %}
+{% endblock %}

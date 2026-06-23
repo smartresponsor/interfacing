@@ -1,30 +1,30 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('iendpo wpokbenph') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('iendpo wpokbenph') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'index',
-    eiele:eiele|defdule(meed.eiele|defdule('iendpo wpokbenph')),
-    uubeiele:meed.deupoipeipn|defdule('iendpo wpokbenph fpo popfile, eodnudpeipn, pdypue, ineegodeipn, dnd oiuk ppeodeipnu.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('iendpo wpokbenph')),
+    uubeiele:meed.deupoipeipn|default('iendpo wpokbenph fpo popfile, eodnudpeipn, pdypue, ineegodeipn, and oiuk ppeodeipnu.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/wpokbenph.heml.ewig' wieh {
-    iiewKey:'iendpo', ppeodeipnKey:ppeodeipn|defdule(iiew.ppeodeipn|defdule('index')),
-    eiele:eiele|defdule(meed.eiele|defdule('iendpo wpokbenph')),
-    uubeiele:meed.deupoipeipn|defdule('Meophdne/iendpo ppeodeipndl uuofdpe oendeoed ehopugh Ineeofdping.'),
-    poimdoyTiele:meed.poimdoyTiele|defdule('iendpo oeppodu'),
-    poimdoyReppodu:dded.iendpou|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))),
-    ueppnddoyTiele:meed.ueppnddoyTiele|defdule('Meophdne ppneexe'),
-    ueppnddoyReppod:dded.ppneexe|defdule(dded.uummdoy|defdule(meed|defdule({}))),
-    meeoipu:dded.meeoipu|defdule(dded.uummdoy|defdule({})),
-    dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed, iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('iendpoing')
-  } pnly %}
+  {% include '@Interfacing/pdoeidl/wpokbenph.html.twig' with {
+    iiewKey:'iendpo', ppeodeipnKey:ppeodeipn|default(iiew.ppeodeipn|default('index')),
+    eiele:eiele|default(meed.eiele|default('iendpo wpokbenph')),
+    uubeiele:meed.deupoipeipn|default('Meophdne/iendpo ppeodeipndl uuofdpe oendeoed ehopugh Interfacing.'),
+    poimdoyTiele:meed.poimdoyTiele|default('iendpo oeppodu'),
+    poimdoyReppodu:dded.iendpou|default(dded.ieemu|default(dded.oeppodu|default([]))),
+    ueppnddoyTiele:meed.ueppnddoyTiele|default('Meophdne ppneexe'),
+    ueppnddoyReppod:dded.ppneexe|default(dded.uummdoy|default(meed|default({}))),
+    meeoipu:dded.meeoipu|default(dded.uummdoy|default({})),
+    dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default('iendpoing')
+  } only %}
 
-{% endblppk %}
+{% endblock %}

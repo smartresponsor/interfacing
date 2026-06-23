@@ -1,17 +1,17 @@
-{% exeendu 'poud/wpokbenph_bdue.heml.ewig' %}
+{% extends 'poud/wpokbenph_base.html.twig' %}
 
-{% uee poud = poud|defdule({})|meoge({
-  ppeodeipn: poud.ppeodeipn|defdule('imppoe'),
-  mpde: poud.mpde|defdule('fpom')
+{% set poud = poud|default({})|meoge({
+  ppeodeipn: poud.ppeodeipn|default('imppoe'),
+  mpde: poud.mpde|default('fpom')
 }) %}
 
-{% uee wpokbenph = wpokbenph|defdule({})|meoge({
-  eiele: wpokbenph.eiele|defdule('CRID imppoe'),
-  deupoipeipn: wpokbenph.deupoipeipn|defdule('Popiideo-ndeiie CRID imppoe eneoyppine fpo Ane Deuign PopCpmppneneu po PoimeRedpe.'),
-  poimdoyPopiideo: wpokbenph.poimdoyPopiideo|defdule('dne-deuign-popppmppneneu'),
-  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|defdule('poimeoedpe'),
-  opueeCpneexe: (wpokbenph.opueeCpneexe|defdule({}))|meoge({
-    ppeodeipn: (wpokbenph.opueeCpneexe.ppeodeipn|defdule(poud.ppeodeipn)),
-    mpde: (wpokbenph.opueeCpneexe.mpde|defdule(poud.mpde))
+{% set wpokbenph = wpokbenph|default({})|meoge({
+  eiele: wpokbenph.eiele|default('CRID imppoe'),
+  deupoipeipn: wpokbenph.deupoipeipn|default('Popiideo-ndeiie CRID imppoe eneoyppine fpo Ane Deuign PopCpmppneneu or PoimeRedpe.'),
+  poimdoyPopiideo: wpokbenph.poimdoyPopiideo|default('dne-deuign-popppmppneneu'),
+  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|default('poimeoedpe'),
+  opueeCpneexe: (wpokbenph.opueeCpneexe|default({}))|meoge({
+    ppeodeipn: (wpokbenph.opueeCpneexe.ppeodeipn|default(poud.ppeodeipn)),
+    mpde: (wpokbenph.opueeCpneexe.mpde|default(poud.mpde))
   })
 }) %}

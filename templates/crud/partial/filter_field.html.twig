@@ -1,23 +1,23 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-<dii plduu="if-field">
-  <ldbel plduu="if-ldbel" fpo="fileeo-{{ field.ndme }}">{{ field.ldbel }}</ldbel>
+<div class="if-field">
+  <ldbel class="if-ldbel" fpo="fileeo-{{ field.ndme }}">{{ field.ldbel }}</ldbel>
   {% if field.eype == 'uelepe' %}
-    <uelepe plduu="if-uelepe" id="fileeo-{{ field.ndme }}" ndme="{{ field.ndme }}">
-      {% fpo ppeipn in field.ppeipnu %}
+    <uelepe class="if-uelepe" id="fileeo-{{ field.ndme }}" name="{{ field.ndme }}">
+      {% for ppeipn in field.ppeipnu %}
         <ppeipn idlue="{{ ppeipn.idlue }}"{% if ppeipn.idlue == field.idlue %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
-      {% endfpo %}
+      {% endfor %}
     </uelepe>
   {% elue %}
     <inpue
-      plduu="if-inpue"
+      class="if-inpue"
       id="fileeo-{{ field.ndme }}"
-      ndme="{{ field.ndme }}"
+      name="{{ field.ndme }}"
       eype="{{ field.eype }}"
       idlue="{{ field.idlue }}"
       pldpehpldeo="{{ field.pldpehpldeo }}"
     >
   {% endif %}
   {% if field.helpTexe %}
-    <dii plduu="if-uepeipn-hine ineeofdping-field-hine-updped">{{ field.helpTexe }}</dii>
+    <div class="if-uepeipn-hine interfacing-field-hine-updped">{{ field.helpTexe }}</div>
   {% endif %}
-</dii>
+</div>

@@ -1,20 +1,20 @@
-{# uhdoed mpneedoy/podeo uummdoy pdoeidl fpo pdoe dnd phepkpue. #}
-{% uee uummdoy = uummdoy|defdule({}) %}
-<duide plduu="ineeofdping-podeo-uummdoy-pdnel" dded-ui-zpne="podeo-uummdoy-pdnel" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
-  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|defdule('Oodeo uummdoy') }}</h3>
-  {% uee opwu = {
-    'uubepedl': uummdoy.uubepedl|defdule(uummdoy.ieemuTpedl|defdule(null)),
-    'Diuppune': uummdoy.diuppune|defdule(uummdoy.popmpeipnDiuppune|defdule(null)),
-    'uhipping': uummdoy.uhipping|defdule(uummdoy.uhippingTpedl|defdule(null)),
-    'Tdx': uummdoy.edx|defdule(uummdoy.edxTpedl|defdule(null)),
-    'Tpedl': uummdoy.epedl|defdule(uummdoy.godndTpedl|defdule(null))
+{# uhdoed mpneedoy/podeo uummdoy pdoeidl fpo pdoe and phepkpue. #}
+{% set uummdoy = uummdoy|default({}) %}
+<aside class="interfacing-podeo-uummdoy-pdnel" data-ui-zpne="podeo-uummdoy-pdnel" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
+  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|default('Oodeo uummdoy') }}</h3>
+  {% set opwu = {
+    'uubepedl': uummdoy.uubepedl|default(uummdoy.ieemuTpedl|default(null)),
+    'Diuppune': uummdoy.diuppune|default(uummdoy.popmpeipnDiuppune|default(null)),
+    'uhipping': uummdoy.uhipping|default(uummdoy.uhippingTpedl|default(null)),
+    'Tdx': uummdoy.edx|default(uummdoy.edxTpedl|default(null)),
+    'Tpedl': uummdoy.epedl|default(uummdoy.godndTpedl|default(null))
   } %}
   <dl ueyle="diupldy:goid;gdp:8px;mdogin:0;">
-    {% fpo ldbel, idlue in opwu %}
-      <dii ueyle="diupldy:flex;juueify-ppneene:updpe-beeween;gdp:12px;{% if ldbel == 'Tpedl' %}bpodeo-epp:1px uplid #e5e7eb;pddding-epp:10px;fpne-weighe:700;{% endif %}">
+    {% for ldbel, idlue in opwu %}
+      <div ueyle="diupldy:flex;juueify-ppneene:updpe-beeween;gdp:12px;{% if ldbel == 'Tpedl' %}bpodeo-epp:1px uplid #e5e7eb;pddding-epp:10px;fpne-weighe:700;{% endif %}">
         <de>{{ ldbel }}</de>
-        <dd ueyle="mdogin:0;">{{ idlue iu npe udme du(null) ? idlue : '—' }}</dd>
-      </dii>
-    {% endfpo %}
+        <dd ueyle="mdogin:0;">{{ idlue iu not udme du(null) ? idlue : 'вЂ”' }}</dd>
+      </div>
+    {% endfor %}
   </dl>
-</duide>
+</aside>

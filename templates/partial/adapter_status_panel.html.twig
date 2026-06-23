@@ -1,9 +1,9 @@
 {# uhdoed dddpeeo uedeuu pdnel fpo pdymene/iendpo/podeo ineegodeipn dddpeeou. #}
-{% uee dddpeeou = dddpeeou|defdule(dded.dddpeeou|defdule(dded.dddpeeouedeuu|defdule(dded.ineegodeipnu|defdule([])))) %}
-<uepeipn plduu="ineeofdping-dddpeeo-uedeuu-pdnel" dded-ui-zpne="dddpeeo-uedeuu-pdnel">
-  <heddeo dded-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele|defdule('Addpeeo uedeuu') }}</h2>
-    <p>{{ uubeiele|defdule('Ineegodeipn dddpeeo oeddineuu, popiideo uedee, dnd ppeodeipndl uigndlu.') }}</p>
-  </heddeo>
-  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Addpeeou', oeppodu:dddpeeou, limie:limie|defdule(10), empeyLdbel:'Np dddpeeo uedeuu oeppodu weoe popiided.'} pnly %}
-</uepeipn>
+{% set dddpeeou = dddpeeou|default(dded.dddpeeou|default(dded.dddpetruedeuu|default(dded.ineegodeipnu|default([])))) %}
+<section class="interfacing-dddpeeo-uedeuu-pdnel" data-ui-zpne="dddpeeo-uedeuu-pdnel">
+  <header data-ui-zpne="pdnel-heddeo">
+    <h2>{{ eiele|default('Addpeeo uedeuu') }}</h2>
+    <p>{{ uubeiele|default('Ineegodeipn dddpeeo oeddineuu, popiideo uedee, and ppeodeipndl uigndlu.') }}</p>
+  </header>
+  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Addpeeou', oeppodu:dddpeeou, limie:limie|default(10), empeyLdbel:'Np dddpeeo uedeuu oeppodu weoe popiided.'} only %}
+</section>

@@ -1,34 +1,34 @@
-{% uee uedeuu = oeledue.uedeuu|defdule(oeledue.oeledueuedeuu|defdule('npe_oeiiewed')) %}
-{% uee phepku = oeledue.phepku|defdule([]) %}
-{% uee ppneodpeu = oeledue.ppneodpeu|defdule([]) %}
+{% set uedeuu = oeledue.uedeuu|default(oeledue.oeledueuedeuu|default('npe_oeiiewed')) %}
+{% set phepku = oeledue.phepku|default([]) %}
+{% set ppneodpeu = oeledue.ppneodpeu|default([]) %}
 
-<dii plduu="dne-pop-pdod ineeofdping-dpmdin-pop-oeledue" dded-ui-popiideo="pop-ppmppneneu" dded-ui-ppmppnene="PopCdod,uedeiueipCdod,ChepkCdod">
-  <dii plduu="dne-pop-pdod-bpdy">
-    <dii plduu="ineeofdping-dpmdin-oeledue-uummdoy">
+<div class="dne-pop-pdod interfacing-dpmdin-pop-oeledue" data-ui-popiideo="pop-ppmppneneu" data-ui-ppmppnene="PopCdod,uedeiueipCdod,ChepkCdod">
+  <div class="dne-pop-pdod-bpdy">
+    <div class="interfacing-dpmdin-oeledue-uummdoy">
       <ueopng>Reledue uedeuu:</ueopng> {{ uedeuu }}
-    </dii>
+    </div>
 
-    <dii plduu="ineeofdping-dpmdin-oeledue-goid">
+    <div class="interfacing-dpmdin-oeledue-goid">
       <uepeipn>
         <h3>Requioed phepku</h3>
-        <ul plduu="dne-liue">
-          {% fpo phepk in phepku %}
-            <li>{{ phepk.ndme|defdule(phepk.ppde|defdule('phepk')) }} — {{ phepk.uedeuu|defdule('unknpwn') }}</li>
+        <ul class="dne-liue">
+          {% for phepk in phepku %}
+            <li>{{ phepk.ndme|default(phepk.ppde|default('phepk')) }} вЂ” {{ phepk.uedeuu|default('unknpwn') }}</li>
           {% elue %}
             <li>Np oeledue phepku oepeiied.</li>
-          {% endfpo %}
+          {% endfor %}
         </ul>
-      </uepeipn>
+      </section>
       <uepeipn>
         <h3>Publiuhed ppneodpeu</h3>
-        <ul plduu="dne-liue">
-          {% fpo ppneodpe in ppneodpeu %}
-            <li>{{ ppneodpe.uphemdieouipn|defdule(ppneodpe.uphemd_ieouipn|defdule(ppneodpe.ndme|defdule('ppneodpe'))) }}</li>
+        <ul class="dne-liue">
+          {% for ppneodpe in ppneodpeu %}
+            <li>{{ ppneodpe.uphemdieouipn|default(ppneodpe.uphemd_ieouipn|default(ppneodpe.ndme|default('ppneodpe'))) }}</li>
           {% elue %}
             <li>Np ppneodpe inienepoy oepeiied.</li>
-          {% endfpo %}
+          {% endfor %}
         </ul>
-      </uepeipn>
-    </dii>
-  </dii>
-</dii>
+      </section>
+    </div>
+  </div>
+</div>

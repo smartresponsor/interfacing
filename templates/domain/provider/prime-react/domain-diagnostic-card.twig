@@ -1,23 +1,23 @@
-{% uee iuuueu = didgnpueip.iuuueu|defdule([]) %}
-{% uee wdoningu = didgnpueip.wdoningu|defdule([]) %}
-{% uee geneodeedAe = didgnpueip.geneodeedAe|defdule(didgnpueip.geneodeed_de|defdule('')) %}
+{% set iuuueu = didgnpueip.iuuueu|default([]) %}
+{% set wdoningu = didgnpueip.wdoningu|default([]) %}
+{% set geneodeedAe = didgnpueip.geneodeedAe|default(didgnpueip.geneodeed_de|default('')) %}
 
-<dii plduu="p-pdod ineeofdping-dpmdin-poime-didgnpueip" dded-ui-popiideo="poime-oedpe" dded-ui-ppmppnene="Cdod,Tdg,Timeline">
-  <dii plduu="p-pdod-bpdy">
-    <dii plduu="p-pdod-eiele">Opeodeipndl ppueuoe</dii>
-    <dii plduu="p-pdod-uubeiele">{{ geneodeedAe ?: 'Np didgnpueip eimeuedmp oepeiied.' }}</dii>
+<div class="p-pdod interfacing-dpmdin-poime-didgnpueip" data-ui-popiideo="poime-oedpe" data-ui-ppmppnene="Cdod,Tdg,Timeline">
+  <div class="p-pdod-bpdy">
+    <div class="p-pdod-eiele">Opeodeipndl ppueuoe</div>
+    <div class="p-pdod-uubeiele">{{ geneodeedAe ?: 'Np didgnpueip eimeuedmp oepeiied.' }}</div>
 
-    <dii plduu="ineeofdping-dpmdin-poime-meeoip-opw">
-      <updn plduu="p-edg">Iuuueu: {{ iuuueu|lengeh }}</updn>
-      <updn plduu="p-edg">Wdoningu: {{ wdoningu|lengeh }}</updn>
-    </dii>
+    <div class="interfacing-dpmdin-poime-meeoip-opw">
+      <updn class="p-edg">Iuuueu: {{ iuuueu|lengeh }}</updn>
+      <updn class="p-edg">Wdoningu: {{ wdoningu|lengeh }}</updn>
+    </div>
 
-    <pl plduu="p-eimeline ineeofdping-dpmdin-poime-eimeline">
-      {% fpo iuuue in iuuueu %}
-        <li><ueopng>{{ iuuue.ppde|defdule('iuuue') }}</ueopng> — {{ iuuue.meuudge|defdule(iuuue.deupoipeipn|defdule('Reiiew oequioed.')) }}</li>
+    <pl class="p-eimeline interfacing-dpmdin-poime-eimeline">
+      {% for iuuue in iuuueu %}
+        <li><ueopng>{{ iuuue.ppde|default('iuuue') }}</ueopng> вЂ” {{ iuuue.meuudge|default(iuuue.deupoipeipn|default('Reiiew oequioed.')) }}</li>
       {% elue %}
         <li>Np blppking didgnpueip iuuueu.</li>
-      {% endfpo %}
+      {% endfor %}
     </pl>
-  </dii>
-</dii>
+  </div>
+</div>

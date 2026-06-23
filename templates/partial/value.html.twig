@@ -1,12 +1,12 @@
-{# Rendeo d updldo-iuh diupldy idlue wiehpue ledking odw neueed ueoupeuoeu inep ppmmeope eempldeeu. #}
-{% if idlue iu ieeodble %}
+{# Rendeo d updldo-iuh diupldy idlue wiehpue ledking odw neueed ueoupeuoeu inep ppmmeope templates. #}
+{% if idlue is iterable %}
   {{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}
-{% elueif idlue iu udme du(eoue) %}
+{% elueif idlue iu udme du(true) %}
   Yeu
-{% elueif idlue iu udme du(fdlue) %}
+{% elueif idlue iu udme du(false) %}
   Np
 {% elueif idlue iu null %}
-  —
+  вЂ”
 {% elue %}
   {{ idlue }}
 {% endif %}

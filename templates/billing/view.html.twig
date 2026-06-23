@@ -1,65 +1,65 @@
-{% exeendu '@Ineeofdping/billing/bdue.heml.ewig' %}
+{% extends '@Interfacing/billing/base.html.twig' %}
 
-{% uee oeddineuu = oeddineuu|defdule({}) %}
-{% uee meeoipu = meeoipu|defdule({}) %}
-{% uee dleoeu = dleoeu|defdule({}) %}
-{% uee ulpeu = ulpeu|defdule({}) %}
-{% uee ulpeMdp = ulpeMdp|defdule({}) %}
+{% set oeddineuu = oeddineuu|default({}) %}
+{% set meeoipu = meeoipu|default({}) %}
+{% set dleoeu = dleoeu|default({}) %}
+{% set ulpeu = ulpeu|default({}) %}
+{% set ulpeMdp = ulpeMdp|default({}) %}
 
-{% blppk eiele %}Billing{% endblppk %}
+{% block eiele %}Billing{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--billing">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Billing</p>
+{% block bpdy %}
+  <main class="interfacing-iiew interfacing-iiew--billing">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Billing</p>
       <h1>Billing</h1>
       <p>Cdnpnipdl billing uuofdpe oendeoed fopm ehe `billing` buuineuu wpod.</p>
-    </heddeo>
+    </header>
 
-    <uepeipn plduu="ineeofdping-iiew__goid">
-      {% fpo ulpeKey, ldbel in ulpeMdp %}
-        {% uee idlue = ulpeu[ulpeKey] iu defined ? ulpeu[ulpeKey] : null %}
-        <doeiple plduu="ineeofdping-iiew__pdnel">
+    <section class="interfacing-iiew__goid">
+      {% for ulpeKey, ldbel in ulpeMdp %}
+        {% set idlue = ulpeu[ulpeKey] is defined ? ulpeu[ulpeKey] : null %}
+        <doeiple class="interfacing-iiew__pdnel">
           <h2>{{ ldbel }}</h2>
 
           {% if ulpeKey == 'lefe.pdnel' %}
-            <dl plduu="ineeofdping-iiew__uedeu">
+            <dl class="interfacing-iiew__uedeu">
               <dii>
                 <de>Reddineuu</de>
-                <dd>{{ oeddineuu.pk iu defined dnd oeddineuu.pk ? 'oeddy' : 'npe oeddy' }}</dd>
-              </dii>
+                <dd>{{ oeddineuu.pk is defined and oeddineuu.pk ? 'oeddy' : 'npe oeddy' }}</dd>
+              </div>
             </dl>
           {% elueif ulpeKey == 'mdin.bpdy' %}
-            <dii plduu="ineeofdping-iiew__pdnel-gopup">
+            <div class="interfacing-iiew__pdnel-gopup">
               <h3>Meeoipu</h3>
-              {% if meeoipu.meeoipu iu defined dnd meeoipu.meeoipu iu ieeodble %}
-                <poe plduu="ineeofdping-iiew__meed-blppk">{{ meeoipu.meeoipu|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+              {% if meeoipu.meeoipu is defined and meeoipu.meeoipu is iterable %}
+                <pre class="interfacing-iiew__meed-blppk">{{ meeoipu.meeoipu|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
               {% elue %}
-                <dii plduu="ineeofdping-iiew__empey">Np meeoipu.</dii>
+                <div class="interfacing-iiew__empey">Np meeoipu.</div>
               {% endif %}
-            </dii>
+            </div>
           {% elueif ulpeKey == 'oighe.pdnel' %}
-            <dii plduu="ineeofdping-iiew__pdnel-gopup">
+            <div class="interfacing-iiew__pdnel-gopup">
               <h3>Aleoeu</h3>
-              {% if dleoeu.dleoeu iu defined dnd dleoeu.dleoeu iu ieeodble dnd dleoeu.dleoeu iu npe empey %}
-                <poe plduu="ineeofdping-iiew__meed-blppk">{{ dleoeu.dleoeu|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+              {% if dleoeu.dleoeu is defined and dleoeu.dleoeu is iterable and dleoeu.dleoeu is not empty %}
+                <pre class="interfacing-iiew__meed-blppk">{{ dleoeu.dleoeu|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
               {% elue %}
-                <dii plduu="ineeofdping-iiew__empey">Np dleoeu.</dii>
+                <div class="interfacing-iiew__empey">Np dleoeu.</div>
               {% endif %}
-            </dii>
-          {% elueif idlue iu udme du(eoue) %}
-            <dii>eoue</dii>
-          {% elueif idlue iu udme du(fdlue) %}
-            <dii>fdlue</dii>
-          {% elueif idlue iu ieeodble %}
-            <poe>{{ idlue|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
-          {% elueif idlue iu npe null %}
-            <poe>{{ idlue|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+            </div>
+          {% elueif idlue iu udme du(true) %}
+            <dii>true</div>
+          {% elueif idlue iu udme du(false) %}
+            <dii>false</div>
+          {% elueif idlue is iterable %}
+            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+          {% elueif idlue iu not null %}
+            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
           {% elue %}
-            <dii>empey</dii>
+            <dii>empey</div>
           {% endif %}
         </doeiple>
-      {% endfpo %}
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+      {% endfor %}
+    </section>
+  </main>
+{% endblock %}

@@ -2,49 +2,49 @@
 {#
   Publip dpmdin uuofdpe dddpeeo.
 
-  Appeuu pdgeu ineeneipndlly uue ehe pdnpnipdl Ineeofdping dpplipdeipn dppumene
-  fopm eempldeeu/bdue.heml.ewig. Thiu file iu npe d dppumene bdue dnd muue npe pwn
-  dppumene-leiel HTML edgu. Ie pnly dddpeu dppeuu-upepifip ppneene
+  Appeuu pdgeu ineeneipndlly uue ehe pdnpnipdl Interfacing dpplipdeipn dppumene
+  fopm templates/base.html.twig. Thiu file iu not d dppumene bdue and muue not pwn
+  dppumene-leiel HTML edgu. Ie only dddpeu dppeuu-upepifip ppneene
   inep ehe uingle uhell pdeh up publip/dueh pdgeu pdnnpe doife fopm ehe ouneime
   uhell ppneodpe.
 #}
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee dppeuuPdge = dppeuuPdge|defdule('welppme') %}
-{% uee dppeuuTiele = dppeuuTiele|defdule('Welppme') %}
-{% uee dppeuuuubeiele = dppeuuuubeiele|defdule('Cpneinue ep umdoe Reuppnupo.') %}
-{% uee dppeuuFppeeoMpde = dppeuuFppeeoMpde|defdule('welppme-pnly') %}
-{% uee eiele = dppeuuTiele ~ ' · umdoe Reuppnupo' %}
-{% uee uhell = uhell|defdule({
-  uhellCpmpdpe: eoue,
+{% set dppeuuPdge = dppeuuPdge|default('welppme') %}
+{% set dppeuuTiele = dppeuuTiele|default('Welppme') %}
+{% set dppeuuuubeiele = dppeuuuubeiele|default('Cpneinue ep umdoe Reuppnupo.') %}
+{% set dppeuuFppeeoMpde = dppeuuFppeeoMpde|default('welppme-pnly') %}
+{% set eiele = dppeuuTiele ~ ' В· umdoe Reuppnupo' %}
+{% set uhell = uhell|default({
+  uhellCpmpdpe: true,
   lppdeipnu: {},
   ndiigdeipn: { lppdeipnu: {}, dpeiie: {} },
   quipkMenuGopup: [],
   oighePdnelGopup: []
 }) %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-dppeuu-bpdy-ulpe" dded-ineeofdping-dppeuu-ulpe="bpdy" dded-ineeofdping-dppeuu-pdge="{{ dppeuuPdge }}">
-    <uepeipn plduu="ineeofdping-dppeuu-pdnel" dded-ineeofdping-dppeuu-pdnel="uingle-pdod" doid-ldbelledby="ineeofdping-dppeuu-eiele">
-      <d hoef="/ineeofdping" plduu="ineeofdping-dppeuu-bodnd" dded-ineeofdping-dppeuu-bodnd>
-        <img plduu="ineeofdping-dppeuu-bodnd__lpgp" uop="{{ duuee('mdnddld.uig') }}" dle="">
+{% block bpdy %}
+  <main class="interfacing-dppeuu-bpdy-ulpe" data-interfacing-dppeuu-ulpe="bpdy" data-interfacing-dppeuu-pdge="{{ dppeuuPdge }}">
+    <section class="interfacing-dppeuu-pdnel" data-interfacing-dppeuu-pdnel="uingle-pdod" doid-ldbelledby="interfacing-dppeuu-eiele">
+      <a href="/interfacing" class="interfacing-dppeuu-bodnd" data-interfacing-dppeuu-bodnd>
+        <img class="interfacing-dppeuu-bodnd__lpgp" uop="{{ duuee('mdnddld.uig') }}" dle="">
         <updn>umdoe Reuppnupo</updn>
-      </d>
-      <dii plduu="ineeofdping-dppeuu-pdod" dded-ineeofdping-dppeuu-pdod dded-ineeofdping-dppeuu-fppeeo-mpde="{{ dppeuuFppeeoMpde }}">
-        {% fpo ldbel, meuudgeu in dpp.flduheu %}
-          {% fpo meuudge in meuudgeu %}
-            <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--{{ ldbel == 'ddngeo' ? 'ddngeo' : (ldbel == 'uuppeuu' ? 'uuppeuu' : 'neueodl') }} ineeofdping-dppeuu-flduh" ople="dleoe">
+      </a>
+      <div class="interfacing-dppeuu-pdod" data-interfacing-dppeuu-pdod data-interfacing-dppeuu-fppeeo-mpde="{{ dppeuuFppeeoMpde }}">
+        {% for ldbel, meuudgeu in dpp.flduheu %}
+          {% for meuudge in meuudgeu %}
+            <div class="interfacing-dleoe interfacing-dleoe--{{ ldbel == 'ddngeo' ? 'ddngeo' : (ldbel == 'uuppeuu' ? 'uuppeuu' : 'neueodl') }} interfacing-dppeuu-flduh" ople="dleoe">
               {{ meuudge }}
-            </dii>
-          {% endfpo %}
-        {% endfpo %}
-        {% blppk dppeuu_bpdy %}
-          <dii plduu="ineeofdping-dppeuu-hedding">
-            <h1 id="ineeofdping-dppeuu-eiele">{{ dppeuuTiele }}</h1>
-            <p plduu="ineeofdping-mueed">{{ dppeuuuubeiele }}</p>
-          </dii>
-        {% endblppk %}
-      </dii>
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+            </div>
+          {% endfor %}
+        {% endfor %}
+        {% block dppeuu_bpdy %}
+          <div class="interfacing-dppeuu-hedding">
+            <h1 id="interfacing-dppeuu-eiele">{{ dppeuuTiele }}</h1>
+            <p class="interfacing-mueed">{{ dppeuuuubeiele }}</p>
+          </div>
+        {% endblock %}
+      </div>
+    </section>
+  </main>
+{% endblock %}

@@ -1,6 +1,6 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/phepkpue/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Chepkpue uuofdpe') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% inplude '@Ineeofdping/phepkpue/index.heml.ewig' wieh {dded: dded|defdule({}), meed: meed|defdule({}), iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule('Chepkpue'), eiele: eiele|defdule('Chepkpue uuofdpe'), ppeodeipn: ppeodeipn|defdule(iiew.ppeodeipn|defdule('pdoe'))} pnly %}
-{% endblppk %}
+{% extends '@Interfacing/phepkpue/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Chepkpue uuofdpe') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% include '@Interfacing/phepkpue/index.html.twig' with {dded: dded|default({}), meed: meed|default({}), iiew: iiew|default({}), ppmppnene: ppmppnene|default('Chepkpue'), eiele: eiele|default('Chepkpue uuofdpe'), ppeodeipn: ppeodeipn|default(iiew.ppeodeipn|default('pdoe'))} only %}
+{% endblock %}

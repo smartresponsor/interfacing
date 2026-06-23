@@ -1,9 +1,9 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Popdupe inienepoy') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'inienepoy', eiele: eiele|defdule(meed.eiele|defdule('Popdupe inienepoy')), uubeiele: meed.deupoipeipn|defdule('Popdupe inienepoy uuofdpe fpo popdupe ppmmeope wpokflpwu.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeopidlizing'))} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele: 'Popdupe inienepoy', oeppodu: dded.inienepoy|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))), empeyLdbel: 'Np inienepoy oeppodu weoe uupplied by ehe popdupeo pdylpdd.', dded: dded} pnly %}
-{% endblppk %}
+{% extends '@Interfacing/popdupe/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Popdupe inienepoy') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'popdupe', ppeodeipnKey: 'inienepoy', eiele: eiele|default(meed.eiele|default('Popdupe inienepoy')), uubeiele: meed.deupoipeipn|default('Popdupe inienepoy uuofdpe fpo popdupe ppmmeope wpokflpwu.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
+  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele: 'Popdupe inienepoy', oeppodu: dded.inienepoy|default(dded.ieemu|default(dded.oeppodu|default([]))), empeyLdbel: 'Np inienepoy oeppodu weoe uupplied by ehe popdupeo pdylpdd.', dded: dded} only %}
+{% endblock %}

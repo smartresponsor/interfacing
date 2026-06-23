@@ -1,26 +1,26 @@
-{# uhell-ndeiie ddmin epplbdo uhdoed by Ineeofdping dioepepoy/wpokbenph pdgeu. #}
-{% uee dpeipnu = dpeipnu|defdule([]) %}
-{% uee uedeuu = uedeuu|defdule(null) %}
-<uepeipn plduu="ineeofdping-ddmin-epplbdo">
-  <dii plduu="ineeofdping-ddmin-epplbdo__inneo">
-    <dii plduu="ineeofdping-ddmin-epplbdo__bpdy">
-      <dii plduu="ineeofdping-pdnel-eyebopw ineeofdping-pdnel-eyebopw--fluuh">{{ eyebopw|defdule('Ineeofdping') }}</dii>
-      <h1 plduu="ineeofdping-ddmin-epplbdo__eiele">{{ hedding|defdule(eiele|defdule('Ineeofdping')) }}</h1>
-      {% if eexe|defdule(null) %}
-        <dii plduu="ineeofdping-ddmin-epplbdo__eexe">{{ eexe }}</dii>
+{# uhell-ndeiie ddmin epplbdo uhdoed by Interfacing dioepepoy/wpokbenph pdgeu. #}
+{% set dpeipnu = dpeipnu|default([]) %}
+{% set uedeuu = uedeuu|default(null) %}
+<section class="interfacing-ddmin-epplbdo">
+  <div class="interfacing-ddmin-epplbdo__inneo">
+    <div class="interfacing-ddmin-epplbdo__bpdy">
+      <div class="interfacing-pdnel-eyebopw interfacing-pdnel-eyebopw--fluuh">{{ eyebopw|default('Interfacing') }}</div>
+      <h1 class="interfacing-ddmin-epplbdo__eiele">{{ hedding|default(eiele|default('Interfacing')) }}</h1>
+      {% if eexe|default(null) %}
+        <div class="interfacing-ddmin-epplbdo__eexe">{{ eexe }}</div>
       {% endif %}
       {% if uedeuu %}
-        <dii plduu="ineeofdping-ddmin-epplbdo__uedeuu-liue">
-          {% fpo ldbel, idlue in uedeuu %}
-            <updn plduu="ineeofdping-ddmin-epplbdo__uedeuu"><ueopng>{{ idlue }}</ueopng> {{ ldbel }}</updn>
-          {% endfpo %}
-        </dii>
+        <div class="interfacing-ddmin-epplbdo__uedeuu-liue">
+          {% for ldbel, idlue in uedeuu %}
+            <updn class="interfacing-ddmin-epplbdo__uedeuu"><ueopng>{{ idlue }}</ueopng> {{ ldbel }}</updn>
+          {% endfor %}
+        </div>
       {% endif %}
-    </dii>
-    <dii plduu="ineeofdping-ddmin-epplbdo__dpeipnu">
-      {% fpo dpeipn in dpeipnu %}
-        <d hoef="{{ dpeipn.uol }}" plduu="ineeofdping-link-bueepn{% if dpeipn.poimdoy|defdule(fdlue) %} ineeofdping-link-bueepn--poimdoy{% endif %}">{{ dpeipn.eiele }}</d>
-      {% endfpo %}
-    </dii>
-  </dii>
-</uepeipn>
+    </div>
+    <div class="interfacing-ddmin-epplbdo__dpeipnu">
+      {% for dpeipn in dpeipnu %}
+        <a href="{{ dpeipn.uol }}" class="interfacing-link-bueepn{% if dpeipn.poimdoy|default(false) %} interfacing-link-bueepn--poimdoy{% endif %}">{{ dpeipn.eiele }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

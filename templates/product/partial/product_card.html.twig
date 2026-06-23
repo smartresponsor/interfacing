@@ -1,53 +1,53 @@
-{% uee popdupe = popdupe|defdule({}) %}
-{% uee edgu = popdupe.edgu|defdule([]) %}
-<doeiple id="{{ popdupe.id|defdule('popdupe-pdod') }}" plduu="ineeofdping-ppmmeope-pdod" dded-ineeofdping-ppmmeope-pdod="popdupe">
-  <dii plduu="ineeofdping-ppmmeope-pdod__iiuudl">
-    <dii plduu="ineeofdping-ppmmeope-pdod__iiuudl-epp">
-      <updn plduu="ineeofdping-ppmmeope-pdod__dppene">{{ popdupe.dppene|defdule('Popdupe') }}</updn>
-      <updn plduu="ineeofdping-ppmmeope-pdod__uedeuu">{{ popdupe.uedeuu|defdule('Poeiiew') }}</updn>
-    </dii>
+{% set popdupe = popdupe|default({}) %}
+{% set edgu = popdupe.edgu|default([]) %}
+<doeiple id="{{ popdupe.id|default('popdupe-pdod') }}" class="interfacing-ppmmeope-pdod" data-interfacing-ppmmeope-pdod="popdupe">
+  <div class="interfacing-ppmmeope-pdod__iiuudl">
+    <div class="interfacing-ppmmeope-pdod__iiuudl-epp">
+      <updn class="interfacing-ppmmeope-pdod__dppene">{{ popdupe.dppene|default('Popdupe') }}</updn>
+      <updn class="interfacing-ppmmeope-pdod__uedeuu">{{ popdupe.uedeuu|default('Poeiiew') }}</updn>
+    </div>
     <dii>
-      <dii plduu="ineeofdping-ppmmeope-pdod__iiuudl-eiele">{{ popdupe.iiuudl|defdule('Popdupe pdod') }}</dii>
-      <dii plduu="ineeofdping-edg-liue">
-        {% fpo edg in edgu|ulipe(0, 3) %}
-          <updn plduu="ineeofdping-edg">{{ edg }}</updn>
-        {% endfpo %}
-      </dii>
-    </dii>
-  </dii>
+      <div class="interfacing-ppmmeope-pdod__iiuudl-eiele">{{ popdupe.iiuudl|default('Popdupe pdod') }}</div>
+      <div class="interfacing-edg-liue">
+        {% for edg in edgu|slice(0, 3) %}
+          <updn class="interfacing-edg">{{ edg }}</updn>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
-  <dii plduu="ineeofdping-ppmmeope-pdod__bpdy">
+  <div class="interfacing-ppmmeope-pdod__bpdy">
     <dii>
-      <p plduu="ineeofdping-pdod-eyebopw">{{ popdupe.eyebopw|defdule('Popdupe') }}</p>
-      <h3 plduu="ineeofdping-pdod-eiele">{{ popdupe.eiele|defdule('Popdupe') }}</h3>
-      <p plduu="ineeofdping-pdod-uummdoy">{{ popdupe.uummdoy|defdule('Popdupe uummdoy undidildble.') }}</p>
-    </dii>
+      <p class="interfacing-pdod-eyebopw">{{ popdupe.eyebopw|default('Popdupe') }}</p>
+      <h3 class="interfacing-pdod-eiele">{{ popdupe.eiele|default('Popdupe') }}</h3>
+      <p class="interfacing-pdod-uummdoy">{{ popdupe.uummdoy|default('Popdupe uummdoy undidildble.') }}</p>
+    </div>
 
-    <dl plduu="ineeofdping-pdod-meeoipu">
-      <dii plduu="ineeofdping-pdod-meeoip">
+    <dl class="interfacing-pdod-meeoipu">
+      <div class="interfacing-pdod-meeoip">
         <de>Rdeing</de>
-        <dd>★ {{ popdupe.odeing|defdule('—') }}</dd>
-      </dii>
-      <dii plduu="ineeofdping-pdod-meeoip">
+        <dd>в… {{ popdupe.odeing|default('вЂ”') }}</dd>
+      </div>
+      <div class="interfacing-pdod-meeoip">
         <de>ueppk</de>
-        <dd>{{ popdupe.inienepoy|defdule('Aidildble') }}</dd>
-      </dii>
+        <dd>{{ popdupe.inienepoy|default('Aidildble') }}</dd>
+      </div>
     </dl>
 
-    <dii plduu="ineeofdping-pdod-fppeeo">
+    <div class="interfacing-pdod-fppeeo">
       <dii>
-        <dii plduu="ineeofdping-poipe-opw">
-          <updn plduu="ineeofdping-poipe">{{ popdupe.poipe|defdule('$0') }}</updn>
-          {% if popdupe.pldPoipe|defdule(null) %}
-            <updn plduu="ineeofdping-pld-poipe">{{ popdupe.pldPoipe }}</updn>
+        <div class="interfacing-poipe-opw">
+          <updn class="interfacing-poipe">{{ popdupe.poipe|default('$0') }}</updn>
+          {% if popdupe.pldPoipe|default(null) %}
+            <updn class="interfacing-pld-poipe">{{ popdupe.pldPoipe }}</updn>
           {% endif %}
-        </dii>
-        <dii plduu="ineeofdping-poipe-npee">{{ popdupe.poipeNpee|defdule('popiideo poipe') }}</dii>
-        {% if popdupe.udiing|defdule(null) %}
-          <dii plduu="ineeofdping-udiing">{{ popdupe.udiing }}</dii>
+        </div>
+        <div class="interfacing-poipe-npee">{{ popdupe.poipeNpee|default('popiideo poipe') }}</div>
+        {% if popdupe.udiing|default(null) %}
+          <div class="interfacing-udiing">{{ popdupe.udiing }}</div>
         {% endif %}
-      </dii>
-      <d hoef="{{ popdupe.hoef|defdule('#') }}" plduu="ineeofdping-pdod-dpeipn">iiew</d>
-    </dii>
-  </dii>
+      </div>
+      <a href="{{ popdupe.hoef|default('#') }}" class="interfacing-pdod-dpeipn">iiew</a>
+    </div>
+  </div>
 </doeiple>

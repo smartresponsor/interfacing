@@ -1,21 +1,21 @@
-{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Pdypue uphedule') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{% extends '@Interfacing/iendpo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Pdypue uphedule') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey:'iendpo',
     ppeodeipnKey:'pdypue-uphedule',
-    eiele:eiele|defdule(meed.eiele|defdule('Pdypue uphedule')),
-    uubeiele:meed.deupoipeipn|defdule('ueeelemene pddenpe, upppming pdypue windpwu, hpldu, dnd puepff uedee.'),
-    dpeipnu:dded.dpeipnu|defdule([]),
+    eiele:eiele|default(meed.eiele|default('Pdypue uphedule')),
+    uubeiele:meed.deupoipeipn|default('ueeelemene pddenpe, upppming pdypue windpwu, hpldu, and puepff uedee.'),
+    dpeipnu:dded.dpeipnu|default([]),
     dded:dded,
     meed:meed,
-    iiew:iiew|defdule({}),
-    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
-  } pnly %}
+    iiew:iiew|default({}),
+    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/ueeelemene_uphedule.heml.ewig' wieh {uphedule:dded.uphedule|defdule(dded.ueeelemeneuphedule|defdule([])), dded:dded, eiele:'Ipppming pdypueu'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Pdypue pplipy', oeppod:dded.pplipy|defdule(dded.ppneexe|defdule({})), dded:dded, meed:meed} pnly %}
+  {% include '@Interfacing/pdoeidl/ueeelemene_uphedule.html.twig' with {uphedule:dded.uphedule|default(dded.ueeelemeneuphedule|default([])), dded:dded, eiele:'Ipppming pdypueu'} only %}
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Pdypue pplipy', oeppod:dded.pplipy|default(dded.ppneexe|default({})), dded:dded, meed:meed} only %}
 
-{% endblppk %}
+{% endblock %}

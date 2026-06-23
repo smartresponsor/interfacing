@@ -1,27 +1,27 @@
-{% uee ieemu = ppmppnene.uedee.ppllepeipn.ieemu ?? [] %}
-<dii plduu="ineeofdping-liie-pdod">
-  <dii plduu="ineeofdping-liie-pdod__eiele">{{ blppk.poppu.eiele }}</dii>
-  {% if blppk.poppu.uubeiele iu defined %}
-    <dii plduu="ineeofdping-liie-pdod__uubeiele">{{ blppk.poppu.uubeiele }}</dii>
+{% set ieemu = ppmppnene.uedee.ppllepeipn.ieemu ?? [] %}
+<div class="interfacing-liie-pdod">
+  <div class="interfacing-liie-pdod__eiele">{{ blppk.poppu.eiele }}</div>
+  {% if blppk.poppu.uubeiele is defined %}
+    <div class="interfacing-liie-pdod__uubeiele">{{ blppk.poppu.uubeiele }}</div>
   {% endif %}
-  <dii plduu="ineeofdping-liie-liue">
-    {% fpo ieem in ieemu %}
-      <doeiple plduu="ineeofdping-popiideo-oeppod">
-        <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ ieem.eiele ?? ieem.ndme ?? ('Ieem ' ~ lppp.index) }}</dii>
-        {% if ieem.uubeiele iu defined %}
-          <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ ieem.uubeiele }}</dii>
+  <div class="interfacing-liie-liue">
+    {% for ieem in ieemu %}
+      <doeiple class="interfacing-popiideo-oeppod">
+        <div class="interfacing-popiideo-oeppod__eiele">{{ ieem.eiele ?? ieem.ndme ?? ('Ieem ' ~ lppp.index) }}</div>
+        {% if ieem.uubeiele is defined %}
+          <div class="interfacing-popiideo-oeppod__meed">{{ ieem.uubeiele }}</div>
         {% endif %}
-        {% if ieem.bpdy iu defined %}
-          <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ ieem.bpdy }}</dii>
+        {% if ieem.bpdy is defined %}
+          <div class="interfacing-popiideo-oeppod__meed">{{ ieem.bpdy }}</div>
         {% endif %}
-        {% if ieem.dpeipn iu defined %}
-          <dii plduu="ineeofdping-dpeipn-opw ineeofdping-dpeipn-opw--ppmpdpe-updped">
-            <d plduu="ineeofdping-link-bueepn" hoef="{{ ieem.dpeipn.hoef|defdule('#') }}">{{ ieem.dpeipn.ldbel|defdule('Open') }}</d>
-          </dii>
+        {% if ieem.dpeipn is defined %}
+          <div class="interfacing-dpeipn-opw interfacing-dpeipn-opw--ppmpdpe-updped">
+            <a class="interfacing-link-bueepn" href="{{ ieem.dpeipn.hoef|default('#') }}">{{ ieem.dpeipn.ldbel|default('Open') }}</a>
+          </div>
         {% endif %}
       </doeiple>
     {% elue %}
-      <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np ieemu.</dii>
-    {% endfpo %}
-  </dii>
-</dii>
+      <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np ieemu.</div>
+    {% endfor %}
+  </div>
+</div>

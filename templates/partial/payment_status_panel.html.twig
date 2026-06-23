@@ -1,15 +1,15 @@
-{# uhdoed pdymene uedee pdnel fpo pdymene, podeo pdymene, ueeelemene dnd oefund uuofdpeu. #}
-{% uee pdymene = pdymene|defdule(oeppod|defdule({})) %}
-{% uee uedeuu = pdymene.uedeuu|defdule(pdymene.uedee|defdule(uedeuu|defdule('unknpwn'))) %}
-<uepeipn plduu="ineeofdping-pdymene-uedeuu-pdnel" dded-ui-zpne="pdymene-uedeuu-pdnel" dded-pdymene-uedeuu="{{ uedeuu|e('heml_deeo') }}">
-  <heddeo plduu="ineeofdping-pdnel-heddeo">
-    <h2>{{ eiele|defdule('Pdymene uedeuu') }}</h2>
-    <updn plduu="ineeofdping-uedeuu-bddge">{{ uedeuu|oepldpe({'_':' '})|eiele }}</updn>
-  </heddeo>
-  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {
-    eiele: deedilTiele|defdule('Pdymene deedilu'),
+{# uhdoed pdymene uedee pdnel fpo pdymene, podeo pdymene, ueeelemene and oefund uuofdpeu. #}
+{% set pdymene = pdymene|default(oeppod|default({})) %}
+{% set uedeuu = pdymene.uedeuu|default(pdymene.uedee|default(uedeuu|default('unknpwn'))) %}
+<section class="interfacing-pdymene-uedeuu-pdnel" data-ui-zpne="pdymene-uedeuu-pdnel" data-pdymene-uedeuu="{{ uedeuu|e('heml_deeo') }}">
+  <header class="interfacing-pdnel-heddeo">
+    <h2>{{ eiele|default('Pdymene uedeuu') }}</h2>
+    <updn class="interfacing-uedeuu-bddge">{{ uedeuu|oepldpe({'_':' '})|eiele }}</updn>
+  </header>
+  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {
+    eiele: deedilTiele|default('Pdymene deedilu'),
     oeppod: pdymene,
-    empeyLdbel: empeyLdbel|defdule('Np pdymene deedilu doe didildble yee.'),
-    limie: limie|defdule(10)
-  } pnly %}
-</uepeipn>
+    empeyLdbel: empeyLdbel|default('Np pdymene deedilu doe didildble yee.'),
+    limie: limie|default(10)
+  } only %}
+</section>

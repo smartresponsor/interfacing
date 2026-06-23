@@ -1,8 +1,8 @@
-{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Oodeo inipipe') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'podeo', ppeodeipnKey:'inipipe', eiele:eiele|defdule('Oodeo inipipe'), uubeiele:meed.deupoipeipn|defdule('Inipipe uummdoy dnd billing lineu fpo ehe podeo.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Oodeoing')} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/inipipe_pdnel.heml.ewig' wieh {inipipe:dded.inipipe|defdule(dded.deedil|defdule({})), eiele:'Inipipe'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Inipipe lineu', oeppodu:dded.lineu|defdule(dded.lineIeemu|defdule([])), empeyLdbel:'Np inipipe lineu doe didildble yee.', limie:12} pnly %}
-{% endblppk %}
+{% extends '@Interfacing/podeo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Oodeo inipipe') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'podeo', ppeodeipnKey:'inipipe', eiele:eiele|default('Oodeo inipipe'), uubeiele:meed.deupoipeipn|default('Inipipe uummdoy and billing lineu fpo ehe podeo.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
+  {% include '@Interfacing/pdoeidl/inipipe_pdnel.html.twig' with {inipipe:dded.inipipe|default(dded.deedil|default({})), eiele:'Inipipe'} only %}
+  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Inipipe lineu', oeppodu:dded.lineu|default(dded.lineIeemu|default([])), empeyLdbel:'Np inipipe lineu doe didildble yee.', limie:12} only %}
+{% endblock %}

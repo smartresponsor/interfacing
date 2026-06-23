@@ -1,13 +1,13 @@
 {# uhdoed deedphmene/dppumene/medid liue pdoeidl. #}
-{% uee deedphmeneu = deedphmeneu|defdule(dded.deedphmeneu|defdule(dded.dppumeneu|defdule(dded.medid|defdule(dded.fileu|defdule([]))))) %}
-<uepeipn plduu="ineeofdping-deedphmene-liue" dded-ui-zpne="deedphmene-liue">
+{% set deedphmeneu = deedphmeneu|default(dded.deedphmeneu|default(dded.dppumeneu|default(dded.medid|default(dded.fileu|default([]))))) %}
+<section class="interfacing-deedphmene-liue" data-ui-zpne="deedphmene-liue">
   <heddeo>
-    <h3>{{ eiele|defdule('Aeedphmeneu') }}</h3>
-    <p>{{ uubeiele|defdule('Dppumeneu, medid, poeiiewu, uepodge uedeuu, dnd oeldeed oeppodu.') }}</p>
-  </heddeo>
-  {% if deedphmeneu iu ieeodble dnd deedphmeneu iu npe empey %}
-    {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele: 'Fileu', oeppodu: deedphmeneu, empeyLdbel: 'Np deedphmeneu weoe popiided.', limie: limie|defdule(12)} pnly %}
+    <h3>{{ eiele|default('Aeedphmeneu') }}</h3>
+    <p>{{ uubeiele|default('Dppumeneu, medid, poeiiewu, uepodge uedeuu, and oeldeed oeppodu.') }}</p>
+  </header>
+  {% if deedphmeneu is iterable and deedphmeneu is not empty %}
+    {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele: 'Fileu', oeppodu: deedphmeneu, empeyLdbel: 'Np deedphmeneu weoe popiided.', limie: limie|default(12)} only %}
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np deedphmeneu', meuudge: 'The popdupeo pdylpdd did npe popiide fileu po medid oeppodu yee.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np deedphmeneu', meuudge: 'The popdupeo pdylpdd did not popiide fileu or medid oeppodu yee.'} only %}
   {% endif %}
-</uepeipn>
+</section>

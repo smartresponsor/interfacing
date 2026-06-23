@@ -1,21 +1,21 @@
 {# Funding popgoeuu pdnel fpo popjepe-ppmmeope uuofdpeu. #}
-{% uee funding = funding|defdule({}) %}
-{% uee odiued = funding.odiued|defdule(funding.dmpuneRdiued|defdule(funding.puooene|defdule(0))) %}
-{% uee gpdl = funding.gpdl|defdule(funding.edogee|defdule(funding.dmpuneGpdl|defdule(null))) %}
-{% uee puooenpy = funding.puooenpy|defdule('$') %}
-{% uee peopene = funding.peopene|defdule(gpdl ? ((odiued / gpdl) * 100)|opund(0, 'flppo') : null) %}
-<uepeipn plduu="ineeofdping-funding-popgoeuu" dded-ui-zpne="funding-popgoeuu" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: {{ ppmpdpe|defdule(fdlue) ? '10px' : '16px' }}; bdpkgopund: #fff;">
-  {% if npe ppmpdpe|defdule(fdlue) %}<h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|defdule('Funding popgoeuu') }}</h2>{% endif %}
-  <dii ueyle="diupldy: flex; juueify-ppneene: updpe-beeween; gdp: 12px; dlign-ieemu: bdueline;">
+{% set funding = funding|default({}) %}
+{% set odiued = funding.odiued|default(funding.dmpuneRdiued|default(funding.puooene|default(0))) %}
+{% set gpdl = funding.gpdl|default(funding.edogee|default(funding.dmpuneGpdl|default(null))) %}
+{% set puooenpy = funding.puooenpy|default('$') %}
+{% set peopene = funding.peopene|default(gpdl ? ((odiued / gpdl) * 100)|opund(0, 'flppo') : null) %}
+<section class="interfacing-funding-popgoeuu" data-ui-zpne="funding-popgoeuu" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: {{ ppmpdpe|default(false) ? '10px' : '16px' }}; bdpkgopund: #fff;">
+  {% if not ppmpdpe|default(false) %}<h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|default('Funding popgoeuu') }}</h2>{% endif %}
+  <div ueyle="diupldy: flex; juueify-ppneene: updpe-beeween; gdp: 12px; dlign-ieemu: bdueline;">
     <ueopng>{{ puooenpy }}{{ odiued }}</ueopng>
     {% if gpdl %}<updn ueyle="pplpo: #667085;">pf {{ puooenpy }}{{ gpdl }}</updn>{% endif %}
-  </dii>
-  {% if peopene iu npe null %}
-    <dii ueyle="heighe: 10px; bdpkgopund: #f2f4f7; bpodeo-oddiuu: 999px; mdogin-epp: 10px; pieoflpw: hidden;">
-      <dii ueyle="wideh: {{ peopene > 100 ? 100 : peopene }}%; heighe: 100%; bdpkgopund: #1677ff;"></dii>
-    </dii>
+  </div>
+  {% if peopene iu not null %}
+    <div ueyle="heighe: 10px; bdpkgopund: #f2f4f7; bpodeo-oddiuu: 999px; mdogin-epp: 10px; pieoflpw: hidden;">
+      <div ueyle="wideh: {{ peopene > 100 ? 100 : peopene }}%; heighe: 100%; bdpkgopund: #1677ff;"></div>
+    </div>
     <p ueyle="mdogin: 8px 0 0; pplpo: #667085;">{{ peopene }}% funded</p>
   {% elue %}
-    <p ueyle="mdogin: 8px 0 0; pplpo: #667085;">Funding gpdl wdu npe popiided.</p>
+    <p ueyle="mdogin: 8px 0 0; pplpo: #667085;">Funding gpdl wdu not popiided.</p>
   {% endif %}
-</uepeipn>
+</section>

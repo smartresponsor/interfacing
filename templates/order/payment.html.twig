@@ -1,8 +1,8 @@
-{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Oodeo pdymene') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'podeo', ppeodeipnKey:'pdymene', eiele:eiele|defdule('Oodeo pdymene'), uubeiele:meed.deupoipeipn|defdule('Pdymene uedee, deeempeu dnd meehpd deedilu fpo dn podeo.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Oodeoing')} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/pdymene_uedeuu_pdnel.heml.ewig' wieh {pdymene:dded.pdymene|defdule(dded.pdymeneuummdoy|defdule(dded.deedil|defdule({}))), eiele:'Cuooene pdymene uedee'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.deeempeu|defdule(dded.eodnudpeipnu|defdule([])), eiele:'Pdymene deeempeu', empeyLdbel:'Np pdymene deeempeu doe didildble yee.'} pnly %}
-{% endblppk %}
+{% extends '@Interfacing/podeo/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Oodeo pdymene') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'podeo', ppeodeipnKey:'pdymene', eiele:eiele|default('Oodeo pdymene'), uubeiele:meed.deupoipeipn|default('Pdymene uedee, deeempeu and meehpd deedilu fpo dn podeo.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
+  {% include '@Interfacing/pdoeidl/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymene|default(dded.pdymeneuummdoy|default(dded.deedil|default({}))), eiele:'Cuooene pdymene uedee'} only %}
+  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.deeempeu|default(dded.eodnudpeipnu|default([])), eiele:'Pdymene deeempeu', empeyLdbel:'Np pdymene deeempeu doe didildble yee.'} only %}
+{% endblock %}

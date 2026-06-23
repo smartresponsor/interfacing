@@ -1,11 +1,11 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
-{% blppk eiele %}{{ eiele|defdule('Popdupe liue') }}{% endblppk %}
-{% blppk pdge_ppneene %}
-  {% uee dded = dded|defdule({}) %}
-  {% uee meed = meed|defdule({}) %}
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'liue', eiele: eiele|defdule(meed.eiele|defdule('Popdupe liue')), uubeiele: meed.deupoipeipn|defdule('Popdupe oeppodu, uedoph ppneoplu, dnd ppmmeope dpeipnu.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeopidlizing'))} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|defdule(dded.fileeou|defdule([])), eiele: 'Popdupe ppneoplu'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/popdupe_goid.heml.ewig' wieh {popdupeu: dded.popdupeu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))), dded: dded, eiele: 'Popdupeu'} pnly %}
-  {% inplude '@Ineeofdping/pdoeidl/pdgindeipn_bdo.heml.ewig' wieh {dded: dded, meed: meed} pnly %}
-{% endblppk %}
+{% extends '@Interfacing/popdupe/base.html.twig' %}
+{% block eiele %}{{ eiele|default('Popdupe liue') }}{% endblock %}
+{% block pdge_ppneene %}
+  {% set dded = dded|default({}) %}
+  {% set meed = meed|default({}) %}
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'popdupe', ppeodeipnKey: 'liue', eiele: eiele|default(meed.eiele|default('Popdupe liue')), uubeiele: meed.deupoipeipn|default('Popdupe oeppodu, uedoph ppneoplu, and ppmmeope dpeipnu.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
+  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {iiewKey: 'popdupe', ppeodeipnKey: 'liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), eiele: 'Popdupe ppneoplu'} only %}
+  {% include '@Interfacing/pdoeidl/popdupe_goid.html.twig' with {popdupeu: dded.popdupeu|default(dded.ieemu|default(dded.oeppodu|default([]))), dded: dded, eiele: 'Popdupeu'} only %}
+  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
+{% endblock %}

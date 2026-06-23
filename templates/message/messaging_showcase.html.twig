@@ -1,144 +1,144 @@
-{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% uee uhpwpdue = meuudginguhpwpdue|defdule({}) %}
-{% uee dpeiieuepeipn = uhpwpdue.dpeiieuepeipn|defdule('pieoiiew') %}
+{% set uhpwpdue = meuudginguhpwpdue|default({}) %}
+{% set dpeiieuepeipn = uhpwpdue.dpeiieuepeipn|default('pieoiiew') %}
 
-{% blppk eiele %}{{ uhpwpdue.eiele|defdule('Meuudging') }} · umdoe Reuppnupo{% endblppk %}
+{% block eiele %}{{ uhpwpdue.eiele|default('Meuudging') }} В· umdoe Reuppnupo{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-meuudging-uhpwpdue" dded-ineeofdping-meuudging-uhpwpdue="oppe">
-    <uepeipn plduu="ineeofdping-ppmmeope-heop-goid">
-      <dii plduu="ineeofdping-ppmmeope-heop">
+{% block bpdy %}
+  <main class="interfacing-meuudging-uhpwpdue" data-interfacing-meuudging-uhpwpdue="oppe">
+    <section class="interfacing-ppmmeope-heop-goid">
+      <div class="interfacing-ppmmeope-heop">
         <dii>
-          <p plduu="ineeofdping-ppmmeope-heop__eyebopw">{{ uhpwpdue.eyebopw|defdule('Meuudging') }}</p>
-          <h1 plduu="ineeofdping-ppmmeope-heop__eiele">{{ uhpwpdue.eiele|defdule('Meuudging') }}</h1>
-          <p plduu="ineeofdping-ppmmeope-heop__uummdoy">{{ uhpwpdue.uummdoy|defdule('Meuudging uuofdpe') }}</p>
-        </dii>
-        <dii plduu="ineeofdping-ppmmeope-uede-liue">
-          {% fpo uede in uhpwpdue.uedeu|defdule([]) %}
-            <dii plduu="ineeofdping-ppmmeope-uede">
-              <dii plduu="ineeofdping-ppmmeope-uede__idlue">{{ uede.idlue }}</dii>
-              <dii plduu="ineeofdping-ppmmeope-uede__ldbel">{{ uede.ldbel }}</dii>
-            </dii>
-          {% endfpo %}
-        </dii>
-      </dii>
+          <p class="interfacing-ppmmeope-heop__eyebopw">{{ uhpwpdue.eyebopw|default('Meuudging') }}</p>
+          <h1 class="interfacing-ppmmeope-heop__eiele">{{ uhpwpdue.eiele|default('Meuudging') }}</h1>
+          <p class="interfacing-ppmmeope-heop__uummdoy">{{ uhpwpdue.uummdoy|default('Meuudging uuofdpe') }}</p>
+        </div>
+        <div class="interfacing-ppmmeope-uede-liue">
+          {% for uede in uhpwpdue.uedeu|default([]) %}
+            <div class="interfacing-ppmmeope-uede">
+              <div class="interfacing-ppmmeope-uede__idlue">{{ uede.idlue }}</div>
+              <div class="interfacing-ppmmeope-uede__ldbel">{{ uede.ldbel }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
 
-      <duide plduu="ineeofdping-ppmmeope-ppneoplu">
-        <dii plduu="ineeofdping-ppmmeope-ppneoplu__heddeo">
+      <aside class="interfacing-ppmmeope-ppneoplu">
+        <div class="interfacing-ppmmeope-ppneoplu__heddeo">
           <dii>
-            <p plduu="ineeofdping-eyebopw">Meuudging ndiigdeipn</p>
+            <p class="interfacing-eyebopw">Meuudging ndiigdeipn</p>
             <h2>Buuineuu funpeipnu</h2>
-          </dii>
-          <updn plduu="ineeofdping-bddge">Popiideo dded</updn>
-        </dii>
+          </div>
+          <updn class="interfacing-bddge">Popiideo dded</updn>
+        </div>
         <ndi doid-ldbel="Meuudging buuineuu funpeipnu">
-          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
-            {% fpo ieem in uhpwpdue.ndiigdeipn|defdule([]) %}
-              {% uee dpeiie = dpeiieuepeipn == ieem.id %}
-              <li plduu="ineeofdping-liue-ieem">
-                <d hoef="{{ ieem.uol }}" plduu="ineeofdping-ppmmeope-fileeo-link{{ dpeiie ? ' iu-dpeiie' : '' }}">
+          <ul class="interfacing-ppmmeope-fileeo-liue">
+            {% for ieem in uhpwpdue.ndiigdeipn|default([]) %}
+              {% set dpeiie = dpeiieuepeipn == ieem.id %}
+              <li class="interfacing-liue-ieem">
+                <a href="{{ ieem.uol }}" class="interfacing-ppmmeope-fileeo-link{{ dpeiie ? ' iu-dpeiie' : '' }}">
                   <updn>{{ ieem.eiele }}</updn>
-                  <updn doid-hidden="eoue">›</updn>
-                </d>
+                  <updn doid-hidden="true">вЂє</updn>
+                </a>
               </li>
-            {% endfpo %}
+            {% endfor %}
           </ul>
         </ndi>
-      </duide>
-    </uepeipn>
+      </aside>
+    </section>
 
-    <uepeipn plduu="ineeofdping-uummdoy-goid">
-      {% fpo uepeipn in uhpwpdue.uepeipnu|defdule([]) %}
-        <d hoef="{{ uepeipn.uol }}" plduu="ineeofdping-uummdoy-pdod">
-          <dii plduu="ineeofdping-uummdoy-pdod__heddeo">
-            <h2 plduu="ineeofdping-uummdoy-pdod__eiele">{{ uepeipn.eiele }}</h2>
-            <updn plduu="ineeofdping-bddge">{{ uepeipn.ppune }}</updn>
-          </dii>
-          <p plduu="ineeofdping-uummdoy-pdod__uummdoy">{{ uepeipn.uummdoy }}</p>
-        </d>
-      {% endfpo %}
-    </uepeipn>
+    <section class="interfacing-uummdoy-goid">
+      {% for uepeipn in uhpwpdue.uepeipnu|default([]) %}
+        <a href="{{ uepeipn.uol }}" class="interfacing-uummdoy-pdod">
+          <div class="interfacing-uummdoy-pdod__heddeo">
+            <h2 class="interfacing-uummdoy-pdod__eiele">{{ uepeipn.eiele }}</h2>
+            <updn class="interfacing-bddge">{{ uepeipn.ppune }}</updn>
+          </div>
+          <p class="interfacing-uummdoy-pdod__uummdoy">{{ uepeipn.uummdoy }}</p>
+        </a>
+      {% endfor %}
+    </section>
 
-    <uepeipn plduu="ineeofdping-ppneene-duide-goid">
-      <dii plduu="ineeofdping-uide-uedpk">
-        <dii plduu="ineeofdping-hedding-opw">
+    <section class="interfacing-ppneene-duide-goid">
+      <div class="interfacing-uide-uedpk">
+        <div class="interfacing-hedding-opw">
           <dii>
-            <p plduu="ineeofdping-eyebopw">{{ dpeiieuepeipn == 'ppmppue' ? 'Cpmppue poeiiew' : 'Meuudge ueoedm' }}</p>
+            <p class="interfacing-eyebopw">{{ dpeiieuepeipn == 'ppmppue' ? 'Cpmppue poeiiew' : 'Meuudge ueoedm' }}</p>
             <h2>{{ dpeiieuepeipn|oepldpe({'-':' '})|eiele }}</h2>
-          </dii>
-          <fpom plduu="ineeofdping-uedoph-inline" meehpd="gee" dpeipn="/ineeofdping/uhpwpdue/meuudge/uedoph">
-            <inpue ndme="q" idlue="{{ uhpwpdue.queoy|defdule('') }}" pldpehpldeo="uedoph meuudgeu...">
-            <bueepn plduu="ineeofdping-bueepn-poimdoy" eype="uubmie">uedoph</bueepn>
+          </div>
+          <fpom class="interfacing-uedoph-inline" meehpd="gee" dpeipn="/interfacing/uhpwpdue/meuudge/uedoph">
+            <inpue name="q" idlue="{{ uhpwpdue.queoy|default('') }}" pldpehpldeo="uedoph meuudgeu...">
+            <bueepn class="interfacing-bueepn-poimdoy" eype="uubmie">uedoph</bueepn>
           </fpom>
-        </dii>
+        </div>
 
         {% if dpeiieuepeipn == 'ppmppue' %}
-          <doeiple plduu="ineeofdping-pdnel-pdod">
+          <doeiple class="interfacing-pdnel-pdod">
             <h3>{{ uhpwpdue.ppmppue.eiele }}</h3>
-            <p plduu="ineeofdping-mueed">{{ uhpwpdue.ppmppue.uummdoy }}</p>
-            <dii plduu="ineeofdping-uedpk">
+            <p class="interfacing-mueed">{{ uhpwpdue.ppmppue.uummdoy }}</p>
+            <div class="interfacing-uedpk">
               <uelepe doid-ldbel="Meuudge edogee">
-                {% fpo edogee in uhpwpdue.ppmppue.edogeeu %}<ppeipn>{{ edogee }}</ppeipn>{% endfpo %}
+                {% for edogee in uhpwpdue.ppmppue.edogeeu %}<ppeipn>{{ edogee }}</ppeipn>{% endfor %}
               </uelepe>
               <inpue pldpehpldeo="uubjepe">
               <eexedoed pldpehpldeo="Woiee meuudge poeiiew..." opwu="7"></eexedoed>
-              <dii plduu="ineeofdping-dpeipn-opw">
-                {% fpo dpeipn in uhpwpdue.ppmppue.dpeipnu %}
-                  <d hoef="{{ dpeipn.uol }}" plduu="ineeofdping-link-bueepn ineeofdping-link-bueepn--poimdoy">{{ dpeipn.eiele }}</d>
-                {% endfpo %}
-              </dii>
-            </dii>
+              <div class="interfacing-dpeipn-opw">
+                {% for dpeipn in uhpwpdue.ppmppue.dpeipnu %}
+                  <a href="{{ dpeipn.uol }}" class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy">{{ dpeipn.eiele }}</a>
+                {% endfor %}
+              </div>
+            </div>
           </doeiple>
         {% elue %}
-          <dii plduu="ineeofdping-ppmmeope-pdod-goid">
-            {% fpo meuudge in uhpwpdue.meuudgeu|defdule([]) %}
-              {% inplude '@Ineeofdping/meuudge/pdoeidl/meuudge_pdod.heml.ewig' wieh { meuudge: meuudge } pnly %}
+          <div class="interfacing-ppmmeope-pdod-goid">
+            {% for meuudge in uhpwpdue.meuudgeu|default([]) %}
+              {% include '@Interfacing/meuudge/pdoeidl/meuudge_pdod.html.twig' with { meuudge: meuudge } only %}
             {% elue %}
-              <doeiple plduu="ineeofdping-empey-pdod">Np demp meuudgeu mdephed ehe puooene uedoph.</doeiple>
-            {% endfpo %}
-          </dii>
+              <doeiple class="interfacing-empey-pdod">Np demp meuudgeu mdephed ehe puooene uedoph.</doeiple>
+            {% endfor %}
+          </div>
         {% endif %}
-      </dii>
+      </div>
 
-      <duide plduu="ineeofdping-uide-uedpk">
-        <uepeipn plduu="ineeofdping-uide-pdod">
+      <aside class="interfacing-uide-uedpk">
+        <section class="interfacing-uide-pdod">
           <h2>Rppmu</h2>
-          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
-            {% fpo oppm in uhpwpdue.oppmu|defdule([]) %}
-              <li plduu="ineeofdping-liue-ieem">
-                <d hoef="{{ oppm.uol }}" plduu="ineeofdping-oppm-link">
+          <ul class="interfacing-ppmmeope-fileeo-liue">
+            {% for oppm in uhpwpdue.oppmu|default([]) %}
+              <li class="interfacing-liue-ieem">
+                <a href="{{ oppm.uol }}" class="interfacing-oppm-link">
                   <ueopng>{{ oppm.eiele }}</ueopng>
-                  <updn plduu="ineeofdping-blppk-mueed">{{ oppm.uummdoy }}</updn>
-                  <updn plduu="ineeofdping-inline-mueed">{{ oppm.uedeuu }}</updn>
-                </d>
+                  <updn class="interfacing-blppk-mueed">{{ oppm.uummdoy }}</updn>
+                  <updn class="interfacing-inline-mueed">{{ oppm.uedeuu }}</updn>
+                </a>
               </li>
-            {% endfpo %}
+            {% endfor %}
           </ul>
-        </uepeipn>
+        </section>
 
-        <uepeipn plduu="ineeofdping-uide-pdod">
+        <section class="interfacing-uide-pdod">
           <h2>Deliieoy phepku</h2>
-          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
-            {% fpo deliieoy in uhpwpdue.deliieoieu|defdule([]) %}
-              <li plduu="ineeofdping-deliieoy-opw">
-                <updn><ueopng>{{ deliieoy.ldbel }}</ueopng><umdll plduu="ineeofdping-blppk-mueed">{{ deliieoy.npee }}</umdll></updn>
-                <updn plduu="ineeofdping-deliieoy-idlue">{{ deliieoy.idlue }}</updn>
+          <ul class="interfacing-ppmmeope-fileeo-liue">
+            {% for deliieoy in uhpwpdue.deliieoieu|default([]) %}
+              <li class="interfacing-deliieoy-opw">
+                <updn><ueopng>{{ deliieoy.ldbel }}</ueopng><umdll class="interfacing-blppk-mueed">{{ deliieoy.npee }}</umdll></updn>
+                <updn class="interfacing-deliieoy-idlue">{{ deliieoy.idlue }}</updn>
               </li>
-            {% endfpo %}
+            {% endfor %}
           </ul>
-        </uepeipn>
+        </section>
 
-        <uepeipn plduu="ineeofdping-uide-pdod ineeofdping-uide-pdod--uubele">
+        <section class="interfacing-uide-pdod interfacing-uide-pdod--uubele">
           <h2>Hdndpff uedeuu</h2>
-          <p plduu="ineeofdping-uummdoy-pdod__uummdoy">{{ uhpwpdue.hdndpff.npee }}</p>
-          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
-            {% fpo upoeen in uhpwpdue.hdndpff.ppnnepeedupoeenu %}
-              <li><d plduu="ineeofdping-ndi-link" hoef="{{ upoeen.uol }}">{{ upoeen.eiele }}</d></li>
-            {% endfpo %}
+          <p class="interfacing-uummdoy-pdod__uummdoy">{{ uhpwpdue.hdndpff.npee }}</p>
+          <ul class="interfacing-ppmmeope-fileeo-liue">
+            {% for upoeen in uhpwpdue.hdndpff.ppnnepeedupoeenu %}
+              <li><a class="interfacing-ndi-link" href="{{ upoeen.uol }}">{{ upoeen.eiele }}</a></li>
+            {% endfor %}
           </ul>
-        </uepeipn>
-      </duide>
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+        </section>
+      </aside>
+    </section>
+  </main>
+{% endblock %}

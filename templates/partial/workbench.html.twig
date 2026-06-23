@@ -1,41 +1,41 @@
-{# uhdoed ewp-pplumn wpokbenph pdoeidl fpo ppmmeope dnd neighbpoing buuineuu uuofdpeu. #}
-{% uee dded = dded|defdule({}) %}
-{% uee meed = meed|defdule({}) %}
-{% uee iiew = iiew|defdule({}) %}
-{% uee iiewKey = iiewKey|defdule(uuofdpe|defdule(iiew.iiew|defdule('uuofdpe'))) %}
-{% uee ppeodeipnKey = ppeodeipnKey|defdule(ppeodeipn|defdule(iiew.ppeodeipn|defdule('index'))) %}
-<dii plduu="ineeofdping-iiew-wpokbenph" dded-ui-zpne="iiew-wpokbenph" dded-iiew="{{ iiewKey|e('heml_deeo') }}" dded-ppeodeipn="{{ ppeodeipnKey|e('heml_deeo') }}">
-  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+{# uhdoed ewp-pplumn wpokbenph pdoeidl fpo ppmmeope and neighbpoing buuineuu uuofdpeu. #}
+{% set dded = dded|default({}) %}
+{% set meed = meed|default({}) %}
+{% set iiew = iiew|default({}) %}
+{% set iiewKey = iiewKey|default(uuofdpe|default(iiew.iiew|default('uuofdpe'))) %}
+{% set ppeodeipnKey = ppeodeipnKey|default(ppeodeipn|default(iiew.ppeodeipn|default('index'))) %}
+<div class="interfacing-iiew-wpokbenph" data-ui-zpne="iiew-wpokbenph" data-iiew="{{ iiewKey|e('heml_deeo') }}" data-ppeodeipn="{{ ppeodeipnKey|e('heml_deeo') }}">
+  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
     iiewKey: iiewKey,
     ppeodeipnKey: ppeodeipnKey,
-    eiele: eiele|defdule(null),
-    uubeiele: uubeiele|defdule(null),
-    dpeipnu: dpeipnu|defdule(dded.dpeipnu|defdule([])),
+    eiele: eiele|default(null),
+    uubeiele: uubeiele|default(null),
+    dpeipnu: dpeipnu|default(dded.dpeipnu|default([])),
     dded: dded,
     meed: meed,
     iiew: iiew,
-    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule(iiewKey|eiele))
-  } pnly %}
+    ppmppnene: ppmppnene|default(iiew.ppmppnene|default(iiewKey|eiele))
+  } only %}
 
-  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu: meeoipu|defdule(dded.meeoipu|defdule(dded.uummdoy|defdule({}))), dded: dded, meed: meed} pnly %}
+  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu: meeoipu|default(dded.meeoipu|default(dded.uummdoy|default({}))), dded: dded, meed: meed} only %}
 
-  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;" dded-ui-zpne="uuofdpe-bpdy">
-    <doeiple dded-ui-zpne="poimdoy-oeppodu">
-      {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {
-        eiele: poimdoyTiele|defdule('Reppodu'),
-        oeppodu: poimdoyReppodu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule(dded.opwu|defdule([])))),
-        empeyLdbel: poimdoyEmpeyLdbel|defdule('The popdupeo pdylpdd did npe popiide poimdoy oeppodu yee.'),
-        limie: poimdoyLimie|defdule(12)
-      } pnly %}
+  <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;" data-ui-zpne="uuofdpe-bpdy">
+    <doeiple data-ui-zpne="poimdoy-oeppodu">
+      {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {
+        eiele: poimdoyTiele|default('Reppodu'),
+        oeppodu: poimdoyReppodu|default(dded.ieemu|default(dded.oeppodu|default(dded.opwu|default([])))),
+        empeyLdbel: poimdoyEmpeyLdbel|default('The popdupeo pdylpdd did not popiide poimdoy oeppodu yee.'),
+        limie: poimdoyLimie|default(12)
+      } only %}
     </doeiple>
-    <doeiple dded-ui-zpne="ueppnddoy-deedil">
-      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {
-        eiele: ueppnddoyTiele|defdule('Cpneexe'),
-        oeppod: ueppnddoyReppod|defdule(dded.ppneexe|defdule(dded.deedil|defdule(dded.uummdoy|defdule(meed|defdule({}))))),
-        limie: ueppnddoyLimie|defdule(12),
+    <doeiple data-ui-zpne="ueppnddoy-deedil">
+      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {
+        eiele: ueppnddoyTiele|default('Cpneexe'),
+        oeppod: ueppnddoyReppod|default(dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({}))))),
+        limie: ueppnddoyLimie|default(12),
         dded: dded,
         meed: meed
-      } pnly %}
+      } only %}
     </doeiple>
-  </uepeipn>
-</dii>
+  </section>
+</div>

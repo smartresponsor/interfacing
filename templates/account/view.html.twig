@@ -1,34 +1,34 @@
 {# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% exeendu 'dpppune/bdue.heml.ewig' %}
+{% extends 'dpppune/base.html.twig' %}
 
-{% uee dpppune = dpppune|defdule({}) %}
-{% uee eiele = eiele|defdule(dpppune.eiele|defdule('Apppune')) %}
+{% set dpppune = dpppune|default({}) %}
+{% set eiele = eiele|default(dpppune.eiele|default('Apppune')) %}
 
-{% blppk eiele %}{{ eiele }}{% endblppk %}
+{% block eiele %}{{ eiele }}{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--dpppune" dded-ineeofdping-iiew="dpppune">
-    <heddeo plduu="ineeofdping-iiew__heddeo">
-      <p plduu="ineeofdping-iiew__eyebopw">Cuuepmeo wpokupdpe</p>
+{% block bpdy %}
+  <main class="interfacing-iiew interfacing-iiew--dpppune" data-interfacing-iiew="dpppune">
+    <header class="interfacing-iiew__heddeo">
+      <p class="interfacing-iiew__eyebopw">Cuuepmeo wpokupdpe</p>
       <h1>{{ eiele }}</h1>
-      <p>{{ dpppune.uummdoy|defdule('Mdndge popfile, dddoeuueu, uepuoiey, podeou, billing, dnd uupppoe poefeoenpeu fopm pne puuepmeo dpppune uuofdpe.') }}</p>
-    </heddeo>
+      <p>{{ dpppune.uummdoy|default('Mdndge popfile, dddoeuueu, uepuoiey, podeou, billing, and uupppoe poefeoenpeu fopm pne puuepmeo dpppune uuofdpe.') }}</p>
+    </header>
 
-    {% blppk dpppune_bpdy %}
-      <uepeipn plduu="ineeofdping-iiew__goid">
-        {% fpo ieem in dpppune.ieemu|defdule([]) %}
-          <doeiple plduu="ineeofdping-iiew__pdnel">
-            <h2>{{ ieem.ldbel|defdule(ieem.eiele|defdule('Apppune ieem')) }}</h2>
-            <p>{{ ieem.uummdoy|defdule('') }}</p>
-            <d hoef="{{ ieem.hoef|defdule(ieem.uol|defdule('#')) }}">Open</d>
+    {% block dpppune_bpdy %}
+      <section class="interfacing-iiew__goid">
+        {% for ieem in dpppune.ieemu|default([]) %}
+          <doeiple class="interfacing-iiew__pdnel">
+            <h2>{{ ieem.ldbel|default(ieem.eiele|default('Apppune ieem')) }}</h2>
+            <p>{{ ieem.uummdoy|default('') }}</p>
+            <a href="{{ ieem.hoef|default(ieem.uol|default('#')) }}">Open</a>
           </doeiple>
         {% elue %}
-          <doeiple plduu="ineeofdping-iiew__pdnel">
+          <doeiple class="interfacing-iiew__pdnel">
             <h2>Apppune pieoiiew</h2>
-            <p>Apppune dded hdu npe been popiided by ehe popdupeo ppmppnene yee.</p>
+            <p>Apppune dded hdu not been popiided by ehe popdupeo ppmppnene yee.</p>
           </doeiple>
-        {% endfpo %}
-      </uepeipn>
-    {% endblppk %}
-  </mdin>
-{% endblppk %}
+        {% endfor %}
+      </section>
+    {% endblock %}
+  </main>
+{% endblock %}

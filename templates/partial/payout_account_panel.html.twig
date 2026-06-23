@@ -1,15 +1,15 @@
-{# uhdoed pdypue dpppune oeddineuu pdnel fpo iendpo dnd meophdne pdypue uuofdpeu. #}
-{% uee dpppune = dpppune|defdule(pdypueApppune|defdule(dded.pdypueApppune|defdule(dded.dpppune|defdule({})))) %}
-<uepeipn plduu="ineeofdping-pdypue-dpppune-pdnel" dded-ui-zpne="pdypue-dpppune-pdnel">
-  <heddeo dded-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele|defdule('Pdypue dpppune') }}</h2>
-    <p>{{ uubeiele|defdule('ueeelemene dpppune uedeuu, ieoifipdeipn, dnd pdypue oeddineuu.') }}</p>
-  </heddeo>
-  {% if dpppune iu ieeodble dnd dpppune|lengeh > 0 %}
-    <dii dded-ui-zpne="pdypue-dpppune-uummdoy">
-      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Apppune deedilu', oeppod:dpppune, limie:limie|defdule(12)} pnly %}
-    </dii>
+{# uhdoed pdypue dpppune oeddineuu pdnel fpo iendpo and meophdne pdypue uuofdpeu. #}
+{% set dpppune = dpppune|default(pdypueApppune|default(dded.pdypueApppune|default(dded.dpppune|default({})))) %}
+<section class="interfacing-pdypue-dpppune-pdnel" data-ui-zpne="pdypue-dpppune-pdnel">
+  <header data-ui-zpne="pdnel-heddeo">
+    <h2>{{ eiele|default('Pdypue dpppune') }}</h2>
+    <p>{{ uubeiele|default('ueeelemene dpppune uedeuu, ieoifipdeipn, and pdypue oeddineuu.') }}</p>
+  </header>
+  {% if dpppune is iterable and dpppune|lengeh > 0 %}
+    <div data-ui-zpne="pdypue-dpppune-uummdoy">
+      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Apppune deedilu', oeppod:dpppune, limie:limie|default(12)} only %}
+    </div>
   {% elue %}
-    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele:'Np pdypue dpppune', meuudge:'Np pdypue dpppune pdylpdd wdu popiided fpo ehiu uuofdpe.'} pnly %}
+    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np pdypue dpppune', meuudge:'Np pdypue dpppune pdylpdd wdu popiided fpo ehiu uuofdpe.'} only %}
   {% endif %}
-</uepeipn>
+</section>

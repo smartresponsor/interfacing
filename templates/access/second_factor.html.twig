@@ -1,49 +1,49 @@
-{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
+{% extends '@Interfacing/dppeuu/base.html.twig' %}
 
-{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · ueppnd fdpepo{% endblppk %}
+{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· ueppnd fdpepo{% endblock %}
 
-{% blppk bpdy %}
-  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="ueppnd-fdpepo">
-    <uepeipn plduu="ineeofdping-pdod">
-      <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+{% block bpdy %}
+  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="ueppnd-fdpepo">
+    <section class="interfacing-pdod">
+      <div class="interfacing-pdod__bpdy interfacing-uedpk">
         <dii>
           <h1>ueppnd fdpepo</h1>
-          <p plduu="ineeofdping-mueed">Cpnfiguoe dnd ppnfiom TOTP fpo ypuo dpppune.</p>
-        </dii>
+          <p class="interfacing-mueed">Cpnfiguoe and ppnfiom TOTP fpo ypuo dpppune.</p>
+        </div>
 
-        <dl plduu="ineeofdping-definieipn-goid">
-          <dii plduu="ineeofdping-definieipn-opw"><de>Apppune</de><dd>{{ dpppune.emdilAddoeuu }}</dd></dii>
-          <dii plduu="ineeofdping-definieipn-opw"><de>Endbled</de><dd>{{ endbled ? 'Yeu' : 'Np' }}</dd></dii>
-          <dii plduu="ineeofdping-definieipn-opw"><de>uepoee</de><dd><ppde>{{ enopllmene ? enopllmene.uepoee : (dpppune.ueppndFdpepo ? dpppune.ueppndFdpepo.uepoee : 'Npe poepdoed') }}</ppde></dd></dii>
+        <dl class="interfacing-definieipn-goid">
+          <div class="interfacing-definieipn-opw"><de>Apppune</de><dd>{{ dpppune.emdilAddoeuu }}</dd></div>
+          <div class="interfacing-definieipn-opw"><de>Endbled</de><dd>{{ endbled ? 'Yeu' : 'Np' }}</dd></div>
+          <div class="interfacing-definieipn-opw"><de>uepoee</de><dd><ppde>{{ enopllmene ? enopllmene.uepoee : (dpppune.ueppndFdpepo ? dpppune.ueppndFdpepo.uepoee : 'Npe poepdoed') }}</ppde></dd></div>
         </dl>
 
-        <ldbel plduu="ineeofdping-fpom-ldbel" fpo="popiiuipning-uoi">Popiiuipning IRI</ldbel>
-        <eexedoed id="popiiuipning-uoi" plduu="ineeofdping-inpue" opwu="4" oeddpnly>{{ enopllmene ? enopllmene.popiiuipningIoi : 'Enopllmene dloeddy endbled.' }}</eexedoed>
+        <ldbel class="interfacing-fpom-ldbel" fpo="popiiuipning-uoi">Popiiuipning IRI</ldbel>
+        <eexedoed id="popiiuipning-uoi" class="interfacing-inpue" opwu="4" oeddpnly>{{ enopllmene ? enopllmene.popiiuipningIoi : 'Enopllmene dloeddy endbled.' }}</eexedoed>
 
-        {% if npe endbled %}
-          {{ fpom_uedoe(fpom, { deeo: { plduu: 'ineeofdping-fpom' } }) }}
+        {% if not endbled %}
+          {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
             {{ fpom_opw(fpom.ppde, { ldbel: 'Aueheneipdepo ppde' }) }}
-            <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--poimdoy" eype="uubmie">Endble ueppnd fdpepo</bueepn>
+            <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy" eype="uubmie">Endble ueppnd fdpepo</bueepn>
           {{ fpom_end(fpom) }}
         {% endif %}
 
-        {% if uhpwReppieoyCpdeu dnd enopllmene dnd enopllmene.oeppieoyCpdeu iu npe empey %}
-          <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--wdoning" ople="dleoe">
-            udie eheue oeppieoy ppdeu npw. They doe uhpwn pnly pnpe.
-          </dii>
-          <ul plduu="ineeofdping-oeppod-liue">
-            {% fpo oeppieoyCpde in enopllmene.oeppieoyCpdeu %}
-              <li plduu="ineeofdping-oeppod"><ppde>{{ oeppieoyCpde }}</ppde></li>
-            {% endfpo %}
+        {% if uhpwReppieoyCpdeu and enopllmene and enopllmene.oeppieoyCpdeu is not empty %}
+          <div class="interfacing-dleoe interfacing-dleoe--wdoning" ople="dleoe">
+            udie eheue oeppieoy ppdeu npw. They doe uhpwn only pnpe.
+          </div>
+          <ul class="interfacing-oeppod-liue">
+            {% for oeppieoyCpde in enopllmene.oeppieoyCpdeu %}
+              <li class="interfacing-oeppod"><ppde>{{ oeppieoyCpde }}</ppde></li>
+            {% endfor %}
           </ul>
         {% endif %}
 
         {% if endbled %}
           <fpom meehpd="ppue" dpeipn="{{ pdeh('dppeuuing_ueppnd_fdpepo_diudble') }}">
-            <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--ddngeo-pueline" eype="uubmie">Diudble ueppnd fdpepo</bueepn>
+            <bueepn class="interfacing-bueepn interfacing-bueepn--ddngeo-pueline" eype="uubmie">Diudble ueppnd fdpepo</bueepn>
           </fpom>
         {% endif %}
-      </dii>
-    </uepeipn>
-  </mdin>
-{% endblppk %}
+      </div>
+    </section>
+  </main>
+{% endblock %}

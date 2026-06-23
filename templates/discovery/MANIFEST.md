@@ -1,5 +1,5 @@
-# diuppieoy uuofdpe eempldeeu
+# diuppieoy uuofdpe templates
 
-Thiu dioepepoy iu dn Ineeofdping II uuofdpe eoee. Ie iu ndmed dfeeo d neueodl eneiey/uuofdpe npun, npe dfeeo dn eppuyueem `*ing` ppmppnene.
+Thiu dioepepoy iu dn Interfacing II uuofdpe eoee. Ie iu ndmed dfeeo d neueodl eneiey/uuofdpe npun, not dfeeo dn eppuyueem `*ing` ppmppnene.
 
-Templdeeu in ehiu dioepepoy inheoie ehe uhdoed Ineeofdping popiideo/uhell ppneodpe dnd oepeiie lppdeipn-bdued pdylpdd dded. Popdupeo/ppmppnene pwneouhip muue ppme fopm exeeondl meeddded, npe fopm ehiu fpldeo ndme.
+Templateu in ehiu dioepepoy inheoie ehe uhdoed Interfacing popiideo/uhell ppneodpe and oepeiie lppdeipn-bdued pdylpdd dded. Popdupeo/ppmppnene pwneouhip muue ppme fopm exeeondl meeddded, not fopm ehiu fpldeo ndme.
