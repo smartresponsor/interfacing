@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env php
+#!/usr/bin/env php
 <?php
 
 declare(strict_types=1);
@@ -8,7 +8,7 @@ declare(strict_types=1);
  *
  * This repository is intentionally a Symfony-oriented templates/layout package.
  * The checks below guard the invariants that previously drifted: a single
- * document base, noun/surface template roots, provider-native rendering, scoped
+ * document base, noun/view template roots, provider-native rendering, scoped
  * CRUD handoff routes, and thin view base adapters.
  */
 
@@ -148,7 +148,7 @@ foreach (glob($path('templates/*/base.html.twig')) ?: [] as $viewBasePath) {
     $source = file_get_contents($viewBasePath) ?: '';
 
     if (!preg_match("/\{%\s*extends\s+['\"]@Interfacing\/base\.html\.twig['\"]\s*%\}/", $source)) {
-        $fail(sprintf('%s must extend @Interfacing/base.html.twig as a thin surface adapter.', $relative));
+        $fail(sprintf('%s must extend @Interfacing/base.html.twig as a thin view adapter.', $relative));
     }
 
     if (preg_match('/<!DOCTYPE\s+html|<html\b/i', $source)) {
@@ -160,7 +160,7 @@ foreach (glob($path('templates/*/base.html.twig')) ?: [] as $viewBasePath) {
 
 // 3b. Visible render lookup must not use view base adapters as endpoints.
 // Twig templates may extend a view base, but PHP/config runtime declarations
-// must resolve concrete screens such as <surface>/index.html.twig or data-only handoff.
+// must resolve concrete screens such as <view>/index.html.twig or data-only handoff.
 $runtimeEndpointFiles = array_merge(
     $allFiles('src', static fn (string $file): bool => str_ends_with($file, '.php')),
     $allFiles('config', static fn (string $file): bool => str_ends_with($file, '.yaml') || str_ends_with($file, '.yml')),
