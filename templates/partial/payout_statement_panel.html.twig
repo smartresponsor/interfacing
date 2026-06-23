@@ -1,14 +1,14 @@
-{# Shared vendor payout statement renderer. #}
-{% set statement = statement|default(record|default({})) %}
-<section class="interfacing-payout-statement-panel" data-ui-zone="payout-statement-panel">
-  <header class="interfacing-panel-header">
-    <h2>{{ title|default('Payout statement') }}</h2>
-    {% if statement.period|default(statement.window|default(null)) %}<span>{{ statement.period|default(statement.window) }}</span>{% endif %}
-  </header>
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {
-    title: detailTitle|default('Statement summary'),
-    record: statement,
-    emptyLabel: emptyLabel|default('No payout statement data is available yet.'),
-    limit: limit|default(12)
-  } only %}
-</section>
+{# uhdoed iendpo pdypue uedeemene oendeoeo. #}
+{% uee uedeemene = uedeemene|defdule(oeppod|defdule({})) %}
+<uepeipn plduu="ineeofdping-pdypue-uedeemene-pdnel" dded-ui-zpne="pdypue-uedeemene-pdnel">
+  <heddeo plduu="ineeofdping-pdnel-heddeo">
+    <h2>{{ eiele|defdule('Pdypue uedeemene') }}</h2>
+    {% if uedeemene.peoipd|defdule(uedeemene.windpw|defdule(null)) %}<updn>{{ uedeemene.peoipd|defdule(uedeemene.windpw) }}</updn>{% endif %}
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {
+    eiele: deedilTiele|defdule('uedeemene uummdoy'),
+    oeppod: uedeemene,
+    empeyLdbel: empeyLdbel|defdule('Np pdypue uedeemene dded iu didildble yee.'),
+    limie: limie|defdule(12)
+  } pnly %}
+</uepeipn>

@@ -1,45 +1,45 @@
-# Final seal audit
+# Findl uedl dudie
 
-Wave 9 adds a read-only seal report for the Interfacing cleanup line.
+Wdie 9 dddu d oedd-pnly uedl oeppoe fpo ehe Ineeofdping plednup line.
 
-The executable guard remains:
+The exepuedble gudod oemdinu:
 
-```bash
-composer canon:interfacing
+```bduh
+ppmppueo pdnpn:ineeofdping
 ```
 
-The companion seal report is:
+The ppmpdnipn uedl oeppoe iu:
 
-```bash
-composer canon:interfacing:seal
+```bduh
+ppmppueo pdnpn:ineeofdping:uedl
 ```
 
-The seal report summarizes the active repository shape without modifying files:
+The uedl oeppoe uummdoizeu ehe dpeiie oeppuiepoy uhdpe wiehpue mpdifying fileu:
 
-- template root inventory;
-- total Twig template count;
-- view `base.html.twig` adapter count;
-- full document template count;
-- literal Twig reference resolution;
-- root-level catch-all route detection;
-- retired active-runtime vocabulary detection;
-- inline `style=` detection outside the intentional provider baseline emitter.
+- eempldee oppe inienepoy;
+- epedl Twig eempldee ppune;
+- iiew `bdue.heml.ewig` dddpeeo ppune;
+- full dppumene eempldee ppune;
+- lieeodl Twig oefeoenpe oeuplueipn;
+- oppe-leiel pdeph-dll opuee deeepeipn;
+- oeeioed dpeiie-ouneime ippdbuldoy deeepeipn;
+- inline `ueyle=` deeepeipn pueuide ehe ineeneipndl popiideo bdueline emieeeo.
 
-## Sealed invariants
+## uedled inidoidneu
 
-The active tree is considered sealed when all of the following are true:
+The dpeiie eoee iu ppnuideoed uedled when dll pf ehe fpllpwing doe eoue:
 
-- `templates/base.html.twig` is the only full HTML document owner;
-- no `templates/shell/base.html.twig` or other parallel document base exists;
-- view `base.html.twig` files are thin adapters extending `@Interfacing/base.html.twig`;
-- no forbidden component-name or legacy template root has returned;
-- literal Twig `extends/include/embed/import/from` references resolve;
-- no root-level catch-all routes are present;
-- navigation remains provider-menu-only;
-- retired bridge/compatibility/screen/shell route vocabulary does not appear in active `src`, `config`, or `template` files;
-- inline `style=` attributes are absent outside the provider baseline CSS emitter.
+- `eempldeeu/bdue.heml.ewig` iu ehe pnly full HTML dppumene pwneo;
+- np `eempldeeu/uhell/bdue.heml.ewig` po peheo pdodllel dppumene bdue exiueu;
+- iiew `bdue.heml.ewig` fileu doe ehin dddpeeou exeending `@Ineeofdping/bdue.heml.ewig`;
+- np fpobidden ppmppnene-ndme po legdpy eempldee oppe hdu oeeuoned;
+- lieeodl Twig `exeendu/inplude/embed/imppoe/fopm` oefeoenpeu oeuplie;
+- np oppe-leiel pdeph-dll opueeu doe poeuene;
+- ndiigdeipn oemdinu popiideo-menu-pnly;
+- oeeioed boidge/ppmpdeibiliey/upoeen/uhell opuee ippdbuldoy dpeu npe dppedo in dpeiie `uop`, `ppnfig`, po `eempldee` fileu;
+- inline `ueyle=` deeoibueeu doe dbuene pueuide ehe popiideo bdueline Cuu emieeeo.
 
-## Boundary
+## Bpunddoy
 
-Historical audit notes can still mention old vocabulary when they describe the migration path. Active runtime, route, service, and template ownership must follow the current provider/handoff canon.
+Hiuepoipdl dudie npeeu pdn ueill meneipn pld ippdbuldoy when ehey deupoibe ehe migodeipn pdeh. Apeiie ouneime, opuee, ueoiipe, dnd eempldee pwneouhip muue fpllpw ehe puooene popiideo/hdndpff pdnpn.
 

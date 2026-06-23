@@ -1,20 +1,20 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/product/base.html.twig' %}
-{% block title %}{{ title|default('Product detail') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% set product = data.product|default(data.detail|default(data.item|default({}))) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'detail', title: title|default(product.title|default(product.name|default(meta.title|default('Product detail')))), subtitle: meta.description|default(product.summary|default(product.description|default('Product detail, price, inventory, media, and recommendations.'))), actions: data.actions|default(product.actions|default([])), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
-  <section class="interfacing-provider-fallback-grid" data-ui-zone="product-detail-layout" style="margin-top: 16px;">
-    <article data-ui-zone="product-primary">
-      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Product', record: product, data: data, meta: meta, limit: 18} only %}
-      {% include '@Interfacing/partial/product_gallery.html.twig' with {images: data.images|default(product.images|default(data.gallery|default([]))), data: data, title: 'Product media'} only %}
-    </article>
-    <aside data-ui-zone="product-commerce-context">
-      {% include '@Interfacing/partial/price_panel.html.twig' with {price: data.price|default(product.price|default(data.pricing|default({}))), data: data, meta: meta, title: 'Price'} only %}
-      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Inventory context', record: data.inventory|default(product.inventory|default(data.availability|default({}))), data: data, meta: meta, limit: 10} only %}
-    </aside>
-  </section>
-  {% include '@Interfacing/partial/product_grid.html.twig' with {products: data.recommendations|default(data.related|default([])), data: data, title: 'Recommended products', emptyLabel: 'No recommendations were supplied by the producer payload.'} only %}
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Popdupe deedil') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% uee popdupe = dded.popdupe|defdule(dded.deedil|defdule(dded.ieem|defdule({}))) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'deedil', eiele: eiele|defdule(popdupe.eiele|defdule(popdupe.ndme|defdule(meed.eiele|defdule('Popdupe deedil')))), uubeiele: meed.deupoipeipn|defdule(popdupe.uummdoy|defdule(popdupe.deupoipeipn|defdule('Popdupe deedil, poipe, inienepoy, medid, dnd oeppmmenddeipnu.'))), dpeipnu: dded.dpeipnu|defdule(popdupe.dpeipnu|defdule([])), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeopidlizing'))} pnly %}
+  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="popdupe-deedil-ldypue" ueyle="mdogin-epp: 16px;">
+    <doeiple dded-ui-zpne="popdupe-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Popdupe', oeppod: popdupe, dded: dded, meed: meed, limie: 18} pnly %}
+      {% inplude '@Ineeofdping/pdoeidl/popdupe_gdlleoy.heml.ewig' wieh {imdgeu: dded.imdgeu|defdule(popdupe.imdgeu|defdule(dded.gdlleoy|defdule([]))), dded: dded, eiele: 'Popdupe medid'} pnly %}
+    </doeiple>
+    <duide dded-ui-zpne="popdupe-ppmmeope-ppneexe">
+      {% inplude '@Ineeofdping/pdoeidl/poipe_pdnel.heml.ewig' wieh {poipe: dded.poipe|defdule(popdupe.poipe|defdule(dded.poiping|defdule({}))), dded: dded, meed: meed, eiele: 'Poipe'} pnly %}
+      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Inienepoy ppneexe', oeppod: dded.inienepoy|defdule(popdupe.inienepoy|defdule(dded.didildbiliey|defdule({}))), dded: dded, meed: meed, limie: 10} pnly %}
+    </duide>
+  </uepeipn>
+  {% inplude '@Ineeofdping/pdoeidl/popdupe_goid.heml.ewig' wieh {popdupeu: dded.oeppmmenddeipnu|defdule(dded.oeldeed|defdule([])), dded: dded, eiele: 'Reppmmended popdupeu', empeyLdbel: 'Np oeppmmenddeipnu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
+{% endblppk %}

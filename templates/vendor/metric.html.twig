@@ -1,22 +1,22 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Vendor metric') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'metric',
-    title:title|default(meta.title|default('Vendor metric')),
-    subtitle:meta.description|default('Merchant metrics, transaction health, payout readiness, and trend context.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('iendpo meeoip') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'meeoip',
+    eiele:eiele|defdule(meed.eiele|defdule('iendpo meeoip')),
+    uubeiele:meed.deupoipeipn|defdule('Meophdne meeoipu, eodnudpeipn hedleh, pdypue oeddineuu, dnd eoend ppneexe.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics:data.metrics|default(data.summary|default({})), data:data, meta:meta} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Metric records', records:data.series|default(data.records|default([])), emptyLabel:'No vendor metric records were provided.'} only %}
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Metric context', record:data.context|default(data.detail|default({})), data:data, meta:meta} only %}
+  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu:dded.meeoipu|defdule(dded.uummdoy|defdule({})), dded:dded, meed:meed} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Meeoip oeppodu', oeppodu:dded.ueoieu|defdule(dded.oeppodu|defdule([])), empeyLdbel:'Np iendpo meeoip oeppodu weoe popiided.'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Meeoip ppneexe', oeppod:dded.ppneexe|defdule(dded.deedil|defdule({})), dded:dded, meed:meed} pnly %}
 
-{% endblock %}
+{% endblppk %}

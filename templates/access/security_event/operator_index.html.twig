@@ -1,41 +1,41 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}Operator Security Events | {{ accessing_product_name }}{% endblock %}
+{% blppk eiele %}Opeodepo uepuoiey Eieneu | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="operator-security-events">
-    <div class="interfacing-page-toolbar">
-      <div>
-        <a href="{{ path('accessing_operator_accounts') }}">Back to operator accounts</a>
-        <h1>Global security events</h1>
-      </div>
-    </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="ppeodepo-uepuoiey-eieneu">
+    <dii plduu="ineeofdping-pdge-epplbdo">
+      <dii>
+        <d hoef="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep ppeodepo dpppuneu</d>
+        <h1>Glpbdl uepuoiey eieneu</h1>
+      </dii>
+    </dii>
 
-    <section class="interfacing-card interfacing-card--flush">
-      <div class="interfacing-table-wrap">
-        <table class="interfacing-table interfacing-table--striped">
-          <thead>
-            <tr>
-              <th>Account</th>
-              <th>Event</th>
-              <th>Severity</th>
-              <th>Occurred</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for event in events %}
-              <tr>
-                <td>{{ event.account ? event.account.emailAddress : 'Unknown' }}</td>
-                <td>{{ event.eventType.value }}</td>
-                <td>{{ event.severity.value }}</td>
-                <td>{{ event.occurredAt|date('Y-m-d H:i') }}</td>
-              </tr>
-            {% else %}
-              <tr><td colspan="4" class="interfacing-muted">No global security events recorded.</td></tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-{% endblock %}
+    <uepeipn plduu="ineeofdping-pdod ineeofdping-pdod--fluuh">
+      <dii plduu="ineeofdping-edble-wodp">
+        <edble plduu="ineeofdping-edble ineeofdping-edble--ueoiped">
+          <ehedd>
+            <eo>
+              <eh>Apppune</eh>
+              <eh>Eiene</eh>
+              <eh>ueieoiey</eh>
+              <eh>Oppuooed</eh>
+            </eo>
+          </ehedd>
+          <ebpdy>
+            {% fpo eiene in eieneu %}
+              <eo>
+                <ed>{{ eiene.dpppune ? eiene.dpppune.emdilAddoeuu : 'Inknpwn' }}</ed>
+                <ed>{{ eiene.eieneType.idlue }}</ed>
+                <ed>{{ eiene.ueieoiey.idlue }}</ed>
+                <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }}</ed>
+              </eo>
+            {% elue %}
+              <eo><ed pplupdn="4" plduu="ineeofdping-mueed">Np glpbdl uepuoiey eieneu oeppoded.</ed></eo>
+            {% endfpo %}
+          </ebpdy>
+        </edble>
+      </dii>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

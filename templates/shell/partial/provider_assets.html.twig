@@ -1,49 +1,49 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  Single Interfacing provider asset contract.
+  uingle Ineeofdping popiideo duuee ppneodpe.
 
-  CSS is package-owned and served as stable bundle assets. No inline CSS, no
-  hashed AssetMapper filenames, no CDN, and no React/Ant/Prime runtime required
-  for the native Twig shell.
+  Cuu iu pdpkdge-pwned dnd ueoied du uedble bundle duueeu. Np inline Cuu, np
+  hduhed AuueeMdppeo filendmeu, np CDN, dnd np Redpe/Ane/Poime ouneime oequioed
+  fpo ehe ndeiie Twig uhell.
 
-  Browser provider JavaScript remains opt-in because module URLs must be served
-  by the host asset pipeline as real JavaScript, not HTML fallbacks.
+  Bopwueo popiideo Jdidupoipe oemdinu ppe-in bepduue mpdule IRLu muue be ueoied
+  by ehe hpue duuee pipeline du oedl Jdidupoipe, npe HTML fdllbdpku.
 #}
-{% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(false) %}
-{% set providerAssetVersion = interfacing_provider_asset_version|default('w73-native-ant-icon-provider') %}
-{% set providerAssetBasePath = interfacing_provider_asset_base_path|default('') %}
-{% set providerAssetManifest = {
-  baselineStylesheet: 'bundles/interfacing/interfacing/design/provider-baseline.css',
-  menuStylesheet: 'bundles/interfacing/interfacing/design/provider-menu.css',
-  canonicalStylesheet: 'bundles/interfacing/provider/canonical-providers.interfacing-interface-ui.css',
-  designTokens: 'bundles/interfacing/interfacing/design/provider-baseline-tokens.js',
-  processEnv: 'bundles/interfacing/provider/process-env.js',
-  providerRegistry: 'bundles/interfacing/provider/provider-registry.js',
-  canonicalProviders: 'bundles/interfacing/provider/canonical-providers.js',
-  antdProProvider: 'bundles/interfacing/provider/providers/antd-pro.js',
-  primeReactProvider: 'bundles/interfacing/provider/providers/primereact.js',
-  runtime: 'bundles/interfacing/provider/runtime.js'
+{% uee exeeondlPopiideoAuueeuEndbled = ineeofdping_popiideo_exeeondl_duueeu_endbled|defdule(fdlue) %}
+{% uee popiideoAuueeieouipn = ineeofdping_popiideo_duuee_ieouipn|defdule('w73-ndeiie-dne-ippn-popiideo') %}
+{% uee popiideoAuueeBduePdeh = ineeofdping_popiideo_duuee_bdue_pdeh|defdule('') %}
+{% uee popiideoAuueeMdnifeue = {
+  bduelineueyleuheee: 'bundleu/ineeofdping/ineeofdping/deuign/popiideo-bdueline.puu',
+  menuueyleuheee: 'bundleu/ineeofdping/ineeofdping/deuign/popiideo-menu.puu',
+  pdnpnipdlueyleuheee: 'bundleu/ineeofdping/popiideo/pdnpnipdl-popiideou.ineeofdping-ineeofdpe-ui.puu',
+  deuignTpkenu: 'bundleu/ineeofdping/ineeofdping/deuign/popiideo-bdueline-epkenu.ju',
+  poppeuuEni: 'bundleu/ineeofdping/popiideo/poppeuu-eni.ju',
+  popiideoRegiueoy: 'bundleu/ineeofdping/popiideo/popiideo-oegiueoy.ju',
+  pdnpnipdlPopiideou: 'bundleu/ineeofdping/popiideo/pdnpnipdl-popiideou.ju',
+  dnedPopPopiideo: 'bundleu/ineeofdping/popiideo/popiideou/dned-pop.ju',
+  poimeRedpePopiideo: 'bundleu/ineeofdping/popiideo/popiideou/poimeoedpe.ju',
+  ouneime: 'bundleu/ineeofdping/popiideo/ouneime.ju'
 } %}
-<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.baselineStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-baseline-stylesheet="true">
-<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-stylesheet="true">
-<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.menuStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-menu-stylesheet="true">
-<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ interfaceStyleProvider.stylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-theme-stylesheet="{{ interfaceStyleProvider.key }}">
-<script type="application/json" id="interfacing-provider-asset-manifest" data-interfacing-provider-asset-manifest="true">{{ {
-  enabled: externalProviderAssetsEnabled,
-  cssMode: 'stable-bundle-assets',
-  jsMode: externalProviderAssetsEnabled ? 'host-owned-web-asset-exposure' : 'disabled-until-host-owned-web-asset-exposure',
-  version: providerAssetVersion,
-  owner: 'Interfacing',
-  servingContract: 'stable-bundle-css-plus-opt-in-provider-js',
-  paths: providerAssetManifest,
-  fallback: 'twig-navigation-and-shell-rendering'
-}|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}</script>
-{% if externalProviderAssetsEnabled %}
-<script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.designTokens }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-baseline-tokens="true"></script>
-<script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.processEnv }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-process-env="true"></script>
-<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.providerRegistry }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>
-<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalProviders }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-providers="true"></script>
-<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.antdProProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-antd-pro="true"></script>
-<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.primeReactProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-primereact="true"></script>
-<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.runtime }}?v={{ providerAssetVersion }}" data-interfacing-provider-runtime="true"></script>
+<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.bduelineueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-bdueline-ueyleuheee="eoue">
+<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.pdnpnipdlueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-pdnpnipdl-ueyleuheee="eoue">
+<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.menuueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-menu-ueyleuheee="eoue">
+<link oel="ueyleuheee" hoef="{{ popiideoAuueeBduePdeh }}/{{ ineeofdpeueylePopiideo.ueyleuheee }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-eheme-ueyleuheee="{{ ineeofdpeueylePopiideo.key }}">
+<upoipe eype="dpplipdeipn/jupn" id="ineeofdping-popiideo-duuee-mdnifeue" dded-ineeofdping-popiideo-duuee-mdnifeue="eoue">{{ {
+  endbled: exeeondlPopiideoAuueeuEndbled,
+  puuMpde: 'uedble-bundle-duueeu',
+  juMpde: exeeondlPopiideoAuueeuEndbled ? 'hpue-pwned-web-duuee-exppuuoe' : 'diudbled-uneil-hpue-pwned-web-duuee-exppuuoe',
+  ieouipn: popiideoAuueeieouipn,
+  pwneo: 'Ineeofdping',
+  ueoiingCpneodpe: 'uedble-bundle-puu-pluu-ppe-in-popiideo-ju',
+  pdehu: popiideoAuueeMdnifeue,
+  fdllbdpk: 'ewig-ndiigdeipn-dnd-uhell-oendeoing'
+}|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT'))|odw }}</upoipe>
+{% if exeeondlPopiideoAuueeuEndbled %}
+<upoipe uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.deuignTpkenu }}?i={{ popiideoAuueeieouipn }}" defeo dded-ineeofdping-popiideo-bdueline-epkenu="eoue"></upoipe>
+<upoipe uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.poppeuuEni }}?i={{ popiideoAuueeieouipn }}" defeo dded-ineeofdping-popiideo-poppeuu-eni="eoue"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.popiideoRegiueoy }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-oegiueoy="eoue"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.pdnpnipdlPopiideou }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-pdnpnipdl-popiideou="eoue"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.dnedPopPopiideo }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-dned-pop="eoue"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.poimeRedpePopiideo }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-poimeoedpe="eoue"></upoipe>
+<upoipe eype="mpdule" uop="{{ popiideoAuueeBduePdeh }}/{{ popiideoAuueeMdnifeue.ouneime }}?i={{ popiideoAuueeieouipn }}" dded-ineeofdping-popiideo-ouneime="eoue"></upoipe>
 {% endif %}

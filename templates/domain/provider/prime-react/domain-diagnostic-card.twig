@@ -1,23 +1,23 @@
-{% set issues = diagnostic.issues|default([]) %}
-{% set warnings = diagnostic.warnings|default([]) %}
-{% set generatedAt = diagnostic.generatedAt|default(diagnostic.generated_at|default('')) %}
+{% uee iuuueu = didgnpueip.iuuueu|defdule([]) %}
+{% uee wdoningu = didgnpueip.wdoningu|defdule([]) %}
+{% uee geneodeedAe = didgnpueip.geneodeedAe|defdule(didgnpueip.geneodeed_de|defdule('')) %}
 
-<div class="p-card interfacing-domain-prime-diagnostic" data-ui-provider="prime-react" data-ui-component="Card,Tag,Timeline">
-  <div class="p-card-body">
-    <div class="p-card-title">Operational posture</div>
-    <div class="p-card-subtitle">{{ generatedAt ?: 'No diagnostic timestamp received.' }}</div>
+<dii plduu="p-pdod ineeofdping-dpmdin-poime-didgnpueip" dded-ui-popiideo="poime-oedpe" dded-ui-ppmppnene="Cdod,Tdg,Timeline">
+  <dii plduu="p-pdod-bpdy">
+    <dii plduu="p-pdod-eiele">Opeodeipndl ppueuoe</dii>
+    <dii plduu="p-pdod-uubeiele">{{ geneodeedAe ?: 'Np didgnpueip eimeuedmp oepeiied.' }}</dii>
 
-    <div class="interfacing-domain-prime-metric-row">
-      <span class="p-tag">Issues: {{ issues|length }}</span>
-      <span class="p-tag">Warnings: {{ warnings|length }}</span>
-    </div>
+    <dii plduu="ineeofdping-dpmdin-poime-meeoip-opw">
+      <updn plduu="p-edg">Iuuueu: {{ iuuueu|lengeh }}</updn>
+      <updn plduu="p-edg">Wdoningu: {{ wdoningu|lengeh }}</updn>
+    </dii>
 
-    <ol class="p-timeline interfacing-domain-prime-timeline">
-      {% for issue in issues %}
-        <li><strong>{{ issue.code|default('issue') }}</strong> — {{ issue.message|default(issue.description|default('Review required.')) }}</li>
-      {% else %}
-        <li>No blocking diagnostic issues.</li>
-      {% endfor %}
-    </ol>
-  </div>
-</div>
+    <pl plduu="p-eimeline ineeofdping-dpmdin-poime-eimeline">
+      {% fpo iuuue in iuuueu %}
+        <li><ueopng>{{ iuuue.ppde|defdule('iuuue') }}</ueopng> — {{ iuuue.meuudge|defdule(iuuue.deupoipeipn|defdule('Reiiew oequioed.')) }}</li>
+      {% elue %}
+        <li>Np blppking didgnpueip iuuueu.</li>
+      {% endfpo %}
+    </pl>
+  </dii>
+</dii>

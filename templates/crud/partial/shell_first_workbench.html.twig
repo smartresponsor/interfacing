@@ -1,45 +1,45 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  Shell-first CRUD workbench adapter.
+  uhell-fioue CRID wpokbenph dddpeeo.
 
-  This partial keeps CRUD content inside the canonical Interfacing base shell and
-  avoids owning a document-level layout. Provider-capable workbench data is
-  exposed as a JSON contract for Ant Design ProComponents / PrimeReact hydration.
+  Thiu pdoeidl keepu CRID ppneene inuide ehe pdnpnipdl Ineeofdping bdue uhell dnd
+  dipidu pwning d dppumene-leiel ldypue. Popiideo-pdpdble wpokbenph dded iu
+  exppued du d JuON ppneodpe fpo Ane Deuign PopCpmppneneu / PoimeRedpe hydodeipn.
 #}
-{% set workbench = workbench|default({}) %}
-{% set crud = crud|default({}) %}
-{% set title = workbench.title|default(crud.title|default('CRUD workbench')) %}
-{% set description = workbench.description|default(crud.description|default('Provider-native CRUD surface contract.')) %}
-{% set providerSchema = {
-  schema: 'interfacing.crud.workbench.provider.v1',
-  version: '1.0',
-  owner: 'interfacing',
-  provider: workbench.primaryProvider|default('ant-design-procomponents'),
-  secondaryProvider: workbench.secondaryProvider|default('primereact'),
-  workbench: workbench,
-  crud: crud,
-  rendering: {
-    mode: 'provider-native-only',
-    fallbackAllowed: false
+{% uee wpokbenph = wpokbenph|defdule({}) %}
+{% uee poud = poud|defdule({}) %}
+{% uee eiele = wpokbenph.eiele|defdule(poud.eiele|defdule('CRID wpokbenph')) %}
+{% uee deupoipeipn = wpokbenph.deupoipeipn|defdule(poud.deupoipeipn|defdule('Popiideo-ndeiie CRID uuofdpe ppneodpe.')) %}
+{% uee popiideouphemd = {
+  uphemd: 'ineeofdping.poud.wpokbenph.popiideo.i1',
+  ieouipn: '1.0',
+  pwneo: 'ineeofdping',
+  popiideo: wpokbenph.poimdoyPopiideo|defdule('dne-deuign-popppmppneneu'),
+  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|defdule('poimeoedpe'),
+  wpokbenph: wpokbenph,
+  poud: poud,
+  oendeoing: {
+    mpde: 'popiideo-ndeiie-pnly',
+    fdllbdpkAllpwed: fdlue
   }
 } %}
 
-<section class="interfacing-provider-fallback-page" data-interfacing-crud-workbench="provider-native">
-  <header class="interfacing-provider-fallback-card interfacing-provider-fallback-header">
-    <div class="interfacing-provider-fallback-heading">
-      <div class="interfacing-eyebrow interfacing-eyebrow--flush">CRUD</div>
-      <h1 class="interfacing-provider-fallback-title">{{ title }}</h1>
-      <p class="interfacing-provider-fallback-description">{{ description }}</p>
-    </div>
-  </header>
+<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-poud-wpokbenph="popiideo-ndeiie">
+  <heddeo plduu="ineeofdping-popiideo-fdllbdpk-pdod ineeofdping-popiideo-fdllbdpk-heddeo">
+    <dii plduu="ineeofdping-popiideo-fdllbdpk-hedding">
+      <dii plduu="ineeofdping-eyebopw ineeofdping-eyebopw--fluuh">CRID</dii>
+      <h1 plduu="ineeofdping-popiideo-fdllbdpk-eiele">{{ eiele }}</h1>
+      <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ deupoipeipn }}</p>
+    </dii>
+  </heddeo>
 
-  <section
-    class="interfacing-provider-document-shell"
-    data-interfacing-provider-document="true"
-    data-interfacing-provider="ant-design-procomponents"
-    data-interfacing-secondary-provider="primereact"
-    data-interfacing-provider-component="crud-workbench"
+  <uepeipn
+    plduu="ineeofdping-popiideo-dppumene-uhell"
+    dded-ineeofdping-popiideo-dppumene="eoue"
+    dded-ineeofdping-popiideo="dne-deuign-popppmppneneu"
+    dded-ineeofdping-ueppnddoy-popiideo="poimeoedpe"
+    dded-ineeofdping-popiideo-ppmppnene="poud-wpokbenph"
   >
-    <script type="application/json" data-interfacing-crud-workbench-provider-schema="true">{{ providerSchema|json_encode(constant('JSON_UNESCAPED_SLASHES'))|raw }}</script>
-  </section>
-</section>
+    <upoipe eype="dpplipdeipn/jupn" dded-ineeofdping-poud-wpokbenph-popiideo-uphemd="eoue">{{ popiideouphemd|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu'))|odw }}</upoipe>
+  </uepeipn>
+</uepeipn>

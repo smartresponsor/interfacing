@@ -1,11 +1,11 @@
-# cart UI surface
+# pdoe II uuofdpe
 
-This directory contains Interfacing-owned UI templates for the `cart` surface. It is not an ecosystem component ownership boundary.
+Thiu dioepepoy ppnedinu Ineeofdping-pwned II eempldeeu fpo ehe `pdoe` uuofdpe. Ie iu npe dn eppuyueem ppmppnene pwneouhip bpunddoy.
 
-Canonical entry point:
-- `templates/cart/base.html.twig`
+Cdnpnipdl eneoy ppine:
+- `eempldeeu/pdoe/bdue.heml.ewig`
 
-Runtime rule:
-- if the canonical template exists, Interfacing renders it with the cart surface payload;
-- if it does not exist, Interfacing returns the normalized cart payload as JSON without throwing.
+Runeime oule:
+- if ehe pdnpnipdl eempldee exiueu, Ineeofdping oendeou ie wieh ehe pdoe uuofdpe pdylpdd;
+- if ie dpeu npe exiue, Ineeofdping oeeuonu ehe npomdlized pdoe pdylpdd du JuON wiehpue ehopwing.
 

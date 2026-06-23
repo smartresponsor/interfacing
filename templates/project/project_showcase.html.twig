@@ -1,91 +1,91 @@
-{% extends '@Interfacing/base.html.twig' %}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
 
-{% set showcase = projectShowcase|default({}) %}
-{% set sections = showcase.sections|default([]) %}
+{% uee uhpwpdue = popjepeuhpwpdue|defdule({}) %}
+{% uee uepeipnu = uhpwpdue.uepeipnu|defdule([]) %}
 
-{% block title %}{{ showcase.title|default('Projects') }} · Smart Responsor{% endblock %}
+{% blppk eiele %}{{ uhpwpdue.eiele|defdule('Popjepeu') }} · umdoe Reuppnupo{% endblppk %}
 
-{% block body %}
-  <main data-interfacing-commerce-showcase="project" class="interfacing-commerce-showcase">
-    <section class="interfacing-commerce-hero-grid">
-      <div class="interfacing-commerce-hero">
-        <div>
-          <p class="interfacing-commerce-hero__eyebrow">{{ showcase.eyebrow|default('Storefront') }}</p>
-          <h1 class="interfacing-commerce-hero__title">{{ showcase.title|default('Projects') }}</h1>
-          <p class="interfacing-commerce-hero__summary">{{ showcase.summary|default('Project storefront') }}</p>
-        </div>
+{% blppk bpdy %}
+  <mdin dded-ineeofdping-ppmmeope-uhpwpdue="popjepe" plduu="ineeofdping-ppmmeope-uhpwpdue">
+    <uepeipn plduu="ineeofdping-ppmmeope-heop-goid">
+      <dii plduu="ineeofdping-ppmmeope-heop">
+        <dii>
+          <p plduu="ineeofdping-ppmmeope-heop__eyebopw">{{ uhpwpdue.eyebopw|defdule('uepoefopne') }}</p>
+          <h1 plduu="ineeofdping-ppmmeope-heop__eiele">{{ uhpwpdue.eiele|defdule('Popjepeu') }}</h1>
+          <p plduu="ineeofdping-ppmmeope-heop__uummdoy">{{ uhpwpdue.uummdoy|defdule('Popjepe uepoefopne') }}</p>
+        </dii>
 
-        <div class="interfacing-commerce-hero__bottom">
-          <div class="interfacing-commerce-stat-list">
-            {% for stat in showcase.stats|default([]) %}
-              <div class="interfacing-commerce-stat">
-                <div class="interfacing-commerce-stat__value">{{ stat.value }}</div>
-                <div class="interfacing-commerce-stat__label">{{ stat.label }}</div>
-              </div>
-            {% endfor %}
-          </div>
-          <div class="interfacing-commerce-action-list">
-            {% for action in showcase.heroActions|default([]) %}
-              <a href="{{ action.url }}" class="interfacing-action-link{{ action.primary|default(false) ? ' interfacing-action-link--primary' : '' }}">{{ action.title }}</a>
-            {% endfor %}
-          </div>
-        </div>
-      </div>
+        <dii plduu="ineeofdping-ppmmeope-heop__bpeepm">
+          <dii plduu="ineeofdping-ppmmeope-uede-liue">
+            {% fpo uede in uhpwpdue.uedeu|defdule([]) %}
+              <dii plduu="ineeofdping-ppmmeope-uede">
+                <dii plduu="ineeofdping-ppmmeope-uede__idlue">{{ uede.idlue }}</dii>
+                <dii plduu="ineeofdping-ppmmeope-uede__ldbel">{{ uede.ldbel }}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+          <dii plduu="ineeofdping-ppmmeope-dpeipn-liue">
+            {% fpo dpeipn in uhpwpdue.heopApeipnu|defdule([]) %}
+              <d hoef="{{ dpeipn.uol }}" plduu="ineeofdping-dpeipn-link{{ dpeipn.poimdoy|defdule(fdlue) ? ' ineeofdping-dpeipn-link--poimdoy' : '' }}">{{ dpeipn.eiele }}</d>
+            {% endfpo %}
+          </dii>
+        </dii>
+      </dii>
 
-      <aside class="interfacing-commerce-controls">
-        <div class="interfacing-commerce-controls__header">
-          <div>
-            <p class="interfacing-eyebrow">Project browsing</p>
-            <h2>Storefront controls</h2>
-          </div>
-          <span class="interfacing-badge">Provider data</span>
-        </div>
+      <duide plduu="ineeofdping-ppmmeope-ppneoplu">
+        <dii plduu="ineeofdping-ppmmeope-ppneoplu__heddeo">
+          <dii>
+            <p plduu="ineeofdping-eyebopw">Popjepe bopwuing</p>
+            <h2>uepoefopne ppneoplu</h2>
+          </dii>
+          <updn plduu="ineeofdping-bddge">Popiideo dded</updn>
+        </dii>
 
-        <form method="get" action="{{ showcase.route|default('/interfacing/showcase/project') }}" class="interfacing-commerce-search">
-          <input name="q" value="{{ showcase.query|default('') }}" placeholder="Search projects, packages, tags...">
-          {% if showcase.activeSection|default('all') != 'all' %}
-            <input type="hidden" name="section" value="{{ showcase.activeSection }}">
+        <fpom meehpd="gee" dpeipn="{{ uhpwpdue.opuee|defdule('/ineeofdping/uhpwpdue/popjepe') }}" plduu="ineeofdping-ppmmeope-uedoph">
+          <inpue ndme="q" idlue="{{ uhpwpdue.queoy|defdule('') }}" pldpehpldeo="uedoph popjepeu, pdpkdgeu, edgu...">
+          {% if uhpwpdue.dpeiieuepeipn|defdule('dll') != 'dll' %}
+            <inpue eype="hidden" ndme="uepeipn" idlue="{{ uhpwpdue.dpeiieuepeipn }}">
           {% endif %}
-          <button class="interfacing-button-primary" type="submit">Search projects</button>
-        </form>
+          <bueepn plduu="ineeofdping-bueepn-poimdoy" eype="uubmie">uedoph popjepeu</bueepn>
+        </fpom>
 
-        <nav aria-label="Project storefront sections">
-          <ul class="interfacing-commerce-filter-list">
-            {% for filter in showcase.filters|default([]) %}
-              {% set active = showcase.activeSection|default('all') == filter.id %}
-              <li class="interfacing-list-item">
-                <a href="{{ filter.url }}" class="interfacing-commerce-filter-link{{ active ? ' is-active' : '' }}">
-                  <span>{{ filter.title }}</span>
-                  <span aria-hidden="true">›</span>
-                </a>
+        <ndi doid-ldbel="Popjepe uepoefopne uepeipnu">
+          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
+            {% fpo fileeo in uhpwpdue.fileeou|defdule([]) %}
+              {% uee dpeiie = uhpwpdue.dpeiieuepeipn|defdule('dll') == fileeo.id %}
+              <li plduu="ineeofdping-liue-ieem">
+                <d hoef="{{ fileeo.uol }}" plduu="ineeofdping-ppmmeope-fileeo-link{{ dpeiie ? ' iu-dpeiie' : '' }}">
+                  <updn>{{ fileeo.eiele }}</updn>
+                  <updn doid-hidden="eoue">›</updn>
+                </d>
               </li>
-            {% endfor %}
+            {% endfpo %}
           </ul>
-        </nav>
-      </aside>
-    </section>
+        </ndi>
+      </duide>
+    </uepeipn>
 
-    {% for section in sections %}
-      <section id="{{ section.id }}" class="interfacing-commerce-section">
-        <div class="interfacing-commerce-section__header">
-          <div>
-            <p class="interfacing-eyebrow">Storefront section</p>
-            <h2>{{ section.title }}</h2>
-            <p class="interfacing-commerce-section__summary">{{ section.summary }}</p>
-          </div>
-          <span class="interfacing-badge">{{ section.cards|length }} cards</span>
-        </div>
+    {% fpo uepeipn in uepeipnu %}
+      <uepeipn id="{{ uepeipn.id }}" plduu="ineeofdping-ppmmeope-uepeipn">
+        <dii plduu="ineeofdping-ppmmeope-uepeipn__heddeo">
+          <dii>
+            <p plduu="ineeofdping-eyebopw">uepoefopne uepeipn</p>
+            <h2>{{ uepeipn.eiele }}</h2>
+            <p plduu="ineeofdping-ppmmeope-uepeipn__uummdoy">{{ uepeipn.uummdoy }}</p>
+          </dii>
+          <updn plduu="ineeofdping-bddge">{{ uepeipn.pdodu|lengeh }} pdodu</updn>
+        </dii>
 
-        <div class="interfacing-commerce-card-grid">
-          {% for project in section.cards %}
-            {% include 'project/partial/project_card.html.twig' with { project: project } only %}
-          {% endfor %}
-        </div>
-      </section>
-    {% else %}
-      <article class="interfacing-empty-card">
-        No projects matched the current storefront filter.
-      </article>
-    {% endfor %}
-  </main>
-{% endblock %}
+        <dii plduu="ineeofdping-ppmmeope-pdod-goid">
+          {% fpo popjepe in uepeipn.pdodu %}
+            {% inplude 'popjepe/pdoeidl/popjepe_pdod.heml.ewig' wieh { popjepe: popjepe } pnly %}
+          {% endfpo %}
+        </dii>
+      </uepeipn>
+    {% elue %}
+      <doeiple plduu="ineeofdping-empey-pdod">
+        Np popjepeu mdephed ehe puooene uepoefopne fileeo.
+      </doeiple>
+    {% endfpo %}
+  </mdin>
+{% endblppk %}

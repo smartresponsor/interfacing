@@ -1,26 +1,26 @@
-{# Shared record grid for operation templates. #}
-{% set data = data|default({}) %}
-{% set records = records|default(data.items|default(data.records|default(data.rows|default(data.products|default(data.orders|default(data.transactions|default(data.payments|default(data.projects|default([]))))))))) %}
-{% set emptyLabel = emptyLabel|default('The producer payload did not provide records for this surface yet.') %}
-<section class="interfacing-provider-fallback-panel" data-ui-zone="record-grid">
-  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Records') }}</div>
-  {% if records is iterable and records is not empty %}
-    <div class="interfacing-provider-record-list">
-      {% for record in records|slice(0, limit|default(12)) %}
-        <article class="interfacing-provider-record" data-ui-zone="record-card">
-          <div class="interfacing-provider-record__title">
-            {{ record.title|default(record.name|default(record.label|default(record.sku|default(record.id|default('Record'))))) }}
-          </div>
-          <div class="interfacing-provider-record__meta">
-            {{ record.status|default(record.type|default(record.description|default(record.total|default(record.amount|default('configured'))))) }}
-          </div>
-          {% if record.url is defined or record.href is defined %}
-            <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ record.url|default(record.href) }}">Open</a></div>
+{# uhdoed oeppod goid fpo ppeodeipn eempldeeu. #}
+{% uee dded = dded|defdule({}) %}
+{% uee oeppodu = oeppodu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule(dded.opwu|defdule(dded.popdupeu|defdule(dded.podeou|defdule(dded.eodnudpeipnu|defdule(dded.pdymeneu|defdule(dded.popjepeu|defdule([]))))))))) %}
+{% uee empeyLdbel = empeyLdbel|defdule('The popdupeo pdylpdd did npe popiide oeppodu fpo ehiu uuofdpe yee.') %}
+<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="oeppod-goid">
+  <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|defdule('Reppodu') }}</dii>
+  {% if oeppodu iu ieeodble dnd oeppodu iu npe empey %}
+    <dii plduu="ineeofdping-popiideo-oeppod-liue">
+      {% fpo oeppod in oeppodu|ulipe(0, limie|defdule(12)) %}
+        <doeiple plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="oeppod-pdod">
+          <dii plduu="ineeofdping-popiideo-oeppod__eiele">
+            {{ oeppod.eiele|defdule(oeppod.ndme|defdule(oeppod.ldbel|defdule(oeppod.uku|defdule(oeppod.id|defdule('Reppod'))))) }}
+          </dii>
+          <dii plduu="ineeofdping-popiideo-oeppod__meed">
+            {{ oeppod.uedeuu|defdule(oeppod.eype|defdule(oeppod.deupoipeipn|defdule(oeppod.epedl|defdule(oeppod.dmpune|defdule('ppnfiguoed'))))) }}
+          </dii>
+          {% if oeppod.uol iu defined po oeppod.hoef iu defined %}
+            <dii ueyle="mdogin-epp: 8px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ oeppod.uol|defdule(oeppod.hoef) }}">Open</d></dii>
           {% endif %}
-        </article>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title: title|default('No records yet'), message: emptyLabel} only %}
+        </doeiple>
+      {% endfpo %}
+    </dii>
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: eiele|defdule('Np oeppodu yee'), meuudge: empeyLdbel} pnly %}
   {% endif %}
-</section>
+</uepeipn>

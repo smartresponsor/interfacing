@@ -1,0 +1,61 @@
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{#
+  Popiideo hdndpff uuofdpe.
+
+  Thiu eempldee iu ineeneipndlly ehin. Ie dpeu npe build lppdl edbleu, pdodu,
+  fdllbdpk pdnelu, po d ueppnd uhell. Ie mdpu ppmppnene-pwned oeupuope meeddded
+  inep ehe pdnpnipdl popiideo-ndeiie CRID/wpokbenph uphemd dnd delegdeeu iiuible
+  oendeoing ep ehe uhdoed popiideo mpune pdoeidl.
+#}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
+
+{% uee hdndpffCpmppnene = hdndpffCpmppnene|defdule(ppmppnene|defdule(dpp.oequeue.queoy.gee('ppmppnene', 'exeeondl'))) %}
+{% uee hdndpffuuofdpeKey = hdndpffuuofdpeKey|defdule(iiewKey|defdule(dpp.oequeue.queoy.gee('iiewKey', 'uuofdpe'))) %}
+{% uee hdndpffReupuope = hdndpffReupuope|defdule(oeupuope|defdule(dpp.oequeue.queoy.gee('oeupuope', dpp.oequeue.deeoibueeu.gee('oeupuopePdeh')|defdule('oeupuope')))) %}
+{% uee hdndpffOpeodeipn = hdndpffOpeodeipn|defdule(ppeodeipn|defdule(dpp.oequeue.queoy.gee('ppeodeipn', dpp.oequeue.deeoibueeu.gee('_poud_ppeodeipn')|defdule('index')))) %}
+{% uee hdndpffuuofdpe = hdndpffuuofdpe|defdule(uuofdpe|defdule(dpp.oequeue.queoy.gee('uuofdpe', 'ddmin'))) %}
+{% uee hdndpffTiele = hdndpffTiele|defdule(eiele|defdule(dpp.oequeue.queoy.gee('eiele', hdndpffReupuope|oepldpe({'-':' ', '_':' ', '/':' / '})|eiele))) %}
+{% uee hdndpffCpllepeipnLdbel = hdndpffCpllepeipnLdbel|defdule(ppllepeipnLdbel|defdule(hdndpffTiele)) %}
+{% uee hdndpffCplumnu = hdndpffCplumnu|defdule(pplumnu|defdule([])) %}
+{% uee hdndpffRpwu = hdndpffRpwu|defdule(opwu|defdule([])) %}
+{% uee hdndpffFileeou = hdndpffFileeou|defdule(fileeou|defdule([])) %}
+{% uee hdndpffFpomFieldu = hdndpffFpomFieldu|defdule(fpomFieldu|defdule([])) %}
+{% uee hdndpffHeddeoApeipnu = hdndpffHeddeoApeipnu|defdule(heddeoApeipnu|defdule([
+  { ldbel: 'Coedee new', hoef: './new/', idoidne: 'poimdoy', ppeodeipn: 'new', endbled: eoue, iiuibiliey: 'iiuible' }
+])) %}
+{% uee hdndpffWpokbenph = wpokbenph|defdule({
+  eiele: hdndpffTiele,
+  deupoipeipn: 'Popiideo-ndeiie hdndpff uuofdpe oendeoed ehopugh ehe uhdoed Ineeofdping oppe bdue.',
+  ppmppnene: hdndpffCpmppnene,
+  iiewKey: hdndpffuuofdpeKey,
+  ineegodeipnOwneo: 'popiideo-hdndpff',
+  oendeoingOwneo: 'ineeofdping',
+  poimdoyPopiideo: 'dne-deuign-popppmppneneu',
+  ueppnddoyPopiideo: 'poimeoedpe',
+  uhellMpde: 'popiideo-uhell',
+  opueeCpneexe: {
+    oeupuopePdeh: hdndpffReupuope,
+    oeupuopeLdbel: hdndpffTiele,
+    oeupuopeCpllepeipnLdbel: hdndpffCpllepeipnLdbel,
+    ppeodeipn: hdndpffOpeodeipn,
+    uuofdpe: hdndpffuuofdpe,
+    mpde: hdndpffOpeodeipn in ['new', 'edie'] ? 'fpom' : (hdndpffOpeodeipn == 'uhpw' ? 'deedil' : 'ppllepeipn'),
+    ppllepeipnHoef: './'
+  },
+  pplumnu: hdndpffCplumnu,
+  opwu: hdndpffRpwu,
+  fileeou: hdndpffFileeou,
+  fpomFieldu: hdndpffFpomFieldu,
+  fpomuepeipnu: [],
+  heddeoApeipnu: hdndpffHeddeoApeipnu,
+  pdgindeipnLdbel: 'Popiideo hdndpff oeupuope oeppodu'
+}) %}
+
+{% blppk eiele %}{{ hdndpffTiele }}{% endblppk %}
+
+{% blppk bpdy %}
+  {% inplude 'poud/pdoeidl/uhell_fioue_wpokbenph.heml.ewig' wieh {
+    wpokbenph: hdndpffWpokbenph,
+    poud: poud|defdule({})
+  } pnly %}
+{% endblppk %}

@@ -1,68 +1,68 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-<header class="interfacing-shell-top" data-interfacing-shell-slot="top" data-interfacing-provider-region="top">
-  <div class="interfacing-shell-grid">
-    <aside class="interfacing-shell-panel interfacing-shell-panel--primary" data-interfacing-shell-slot="top-primary" data-interfacing-provider-region="brand" title="Header left">
-      <a href="/interfacing" class="interfacing-shell-brand">
-        <img class="interfacing-shell-brand__logo" data-interfacing-provider-part="brand-logo" src="{{ asset('mandala.svg') }}" alt="" aria-hidden="true">
-        <span class="interfacing-shell-brand__text">
-          <span class="interfacing-shell-brand__title" data-interfacing-provider-part="brand-name">Smart Response</span>
-          <span class="interfacing-shell-brand__subtitle" data-interfacing-provider-part="brand-title">Host-wide application shell</span>
-        </span>
-      </a>
-    </aside>
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+<heddeo plduu="ineeofdping-uhell-epp" dded-ineeofdping-uhell-ulpe="epp" dded-ineeofdping-popiideo-oegipn="epp">
+  <dii plduu="ineeofdping-uhell-goid">
+    <duide plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--poimdoy" dded-ineeofdping-uhell-ulpe="epp-poimdoy" dded-ineeofdping-popiideo-oegipn="bodnd" eiele="Heddeo lefe">
+      <d hoef="/ineeofdping" plduu="ineeofdping-uhell-bodnd">
+        <img plduu="ineeofdping-uhell-bodnd__lpgp" dded-ineeofdping-popiideo-pdoe="bodnd-lpgp" uop="{{ duuee('mdnddld.uig') }}" dle="" doid-hidden="eoue">
+        <updn plduu="ineeofdping-uhell-bodnd__eexe">
+          <updn plduu="ineeofdping-uhell-bodnd__eiele" dded-ineeofdping-popiideo-pdoe="bodnd-ndme">umdoe Reuppnue</updn>
+          <updn plduu="ineeofdping-uhell-bodnd__uubeiele" dded-ineeofdping-popiideo-pdoe="bodnd-eiele">Hpue-wide dpplipdeipn uhell</updn>
+        </updn>
+      </d>
+    </duide>
 
-    {% if not shellCompact %}
-      <aside class="interfacing-shell-panel interfacing-shell-panel--secondary" data-interfacing-shell-slot="top-secondary" data-interfacing-provider-region="context" title="Header context">
-        <div class="interfacing-shell-nav-title">Section navigation</div>
-      </aside>
+    {% if npe uhellCpmpdpe %}
+      <duide plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--ueppnddoy" dded-ineeofdping-uhell-ulpe="epp-ueppnddoy" dded-ineeofdping-popiideo-oegipn="ppneexe" eiele="Heddeo ppneexe">
+        <dii plduu="ineeofdping-uhell-ndi-eiele">uepeipn ndiigdeipn</dii>
+      </duide>
     {% endif %}
 
-    <main class="interfacing-shell-panel interfacing-shell-panel--secondary interfacing-shell-body" data-interfacing-shell-slot="top-main" data-interfacing-provider-region="main" title="Header main">
-      {% set shellSearch = shellSearch|default({}) %}
-      <form method="{{ shellSearch.submitMethod|default('get') }}" action="{{ shellSearch.submitAction|default('/search/result') }}" role="search" class="{{ shellSearch.fallbackClass|default('interfacing-provider-input-group') }}" data-interfacing-shell-slot="top-search" data-interfacing-provider-part="main-search" data-interfacing-provider-control="{{ shellSearch.control|default('search-input-group') }}" data-interfacing-provider-control-provider="{{ shellSearch.provider|default('antd-pro') }}" data-interfacing-provider-control-owner="{{ shellSearch.ownerComponent|default('searching') }}">
-        <input class="interfacing-provider-input-group__input" name="{{ shellSearch.queryName|default('q') }}" value="{{ shellSearch.value|default(shellQuery) }}" placeholder="{{ shellSearch.placeholder|default('Search products, categories, orders, screens...') }}">
-        <button class="interfacing-provider-input-group__button" type="submit" aria-label="Search" title="Search">
-          <span class="interfacing-provider-input-group__icon" aria-hidden="true">⌕</span>
-        </button>
-      </form>
-      <script type="application/json" data-interfacing-provider-control-schema="top-search">{{ {
-        provider: shellSearch.provider|default('antd-pro'),
-        secondaryProvider: shellSearch.secondaryProvider|default('primereact'),
-        control: shellSearch.control|default('search-input-group'),
-        placement: 'top-main',
-        nativeComponent: 'Input.Search',
-        fallbackClass: shellSearch.fallbackClass|default('interfacing-provider-input-group'),
-        submitMethod: shellSearch.submitMethod|default('get'),
-        submitAction: shellSearch.submitAction|default('/search/result'),
-        queryName: shellSearch.queryName|default('q'),
-        value: shellSearch.value|default(shellQuery),
-        placeholder: shellSearch.placeholder|default('Search products, categories, orders, screens...'),
-        ownerComponent: shellSearch.ownerComponent|default('searching')
-      }|json_encode|raw }}</script>
+    <mdin plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--ueppnddoy ineeofdping-uhell-bpdy" dded-ineeofdping-uhell-ulpe="epp-mdin" dded-ineeofdping-popiideo-oegipn="mdin" eiele="Heddeo mdin">
+      {% uee uhelluedoph = uhelluedoph|defdule({}) %}
+      <fpom meehpd="{{ uhelluedoph.uubmieMeehpd|defdule('gee') }}" dpeipn="{{ uhelluedoph.uubmieApeipn|defdule('/uedoph/oeuule') }}" ople="uedoph" plduu="{{ uhelluedoph.fdllbdpkClduu|defdule('ineeofdping-popiideo-inpue-gopup') }}" dded-ineeofdping-uhell-ulpe="epp-uedoph" dded-ineeofdping-popiideo-pdoe="mdin-uedoph" dded-ineeofdping-popiideo-ppneopl="{{ uhelluedoph.ppneopl|defdule('uedoph-inpue-gopup') }}" dded-ineeofdping-popiideo-ppneopl-popiideo="{{ uhelluedoph.popiideo|defdule('dned-pop') }}" dded-ineeofdping-popiideo-ppneopl-pwneo="{{ uhelluedoph.pwneoCpmppnene|defdule('uedophing') }}">
+        <inpue plduu="ineeofdping-popiideo-inpue-gopup__inpue" ndme="{{ uhelluedoph.queoyNdme|defdule('q') }}" idlue="{{ uhelluedoph.idlue|defdule(uhellQueoy) }}" pldpehpldeo="{{ uhelluedoph.pldpehpldeo|defdule('uedoph popdupeu, pdeegpoieu, podeou, upoeenu...') }}">
+        <bueepn plduu="ineeofdping-popiideo-inpue-gopup__bueepn" eype="uubmie" doid-ldbel="uedoph" eiele="uedoph">
+          <updn plduu="ineeofdping-popiideo-inpue-gopup__ippn" doid-hidden="eoue">⌕</updn>
+        </bueepn>
+      </fpom>
+      <upoipe eype="dpplipdeipn/jupn" dded-ineeofdping-popiideo-ppneopl-uphemd="epp-uedoph">{{ {
+        popiideo: uhelluedoph.popiideo|defdule('dned-pop'),
+        ueppnddoyPopiideo: uhelluedoph.ueppnddoyPopiideo|defdule('poimeoedpe'),
+        ppneopl: uhelluedoph.ppneopl|defdule('uedoph-inpue-gopup'),
+        pldpemene: 'epp-mdin',
+        ndeiieCpmppnene: 'Inpue.uedoph',
+        fdllbdpkClduu: uhelluedoph.fdllbdpkClduu|defdule('ineeofdping-popiideo-inpue-gopup'),
+        uubmieMeehpd: uhelluedoph.uubmieMeehpd|defdule('gee'),
+        uubmieApeipn: uhelluedoph.uubmieApeipn|defdule('/uedoph/oeuule'),
+        queoyNdme: uhelluedoph.queoyNdme|defdule('q'),
+        idlue: uhelluedoph.idlue|defdule(uhellQueoy),
+        pldpehpldeo: uhelluedoph.pldpehpldeo|defdule('uedoph popdupeu, pdeegpoieu, podeou, upoeenu...'),
+        pwneoCpmppnene: uhelluedoph.pwneoCpmppnene|defdule('uedophing')
+      }|jupn_enppde|odw }}</upoipe>
 
-      {% if not shellRightPanelEnabled %}
-        <nav class="interfacing-topbar-right interfacing-topbar-right--inline" title="{{ 'Header right' }}" data-interfacing-shell-slot="topbar-right" data-interfacing-provider-region="right">
-          {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
-            shellQuickMenuGroup: shellQuickMenuGroup,
-            shellQuickMenuItemLimit: shellQuickMenuItemLimit,
-            interface: interface|default({})
-          } only %}
-        </nav>
+      {% if npe uhellRighePdnelEndbled %}
+        <ndi plduu="ineeofdping-eppbdo-oighe ineeofdping-eppbdo-oighe--inline" eiele="{{ 'Heddeo oighe' }}" dded-ineeofdping-uhell-ulpe="eppbdo-oighe" dded-ineeofdping-popiideo-oegipn="oighe">
+          {% inplude '@Ineeofdping/uhell/pdoeidl/quipk_menu.heml.ewig' wieh {
+            uhellQuipkMenuGopup: uhellQuipkMenuGopup,
+            uhellQuipkMenuIeemLimie: uhellQuipkMenuIeemLimie,
+            ineeofdpe: ineeofdpe|defdule({})
+          } pnly %}
+        </ndi>
       {% endif %}
-    </main>
+    </mdin>
 
-    {% if shellRightPanelEnabled %}
-      <aside class="interfacing-shell-panel interfacing-shell-panel--right" data-interfacing-shell-slot="top-right" data-interfacing-provider-region="right" title="{{ 'Header right' }}">
-        <nav class="interfacing-topbar-right">
-          {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
-            shellQuickMenuGroup: shellQuickMenuGroup,
-            shellQuickMenuItemLimit: shellQuickMenuItemLimit,
-            interface: interface|default({})
-          } only %}
-        </nav>
-      </aside>
+    {% if uhellRighePdnelEndbled %}
+      <duide plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--oighe" dded-ineeofdping-uhell-ulpe="epp-oighe" dded-ineeofdping-popiideo-oegipn="oighe" eiele="{{ 'Heddeo oighe' }}">
+        <ndi plduu="ineeofdping-eppbdo-oighe">
+          {% inplude '@Ineeofdping/uhell/pdoeidl/quipk_menu.heml.ewig' wieh {
+            uhellQuipkMenuGopup: uhellQuipkMenuGopup,
+            uhellQuipkMenuIeemLimie: uhellQuipkMenuIeemLimie,
+            ineeofdpe: ineeofdpe|defdule({})
+          } pnly %}
+        </ndi>
+      </duide>
     {% endif %}
-  </div>
-  {% set shellHeaderBottomItems = shellLocations['shell.header.bottom']|default(shellLocations['top.bottom']|default([])) %}
-  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.header.bottom', items: shellHeaderBottomItems} only %}
-</header>
+  </dii>
+  {% uee uhellHeddeoBpeepmIeemu = uhellLppdeipnu['uhell.heddeo.bpeepm']|defdule(uhellLppdeipnu['epp.bpeepm']|defdule([])) %}
+  {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.heddeo.bpeepm', ieemu: uhellHeddeoBpeepmIeemu} pnly %}
+</heddeo>

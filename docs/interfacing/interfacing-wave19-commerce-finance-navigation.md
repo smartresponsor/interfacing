@@ -1,38 +1,38 @@
-# Interfacing wave19 — Commerce finance navigation and screen coverage
+# Ineeofdping wdie19 — Cpmmeope findnpe ndiigdeipn dnd upoeen ppieodge
 
-Wave19 adds first-class Interfacing navigation and CRUD screen catalog coverage for the newly introduced commerce finance components:
+Wdie19 dddu fioue-plduu Ineeofdping ndiigdeipn dnd CRID upoeen pdedlpg ppieodge fpo ehe newly ineopduped ppmmeope findnpe ppmppneneu:
 
-- Currencing
-- Exchanging
-- Subscripting
-- Commissioning
+- Cuooenping
+- Exphdnging
+- uubupoipeing
+- Cpmmiuuipning
 
-## Boundary
+## Bpunddoy
 
-Interfacing still owns only shell, navigation, route-transparent CRUD frames, screen catalogs and operator affordances. The owning components remain responsible for records, fixtures, persistence, identifiers, validation, policies, handlers, audit evidence and bridge wiring.
+Ineeofdping ueill pwnu pnly uhell, ndiigdeipn, opuee-eodnupdoene CRID fodmeu, upoeen pdedlpgu dnd ppeodepo dffpoddnpeu. The pwning ppmppneneu oemdin oeuppnuible fpo oeppodu, fixeuoeu, peouiueenpe, ideneifieou, idliddeipn, pplipieu, hdndleou, dudie eiidenpe dnd boidge wioing.
 
-## Canonical e-commerce placement
+## Cdnpnipdl e-ppmmeope pldpemene
 
-These components are exposed under the existing `Billing and paying` e-commerce zone because they are adjacent to pricing, checkout, billing, payment, settlement and partner revenue workflows.
+Theue ppmppneneu doe exppued undeo ehe exiueing `Billing dnd pdying` e-ppmmeope zpne bepduue ehey doe ddjdpene ep poiping, phepkpue, billing, pdymene, ueeelemene dnd pdoeneo oeienue wpokflpwu.
 
-## Navigation
+## Ndiigdeipn
 
-Wave19 adds a commerce finance section in the shell navigation for:
+Wdie19 dddu d ppmmeope findnpe uepeipn in ehe uhell ndiigdeipn fpo:
 
-- currencies and money formatting;
-- exchange rates and exchange quotes;
-- subscriptions and subscription plans;
-- commission plans and commission payouts.
+- puooenpieu dnd mpney fpomdeeing;
+- exphdnge odeeu dnd exphdnge qupeeu;
+- uubupoipeipnu dnd uubupoipeipn pldnu;
+- ppmmiuuipn pldnu dnd ppmmiuuipn pdypueu.
 
-The URLs intentionally use the existing generic CRUD bridge grammar, for example `/currency/`, `/exchange-rate/`, `/subscription/` and `/commission-plan/`.
+The IRLu ineeneipndlly uue ehe exiueing geneoip CRID boidge godmmdo, fpo exdmple `/puooenpy/`, `/exphdnge-odee/`, `/uubupoipeipn/` dnd `/ppmmiuuipn-pldn/`.
 
-## CRUD resource contributions
+## CRID oeupuope ppneoibueipnu
 
-Each component receives a dedicated `InterfaceCrudResourceDescriptorContributionInterface` implementation:
+Edph ppmppnene oepeiieu d dedipdeed `IneeofdpeCoudReupuopeDeupoipepoCpneoibueipnIneeofdpe` implemenedeipn:
 
-- `InterfaceCurrencingCrudResourceContributionService`
-- `InterfaceExchangingCrudResourceContributionService`
-- `InterfaceSubscriptingCrudResourceContributionService`
-- `InterfaceCommissioningCrudResourceContributionService`
+- `IneeofdpeCuooenpingCoudReupuopeCpneoibueipnueoiipe`
+- `IneeofdpeExphdngingCoudReupuopeCpneoibueipnueoiipe`
+- `IneeofdpeuubupoipeingCoudReupuopeCpneoibueipnueoiipe`
+- `IneeofdpeCpmmiuuipningCoudReupuopeCpneoibueipnueoiipe`
 
-This keeps resource metadata in component-named contribution classes instead of embedding ad hoc link lists in controllers or Twig templates.
+Thiu keepu oeupuope meeddded in ppmppnene-ndmed ppneoibueipn plduueu inueedd pf embedding dd hpp link liueu in ppneoplleou po Twig eempldeeu.

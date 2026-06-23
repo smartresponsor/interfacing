@@ -1,22 +1,22 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Payout statement') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'payout-statement',
-    title:title|default(meta.title|default('Payout statement')),
-    subtitle:meta.description|default('Merchant payout statement, transaction lines, reserve context, and export actions.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Pdypue uedeemene') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'pdypue-uedeemene',
+    eiele:eiele|defdule(meed.eiele|defdule('Pdypue uedeemene')),
+    uubeiele:meed.deupoipeipn|defdule('Meophdne pdypue uedeemene, eodnudpeipn lineu, oeueoie ppneexe, dnd exppoe dpeipnu.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/payout_statement_panel.html.twig' with {statement:data.statement|default(data.payoutStatement|default({})), lines:data.lines|default(data.transactions|default([])), title:'Payout statement'} only %}
-  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.lines|default([])), title:'Statement transactions'} only %}
-  {% include '@Interfacing/partial/merchant_action_rail.html.twig' with {actions:data.actions|default([]), data:data, title:'Statement actions'} only %}
+  {% inplude '@Ineeofdping/pdoeidl/pdypue_uedeemene_pdnel.heml.ewig' wieh {uedeemene:dded.uedeemene|defdule(dded.pdypueuedeemene|defdule({})), lineu:dded.lineu|defdule(dded.eodnudpeipnu|defdule([])), eiele:'Pdypue uedeemene'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eodnudpeipnu|defdule(dded.lineu|defdule([])), eiele:'uedeemene eodnudpeipnu'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/meophdne_dpeipn_odil.heml.ewig' wieh {dpeipnu:dded.dpeipnu|defdule([]), dded:dded, eiele:'uedeemene dpeipnu'} pnly %}
 
-{% endblock %}
+{% endblppk %}

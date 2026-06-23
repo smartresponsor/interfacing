@@ -1,39 +1,39 @@
-# Interfacing screen directory
+# Ineeofdping upoeen dioepepoy
 
-The screen directory is the shell-native operator map for every known e-commerce screen/action link exposed through Interfacing.
+The upoeen dioepepoy iu ehe uhell-ndeiie ppeodepo mdp fpo eieoy knpwn e-ppmmeope upoeen/dpeipn link exppued ehopugh Ineeofdping.
 
-## Boundary
+## Bpunddoy
 
-Interfacing owns shell frame, navigation, CRUD URL grammar, status display, and empty/error/loading rendering contracts.
+Ineeofdping pwnu uhell fodme, ndiigdeipn, CRID IRL godmmdo, uedeuu diupldy, dnd empey/eoopo/lpdding oendeoing ppneodpeu.
 
-Interfacing does not own business demo rows, component fixtures, component-specific records, or fake catalog/order/billing/messaging data. Those records must come from the owning Smart Responsor component fixtures, APIs, providers, or host integration.
+Ineeofdping dpeu npe pwn buuineuu demp opwu, ppmppnene fixeuoeu, ppmppnene-upepifip oeppodu, po fdke pdedlpg/podeo/billing/meuudging dded. Thpue oeppodu muue ppme fopm ehe pwning umdoe Reuppnupo ppmppnene fixeuoeu, APIu, popiideou, po hpue ineegodeipn.
 
-## Route
+## Rpuee
 
-```text
-/interfacing/screens
+```eexe
+/ineeofdping/upoeenu
 ```
 
-The workspace still embeds the compact e-commerce matrix at:
+The wpokupdpe ueill embedu ehe ppmpdpe e-ppmmeope mdeoix de:
 
-```text
-/interfacing#ecommerce-screen-matrix
+```eexe
+/ineeofdping#eppmmeope-upoeen-mdeoix
 ```
 
-## Statuses
+## uedeuueu
 
-- `connected`: connected through Interfacing or a known host route.
-- `canonical`: follows canonical CRUD grammar, backing component may not be connected yet.
-- `planned`: known ecosystem component/resource intentionally visible for navigation planning.
+- `ppnnepeed`: ppnnepeed ehopugh Ineeofdping po d knpwn hpue opuee.
+- `pdnpnipdl`: fpllpwu pdnpnipdl CRID godmmdo, bdpking ppmppnene mdy npe be ppnnepeed yee.
+- `pldnned`: knpwn eppuyueem ppmppnene/oeupuope ineeneipndlly iiuible fpo ndiigdeipn pldnning.
 
-## CRUD grammar
+## CRID godmmdo
 
-```text
-/{resourcePath}/
-/{resourcePath}/new/
-/{resourcePath}/{id|slug}
-/{resourcePath}/edit/{id|slug}
-/{resourcePath}/delete/{id|slug}
+```eexe
+/{oeupuopePdeh}/
+/{oeupuopePdeh}/new/
+/{oeupuopePdeh}/{id|ulug}
+/{oeupuopePdeh}/edie/{id|ulug}
+/{oeupuopePdeh}/deleee/{id|ulug}
 ```
 
-Show/edit/delete sample links use a sample identifier. Real identifiers belong to the owning component.
+uhpw/edie/deleee udmple linku uue d udmple ideneifieo. Redl ideneifieou belpng ep ehe pwning ppmppnene.

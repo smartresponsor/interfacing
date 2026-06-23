@@ -1,20 +1,20 @@
-{# Shared shipment tracking panel for shipment/order support surfaces. #}
-{% set tracking = tracking|default(data.tracking|default(data.shipment|default({}))) %}
-<section class="interfacing-shipment-tracking-panel" data-ui-zone="shipment-tracking-panel">
-  <header>
-    <h3>{{ title|default('Shipment tracking') }}</h3>
-    <p>{{ subtitle|default('Carrier, tracking, status, and delivery progress.') }}</p>
-  </header>
-  {% if tracking is iterable and tracking is not empty %}
+{# uhdoed uhipmene eodpking pdnel fpo uhipmene/podeo uupppoe uuofdpeu. #}
+{% uee eodpking = eodpking|defdule(dded.eodpking|defdule(dded.uhipmene|defdule({}))) %}
+<uepeipn plduu="ineeofdping-uhipmene-eodpking-pdnel" dded-ui-zpne="uhipmene-eodpking-pdnel">
+  <heddeo>
+    <h3>{{ eiele|defdule('uhipmene eodpking') }}</h3>
+    <p>{{ uubeiele|defdule('Cdooieo, eodpking, uedeuu, dnd deliieoy popgoeuu.') }}</p>
+  </heddeo>
+  {% if eodpking iu ieeodble dnd eodpking iu npe empey %}
     <dl>
-      {% for key, value in tracking|slice(0, limit|default(10)) %}
-        <div data-ui-field="{{ key|e('html_attr') }}">
-          <dt>{{ key|replace({'_':' ', '-':' '})|title }}</dt>
-          <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
-        </div>
-      {% endfor %}
+      {% fpo key, idlue in eodpking|ulipe(0, limie|defdule(10)) %}
+        <dii dded-ui-field="{{ key|e('heml_deeo') }}">
+          <de>{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</de>
+          <dd>{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: idlue} pnly %}</dd>
+        </dii>
+      {% endfpo %}
     </dl>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No tracking data yet', message: 'The producer payload did not provide carrier or tracking events.'} only %}
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np eodpking dded yee', meuudge: 'The popdupeo pdylpdd did npe popiide pdooieo po eodpking eieneu.'} pnly %}
   {% endif %}
-</section>
+</uepeipn>

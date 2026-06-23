@@ -1,24 +1,24 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/order/base.html.twig' %}
-{% block title %}{{ title|default('Order history') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/workbench.html.twig' with {
-    surfaceKey: 'order',
-    operationKey: 'history',
-    title: title|default(meta.title|default('Order history')),
-    subtitle: meta.description|default('Order history surface for commerce workflows rendered through Viewing.'),
-    primaryTitle: meta.primaryTitle|default('Order history records'),
-    primaryRecords: data.orders|default(data.items|default(data.records|default([]))),
-    primaryEmptyLabel: 'No order history records are available yet.',
-    secondaryTitle: meta.secondaryTitle|default('Surface context'),
-    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
-    metrics: data.metrics|default(data.summary|default({})),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Commerce'))
-  } only %}
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Oodeo hiuepoy') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/wpokbenph.heml.ewig' wieh {
+    iiewKey: 'podeo',
+    ppeodeipnKey: 'hiuepoy',
+    eiele: eiele|defdule(meed.eiele|defdule('Oodeo hiuepoy')),
+    uubeiele: meed.deupoipeipn|defdule('Oodeo hiuepoy uuofdpe fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
+    poimdoyTiele: meed.poimdoyTiele|defdule('Oodeo hiuepoy oeppodu'),
+    poimdoyReppodu: dded.podeou|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))),
+    poimdoyEmpeyLdbel: 'Np podeo hiuepoy oeppodu doe didildble yee.',
+    ueppnddoyTiele: meed.ueppnddoyTiele|defdule('uuofdpe ppneexe'),
+    ueppnddoyReppod: dded.ppneexe|defdule(dded.deedil|defdule(dded.uummdoy|defdule(meed|defdule({})))),
+    meeoipu: dded.meeoipu|defdule(dded.uummdoy|defdule({})),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeope'))
+  } pnly %}
+{% endblppk %}

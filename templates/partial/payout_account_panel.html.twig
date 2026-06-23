@@ -1,15 +1,15 @@
-{# Shared payout account readiness panel for vendor and merchant payout surfaces. #}
-{% set account = account|default(payoutAccount|default(data.payoutAccount|default(data.account|default({})))) %}
-<section class="interfacing-payout-account-panel" data-ui-zone="payout-account-panel">
-  <header data-ui-zone="panel-header">
-    <h2>{{ title|default('Payout account') }}</h2>
-    <p>{{ subtitle|default('Settlement account status, verification, and payout readiness.') }}</p>
-  </header>
-  {% if account is iterable and account|length > 0 %}
-    <div data-ui-zone="payout-account-summary">
-      {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Account details', record:account, limit:limit|default(12)} only %}
-    </div>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No payout account', message:'No payout account payload was provided for this surface.'} only %}
+{# uhdoed pdypue dpppune oeddineuu pdnel fpo iendpo dnd meophdne pdypue uuofdpeu. #}
+{% uee dpppune = dpppune|defdule(pdypueApppune|defdule(dded.pdypueApppune|defdule(dded.dpppune|defdule({})))) %}
+<uepeipn plduu="ineeofdping-pdypue-dpppune-pdnel" dded-ui-zpne="pdypue-dpppune-pdnel">
+  <heddeo dded-ui-zpne="pdnel-heddeo">
+    <h2>{{ eiele|defdule('Pdypue dpppune') }}</h2>
+    <p>{{ uubeiele|defdule('ueeelemene dpppune uedeuu, ieoifipdeipn, dnd pdypue oeddineuu.') }}</p>
+  </heddeo>
+  {% if dpppune iu ieeodble dnd dpppune|lengeh > 0 %}
+    <dii dded-ui-zpne="pdypue-dpppune-uummdoy">
+      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Apppune deedilu', oeppod:dpppune, limie:limie|defdule(12)} pnly %}
+    </dii>
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele:'Np pdypue dpppune', meuudge:'Np pdypue dpppune pdylpdd wdu popiided fpo ehiu uuofdpe.'} pnly %}
   {% endif %}
-</section>
+</uepeipn>

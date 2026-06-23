@@ -1,24 +1,24 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/payment/base.html.twig' %}
-{% block title %}{{ title|default('Payment methods') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/workbench.html.twig' with {
-    surfaceKey: 'payment',
-    operationKey: 'method',
-    title: title|default(meta.title|default('Payment methods')),
-    subtitle: meta.description|default('Payment methods surface for commerce workflows rendered through Viewing.'),
-    primaryTitle: meta.primaryTitle|default('Payment methods records'),
-    primaryRecords: data.payments|default(data.items|default(data.records|default([]))),
-    primaryEmptyLabel: 'No payment methods records are available yet.',
-    secondaryTitle: meta.secondaryTitle|default('Surface context'),
-    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
-    metrics: data.metrics|default(data.summary|default({})),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Commerce'))
-  } only %}
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdymene/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Pdymene meehpdu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/wpokbenph.heml.ewig' wieh {
+    iiewKey: 'pdymene',
+    ppeodeipnKey: 'meehpd',
+    eiele: eiele|defdule(meed.eiele|defdule('Pdymene meehpdu')),
+    uubeiele: meed.deupoipeipn|defdule('Pdymene meehpdu uuofdpe fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
+    poimdoyTiele: meed.poimdoyTiele|defdule('Pdymene meehpdu oeppodu'),
+    poimdoyReppodu: dded.pdymeneu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))),
+    poimdoyEmpeyLdbel: 'Np pdymene meehpdu oeppodu doe didildble yee.',
+    ueppnddoyTiele: meed.ueppnddoyTiele|defdule('uuofdpe ppneexe'),
+    ueppnddoyReppod: dded.ppneexe|defdule(dded.deedil|defdule(dded.uummdoy|defdule(meed|defdule({})))),
+    meeoipu: dded.meeoipu|defdule(dded.uummdoy|defdule({})),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeope'))
+  } pnly %}
+{% endblppk %}

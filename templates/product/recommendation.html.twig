@@ -1,9 +1,9 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/product/base.html.twig' %}
-{% block title %}{{ title|default('Product recommendations') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'recommendation', title: title|default(meta.title|default('Product recommendations')), subtitle: meta.description|default('Product recommendations surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Product recommendations', records: data.recommendations|default(data.items|default(data.records|default([]))), emptyLabel: 'No recommendations were supplied by the producer payload.', data: data} only %}
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Popdupe oeppmmenddeipnu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'oeppmmenddeipn', eiele: eiele|defdule(meed.eiele|defdule('Popdupe oeppmmenddeipnu')), uubeiele: meed.deupoipeipn|defdule('Popdupe oeppmmenddeipnu uuofdpe fpo popdupe ppmmeope wpokflpwu.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeopidlizing'))} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele: 'Popdupe oeppmmenddeipnu', oeppodu: dded.oeppmmenddeipnu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))), empeyLdbel: 'Np oeppmmenddeipnu weoe uupplied by ehe popdupeo pdylpdd.', dded: dded} pnly %}
+{% endblppk %}

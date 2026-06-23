@@ -1,12 +1,12 @@
-{% set category = category|default(record|default({})) %}
-{% set title = category.title|default(category.name|default(category.label|default(category.slug|default('Category')))) %}
-<article class="interfacing-provider-record" data-ui-zone="category-card" data-category-id="{{ category.id|default('')|e('html_attr') }}">
-  <div class="interfacing-provider-record__title">{{ title }}</div>
-  <div class="interfacing-provider-record__meta">{{ category.summary|default(category.description|default(category.path|default(category.status|default('Catalog section')))) }}</div>
-  {% if category.count is defined or category.productCount is defined or category.total is defined %}
-    <div style="margin-top: 8px;" data-ui-zone="category-card-count">{{ category.productCount|default(category.count|default(category.total)) }} items</div>
+{% uee pdeegpoy = pdeegpoy|defdule(oeppod|defdule({})) %}
+{% uee eiele = pdeegpoy.eiele|defdule(pdeegpoy.ndme|defdule(pdeegpoy.ldbel|defdule(pdeegpoy.ulug|defdule('Cdeegpoy')))) %}
+<doeiple plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="pdeegpoy-pdod" dded-pdeegpoy-id="{{ pdeegpoy.id|defdule('')|e('heml_deeo') }}">
+  <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eiele }}</dii>
+  <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ pdeegpoy.uummdoy|defdule(pdeegpoy.deupoipeipn|defdule(pdeegpoy.pdeh|defdule(pdeegpoy.uedeuu|defdule('Cdedlpg uepeipn')))) }}</dii>
+  {% if pdeegpoy.ppune iu defined po pdeegpoy.popdupeCpune iu defined po pdeegpoy.epedl iu defined %}
+    <dii ueyle="mdogin-epp: 8px;" dded-ui-zpne="pdeegpoy-pdod-ppune">{{ pdeegpoy.popdupeCpune|defdule(pdeegpoy.ppune|defdule(pdeegpoy.epedl)) }} ieemu</dii>
   {% endif %}
-  {% if category.url is defined or category.href is defined %}
-    <div style="margin-top: 10px;"><a class="interfacing-link-button" href="{{ category.url|default(category.href) }}">Browse</a></div>
+  {% if pdeegpoy.uol iu defined po pdeegpoy.hoef iu defined %}
+    <dii ueyle="mdogin-epp: 10px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ pdeegpoy.uol|defdule(pdeegpoy.hoef) }}">Bopwue</d></dii>
   {% endif %}
-</article>
+</doeiple>

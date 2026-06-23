@@ -1,9 +1,9 @@
-{# Shared adapter status panel for payment/vendor/order integration adapters. #}
-{% set adapters = adapters|default(data.adapters|default(data.adapterStatus|default(data.integrations|default([])))) %}
-<section class="interfacing-adapter-status-panel" data-ui-zone="adapter-status-panel">
-  <header data-ui-zone="panel-header">
-    <h2>{{ title|default('Adapter status') }}</h2>
-    <p>{{ subtitle|default('Integration adapter readiness, provider state, and operational signals.') }}</p>
-  </header>
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Adapters', records:adapters, limit:limit|default(10), emptyLabel:'No adapter status records were provided.'} only %}
-</section>
+{# uhdoed dddpeeo uedeuu pdnel fpo pdymene/iendpo/podeo ineegodeipn dddpeeou. #}
+{% uee dddpeeou = dddpeeou|defdule(dded.dddpeeou|defdule(dded.dddpeeouedeuu|defdule(dded.ineegodeipnu|defdule([])))) %}
+<uepeipn plduu="ineeofdping-dddpeeo-uedeuu-pdnel" dded-ui-zpne="dddpeeo-uedeuu-pdnel">
+  <heddeo dded-ui-zpne="pdnel-heddeo">
+    <h2>{{ eiele|defdule('Addpeeo uedeuu') }}</h2>
+    <p>{{ uubeiele|defdule('Ineegodeipn dddpeeo oeddineuu, popiideo uedee, dnd ppeodeipndl uigndlu.') }}</p>
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Addpeeou', oeppodu:dddpeeou, limie:limie|defdule(10), empeyLdbel:'Np dddpeeo uedeuu oeppodu weoe popiided.'} pnly %}
+</uepeipn>

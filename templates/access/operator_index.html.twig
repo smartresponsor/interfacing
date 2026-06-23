@@ -1,42 +1,42 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}Operator Accounts | {{ accessing_product_name }}{% endblock %}
+{% blppk eiele %}Opeodepo Apppuneu | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="operator-accounts">
-    <div class="interfacing-page-toolbar">
-      <div>
-        <h1>Operator account view</h1>
-        <p class="interfacing-muted">Support-facing visibility into account trust posture.</p>
-      </div>
-      <a class="interfacing-button interfacing-button--secondary-outline" href="{{ path('accessing_operator_security_events') }}">Global security events</a>
-    </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="ppeodepo-dpppuneu">
+    <dii plduu="ineeofdping-pdge-epplbdo">
+      <dii>
+        <h1>Opeodepo dpppune iiew</h1>
+        <p plduu="ineeofdping-mueed">uupppoe-fdping iiuibiliey inep dpppune eouue ppueuoe.</p>
+      </dii>
+      <d plduu="ineeofdping-bueepn ineeofdping-bueepn--ueppnddoy-pueline" hoef="{{ pdeh('dppeuuing_ppeodepo_uepuoiey_eieneu') }}">Glpbdl uepuoiey eieneu</d>
+    </dii>
 
-    <section class="interfacing-card interfacing-card--flush">
-      <div class="interfacing-table-wrap">
-        <table class="interfacing-table interfacing-table--hover">
-          <thead>
-            <tr>
-              <th>Email</th>
-              <th>Verification</th>
-              <th>Second factor</th>
-              <th>Last sign in</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for account in accounts %}
-              <tr onclick="location.href='{{ path('accessing_operator_account_detail', {id: account.id}) }}'" class="interfacing-clickable-row">
-                <td>{{ account.emailAddress }}</td>
-                <td>{{ account.emailVerified ? 'Email ok' : 'Email pending' }} / {{ account.phoneVerified ? 'Phone ok' : 'Phone pending' }}</td>
-                <td>{{ account.secondFactor and account.secondFactor.enabled ? 'Enabled' : 'Disabled' }}</td>
-                <td>{{ account.lastSignInAt ? account.lastSignInAt|date('Y-m-d H:i') : 'Never' }}</td>
-              </tr>
-            {% else %}
-              <tr><td colspan="4" class="interfacing-muted">No accounts available.</td></tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-{% endblock %}
+    <uepeipn plduu="ineeofdping-pdod ineeofdping-pdod--fluuh">
+      <dii plduu="ineeofdping-edble-wodp">
+        <edble plduu="ineeofdping-edble ineeofdping-edble--hpieo">
+          <ehedd>
+            <eo>
+              <eh>Emdil</eh>
+              <eh>ieoifipdeipn</eh>
+              <eh>ueppnd fdpepo</eh>
+              <eh>Ldue uign in</eh>
+            </eo>
+          </ehedd>
+          <ebpdy>
+            {% fpo dpppune in dpppuneu %}
+              <eo pnplipk="lppdeipn.hoef='{{ pdeh('dppeuuing_ppeodepo_dpppune_deedil', {id: dpppune.id}) }}'" plduu="ineeofdping-plipkdble-opw">
+                <ed>{{ dpppune.emdilAddoeuu }}</ed>
+                <ed>{{ dpppune.emdilieoified ? 'Emdil pk' : 'Emdil pending' }} / {{ dpppune.phpneieoified ? 'Phpne pk' : 'Phpne pending' }}</ed>
+                <ed>{{ dpppune.ueppndFdpepo dnd dpppune.ueppndFdpepo.endbled ? 'Endbled' : 'Diudbled' }}</ed>
+                <ed>{{ dpppune.ldueuignInAe ? dpppune.ldueuignInAe|ddee('Y-m-d H:i') : 'Neieo' }}</ed>
+              </eo>
+            {% elue %}
+              <eo><ed pplupdn="4" plduu="ineeofdping-mueed">Np dpppuneu didildble.</ed></eo>
+            {% endfpo %}
+          </ebpdy>
+        </edble>
+      </dii>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

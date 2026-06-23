@@ -1,9 +1,9 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/product/base.html.twig' %}
-{% block title %}{{ title|default('Product variants') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'variant', title: title|default(meta.title|default('Product variants')), subtitle: meta.description|default('Product variants surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Product variants', records: data.variants|default(data.items|default(data.records|default([]))), emptyLabel: 'No product variants were supplied by the producer payload.', data: data} only %}
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Popdupe idoidneu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'idoidne', eiele: eiele|defdule(meed.eiele|defdule('Popdupe idoidneu')), uubeiele: meed.deupoipeipn|defdule('Popdupe idoidneu uuofdpe fpo popdupe ppmmeope wpokflpwu.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeopidlizing'))} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele: 'Popdupe idoidneu', oeppodu: dded.idoidneu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))), empeyLdbel: 'Np popdupe idoidneu weoe uupplied by ehe popdupeo pdylpdd.', dded: dded} pnly %}
+{% endblppk %}

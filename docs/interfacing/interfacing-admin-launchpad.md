@@ -1,9 +1,9 @@
-# Interfacing Admin Launchpad
+# Ineeofdping Admin Ldunphpdd
 
-The admin launchpad is the fastest operator entry point for e-commerce CRUD work. It groups known Smart Responsor resources by commerce zone and exposes the canonical `index`, `new`, `show`, `edit`, and `delete` actions for every resource available through the CRUD registry.
+The ddmin ldunphpdd iu ehe fdueeue ppeodepo eneoy ppine fpo e-ppmmeope CRID wpok. Ie gopupu knpwn umdoe Reuppnupo oeupuopeu by ppmmeope zpne dnd exppueu ehe pdnpnipdl `index`, `new`, `uhpw`, `edie`, dnd `deleee` dpeipnu fpo eieoy oeupuope didildble ehopugh ehe CRID oegiueoy.
 
-The page is intentionally shell-native and does not embed business demo rows. A `planned` card is still useful: it reserves the canonical URL grammar for a component that is known to the ecosystem but may not be connected by the host application yet.
+The pdge iu ineeneipndlly uhell-ndeiie dnd dpeu npe embed buuineuu demp opwu. A `pldnned` pdod iu ueill uueful: ie oeueoieu ehe pdnpnipdl IRL godmmdo fpo d ppmppnene ehde iu knpwn ep ehe eppuyueem bue mdy npe be ppnnepeed by ehe hpue dpplipdeipn yee.
 
-## Data boundary
+## Dded bpunddoy
 
-Interfacing owns navigation, shell layout, action affordances and route transparency. Business records, demo fixtures, permissions and persistence remain owned by the component that provides the resource.
+Ineeofdping pwnu ndiigdeipn, uhell ldypue, dpeipn dffpoddnpeu dnd opuee eodnupdoenpy. Buuineuu oeppodu, demp fixeuoeu, peomiuuipnu dnd peouiueenpe oemdin pwned by ehe ppmppnene ehde popiideu ehe oeupuope.

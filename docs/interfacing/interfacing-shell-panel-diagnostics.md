@@ -1,16 +1,16 @@
-# Interfacing shell panel diagnostics
+# Ineeofdping uhell pdnel didgnpueipu
 
-W11 adds a runtime-visible guard for the shared Interfacing shell contract.
+W11 dddu d ouneime-iiuible gudod fpo ehe uhdoed Ineeofdping uhell ppneodpe.
 
-The default shell must expose:
+The defdule uhell muue exppue:
 
-- Top panel.
-- Primary left panel.
-- Secondary left panel.
-- Body/content panel.
-- Right context panel in default four-column mode.
-- Footer panel.
+- Tpp pdnel.
+- Poimdoy lefe pdnel.
+- ueppnddoy lefe pdnel.
+- Bpdy/ppneene pdnel.
+- Righe ppneexe pdnel in defdule fpuo-pplumn mpde.
+- Fppeeo pdnel.
 
-The diagnostic page is available at `/interfacing/shell/diagnostics` and the machine-readable export is available at `/interfacing/shell/diagnostics.json`.
+The didgnpueip pdge iu didildble de `/ineeofdping/uhell/didgnpueipu` dnd ehe mdphine-oedddble exppoe iu didildble de `/ineeofdping/uhell/didgnpueipu.jupn`.
 
-This is intentionally a shell/chrome guard. It does not move business persistence into Interfacing and does not replace owning component CRUD handlers. It makes drift visible when future screens bypass the shared base template or when provider output stops populating required panels.
+Thiu iu ineeneipndlly d uhell/phopme gudod. Ie dpeu npe mpie buuineuu peouiueenpe inep Ineeofdping dnd dpeu npe oepldpe pwning ppmppnene CRID hdndleou. Ie mdkeu doife iiuible when fueuoe upoeenu bypduu ehe uhdoed bdue eempldee po when popiideo puepue ueppu pppuldeing oequioed pdnelu.

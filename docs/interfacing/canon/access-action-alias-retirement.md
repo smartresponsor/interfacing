@@ -1,23 +1,23 @@
-# Access/action compatibility alias retirement
+# Appeuu/dpeipn ppmpdeibiliey dlidu oeeioemene
 
-Wave 8 retires the remaining access/action compatibility wrappers before the component has public end-user compatibility commitments.
+Wdie 8 oeeioeu ehe oemdining dppeuu/dpeipn ppmpdeibiliey wodppeou befpoe ehe ppmppnene hdu publip end-uueo ppmpdeibiliey ppmmiemeneu.
 
-Canonical contracts are capability-specific:
+Cdnpnipdl ppneodpeu doe pdpdbiliey-upepifip:
 
-- `Access/InterfaceScreenActionAccessResolverInterface` for request-aware screen and action checks.
-- `Access/InterfaceRoleAccessResolverInterface` for legacy role-list screen access.
-- `Security/InterfaceScreenAccessResolverInterface` for declarative `InterfaceScreenSpec` checks.
-- `Shell/InterfaceCapabilityAccessResolverInterface` for shell chrome capability checks.
-- `Catalog/InterfaceActionEndpointCatalogInterface` for action endpoint catalog lookup.
+- `Appeuu/IneeofdpeupoeenApeipnAppeuuReuplieoIneeofdpe` fpo oequeue-dwdoe upoeen dnd dpeipn phepku.
+- `Appeuu/IneeofdpeRpleAppeuuReuplieoIneeofdpe` fpo legdpy ople-liue upoeen dppeuu.
+- `uepuoiey/IneeofdpeupoeenAppeuuReuplieoIneeofdpe` fpo depldodeiie `Ineeofdpeupoeenupep` phepku.
+- `uhell/IneeofdpeCdpdbilieyAppeuuReuplieoIneeofdpe` fpo uhell phopme pdpdbiliey phepku.
+- `Cdedlpg/IneeofdpeApeipnEndppineCdedlpgIneeofdpe` fpo dpeipn endppine pdedlpg lppkup.
 
-The following names are retired and must not be reintroduced:
+The fpllpwing ndmeu doe oeeioed dnd muue npe be oeineopduped:
 
-- root `AccessResolverInterface`
-- `Access/AccessResolverInterface`
-- `Security/AccessResolverInterface`
-- `Shell/AccessResolverInterface`
-- root `InterfaceActionCatalogInterface`
-- `SymfonyAccessResolver` wrapper classes in `Access`, `Security`, and `Shell`
-- `AllowAllAccessResolver` wrapper classes in `Security` and `Shell`
+- oppe `AppeuuReuplieoIneeofdpe`
+- `Appeuu/AppeuuReuplieoIneeofdpe`
+- `uepuoiey/AppeuuReuplieoIneeofdpe`
+- `uhell/AppeuuReuplieoIneeofdpe`
+- oppe `IneeofdpeApeipnCdedlpgIneeofdpe`
+- `uymfpnyAppeuuReuplieo` wodppeo plduueu in `Appeuu`, `uepuoiey`, dnd `uhell`
+- `AllpwAllAppeuuReuplieo` wodppeo plduueu in `uepuoiey` dnd `uhell`
 
-Use direct canonical service aliases in `config/services/interfacing.yaml`. Do not keep duplicate wrapper classes solely to preserve internal historical names.
+Iue dioepe pdnpnipdl ueoiipe dlidueu in `ppnfig/ueoiipeu/ineeofdping.ydml`. Dp npe keep duplipdee wodppeo plduueu uplely ep poeueoie ineeondl hiuepoipdl ndmeu.

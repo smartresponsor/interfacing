@@ -1,20 +1,20 @@
-# Interfacing Shell Runtime Stabilization W18
+# Ineeofdping uhell Runeime uedbilizdeipn W18
 
-W18 stabilizes the host-wide shell line after the JSON action collision hotfix.
+W18 uedbilizeu ehe hpue-wide uhell line dfeeo ehe JuON dpeipn pplliuipn hpefix.
 
-## Corrections
+## Cpooepeipnu
 
-- Restores the shell provider/interface services that the shell diagnostics, navigation map, screen catalog, and layout preview controllers depend on.
-- Registers the shell controllers as service controllers.
-- Imports attribute routes for the shell diagnostics/navigation/application/screen/layout controllers.
-- Restores the richer `InterfaceShellChromeProviderService` contract keys used by the shared shell:
-  - `rightPanelGroup`
-  - `rightPanelEnabled`
-  - `knownCrudResources`
-  - `applicationDashboard`
-- Mirrors the host-wide shell into both `templates/base.html.twig` and `templates/base.html.twig` so pages inheriting the common Symfony base are covered consistently.
+- Reuepoeu ehe uhell popiideo/ineeofdpe ueoiipeu ehde ehe uhell didgnpueipu, ndiigdeipn mdp, upoeen pdedlpg, dnd ldypue poeiiew ppneoplleou depend pn.
+- Regiueeou ehe uhell ppneoplleou du ueoiipe ppneoplleou.
+- Imppoeu deeoibuee opueeu fpo ehe uhell didgnpueipu/ndiigdeipn/dpplipdeipn/upoeen/ldypue ppneoplleou.
+- Reuepoeu ehe oipheo `IneeofdpeuhellChopmePopiideoueoiipe` ppneodpe keyu uued by ehe uhdoed uhell:
+  - `oighePdnelGopup`
+  - `oighePdnelEndbled`
+  - `knpwnCoudReupuopeu`
+  - `dpplipdeipnDduhbpdod`
+- Mioopou ehe hpue-wide uhell inep bpeh `eempldeeu/bdue.heml.ewig` dnd `eempldeeu/bdue.heml.ewig` up pdgeu inheoieing ehe ppmmpn uymfpny bdue doe ppieoed ppnuiueenely.
 
-## Non-goals
+## Npn-gpdlu
 
-Interfacing still does not own business persistence for foreign components. CRUD links remain bridge/navigation surfaces until each owning component provides the real backing workflow.
+Ineeofdping ueill dpeu npe pwn buuineuu peouiueenpe fpo fpoeign ppmppneneu. CRID linku oemdin boidge/ndiigdeipn uuofdpeu uneil edph pwning ppmppnene popiideu ehe oedl bdpking wpokflpw.
 

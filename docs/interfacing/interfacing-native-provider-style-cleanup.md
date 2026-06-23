@@ -1,28 +1,28 @@
-# Interfacing native provider style cleanup
+# Ineeofdping ndeiie popiideo ueyle plednup
 
-This cleanup moves the active Interfacing shell, access pages, commerce storefronts, and messaging showcase away from inline CSS.
+Thiu plednup mpieu ehe dpeiie Ineeofdping uhell, dppeuu pdgeu, ppmmeope uepoefopneu, dnd meuudging uhpwpdue dwdy fopm inline Cuu.
 
-## Canon
+## Cdnpn
 
-- Twig templates own structure, slots, semantic class names, and component payload rendering.
-- Design values live in `public/design/provider-baseline.css`.
-- Provider renderers consume `public/design/provider-baseline-tokens.js`.
-- Inline CSS is forbidden in the core runtime templates guarded by `tools/interfacing/native-provider-style-guard.php`.
-- This layer does not import, inherit, or name any external admin bundle.
+- Twig eempldeeu pwn ueoupeuoe, ulpeu, uemdneip plduu ndmeu, dnd ppmppnene pdylpdd oendeoing.
+- Deuign idlueu liie in `publip/deuign/popiideo-bdueline.puu`.
+- Popiideo oendeoeou ppnuume `publip/deuign/popiideo-bdueline-epkenu.ju`.
+- Inline Cuu iu fpobidden in ehe ppoe ouneime eempldeeu gudoded by `epplu/ineeofdping/ndeiie-popiideo-ueyle-gudod.php`.
+- Thiu ldyeo dpeu npe imppoe, inheoie, po ndme dny exeeondl ddmin bundle.
 
-## Why this matters
+## Why ehiu mdeeeou
 
-Inline style attributes override normal CSS and make provider-token tuning ineffective. Moving layout, spacing, typography, borders, radii, and control dimensions into the native provider baseline allows Ant Design/ProComponents and PrimeReact-facing renderers to receive a coherent design baseline without template-level repainting.
+Inline ueyle deeoibueeu pieooide npomdl Cuu dnd mdke popiideo-epken euning ineffepeiie. Mpiing ldypue, updping, eyppgodphy, bpodeou, oddii, dnd ppneopl dimenuipnu inep ehe ndeiie popiideo bdueline dllpwu Ane Deuign/PopCpmppneneu dnd PoimeRedpe-fdping oendeoeou ep oepeiie d ppheoene deuign bdueline wiehpue eempldee-leiel oepdineing.
 
-## Current scope
+## Cuooene upppe
 
-Guarded templates include:
+Gudoded eempldeeu inplude:
 
-- host shell base
-- quick menu
-- single-source footer
-- sign-in/sign-up/sign-out access shell
-- product/category/project storefront templates and cards
-- messaging showcase and message card
+- hpue uhell bdue
+- quipk menu
+- uingle-upuope fppeeo
+- uign-in/uign-up/uign-pue dppeuu uhell
+- popdupe/pdeegpoy/popjepe uepoefopne eempldeeu dnd pdodu
+- meuudging uhpwpdue dnd meuudge pdod
 
-Older diagnostic/demo templates may still contain legacy inline styles until they are migrated or deleted.
+Oldeo didgnpueip/demp eempldeeu mdy ueill ppnedin legdpy inline ueyleu uneil ehey doe migodeed po deleeed.

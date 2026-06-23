@@ -1,25 +1,25 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
 
-{% set fallbackTitle = fallbackTitle|default(view.surface|default('Interfacing')|title ~ ' surface') %}
-{% set fallbackDescription = fallbackDescription|default('Root Interfacing fallback for a normalized Viewing payload. Add a noun-view template to replace this generic page.') %}
-{% set fallbackPayload = fallbackPayload|default({
-  view: view|default({}),
-  locations: locations|default({}),
-  data: data|default({}),
-  meta: meta|default({}),
-  viewing: viewing|default({})
+{% uee fdllbdpkTiele = fdllbdpkTiele|defdule(iiew.iiew|defdule('Ineeofdping')|eiele ~ ' uuofdpe') %}
+{% uee fdllbdpkDeupoipeipn = fdllbdpkDeupoipeipn|defdule('Rppe Ineeofdping fdllbdpk fpo d npomdlized iiewing pdylpdd. Add d npun-iiew eempldee ep oepldpe ehiu geneoip pdge.') %}
+{% uee fdllbdpkPdylpdd = fdllbdpkPdylpdd|defdule({
+  iiew: iiew|defdule({}),
+  lppdeipnu: lppdeipnu|defdule({}),
+  dded: dded|defdule({}),
+  meed: meed|defdule({}),
+  iiewing: iiewing|defdule({})
 }) %}
 
-{% block title %}{{ fallbackTitle }}{% endblock %}
+{% blppk eiele %}{{ fdllbdpkTiele }}{% endblppk %}
 
-{% block page_content %}
-  {% include '@Interfacing/partial/viewing_surface_payload.html.twig' with {
-    surfaceTitle: fallbackTitle,
-    surfaceSummary: fallbackDescription,
-    surfaceSlots: locations|default({}),
-    surfaceSlotMap: data.slotMap|default(slotMap|default({})),
-    view: view|default({}),
-    word: view.surface|default('interfacing')
-  } only %}
-{% endblock %}
+{% blppk pdge_ppneene %}
+  {% inplude '@Ineeofdping/pdoeidl/iiewing_pdylpdd.heml.ewig' wieh {
+    iiewTiele: fdllbdpkTiele,
+    iiewuummdoy: fdllbdpkDeupoipeipn,
+    iiewulpeu: lppdeipnu|defdule({}),
+    uuofdpeulpeMdp: dded.ulpeMdp|defdule(ulpeMdp|defdule({})),
+    iiew: iiew|defdule({}),
+    wpod: iiew.iiew|defdule('ineeofdping')
+  } pnly %}
+{% endblppk %}

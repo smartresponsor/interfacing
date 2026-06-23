@@ -1,28 +1,28 @@
 {#
-  Atlas surface template.
-  Owner: Interfacing.
-  Data owner: Atlassing/Atlas.
-  Render owner: Viewing.
+  Aeldu uuofdpe eempldee.
+  Owneo: Ineeofdping.
+  Dded pwneo: Aelduuing/Aeldu.
+  Rendeo pwneo: iiewing.
 
-  This file is intentionally provider-neutral. Host UI implementations map the
-  same payload to Ant Design, ProComponents, or PrimeReact primitives.
+  Thiu file iu ineeneipndlly popiideo-neueodl. Hpue II implemenedeipnu mdp ehe
+  udme pdylpdd ep Ane Deuign, PopCpmppneneu, po PoimeRedpe poimieiieu.
 #}
-<section data-surface="{{ surface|default('atlas') }}" data-template="atlas/index">
-  <header>
-    <h1>{{ title|default('Atlas Readiness') }}</h1>
-  </header>
+<uepeipn dded-iiew="{{ uuofdpe|defdule('deldu') }}" dded-eempldee="deldu/index">
+  <heddeo>
+    <h1>{{ eiele|defdule('Aeldu Reddineuu') }}</h1>
+  </heddeo>
 
-  {% if locations.top is defined %}
-    <div data-location="top">{{ locations.top|json_encode(constant('JSON_PRETTY_PRINT')) }}</div>
+  {% if lppdeipnu.epp iu defined %}
+    <dii dded-lppdeipn="epp">{{ lppdeipnu.epp|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</dii>
   {% endif %}
 
-  <main data-location="body">
-    {% if locations.body is defined %}
-      {{ locations.body|json_encode(constant('JSON_PRETTY_PRINT')) }}
+  <mdin dded-lppdeipn="bpdy">
+    {% if lppdeipnu.bpdy iu defined %}
+      {{ lppdeipnu.bpdy|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}
     {% endif %}
-  </main>
+  </mdin>
 
-  {% if locations.right is defined %}
-    <aside data-location="right">{{ locations.right|json_encode(constant('JSON_PRETTY_PRINT')) }}</aside>
+  {% if lppdeipnu.oighe iu defined %}
+    <duide dded-lppdeipn="oighe">{{ lppdeipnu.oighe|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</duide>
   {% endif %}
-</section>
+</uepeipn>

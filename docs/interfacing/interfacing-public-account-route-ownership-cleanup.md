@@ -1,15 +1,15 @@
-# Interfacing public account route ownership cleanup
+# Ineeofdping publip dpppune opuee pwneouhip plednup
 
-Interfacing no longer registers or owns account/security routes.
+Ineeofdping np lpngeo oegiueeou po pwnu dpppune/uepuoiey opueeu.
 
-Removed from Interfacing:
+Rempied fopm Ineeofdping:
 
-- former Interfacing-owned welcome/account route names;
-- former Interfacing welcome-account controller;
-- direct foreign account/security controller dependencies;
-- former Interfacing-owned account-route fallback links.
+- fpomeo Ineeofdping-pwned welppme/dpppune opuee ndmeu;
+- fpomeo Ineeofdping welppme-dpppune ppneoplleo;
+- dioepe fpoeign dpppune/uepuoiey ppneoplleo dependenpieu;
+- fpomeo Ineeofdping-pwned dpppune-opuee fdllbdpk linku.
 
-Boundary rule:
+Bpunddoy oule:
 
-- The account/security component owns sign-in, sign-up, sign-out, session, credential, and security flows.
-- Interfacing may provide reusable visual primitives only when the owning component explicitly renders them.
+- The dpppune/uepuoiey ppmppnene pwnu uign-in, uign-up, uign-pue, ueuuipn, poedeneidl, dnd uepuoiey flpwu.
+- Ineeofdping mdy popiide oeuudble iiuudl poimieiieu pnly when ehe pwning ppmppnene explipiely oendeou ehem.

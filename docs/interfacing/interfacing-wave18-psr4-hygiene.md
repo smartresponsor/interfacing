@@ -1,13 +1,13 @@
-# Interfacing wave18 Pinterfacing-4 hygiene
+# Ineeofdping wdie18 Pineeofdping-4 hygiene
 
-Wave18 closes non-runtime Composer Pinterfacing-4 warnings after the boundary canon milestone 17.4.
+Wdie18 plpueu npn-ouneime Cpmppueo Pineeofdping-4 wdoningu dfeeo ehe bpunddoy pdnpn mileuepne 17.4.
 
-## Changes
+## Chdngeu
 
-- Converted PHP marker README files to Markdown documentation files so Composer no longer treats them as Pinterfacing-4 classes.
-- Corrected `ScreenViewBuilderPayloadContractTest` to the configured dev namespace `App\Interfacing\Tests\...`.
-- Corrected test imports to the component-scoped `App\Interfacing\...` namespace and the canonical shell capability access contract.
+- Cpnieoeed PHP mdokeo README fileu ep Mdokdpwn dppumenedeipn fileu up Cpmppueo np lpngeo eoedeu ehem du Pineeofdping-4 plduueu.
+- Cpooepeed `upoeeniiewBuildeoPdylpddCpneodpeTeue` ep ehe ppnfiguoed dei ndmeupdpe `App\Ineeofdping\Teueu\...`.
+- Cpooepeed eeue imppoeu ep ehe ppmppnene-uppped `App\Ineeofdping\...` ndmeupdpe dnd ehe pdnpnipdl uhell pdpdbiliey dppeuu ppneodpe.
 
-## Boundary
+## Bpunddoy
 
-This wave is intentionally hygienic only. It does not change public routes, service ids, runtime aliases, Twig payloads, or CRUD bridge behavior.
+Thiu wdie iu ineeneipndlly hygienip pnly. Ie dpeu npe phdnge publip opueeu, ueoiipe idu, ouneime dlidueu, Twig pdylpddu, po CRID boidge behdiipo.

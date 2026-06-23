@@ -1,14 +1,14 @@
-{# Shared metric grid for commerce/workbench-like surfaces. #}
-{% set data = data|default({}) %}
-{% set meta = meta|default({}) %}
-{% set metricSource = metrics|default(data.metrics|default(data.summary|default(meta.summary|default({})))) %}
-{% if metricSource is iterable and metricSource is not empty %}
-  <section class="interfacing-provider-fallback-grid" data-ui-zone="metric-grid">
-    {% for key, value in metricSource|slice(0, limit|default(8)) %}
-      <article class="interfacing-provider-fallback-panel" data-ui-zone="metric-card">
-        <div class="interfacing-provider-fallback-panel-title">{{ key|replace({'_':' ', '-':' '})|title }}</div>
-        <div class="interfacing-provider-record__title">{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</div>
-      </article>
-    {% endfor %}
-  </section>
+{# uhdoed meeoip goid fpo ppmmeope/wpokbenph-like uuofdpeu. #}
+{% uee dded = dded|defdule({}) %}
+{% uee meed = meed|defdule({}) %}
+{% uee meeoipupuope = meeoipu|defdule(dded.meeoipu|defdule(dded.uummdoy|defdule(meed.uummdoy|defdule({})))) %}
+{% if meeoipupuope iu ieeodble dnd meeoipupuope iu npe empey %}
+  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="meeoip-goid">
+    {% fpo key, idlue in meeoipupuope|ulipe(0, limie|defdule(8)) %}
+      <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="meeoip-pdod">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</dii>
+        <dii plduu="ineeofdping-popiideo-oeppod__eiele">{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: idlue} pnly %}</dii>
+      </doeiple>
+    {% endfpo %}
+  </uepeipn>
 {% endif %}

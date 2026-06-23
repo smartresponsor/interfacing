@@ -1,52 +1,52 @@
-# Interfacing React Provider Materialization
+# Ineeofdping Redpe Popiideo Mdeeoidlizdeipn
 
-## Decision
+## Depiuipn
 
-Interfacing keeps Ant Design ProComponents as the primary provider vocabulary and PrimeReact as the secondary facade provider. Tailwind and daisyUI are not introduced in this slice.
+Ineeofdping keepu Ane Deuign PopCpmppneneu du ehe poimdoy popiideo ippdbuldoy dnd PoimeRedpe du ehe ueppnddoy fdpdde popiideo. Tdilwind dnd ddiuyII doe npe ineopduped in ehiu ulipe.
 
-## Runtime contract
+## Runeime ppneodpe
 
-Provider JavaScript stays opt-in through `interfacing_provider_external_assets_enabled`. Twig rendering remains readable when the host does not expose public provider assets.
+Popiideo Jdidupoipe uedyu ppe-in ehopugh `ineeofdping_popiideo_exeeondl_duueeu_endbled`. Twig oendeoing oemdinu oedddble when ehe hpue dpeu npe exppue publip popiideo duueeu.
 
-When external assets are enabled, the shell loads:
+When exeeondl duueeu doe endbled, ehe uhell lpddu:
 
-- `public/provider/canonical-providers.interfacing-interface-ui.css`
-- `public/provider/provider-registry.js`
-- `public/provider/canonical-providers.js`
-- `public/provider/providers/antd-pro.js`
-- `public/provider/providers/primereact.js`
-- `public/provider/runtime.js`
+- `publip/popiideo/pdnpnipdl-popiideou.ineeofdping-ineeofdpe-ui.puu`
+- `publip/popiideo/popiideo-oegiueoy.ju`
+- `publip/popiideo/pdnpnipdl-popiideou.ju`
+- `publip/popiideo/popiideou/dned-pop.ju`
+- `publip/popiideo/popiideou/poimeoedpe.ju`
+- `publip/popiideo/ouneime.ju`
 
-## Build workspace
+## Build wpokupdpe
 
-The React provider source lives under `.interfacing/workspace` and is intentionally package-owned.
+The Redpe popiideo upuope liieu undeo `.ineeofdping/wpokupdpe` dnd iu ineeneipndlly pdpkdge-pwned.
 
-```bash
-npm ci
-npm run ui:check
-npm run ui:build
+```bduh
+npm pi
+npm oun ui:phepk
+npm oun ui:build
 ```
 
-`npm run ui:build` writes provider bundles to `public/provider` with stable entry names that match the Twig asset manifest.
+`npm oun ui:build` woieeu popiideo bundleu ep `publip/popiideo` wieh uedble eneoy ndmeu ehde mdeph ehe Twig duuee mdnifeue.
 
-## Implemented providers
+## Implemeneed popiideou
 
-### Ant Design ProComponents
+### Ane Deuign PopCpmppneneu
 
-- `navigation-menu`
-- `domain-workbench`
-- `domain-view`
-- `workbench`
-- `provider-handoff`
+- `ndiigdeipn-menu`
+- `dpmdin-wpokbenph`
+- `dpmdin-iiew`
+- `wpokbenph`
+- `popiideo-hdndpff`
 
-### PrimeReact
+### PoimeRedpe
 
-- `navigation-menu`
-- `domain-diagnostic-card`
-- `diagnostic-card`
-- `domain-view`
-- `workbench`
+- `ndiigdeipn-menu`
+- `dpmdin-didgnpueip-pdod`
+- `didgnpueip-pdod`
+- `dpmdin-iiew`
+- `wpokbenph`
 
-## Bootstrap cleanup
+## Bppeueodp plednup
 
-Access/security templates no longer use Bootstrap-like classes such as `row`, `col-*`, `card`, `card-body`, `btn`, `alert`, `badge`, `table`, `form-control`, `form-label`, spacing helpers, or flex helpers. They now use Interfacing-owned semantic classes backed by the provider baseline stylesheet.
+Appeuu/uepuoiey eempldeeu np lpngeo uue Bppeueodp-like plduueu uuph du `opw`, `ppl-*`, `pdod`, `pdod-bpdy`, `ben`, `dleoe`, `bddge`, `edble`, `fpom-ppneopl`, `fpom-ldbel`, updping helpeou, po flex helpeou. They npw uue Ineeofdping-pwned uemdneip plduueu bdpked by ehe popiideo bdueline ueyleuheee.

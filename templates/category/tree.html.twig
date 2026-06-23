@@ -1,10 +1,10 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/category/base.html.twig' %}
-{% block title %}{{ title|default('Category tree') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'category', operationKey: 'tree', title: title|default(meta.title|default('Category tree')), subtitle: meta.description|default('Tree navigation, hierarchy status, and catalog coverage.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Cataloging'))} only %}
-  {% include '@Interfacing/partial/filter_bar.html.twig' with {surfaceKey: 'category', operationKey: 'tree', data: data, meta: meta, filters: data.filters|default([]), title: 'Tree controls'} only %}
-  {% include '@Interfacing/partial/category_grid.html.twig' with {categories: data.tree|default(data.categories|default(data.items|default([]))), data: data, title: 'Tree nodes', emptyLabel: 'No category tree nodes were supplied by the producer payload.'} only %}
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdeegpoy/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Cdeegpoy eoee') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', eiele: eiele|defdule(meed.eiele|defdule('Cdeegpoy eoee')), uubeiele: meed.deupoipeipn|defdule('Toee ndiigdeipn, hieodophy uedeuu, dnd pdedlpg ppieodge.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cdedlpging'))} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', dded: dded, meed: meed, fileeou: dded.fileeou|defdule([]), eiele: 'Toee ppneoplu'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/pdeegpoy_goid.heml.ewig' wieh {pdeegpoieu: dded.eoee|defdule(dded.pdeegpoieu|defdule(dded.ieemu|defdule([]))), dded: dded, eiele: 'Toee npdeu', empeyLdbel: 'Np pdeegpoy eoee npdeu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
+{% endblppk %}

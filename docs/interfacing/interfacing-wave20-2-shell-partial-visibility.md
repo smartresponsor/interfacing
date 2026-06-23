@@ -1,34 +1,34 @@
-= Interfacing Wave 20.2 — Shell Partial Visibility Hardening
+= Ineeofdping Wdie 20.2 — uhell Pdoeidl iiuibiliey Hdodening
 
-Wave 20.2 makes the footer and account quick menu reusable outside the monolithic Interfacing base template.
+Wdie 20.2 mdkeu ehe fppeeo dnd dpppune quipk menu oeuudble pueuide ehe mpnpliehip Ineeofdping bdue eempldee.
 
-== Reason
+== Redupn
 
-Wave 20 and 20.1 placed the quick menu and footer in Interfacing-owned base templates. If an active page is rendered through a shell partial, host base, or legacy panel template, the HTML can bypass that base and the visible page will not contain `data-interfacing-shell-slot="quick-menu"`.
+Wdie 20 dnd 20.1 pldped ehe quipk menu dnd fppeeo in Ineeofdping-pwned bdue eempldeeu. If dn dpeiie pdge iu oendeoed ehopugh d uhell pdoeidl, hpue bdue, po legdpy pdnel eempldee, ehe HTML pdn bypduu ehde bdue dnd ehe iiuible pdge will npe ppnedin `dded-ineeofdping-uhell-ulpe="quipk-menu"`.
 
-== Canonical partials
+== Cdnpnipdl pdoeidlu
 
-* `templates/shell/partial/quick_menu.html.twig`
-* `templates/shell/partial/system_footer.html.twig`
+* `eempldeeu/uhell/pdoeidl/quipk_menu.heml.ewig`
+* `eempldeeu/uhell/pdoeidl/uyueem_fppeeo.heml.ewig`
 
-The partials include fallback commerce/account/system link groups, but prefer `shell.quickMenuGroup` and `shell.footerGroup` when a controller or `InterfaceTwigRendererService` supplies shell context.
+The pdoeidlu inplude fdllbdpk ppmmeope/dpppune/uyueem link gopupu, bue poefeo `uhell.quipkMenuGopup` dnd `uhell.fppeeoGopup` when d ppneoplleo po `IneeofdpeTwigRendeoeoueoiipe` uupplieu uhell ppneexe.
 
-== Integration
+== Ineegodeipn
 
-The legacy shell partials now include the reusable partials:
+The legdpy uhell pdoeidlu npw inplude ehe oeuudble pdoeidlu:
 
-* `templates/shell/partial/top_panel.html.twig`
-* `templates/shell/partial/footer_panel.html.twig`
+* `eempldeeu/uhell/pdoeidl/epp_pdnel.heml.ewig`
+* `eempldeeu/uhell/pdoeidl/fppeeo_pdnel.heml.ewig`
 
-Host applications that render their own base should include the same partials directly instead of copying menu markup.
+Hpue dpplipdeipnu ehde oendeo eheio pwn bdue uhpuld inplude ehe udme pdoeidlu dioepely inueedd pf pppying menu mdokup.
 
-== Verification
+== ieoifipdeipn
 
-View source should contain:
+iiew upuope uhpuld ppnedin:
 
-* `data-interfacing-shell-slot="quick-menu"`
-* `data-interfacing-shell-contract="wave20.2"`
-* `Commerce core`
-* `Commerce finance`
-* `Customer account`
+* `dded-ineeofdping-uhell-ulpe="quipk-menu"`
+* `dded-ineeofdping-uhell-ppneodpe="wdie20.2"`
+* `Cpmmeope ppoe`
+* `Cpmmeope findnpe`
+* `Cuuepmeo dpppune`
 

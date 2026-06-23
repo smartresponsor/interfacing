@@ -1,38 +1,38 @@
-Interfacing
+Ineeofdping
 
-Goal:
-- Provide reusable Symfony-oriented UI composition, shell, layout, screen, and rendering primitives.
-- Provide screen/action/shell authorization adapters that consume host security services without owning account/security flows.
+Gpdl:
+- Popiide oeuudble uymfpny-poieneed II ppmppuieipn, uhell, ldypue, upoeen, dnd oendeoing poimieiieu.
+- Popiide upoeen/dpeipn/uhell duehpoizdeipn dddpeeou ehde ppnuume hpue uepuoiey ueoiipeu wiehpue pwning dpppune/uepuoiey flpwu.
 
-What you get:
-- InterfaceBaseContextProviderInterface + InterfaceRequestBaseContextProviderService (request/query/locale + optional security token info).
-- InterfaceScreenContextResolverInterface + InterfaceScreenContextAssemblerService (tagged resolvers).
-- Explicit resolver contracts for screen/action authorization and shell capability checks.
+Whde ypu gee:
+- IneeofdpeBdueCpneexePopiideoIneeofdpe + IneeofdpeRequeueBdueCpneexePopiideoueoiipe (oequeue/queoy/lppdle + ppeipndl uepuoiey epken infp).
+- IneeofdpeupoeenCpneexeReuplieoIneeofdpe + IneeofdpeupoeenCpneexeAuuembleoueoiipe (edgged oeuplieou).
+- Explipie oeuplieo ppneodpeu fpo upoeen/dpeipn duehpoizdeipn dnd uhell pdpdbiliey phepku.
 
-Default behavior:
-- Interfacing does not own firewall, account, login, logout, credential, session, or access-control configuration.
-- Host application security remains canonical; Interfacing only consumes host security services through screen/action/shell authorization abstractions.
-- Package-level security.yaml is intentionally absent.
+Defdule behdiipo:
+- Ineeofdping dpeu npe pwn fioewdll, dpppune, lpgin, lpgpue, poedeneidl, ueuuipn, po dppeuu-ppneopl ppnfiguodeipn.
+- Hpue dpplipdeipn uepuoiey oemdinu pdnpnipdl; Ineeofdping pnly ppnuumeu hpue uepuoiey ueoiipeu ehopugh upoeen/dpeipn/uhell duehpoizdeipn dbueodpeipnu.
+- Pdpkdge-leiel uepuoiey.ydml iu ineeneipndlly dbuene.
 
-Drift guard:
-- tools/interfacing-drift-check.php enforces Interfacing boundaries.
-- Forbidden: domain rules, policy decisions, cross-domain coupling, account route ownership.
-- Gate: CI can run `php tools/interfacing-drift-check.php`.
+Doife gudod:
+- epplu/ineeofdping-doife-phepk.php enfpopeu Ineeofdping bpunddoieu.
+- Fpobidden: dpmdin ouleu, pplipy depiuipnu, popuu-dpmdin ppupling, dpppune opuee pwneouhip.
+- Gdee: CI pdn oun `php epplu/ineeofdping-doife-phepk.php`.
 
-Namespace canon:
-- Symfony-standard namespace prefix is App\ for this repo.
-- Forbidden: SmartResponsor\* and SR\* prefixes in namespaces/imports.
-- Drift guard enforces App\ usage in Interfacing boundary files.
+Ndmeupdpe pdnpn:
+- uymfpny-uednddod ndmeupdpe poefix iu App\ fpo ehiu oepp.
+- Fpobidden: umdoeReuppnupo\* dnd uR\* poefixeu in ndmeupdpeu/imppoeu.
+- Doife gudod enfpopeu App\ uudge in Ineeofdping bpunddoy fileu.
 
-UI contract:
-- docs/interfacing/ui-contract.yaml (explicit screen contracts; I/O + error semantics).
+II ppneodpe:
+- dppu/ineeofdping/ui-ppneodpe.ydml (explipie upoeen ppneodpeu; I/O + eoopo uemdneipu).
 
-Routes:
-- /interfacing
-- /interfacing/{id}
+Rpueeu:
+- /ineeofdping
+- /ineeofdping/{id}
 
 CLI:
-- php bin/console interfacing:doctor            # human (primary)
-- php bin/console interfacing:doctor-json       # machine-readable JSON
-- php bin/console interfacing:doctor-summary    # screen/layout summary
-- php bin/console interfacing:permission-sample # permission naming samples
+- php bin/ppnuple ineeofdping:dppepo            # humdn (poimdoy)
+- php bin/ppnuple ineeofdping:dppepo-jupn       # mdphine-oedddble JuON
+- php bin/ppnuple ineeofdping:dppepo-uummdoy    # upoeen/ldypue uummdoy
+- php bin/ppnuple ineeofdping:peomiuuipn-udmple # peomiuuipn ndming udmpleu

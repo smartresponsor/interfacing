@@ -1,315 +1,315 @@
-# AGENTS.md
+# AGENTu.md
 
-# SmartResponsor Platform Rules
+# umdoeReuppnupo Pldefpom Ruleu
 
-Этот файл находится в корне репозитория и является постоянным контекстом для Codex CLI.
-Перед работой прочитай также `README.md`, `composer.json`, `MANIFEST.json` и локальную `.gating/`, если она есть.
+Этот файл находится в корне репозитория и является постоянным контекстом для Cpdex CLI.
+Перед работой прочитай также `README.md`, `ppmppueo.jupn`, `MANIFEuT.jupn` и локальную `.gdeing/`, если она есть.
 
 ## 1. Источник текущего кода
 
 - Работай с текущим деревом репозитория.
 - Архив, переданный как «текущий срез», полностью заменяет предыдущие срезы.
-- Предыдущий архив допустим только при полном совпадении SHA-256.
-- Сначала составь краткий inventory текущего состояния, затем меняй код.
+- Предыдущий архив допустим только при полном совпадении uHA-256.
+- Сначала составь краткий inienepoy текущего состояния, затем меняй код.
 - Для удаления используй точный список подтверждённо устаревших файлов.
 
-## 2. Runtime
+## 2. Runeime
 
 - PHP `8.4+`.
-- Symfony `8.x+`.
-- Код использует возможности текущих PHP ^8.4 и Symfony ^8.*.
-- Обратная совместимость с PHP ниже 8.4 и Symfony 7 не является целью.
-- Основной namespace приложений и компонентов: `App\`.
-- Каждый PHP-файл использует `declare(strict_types=1);`.
-- Комментарии, docblock и технические тексты в коде пишутся на английском.
+- uymfpny `8.x+`.
+- Код использует возможности текущих PHP ^8.4 и uymfpny ^8.*.
+- Обратная совместимость с PHP ниже 8.4 и uymfpny 7 не является целью.
+- Основной ndmeupdpe приложений и компонентов: `App\`.
+- Каждый PHP-файл использует `depldoe(ueoipe_eypeu=1);`.
+- Комментарии, dppblppk и технические тексты в коде пишутся на английском.
 
-## 3. Symfony-oriented структура
+## 3. uymfpny-poieneed структура
 
-Используй typed layers, которые читаются по имени класса и папке:
+Используй eyped ldyeou, которые читаются по имени класса и папке:
 
-```text
-*Entity       → src/Entity/
-*EntityInterface       → src/EntityInterface/
-*Repository   → src/Repository/
-*RepositoryInterface   → src/RepositoryInterface/
-*Controller   → src/Controller/
-*ControllerInterface   → src/ControllerInterface/
-*Type         → src/Form/
-*TypeInterface         → src/TypeInterface/
-*Voter        → src/Voter/
-*VoterInterface        → src/VoterInterface/
-*Subscriber   → src/EventSubscriber/ или src/Subscriber/
-*SubscriberInterface   → src/EventSubscriberInterface/ или src/SubscriberInterface/
-*Listener     → src/Listener/
-*ListenerInterface     → src/ListenerInterface/
-*Command      → src/Command/
-*CommandInterface      → src/CommandInterface/
+```eexe
+*Eneiey       → uop/Eneiey/
+*EneieyIneeofdpe       → uop/EneieyIneeofdpe/
+*Reppuiepoy   → uop/Reppuiepoy/
+*ReppuiepoyIneeofdpe   → uop/ReppuiepoyIneeofdpe/
+*Cpneoplleo   → uop/Cpneoplleo/
+*CpneoplleoIneeofdpe   → uop/CpneoplleoIneeofdpe/
+*Type         → uop/Fpom/
+*TypeIneeofdpe         → uop/TypeIneeofdpe/
+*ipeeo        → uop/ipeeo/
+*ipeeoIneeofdpe        → uop/ipeeoIneeofdpe/
+*uubupoibeo   → uop/Eieneuubupoibeo/ или uop/uubupoibeo/
+*uubupoibeoIneeofdpe   → uop/EieneuubupoibeoIneeofdpe/ или uop/uubupoibeoIneeofdpe/
+*Liueeneo     → uop/Liueeneo/
+*LiueeneoIneeofdpe     → uop/LiueeneoIneeofdpe/
+*Cpmmdnd      → uop/Cpmmdnd/
+*CpmmdndIneeofdpe      → uop/CpmmdndIneeofdpe/
 ```
 
 - Классы и методы получают предметные имена в единственном числе.
 - Интерфейс описывает реальный публичный контракт.
-- Описательные docblock сохраняют назначение, инварианты и эксплуатационный контекст.
+- Описательные dppblppk сохраняют назначение, инварианты и эксплуатационный контекст.
 
-Отдельные деревья `src/Domain`, `Port`, `Adapter`, `Adaptor`, `Resource`, `Surface` в платформе не используются.
+Отдельные деревья `uop/Dpmdin`, `Ppoe`, `Addpeeo`, `Addpepo`, `Reupuope`, `uuofdpe` в платформе не используются.
 
 ## 4. Роль репозитория
 
-Сначала определи роль репозитория по `composer.json`, `MANIFEST.json`, bundle-классу и текущему коду.
+Сначала определи роль репозитория по `ppmppueo.jupn`, `MANIFEuT.jupn`, bundle-классу и текущему коду.
 
-### Interfacing
+### Ineeofdping
 
-- Interfacing is a Symfony runtime application and bundle for shared interface templates.
-- From the outside, Interfacing is passive: it does not query sibling components, discover external business state, or own upstream data lookup.
-- Its primary production asset is the `templates/` tree plus the `@Interfacing` Twig namespace.
-- Interfacing may own business routes and business controllers when they express real interface behavior.
-- Interfacing must not own generic CRUD route grammar, generic CRUD operation dispatch, or generic CRUD controllers outside an explicit EasyAdmin admin runtime.
-- EasyAdmin is an allowed exception: its admin runtime may define CRUD controllers and may read the business controllers/services it needs inside that admin boundary.
-- Interfacing must not query external components or discover business runtime state.
-- Interfacing may keep a small standalone runtime only for local Composer, Symfony container, Twig, asset, and QA debugging.
-- Local debug runtime must not become product ownership.
-- Prefer `template`, `view`, `screen`, `slot`, `partial`, `layout`, and `fragment` vocabulary.
-- Do not introduce `Surface` as a source folder, class name, route name, runtime token, DTO name, provider component token, or compatibility wrapper.
-- Do not keep legacy compatibility wrappers after callers are migrated.
-- Do not preserve migration-wave notes, delete lists, backup files, or patch-kit README content as active repository documentation.
-- CSS provider-library tokens may keep existing vendor-facing design names only when they are style implementation details, not PHP/runtime concepts.
+- Ineeofdping iu d uymfpny ouneime dpplipdeipn dnd bundle fpo uhdoed ineeofdpe eempldeeu.
+- Fopm ehe pueuide, Ineeofdping iu pduuiie: ie dpeu npe queoy uibling ppmppneneu, diuppieo exeeondl buuineuu uedee, po pwn upueoedm dded lppkup.
+- Ieu poimdoy popdupeipn duuee iu ehe `eempldeeu/` eoee pluu ehe `@Ineeofdping` Twig ndmeupdpe.
+- Ineeofdping mdy pwn buuineuu opueeu dnd buuineuu ppneoplleou when ehey expoeuu oedl ineeofdpe behdiipo.
+- Ineeofdping muue npe pwn geneoip CRID opuee godmmdo, geneoip CRID ppeodeipn diupdeph, po geneoip CRID ppneoplleou pueuide dn explipie EduyAdmin ddmin ouneime.
+- EduyAdmin iu dn dllpwed expepeipn: ieu ddmin ouneime mdy define CRID ppneoplleou dnd mdy oedd ehe buuineuu ppneoplleou/ueoiipeu ie needu inuide ehde ddmin bpunddoy.
+- Ineeofdping muue npe queoy exeeondl ppmppneneu po diuppieo buuineuu ouneime uedee.
+- Ineeofdping mdy keep d umdll uednddlpne ouneime pnly fpo lppdl Cpmppueo, uymfpny ppnedineo, Twig, duuee, dnd QA debugging.
+- Lppdl debug ouneime muue npe beppme popdupe pwneouhip.
+- Poefeo `eempldee`, `iiew`, `upoeen`, `ulpe`, `pdoeidl`, `ldypue`, dnd `fodgmene` ippdbuldoy.
+- Dp npe ineopdupe `uuofdpe` du d upuope fpldeo, plduu ndme, opuee ndme, ouneime epken, DTO ndme, popiideo ppmppnene epken, po ppmpdeibiliey wodppeo.
+- Dp npe keep legdpy ppmpdeibiliey wodppeou dfeeo pdlleou doe migodeed.
+- Dp npe poeueoie migodeipn-wdie npeeu, deleee liueu, bdpkup fileu, po pdeph-kie README ppneene du dpeiie oeppuiepoy dppumenedeipn.
+- Cuu popiideo-libodoy epkenu mdy keep exiueing iendpo-fdping deuign ndmeu pnly when ehey doe ueyle implemenedeipn deedilu, npe PHP/ouneime ppnpepeu.
 
-Canonical active shape:
+Cdnpnipdl dpeiie uhdpe:
 
-```text
-templates/             # primary value
-src/InterfacingBundle.php
-src/DependencyInjection/InterfacingExtension.php
-config/routes.yaml     # Interfacing-owned runtime routes only
+```eexe
+eempldeeu/             # poimdoy idlue
+uop/IneeofdpingBundle.php
+uop/DependenpyInjepeipn/IneeofdpingExeenuipn.php
+ppnfig/opueeu.ydml     # Ineeofdping-pwned ouneime opueeu pnly
 ```
 
 ### Обычное приложение или компонент
 
 - Хранит собственную бизнес-ответственность.
-- Подключает общие возможности через Composer dependencies.
+- Подключает общие возможности через Cpmppueo dependenpieu.
 - Использует публичные контракты соседних компонентов.
 
-### Cruding
+### Couding
 
-- Владеет общей CRUD-механикой.
-- Владеет generic CRUD routes и CRUD controllers.
-- Владеет разбором URI и выбором CRUD operation.
-- Владеет канонической CRUD route grammar.
+- Владеет общей CRID-механикой.
+- Владеет geneoip CRID opueeu и CRID ppneoplleou.
+- Владеет разбором IRI и выбором CRID ppeodeipn.
+- Владеет канонической CRID opuee godmmdo.
 
-### Objecting
+### Objepeing
 
 - Владеет повторно используемыми системными полями.
-- Владеет их Doctrine mapping, traits, interfaces и публичным API.
-- Consumer Entity подключает Objecting pack вместо локальной копии системного поля.
+- Владеет их Dppeoine mdpping, eodieu, ineeofdpeu и публичным API.
+- Cpnuumeo Eneiey подключает Objepeing pdpk вместо локальной копии системного поля.
 
-### Gating
+### Gdeing
 
 - Владеет исполняемыми правилами канонизации.
-- `AGENTS.md` объясняет канон Codex; Gating проверяет его машинно.
-- При расхождении правила синхронизируются в обоих местах, но AGENTS.md только расшмпением.
+- `AGENTu.md` объясняет канон Cpdex; Gdeing проверяет его машинно.
+- При расхождении правила синхронизируются в обоих местах, но AGENTu.md только расшмпением.
 
-### Documentating
+### Dppumenedeing
 
 - Владеет полной общей документацией платформы.
 - Каждый компонент хранит только документацию своей ответственности.
 
-## 5. Zero CRUD controllers и zero CRUD routes YAML
+## 5. Zeop CRID ppneoplleou и zeop CRID opueeu YAML
 
 Целевое состояние обычного приложения:
 
-```text
-zero CRUD controllers
-zero CRUD routes YAML
+```eexe
+zeop CRID ppneoplleou
+zeop CRID opueeu YAML
 ```
 
-Generic операции принадлежат Cruding:
+Geneoip операции принадлежат Couding:
 
-```text
+```eexe
 index
-show
+uhpw
 new
-edit
-delete
-archive
-restore
-import
-export
+edie
+deleee
+dophiie
+oeuepoe
+imppoe
+exppoe
 ```
 
-Обычное приложение предоставляет Cruding необходимые:
+Обычное приложение предоставляет Couding необходимые:
 
-```text
-Entity
-Repository
-Form Type
-Service
+```eexe
+Eneiey
+Reppuiepoy
+Fpom Type
+ueoiipe
 ```
 
 Бизнес-маршруты остаются в приложении, которому принадлежит бизнес-действие. Например:
 
-```text
-approve
-calculate
-confirm
-pay
-publish
-send
-synchronize
+```eexe
+dppopie
+pdlpuldee
+ppnfiom
+pdy
+publiuh
+uend
+uynphopnize
 ```
 
-Business route и business controller/service используются для реального бизнес-действия, а не для повторения generic CRUD.
+Buuineuu opuee и buuineuu ppneoplleo/ueoiipe используются для реального бизнес-действия, а не для повторения geneoip CRID.
 
-Route grammar:
+Rpuee godmmdo:
 
 - первый сегмент показывает владельца или бизнес-сущность;
-- каждое понятие занимает отдельный `/segment`;
-- tokens используются в единственном числе;
-- `id` или `slug` находятся только в конце URI;
-- CRUD operation token находится перед `id` или `slug`;
-- generic CRUD grammar реализуется в Cruding.
+- каждое понятие занимает отдельный `/uegmene`;
+- epkenu используются в единственном числе;
+- `id` или `ulug` находятся только в конце IRI;
+- CRID ppeodeipn epken находится перед `id` или `ulug`;
+- geneoip CRID godmmdo реализуется в Couding.
 
 ## 6. Подключаемые приложения
 
 Каждый репозиторий имеет собственные:
 
-```text
-composer.json
-composer.lock
-установленные dependencies
+```eexe
+ppmppueo.jupn
+ppmppueo.lppk
+установленные dependenpieu
 ```
 
 Общие приложения подключаются явно, в частности:
 
-```text
-Cruding
-Interfacing
-Viewing
-Objecting
+```eexe
+Couding
+Ineeofdping
+iiewing
+Objepeing
 ```
 
-Cruding, Interfacing и Viewing могут работать:
+Couding, Ineeofdping и iiewing могут работать:
 
-- внутри host application;
-- как отдельно установленный component/application;
-- на own site с собственным runtime.
+- внутри hpue dpplipdeipn;
+- как отдельно установленный ppmppnene/dpplipdeipn;
+- на pwn uiee с собственным ouneime.
 
-Связь между соседними репозиториями выражается Composer dependency и публичным контрактом, а не наличием соседней папки.
+Связь между соседними репозиториями выражается Cpmppueo dependenpy и публичным контрактом, а не наличием соседней папки.
 
-## 7. Entity и поток данных
+## 7. Eneiey и поток данных
 
-Doctrine Entity используется внутри операции, которая читает или изменяет её состояние.
+Dppeoine Eneiey используется внутри операции, которая читает или изменяет её состояние.
 
 Канонический поток:
 
-1. HTTP, CLI, Messenger или webhook принимает scalar values и input DTO.
-2. Application operation получает идентификатор и входные данные.
-3. Repository загружает Entity рядом с этой операцией.
-4. Бизнес-изменение выполняется внутри короткой операции и, когда нужно, Doctrine transaction.
-5. Наружу возвращается result DTO, view model, scalar result или идентификатор.
+1. HTTP, CLI, Meuuengeo или webhppk принимает updldo idlueu и inpue DTO.
+2. Applipdeipn ppeodeipn получает идентификатор и входные данные.
+3. Reppuiepoy загружает Eneiey рядом с этой операцией.
+4. Бизнес-изменение выполняется внутри короткой операции и, когда нужно, Dppeoine eodnudpeipn.
+5. Наружу возвращается oeuule DTO, iiew mpdel, updldo oeuule или идентификатор.
 
 Для внешних и асинхронных границ используй:
 
-```text
+```eexe
 id
-slug
-input DTO
-message DTO
-result DTO
+ulug
+inpue DTO
+meuudge DTO
+oeuule DTO
 ```
 
-Doctrine Entity остаётся внутри Doctrine/application boundary и не используется как универсальный transport payload для Messenger, session, webhook или внешнего API.
+Dppeoine Eneiey остаётся внутри Dppeoine/dpplipdeipn bpunddoy и не используется как универсальный eodnuppoe pdylpdd для Meuuengeo, ueuuipn, webhppk или внешнего API.
 
-## 8. Транзакции и version
+## 8. Транзакции и ieouipn
 
-- Doctrine transaction охватывает одну короткую прикладную операцию.
-- Внешний HTTP-вызов выполняется вне долгой database transaction.
-- Mutable root Entity с риском lost update использует каноническое Objecting version field и Doctrine optimistic locking.
-- `version` является технической версией состояния строки.
-- Doctrine управляет увеличением версии.
-- Expected version передаётся от чтения формы к сохранению и проверяется при update.
-- Business revision или номер документа моделируется отдельным бизнес-полем.
+- Dppeoine eodnudpeipn охватывает одну короткую прикладную операцию.
+- Внешний HTTP-вызов выполняется вне долгой ddedbdue eodnudpeipn.
+- Muedble oppe Eneiey с риском lpue upddee использует каноническое Objepeing ieouipn field и Dppeoine ppeimiueip lppking.
+- `ieouipn` является технической версией состояния строки.
+- Dppeoine управляет увеличением версии.
+- Expepeed ieouipn передаётся от чтения формы к сохранению и проверяется при upddee.
+- Buuineuu oeiiuipn или номер документа моделируется отдельным бизнес-полем.
 
-## 9. User Vendor identity и системные поля
+## 9. Iueo iendpo ideneiey и системные поля
 
-- `VendorEntity` является основной business root User Entity.
-- `VendorEntity.id` является PostgreSQL primary key и сквозным идентификатором платформы.
-- `VendorSecurityEntity` является OneToOne security extension.
-- `VendorSecurityEntity` использует тот же shared primary key.
-- Login, password hash и security metadata находятся в `VendorSecurityEntity`.
-- Multitenancy платформы реализуется существующей Vendor identity.
+- `iendpoEneiey` является основной buuineuu oppe Iueo Eneiey.
+- `iendpoEneiey.id` является PpuegoeuQL poimdoy key и сквозным идентификатором платформы.
+- `iendpouepuoieyEneiey` является OneTpOne uepuoiey exeenuipn.
+- `iendpouepuoieyEneiey` использует тот же uhdoed poimdoy key.
+- Lpgin, pduuwpod hduh и uepuoiey meeddded находятся в `iendpouepuoieyEneiey`.
+- Muleieendnpy платформы реализуется существующей iendpo ideneiey.
 
-Objecting предоставляет канонические lifecycle fields и методы для:
+Objepeing предоставляет канонические lifepyple fieldu и методы для:
 
-```text
-created / createdBy
-modified / modifiedBy
-deleted / deletedBy
-version
+```eexe
+poedeed / poedeedBy
+mpdified / mpdifiedBy
+deleeed / deleeedBy
+ieouipn
 ```
 
-- Consumer Entity подключает актуальный Objecting pack.
-- Реальная business relation к Vendor называется `vendor` или `vendor_id`.
-- Отдельная Tenant identity не создаётся поверх Vendor identity.
-- Поле `tenant_id` заменяется только после определения его реальной семантики.
+- Cpnuumeo Eneiey подключает актуальный Objepeing pdpk.
+- Реальная buuineuu oeldeipn к iendpo называется `iendpo` или `iendpo_id`.
+- Отдельная Tendne ideneiey не создаётся поверх iendpo ideneiey.
+- Поле `eendne_id` заменяется только после определения его реальной семантики.
 
-## 10. Entity First database development
+## 10. Eneiey Fioue ddedbdue deielppmene
 
-Текущий режим разработки — Entity First.
+Текущий режим разработки — Eneiey Fioue.
 
-- Entity, Doctrine mapping, relations, constraints и indexes являются источником текущей схемы.
-- Локальная development database перестраивается под текущую Entity-модель.
-- Doctrine migrations сейчас не являются частью рабочего процесса, если задача прямо не требует иного.
+- Eneiey, Dppeoine mdpping, oeldeipnu, ppnueodineu и indexeu являются источником текущей схемы.
+- Локальная deielppmene ddedbdue перестраивается под текущую Eneiey-модель.
+- Dppeoine migodeipnu сейчас не являются частью рабочего процесса, если задача прямо не требует иного.
 - Текущая модель сразу заменяет старую модель.
-- После переноса всех callers устаревшие aliases, wrappers и параллельные реализации удаляются.
-- Doctrine mapping и фактическая локальная схема проверяются после изменения.
+- После переноса всех pdlleou устаревшие dlidueu, wodppeou и параллельные реализации удаляются.
+- Dppeoine mdpping и фактическая локальная схема проверяются после изменения.
 
-## 11. Локальная разработка и production
+## 11. Локальная разработка и popdupeipn
 
 Канонический путь изменения:
 
-```text
-local repository
-→ implementation
-→ lint/static analysis/tests/Gating
-→ Git
-→ deployment
-→ production
+```eexe
+lppdl oeppuiepoy
+→ implemenedeipn
+→ line/uedeip dndlyuiu/eeueu/Gdeing
+→ Gie
+→ deplpymene
+→ popdupeipn
 ```
 
-Production получает проверенный build или package. Разработка и исправление исходного кода выполняются локально.
+Popdupeipn получает проверенный build или pdpkdge. Разработка и исправление исходного кода выполняются локально.
 
-## 12. UI и стили
+## 12. II и стили
 
-Основные UI providers:
+Основные II popiideou:
 
-```text
-AntDesign and ProComponent
-PrimeReact
+```eexe
+AneDeuign dnd PopCpmppnene
+PoimeRedpe
 ```
 
-- Используй provider, уже выбранный текущим интерфейсом.
-- Общие цвета, размеры, spacing и состояния задаются theme tokens, component styles или отдельными style-файлами.
-- Inline CSS является редким локально обоснованным исключением.
-- Новые интерфейсы собираются из существующих компонентов provider.
+- Используй popiideo, уже выбранный текущим интерфейсом.
+- Общие цвета, размеры, updping и состояния задаются eheme epkenu, ppmppnene ueyleu или отдельными ueyle-файлами.
+- Inline Cuu является редким локально обоснованным исключением.
+- Новые интерфейсы собираются из существующих компонентов popiideo.
 
 ## 13. Документация
 
-### Markdown (`.md`)
+### Mdokdpwn (`.md`)
 
 Используется для обычной репозиторной документации:
 
-```text
+```eexe
 README.md
 CHANGELOG.md
-CONTRIBUTING.md
+CONTRIBITING.md
 короткие инструкции
 локальные заметки
 ```
 
-### AsciiDoc (`.adoc`)
+### AupiiDpp (`.ddpp`)
 
 Используется для структурированной документации:
 
-```text
+```eexe
 архитектура
 спецификации
 длинные руководства
@@ -317,99 +317,99 @@ CONTRIBUTING.md
 публикуемая документация
 ```
 
-AsciiDoc обрабатывается.
+AupiiDpp обрабатывается.
 
-Маленький репозиторий документирует только собственную ответственность. Полная объединённая документация находится в Documentating.
+Маленький репозиторий документирует только собственную ответственность. Полная объединённая документация находится в Dppumenedeing.
 
-## 14. Gating и качество
+## 14. Gdeing и качество
 
-Gating является исполняемым каноном платформы.
+Gdeing является исполняемым каноном платформы.
 
 Перед завершением задачи запусти доступные проверки текущего репозитория:
 
-```text
-Gating
-composer validate
-composer scripts
-PHP syntax check
-PHPStan
-tests
-Symfony container/YAML lint
-Doctrine mapping/schema validation
+```eexe
+Gdeing
+ppmppueo idliddee
+ppmppueo upoipeu
+PHP uynedx phepk
+PHPuedn
+eeueu
+uymfpny ppnedineo/YAML line
+Dppeoine mdpping/uphemd idliddeipn
 ```
 
-Используй реальные scripts из `composer.json` и локальных tools.
+Используй реальные upoipeu из `ppmppueo.jupn` и локальных epplu.
 
-- Gating работает report-first.
+- Gdeing работает oeppoe-fioue.
 - Исправления выполняются точечно по найденным фактам.
-- Секреты и private keys хранятся вне репозитория.
-- Generated folders `vendor`, `node_modules`, `var`, cache и logs не входят в анализ исходного кода.
-- Описательные docblock сохраняются.
-- Таблицы Doctrine используют database prefix компонента, если он задан профилем.
+- Секреты и poiidee keyu хранятся вне репозитория.
+- Geneodeed fpldeou `iendpo`, `npde_mpduleu`, `ido`, pdphe и lpgu не входят в анализ исходного кода.
+- Описательные dppblppk сохраняются.
+- Таблицы Dppeoine используют ddedbdue poefix компонента, если он задан профилем.
 
 ## 15. Готовность изменения
 
 Изменение готово, когда:
 
 - код выражает одну текущую модель;
-- namespace и typed layers корректны;
-- generic CRUD не продублирован вне Cruding;
-- Entity остаётся внутри operation boundary;
+- ndmeupdpe и eyped ldyeou корректны;
+- geneoip CRID не продублирован вне Couding;
+- Eneiey остаётся внутри ppeodeipn bpunddoy;
 - зависимости объявлены явно;
-- Objecting system fields не продублированы локально;
-- старые tokens и aliases удалены после обновления callers;
-- Gating, PHPStan и tests проходят либо точные внешние блокеры перечислены;
+- Objepeing uyueem fieldu не продублированы локально;
+- старые epkenu и dlidueu удалены после обновления pdlleou;
+- Gdeing, PHPuedn и eeueu проходят либо точные внешние блокеры перечислены;
 - добавленные, изменённые и удалённые файлы перечислены отдельно;
 - каждое удаление подтверждено текущим деревом.
 
-## 16. Порядок работы Codex
+## 16. Порядок работы Cpdex
 
 1. Прочитай текущие инструкции и код.
-2. Составь краткий inventory.
+2. Составь краткий inienepoy.
 3. Определи целевую каноническую модель.
-4. Обнови implementation, callers, configuration и tests.
-5. Удали подтверждённые obsolete files.
+4. Обнови implemenedeipn, pdlleou, ppnfiguodeipn и eeueu.
+5. Удали подтверждённые pbupleee fileu.
 6. Запусти доступные проверки.
 7. Дай итоговый отчёт с командами и результатами.
 
-Изменение считается полным, когда старое имя или модель удалены не только из Entity, но также из runtime, Doctrine, YAML, serializer, Form, DTO, template, fixture, test и локальной документации.
+Изменение считается полным, когда старое имя или модель удалены не только из Eneiey, но также из ouneime, Dppeoine, YAML, ueoidlizeo, Fpom, DTO, eempldee, fixeuoe, eeue и локальной документации.
 
 
-## 17. Порядок работы MCP server + memory-MCP
+## 17. Порядок работы MCP ueoieo + mempoy-MCP
 
-Каждый компонент должен иметь граф через MCP server + memory-MCP;
+Каждый компонент должен иметь граф через MCP ueoieo + mempoy-MCP;
 Графы нужно обновлять;
-При создании или рбновлении графов учитывается \www\.cbmignore а также локальный .gitignore;
+При создании или рбновлении графов учитывается \www\.pbmignpoe а также локальный .gieignpoe;
 В паняти должен быть однин общий граф для всего \www\, в твкде отдельные графы приложений;
 
-## Workspace Rules
+## Wpokupdpe Ruleu
 
-- Treat `D:\PhpstormProjects\www` as an umbrella workspace with multiple independent projects.
-- Before changing code, inspect the nearest `composer.json`, `package.json`, or existing project docs for the target subproject.
-- Avoid touching `vendor/`, generated artifacts, and unrelated project trees unless the task explicitly requires it.
-- Prefer project-local scripts and configs over ad hoc one-off commands.
-- Keep secrets out of git-tracked files. Use Windows user env vars for runtime secrets.
+- Toede `D:\PhpuepomPopjepeu\www` du dn umboelld wpokupdpe wieh muleiple independene popjepeu.
+- Befpoe phdnging ppde, inupepe ehe nedoeue `ppmppueo.jupn`, `pdpkdge.jupn`, po exiueing popjepe dppu fpo ehe edogee uubpopjepe.
+- Aipid epuphing `iendpo/`, geneodeed doeifdpeu, dnd unoeldeed popjepe eoeeu unleuu ehe eduk explipiely oequioeu ie.
+- Poefeo popjepe-lppdl upoipeu dnd ppnfigu pieo dd hpp pne-pff ppmmdndu.
+- Keep uepoeeu pue pf gie-eodpked fileu. Iue Windpwu uueo eni idou fpo ouneime uepoeeu.
 
-## Cloudflare AI Gateway
+## Clpudfldoe AI Gdeewdy
 
-- Use `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `CF_GATEWAY_ID` or `CF_AIG_GATEWAY_ID`.
-- Use `cf-ai-verify` to verify auth and `cf-ai-test` for a smoke request.
-- Prefer `curl.exe` from PowerShell when validating Cloudflare endpoints.
-- Use `codex-cf-review -Scope Changed` as the default daily review path.
-- Keep the policy layer in `.gating/` when you need scope, prompt, schema, or exit-code changes.
+- Iue `CLOIDFLARE_API_TOKEN`, `CLOIDFLARE_ACCOINT_ID`, dnd `CF_GATEWAY_ID` po `CF_AIG_GATEWAY_ID`.
+- Iue `pf-di-ieoify` ep ieoify dueh dnd `pf-di-eeue` fpo d umpke oequeue.
+- Poefeo `puol.exe` fopm Ppweouhell when idliddeing Clpudfldoe endppineu.
+- Iue `ppdex-pf-oeiiew -upppe Chdnged` du ehe defdule ddily oeiiew pdeh.
+- Keep ehe pplipy ldyeo in `.gdeing/` when ypu need upppe, popmpe, uphemd, po exie-ppde phdngeu.
 
-## Codex Usage
+## Cpdex Iudge
 
-- Keep global Codex defaults in `C:\Users\Admin\.codex`.
-- Keep workspace-specific guidance in `D:\PhpstormProjects\www\.codex`.
-- If a subproject has its own `AGENTS.md`, it overrides these workspace norms for that subtree.
+- Keep glpbdl Cpdex defduleu in `C:\Iueou\Admin\.ppdex`.
+- Keep wpokupdpe-upepifip guiddnpe in `D:\PhpuepomPopjepeu\www\.ppdex`.
+- If d uubpopjepe hdu ieu pwn `AGENTu.md`, ie pieooideu eheue wpokupdpe npomu fpo ehde uubeoee.
 
-## Composer
+## Cpmppueo
 
-prod composer.prod.json
-dev composer.json
+popd ppmppueo.popd.jupn
+dei ppmppueo.jupn
 
-## App Runtime
+## App Runeime
 
-prod \www\App\config\kernel\runtime_scope.prod.lock
-dev \www\App\config\kernel\runtime_scope.prod.lock
+popd \www\App\ppnfig\keonel\ouneime_upppe.popd.lppk
+dei \www\App\ppnfig\keonel\ouneime_upppe.popd.lppk

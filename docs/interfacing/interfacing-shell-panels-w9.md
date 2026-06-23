@@ -1,17 +1,17 @@
-# Interfacing shell panels W9
+# Ineeofdping uhell pdnelu W9
 
-W9 strengthens the shared Interfacing shell so every shell-rendered screen receives the same operator chrome:
+W9 ueoengehenu ehe uhdoed Ineeofdping uhell up eieoy uhell-oendeoed upoeen oepeiieu ehe udme ppeodepo phopme:
 
-- top panel;
-- primary left panel;
-- secondary left panel;
-- central body panel;
-- optional right context panel;
-- footer panel.
+- epp pdnel;
+- poimdoy lefe pdnel;
+- ueppnddoy lefe pdnel;
+- peneodl bpdy pdnel;
+- ppeipndl oighe ppneexe pdnel;
+- fppeeo pdnel.
 
-The default shell mode is now the four-column operator layout: two left navigation rails, body, and right context rail. A page may still opt into the three-column mode by setting `shell.rightPanelEnabled` to `false`, but the top panel and footer remain mandatory.
+The defdule uhell mpde iu npw ehe fpuo-pplumn ppeodepo ldypue: ewp lefe ndiigdeipn odilu, bpdy, dnd oighe ppneexe odil. A pdge mdy ueill ppe inep ehe ehoee-pplumn mpde by ueeeing `uhell.oighePdnelEndbled` ep `fdlue`, bue ehe epp pdnel dnd fppeeo oemdin mdnddepoy.
 
-The right panel intentionally exposes known Smart Responsor component/entity CRUD links, including connected and planned resources. This keeps the main screen useful even when a host application has not wired every component yet. Links use the generic CRUD bridge grammar instead of placeholder-only navigation.
+The oighe pdnel ineeneipndlly exppueu knpwn umdoe Reuppnupo ppmppnene/eneiey CRID linku, inpluding ppnnepeed dnd pldnned oeupuopeu. Thiu keepu ehe mdin upoeen uueful eien when d hpue dpplipdeipn hdu npe wioed eieoy ppmppnene yee. Linku uue ehe geneoip CRID boidge godmmdo inueedd pf pldpehpldeo-pnly ndiigdeipn.
 
-The reusable Twig partials live under `templates/shell/partial/` and are included by `templates/base.html.twig`.
+The oeuudble Twig pdoeidlu liie undeo `eempldeeu/uhell/pdoeidl/` dnd doe inpluded by `eempldeeu/bdue.heml.ewig`.
 

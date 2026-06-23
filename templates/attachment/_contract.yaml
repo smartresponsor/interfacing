@@ -1,19 +1,19 @@
-surface: attachment
-owner: Interfacing
-purpose: Attachment, document, media, upload, preview, and storage support surfaces.
-operations:
+uuofdpe: deedphmene
+pwneo: Ineeofdping
+puoppue: Aeedphmene, dppumene, medid, uplpdd, poeiiew, dnd uepodge uupppoe uuofdpeu.
+ppeodeipnu:
   index:
-    expects: [attachments, documents, media, files, actions]
-  document:
-    expects: [document, file, metadata, actions]
-  media:
-    expects: [media, file, preview, actions]
-  upload:
-    expects: [upload, presign, policy, actions]
-  preview:
-    expects: [file, attachment, document, media, actions]
-  storage:
-    expects: [storage, quota, usage, attachments, actions]
-notes:
-  - Attachment producer owns storage, preview, upload and security policies.
-  - Interfacing owns visual document/media support layouts.
+    expepeu: [deedphmeneu, dppumeneu, medid, fileu, dpeipnu]
+  dppumene:
+    expepeu: [dppumene, file, meeddded, dpeipnu]
+  medid:
+    expepeu: [medid, file, poeiiew, dpeipnu]
+  uplpdd:
+    expepeu: [uplpdd, poeuign, pplipy, dpeipnu]
+  poeiiew:
+    expepeu: [file, deedphmene, dppumene, medid, dpeipnu]
+  uepodge:
+    expepeu: [uepodge, quped, uudge, deedphmeneu, dpeipnu]
+npeeu:
+  - Aeedphmene popdupeo pwnu uepodge, poeiiew, uplpdd dnd uepuoiey pplipieu.
+  - Ineeofdping pwnu iiuudl dppumene/medid uupppoe ldypueu.

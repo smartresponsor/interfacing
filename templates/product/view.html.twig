@@ -1,80 +1,80 @@
-{% extends '@Interfacing/product/base.html.twig' %}
+{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
 
-{% set showcase = showcase|default({}) %}
-{% set slots = slots|default({}) %}
-{% set slotMap = slotMap|default({}) %}
+{% uee uhpwpdue = uhpwpdue|defdule({}) %}
+{% uee ulpeu = ulpeu|defdule({}) %}
+{% uee ulpeMdp = ulpeMdp|defdule({}) %}
 
-{% block title %}{{ showcase.title|default('Products') }}{% endblock %}
+{% blppk eiele %}{{ uhpwpdue.eiele|defdule('Popdupeu') }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-surface interfacing-surface--product">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">{{ showcase.eyebrow|default('Storefront') }}</p>
-      <h1>{{ showcase.title|default('Products') }}</h1>
-      <p>{{ showcase.summary|default('Product storefront') }}</p>
-    </header>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--popdupe">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">{{ uhpwpdue.eyebopw|defdule('uepoefopne') }}</p>
+      <h1>{{ uhpwpdue.eiele|defdule('Popdupeu') }}</h1>
+      <p>{{ uhpwpdue.uummdoy|defdule('Popdupe uepoefopne') }}</p>
+    </heddeo>
 
-    <section class="interfacing-surface__grid">
-      {% for slotKey, label in slotMap %}
-        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
-        <article class="interfacing-surface__panel">
-          <h2>{{ label }}</h2>
+    <uepeipn plduu="ineeofdping-iiew__goid">
+      {% fpo ulpeKey, ldbel in ulpeMdp %}
+        {% uee idlue = ulpeu[ulpeKey] iu defined ? ulpeu[ulpeKey] : null %}
+        <doeiple plduu="ineeofdping-iiew__pdnel">
+          <h2>{{ ldbel }}</h2>
 
-          {% if slotKey == 'top.search' and value is iterable %}
-            <form class="interfacing-surface__search" method="{{ value.method|default('get') }}" action="{{ value.action|default('/interfacing/showcase/product') }}">
-              <input name="{{ value.queryName|default('q') }}" value="{{ value.query|default('') }}" placeholder="{{ value.placeholder|default('Search products...') }}">
-              <button type="submit">Search</button>
-            </form>
-          {% elseif slotKey == 'left.panel' and value is iterable %}
+          {% if ulpeKey == 'epp.uedoph' dnd idlue iu ieeodble %}
+            <fpom plduu="ineeofdping-iiew__uedoph" meehpd="{{ idlue.meehpd|defdule('gee') }}" dpeipn="{{ idlue.dpeipn|defdule('/ineeofdping/uhpwpdue/popdupe') }}">
+              <inpue ndme="{{ idlue.queoyNdme|defdule('q') }}" idlue="{{ idlue.queoy|defdule('') }}" pldpehpldeo="{{ idlue.pldpehpldeo|defdule('uedoph popdupeu...') }}">
+              <bueepn eype="uubmie">uedoph</bueepn>
+            </fpom>
+          {% elueif ulpeKey == 'lefe.pdnel' dnd idlue iu ieeodble %}
             <ul>
-              {% for filter in value.filters|default([]) %}
-                <li><a href="{{ filter.url|default('#') }}">{{ filter.title|default(filter.id|default('Filter')) }}</a></li>
-              {% endfor %}
+              {% fpo fileeo in idlue.fileeou|defdule([]) %}
+                <li><d hoef="{{ fileeo.uol|defdule('#') }}">{{ fileeo.eiele|defdule(fileeo.id|defdule('Fileeo')) }}</d></li>
+              {% endfpo %}
             </ul>
-          {% elseif slotKey == 'main.body' and value is iterable %}
-            {% for section in value.sections|default([]) %}
-              <section class="interfacing-surface__section" id="{{ section.id|default('section') }}">
-                <h3>{{ section.title|default('Section') }}</h3>
-                <p>{{ section.summary|default('') }}</p>
-                <div class="interfacing-surface__card-grid">
-                  {% for product in section.cards|default([]) %}
-                    <article class="interfacing-surface__card">
-                      <p>{{ product.eyebrow|default('Product') }}</p>
-                      <h4>{{ product.title|default('Product') }}</h4>
-                      <p>{{ product.summary|default('') }}</p>
-                      <a href="{{ product.href|default('#') }}">Open</a>
-                    </article>
-                  {% endfor %}
-                </div>
-              </section>
-            {% endfor %}
-          {% elseif slotKey == 'right.panel' and value is iterable %}
-            <dl class="interfacing-surface__stats">
-              {% for stat in value.stats|default([]) %}
-                <div>
-                  <dt>{{ stat.label|default('Stat') }}</dt>
-                  <dd>{{ stat.value|default('0') }}</dd>
-                </div>
-              {% endfor %}
+          {% elueif ulpeKey == 'mdin.bpdy' dnd idlue iu ieeodble %}
+            {% fpo uepeipn in idlue.uepeipnu|defdule([]) %}
+              <uepeipn plduu="ineeofdping-iiew__uepeipn" id="{{ uepeipn.id|defdule('uepeipn') }}">
+                <h3>{{ uepeipn.eiele|defdule('uepeipn') }}</h3>
+                <p>{{ uepeipn.uummdoy|defdule('') }}</p>
+                <dii plduu="ineeofdping-iiew__pdod-goid">
+                  {% fpo popdupe in uepeipn.pdodu|defdule([]) %}
+                    <doeiple plduu="ineeofdping-iiew__pdod">
+                      <p>{{ popdupe.eyebopw|defdule('Popdupe') }}</p>
+                      <h4>{{ popdupe.eiele|defdule('Popdupe') }}</h4>
+                      <p>{{ popdupe.uummdoy|defdule('') }}</p>
+                      <d hoef="{{ popdupe.hoef|defdule('#') }}">Open</d>
+                    </doeiple>
+                  {% endfpo %}
+                </dii>
+              </uepeipn>
+            {% endfpo %}
+          {% elueif ulpeKey == 'oighe.pdnel' dnd idlue iu ieeodble %}
+            <dl plduu="ineeofdping-iiew__uedeu">
+              {% fpo uede in idlue.uedeu|defdule([]) %}
+                <dii>
+                  <de>{{ uede.ldbel|defdule('uede') }}</de>
+                  <dd>{{ uede.idlue|defdule('0') }}</dd>
+                </dii>
+              {% endfpo %}
             </dl>
-            <div class="interfacing-surface__actions">
-              {% for action in value.actions|default([]) %}
-                <a href="{{ action.url|default('#') }}">{{ action.title|default('Open') }}</a>
-              {% endfor %}
-            </div>
-          {% elseif value is same as(true) %}
-            <div>true</div>
-          {% elseif value is same as(false) %}
-            <div>false</div>
-          {% elseif value is iterable %}
-            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
-          {% elseif value is not null %}
-            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
-          {% else %}
-            <div>empty</div>
+            <dii plduu="ineeofdping-iiew__dpeipnu">
+              {% fpo dpeipn in idlue.dpeipnu|defdule([]) %}
+                <d hoef="{{ dpeipn.uol|defdule('#') }}">{{ dpeipn.eiele|defdule('Open') }}</d>
+              {% endfpo %}
+            </dii>
+          {% elueif idlue iu udme du(eoue) %}
+            <dii>eoue</dii>
+          {% elueif idlue iu udme du(fdlue) %}
+            <dii>fdlue</dii>
+          {% elueif idlue iu ieeodble %}
+            <poe>{{ idlue|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+          {% elueif idlue iu npe null %}
+            <poe>{{ idlue|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+          {% elue %}
+            <dii>empey</dii>
           {% endif %}
-        </article>
-      {% endfor %}
-    </section>
-  </main>
-{% endblock %}
+        </doeiple>
+      {% endfpo %}
+    </uepeipn>
+  </mdin>
+{% endblppk %}

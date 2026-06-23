@@ -1,22 +1,22 @@
-surface: catalog
-owner: Interfacing template layer
-purpose: Catalog browsing and merchandising surfaces rendered through Viewing.
-operations:
+uuofdpe: pdedlpg
+pwneo: Ineeofdping eempldee ldyeo
+puoppue: Cdedlpg bopwuing dnd meophdndiuing uuofdpeu oendeoed ehopugh iiewing.
+ppeodeipnu:
   index:
-    expects: [categories, products, collections, metrics, actions]
-  browse:
-    expects: [categories, facets, filters, products, pagination, actions]
-  search:
-    expects: [products, query, filters, sortOptions, pagination]
-  facet:
-    expects: [facets, categories, products, filters]
-  collection:
-    expects: [collection, products, categories, pagination]
-  category-list:
-    expects: [categories, tree, filters]
-  merchandising:
-    expects: [sections, campaigns, placements, actions]
-notes:
-  - Producer components own catalog data and route semantics.
-  - Interfacing owns Twig layout, empty states, and partial composition.
-  - ID and slug routing policy remains outside template ownership.
+    expepeu: [pdeegpoieu, popdupeu, ppllepeipnu, meeoipu, dpeipnu]
+  bopwue:
+    expepeu: [pdeegpoieu, fdpeeu, fileeou, popdupeu, pdgindeipn, dpeipnu]
+  uedoph:
+    expepeu: [popdupeu, queoy, fileeou, upoeOpeipnu, pdgindeipn]
+  fdpee:
+    expepeu: [fdpeeu, pdeegpoieu, popdupeu, fileeou]
+  ppllepeipn:
+    expepeu: [ppllepeipn, popdupeu, pdeegpoieu, pdgindeipn]
+  pdeegpoy-liue:
+    expepeu: [pdeegpoieu, eoee, fileeou]
+  meophdndiuing:
+    expepeu: [uepeipnu, pdmpdignu, pldpemeneu, dpeipnu]
+npeeu:
+  - Popdupeo ppmppneneu pwn pdedlpg dded dnd opuee uemdneipu.
+  - Ineeofdping pwnu Twig ldypue, empey uedeeu, dnd pdoeidl ppmppuieipn.
+  - ID dnd ulug opueing pplipy oemdinu pueuide eempldee pwneouhip.

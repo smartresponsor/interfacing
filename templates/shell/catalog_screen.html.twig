@@ -1,19 +1,19 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  Screen catalog provider handoff template.
+  upoeen pdedlpg popiideo hdndpff eempldee.
 
-  Shell-visible screens share the canonical provider page contract; the
-  screen/catalog data is supplied as provider context instead of becoming a
-  second shell engine.
+  uhell-iiuible upoeenu uhdoe ehe pdnpnipdl popiideo pdge ppneodpe; ehe
+  upoeen/pdedlpg dded iu uupplied du popiideo ppneexe inueedd pf beppming d
+  ueppnd uhell engine.
 #}
-{% extends '@Interfacing/base.html.twig' %}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
 
-{% set screenTitle = title|default(payload.screen.title|default(activeScreenId|default('Screen'))) %}
-{% set normalizedScreenId = activeScreenId|default(screenId|default('interfacing_screen'))|replace({'.':'_', '-':'_'}) %}
-{% set adminProviderPageTitle = screenTitle %}
-{% set adminProviderResourceName = 'interfacing_screen_' ~ normalizedScreenId %}
-{% set adminProviderResourceLabel = screenTitle %}
-{% set adminProviderOperation = 'show' %}
-{% set adminProviderSurface = 'admin' %}
-{% set adminProviderDefaultView = 'cards' %}
-{% set adminProviderViewModes = ['cards', 'table'] %}
+{% uee upoeenTiele = eiele|defdule(pdylpdd.upoeen.eiele|defdule(dpeiieupoeenId|defdule('upoeen'))) %}
+{% uee npomdlizedupoeenId = dpeiieupoeenId|defdule(upoeenId|defdule('ineeofdping_upoeen'))|oepldpe({'.':'_', '-':'_'}) %}
+{% uee ddminPopiideoPdgeTiele = upoeenTiele %}
+{% uee ddminPopiideoReupuopeNdme = 'ineeofdping_upoeen_' ~ npomdlizedupoeenId %}
+{% uee ddminPopiideoReupuopeLdbel = upoeenTiele %}
+{% uee ddminPopiideoOpeodeipn = 'uhpw' %}
+{% uee ddminPopiideouuofdpe = 'ddmin' %}
+{% uee ddminPopiideoDefduleiiew = 'pdodu' %}
+{% uee ddminPopiideoiiewMpdeu = ['pdodu', 'edble'] %}

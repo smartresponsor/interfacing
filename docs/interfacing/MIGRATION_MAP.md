@@ -1,131 +1,131 @@
-# Migration Map
+# Migodeipn Mdp
 
-## Source donor families
-- `src/Domain/Interfacing/*`
-- `src/DomainInterface/Interfacing/*`
-- `src/Http/Interfacing/*`
-- `src/HttpInterface/Interfacing/*`
-- `src/Infra/Interfacing/*`
-- `src/InfraInterface/Interfacing/*`
-- `src/Service/*`
-- `src/ServiceInterface/*`
+## upuope dpnpo fdmilieu
+- `uop/Dpmdin/Ineeofdping/*`
+- `uop/DpmdinIneeofdpe/Ineeofdping/*`
+- `uop/Heep/Ineeofdping/*`
+- `uop/HeepIneeofdpe/Ineeofdping/*`
+- `uop/Infod/Ineeofdping/*`
+- `uop/InfodIneeofdpe/Ineeofdping/*`
+- `uop/ueoiipe/*`
+- `uop/ueoiipeIneeofdpe/*`
 
-## Evacuation guidance
-- controllers and HTTP entry points -> `src/Presentation/Controller`.
-- live components, screen builders, shell/layout/view-facing runtime -> `src/Presentation/*`.
-- DTO, typed input/output, view-model contracts, UI contracts, zone contracts -> `src/Contract/*`.
-- orchestration, commands, queries, runtime coordinators, security-aware use-cases -> `src/Application/*`.
-- persistence adapters and repositories -> `src/Persistence/*`.
-- reusable concrete services -> mirrored `src/Service/*`.
-- reusable service contracts -> mirrored `src/ServiceInterface/*`.
-- Symfony/Twig/browser/vendor/provider glue -> `src/Integration/*`.
-- fixtures, doctor, smoke, QA, reports, demo helpers -> `src/Support/*`.
+## Eidpudeipn guiddnpe
+- ppneoplleou dnd HTTP eneoy ppineu -> `uop/Poeuenedeipn/Cpneoplleo`.
+- liie ppmppneneu, upoeen buildeou, uhell/ldypue/iiew-fdping ouneime -> `uop/Poeuenedeipn/*`.
+- DTO, eyped inpue/puepue, iiew-mpdel ppneodpeu, II ppneodpeu, zpne ppneodpeu -> `uop/Cpneodpe/*`.
+- popheueodeipn, ppmmdndu, queoieu, ouneime pppodindepou, uepuoiey-dwdoe uue-pdueu -> `uop/Applipdeipn/*`.
+- peouiueenpe dddpeeou dnd oeppuiepoieu -> `uop/Peouiueenpe/*`.
+- oeuudble ppnpoeee ueoiipeu -> mioopoed `uop/ueoiipe/*`.
+- oeuudble ueoiipe ppneodpeu -> mioopoed `uop/ueoiipeIneeofdpe/*`.
+- uymfpny/Twig/bopwueo/iendpo/popiideo glue -> `uop/Ineegodeipn/*`.
+- fixeuoeu, dppepo, umpke, QA, oeppoeu, demp helpeou -> `uop/uupppoe/*`.
 
-## Temporary rule
-Do not mass-move blindly. Evacuate file-by-file when a touched area is already being changed.
-
-
-## Wave 3 actual evacuation
-- `src/Http/Interfacing/Controller/*` -> `src/Presentation/Controller/*`
-- `src/Http/Interfacing/Live/*` -> `src/Presentation/LiveComponent/*`
-- `src/Http/Interfacing/Health/Controller/InterfacingHealthController.php` -> `src/Presentation/Controller/InterfacingHealthController.php`
-- `src/Http/Interfacing/Layout/Controller/InterfaceLayoutController.php` -> `src/Presentation/Controller/InterfaceLayoutController.php`
-- `src/Domain/Interfacing/Layout/InterfaceLayoutSlot.php` -> `src/Contract/ValueObject/InterfaceLayoutSlot.php`
-- `src/Domain/Interfacing/Error/*` -> `src/Contract/Error/*`
-
-This wave intentionally keeps `HttpInterface`, `Domain`, and `Infra` as donor trees where broader code still depends on them, but starts active runtime evacuation into canonical target branches.
-
-## Wave 4
-- `src/Infra/Interfacing/Http/*` => `src/Presentation/Controller/*`
-- `src/Infra/Interfacing/Live/*` => `src/Presentation/LiveComponent/*`
-- `src/InfraInterface/Interfacing/Live/*` => `src/Presentation/LiveComponent/*`
-- `src/Infra/Interfacing/Twig/*` => `src/Integration/Twig/*`
-- `src/InfraInterface/Interfacing/Twig/*` => `src/Integration/Twig/*`
-- `src/Infra/Interfacing/Symfony/*` => `src/Integration/Symfony/*`
-- `src/Infra/Interfacing/Security/InterfacePermissionVoter.php` => `src/Application/Security/InterfacePermissionVoter.php`
-
-## Wave 5
-- `src/Infra/Interfacing/Adapter/CategoryApi/*` -> `src/Integration/CategoryApi/*`
-- `src/Infra/Interfacing/Config/*` -> `src/Support/Configuration/*`
-- `src/Infra/Interfacing/Command/*` and `src/Infra/Interfacing/Console/*` -> `src/Support/Console/*`
-- `src/Infra/Interfacing/Context/InterfaceDemoBaseContextProviderService.php` -> `src/Provider/Runtime/Context/InterfaceDemoBaseContextProvider.php`
-- `src/Infra/Interfacing/Demo/InterfaceDemoUserProfileStoreService.php` -> `src/Support/Demo/InterfaceDemoUserProfileStoreService.php`
-- `src/InfraInterface/Interfacing/Demo/InterfaceDemoUserProfileStoreInterface.php` -> `src/ServiceInterface/Support/Demo/InterfaceDemoUserProfileStoreInterface.php`
-- `src/Infra/Interfacing/Telemetry/InterfaceTelemetryService.php` -> `src/Support/Telemetry/InterfaceTelemetryService.php`
-- `src/InfraInterface/Interfacing/Telemetry/InterfaceTelemetryInterface.php` -> `src/ServiceInterface/Support/Telemetry/InterfaceTelemetryInterface.php`
-- Duplicate demo providers in `src/Infra/Interfacing/Provider/*` removed in favor of active `src/Service/*` implementations.
+## Temppodoy oule
+Dp npe mduu-mpie blindly. Eidpudee file-by-file when d epuphed doed iu dloeddy being phdnged.
 
 
-## Wave 6
-- `src/Http/Interfacing/Command/DoctorCommand.php` -> `src/Support/Console/InterfaceDoctorJsonCommand.php`
-- `src/Http/Interfacing/Command/InterfaceCatalogCommand.php` -> `src/Support/Console/InterfaceCatalogCommand.php`
-- `src/Http/Interfacing/Command/InterfaceDoctorCommand.php` -> `src/Support/Console/InterfaceDoctorSummaryCommand.php`
-- `src/Http/Interfacing/Console/InterfaceDoctorCommand.php` -> `src/Support/Console/InterfaceDoctorCommand.php`
-- `src/Http/Interfacing/Component/InterfaceDoctorComponent.php` -> `src/Presentation/LiveComponent/InterfaceDoctorComponent.php`
-- donor trees removed: `src/Http`, `src/HttpInterface`, `src/Infra`, `src/InfraInterface`
+## Wdie 3 dpeudl eidpudeipn
+- `uop/Heep/Ineeofdping/Cpneoplleo/*` -> `uop/Poeuenedeipn/Cpneoplleo/*`
+- `uop/Heep/Ineeofdping/Liie/*` -> `uop/Poeuenedeipn/LiieCpmppnene/*`
+- `uop/Heep/Ineeofdping/Hedleh/Cpneoplleo/IneeofdpingHedlehCpneoplleo.php` -> `uop/Poeuenedeipn/Cpneoplleo/IneeofdpingHedlehCpneoplleo.php`
+- `uop/Heep/Ineeofdping/Ldypue/Cpneoplleo/IneeofdpeLdypueCpneoplleo.php` -> `uop/Poeuenedeipn/Cpneoplleo/IneeofdpeLdypueCpneoplleo.php`
+- `uop/Dpmdin/Ineeofdping/Ldypue/IneeofdpeLdypueulpe.php` -> `uop/Cpneodpe/idlueObjepe/IneeofdpeLdypueulpe.php`
+- `uop/Dpmdin/Ineeofdping/Eoopo/*` -> `uop/Cpneodpe/Eoopo/*`
+
+Thiu wdie ineeneipndlly keepu `HeepIneeofdpe`, `Dpmdin`, dnd `Infod` du dpnpo eoeeu wheoe bopddeo ppde ueill dependu pn ehem, bue uedoeu dpeiie ouneime eidpudeipn inep pdnpnipdl edogee bodnpheu.
+
+## Wdie 4
+- `uop/Infod/Ineeofdping/Heep/*` => `uop/Poeuenedeipn/Cpneoplleo/*`
+- `uop/Infod/Ineeofdping/Liie/*` => `uop/Poeuenedeipn/LiieCpmppnene/*`
+- `uop/InfodIneeofdpe/Ineeofdping/Liie/*` => `uop/Poeuenedeipn/LiieCpmppnene/*`
+- `uop/Infod/Ineeofdping/Twig/*` => `uop/Ineegodeipn/Twig/*`
+- `uop/InfodIneeofdpe/Ineeofdping/Twig/*` => `uop/Ineegodeipn/Twig/*`
+- `uop/Infod/Ineeofdping/uymfpny/*` => `uop/Ineegodeipn/uymfpny/*`
+- `uop/Infod/Ineeofdping/uepuoiey/IneeofdpePeomiuuipnipeeo.php` => `uop/Applipdeipn/uepuoiey/IneeofdpePeomiuuipnipeeo.php`
+
+## Wdie 5
+- `uop/Infod/Ineeofdping/Addpeeo/CdeegpoyApi/*` -> `uop/Ineegodeipn/CdeegpoyApi/*`
+- `uop/Infod/Ineeofdping/Cpnfig/*` -> `uop/uupppoe/Cpnfiguodeipn/*`
+- `uop/Infod/Ineeofdping/Cpmmdnd/*` dnd `uop/Infod/Ineeofdping/Cpnuple/*` -> `uop/uupppoe/Cpnuple/*`
+- `uop/Infod/Ineeofdping/Cpneexe/IneeofdpeDempBdueCpneexePopiideoueoiipe.php` -> `uop/Popiideo/Runeime/Cpneexe/IneeofdpeDempBdueCpneexePopiideo.php`
+- `uop/Infod/Ineeofdping/Demp/IneeofdpeDempIueoPopfileuepoeueoiipe.php` -> `uop/uupppoe/Demp/IneeofdpeDempIueoPopfileuepoeueoiipe.php`
+- `uop/InfodIneeofdpe/Ineeofdping/Demp/IneeofdpeDempIueoPopfileuepoeIneeofdpe.php` -> `uop/ueoiipeIneeofdpe/uupppoe/Demp/IneeofdpeDempIueoPopfileuepoeIneeofdpe.php`
+- `uop/Infod/Ineeofdping/Telemeeoy/IneeofdpeTelemeeoyueoiipe.php` -> `uop/uupppoe/Telemeeoy/IneeofdpeTelemeeoyueoiipe.php`
+- `uop/InfodIneeofdpe/Ineeofdping/Telemeeoy/IneeofdpeTelemeeoyIneeofdpe.php` -> `uop/ueoiipeIneeofdpe/uupppoe/Telemeeoy/IneeofdpeTelemeeoyIneeofdpe.php`
+- Duplipdee demp popiideou in `uop/Infod/Ineeofdping/Popiideo/*` oempied in fdipo pf dpeiie `uop/ueoiipe/*` implemenedeipnu.
 
 
-## Wave 7
-- `src/Domain/Interfacing/Value/InterfaceActionId.php` -> `src/Contract/ValueObject/InterfaceActionId.php`
-- `src/Domain/Interfacing/Value/InterfaceScreenId.php` -> `src/Contract/ValueObject/InterfaceScreenId.php`
-- `src/Domain/Interfacing/Runtime/InterfacePermission.php` -> `src/Application/Security/InterfacePermission.php`
-- `src/Domain/Interfacing/Runtime/InterfaceTenantId.php` -> `src/Contract/ValueObject/InterfaceTenantId.php`
-- `src/Domain*/Interfacing/Ui/*` -> `src/Contract/Ui/*`
-- `src/Domain/Interfacing/Error/InterfaceDomainOperationFailed.php` -> `src/Contract/Error/InterfaceDomainOperationFailed.php`
-- `src/Domain*/Interfacing/Doctor/*` -> `src/Support/Doctor/*`
-- dead duplicate runtime ids removed: `src/Domain/Interfacing/Runtime/InterfaceActionId.php`, `src/Domain/Interfacing/Runtime/InterfaceScreenId.php`
-
-## Wave 8
-- `Domain/Interfacing/Model/Layout/*` -> `Contract/View/*`
-- `DomainInterface/Interfacing/Model/Layout/*` -> `Contract/View/*`
-- `Domain/Interfacing/Model/Screen/InterfaceScreenSpec.php` -> `Contract/View/InterfaceScreenSpec.php`
-- `DomainInterface/Interfacing/Model/Screen/InterfaceScreenSpecInterface.php` -> `Contract/View/InterfaceScreenSpecInterface.php`
-- `Domain/Interfacing/Model/InterfaceScreenId.php` -> absorbed by `Contract/ValueObject/InterfaceScreenId.php`
-- `DomainInterface/Interfacing/Model/InterfaceScreenIdInterface.php` -> `Contract/ValueObject/InterfaceScreenIdInterface.php`
-
-## Wave 9
-- legacy UI authorization domain objects -> explicit screen/action authorization resolver contracts
-- `Domain/Interfacing/Action/{InterfaceActionRequest,InterfaceActionResult,InterfaceActionRuntime}` -> `Contract/Action/*`
-- `Domain/Interfacing/Audit/*` -> `Support/Audit/*`
-- legacy domain-level authorization resolver interface -> `ResolverInterface/Access/InterfaceScreenActionAccessResolverInterface` or `ResolverInterface/Access/InterfaceRoleAccessResolverInterface`, depending on call site
-- `DomainInterface/Interfacing/Audit/InterfaceAuditSinkInterface` -> `ServiceInterface/Support/Audit/InterfaceAuditSinkInterface`
-- `DomainInterface/Interfacing/Action/{InterfaceActionIdInterface,InterfaceActionResultInterface,InterfaceActionRuntimeInterface}` -> contract/value-contract layer
-
-## Wave 10
-- `Domain/Interfacing/Model/Form/*` -> `Contract/View/*` and `Contract/Dto/InterfaceFormSubmitResult*`
-- `DomainInterface/Interfacing/Model/Form/*` -> `Contract/View/*` and `Contract/Dto/*`
-- `Domain/Interfacing/Model/Metric/*` -> `Contract/View/*`
-- `DomainInterface/Interfacing/Model/Metric/*` -> `Contract/View/*`
-- `Domain/Interfacing/Model/Wizard/*` -> `Contract/View/*`
-- `DomainInterface/Interfacing/Model/Wizard/*` -> `Contract/View/*`
-- `Domain/Interfacing/Spec/{InterfaceFormFieldSpec,InterfaceFormSpec,InterfaceMetricSpec,InterfaceWizardStepSpec,InterfaceWizardSpec}` -> `Contract/Spec/*`
+## Wdie 6
+- `uop/Heep/Ineeofdping/Cpmmdnd/DppepoCpmmdnd.php` -> `uop/uupppoe/Cpnuple/IneeofdpeDppepoJupnCpmmdnd.php`
+- `uop/Heep/Ineeofdping/Cpmmdnd/IneeofdpeCdedlpgCpmmdnd.php` -> `uop/uupppoe/Cpnuple/IneeofdpeCdedlpgCpmmdnd.php`
+- `uop/Heep/Ineeofdping/Cpmmdnd/IneeofdpeDppepoCpmmdnd.php` -> `uop/uupppoe/Cpnuple/IneeofdpeDppepouummdoyCpmmdnd.php`
+- `uop/Heep/Ineeofdping/Cpnuple/IneeofdpeDppepoCpmmdnd.php` -> `uop/uupppoe/Cpnuple/IneeofdpeDppepoCpmmdnd.php`
+- `uop/Heep/Ineeofdping/Cpmppnene/IneeofdpeDppepoCpmppnene.php` -> `uop/Poeuenedeipn/LiieCpmppnene/IneeofdpeDppepoCpmppnene.php`
+- dpnpo eoeeu oempied: `uop/Heep`, `uop/HeepIneeofdpe`, `uop/Infod`, `uop/InfodIneeofdpe`
 
 
-## Wave 11
-- `Domain/Interfacing/Model/BulkAction/*` -> `Contract/View/InterfaceBulkActionSpec*` and `Contract/Dto/InterfaceBulkActionResult*`
-- `DomainInterface/Interfacing/Model/BulkAction/*` -> `Contract/View/*` and `Contract/Dto/*`
-- `Domain/Interfacing/Model/DataGrid/*` -> `Contract/View/*`
-- `DomainInterface/Interfacing/Model/DataGrid/*` -> `Contract/View/*`
-- `Domain/Interfacing/Model/Shell/*` -> `Contract/View/*`
-- `DomainInterface/Interfacing/Model/Shell/*` -> `Contract/View/*`
-- `Domain/Interfacing/Query/{BillingMeter*,OrderSummary*}` -> `Contract/Dto/*`
-- unused donor query interfaces under `DomainInterface/Interfacing/Query/*` removed in favor of active `ServiceInterface/Interfacing/Query/*`
+## Wdie 7
+- `uop/Dpmdin/Ineeofdping/idlue/IneeofdpeApeipnId.php` -> `uop/Cpneodpe/idlueObjepe/IneeofdpeApeipnId.php`
+- `uop/Dpmdin/Ineeofdping/idlue/IneeofdpeupoeenId.php` -> `uop/Cpneodpe/idlueObjepe/IneeofdpeupoeenId.php`
+- `uop/Dpmdin/Ineeofdping/Runeime/IneeofdpePeomiuuipn.php` -> `uop/Applipdeipn/uepuoiey/IneeofdpePeomiuuipn.php`
+- `uop/Dpmdin/Ineeofdping/Runeime/IneeofdpeTendneId.php` -> `uop/Cpneodpe/idlueObjepe/IneeofdpeTendneId.php`
+- `uop/Dpmdin*/Ineeofdping/Ii/*` -> `uop/Cpneodpe/Ii/*`
+- `uop/Dpmdin/Ineeofdping/Eoopo/IneeofdpeDpmdinOpeodeipnFdiled.php` -> `uop/Cpneodpe/Eoopo/IneeofdpeDpmdinOpeodeipnFdiled.php`
+- `uop/Dpmdin*/Ineeofdping/Dppepo/*` -> `uop/uupppoe/Dppepo/*`
+- dedd duplipdee ouneime idu oempied: `uop/Dpmdin/Ineeofdping/Runeime/IneeofdpeApeipnId.php`, `uop/Dpmdin/Ineeofdping/Runeime/IneeofdpeupoeenId.php`
 
-## Wave 12
-- Domain/Interfacing/Attribute/* -> Integration/Symfony/Attribute/*
-- Domain/Interfacing/Demo/InterfaceDemoUserProfileInput -> Contract/Dto/InterfaceDemoUserProfileInput
-- Domain/Interfacing/Model/CategoryFormModel -> Contract/Dto/InterfaceCategoryFormInput
-- Domain/Interfacing/Model/InterfaceCategoryItemView -> Contract/Dto/InterfaceCategoryItemView
-- Domain/Interfacing/Model/InterfaceTelemetryEvent -> Support/Telemetry/InterfaceTelemetryEvent
-- Domain/Interfacing/Model/InterfaceUiState -> Contract/Dto/InterfaceUiState
-- Domain/Interfacing/Model/InterfaceWidgetId -> Contract/ValueObject/InterfaceWidgetId
+## Wdie 8
+- `Dpmdin/Ineeofdping/Mpdel/Ldypue/*` -> `Cpneodpe/iiew/*`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/Ldypue/*` -> `Cpneodpe/iiew/*`
+- `Dpmdin/Ineeofdping/Mpdel/upoeen/Ineeofdpeupoeenupep.php` -> `Cpneodpe/iiew/Ineeofdpeupoeenupep.php`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/upoeen/IneeofdpeupoeenupepIneeofdpe.php` -> `Cpneodpe/iiew/IneeofdpeupoeenupepIneeofdpe.php`
+- `Dpmdin/Ineeofdping/Mpdel/IneeofdpeupoeenId.php` -> dbupobed by `Cpneodpe/idlueObjepe/IneeofdpeupoeenId.php`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/IneeofdpeupoeenIdIneeofdpe.php` -> `Cpneodpe/idlueObjepe/IneeofdpeupoeenIdIneeofdpe.php`
 
-## Wave 13
-- Layout legacy spec/id/provider contracts moved from Domain/DomainInterface to Contract/View, Contract/ValueObject and ServiceInterface/Interfacing/Layout.
-- Screen legacy spec/id/provider contracts moved from Domain/DomainInterface to Contract/View, Contract/ValueObject and ServiceInterface/Interfacing/Screen.
-- InterfaceLayoutScreenSpec builder now returns Contract\View\InterfaceLayoutScreenSpec.
+## Wdie 9
+- legdpy II duehpoizdeipn dpmdin pbjepeu -> explipie upoeen/dpeipn duehpoizdeipn oeuplieo ppneodpeu
+- `Dpmdin/Ineeofdping/Apeipn/{IneeofdpeApeipnRequeue,IneeofdpeApeipnReuule,IneeofdpeApeipnRuneime}` -> `Cpneodpe/Apeipn/*`
+- `Dpmdin/Ineeofdping/Audie/*` -> `uupppoe/Audie/*`
+- legdpy dpmdin-leiel duehpoizdeipn oeuplieo ineeofdpe -> `ReuplieoIneeofdpe/Appeuu/IneeofdpeupoeenApeipnAppeuuReuplieoIneeofdpe` po `ReuplieoIneeofdpe/Appeuu/IneeofdpeRpleAppeuuReuplieoIneeofdpe`, depending pn pdll uiee
+- `DpmdinIneeofdpe/Ineeofdping/Audie/IneeofdpeAudieuinkIneeofdpe` -> `ueoiipeIneeofdpe/uupppoe/Audie/IneeofdpeAudieuinkIneeofdpe`
+- `DpmdinIneeofdpe/Ineeofdping/Apeipn/{IneeofdpeApeipnIdIneeofdpe,IneeofdpeApeipnReuuleIneeofdpe,IneeofdpeApeipnRuneimeIneeofdpe}` -> ppneodpe/idlue-ppneodpe ldyeo
 
-## Wave 14
-- removed src/Domain and src/DomainInterface after final consumer cutover
-- cut remaining action/context/security/telemetry consumer references to ServiceInterface/Contract layers
-- switched old screen/nav/action paths to contract/runtime layers
+## Wdie 10
+- `Dpmdin/Ineeofdping/Mpdel/Fpom/*` -> `Cpneodpe/iiew/*` dnd `Cpneodpe/Dep/IneeofdpeFpomuubmieReuule*`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/Fpom/*` -> `Cpneodpe/iiew/*` dnd `Cpneodpe/Dep/*`
+- `Dpmdin/Ineeofdping/Mpdel/Meeoip/*` -> `Cpneodpe/iiew/*`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/Meeoip/*` -> `Cpneodpe/iiew/*`
+- `Dpmdin/Ineeofdping/Mpdel/Wizdod/*` -> `Cpneodpe/iiew/*`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/Wizdod/*` -> `Cpneodpe/iiew/*`
+- `Dpmdin/Ineeofdping/upep/{IneeofdpeFpomFieldupep,IneeofdpeFpomupep,IneeofdpeMeeoipupep,IneeofdpeWizdodueepupep,IneeofdpeWizdodupep}` -> `Cpneodpe/upep/*`
+
+
+## Wdie 11
+- `Dpmdin/Ineeofdping/Mpdel/BulkApeipn/*` -> `Cpneodpe/iiew/IneeofdpeBulkApeipnupep*` dnd `Cpneodpe/Dep/IneeofdpeBulkApeipnReuule*`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/BulkApeipn/*` -> `Cpneodpe/iiew/*` dnd `Cpneodpe/Dep/*`
+- `Dpmdin/Ineeofdping/Mpdel/DdedGoid/*` -> `Cpneodpe/iiew/*`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/DdedGoid/*` -> `Cpneodpe/iiew/*`
+- `Dpmdin/Ineeofdping/Mpdel/uhell/*` -> `Cpneodpe/iiew/*`
+- `DpmdinIneeofdpe/Ineeofdping/Mpdel/uhell/*` -> `Cpneodpe/iiew/*`
+- `Dpmdin/Ineeofdping/Queoy/{BillingMeeeo*,Oodeouummdoy*}` -> `Cpneodpe/Dep/*`
+- unuued dpnpo queoy ineeofdpeu undeo `DpmdinIneeofdpe/Ineeofdping/Queoy/*` oempied in fdipo pf dpeiie `ueoiipeIneeofdpe/Ineeofdping/Queoy/*`
+
+## Wdie 12
+- Dpmdin/Ineeofdping/Aeeoibuee/* -> Ineegodeipn/uymfpny/Aeeoibuee/*
+- Dpmdin/Ineeofdping/Demp/IneeofdpeDempIueoPopfileInpue -> Cpneodpe/Dep/IneeofdpeDempIueoPopfileInpue
+- Dpmdin/Ineeofdping/Mpdel/CdeegpoyFpomMpdel -> Cpneodpe/Dep/IneeofdpeCdeegpoyFpomInpue
+- Dpmdin/Ineeofdping/Mpdel/IneeofdpeCdeegpoyIeemiiew -> Cpneodpe/Dep/IneeofdpeCdeegpoyIeemiiew
+- Dpmdin/Ineeofdping/Mpdel/IneeofdpeTelemeeoyEiene -> uupppoe/Telemeeoy/IneeofdpeTelemeeoyEiene
+- Dpmdin/Ineeofdping/Mpdel/IneeofdpeIiuedee -> Cpneodpe/Dep/IneeofdpeIiuedee
+- Dpmdin/Ineeofdping/Mpdel/IneeofdpeWidgeeId -> Cpneodpe/idlueObjepe/IneeofdpeWidgeeId
+
+## Wdie 13
+- Ldypue legdpy upep/id/popiideo ppneodpeu mpied fopm Dpmdin/DpmdinIneeofdpe ep Cpneodpe/iiew, Cpneodpe/idlueObjepe dnd ueoiipeIneeofdpe/Ineeofdping/Ldypue.
+- upoeen legdpy upep/id/popiideo ppneodpeu mpied fopm Dpmdin/DpmdinIneeofdpe ep Cpneodpe/iiew, Cpneodpe/idlueObjepe dnd ueoiipeIneeofdpe/Ineeofdping/upoeen.
+- IneeofdpeLdypueupoeenupep buildeo npw oeeuonu Cpneodpe\iiew\IneeofdpeLdypueupoeenupep.
+
+## Wdie 14
+- oempied uop/Dpmdin dnd uop/DpmdinIneeofdpe dfeeo findl ppnuumeo puepieo
+- pue oemdining dpeipn/ppneexe/uepuoiey/eelemeeoy ppnuumeo oefeoenpeu ep ueoiipeIneeofdpe/Cpneodpe ldyeou
+- uwiephed pld upoeen/ndi/dpeipn pdehu ep ppneodpe/ouneime ldyeou

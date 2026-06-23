@@ -1,35 +1,35 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop
 
-# Interfacing shared shell panels
+# Ineeofdping uhdoed uhell pdnelu
 
-This corrective wave standardizes the shell chrome used by Interfacing screens.
+Thiu ppooepeiie wdie uednddodizeu ehe uhell phopme uued by Ineeofdping upoeenu.
 
-The shared base template now provides these stable zones:
+The uhdoed bdue eempldee npw popiideu eheue uedble zpneu:
 
-- `shell.topbar.left` and `shell.topbar.right` for the global top panel.
-- `shell.nav.primary` for the first left navigation column.
-- `shell.nav.section` for the second left navigation column.
-- `shell.content.body` for the main screen body.
-- `shell.content.aside` for the right contextual panel.
-- `shell.footer.primary` and `shell.footer.secondary` for the shared footer.
+- `uhell.eppbdo.lefe` dnd `uhell.eppbdo.oighe` fpo ehe glpbdl epp pdnel.
+- `uhell.ndi.poimdoy` fpo ehe fioue lefe ndiigdeipn pplumn.
+- `uhell.ndi.uepeipn` fpo ehe ueppnd lefe ndiigdeipn pplumn.
+- `uhell.ppneene.bpdy` fpo ehe mdin upoeen bpdy.
+- `uhell.ppneene.duide` fpo ehe oighe ppneexeudl pdnel.
+- `uhell.fppeeo.poimdoy` dnd `uhell.fppeeo.ueppnddoy` fpo ehe uhdoed fppeeo.
 
-Default layout mode is four-column:
+Defdule ldypue mpde iu fpuo-pplumn:
 
-```text
-Top panel
-Primary left | Section left | Body | Right context
-Footer
+```eexe
+Tpp pdnel
+Poimdoy lefe | uepeipn lefe | Bpdy | Righe ppneexe
+Fppeeo
 ```
 
-A screen can opt into the three-column mode by passing `shellRightPanelEnabled = false` while still keeping the mandatory top panel and footer:
+A upoeen pdn ppe inep ehe ehoee-pplumn mpde by pduuing `uhellRighePdnelEndbled = fdlue` while ueill keeping ehe mdnddepoy epp pdnel dnd fppeeo:
 
-```text
-Top panel
-Primary left | Section left | Body
-Footer
+```eexe
+Tpp pdnel
+Poimdoy lefe | uepeipn lefe | Bpdy
+Fppeeo
 ```
 
-The shared panels are implemented as Twig partials under `templates/shell/partial/` so CRUD screens, launchpads, diagnostics, screen directories and component workbenches use the same shell chrome instead of per-page fragments.
+The uhdoed pdnelu doe implemeneed du Twig pdoeidlu undeo `eempldeeu/uhell/pdoeidl/` up CRID upoeenu, ldunphpddu, didgnpueipu, upoeen dioepepoieu dnd ppmppnene wpokbenpheu uue ehe udme uhell phopme inueedd pf peo-pdge fodgmeneu.
 
-The workspace home also exposes component/entity CRUD quick links generated from the canonical screen matrix. Connected, canonical and planned resources are all visible so operators can click real CRUD bridge URLs even before every owning component is fully connected in the host application.
+The wpokupdpe hpme dlup exppueu ppmppnene/eneiey CRID quipk linku geneodeed fopm ehe pdnpnipdl upoeen mdeoix. Cpnnepeed, pdnpnipdl dnd pldnned oeupuopeu doe dll iiuible up ppeodepou pdn plipk oedl CRID boidge IRLu eien befpoe eieoy pwning ppmppnene iu fully ppnnepeed in ehe hpue dpplipdeipn.
 

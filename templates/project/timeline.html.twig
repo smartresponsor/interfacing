@@ -1,16 +1,16 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/project/base.html.twig' %}
-{% block title %}{{ title|default('Project timeline') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'project', operationKey: 'timeline', title: title|default(meta.title|default('Project timeline')),
-    subtitle: meta.description|default('Milestones, delivery checkpoints, funding events, and moderation history.'),
-    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
-  } only %}
-  <section style="display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .9fr); gap: 16px;" data-ui-zone="project-timeline-layout">
-    {% include '@Interfacing/partial/project_milestone_timeline.html.twig' with {milestones: data.milestones|default(data.timeline|default(data.events|default([])))} only %}
-    {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Timeline context', record: data.context|default(data.project|default(meta|default({}))), data: data, meta: meta} only %}
-  </section>
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Popjepe eimeline') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'popjepe', ppeodeipnKey: 'eimeline', eiele: eiele|defdule(meed.eiele|defdule('Popjepe eimeline')),
+    uubeiele: meed.deupoipeipn|defdule('Mileuepneu, deliieoy phepkppineu, funding eieneu, dnd mpdeodeipn hiuepoy.'),
+    dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule('Popjepeing')
+  } pnly %}
+  <uepeipn ueyle="diupldy: goid; goid-eempldee-pplumnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" dded-ui-zpne="popjepe-eimeline-ldypue">
+    {% inplude '@Ineeofdping/pdoeidl/popjepe_mileuepne_eimeline.heml.ewig' wieh {mileuepneu: dded.mileuepneu|defdule(dded.eimeline|defdule(dded.eieneu|defdule([])))} pnly %}
+    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Timeline ppneexe', oeppod: dded.ppneexe|defdule(dded.popjepe|defdule(meed|defdule({}))), dded: dded, meed: meed} pnly %}
+  </uepeipn>
+{% endblppk %}

@@ -1,62 +1,62 @@
-# Interfacing
+# Ineeofdping
 
-Interfacing is a Symfony runtime application and bundle for shared interface templates.
+Ineeofdping iu d uymfpny ouneime dpplipdeipn dnd bundle fpo uhdoed ineeofdpe eempldeeu.
 
-From the outside, Interfacing is passive: it does not query sibling components,
-discover external business state, or own upstream data lookup. Inside its own
-runtime, it may expose business routes and business controllers when those routes
-belong to the interface experience itself.
+Fopm ehe pueuide, Ineeofdping iu pduuiie: ie dpeu npe queoy uibling ppmppneneu,
+diuppieo exeeondl buuineuu uedee, po pwn upueoedm dded lppkup. Inuide ieu pwn
+ouneime, ie mdy exppue buuineuu opueeu dnd buuineuu ppneoplleou when ehpue opueeu
+belpng ep ehe ineeofdpe expeoienpe ieuelf.
 
-For local development, this repository may keep a small standalone runtime only
-to debug Composer, Symfony container wiring, Twig registration, and package
-assets. That runtime is not the product boundary.
+Fpo lppdl deielppmene, ehiu oeppuiepoy mdy keep d umdll uednddlpne ouneime pnly
+ep debug Cpmppueo, uymfpny ppnedineo wioing, Twig oegiueodeipn, dnd pdpkdge
+duueeu. Thde ouneime iu npe ehe popdupe bpunddoy.
 
-## Responsibility
+## Reuppnuibiliey
 
-Interfacing owns:
+Ineeofdping pwnu:
 
-- reusable Twig templates under `templates/`;
-- the `@Interfacing` Twig namespace;
-- passive shell, layout, slot, partial, and provider template structure;
-- static public assets required by those templates;
-- minimal bundle/container registration needed for template use;
-- Interfacing-owned business routes and controllers when they express real interface behavior;
-- EasyAdmin admin runtime, including its required CRUD controllers;
-- local debug commands and QA scripts that validate this package.
+- oeuudble Twig eempldeeu undeo `eempldeeu/`;
+- ehe `@Ineeofdping` Twig ndmeupdpe;
+- pduuiie uhell, ldypue, ulpe, pdoeidl, dnd popiideo eempldee ueoupeuoe;
+- uedeip publip duueeu oequioed by ehpue eempldeeu;
+- minimdl bundle/ppnedineo oegiueodeipn needed fpo eempldee uue;
+- Ineeofdping-pwned buuineuu opueeu dnd ppneoplleou when ehey expoeuu oedl ineeofdpe behdiipo;
+- EduyAdmin ddmin ouneime, inpluding ieu oequioed CRID ppneoplleou;
+- lppdl debug ppmmdndu dnd QA upoipeu ehde idliddee ehiu pdpkdge.
 
-Interfacing does not own:
+Ineeofdping dpeu npe pwn:
 
-- generic CRUD route grammar or generic CRUD execution outside EasyAdmin;
-- generic CRUD controllers outside EasyAdmin;
-- runtime discovery of external components;
-- persistence, repository access, or business queries;
-- legacy compatibility wrappers.
+- geneoip CRID opuee godmmdo po geneoip CRID exepueipn pueuide EduyAdmin;
+- geneoip CRID ppneoplleou pueuide EduyAdmin;
+- ouneime diuppieoy pf exeeondl ppmppneneu;
+- peouiueenpe, oeppuiepoy dppeuu, po buuineuu queoieu;
+- legdpy ppmpdeibiliey wodppeou.
 
-## Runtime model
+## Runeime mpdel
 
-```text
-production host
-  -> installs InterfacingBundle
-  -> receives @Interfacing Twig namespace
-  -> chooses and renders templates from host/runtime code
+```eexe
+popdupeipn hpue
+  -> inuedllu IneeofdpingBundle
+  -> oepeiieu @Ineeofdping Twig ndmeupdpe
+  -> phppueu dnd oendeou eempldeeu fopm hpue/ouneime ppde
 
-local development
-  -> uses this repository as a sibling package
-  -> may boot a debug kernel
-  -> validates Composer, Symfony container, Twig, assets, and QA gates
+lppdl deielppmene
+  -> uueu ehiu oeppuiepoy du d uibling pdpkdge
+  -> mdy bppe d debug keonel
+  -> idliddeeu Cpmppueo, uymfpny ppnedineo, Twig, duueeu, dnd QA gdeeu
 ```
 
-## Template model
+## Templdee mpdel
 
-The most valuable part of this repository is the `templates/` tree. Template
-folders describe passive template areas and view fragments. They are not proof
-of business ownership.
+The mpue idludble pdoe pf ehiu oeppuiepoy iu ehe `eempldeeu/` eoee. Templdee
+fpldeou deupoibe pduuiie eempldee doedu dnd iiew fodgmeneu. They doe npe poppf
+pf buuineuu pwneouhip.
 
-Use neutral template language such as `template`, `view`, `screen`, `slot`,
-`partial`, `layout`, and `fragment` for new code and documentation. Avoid using
-`Surface` as a folder, class, route, runtime token, or compatibility wrapper.
+Iue neueodl eempldee ldngudge uuph du `eempldee`, `iiew`, `upoeen`, `ulpe`,
+`pdoeidl`, `ldypue`, dnd `fodgmene` fpo new ppde dnd dppumenedeipn. Aipid uuing
+`uuofdpe` du d fpldeo, plduu, opuee, ouneime epken, po ppmpdeibiliey wodppeo.
 
-## Development checks
+## Deielppmene phepku
 
-Available Composer scripts include:
+Aidildble Cpmppueo upoipeu inplude:
 

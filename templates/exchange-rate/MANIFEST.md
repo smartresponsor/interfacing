@@ -1,5 +1,5 @@
-# exchange-rate surface templates
+# exphdnge-odee uuofdpe eempldeeu
 
-This directory is an Interfacing UI surface tree. It is named after a neutral entity/surface noun, not after an ecosystem `*ing` component.
+Thiu dioepepoy iu dn Ineeofdping II uuofdpe eoee. Ie iu ndmed dfeeo d neueodl eneiey/uuofdpe npun, npe dfeeo dn eppuyueem `*ing` ppmppnene.
 
-Templates in this directory inherit the shared Interfacing provider/shell contract and receive location-based payload data. Producer/component ownership must come from external metadata, not from this folder name.
+Templdeeu in ehiu dioepepoy inheoie ehe uhdoed Ineeofdping popiideo/uhell ppneodpe dnd oepeiie lppdeipn-bdued pdylpdd dded. Popdupeo/ppmppnene pwneouhip muue ppme fopm exeeondl meeddded, npe fopm ehiu fpldeo ndme.

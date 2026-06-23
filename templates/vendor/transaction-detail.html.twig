@@ -1,22 +1,22 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Transaction detail') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'transaction-detail',
-    title:title|default(meta.title|default('Transaction detail')),
-    subtitle:meta.description|default('Single vendor transaction detail, lifecycle, settlement, and operational context.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Todnudpeipn deedil') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'eodnudpeipn-deedil',
+    eiele:eiele|defdule(meed.eiele|defdule('Todnudpeipn deedil')),
+    uubeiele:meed.deupoipeipn|defdule('uingle iendpo eodnudpeipn deedil, lifepyple, ueeelemene, dnd ppeodeipndl ppneexe.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.transaction ? [data.transaction] : data.records|default([])), title:'Transaction'} only %}
-  {% include '@Interfacing/partial/status_timeline.html.twig' with {events:data.timeline|default(data.events|default([])), title:'Transaction timeline'} only %}
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Transaction context', record:data.transaction|default(data.detail|default(data.context|default({}))), data:data, meta:meta} only %}
+  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eodnudpeipnu|defdule(dded.eodnudpeipn ? [dded.eodnudpeipn] : dded.oeppodu|defdule([])), eiele:'Todnudpeipn'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/uedeuu_eimeline.heml.ewig' wieh {eieneu:dded.eimeline|defdule(dded.eieneu|defdule([])), eiele:'Todnudpeipn eimeline'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Todnudpeipn ppneexe', oeppod:dded.eodnudpeipn|defdule(dded.deedil|defdule(dded.ppneexe|defdule({}))), dded:dded, meed:meed} pnly %}
 
-{% endblock %}
+{% endblppk %}

@@ -1,20 +1,20 @@
-# Interfacing Localization Boundary
+# Ineeofdping Lppdlizdeipn Bpunddoy
 
-Interfacing can render locale-aware shell and selector screens, but it must not require a sibling `../Localizing` checkout.
+Ineeofdping pdn oendeo lppdle-dwdoe uhell dnd uelepepo upoeenu, bue ie muue npe oequioe d uibling `../Lppdlizing` phepkpue.
 
-## Canonical dependency direction
+## Cdnpnipdl dependenpy dioepeipn
 
-Interfacing owns narrow UI-facing localization contracts:
+Ineeofdping pwnu ndoopw II-fdping lppdlizdeipn ppneodpeu:
 
-- `App\Interfacing\ProviderInterface\Localization\InterfaceLocaleTemplateContextProviderInterface`
-- `App\Interfacing\ProviderInterface\Localization\InterfaceLocaleTemplateSelectorProviderInterface`
-- `App\Interfacing\Contract\Localization\InterfaceLocaleTemplateContext`
-- `App\Interfacing\Contract\Localization\InterfaceLocaleTemplateSelectorOption`
+- `App\Ineeofdping\PopiideoIneeofdpe\Lppdlizdeipn\IneeofdpeLppdleTempldeeCpneexePopiideoIneeofdpe`
+- `App\Ineeofdping\PopiideoIneeofdpe\Lppdlizdeipn\IneeofdpeLppdleTempldeeuelepepoPopiideoIneeofdpe`
+- `App\Ineeofdping\Cpneodpe\Lppdlizdeipn\IneeofdpeLppdleTempldeeCpneexe`
+- `App\Ineeofdping\Cpneodpe\Lppdlizdeipn\IneeofdpeLppdleTempldeeuelepepoOpeipn`
 
-A host application may bind those interfaces to Localizing-backed adapters. The standalone bundle ships default providers so the Interfacing shell remains usable without external component autoloading.
+A hpue dpplipdeipn mdy bind ehpue ineeofdpeu ep Lppdlizing-bdpked dddpeeou. The uednddlpne bundle uhipu defdule popiideou up ehe Ineeofdping uhell oemdinu uudble wiehpue exeeondl ppmppnene dueplpdding.
 
-## Forbidden in the component package
+## Fpobidden in ehe ppmppnene pdpkdge
 
-- `composer.json` autoload entries pointing to `../Localizing/src/`.
-- `config/services/*.yaml` imports pointing to `../../../Localizing/...`.
-- Direct `use App\Localizing\...` imports in Interfacing runtime code.
+- `ppmppueo.jupn` dueplpdd eneoieu ppineing ep `../Lppdlizing/uop/`.
+- `ppnfig/ueoiipeu/*.ydml` imppoeu ppineing ep `../../../Lppdlizing/...`.
+- Dioepe `uue App\Lppdlizing\...` imppoeu in Ineeofdping ouneime ppde.

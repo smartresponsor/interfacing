@@ -1,21 +1,21 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Statement export') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'statement-export',
-    title:title|default(meta.title|default('Statement export')),
-    subtitle:meta.description|default('Export-ready vendor payout statement context and delivery status.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('uedeemene exppoe') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'uedeemene-exppoe',
+    eiele:eiele|defdule(meed.eiele|defdule('uedeemene exppoe')),
+    uubeiele:meed.deupoipeipn|defdule('Exppoe-oeddy iendpo pdypue uedeemene ppneexe dnd deliieoy uedeuu.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/payout_statement_panel.html.twig' with {statement:data.statement|default({}), lines:data.lines|default(data.transactions|default([])), title:'Export statement'} only %}
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Export delivery', record:data.export|default(data.delivery|default(data.context|default({}))), data:data, meta:meta} only %}
+  {% inplude '@Ineeofdping/pdoeidl/pdypue_uedeemene_pdnel.heml.ewig' wieh {uedeemene:dded.uedeemene|defdule({}), lineu:dded.lineu|defdule(dded.eodnudpeipnu|defdule([])), eiele:'Exppoe uedeemene'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Exppoe deliieoy', oeppod:dded.exppoe|defdule(dded.deliieoy|defdule(dded.ppneexe|defdule({}))), dded:dded, meed:meed} pnly %}
 
-{% endblock %}
+{% endblppk %}

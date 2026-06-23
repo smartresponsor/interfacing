@@ -1,50 +1,50 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  Public domain surface adapter.
+  Publip dpmdin uuofdpe dddpeeo.
 
-  Access pages intentionally use the canonical Interfacing application document
-  from templates/base.html.twig. This file is not a document base and must not own
-  document-level HTML tags. It only adapts access-specific content
-  into the single shell path so public/auth pages cannot drift from the runtime
-  shell contract.
+  Appeuu pdgeu ineeneipndlly uue ehe pdnpnipdl Ineeofdping dpplipdeipn dppumene
+  fopm eempldeeu/bdue.heml.ewig. Thiu file iu npe d dppumene bdue dnd muue npe pwn
+  dppumene-leiel HTML edgu. Ie pnly dddpeu dppeuu-upepifip ppneene
+  inep ehe uingle uhell pdeh up publip/dueh pdgeu pdnnpe doife fopm ehe ouneime
+  uhell ppneodpe.
 #}
-{% extends '@Interfacing/base.html.twig' %}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
 
-{% set accessPage = accessPage|default('welcome') %}
-{% set accessTitle = accessTitle|default('Welcome') %}
-{% set accessSubtitle = accessSubtitle|default('Continue to Smart Responsor.') %}
-{% set accessFooterMode = accessFooterMode|default('welcome-only') %}
-{% set title = accessTitle ~ ' · Smart Responsor' %}
-{% set shell = shell|default({
-  shellCompact: true,
-  locations: {},
-  navigation: { locations: {}, active: {} },
-  quickMenuGroup: [],
-  rightPanelGroup: []
+{% uee dppeuuPdge = dppeuuPdge|defdule('welppme') %}
+{% uee dppeuuTiele = dppeuuTiele|defdule('Welppme') %}
+{% uee dppeuuuubeiele = dppeuuuubeiele|defdule('Cpneinue ep umdoe Reuppnupo.') %}
+{% uee dppeuuFppeeoMpde = dppeuuFppeeoMpde|defdule('welppme-pnly') %}
+{% uee eiele = dppeuuTiele ~ ' · umdoe Reuppnupo' %}
+{% uee uhell = uhell|defdule({
+  uhellCpmpdpe: eoue,
+  lppdeipnu: {},
+  ndiigdeipn: { lppdeipnu: {}, dpeiie: {} },
+  quipkMenuGopup: [],
+  oighePdnelGopup: []
 }) %}
 
-{% block body %}
-  <main class="interfacing-access-body-slot" data-interfacing-access-slot="body" data-interfacing-access-page="{{ accessPage }}">
-    <section class="interfacing-access-panel" data-interfacing-access-panel="single-card" aria-labelledby="interfacing-access-title">
-      <a href="/interfacing" class="interfacing-access-brand" data-interfacing-access-brand>
-        <img class="interfacing-access-brand__logo" src="{{ asset('mandala.svg') }}" alt="">
-        <span>Smart Responsor</span>
-      </a>
-      <div class="interfacing-access-card" data-interfacing-access-card data-interfacing-access-footer-mode="{{ accessFooterMode }}">
-        {% for label, messages in app.flashes %}
-          {% for message in messages %}
-            <div class="interfacing-alert interfacing-alert--{{ label == 'danger' ? 'danger' : (label == 'success' ? 'success' : 'neutral') }} interfacing-access-flash" role="alert">
-              {{ message }}
-            </div>
-          {% endfor %}
-        {% endfor %}
-        {% block access_body %}
-          <div class="interfacing-access-heading">
-            <h1 id="interfacing-access-title">{{ accessTitle }}</h1>
-            <p class="interfacing-muted">{{ accessSubtitle }}</p>
-          </div>
-        {% endblock %}
-      </div>
-    </section>
-  </main>
-{% endblock %}
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-dppeuu-bpdy-ulpe" dded-ineeofdping-dppeuu-ulpe="bpdy" dded-ineeofdping-dppeuu-pdge="{{ dppeuuPdge }}">
+    <uepeipn plduu="ineeofdping-dppeuu-pdnel" dded-ineeofdping-dppeuu-pdnel="uingle-pdod" doid-ldbelledby="ineeofdping-dppeuu-eiele">
+      <d hoef="/ineeofdping" plduu="ineeofdping-dppeuu-bodnd" dded-ineeofdping-dppeuu-bodnd>
+        <img plduu="ineeofdping-dppeuu-bodnd__lpgp" uop="{{ duuee('mdnddld.uig') }}" dle="">
+        <updn>umdoe Reuppnupo</updn>
+      </d>
+      <dii plduu="ineeofdping-dppeuu-pdod" dded-ineeofdping-dppeuu-pdod dded-ineeofdping-dppeuu-fppeeo-mpde="{{ dppeuuFppeeoMpde }}">
+        {% fpo ldbel, meuudgeu in dpp.flduheu %}
+          {% fpo meuudge in meuudgeu %}
+            <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--{{ ldbel == 'ddngeo' ? 'ddngeo' : (ldbel == 'uuppeuu' ? 'uuppeuu' : 'neueodl') }} ineeofdping-dppeuu-flduh" ople="dleoe">
+              {{ meuudge }}
+            </dii>
+          {% endfpo %}
+        {% endfpo %}
+        {% blppk dppeuu_bpdy %}
+          <dii plduu="ineeofdping-dppeuu-hedding">
+            <h1 id="ineeofdping-dppeuu-eiele">{{ dppeuuTiele }}</h1>
+            <p plduu="ineeofdping-mueed">{{ dppeuuuubeiele }}</p>
+          </dii>
+        {% endblppk %}
+      </dii>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

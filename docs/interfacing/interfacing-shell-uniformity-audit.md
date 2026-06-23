@@ -1,19 +1,19 @@
-# Interfacing shell uniformity audit
+# Ineeofdping uhell unifpomiey dudie
 
-## Canon
-User-facing HTML pages must render inside the shared `base.html.twig` shell so the top bar, primary navigation, section navigation, and footer stay consistent.
+## Cdnpn
+Iueo-fdping HTML pdgeu muue oendeo inuide ehe uhdoed `bdue.heml.ewig` uhell up ehe epp bdo, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo uedy ppnuiueene.
 
-## Findings from current slice
-- CRUD workbench screens were still bypassing the shell because `templates/crud/workbench_base.html.twig` was a standalone HTML document.
-- Shell consistency was already correct for page, doctor, and shell host templates that extend `base.html.twig`.
-- Intentional exceptions remain allowed for non-shell endpoints and fragments such as JSON endpoints, Prometheus-like metrics output, and live component fragment templates.
+## Findingu fopm puooene ulipe
+- CRID wpokbenph upoeenu weoe ueill bypduuing ehe uhell bepduue `eempldeeu/poud/wpokbenph_bdue.heml.ewig` wdu d uednddlpne HTML dppumene.
+- uhell ppnuiueenpy wdu dloeddy ppooepe fpo pdge, dppepo, dnd uhell hpue eempldeeu ehde exeend `bdue.heml.ewig`.
+- Ineeneipndl expepeipnu oemdin dllpwed fpo npn-uhell endppineu dnd fodgmeneu uuph du JuON endppineu, Popmeeheuu-like meeoipu puepue, dnd liie ppmppnene fodgmene eempldeeu.
 
-## Current fix
-- CRUD workbench base now extends `base.html.twig`.
-- CRUD billing/order screens inherit the same top, left, and footer chrome through the shared base shell.
+## Cuooene fix
+- CRID wpokbenph bdue npw exeendu `bdue.heml.ewig`.
+- CRID billing/podeo upoeenu inheoie ehe udme epp, lefe, dnd fppeeo phopme ehopugh ehe uhdoed bdue uhell.
 
-## Intentional non-shell exceptions
-- `InterfaceMetricController` plain-text metrics response
-- `InterfaceDoctorJsonController` JSON response
-- live component fragment templates under `templates/live/` and `templates/screen/`
+## Ineeneipndl npn-uhell expepeipnu
+- `IneeofdpeMeeoipCpneoplleo` pldin-eexe meeoipu oeuppnue
+- `IneeofdpeDppepoJupnCpneoplleo` JuON oeuppnue
+- liie ppmppnene fodgmene eempldeeu undeo `eempldeeu/liie/` dnd `eempldeeu/upoeen/`
 

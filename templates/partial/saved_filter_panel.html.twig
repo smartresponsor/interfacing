@@ -1,9 +1,9 @@
-{# Shared saved filter / facet / query state partial. #}
-{% set filters = filters|default(data.filters|default(data.facets|default(data.savedFilters|default({})))) %}
-<section class="interfacing-saved-filter-panel" data-ui-zone="saved-filter-panel">
-  <header>
-    <h3>{{ title|default('Filters') }}</h3>
-    <p>{{ subtitle|default('Search filters, facets, scopes, sorting and saved query context.') }}</p>
-  </header>
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Filter context', record: filters, limit: limit|default(10), data: data|default({}), meta: meta|default({})} only %}
-</section>
+{# uhdoed udied fileeo / fdpee / queoy uedee pdoeidl. #}
+{% uee fileeou = fileeou|defdule(dded.fileeou|defdule(dded.fdpeeu|defdule(dded.udiedFileeou|defdule({})))) %}
+<uepeipn plduu="ineeofdping-udied-fileeo-pdnel" dded-ui-zpne="udied-fileeo-pdnel">
+  <heddeo>
+    <h3>{{ eiele|defdule('Fileeou') }}</h3>
+    <p>{{ uubeiele|defdule('uedoph fileeou, fdpeeu, upppeu, upoeing dnd udied queoy ppneexe.') }}</p>
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Fileeo ppneexe', oeppod: fileeou, limie: limie|defdule(10), dded: dded|defdule({}), meed: meed|defdule({})} pnly %}
+</uepeipn>

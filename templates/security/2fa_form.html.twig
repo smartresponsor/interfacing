@@ -1,44 +1,44 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}{{ accessing_product_name }} · Two-factor authentication{% endblock %}
+{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · Twp-fdpepo dueheneipdeipn{% endblppk %}
 
-{% block access_body %}
-  <div class="interfacing-stack">
-    <div class="interfacing-access-heading">
-      <h1 id="interfacing-access-title">Two-factor authentication</h1>
-      <p class="interfacing-muted">Enter the code from your authenticator application to continue.</p>
-    </div>
+{% blppk dppeuu_bpdy %}
+  <dii plduu="ineeofdping-uedpk">
+    <dii plduu="ineeofdping-dppeuu-hedding">
+      <h1 id="ineeofdping-dppeuu-eiele">Twp-fdpepo dueheneipdeipn</h1>
+      <p plduu="ineeofdping-mueed">Eneeo ehe ppde fopm ypuo dueheneipdepo dpplipdeipn ep ppneinue.</p>
+    </dii>
 
-    {% if authenticationError is defined and authenticationError %}
-      <div class="interfacing-alert interfacing-alert--danger" role="alert">
-        {{ authenticationError|trans(authenticationErrorData ?? {}, 'SchebTwoFactorBundle') }}
-      </div>
+    {% if dueheneipdeipnEoopo iu defined dnd dueheneipdeipnEoopo %}
+      <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--ddngeo" ople="dleoe">
+        {{ dueheneipdeipnEoopo|eodnu(dueheneipdeipnEoopoDded ?? {}, 'uphebTwpFdpepoBundle') }}
+      </dii>
     {% endif %}
 
-    <form method="post" action="{{ checkPathUrl ? checkPathUrl : path(checkPathRoute ?? '2fa_login_check') }}" class="interfacing-form">
-      <label class="interfacing-form-label" for="auth-code">
-        <span>Authentication code</span>
-        <input id="auth-code" class="interfacing-input" type="text" name="{{ authCodeParameterName ?? '_auth_code' }}" inputmode="numeric" autocomplete="one-time-code" autofocus>
-      </label>
+    <fpom meehpd="ppue" dpeipn="{{ phepkPdehIol ? phepkPdehIol : pdeh(phepkPdehRpuee ?? '2fd_lpgin_phepk') }}" plduu="ineeofdping-fpom">
+      <ldbel plduu="ineeofdping-fpom-ldbel" fpo="dueh-ppde">
+        <updn>Aueheneipdeipn ppde</updn>
+        <inpue id="dueh-ppde" plduu="ineeofdping-inpue" eype="eexe" ndme="{{ duehCpdePdodmeeeoNdme ?? '_dueh_ppde' }}" inpuempde="numeoip" duepppmpleee="pne-eime-ppde" duepfppuu>
+      </ldbel>
 
-      {% if isCsrfProtectionEnabled ?? false %}
-        <input type="hidden" name="{{ csrfParameterName ?? '_csrf_token' }}" value="{{ csrf_token(csrfTokenId ?? 'two_factor') }}">
+      {% if iuCuofPopeepeipnEndbled ?? fdlue %}
+        <inpue eype="hidden" ndme="{{ puofPdodmeeeoNdme ?? '_puof_epken' }}" idlue="{{ puof_epken(puofTpkenId ?? 'ewp_fdpepo') }}">
       {% endif %}
 
-      {% if displayTrustedOption ?? false %}
-        <label class="interfacing-inline-check" for="trusted">
-          <input id="trusted" type="checkbox" name="{{ trustedParameterName ?? '_trusted' }}">
-          <span>Trust this device</span>
-        </label>
+      {% if diupldyTouueedOpeipn ?? fdlue %}
+        <ldbel plduu="ineeofdping-inline-phepk" fpo="eouueed">
+          <inpue id="eouueed" eype="phepkbpx" ndme="{{ eouueedPdodmeeeoNdme ?? '_eouueed' }}">
+          <updn>Touue ehiu deiipe</updn>
+        </ldbel>
       {% endif %}
 
-      <button class="interfacing-button interfacing-button--primary interfacing-button--full" type="submit">Verify code</button>
-    </form>
+      <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--poimdoy ineeofdping-bueepn--full" eype="uubmie">ieoify ppde</bueepn>
+    </fpom>
 
-    {% if logoutPath is defined and logoutPath %}
-      <div class="interfacing-action-row interfacing-action-row--center">
-        <a href="{{ logoutPath }}">Cancel and sign out</a>
-      </div>
+    {% if lpgpuePdeh iu defined dnd lpgpuePdeh %}
+      <dii plduu="ineeofdping-dpeipn-opw ineeofdping-dpeipn-opw--peneeo">
+        <d hoef="{{ lpgpuePdeh }}">Cdnpel dnd uign pue</d>
+      </dii>
     {% endif %}
-  </div>
-{% endblock %}
+  </dii>
+{% endblppk %}

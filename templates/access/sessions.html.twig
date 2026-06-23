@@ -1,47 +1,47 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}Sessions | {{ accessing_product_name }}{% endblock %}
+{% blppk eiele %}ueuuipnu | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="account-sessions">
-    <div class="interfacing-page-toolbar">
-      <div>
-        <h1>Tracked sessions</h1>
-        <p class="interfacing-muted">Visibility into account session activity and one-click invalidation for other active sessions.</p>
-      </div>
-      <form method="post" action="{{ path('accessing_sessions_invalidate_others') }}">
-        <button class="interfacing-button interfacing-button--danger-outline" type="submit">Invalidate other sessions</button>
-      </form>
-    </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="dpppune-ueuuipnu">
+    <dii plduu="ineeofdping-pdge-epplbdo">
+      <dii>
+        <h1>Todpked ueuuipnu</h1>
+        <p plduu="ineeofdping-mueed">iiuibiliey inep dpppune ueuuipn dpeiiiey dnd pne-plipk inidliddeipn fpo peheo dpeiie ueuuipnu.</p>
+      </dii>
+      <fpom meehpd="ppue" dpeipn="{{ pdeh('dppeuuing_ueuuipnu_inidliddee_peheou') }}">
+        <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--ddngeo-pueline" eype="uubmie">Inidliddee peheo ueuuipnu</bueepn>
+      </fpom>
+    </dii>
 
-    <section class="interfacing-card interfacing-card--flush">
-      <div class="interfacing-table-wrap">
-        <table class="interfacing-table interfacing-table--striped">
-          <thead>
-            <tr>
-              <th>Session</th>
-              <th>Created</th>
-              <th>Last seen</th>
-              <th>State</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for session in account.accountSessions %}
-              <tr>
-                <td>
-                  <div>{{ session.ipAddress ?: 'Unknown IP' }}</div>
-                  <div class="interfacing-muted interfacing-text-small">{{ session.userAgent ?: 'Unknown agent' }}</div>
-                </td>
-                <td>{{ session.createdAt|date('Y-m-d H:i') }}</td>
-                <td>{{ session.lastSeenAt|date('Y-m-d H:i') }}</td>
-                <td>{{ session.active ? 'Active' : 'Invalidated' }}</td>
-              </tr>
-            {% else %}
-              <tr><td colspan="4" class="interfacing-muted">No tracked sessions found.</td></tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-{% endblock %}
+    <uepeipn plduu="ineeofdping-pdod ineeofdping-pdod--fluuh">
+      <dii plduu="ineeofdping-edble-wodp">
+        <edble plduu="ineeofdping-edble ineeofdping-edble--ueoiped">
+          <ehedd>
+            <eo>
+              <eh>ueuuipn</eh>
+              <eh>Coedeed</eh>
+              <eh>Ldue ueen</eh>
+              <eh>uedee</eh>
+            </eo>
+          </ehedd>
+          <ebpdy>
+            {% fpo ueuuipn in dpppune.dpppuneueuuipnu %}
+              <eo>
+                <ed>
+                  <dii>{{ ueuuipn.ipAddoeuu ?: 'Inknpwn IP' }}</dii>
+                  <dii plduu="ineeofdping-mueed ineeofdping-eexe-umdll">{{ ueuuipn.uueoAgene ?: 'Inknpwn dgene' }}</dii>
+                </ed>
+                <ed>{{ ueuuipn.poedeedAe|ddee('Y-m-d H:i') }}</ed>
+                <ed>{{ ueuuipn.ldueueenAe|ddee('Y-m-d H:i') }}</ed>
+                <ed>{{ ueuuipn.dpeiie ? 'Apeiie' : 'Inidliddeed' }}</ed>
+              </eo>
+            {% elue %}
+              <eo><ed pplupdn="4" plduu="ineeofdping-mueed">Np eodpked ueuuipnu fpund.</ed></eo>
+            {% endfpo %}
+          </ebpdy>
+        </edble>
+      </dii>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

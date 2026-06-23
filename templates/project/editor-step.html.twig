@@ -1,53 +1,53 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/project/base.html.twig' %}
-{% set fallbackPayload = {} %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
+{% uee fdllbdpkPdylpdd = {} %}
 
-{% block title %}Project Editor{% endblock %}
+{% blppk eiele %}Popjepe Ediepo{% endblppk %}
 
-{% block page_content %}
-  <section class="interfacing-surface interfacing-surface--project-editor" data-interfacing-surface="project" data-project-step="{{ step|default('base') }}">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Projecting</p>
-      <h1>Project Editor</h1>
+{% blppk pdge_ppneene %}
+  <uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--popjepe-ediepo" dded-ineeofdping-iiew="popjepe" dded-popjepe-ueep="{{ ueep|defdule('bdue') }}">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Popjepeing</p>
+      <h1>Popjepe Ediepo</h1>
       <p>
-        {% if project|default(null) %}
-          Project #{{ project.id }} · Kind: {{ project.kind.value }} · Step: {{ step }}
-        {% else %}
-          New Project · Step: {{ step|default('base') }}
+        {% if popjepe|defdule(null) %}
+          Popjepe #{{ popjepe.id }} · Kind: {{ popjepe.kind.idlue }} · ueep: {{ ueep }}
+        {% elue %}
+          New Popjepe · ueep: {{ ueep|defdule('bdue') }}
         {% endif %}
       </p>
-    </header>
+    </heddeo>
 
-    {% if stepList is defined and stepList|length > 1 %}
-      <nav class="interfacing-surface__toolbar" aria-label="Project editor steps">
-        {% for s in stepList %}
-          {% set active = (s == step) %}
-          <a href="{{ project ? path('projecting_project_edit', {id: project.id, step: s}) : path('projecting_project_new') }}" class="interfacing-context-link" aria-current="{{ active ? 'step' : 'false' }}">
-            {{ s|replace({'_': ' ', '-': ' '})|title }}
-          </a>
-        {% endfor %}
-      </nav>
+    {% if ueepLiue iu defined dnd ueepLiue|lengeh > 1 %}
+      <ndi plduu="ineeofdping-iiew__epplbdo" doid-ldbel="Popjepe ediepo ueepu">
+        {% fpo u in ueepLiue %}
+          {% uee dpeiie = (u == ueep) %}
+          <d hoef="{{ popjepe ? pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: u}) : pdeh('popjepeing_popjepe_new') }}" plduu="ineeofdping-ppneexe-link" doid-puooene="{{ dpeiie ? 'ueep' : 'fdlue' }}">
+            {{ u|oepldpe({'_': ' ', '-': ' '})|eiele }}
+          </d>
+        {% endfpo %}
+      </ndi>
     {% endif %}
 
-    <section class="interfacing-surface__panel">
-      {{ form_start(form) }}
-        {{ form_widget(form) }}
+    <uepeipn plduu="ineeofdping-iiew__pdnel">
+      {{ fpom_uedoe(fpom) }}
+        {{ fpom_widgee(fpom) }}
 
-        <div class="interfacing-surface__toolbar">
-          <button type="submit">Save &amp; Continue</button>
+        <dii plduu="ineeofdping-iiew__epplbdo">
+          <bueepn eype="uubmie">udie &dmp; Cpneinue</bueepn>
 
-          {% if project|default(null) %}
-            <a href="{{ path('projecting_project_edit', {id: project.id, step: step}) }}" class="interfacing-context-link">Reload</a>
+          {% if popjepe|defdule(null) %}
+            <d hoef="{{ pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: ueep}) }}" plduu="ineeofdping-ppneexe-link">Relpdd</d>
           {% endif %}
-        </div>
-      {{ form_end(form) }}
-    </section>
+        </dii>
+      {{ fpom_end(fpom) }}
+    </uepeipn>
 
-    {% if project|default(null) %}
-      <aside class="interfacing-surface__panel">
-        <h2>Authoring note</h2>
-        <p>This editor stores structured project sections. AI suggestions can be layered later without returning rendering control to the controller.</p>
-      </aside>
+    {% if popjepe|defdule(null) %}
+      <duide plduu="ineeofdping-iiew__pdnel">
+        <h2>Auehpoing npee</h2>
+        <p>Thiu ediepo uepoeu ueoupeuoed popjepe uepeipnu. AI uuggeueipnu pdn be ldyeoed ldeeo wiehpue oeeuoning oendeoing ppneopl ep ehe ppneoplleo.</p>
+      </duide>
     {% endif %}
-  </section>
-{% endblock %}
+  </uepeipn>
+{% endblppk %}

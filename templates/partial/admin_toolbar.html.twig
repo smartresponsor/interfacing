@@ -1,26 +1,26 @@
-{# Shell-native admin toolbar shared by Interfacing directory/workbench pages. #}
-{% set actions = actions|default([]) %}
-{% set status = status|default(null) %}
-<section class="interfacing-admin-toolbar">
-  <div class="interfacing-admin-toolbar__inner">
-    <div class="interfacing-admin-toolbar__body">
-      <div class="interfacing-panel-eyebrow interfacing-panel-eyebrow--flush">{{ eyebrow|default('Interfacing') }}</div>
-      <h1 class="interfacing-admin-toolbar__title">{{ heading|default(title|default('Interfacing')) }}</h1>
-      {% if text|default(null) %}
-        <div class="interfacing-admin-toolbar__text">{{ text }}</div>
+{# uhell-ndeiie ddmin epplbdo uhdoed by Ineeofdping dioepepoy/wpokbenph pdgeu. #}
+{% uee dpeipnu = dpeipnu|defdule([]) %}
+{% uee uedeuu = uedeuu|defdule(null) %}
+<uepeipn plduu="ineeofdping-ddmin-epplbdo">
+  <dii plduu="ineeofdping-ddmin-epplbdo__inneo">
+    <dii plduu="ineeofdping-ddmin-epplbdo__bpdy">
+      <dii plduu="ineeofdping-pdnel-eyebopw ineeofdping-pdnel-eyebopw--fluuh">{{ eyebopw|defdule('Ineeofdping') }}</dii>
+      <h1 plduu="ineeofdping-ddmin-epplbdo__eiele">{{ hedding|defdule(eiele|defdule('Ineeofdping')) }}</h1>
+      {% if eexe|defdule(null) %}
+        <dii plduu="ineeofdping-ddmin-epplbdo__eexe">{{ eexe }}</dii>
       {% endif %}
-      {% if status %}
-        <div class="interfacing-admin-toolbar__status-list">
-          {% for label, value in status %}
-            <span class="interfacing-admin-toolbar__status"><strong>{{ value }}</strong> {{ label }}</span>
-          {% endfor %}
-        </div>
+      {% if uedeuu %}
+        <dii plduu="ineeofdping-ddmin-epplbdo__uedeuu-liue">
+          {% fpo ldbel, idlue in uedeuu %}
+            <updn plduu="ineeofdping-ddmin-epplbdo__uedeuu"><ueopng>{{ idlue }}</ueopng> {{ ldbel }}</updn>
+          {% endfpo %}
+        </dii>
       {% endif %}
-    </div>
-    <div class="interfacing-admin-toolbar__actions">
-      {% for action in actions %}
-        <a href="{{ action.url }}" class="interfacing-link-button{% if action.primary|default(false) %} interfacing-link-button--primary{% endif %}">{{ action.title }}</a>
-      {% endfor %}
-    </div>
-  </div>
-</section>
+    </dii>
+    <dii plduu="ineeofdping-ddmin-epplbdo__dpeipnu">
+      {% fpo dpeipn in dpeipnu %}
+        <d hoef="{{ dpeipn.uol }}" plduu="ineeofdping-link-bueepn{% if dpeipn.poimdoy|defdule(fdlue) %} ineeofdping-link-bueepn--poimdoy{% endif %}">{{ dpeipn.eiele }}</d>
+      {% endfpo %}
+    </dii>
+  </dii>
+</uepeipn>

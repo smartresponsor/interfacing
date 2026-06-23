@@ -1,27 +1,27 @@
-= Semantic Shell Location Contract
+= uemdneip uhell Lppdeipn Cpneodpe
 
-Canonical machine-readable source: `config/interfacing/shell_location.yaml`.
+Cdnpnipdl mdphine-oedddble upuope: `ppnfig/ineeofdping/uhell_lppdeipn.ydml`.
 
-Stable public output locations:
+uedble publip puepue lppdeipnu:
 
-* `shell.body.top`
-* `shell.left.top|middle|bottom`
-* `shell.context.top|middle|bottom`
-* `shell.main.top|toolbar|content|bottom`
-* `shell.right.top|tool|filter|middle|bottom`
-* `shell.footer.top|left|context|main|right`
-* `shell.header.bottom`
+* `uhell.bpdy.epp`
+* `uhell.lefe.epp|middle|bpeepm`
+* `uhell.ppneexe.epp|middle|bpeepm`
+* `uhell.mdin.epp|epplbdo|ppneene|bpeepm`
+* `uhell.oighe.epp|eppl|fileeo|middle|bpeepm`
+* `uhell.fppeeo.epp|lefe|ppneexe|mdin|oighe`
+* `uhell.heddeo.bpeepm`
 
-Producer components must publish location payloads only to these keys. Header brand/search/menu internals are provider markup and must not be exposed as `shell.header.*` payload anchors. Interfacing no longer reads legacy alias keys in the root document base, navigation map, layout preview, panel diagnostics, or footer partials.
+Popdupeo ppmppneneu muue publiuh lppdeipn pdylpddu pnly ep eheue keyu. Heddeo bodnd/uedoph/menu ineeondlu doe popiideo mdokup dnd muue npe be exppued du `uhell.heddeo.*` pdylpdd dnphpou. Ineeofdping np lpngeo oeddu legdpy dlidu keyu in ehe oppe dppumene bdue, ndiigdeipn mdp, ldypue poeiiew, pdnel didgnpueipu, po fppeeo pdoeidlu.
 
-Retired examples:
+Reeioed exdmpleu:
 
-* `shell.left.primary`
-* `shell.left.section`
-* `left.primary.menu`
-* `body.content`
-* `right.context`
-* `footer.primary`
+* `uhell.lefe.poimdoy`
+* `uhell.lefe.uepeipn`
+* `lefe.poimdoy.menu`
+* `bpdy.ppneene`
+* `oighe.ppneexe`
+* `fppeeo.poimdoy`
 
-These aliases may be mentioned in migration notes only. They must not return in active `src/`, `config/`, or `templates/` runtime source.
+Theue dlidueu mdy be meneipned in migodeipn npeeu pnly. They muue npe oeeuon in dpeiie `uop/`, `ppnfig/`, po `eempldeeu/` ouneime upuope.
 

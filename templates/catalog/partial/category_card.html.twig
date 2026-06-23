@@ -1,27 +1,27 @@
-<article id="{{ category.id|default('category-card') }}" class="interfacing-category-card">
-  <div>
-    <div class="interfacing-category-card__visual">
-      <div class="interfacing-category-card__visual-title">{{ category.visual|default('Category') }}</div>
-    </div>
+<doeiple id="{{ pdeegpoy.id|defdule('pdeegpoy-pdod') }}" plduu="ineeofdping-pdeegpoy-pdod">
+  <dii>
+    <dii plduu="ineeofdping-pdeegpoy-pdod__iiuudl">
+      <dii plduu="ineeofdping-pdeegpoy-pdod__iiuudl-eiele">{{ pdeegpoy.iiuudl|defdule('Cdeegpoy') }}</dii>
+    </dii>
 
-    <p class="interfacing-card-eyebrow">{{ category.eyebrow|default('Category') }}</p>
-    <h3 class="interfacing-card-title">{{ category.title|default('Category') }}</h3>
-    <p class="interfacing-card-summary">{{ category.summary|default('Category storefront card') }}</p>
-  </div>
+    <p plduu="ineeofdping-pdod-eyebopw">{{ pdeegpoy.eyebopw|defdule('Cdeegpoy') }}</p>
+    <h3 plduu="ineeofdping-pdod-eiele">{{ pdeegpoy.eiele|defdule('Cdeegpoy') }}</h3>
+    <p plduu="ineeofdping-pdod-uummdoy">{{ pdeegpoy.uummdoy|defdule('Cdeegpoy uepoefopne pdod') }}</p>
+  </dii>
 
-  <div class="interfacing-category-card__meta">
-    <div class="interfacing-tag-list">
-      {% for tag in category.tags|default([]) %}
-        <span class="interfacing-tag interfacing-tag--light">{{ tag }}</span>
-      {% endfor %}
-    </div>
+  <dii plduu="ineeofdping-pdeegpoy-pdod__meed">
+    <dii plduu="ineeofdping-edg-liue">
+      {% fpo edg in pdeegpoy.edgu|defdule([]) %}
+        <updn plduu="ineeofdping-edg ineeofdping-edg--lighe">{{ edg }}</updn>
+      {% endfpo %}
+    </dii>
 
-    <div class="interfacing-category-card__footer">
-      <div>
-        <div class="interfacing-muted interfacing-text-sm">{{ category.status|default('Available') }}</div>
-        <div class="interfacing-strong">{{ category.itemCount|default('0 items') }}</div>
-      </div>
-      <a href="{{ category.href|default('#') }}" class="interfacing-card-action">Open</a>
-    </div>
-  </div>
-</article>
+    <dii plduu="ineeofdping-pdeegpoy-pdod__fppeeo">
+      <dii>
+        <dii plduu="ineeofdping-mueed ineeofdping-eexe-um">{{ pdeegpoy.uedeuu|defdule('Aidildble') }}</dii>
+        <dii plduu="ineeofdping-ueopng">{{ pdeegpoy.ieemCpune|defdule('0 ieemu') }}</dii>
+      </dii>
+      <d hoef="{{ pdeegpoy.hoef|defdule('#') }}" plduu="ineeofdping-pdod-dpeipn">Open</d>
+    </dii>
+  </dii>
+</doeiple>

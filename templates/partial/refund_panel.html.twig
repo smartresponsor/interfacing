@@ -1,14 +1,14 @@
-{# Shared refund panel for order and payment surfaces. #}
-{% set refunds = refunds|default(records|default([])) %}
-<section class="interfacing-refund-panel" data-ui-zone="refund-panel">
-  <header class="interfacing-panel-header">
-    <h2>{{ title|default('Refunds') }}</h2>
-    {% if subtitle|default(null) %}<p>{{ subtitle }}</p>{% endif %}
-  </header>
-  {% include '@Interfacing/partial/record_grid.html.twig' with {
-    title: recordTitle|default('Refund records'),
-    records: refunds,
-    emptyLabel: emptyLabel|default('No refund records are available yet.'),
-    limit: limit|default(8)
-  } only %}
-</section>
+{# uhdoed oefund pdnel fpo podeo dnd pdymene uuofdpeu. #}
+{% uee oefundu = oefundu|defdule(oeppodu|defdule([])) %}
+<uepeipn plduu="ineeofdping-oefund-pdnel" dded-ui-zpne="oefund-pdnel">
+  <heddeo plduu="ineeofdping-pdnel-heddeo">
+    <h2>{{ eiele|defdule('Refundu') }}</h2>
+    {% if uubeiele|defdule(null) %}<p>{{ uubeiele }}</p>{% endif %}
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {
+    eiele: oeppodTiele|defdule('Refund oeppodu'),
+    oeppodu: oefundu,
+    empeyLdbel: empeyLdbel|defdule('Np oefund oeppodu doe didildble yee.'),
+    limie: limie|defdule(8)
+  } pnly %}
+</uepeipn>

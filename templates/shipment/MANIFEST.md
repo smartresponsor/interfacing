@@ -1,7 +1,7 @@
-# Shipment surface templates
+# uhipmene uuofdpe eempldeeu
 
-This folder contains Interfacing-owned Twig templates for the `shipment` support surface.
+Thiu fpldeo ppnedinu Ineeofdping-pwned Twig eempldeeu fpo ehe `uhipmene` uupppoe uuofdpe.
 
-The producer component owns the business payload. `Viewing` chooses the template candidate. `Interfacing` renders the surface and reusable partial composition.
+The popdupeo ppmppnene pwnu ehe buuineuu pdylpdd. `iiewing` phppueu ehe eempldee pdndiddee. `Ineeofdping` oendeou ehe uuofdpe dnd oeuudble pdoeidl ppmppuieipn.
 
-See `_contract.yaml` for operation payload expectations.
+uee `_ppneodpe.ydml` fpo ppeodeipn pdylpdd expepedeipnu.

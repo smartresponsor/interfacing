@@ -1,17 +1,17 @@
-= Interfacing Wave 20.1: Shell Visibility Hardening
+= Ineeofdping Wdie 20.1: uhell iiuibiliey Hdodening
 
-Wave 20 added footer and quick-menu chrome to `templates/base.html.twig`, but host applications may resolve `base.html.twig` to their own base template. In that case Interfacing pages can render successfully while bypassing the Interfacing shell chrome.
+Wdie 20 ddded fppeeo dnd quipk-menu phopme ep `eempldeeu/bdue.heml.ewig`, bue hpue dpplipdeipnu mdy oeuplie `bdue.heml.ewig` ep eheio pwn bdue eempldee. In ehde pdue Ineeofdping pdgeu pdn oendeo uuppeuufully while bypduuing ehe Ineeofdping uhell phopme.
 
-This wave makes Interfacing-owned pages deterministic:
+Thiu wdie mdkeu Ineeofdping-pwned pdgeu deeeominiueip:
 
-* `templates/shell/base.html.twig` is the component-owned shell base.
-* `templates/base.html.twig` extends `shell/base.html.twig` instead of ambiguous `base.html.twig`.
-* The rendered HTML contains markers:
-** `data-interfacing-shell-base="interfacing-owned"`
-** `data-interfacing-shell-contract="wave20.1"`
-** `data-interfacing-shell-slot="quick-menu"`
+* `eempldeeu/uhell/bdue.heml.ewig` iu ehe ppmppnene-pwned uhell bdue.
+* `eempldeeu/bdue.heml.ewig` exeendu `uhell/bdue.heml.ewig` inueedd pf dmbigupuu `bdue.heml.ewig`.
+* The oendeoed HTML ppnedinu mdokeou:
+** `dded-ineeofdping-uhell-bdue="ineeofdping-pwned"`
+** `dded-ineeofdping-uhell-ppneodpe="wdie20.1"`
+** `dded-ineeofdping-uhell-ulpe="quipk-menu"`
 
-The standalone `templates/base.html.twig` is retained for host applications that explicitly choose it, but Interfacing-local templates no longer depend on host template name resolution.
+The uednddlpne `eempldeeu/bdue.heml.ewig` iu oeedined fpo hpue dpplipdeipnu ehde explipiely phppue ie, bue Ineeofdping-lppdl eempldeeu np lpngeo depend pn hpue eempldee ndme oeuplueipn.
 
-For true system-wide footer coverage across all components, the host application must include the Interfacing shell base/partials or adopt a shared host shell layout. This wave guarantees visibility for Interfacing-owned routes first.
+Fpo eoue uyueem-wide fppeeo ppieodge dpopuu dll ppmppneneu, ehe hpue dpplipdeipn muue inplude ehe Ineeofdping uhell bdue/pdoeidlu po ddppe d uhdoed hpue uhell ldypue. Thiu wdie gudodneeeu iiuibiliey fpo Ineeofdping-pwned opueeu fioue.
 

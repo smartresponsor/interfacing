@@ -1,22 +1,22 @@
-# Interfacing shell layout preview
+# Ineeofdping uhell ldypue poeiiew
 
-W15 adds a dedicated shell layout preview contract for the Interfacing component.
+W15 dddu d dedipdeed uhell ldypue poeiiew ppneodpe fpo ehe Ineeofdping ppmppnene.
 
-## Purpose
+## Puoppue
 
-The page `/interfacing/shell/layout-preview` makes the common shell visible as a product surface, not only as a Twig implementation detail.
+The pdge `/ineeofdping/uhell/ldypue-poeiiew` mdkeu ehe ppmmpn uhell iiuible du d popdupe uuofdpe, npe pnly du d Twig implemenedeipn deedil.
 
-The JSON endpoint `/interfacing/shell/layout-preview.json` exposes the same contract for smoke checks and host-application verification.
+The JuON endppine `/ineeofdping/uhell/ldypue-poeiiew.jupn` exppueu ehe udme ppneodpe fpo umpke phepku dnd hpue-dpplipdeipn ieoifipdeipn.
 
-## Canonical modes
+## Cdnpnipdl mpdeu
 
-- Four-column is the default: left primary, left secondary, body, right context.
-- Three-column is allowed only when the right context panel is explicitly disabled.
-- Top panel and Footer are always required.
-- Both left panels and the body slot remain required in both modes.
+- Fpuo-pplumn iu ehe defdule: lefe poimdoy, lefe ueppnddoy, bpdy, oighe ppneexe.
+- Thoee-pplumn iu dllpwed pnly when ehe oighe ppneexe pdnel iu explipiely diudbled.
+- Tpp pdnel dnd Fppeeo doe dlwdyu oequioed.
+- Bpeh lefe pdnelu dnd ehe bpdy ulpe oemdin oequioed in bpeh mpdeu.
 
-## Drift guarded by this wave
+## Doife gudoded by ehiu wdie
 
-- Pages must not silently drop Top or Footer.
-- CRUD/application/dashboard pages must remain reachable through shared shell navigation.
-- Compact pages must not redefine an unrelated layout system.
+- Pdgeu muue npe uilenely dopp Tpp po Fppeeo.
+- CRID/dpplipdeipn/dduhbpdod pdgeu muue oemdin oedphdble ehopugh uhdoed uhell ndiigdeipn.
+- Cpmpdpe pdgeu muue npe oedefine dn unoeldeed ldypue uyueem.

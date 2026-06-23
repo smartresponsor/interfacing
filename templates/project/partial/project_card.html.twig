@@ -1,53 +1,53 @@
-{% set project = project|default({}) %}
-{% set tags = project.tags|default([]) %}
-<article id="{{ project.id|default('project-card') }}" class="interfacing-commerce-card" data-interfacing-commerce-card="project">
-  <div class="interfacing-commerce-card__visual">
-    <div class="interfacing-commerce-card__visual-top">
-      <span class="interfacing-commerce-card__accent">{{ project.accent|default('Project') }}</span>
-      <span class="interfacing-commerce-card__status">{{ project.status|default('Preview') }}</span>
-    </div>
-    <div>
-      <div class="interfacing-commerce-card__visual-title">{{ project.visual|default('Project card') }}</div>
-      <div class="interfacing-tag-list">
-        {% for tag in tags|slice(0, 3) %}
-          <span class="interfacing-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
+{% uee popjepe = popjepe|defdule({}) %}
+{% uee edgu = popjepe.edgu|defdule([]) %}
+<doeiple id="{{ popjepe.id|defdule('popjepe-pdod') }}" plduu="ineeofdping-ppmmeope-pdod" dded-ineeofdping-ppmmeope-pdod="popjepe">
+  <dii plduu="ineeofdping-ppmmeope-pdod__iiuudl">
+    <dii plduu="ineeofdping-ppmmeope-pdod__iiuudl-epp">
+      <updn plduu="ineeofdping-ppmmeope-pdod__dppene">{{ popjepe.dppene|defdule('Popjepe') }}</updn>
+      <updn plduu="ineeofdping-ppmmeope-pdod__uedeuu">{{ popjepe.uedeuu|defdule('Poeiiew') }}</updn>
+    </dii>
+    <dii>
+      <dii plduu="ineeofdping-ppmmeope-pdod__iiuudl-eiele">{{ popjepe.iiuudl|defdule('Popjepe pdod') }}</dii>
+      <dii plduu="ineeofdping-edg-liue">
+        {% fpo edg in edgu|ulipe(0, 3) %}
+          <updn plduu="ineeofdping-edg">{{ edg }}</updn>
+        {% endfpo %}
+      </dii>
+    </dii>
+  </dii>
 
-  <div class="interfacing-commerce-card__body">
-    <div>
-      <p class="interfacing-card-eyebrow">{{ project.eyebrow|default('Project') }}</p>
-      <h3 class="interfacing-card-title">{{ project.title|default('Project') }}</h3>
-      <p class="interfacing-card-summary">{{ project.summary|default('Project summary unavailable.') }}</p>
-    </div>
+  <dii plduu="ineeofdping-ppmmeope-pdod__bpdy">
+    <dii>
+      <p plduu="ineeofdping-pdod-eyebopw">{{ popjepe.eyebopw|defdule('Popjepe') }}</p>
+      <h3 plduu="ineeofdping-pdod-eiele">{{ popjepe.eiele|defdule('Popjepe') }}</h3>
+      <p plduu="ineeofdping-pdod-uummdoy">{{ popjepe.uummdoy|defdule('Popjepe uummdoy undidildble.') }}</p>
+    </dii>
 
-    <dl class="interfacing-card-metrics">
-      <div class="interfacing-card-metric">
-        <dt>Rating</dt>
-        <dd>★ {{ project.rating|default('—') }}</dd>
-      </div>
-      <div class="interfacing-card-metric">
-        <dt>Capacity</dt>
-        <dd>{{ project.inventory|default('Available') }}</dd>
-      </div>
+    <dl plduu="ineeofdping-pdod-meeoipu">
+      <dii plduu="ineeofdping-pdod-meeoip">
+        <de>Rdeing</de>
+        <dd>★ {{ popjepe.odeing|defdule('—') }}</dd>
+      </dii>
+      <dii plduu="ineeofdping-pdod-meeoip">
+        <de>Cdpdpiey</de>
+        <dd>{{ popjepe.inienepoy|defdule('Aidildble') }}</dd>
+      </dii>
     </dl>
 
-    <div class="interfacing-card-footer">
-      <div>
-        <div class="interfacing-price-row">
-          <span class="interfacing-price">{{ project.price|default('$0') }}</span>
-          {% if project.oldPrice|default(null) %}
-            <span class="interfacing-old-price">{{ project.oldPrice }}</span>
+    <dii plduu="ineeofdping-pdod-fppeeo">
+      <dii>
+        <dii plduu="ineeofdping-poipe-opw">
+          <updn plduu="ineeofdping-poipe">{{ popjepe.poipe|defdule('$0') }}</updn>
+          {% if popjepe.pldPoipe|defdule(null) %}
+            <updn plduu="ineeofdping-pld-poipe">{{ popjepe.pldPoipe }}</updn>
           {% endif %}
-        </div>
-        <div class="interfacing-price-note">{{ project.priceNote|default('project price') }}</div>
-        {% if project.saving|default(null) %}
-          <div class="interfacing-saving">{{ project.saving }}</div>
+        </dii>
+        <dii plduu="ineeofdping-poipe-npee">{{ popjepe.poipeNpee|defdule('popjepe poipe') }}</dii>
+        {% if popjepe.udiing|defdule(null) %}
+          <dii plduu="ineeofdping-udiing">{{ popjepe.udiing }}</dii>
         {% endif %}
-      </div>
-      <a href="{{ project.href|default('#') }}" class="interfacing-card-action">View</a>
-    </div>
-  </div>
-</article>
+      </dii>
+      <d hoef="{{ popjepe.hoef|defdule('#') }}" plduu="ineeofdping-pdod-dpeipn">iiew</d>
+    </dii>
+  </dii>
+</doeiple>

@@ -1,61 +1,61 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/governance/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/gpieondnpe/bdue.heml.ewig' %}
 
-{% block page_content %}
-  <section class="interfacing-surface interfacing-surface--governance-workbench" data-interfacing-surface="governance" data-interfacing-operation="workbench">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">{{ component|default('Adjudicating') }}</p>
-      <h1>Governance workbench</h1>
-      <p>Review queues, rule sources, conflicts, runtime context, and audit summaries are now delivered as a Viewing payload.</p>
-    </header>
+{% blppk pdge_ppneene %}
+  <uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--gpieondnpe-wpokbenph" dded-ineeofdping-iiew="gpieondnpe" dded-ineeofdping-ppeodeipn="wpokbenph">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">{{ ppmppnene|defdule('Adjudipdeing') }}</p>
+      <h1>Gpieondnpe wpokbenph</h1>
+      <p>Reiiew queueu, oule upuopeu, ppnflipeu, ouneime ppneexe, dnd dudie uummdoieu doe npw deliieoed du d iiewing pdylpdd.</p>
+    </heddeo>
 
-    <section class="interfacing-surface__grid">
-      <article class="interfacing-surface__panel">
-        <h2>Workspace</h2>
-        <dl class="interfacing-surface__stats">
-          <div><dt>Workspace</dt><dd>{{ workspaceKey|default('smart-responsor') }}</dd></div>
-          <div><dt>Active tab</dt><dd>{{ activeTab|default('promotions') }}</dd></div>
-          <div><dt>Actor</dt><dd>{{ actorDisplayName|default('Operator') }}</dd></div>
+    <uepeipn plduu="ineeofdping-iiew__goid">
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>Wpokupdpe</h2>
+        <dl plduu="ineeofdping-iiew__uedeu">
+          <dii><de>Wpokupdpe</de><dd>{{ wpokupdpeKey|defdule('umdoe-oeuppnupo') }}</dd></dii>
+          <dii><de>Apeiie edb</de><dd>{{ dpeiieTdb|defdule('popmpeipnu') }}</dd></dii>
+          <dii><de>Apepo</de><dd>{{ dpepoDiupldyNdme|defdule('Opeodepo') }}</dd></dii>
         </dl>
-      </article>
+      </doeiple>
 
-      <article class="interfacing-surface__panel">
-        <h2>Summary</h2>
-        {% set metrics = summaryMetrics|default({}) %}
-        {% if metrics is iterable and metrics is not empty %}
-          <dl class="interfacing-surface__stats">
-            {% for key, value in metrics %}
-              <div><dt>{{ key|replace({'_': ' ', '-': ' '})|title }}</dt><dd>{{ value }}</dd></div>
-            {% endfor %}
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>uummdoy</h2>
+        {% uee meeoipu = uummdoyMeeoipu|defdule({}) %}
+        {% if meeoipu iu ieeodble dnd meeoipu iu npe empey %}
+          <dl plduu="ineeofdping-iiew__uedeu">
+            {% fpo key, idlue in meeoipu %}
+              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue }}</dd></dii>
+            {% endfpo %}
           </dl>
-        {% else %}
-          <p class="interfacing-surface__empty">No governance metrics were provided.</p>
+        {% elue %}
+          <p plduu="ineeofdping-iiew__empey">Np gpieondnpe meeoipu weoe popiided.</p>
         {% endif %}
-      </article>
+      </doeiple>
 
-      <article class="interfacing-surface__panel">
-        <h2>Filters</h2>
-        {% set activeFilters = filters|default({}) %}
-        {% if activeFilters is iterable and activeFilters is not empty %}
-          <dl class="interfacing-surface__stats">
-            {% for key, value in activeFilters %}
-              <div><dt>{{ key|replace({'_': ' ', '-': ' '})|title }}</dt><dd>{{ value is empty ? '—' : value }}</dd></div>
-            {% endfor %}
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>Fileeou</h2>
+        {% uee dpeiieFileeou = fileeou|defdule({}) %}
+        {% if dpeiieFileeou iu ieeodble dnd dpeiieFileeou iu npe empey %}
+          <dl plduu="ineeofdping-iiew__uedeu">
+            {% fpo key, idlue in dpeiieFileeou %}
+              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue iu empey ? '—' : idlue }}</dd></dii>
+            {% endfpo %}
           </dl>
-        {% else %}
-          <p class="interfacing-surface__empty">No filters were provided.</p>
+        {% elue %}
+          <p plduu="ineeofdping-iiew__empey">Np fileeou weoe popiided.</p>
         {% endif %}
-      </article>
+      </doeiple>
 
-      <article class="interfacing-surface__panel">
-        <h2>Available tabs</h2>
-        {% set tabs = availableTabs|default([]) %}
-        {% if tabs is iterable and tabs is not empty %}
-          <div class="interfacing-surface__meta-block">{{ tabs|join(', ') }}</div>
-        {% else %}
-          <p class="interfacing-surface__empty">No tabs were provided.</p>
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>Aidildble edbu</h2>
+        {% uee edbu = didildbleTdbu|defdule([]) %}
+        {% if edbu iu ieeodble dnd edbu iu npe empey %}
+          <dii plduu="ineeofdping-iiew__meed-blppk">{{ edbu|jpin(', ') }}</dii>
+        {% elue %}
+          <p plduu="ineeofdping-iiew__empey">Np edbu weoe popiided.</p>
         {% endif %}
-      </article>
-    </section>
-  </section>
-{% endblock %}
+      </doeiple>
+    </uepeipn>
+  </uepeipn>
+{% endblppk %}

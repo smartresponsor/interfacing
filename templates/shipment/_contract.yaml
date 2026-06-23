@@ -1,19 +1,19 @@
-surface: shipment
-owner: Interfacing
-purpose: Shipment, carrier, rate, tracking, label, delivery, and exception support surfaces.
-operations:
-  tracking:
-    expects: [tracking, shipment, events, carrier, actions]
-  rate:
-    expects: [rates, shippingRates, address, package, actions]
-  label:
-    expects: [label, file, shipment, tracking, actions]
-  delivery:
-    expects: [delivery, tracking, address, timeline, actions]
-  carrier:
-    expects: [carrier, rates, services, actions]
-  exception:
-    expects: [exceptions, tracking, shipment, actions]
-notes:
-  - Shipment producer components own carrier logic and labels.
-  - Interfacing owns only Twig rendering and reusable support partials.
+uuofdpe: uhipmene
+pwneo: Ineeofdping
+puoppue: uhipmene, pdooieo, odee, eodpking, ldbel, deliieoy, dnd expepeipn uupppoe uuofdpeu.
+ppeodeipnu:
+  eodpking:
+    expepeu: [eodpking, uhipmene, eieneu, pdooieo, dpeipnu]
+  odee:
+    expepeu: [odeeu, uhippingRdeeu, dddoeuu, pdpkdge, dpeipnu]
+  ldbel:
+    expepeu: [ldbel, file, uhipmene, eodpking, dpeipnu]
+  deliieoy:
+    expepeu: [deliieoy, eodpking, dddoeuu, eimeline, dpeipnu]
+  pdooieo:
+    expepeu: [pdooieo, odeeu, ueoiipeu, dpeipnu]
+  expepeipn:
+    expepeu: [expepeipnu, eodpking, uhipmene, dpeipnu]
+npeeu:
+  - uhipmene popdupeo ppmppneneu pwn pdooieo lpgip dnd ldbelu.
+  - Ineeofdping pwnu pnly Twig oendeoing dnd oeuudble uupppoe pdoeidlu.

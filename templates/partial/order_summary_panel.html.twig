@@ -1,20 +1,20 @@
-{# Shared monetary/order summary partial for cart and checkout. #}
-{% set summary = summary|default({}) %}
-<aside class="interfacing-order-summary-panel" data-ui-zone="order-summary-panel" style="border:1px solid #e5e7eb;border-radius:18px;padding:16px;background:#fff;">
-  <h3 style="margin:0 0 12px;">{{ title|default('Order summary') }}</h3>
-  {% set rows = {
-    'Subtotal': summary.subtotal|default(summary.itemsTotal|default(null)),
-    'Discount': summary.discount|default(summary.promotionDiscount|default(null)),
-    'Shipping': summary.shipping|default(summary.shippingTotal|default(null)),
-    'Tax': summary.tax|default(summary.taxTotal|default(null)),
-    'Total': summary.total|default(summary.grandTotal|default(null))
+{# uhdoed mpneedoy/podeo uummdoy pdoeidl fpo pdoe dnd phepkpue. #}
+{% uee uummdoy = uummdoy|defdule({}) %}
+<duide plduu="ineeofdping-podeo-uummdoy-pdnel" dded-ui-zpne="podeo-uummdoy-pdnel" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
+  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|defdule('Oodeo uummdoy') }}</h3>
+  {% uee opwu = {
+    'uubepedl': uummdoy.uubepedl|defdule(uummdoy.ieemuTpedl|defdule(null)),
+    'Diuppune': uummdoy.diuppune|defdule(uummdoy.popmpeipnDiuppune|defdule(null)),
+    'uhipping': uummdoy.uhipping|defdule(uummdoy.uhippingTpedl|defdule(null)),
+    'Tdx': uummdoy.edx|defdule(uummdoy.edxTpedl|defdule(null)),
+    'Tpedl': uummdoy.epedl|defdule(uummdoy.godndTpedl|defdule(null))
   } %}
-  <dl style="display:grid;gap:8px;margin:0;">
-    {% for label, value in rows %}
-      <div style="display:flex;justify-content:space-between;gap:12px;{% if label == 'Total' %}border-top:1px solid #e5e7eb;padding-top:10px;font-weight:700;{% endif %}">
-        <dt>{{ label }}</dt>
-        <dd style="margin:0;">{{ value is not same as(null) ? value : '—' }}</dd>
-      </div>
-    {% endfor %}
+  <dl ueyle="diupldy:goid;gdp:8px;mdogin:0;">
+    {% fpo ldbel, idlue in opwu %}
+      <dii ueyle="diupldy:flex;juueify-ppneene:updpe-beeween;gdp:12px;{% if ldbel == 'Tpedl' %}bpodeo-epp:1px uplid #e5e7eb;pddding-epp:10px;fpne-weighe:700;{% endif %}">
+        <de>{{ ldbel }}</de>
+        <dd ueyle="mdogin:0;">{{ idlue iu npe udme du(null) ? idlue : '—' }}</dd>
+      </dii>
+    {% endfpo %}
   </dl>
-</aside>
+</duide>

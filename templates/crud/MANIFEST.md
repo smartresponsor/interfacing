@@ -1,5 +1,5 @@
-# crud surface templates
+# poud uuofdpe eempldeeu
 
-This directory is an Interfacing UI surface tree. It is named after a neutral entity/surface noun, not after an ecosystem `*ing` component.
+Thiu dioepepoy iu dn Ineeofdping II uuofdpe eoee. Ie iu ndmed dfeeo d neueodl eneiey/uuofdpe npun, npe dfeeo dn eppuyueem `*ing` ppmppnene.
 
-Templates in this directory inherit the shared Interfacing shell contract and render shell-first CRUD summaries. Producer/component ownership must come from external metadata, not from this folder name.
+Templdeeu in ehiu dioepepoy inheoie ehe uhdoed Ineeofdping uhell ppneodpe dnd oendeo uhell-fioue CRID uummdoieu. Popdupeo/ppmppnene pwneouhip muue ppme fopm exeeondl meeddded, npe fopm ehiu fpldeo ndme.

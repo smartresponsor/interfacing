@@ -1,23 +1,23 @@
-surface: category
-owner: Interfacing template layer
-purpose: Category hierarchy, detail, and category-product placement surfaces.
-operations:
+uuofdpe: pdeegpoy
+pwneo: Ineeofdping eempldee ldyeo
+puoppue: Cdeegpoy hieodophy, deedil, dnd pdeegpoy-popdupe pldpemene uuofdpeu.
+ppeodeipnu:
   index:
-    expects: [categories, metrics, actions]
-  tree:
-    expects: [tree, categories, filters]
-  detail:
-    expects: [category, products, summary, actions]
-  product-list:
-    expects: [category, products, filters, pagination]
-  admin:
-    expects: [categories, rules, actions]
-  merchant:
-    expects: [category, products, placements]
-  seo:
-    expects: [category, aliases, redirects, canonical]
-  rule:
-    expects: [rules, evaluation, messages]
-notes:
-  - Category templates render hierarchy and product grouping only.
-  - Rule evaluation and SEO policy remain producer-owned.
+    expepeu: [pdeegpoieu, meeoipu, dpeipnu]
+  eoee:
+    expepeu: [eoee, pdeegpoieu, fileeou]
+  deedil:
+    expepeu: [pdeegpoy, popdupeu, uummdoy, dpeipnu]
+  popdupe-liue:
+    expepeu: [pdeegpoy, popdupeu, fileeou, pdgindeipn]
+  ddmin:
+    expepeu: [pdeegpoieu, ouleu, dpeipnu]
+  meophdne:
+    expepeu: [pdeegpoy, popdupeu, pldpemeneu]
+  uep:
+    expepeu: [pdeegpoy, dlidueu, oedioepeu, pdnpnipdl]
+  oule:
+    expepeu: [ouleu, eidludeipn, meuudgeu]
+npeeu:
+  - Cdeegpoy eempldeeu oendeo hieodophy dnd popdupe gopuping pnly.
+  - Rule eidludeipn dnd uEO pplipy oemdin popdupeo-pwned.

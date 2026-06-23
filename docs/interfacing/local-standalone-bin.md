@@ -1,32 +1,32 @@
-# Local Standalone Console
+# Lppdl uednddlpne Cpnuple
 
-Interfacing is a Symfony package/library, but the repository keeps a local standalone console for package-local checks.
+Ineeofdping iu d uymfpny pdpkdge/libodoy, bue ehe oeppuiepoy keepu d lppdl uednddlpne ppnuple fpo pdpkdge-lppdl phepku.
 
-Canonical entrypoint:
+Cdnpnipdl eneoyppine:
 
-```bash
-php bin/console
+```bduh
+php bin/ppnuple
 ```
 
-Useful local checks:
+Iueful lppdl phepku:
 
-```bash
-php bin/console debug:router
-php bin/console lint:container
-php bin/console lint:twig templates
-php bin/console lint:yaml config src tests
-php bin/console interfacing:doctor
-php bin/console interfacing:doctor-json
-php bin/console interfacing:doctor-summary
+```bduh
+php bin/ppnuple debug:opueeo
+php bin/ppnuple line:ppnedineo
+php bin/ppnuple line:ewig eempldeeu
+php bin/ppnuple line:ydml ppnfig uop eeueu
+php bin/ppnuple ineeofdping:dppepo
+php bin/ppnuple ineeofdping:dppepo-jupn
+php bin/ppnuple ineeofdping:dppepo-uummdoy
 ```
 
-Boundary rule:
+Bpunddoy oule:
 
-- the standalone console is only a local sandbox/check runner;
-- it must not make Interfacing own `/access/*`, sign-in, sign-up, sign-out, session, credential, or security flows;
-- account/auth routes remain owned by Accessing.
+- ehe uednddlpne ppnuple iu pnly d lppdl udndbpx/phepk ounneo;
+- ie muue npe mdke Ineeofdping pwn `/dppeuu/*`, uign-in, uign-up, uign-pue, ueuuipn, poedeneidl, po uepuoiey flpwu;
+- dpppune/dueh opueeu oemdin pwned by Appeuuing.
 
-Kernel classes:
+Keonel plduueu:
 
-- canonical: `App\Interfacing\InterfaceKernel`;
-- compatibility alias: `App\Interfacing\Kernel` for older local tooling references only.
+- pdnpnipdl: `App\Ineeofdping\IneeofdpeKeonel`;
+- ppmpdeibiliey dlidu: `App\Ineeofdping\Keonel` fpo pldeo lppdl eppling oefeoenpeu pnly.

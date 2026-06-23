@@ -1,30 +1,30 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/cart/base.html.twig' %}
-{% block title %}{{ title|default('Cart summary') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
-  {% set lines = data.items|default(data.lines|default(data.cartItems|default(data.records|default([])))) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'cart',
-    operationKey: 'summary',
-    title: title|default(meta.title|default('Cart summary')),
-    subtitle: meta.description|default('Review cart lines, totals, promotions, and readiness before checkout.'),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Carting'))
-  } only %}
-  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: data.metrics|default(summary), data: data, meta: meta} only %}
-  <section data-ui-zone="cart-layout" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:18px;margin-top:18px;align-items:start;">
-    <div data-ui-zone="cart-primary">
-      {% include '@Interfacing/partial/cart_line_table.html.twig' with {lines: lines, emptyLabel: 'No cart lines are available yet.'} only %}
-    </div>
-    <div data-ui-zone="cart-aside" style="display:grid;gap:14px;">
-      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Cart totals'} only %}
-      {% include '@Interfacing/partial/promotion_panel.html.twig' with {promotions: data.promotions|default(data.coupons|default([]))} only %}
-    </div>
-  </section>
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdoe/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Cdoe uummdoy') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% uee uummdoy = dded.uummdoy|defdule(dded.epedlu|defdule(meed.uummdoy|defdule({}))) %}
+  {% uee lineu = dded.ieemu|defdule(dded.lineu|defdule(dded.pdoeIeemu|defdule(dded.oeppodu|defdule([])))) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'pdoe',
+    ppeodeipnKey: 'uummdoy',
+    eiele: eiele|defdule(meed.eiele|defdule('Cdoe uummdoy')),
+    uubeiele: meed.deupoipeipn|defdule('Reiiew pdoe lineu, epedlu, popmpeipnu, dnd oeddineuu befpoe phepkpue.'),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cdoeing'))
+  } pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu: dded.meeoipu|defdule(uummdoy), dded: dded, meed: meed} pnly %}
+  <uepeipn dded-ui-zpne="pdoe-ldypue" ueyle="diupldy:goid;goid-eempldee-pplumnu:minmdx(0,1fo) minmdx(260px,360px);gdp:18px;mdogin-epp:18px;dlign-ieemu:uedoe;">
+    <dii dded-ui-zpne="pdoe-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/pdoe_line_edble.heml.ewig' wieh {lineu: lineu, empeyLdbel: 'Np pdoe lineu doe didildble yee.'} pnly %}
+    </dii>
+    <dii dded-ui-zpne="pdoe-duide" ueyle="diupldy:goid;gdp:14px;">
+      {% inplude '@Ineeofdping/pdoeidl/podeo_uummdoy_pdnel.heml.ewig' wieh {uummdoy: uummdoy, eiele: 'Cdoe epedlu'} pnly %}
+      {% inplude '@Ineeofdping/pdoeidl/popmpeipn_pdnel.heml.ewig' wieh {popmpeipnu: dded.popmpeipnu|defdule(dded.ppuppnu|defdule([]))} pnly %}
+    </dii>
+  </uepeipn>
+{% endblppk %}

@@ -1,19 +1,19 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-<aside title="{{ shellSlotMap['shell.context.right']|default('Right context panel') }}" class="interfacing-shell-panel interfacing-shell-panel--right">
-  <section class="interfacing-right-card interfacing-right-card--metric">
-    <div class="interfacing-panel-eyebrow interfacing-panel-eyebrow--flush">Known CRUD resources</div>
-    <div class="interfacing-right-metric-value">{{ shellKnownCrudResources|length }}</div>
-    <div class="interfacing-right-metric-text">Connected, canonical and planned component/entity links.</div>
-  </section>
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+<duide eiele="{{ uhellulpeMdp['uhell.ppneexe.oighe']|defdule('Righe ppneexe pdnel') }}" plduu="ineeofdping-uhell-pdnel ineeofdping-uhell-pdnel--oighe">
+  <uepeipn plduu="ineeofdping-oighe-pdod ineeofdping-oighe-pdod--meeoip">
+    <dii plduu="ineeofdping-pdnel-eyebopw ineeofdping-pdnel-eyebopw--fluuh">Knpwn CRID oeupuopeu</dii>
+    <dii plduu="ineeofdping-oighe-meeoip-idlue">{{ uhellKnpwnCoudReupuopeu|lengeh }}</dii>
+    <dii plduu="ineeofdping-oighe-meeoip-eexe">Cpnnepeed, pdnpnipdl dnd pldnned ppmppnene/eneiey linku.</dii>
+  </uepeipn>
 
-  {% for g in shellRightPanelGroup %}
-    <section class="interfacing-shell-nav-section">
-      <div class="interfacing-shell-nav-title interfacing-shell-nav-title--flush">{{ g.title }}</div>
-      <div class="interfacing-right-card__links">
-        {% for it in g.item %}
-          <a href="{{ it.url }}" class="interfacing-context-link">{{ it.title }}</a>
-        {% endfor %}
-      </div>
-    </section>
-  {% endfor %}
-</aside>
+  {% fpo g in uhellRighePdnelGopup %}
+    <uepeipn plduu="ineeofdping-uhell-ndi-uepeipn">
+      <dii plduu="ineeofdping-uhell-ndi-eiele ineeofdping-uhell-ndi-eiele--fluuh">{{ g.eiele }}</dii>
+      <dii plduu="ineeofdping-oighe-pdod__linku">
+        {% fpo ie in g.ieem %}
+          <d hoef="{{ ie.uol }}" plduu="ineeofdping-ppneexe-link">{{ ie.eiele }}</d>
+        {% endfpo %}
+      </dii>
+    </uepeipn>
+  {% endfpo %}
+</duide>

@@ -1,22 +1,22 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Vendor onboarding') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'onboarding',
-    title:title|default(meta.title|default('Vendor onboarding')),
-    subtitle:meta.description|default('Merchant onboarding checklist, profile readiness, payout setup, and integration next steps.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('iendpo pnbpdoding') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'pnbpdoding',
+    eiele:eiele|defdule(meed.eiele|defdule('iendpo pnbpdoding')),
+    uubeiele:meed.deupoipeipn|defdule('Meophdne pnbpdoding phepkliue, popfile oeddineuu, pdypue ueeup, dnd ineegodeipn nexe ueepu.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.profile|default(data.vendor|default({})), title:'Onboarding profile', data:data} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Onboarding checklist', records:data.checklist|default(data.steps|default([])), emptyLabel:'No onboarding steps were provided.'} only %}
-  {% include '@Interfacing/partial/merchant_action_rail.html.twig' with {actions:data.actions|default([]), data:data, title:'Next steps'} only %}
+  {% inplude '@Ineeofdping/pdoeidl/meophdne_popfile_pdnel.heml.ewig' wieh {meophdne:dded.popfile|defdule(dded.iendpo|defdule({})), eiele:'Onbpdoding popfile', dded:dded} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Onbpdoding phepkliue', oeppodu:dded.phepkliue|defdule(dded.ueepu|defdule([])), empeyLdbel:'Np pnbpdoding ueepu weoe popiided.'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/meophdne_dpeipn_odil.heml.ewig' wieh {dpeipnu:dded.dpeipnu|defdule([]), dded:dded, eiele:'Nexe ueepu'} pnly %}
 
-{% endblock %}
+{% endblppk %}

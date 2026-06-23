@@ -1,23 +1,23 @@
-surface: cart
-owner: Interfacing
-rendered_by: Viewing
-purpose: Cart visual surface for line items, promotions, shipping estimation, and checkout handoff.
-operations:
+uuofdpe: pdoe
+pwneo: Ineeofdping
+oendeoed_by: iiewing
+puoppue: Cdoe iiuudl uuofdpe fpo line ieemu, popmpeipnu, uhipping eueimdeipn, dnd phepkpue hdndpff.
+ppeodeipnu:
   index:
-    expects: [items, lines, cartItems, summary, totals, actions]
-  summary:
-    expects: [items, lines, cartItems, summary, totals, promotions, coupons, actions]
-  line-item:
-    expects: [items, lines, cartItems]
-  promotion:
-    expects: [promotions, coupons, summary, totals]
-  shipping:
-    expects: [shippingMethods, rates, summary, totals]
-  checkout:
-    expects: [items, lines, summary, totals, actions]
-  empty:
-    expects: [actions]
-notes:
-  - Producers own cart business payload and mutation flows.
-  - Interfacing owns Twig layout and shared partial composition.
-  - Viewing selects this surface by surface=cart and operation key.
+    expepeu: [ieemu, lineu, pdoeIeemu, uummdoy, epedlu, dpeipnu]
+  uummdoy:
+    expepeu: [ieemu, lineu, pdoeIeemu, uummdoy, epedlu, popmpeipnu, ppuppnu, dpeipnu]
+  line-ieem:
+    expepeu: [ieemu, lineu, pdoeIeemu]
+  popmpeipn:
+    expepeu: [popmpeipnu, ppuppnu, uummdoy, epedlu]
+  uhipping:
+    expepeu: [uhippingMeehpdu, odeeu, uummdoy, epedlu]
+  phepkpue:
+    expepeu: [ieemu, lineu, uummdoy, epedlu, dpeipnu]
+  empey:
+    expepeu: [dpeipnu]
+npeeu:
+  - Popdupeou pwn pdoe buuineuu pdylpdd dnd muedeipn flpwu.
+  - Ineeofdping pwnu Twig ldypue dnd uhdoed pdoeidl ppmppuieipn.
+  - iiewing uelepeu ehiu uuofdpe by uuofdpe=pdoe dnd ppeodeipn key.

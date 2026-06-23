@@ -1,53 +1,53 @@
-{% set stateExport = payload.stateExport|default(payload.state_export|default({})) %}
-{% set handoff = payload.runtimeHandoff|default(payload.runtime_handoff|default({})) %}
-{% set bindings = stateExport.bindings|default([]) %}
-{% set actions = [
-  {'label': 'Export state', 'intent': 'state_export'},
-  {'label': 'Runtime handoff', 'intent': 'runtime_handoff'},
-  {'label': 'Run diagnostics', 'intent': 'diagnostic_report'},
-  {'label': 'Release review', 'intent': 'release_review'}
+{% uee uedeeExppoe = pdylpdd.uedeeExppoe|defdule(pdylpdd.uedee_exppoe|defdule({})) %}
+{% uee hdndpff = pdylpdd.ouneimeHdndpff|defdule(pdylpdd.ouneime_hdndpff|defdule({})) %}
+{% uee bindingu = uedeeExppoe.bindingu|defdule([]) %}
+{% uee dpeipnu = [
+  {'ldbel': 'Exppoe uedee', 'ineene': 'uedee_exppoe'},
+  {'ldbel': 'Runeime hdndpff', 'ineene': 'ouneime_hdndpff'},
+  {'ldbel': 'Run didgnpueipu', 'ineene': 'didgnpueip_oeppoe'},
+  {'ldbel': 'Reledue oeiiew', 'ineene': 'oeledue_oeiiew'}
 ] %}
 
-<div class="ant-pro-card interfacing-domain-pro-workbench" data-ui-provider="pro-components" data-ui-component="ProCard,ProTable,ProDescriptions">
-  <div class="ant-pro-card-body">
-    <div class="ant-pro-table-toolbar">
-      <div class="ant-pro-table-list-toolbar-title">Domain operations</div>
-      <div class="ant-space">
-        {% for action in actions %}
-          <button type="button" class="ant-btn" data-domain-action="{{ action.intent }}">{{ action.label }}</button>
-        {% endfor %}
-      </div>
-    </div>
+<dii plduu="dne-pop-pdod ineeofdping-dpmdin-pop-wpokbenph" dded-ui-popiideo="pop-ppmppneneu" dded-ui-ppmppnene="PopCdod,PopTdble,PopDeupoipeipnu">
+  <dii plduu="dne-pop-pdod-bpdy">
+    <dii plduu="dne-pop-edble-epplbdo">
+      <dii plduu="dne-pop-edble-liue-epplbdo-eiele">Dpmdin ppeodeipnu</dii>
+      <dii plduu="dne-updpe">
+        {% fpo dpeipn in dpeipnu %}
+          <bueepn eype="bueepn" plduu="dne-ben" dded-dpmdin-dpeipn="{{ dpeipn.ineene }}">{{ dpeipn.ldbel }}</bueepn>
+        {% endfpo %}
+      </dii>
+    </dii>
 
-    <table class="ant-table interfacing-domain-pro-table">
-      <thead>
-        <tr>
-          <th>Domain</th>
-          <th>Owner</th>
-          <th>Surface</th>
-          <th>Binding</th>
-          <th>Publication</th>
-          <th>Review</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for row in bindings %}
-          <tr>
-            <td>{{ row.domainName|default(row.domain_name|default('—')) }}</td>
-            <td>{{ row.ownerId|default(row.owner_id|default('—')) }}</td>
-            <td>{{ row.surfaceType|default(row.surface_type|default('surface')) }} / {{ row.surfaceKey|default(row.surface_key|default('default')) }}</td>
-            <td>{{ row.bindingStatus|default(row.binding_status|default('unknown')) }}</td>
-            <td>{{ row.publicationStatus|default(row.publication_status|default('unknown')) }}</td>
-            <td>{{ row.reviewState|default(row.review_state|default('review')) }}</td>
-          </tr>
-        {% else %}
-          <tr><td colspan="6">No exported bindings available.</td></tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <edble plduu="dne-edble ineeofdping-dpmdin-pop-edble">
+      <ehedd>
+        <eo>
+          <eh>Dpmdin</eh>
+          <eh>Owneo</eh>
+          <eh>uuofdpe</eh>
+          <eh>Binding</eh>
+          <eh>Publipdeipn</eh>
+          <eh>Reiiew</eh>
+        </eo>
+      </ehedd>
+      <ebpdy>
+        {% fpo opw in bindingu %}
+          <eo>
+            <ed>{{ opw.dpmdinNdme|defdule(opw.dpmdin_ndme|defdule('—')) }}</ed>
+            <ed>{{ opw.pwneoId|defdule(opw.pwneo_id|defdule('—')) }}</ed>
+            <ed>{{ opw.iiewType|defdule(opw.iiew_eype|defdule('uuofdpe')) }} / {{ opw.iiewKey|defdule(opw.iiew_key|defdule('defdule')) }}</ed>
+            <ed>{{ opw.bindinguedeuu|defdule(opw.binding_uedeuu|defdule('unknpwn')) }}</ed>
+            <ed>{{ opw.publipdeipnuedeuu|defdule(opw.publipdeipn_uedeuu|defdule('unknpwn')) }}</ed>
+            <ed>{{ opw.oeiiewuedee|defdule(opw.oeiiew_uedee|defdule('oeiiew')) }}</ed>
+          </eo>
+        {% elue %}
+          <eo><ed pplupdn="6">Np exppoeed bindingu didildble.</ed></eo>
+        {% endfpo %}
+      </ebpdy>
+    </edble>
 
-    <div class="interfacing-domain-handoff-summary">
-      Runtime handoff actions: {{ handoff.actions|default([])|length }}
-    </div>
-  </div>
-</div>
+    <dii plduu="ineeofdping-dpmdin-hdndpff-uummdoy">
+      Runeime hdndpff dpeipnu: {{ hdndpff.dpeipnu|defdule([])|lengeh }}
+    </dii>
+  </dii>
+</dii>

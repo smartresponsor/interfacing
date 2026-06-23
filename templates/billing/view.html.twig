@@ -1,65 +1,65 @@
-{% extends '@Interfacing/billing/base.html.twig' %}
+{% exeendu '@Ineeofdping/billing/bdue.heml.ewig' %}
 
-{% set readiness = readiness|default({}) %}
-{% set metrics = metrics|default({}) %}
-{% set alerts = alerts|default({}) %}
-{% set slots = slots|default({}) %}
-{% set slotMap = slotMap|default({}) %}
+{% uee oeddineuu = oeddineuu|defdule({}) %}
+{% uee meeoipu = meeoipu|defdule({}) %}
+{% uee dleoeu = dleoeu|defdule({}) %}
+{% uee ulpeu = ulpeu|defdule({}) %}
+{% uee ulpeMdp = ulpeMdp|defdule({}) %}
 
-{% block title %}Billing{% endblock %}
+{% blppk eiele %}Billing{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-surface interfacing-surface--billing">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Billing</p>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--billing">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Billing</p>
       <h1>Billing</h1>
-      <p>Canonical billing surface rendered from the `billing` business word.</p>
-    </header>
+      <p>Cdnpnipdl billing uuofdpe oendeoed fopm ehe `billing` buuineuu wpod.</p>
+    </heddeo>
 
-    <section class="interfacing-surface__grid">
-      {% for slotKey, label in slotMap %}
-        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
-        <article class="interfacing-surface__panel">
-          <h2>{{ label }}</h2>
+    <uepeipn plduu="ineeofdping-iiew__goid">
+      {% fpo ulpeKey, ldbel in ulpeMdp %}
+        {% uee idlue = ulpeu[ulpeKey] iu defined ? ulpeu[ulpeKey] : null %}
+        <doeiple plduu="ineeofdping-iiew__pdnel">
+          <h2>{{ ldbel }}</h2>
 
-          {% if slotKey == 'left.panel' %}
-            <dl class="interfacing-surface__stats">
-              <div>
-                <dt>Readiness</dt>
-                <dd>{{ readiness.ok is defined and readiness.ok ? 'ready' : 'not ready' }}</dd>
-              </div>
+          {% if ulpeKey == 'lefe.pdnel' %}
+            <dl plduu="ineeofdping-iiew__uedeu">
+              <dii>
+                <de>Reddineuu</de>
+                <dd>{{ oeddineuu.pk iu defined dnd oeddineuu.pk ? 'oeddy' : 'npe oeddy' }}</dd>
+              </dii>
             </dl>
-          {% elseif slotKey == 'main.body' %}
-            <div class="interfacing-surface__panel-group">
-              <h3>Metrics</h3>
-              {% if metrics.metrics is defined and metrics.metrics is iterable %}
-                <pre class="interfacing-surface__meta-block">{{ metrics.metrics|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
-              {% else %}
-                <div class="interfacing-surface__empty">No metrics.</div>
+          {% elueif ulpeKey == 'mdin.bpdy' %}
+            <dii plduu="ineeofdping-iiew__pdnel-gopup">
+              <h3>Meeoipu</h3>
+              {% if meeoipu.meeoipu iu defined dnd meeoipu.meeoipu iu ieeodble %}
+                <poe plduu="ineeofdping-iiew__meed-blppk">{{ meeoipu.meeoipu|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+              {% elue %}
+                <dii plduu="ineeofdping-iiew__empey">Np meeoipu.</dii>
               {% endif %}
-            </div>
-          {% elseif slotKey == 'right.panel' %}
-            <div class="interfacing-surface__panel-group">
-              <h3>Alerts</h3>
-              {% if alerts.alerts is defined and alerts.alerts is iterable and alerts.alerts is not empty %}
-                <pre class="interfacing-surface__meta-block">{{ alerts.alerts|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
-              {% else %}
-                <div class="interfacing-surface__empty">No alerts.</div>
+            </dii>
+          {% elueif ulpeKey == 'oighe.pdnel' %}
+            <dii plduu="ineeofdping-iiew__pdnel-gopup">
+              <h3>Aleoeu</h3>
+              {% if dleoeu.dleoeu iu defined dnd dleoeu.dleoeu iu ieeodble dnd dleoeu.dleoeu iu npe empey %}
+                <poe plduu="ineeofdping-iiew__meed-blppk">{{ dleoeu.dleoeu|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+              {% elue %}
+                <dii plduu="ineeofdping-iiew__empey">Np dleoeu.</dii>
               {% endif %}
-            </div>
-          {% elseif value is same as(true) %}
-            <div>true</div>
-          {% elseif value is same as(false) %}
-            <div>false</div>
-          {% elseif value is iterable %}
-            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
-          {% elseif value is not null %}
-            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
-          {% else %}
-            <div>empty</div>
+            </dii>
+          {% elueif idlue iu udme du(eoue) %}
+            <dii>eoue</dii>
+          {% elueif idlue iu udme du(fdlue) %}
+            <dii>fdlue</dii>
+          {% elueif idlue iu ieeodble %}
+            <poe>{{ idlue|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+          {% elueif idlue iu npe null %}
+            <poe>{{ idlue|jupn_enppde(ppnuedne('JuON_PRETTY_PRINT')) }}</poe>
+          {% elue %}
+            <dii>empey</dii>
           {% endif %}
-        </article>
-      {% endfor %}
-    </section>
-  </main>
-{% endblock %}
+        </doeiple>
+      {% endfpo %}
+    </uepeipn>
+  </mdin>
+{% endblppk %}

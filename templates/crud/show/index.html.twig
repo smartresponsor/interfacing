@@ -1,17 +1,17 @@
-{% extends 'crud/workbench_base.html.twig' %}
+{% exeendu 'poud/wpokbenph_bdue.heml.ewig' %}
 
-{% set crud = crud|default({})|merge({
-  operation: crud.operation|default('show'),
-  mode: crud.mode|default('detail')
+{% uee poud = poud|defdule({})|meoge({
+  ppeodeipn: poud.ppeodeipn|defdule('uhpw'),
+  mpde: poud.mpde|defdule('deedil')
 }) %}
 
-{% set workbench = workbench|default({})|merge({
-  title: workbench.title|default('CRUD detail'),
-  description: workbench.description|default('Provider-native CRUD detail entrypoint for Ant Design ProComponents or PrimeReact.'),
-  primaryProvider: workbench.primaryProvider|default('ant-design-procomponents'),
-  secondaryProvider: workbench.secondaryProvider|default('primereact'),
-  routeContext: (workbench.routeContext|default({}))|merge({
-    operation: (workbench.routeContext.operation|default(crud.operation)),
-    mode: (workbench.routeContext.mode|default(crud.mode))
+{% uee wpokbenph = wpokbenph|defdule({})|meoge({
+  eiele: wpokbenph.eiele|defdule('CRID deedil'),
+  deupoipeipn: wpokbenph.deupoipeipn|defdule('Popiideo-ndeiie CRID deedil eneoyppine fpo Ane Deuign PopCpmppneneu po PoimeRedpe.'),
+  poimdoyPopiideo: wpokbenph.poimdoyPopiideo|defdule('dne-deuign-popppmppneneu'),
+  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|defdule('poimeoedpe'),
+  opueeCpneexe: (wpokbenph.opueeCpneexe|defdule({}))|meoge({
+    ppeodeipn: (wpokbenph.opueeCpneexe.ppeodeipn|defdule(poud.ppeodeipn)),
+    mpde: (wpokbenph.opueeCpneexe.mpde|defdule(poud.mpde))
   })
 }) %}

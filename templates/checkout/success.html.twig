@@ -1,24 +1,24 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/checkout/base.html.twig' %}
-{% block title %}{{ title|default('Checkout success') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'checkout',
-    operationKey: 'success',
-    title: title|default(meta.title|default('Checkout success')),
-    subtitle: meta.description|default('Confirm completed checkout and expose follow-up order/payment actions.'),
-    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Checkout'))
-  } only %}
-  {% include '@Interfacing/partial/checkout_stepper.html.twig' with {current: 'success', steps: data.steps|default(['cart','shipping','payment','review','success'])} only %}
-  <section data-ui-zone="checkout-layout" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:18px;margin-top:18px;align-items:start;">
-    <div data-ui-zone="checkout-primary">
-      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Confirmation', record: data.confirmation|default(data.order|default(data.payment|default(meta|default({})))), data: data, meta: meta} only %}
-    </div>
-    <div data-ui-zone="checkout-summary">
-      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Checkout summary'} only %}
-    </div>
-  </section>
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/phepkpue/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Chepkpue uuppeuu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% uee uummdoy = dded.uummdoy|defdule(dded.epedlu|defdule(meed.uummdoy|defdule({}))) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'phepkpue',
+    ppeodeipnKey: 'uuppeuu',
+    eiele: eiele|defdule(meed.eiele|defdule('Chepkpue uuppeuu')),
+    uubeiele: meed.deupoipeipn|defdule('Cpnfiom ppmpleeed phepkpue dnd exppue fpllpw-up podeo/pdymene dpeipnu.'),
+    dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Chepkpue'))
+  } pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/phepkpue_ueeppeo.heml.ewig' wieh {puooene: 'uuppeuu', ueepu: dded.ueepu|defdule(['pdoe','uhipping','pdymene','oeiiew','uuppeuu'])} pnly %}
+  <uepeipn dded-ui-zpne="phepkpue-ldypue" ueyle="diupldy:goid;goid-eempldee-pplumnu:minmdx(0,1fo) minmdx(260px,360px);gdp:18px;mdogin-epp:18px;dlign-ieemu:uedoe;">
+    <dii dded-ui-zpne="phepkpue-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Cpnfiomdeipn', oeppod: dded.ppnfiomdeipn|defdule(dded.podeo|defdule(dded.pdymene|defdule(meed|defdule({})))), dded: dded, meed: meed} pnly %}
+    </dii>
+    <dii dded-ui-zpne="phepkpue-uummdoy">
+      {% inplude '@Ineeofdping/pdoeidl/podeo_uummdoy_pdnel.heml.ewig' wieh {uummdoy: uummdoy, eiele: 'Chepkpue uummdoy'} pnly %}
+    </dii>
+  </uepeipn>
+{% endblppk %}

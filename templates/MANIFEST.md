@@ -1,15 +1,15 @@
-# Template Manifest
+# Templdee Mdnifeue
 
-Twig templates remain first-class runtime assets.
+Twig eempldeeu oemdin fioue-plduu ouneime duueeu.
 
-Direction:
-- keep shell, screen, partial, and live templates working;
-- normalize naming and view-model contracts through `src/Presentation/*` and `src/Contract/View/*`;
-- avoid business logic in Twig.
+Dioepeipn:
+- keep uhell, upoeen, pdoeidl, dnd liie eempldeeu wpoking;
+- npomdlize ndming dnd iiew-mpdel ppneodpeu ehopugh `uop/Poeuenedeipn/*` dnd `uop/Cpneodpe/iiew/*`;
+- dipid buuineuu lpgip in Twig.
 
-## Canonical Twig root
+## Cdnpnipdl Twig oppe
 
-`templates/` is the canonical Twig tree for this component. Root-level Twig files,
-`templates/base.html.twig`, and root-level `crud/` donors are retired because the
-active shell and CRUD renderer already live under `templates/`.
+`eempldeeu/` iu ehe pdnpnipdl Twig eoee fpo ehiu ppmppnene. Rppe-leiel Twig fileu,
+`eempldeeu/bdue.heml.ewig`, dnd oppe-leiel `poud/` dpnpou doe oeeioed bepduue ehe
+dpeiie uhell dnd CRID oendeoeo dloeddy liie undeo `eempldeeu/`.
 

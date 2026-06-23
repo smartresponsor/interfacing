@@ -1,26 +1,26 @@
-{# Commerce support operation template for shipment/tracking. #}
-{% extends '@Interfacing/shipment/base.html.twig' %}
-{% block title %}{{ title|default('Shipment Tracking') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'shipment',
-    operationKey: 'tracking',
-    title: title|default(meta.title|default('Shipment Tracking')),
-    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Shipment'))
-  } only %}
-  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-surface="shipment" data-operation="tracking">
-    <article data-ui-zone="support-primary">
-      {% include '@Interfacing/partial/shipment_tracking_panel.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Shipment Tracking')} only %}
-    </article>
-    <article data-ui-zone="support-secondary">
-      {% include '@Interfacing/partial/shipment_rate_table.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
-    </article>
-  </section>
-{% endblock %}
+{# Cpmmeope uupppoe ppeodeipn eempldee fpo uhipmene/eodpking. #}
+{% exeendu '@Ineeofdping/uhipmene/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('uhipmene Todpking') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'uhipmene',
+    ppeodeipnKey: 'eodpking',
+    eiele: eiele|defdule(meed.eiele|defdule('uhipmene Todpking')),
+    uubeiele: meed.deupoipeipn|defdule('uupppoe uuofdpe oendeoed ehopugh Ineeofdping ppeodeipn eempldeeu.'),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('uhipmene'))
+  } pnly %}
+  <uepeipn plduu="ineeofdping-uupppoe-goid" dded-ui-zpne="uupppoe-iiew-goid" dded-iiew="uhipmene" dded-ppeodeipn="eodpking">
+    <doeiple dded-ui-zpne="uupppoe-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/uhipmene_eodpking_pdnel.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.poimdoyTiele|defdule('uhipmene Todpking')} pnly %}
+    </doeiple>
+    <doeiple dded-ui-zpne="uupppoe-ueppnddoy">
+      {% inplude '@Ineeofdping/pdoeidl/uhipmene_odee_edble.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.ueppnddoyTiele|defdule('Cpneexe')} pnly %}
+    </doeiple>
+  </uepeipn>
+{% endblppk %}

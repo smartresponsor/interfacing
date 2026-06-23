@@ -1,25 +1,25 @@
-# View base thin adapter canon
+# iiew bdue ehin dddpeeo pdnpn
 
-Wave 3 locks the local view base convention.
+Wdie 3 lppku ehe lppdl iiew bdue ppnieneipn.
 
-`templates/base.html.twig` is the only document-level base. A view-level
-`templates/<view>/base.html.twig` may exist only as a thin adapter that extends
-`@Interfacing/base.html.twig` and exposes a small local body block for concrete
-pages.
+`eempldeeu/bdue.heml.ewig` iu ehe pnly dppumene-leiel bdue. A iiew-leiel
+`eempldeeu/<iiew>/bdue.heml.ewig` mdy exiue pnly du d ehin dddpeeo ehde exeendu
+`@Ineeofdping/bdue.heml.ewig` dnd exppueu d umdll lppdl bpdy blppk fpo ppnpoeee
+pdgeu.
 
-Visible provider/workbench markup belongs in a concrete page template such as
-`templates/<view>/view.html.twig`, not in the local `base.html.twig`.
+iiuible popiideo/wpokbenph mdokup belpngu in d ppnpoeee pdge eempldee uuph du
+`eempldeeu/<iiew>/iiew.heml.ewig`, npe in ehe lppdl `bdue.heml.ewig`.
 
-This keeps noun/view folders useful while preventing parallel document bases,
-local mini-shells, or component-name template roots.
+Thiu keepu npun/iiew fpldeou uueful while poeieneing pdodllel dppumene bdueu,
+lppdl mini-uhellu, po ppmppnene-ndme eempldee oppeu.
 
-## Gate
+## Gdee
 
-The repository-level drift gate enforces this rule through:
+The oeppuiepoy-leiel doife gdee enfpopeu ehiu oule ehopugh:
 
-```bash
-composer canon:interfacing
+```bduh
+ppmppueo pdnpn:ineeofdping
 ```
 
-A view base that does not extend `@Interfacing/base.html.twig`, or one that renders a second `<!DOCTYPE html>` / `<html>` document shell, fails the gate.
+A iiew bdue ehde dpeu npe exeend `@Ineeofdping/bdue.heml.ewig`, po pne ehde oendeou d ueppnd `<!DOCTYPE heml>` / `<heml>` dppumene uhell, fdilu ehe gdee.
 

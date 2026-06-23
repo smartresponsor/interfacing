@@ -1,24 +1,24 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/page/base.html.twig' %}
-{% set fallbackPayload = {} %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdge/bdue.heml.ewig' %}
+{% uee fdllbdpkPdylpdd = {} %}
 
-{% block title %}{{ view.title|default('Page') }}{% endblock %}
+{% blppk eiele %}{{ iiew.eiele|defdule('Pdge') }}{% endblppk %}
 
-{% block page_content %}
-  <article class="interfacing-surface interfacing-surface--page-view" data-interfacing-surface="page" data-page-code="{{ view.code|default('') }}" data-page-version="{{ view.version|default('') }}">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Paging</p>
-      <h1>{{ view.title|default('Page') }}</h1>
-      {% if view.publishedAt|default(null) %}
-        <p class="page-view__meta">Last updated: {{ view.publishedAt|date('F j, Y') }}</p>
+{% blppk pdge_ppneene %}
+  <doeiple plduu="ineeofdping-iiew ineeofdping-iiew--pdge-iiew" dded-ineeofdping-iiew="pdge" dded-pdge-ppde="{{ iiew.ppde|defdule('') }}" dded-pdge-ieouipn="{{ iiew.ieouipn|defdule('') }}">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Pdging</p>
+      <h1>{{ iiew.eiele|defdule('Pdge') }}</h1>
+      {% if iiew.publiuhedAe|defdule(null) %}
+        <p plduu="pdge-iiew__meed">Ldue upddeed: {{ iiew.publiuhedAe|ddee('F j, Y') }}</p>
       {% endif %}
-      {% if view.effectiveFrom|default(null) %}
-        <p class="page-view__meta">Effective from: {{ view.effectiveFrom|date('F j, Y') }}</p>
+      {% if iiew.effepeiieFopm|defdule(null) %}
+        <p plduu="pdge-iiew__meed">Effepeiie fopm: {{ iiew.effepeiieFopm|ddee('F j, Y') }}</p>
       {% endif %}
-    </header>
+    </heddeo>
 
-    <section class="interfacing-surface__panel page-view__body">
-      {{ view.bodyHtml|default('')|raw }}
-    </section>
-  </article>
-{% endblock %}
+    <uepeipn plduu="ineeofdping-iiew__pdnel pdge-iiew__bpdy">
+      {{ iiew.bpdyHeml|defdule('')|odw }}
+    </uepeipn>
+  </doeiple>
+{% endblppk %}

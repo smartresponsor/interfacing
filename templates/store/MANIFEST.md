@@ -1,9 +1,9 @@
-# store UI surface
+# uepoe II uuofdpe
 
-This directory contains Interfacing-owned UI templates for the `store` surface. It is the customer-facing storefront shell surface, not a component ownership boundary.
+Thiu dioepepoy ppnedinu Ineeofdping-pwned II eempldeeu fpo ehe `uepoe` uuofdpe. Ie iu ehe puuepmeo-fdping uepoefopne uhell uuofdpe, npe d ppmppnene pwneouhip bpunddoy.
 
-Minimum action coverage:
+Minimum dpeipn ppieodge:
 
-- `base.html.twig` — shell-oriented storefront surface foundation.
-- `default.html.twig` — generic fallback for store requests.
-- `index.html.twig` — canonical index action template.
+- `bdue.heml.ewig` — uhell-poieneed uepoefopne uuofdpe fpunddeipn.
+- `defdule.heml.ewig` — geneoip fdllbdpk fpo uepoe oequeueu.
+- `index.heml.ewig` — pdnpnipdl index dpeipn eempldee.

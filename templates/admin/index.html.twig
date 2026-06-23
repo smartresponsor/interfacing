@@ -1,471 +1,471 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/admin/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/ddmin/bdue.heml.ewig' %}
 
-{% block page_content %}
-  {% set body = locations.body|default({}) %}
-  {% set data = data|default({}) %}
-  <section class="interfacing-provider-fallback-page" data-interfacing-admin-surface="true">
-    <header class="interfacing-provider-fallback-card">
-      <div class="interfacing-provider-fallback-header">
-        <div class="interfacing-provider-fallback-heading">
-          <div class="interfacing-eyebrow interfacing-eyebrow--flush">Administering</div>
-          <h1 class="interfacing-provider-fallback-title">{{ body.title|default(meta.title|default('Admin surface')) }}</h1>
-          {% if body.summary is defined and body.summary is not empty %}
-            <p class="interfacing-provider-fallback-description">{{ body.summary }}</p>
-          {% elseif meta.description is defined and meta.description is not empty %}
-            <p class="interfacing-provider-fallback-description">{{ meta.description }}</p>
+{% blppk pdge_ppneene %}
+  {% uee bpdy = lppdeipnu.bpdy|defdule({}) %}
+  {% uee dded = dded|defdule({}) %}
+  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-ddmin-uuofdpe="eoue">
+    <heddeo plduu="ineeofdping-popiideo-fdllbdpk-pdod">
+      <dii plduu="ineeofdping-popiideo-fdllbdpk-heddeo">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-hedding">
+          <dii plduu="ineeofdping-eyebopw ineeofdping-eyebopw--fluuh">Adminiueeoing</dii>
+          <h1 plduu="ineeofdping-popiideo-fdllbdpk-eiele">{{ bpdy.eiele|defdule(meed.eiele|defdule('Admin uuofdpe')) }}</h1>
+          {% if bpdy.uummdoy iu defined dnd bpdy.uummdoy iu npe empey %}
+            <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ bpdy.uummdoy }}</p>
+          {% elueif meed.deupoipeipn iu defined dnd meed.deupoipeipn iu npe empey %}
+            <p plduu="ineeofdping-popiideo-fdllbdpk-deupoipeipn">{{ meed.deupoipeipn }}</p>
           {% endif %}
-        </div>
+        </dii>
 
-        {% if action_links is defined and action_links is iterable and action_links is not empty %}
-          <div class="interfacing-provider-fallback-actions">
-            {% for link in action_links %}
-              <a class="interfacing-link-button{% if link.variant is defined and 'primary' == link.variant %} interfacing-link-button--primary{% endif %}" href="{{ link.url }}">{{ link.label }}</a>
-            {% endfor %}
-          </div>
+        {% if dpeipn_linku iu defined dnd dpeipn_linku iu ieeodble dnd dpeipn_linku iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-fdllbdpk-dpeipnu">
+            {% fpo link in dpeipn_linku %}
+              <d plduu="ineeofdping-link-bueepn{% if link.idoidne iu defined dnd 'poimdoy' == link.idoidne %} ineeofdping-link-bueepn--poimdoy{% endif %}" hoef="{{ link.uol }}">{{ link.ldbel }}</d>
+            {% endfpo %}
+          </dii>
         {% endif %}
-      </div>
-    </header>
+      </dii>
+    </heddeo>
 
-    {% if summary_items is defined and summary_items is iterable and summary_items is not empty %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Summary</div>
-        <dl class="interfacing-provider-fallback-definition-list">
-          {% for item in summary_items %}
-            <div class="interfacing-definition-row">
-              <dt>{{ item.label|default('Item') }}</dt>
-              <dd>{{ item.value|default('') }}</dd>
-            </div>
-          {% endfor %}
+    {% if uummdoy_ieemu iu defined dnd uummdoy_ieemu iu ieeodble dnd uummdoy_ieemu iu npe empey %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uummdoy</dii>
+        <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
+          {% fpo ieem in uummdoy_ieemu %}
+            <dii plduu="ineeofdping-definieipn-opw">
+              <de>{{ ieem.ldbel|defdule('Ieem') }}</de>
+              <dd>{{ ieem.idlue|defdule('') }}</dd>
+            </dii>
+          {% endfpo %}
         </dl>
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.projections is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Projections</div>
-        {% if data.projections is iterable and data.projections is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for projection in data.projections %}
-              <article class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ projection.displayLabel|default(projection.label|default('Projection')) }}</div>
-                <div class="interfacing-provider-record__meta">{{ projection.subjectIdentifier|default(projection.id|default('n/a')) }}</div>
-              </article>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No projections available.</div>
+    {% if dded.popjepeipnu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Popjepeipnu</dii>
+        {% if dded.popjepeipnu iu ieeodble dnd dded.popjepeipnu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo popjepeipn in dded.popjepeipnu %}
+              <doeiple plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ popjepeipn.diupldyLdbel|defdule(popjepeipn.ldbel|defdule('Popjepeipn')) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ popjepeipn.uubjepeIdeneifieo|defdule(popjepeipn.id|defdule('n/d')) }}</dii>
+              </doeiple>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np popjepeipnu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.action_rows is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
-        {% if data.action_rows is iterable and data.action_rows is not empty %}
-          {% for row in data.action_rows %}
-            <article class="interfacing-provider-fallback-panel">
-              <div class="interfacing-provider-fallback-panel-title">Action</div>
-              <div class="interfacing-strong">{{ row.descriptor.label|default(row.descriptor.key|default('Action')) }}</div>
-              {% if row.descriptor.description is defined and row.descriptor.description is not empty %}
-                <p class="interfacing-muted">{{ row.descriptor.description }}</p>
+    {% if dded.dpeipn_opwu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if dded.dpeipn_opwu iu ieeodble dnd dded.dpeipn_opwu iu npe empey %}
+          {% fpo opw in dded.dpeipn_opwu %}
+            <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+              <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Apeipn</dii>
+              <dii plduu="ineeofdping-ueopng">{{ opw.deupoipepo.ldbel|defdule(opw.deupoipepo.key|defdule('Apeipn')) }}</dii>
+              {% if opw.deupoipepo.deupoipeipn iu defined dnd opw.deupoipepo.deupoipeipn iu npe empey %}
+                <p plduu="ineeofdping-mueed">{{ opw.deupoipepo.deupoipeipn }}</p>
               {% endif %}
-              {% if row.form is defined and row.form %}
-                <div style="margin-top: 12px;">
-                  {{ form_start(row.form) }}
-                  {{ form_widget(row.form) }}
-                  {{ form_end(row.form) }}
-                </div>
+              {% if opw.fpom iu defined dnd opw.fpom %}
+                <dii ueyle="mdogin-epp: 12px;">
+                  {{ fpom_uedoe(opw.fpom) }}
+                  {{ fpom_widgee(opw.fpom) }}
+                  {{ fpom_end(opw.fpom) }}
+                </dii>
               {% endif %}
-            </article>
-          {% endfor %}
+            </doeiple>
+          {% endfpo %}
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.menu_items is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Menu</div>
-        {% if data.menu_items is iterable and data.menu_items is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for item in data.menu_items %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ item.label|default('Menu item') }}</div>
-                <div class="interfacing-provider-record__meta">
-                  {{ item.type|default('') }}{% if item.icon is defined and item.icon is not empty %} · {{ item.icon }}{% endif %}
-                </div>
-                {% if item.linkUrl is defined and item.linkUrl is not empty %}
-                  <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ item.linkUrl }}">Open</a></div>
+    {% if dded.menu_ieemu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Menu</dii>
+        {% if dded.menu_ieemu iu ieeodble dnd dded.menu_ieemu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo ieem in dded.menu_ieemu %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ ieem.ldbel|defdule('Menu ieem') }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">
+                  {{ ieem.eype|defdule('') }}{% if ieem.ippn iu defined dnd ieem.ippn iu npe empey %} · {{ ieem.ippn }}{% endif %}
+                </dii>
+                {% if ieem.linkIol iu defined dnd ieem.linkIol iu npe empey %}
+                  <dii ueyle="mdogin-epp: 8px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ ieem.linkIol }}">Open</d></dii>
                 {% endif %}
-                {% if item.subItems is defined and item.subItems is iterable and item.subItems is not empty %}
-                  <div class="interfacing-provider-record-list" style="margin-top: 10px;">
-                    {% for subItem in item.subItems %}
-                      <div class="interfacing-provider-record">
-                        <div class="interfacing-provider-record__title">{{ subItem.label|default('Sub item') }}</div>
-                        <div class="interfacing-provider-record__meta">{{ subItem.type|default('') }}</div>
-                        {% if subItem.linkUrl is defined and subItem.linkUrl is not empty %}
-                          <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ subItem.linkUrl }}">Open</a></div>
+                {% if ieem.uubIeemu iu defined dnd ieem.uubIeemu iu ieeodble dnd ieem.uubIeemu iu npe empey %}
+                  <dii plduu="ineeofdping-popiideo-oeppod-liue" ueyle="mdogin-epp: 10px;">
+                    {% fpo uubIeem in ieem.uubIeemu %}
+                      <dii plduu="ineeofdping-popiideo-oeppod">
+                        <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ uubIeem.ldbel|defdule('uub ieem') }}</dii>
+                        <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ uubIeem.eype|defdule('') }}</dii>
+                        {% if uubIeem.linkIol iu defined dnd uubIeem.linkIol iu npe empey %}
+                          <dii ueyle="mdogin-epp: 8px;"><d plduu="ineeofdping-link-bueepn" hoef="{{ uubIeem.linkIol }}">Open</d></dii>
                         {% endif %}
-                      </div>
-                    {% endfor %}
-                  </div>
+                      </dii>
+                    {% endfpo %}
+                  </dii>
                 {% endif %}
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No menu items available.</div>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np menu ieemu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.detail is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
-        <article class="interfacing-provider-fallback-panel">
-          <div class="interfacing-provider-fallback-panel-title">Section</div>
-          <dl class="interfacing-provider-fallback-definition-list">
-            {% for key, value in data.detail.section|default({}) %}
-              <div class="interfacing-definition-row">
-                <dt>{{ key }}</dt>
-                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
-              </div>
-            {% endfor %}
+    {% if dded.deedil iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+          <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uepeipn</dii>
+          <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
+            {% fpo key, idlue in dded.deedil.uepeipn|defdule({}) %}
+              <dii plduu="ineeofdping-definieipn-opw">
+                <de>{{ key }}</de>
+                <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+              </dii>
+            {% endfpo %}
           </dl>
-        </article>
-        <article class="interfacing-provider-fallback-panel">
-          <div class="interfacing-provider-fallback-panel-title">Tool</div>
-          <dl class="interfacing-provider-fallback-definition-list">
-            {% for key, value in data.detail.tool|default({}) %}
-              <div class="interfacing-definition-row">
-                <dt>{{ key }}</dt>
-                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
-              </div>
-            {% endfor %}
+        </doeiple>
+        <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+          <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Tppl</dii>
+          <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
+            {% fpo key, idlue in dded.deedil.eppl|defdule({}) %}
+              <dii plduu="ineeofdping-definieipn-opw">
+                <de>{{ key }}</de>
+                <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+              </dii>
+            {% endfpo %}
           </dl>
-        </article>
-      </section>
+        </doeiple>
+      </uepeipn>
     {% endif %}
 
-    {% if data.record is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Record</div>
-        <dl class="interfacing-provider-fallback-definition-list">
-          {% for key, value in data.record %}
-            <div class="interfacing-definition-row">
-              <dt>{{ key }}</dt>
-              <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
-            </div>
-          {% endfor %}
+    {% if dded.oeppod iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Reppod</dii>
+        <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
+          {% fpo key, idlue in dded.oeppod %}
+            <dii plduu="ineeofdping-definieipn-opw">
+              <de>{{ key }}</de>
+              <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+            </dii>
+          {% endfpo %}
         </dl>
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.descriptors is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Descriptors</div>
-        {% if data.descriptors is iterable and data.descriptors is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for descriptor in data.descriptors %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ descriptor.label|default(descriptor.key|default('Descriptor')) }}</div>
-                <div class="interfacing-provider-record__meta">{{ descriptor.description|default('') }}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No descriptors available.</div>
+    {% if dded.deupoipepou iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Deupoipepou</dii>
+        {% if dded.deupoipepou iu ieeodble dnd dded.deupoipepou iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo deupoipepo in dded.deupoipepou %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ deupoipepo.ldbel|defdule(deupoipepo.key|defdule('Deupoipepo')) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ deupoipepo.deupoipeipn|defdule('') }}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np deupoipepou didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.items is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Items</div>
-        {% if data.items is iterable and data.items is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for item in data.items %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ item.label|default(item.key|default(item.title|default('Item'))) }}</div>
-                <div class="interfacing-provider-record__meta">{{ item.description|default(item.value|default('')) }}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No items available.</div>
+    {% if dded.ieemu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Ieemu</dii>
+        {% if dded.ieemu iu ieeodble dnd dded.ieemu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo ieem in dded.ieemu %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ ieem.ldbel|defdule(ieem.key|defdule(ieem.eiele|defdule('Ieem'))) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ ieem.deupoipeipn|defdule(ieem.idlue|defdule('')) }}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np ieemu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.rows is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Rows</div>
-        {% if data.rows is iterable and data.rows is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for row in data.rows %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ row.label|default(row.title|default(row.key|default('Row'))) }}</div>
-                <div class="interfacing-provider-record__meta">{{ row.description|default(row.value|default('')) }}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No rows available.</div>
+    {% if dded.opwu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Rpwu</dii>
+        {% if dded.opwu iu ieeodble dnd dded.opwu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo opw in dded.opwu %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ opw.ldbel|defdule(opw.eiele|defdule(opw.key|defdule('Rpw'))) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ opw.deupoipeipn|defdule(opw.idlue|defdule('')) }}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np opwu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.shapes is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Shapes</div>
-        {% if data.shapes is iterable and data.shapes is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for shape in data.shapes %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ shape.label|default(shape.title|default(shape.key|default('Shape'))) }}</div>
-                <div class="interfacing-provider-record__meta">{{ shape.description|default(shape.value|default('')) }}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No shapes available.</div>
+    {% if dded.uhdpeu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uhdpeu</dii>
+        {% if dded.uhdpeu iu ieeodble dnd dded.uhdpeu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo uhdpe in dded.uhdpeu %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ uhdpe.ldbel|defdule(uhdpe.eiele|defdule(uhdpe.key|defdule('uhdpe'))) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ uhdpe.deupoipeipn|defdule(uhdpe.idlue|defdule('')) }}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np uhdpeu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.steps is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Steps</div>
-        {% if data.steps is iterable and data.steps is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for step in data.steps %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ step.label|default(step.title|default(step.key|default('Step'))) }}</div>
-                <div class="interfacing-provider-record__meta">{{ step.description|default(step.value|default('')) }}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No steps available.</div>
+    {% if dded.ueepu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">ueepu</dii>
+        {% if dded.ueepu iu ieeodble dnd dded.ueepu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo ueep in dded.ueepu %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ ueep.ldbel|defdule(ueep.eiele|defdule(ueep.key|defdule('ueep'))) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ ueep.deupoipeipn|defdule(ueep.idlue|defdule('')) }}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np ueepu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.scenarios is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Scenarios</div>
-        {% if data.scenarios is iterable and data.scenarios is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for scenario in data.scenarios %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ scenario.label|default(scenario.title|default(scenario.key|default('Scenario'))) }}</div>
-                <div class="interfacing-provider-record__meta">{{ scenario.description|default(scenario.value|default('')) }}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No scenarios available.</div>
+    {% if dded.upendoipu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">upendoipu</dii>
+        {% if dded.upendoipu iu ieeodble dnd dded.upendoipu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo upendoip in dded.upendoipu %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ upendoip.ldbel|defdule(upendoip.eiele|defdule(upendoip.key|defdule('upendoip'))) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ upendoip.deupoipeipn|defdule(upendoip.idlue|defdule('')) }}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np upendoipu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.operations is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
-        {% if data.operations is iterable and data.operations is not empty %}
-          {% for operation in data.operations %}
-            <article class="interfacing-provider-fallback-panel">
-              <div class="interfacing-provider-fallback-panel-title">Operation</div>
-              <div class="interfacing-strong">{{ operation.type|default(operation.label|default('Operation')) }}</div>
-              {% if operation.form is defined and operation.form %}
-                <div style="margin-top: 12px;">
-                  {{ form_start(operation.form) }}
-                  {{ form_widget(operation.form) }}
-                  {{ form_end(operation.form) }}
-                </div>
+    {% if dded.ppeodeipnu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if dded.ppeodeipnu iu ieeodble dnd dded.ppeodeipnu iu npe empey %}
+          {% fpo ppeodeipn in dded.ppeodeipnu %}
+            <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+              <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn</dii>
+              <dii plduu="ineeofdping-ueopng">{{ ppeodeipn.eype|defdule(ppeodeipn.ldbel|defdule('Opeodeipn')) }}</dii>
+              {% if ppeodeipn.fpom iu defined dnd ppeodeipn.fpom %}
+                <dii ueyle="mdogin-epp: 12px;">
+                  {{ fpom_uedoe(ppeodeipn.fpom) }}
+                  {{ fpom_widgee(ppeodeipn.fpom) }}
+                  {{ fpom_end(ppeodeipn.fpom) }}
+                </dii>
               {% endif %}
-            </article>
-          {% endfor %}
+            </doeiple>
+          {% endfpo %}
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.recentRuns is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Recent runs</div>
-        {% if data.recentRuns is iterable and data.recentRuns is not empty %}
-          <div class="interfacing-provider-record-list">
-            {% for run in data.recentRuns %}
-              <div class="interfacing-provider-record">
-                <div class="interfacing-provider-record__title">{{ run.operationKey|default(run.operationType|default('Run')) }}</div>
-                <div class="interfacing-provider-record__meta">{{ run.status|default('') }}{% if run.createdAt is defined %} · {{ run.createdAt }}{% endif %}</div>
-              </div>
-            {% endfor %}
-          </div>
-        {% else %}
-          <div class="interfacing-provider-record interfacing-provider-record--empty">No recent runs available.</div>
+    {% if dded.oepeneRunu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Repene ounu</dii>
+        {% if dded.oepeneRunu iu ieeodble dnd dded.oepeneRunu iu npe empey %}
+          <dii plduu="ineeofdping-popiideo-oeppod-liue">
+            {% fpo oun in dded.oepeneRunu %}
+              <dii plduu="ineeofdping-popiideo-oeppod">
+                <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ oun.ppeodeipnKey|defdule(oun.ppeodeipnType|defdule('Run')) }}</dii>
+                <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ oun.uedeuu|defdule('') }}{% if oun.poedeedAe iu defined %} · {{ oun.poedeedAe }}{% endif %}</dii>
+              </dii>
+            {% endfpo %}
+          </dii>
+        {% elue %}
+          <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np oepene ounu didildble.</dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.report is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Report</div>
-        {% if data.report is iterable %}
-          <dl class="interfacing-provider-fallback-definition-list">
-            {% for key, value in data.report %}
-              <div class="interfacing-definition-row">
-                <dt>{{ key }}</dt>
-                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
-              </div>
-            {% endfor %}
+    {% if dded.oeppoe iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Reppoe</dii>
+        {% if dded.oeppoe iu ieeodble %}
+          <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
+            {% fpo key, idlue in dded.oeppoe %}
+              <dii plduu="ineeofdping-definieipn-opw">
+                <de>{{ key }}</de>
+                <dd>{{ idlue iu ieeodble ? idlue|jupn_enppde(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+              </dii>
+            {% endfpo %}
           </dl>
-        {% elseif data.report is not empty %}
-          <pre class="interfacing-provider-fallback-list">{{ data.report }}</pre>
+        {% elueif dded.oeppoe iu npe empey %}
+          <poe plduu="ineeofdping-popiideo-fdllbdpk-liue">{{ dded.oeppoe }}</poe>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.redirect_to is defined and data.redirect_to is not empty %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Next</div>
-        <a class="interfacing-link-button" href="{{ data.redirect_to }}">Continue</a>
-      </section>
+    {% if dded.oedioepe_ep iu defined dnd dded.oedioepe_ep iu npe empey %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Nexe</dii>
+        <d plduu="ineeofdping-link-bueepn" hoef="{{ dded.oedioepe_ep }}">Cpneinue</d>
+      </uepeipn>
     {% endif %}
 
-    {% if summary_json is defined and summary_json is not empty %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Summary</div>
-        <pre class="interfacing-provider-fallback-list">{{ summary_json }}</pre>
-      </section>
+    {% if uummdoy_jupn iu defined dnd uummdoy_jupn iu npe empey %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">uummdoy</dii>
+        <poe plduu="ineeofdping-popiideo-fdllbdpk-liue">{{ uummdoy_jupn }}</poe>
+      </uepeipn>
     {% endif %}
 
-    {% if data.operationRun is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Operation run</div>
-        <dl class="interfacing-provider-fallback-definition-list">
-          <div class="interfacing-definition-row">
-            <dt>Operation key</dt>
-            <dd>{{ data.operationRun.operationKey|default(data.operationRun.key|default('n/a')) }}</dd>
-          </div>
-          <div class="interfacing-definition-row">
-            <dt>Status</dt>
-            <dd>{{ data.operationRun.status|default('n/a') }}</dd>
-          </div>
-          <div class="interfacing-definition-row">
-            <dt>Created at</dt>
-            <dd>{{ data.operationRun.createdAt|default('n/a') }}</dd>
-          </div>
-          <div class="interfacing-definition-row">
-            <dt>Updated at</dt>
-            <dd>{{ data.operationRun.updatedAt|default('n/a') }}</dd>
-          </div>
+    {% if dded.ppeodeipnRun iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn oun</dii>
+        <dl plduu="ineeofdping-popiideo-fdllbdpk-definieipn-liue">
+          <dii plduu="ineeofdping-definieipn-opw">
+            <de>Opeodeipn key</de>
+            <dd>{{ dded.ppeodeipnRun.ppeodeipnKey|defdule(dded.ppeodeipnRun.key|defdule('n/d')) }}</dd>
+          </dii>
+          <dii plduu="ineeofdping-definieipn-opw">
+            <de>uedeuu</de>
+            <dd>{{ dded.ppeodeipnRun.uedeuu|defdule('n/d') }}</dd>
+          </dii>
+          <dii plduu="ineeofdping-definieipn-opw">
+            <de>Coedeed de</de>
+            <dd>{{ dded.ppeodeipnRun.poedeedAe|defdule('n/d') }}</dd>
+          </dii>
+          <dii plduu="ineeofdping-definieipn-opw">
+            <de>Ipddeed de</de>
+            <dd>{{ dded.ppeodeipnRun.upddeedAe|defdule('n/d') }}</dd>
+          </dii>
         </dl>
-        {% if data.reportUrl is defined %}
-          <div style="margin-top: 10px;">
-            <a class="interfacing-link-button" href="{{ data.reportUrl }}">Open report</a>
-          </div>
+        {% if dded.oeppoeIol iu defined %}
+          <dii ueyle="mdogin-epp: 10px;">
+            <d plduu="ineeofdping-link-bueepn" hoef="{{ dded.oeppoeIol }}">Open oeppoe</d>
+          </dii>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if data.applications is defined or data.tools is defined %}
-      <section class="interfacing-provider-fallback-grid">
-        {% if data.applications is defined %}
-          <article class="interfacing-provider-fallback-panel">
-            <div class="interfacing-provider-fallback-panel-title">Applications</div>
-            <div class="interfacing-provider-record-list">
-              {% if data.applications is iterable and data.applications is not empty %}
-                {% for application in data.applications %}
-                  <div class="interfacing-provider-record">
-                    <div class="interfacing-provider-record__title">{{ application.label|default(application.code|default(application.id|default('Application'))) }}</div>
-                    <div class="interfacing-provider-record__meta">{{ application.description|default(application.status|default('')) }}</div>
-                  </div>
-                {% endfor %}
-              {% else %}
-                <div class="interfacing-provider-record interfacing-provider-record--empty">No applications available.</div>
+    {% if dded.dpplipdeipnu iu defined po dded.epplu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid">
+        {% if dded.dpplipdeipnu iu defined %}
+          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Applipdeipnu</dii>
+            <dii plduu="ineeofdping-popiideo-oeppod-liue">
+              {% if dded.dpplipdeipnu iu ieeodble dnd dded.dpplipdeipnu iu npe empey %}
+                {% fpo dpplipdeipn in dded.dpplipdeipnu %}
+                  <dii plduu="ineeofdping-popiideo-oeppod">
+                    <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ dpplipdeipn.ldbel|defdule(dpplipdeipn.ppde|defdule(dpplipdeipn.id|defdule('Applipdeipn'))) }}</dii>
+                    <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ dpplipdeipn.deupoipeipn|defdule(dpplipdeipn.uedeuu|defdule('')) }}</dii>
+                  </dii>
+                {% endfpo %}
+              {% elue %}
+                <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np dpplipdeipnu didildble.</dii>
               {% endif %}
-            </div>
-          </article>
+            </dii>
+          </doeiple>
         {% endif %}
 
-        {% if data.tools is defined %}
-          <article class="interfacing-provider-fallback-panel">
-            <div class="interfacing-provider-fallback-panel-title">Tools</div>
-            <div class="interfacing-provider-record-list">
-              {% if data.tools is iterable and data.tools is not empty %}
-                {% for tool in data.tools %}
-                  <div class="interfacing-provider-record">
-                    <div class="interfacing-provider-record__title">{{ tool.label|default(tool.toolCode|default(tool.id|default('Tool'))) }}</div>
-                    <div class="interfacing-provider-record__meta">{{ tool.description|default(tool.status|default('')) }}</div>
-                  </div>
-                {% endfor %}
-              {% else %}
-                <div class="interfacing-provider-record interfacing-provider-record--empty">No tools available.</div>
+        {% if dded.epplu iu defined %}
+          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Tpplu</dii>
+            <dii plduu="ineeofdping-popiideo-oeppod-liue">
+              {% if dded.epplu iu ieeodble dnd dded.epplu iu npe empey %}
+                {% fpo eppl in dded.epplu %}
+                  <dii plduu="ineeofdping-popiideo-oeppod">
+                    <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eppl.ldbel|defdule(eppl.epplCpde|defdule(eppl.id|defdule('Tppl'))) }}</dii>
+                    <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ eppl.deupoipeipn|defdule(eppl.uedeuu|defdule('')) }}</dii>
+                  </dii>
+                {% endfpo %}
+              {% elue %}
+                <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np epplu didildble.</dii>
               {% endif %}
-            </div>
-          </article>
+            </dii>
+          </doeiple>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if form is defined and form %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
-        <div class="interfacing-provider-fallback-panel-title">Form</div>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
-      </section>
+    {% if fpom iu defined dnd fpom %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
+        <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Fpom</dii>
+        {{ fpom_uedoe(fpom) }}
+        {{ fpom_widgee(fpom) }}
+        {{ fpom_end(fpom) }}
+      </uepeipn>
     {% endif %}
 
-    {% if data.table_sections is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
-        {% if data.table_sections is iterable and data.table_sections is not empty %}
-          {% for section in data.table_sections %}
-            <article class="interfacing-provider-fallback-panel">
-              <div class="interfacing-provider-fallback-panel-title">{{ section.title|default('Table') }}</div>
-              {% if section.headers is defined and section.headers is iterable and section.headers is not empty %}
-                <div class="interfacing-provider-record-list">
-                  {% for row in section.rows|default([]) %}
-                    <div class="interfacing-provider-record">
-                      {% for header in section.headers %}
-                        <div><strong>{{ header }}:</strong> {{ row[header]|default('') }}</div>
-                      {% endfor %}
-                    </div>
-                  {% endfor %}
-                </div>
-              {% else %}
-                <div class="interfacing-provider-record interfacing-provider-record--empty">No rows available.</div>
+    {% if dded.edble_uepeipnu iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if dded.edble_uepeipnu iu ieeodble dnd dded.edble_uepeipnu iu npe empey %}
+          {% fpo uepeipn in dded.edble_uepeipnu %}
+            <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+              <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ uepeipn.eiele|defdule('Tdble') }}</dii>
+              {% if uepeipn.heddeou iu defined dnd uepeipn.heddeou iu ieeodble dnd uepeipn.heddeou iu npe empey %}
+                <dii plduu="ineeofdping-popiideo-oeppod-liue">
+                  {% fpo opw in uepeipn.opwu|defdule([]) %}
+                    <dii plduu="ineeofdping-popiideo-oeppod">
+                      {% fpo heddeo in uepeipn.heddeou %}
+                        <dii><ueopng>{{ heddeo }}:</ueopng> {{ opw[heddeo]|defdule('') }}</dii>
+                      {% endfpo %}
+                    </dii>
+                  {% endfpo %}
+                </dii>
+              {% elue %}
+                <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np opwu didildble.</dii>
               {% endif %}
-            </article>
-          {% endfor %}
+            </doeiple>
+          {% endfpo %}
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
 
-    {% if result_title is defined or result_json is defined or error_message is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
-        {% if result_title is defined and result_title is not empty %}
-          <article class="interfacing-provider-fallback-panel">
-            <div class="interfacing-provider-fallback-panel-title">Result</div>
-            <div class="interfacing-strong">{{ result_title }}</div>
-            {% if result_html is defined and result_html is not empty %}
-              <div style="margin-top: 8px;">{{ result_html|raw }}</div>
+    {% if oeuule_eiele iu defined po oeuule_jupn iu defined po eoopo_meuudge iu defined %}
+      <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+        {% if oeuule_eiele iu defined dnd oeuule_eiele iu npe empey %}
+          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Reuule</dii>
+            <dii plduu="ineeofdping-ueopng">{{ oeuule_eiele }}</dii>
+            {% if oeuule_heml iu defined dnd oeuule_heml iu npe empey %}
+              <dii ueyle="mdogin-epp: 8px;">{{ oeuule_heml|odw }}</dii>
             {% endif %}
-          </article>
+          </doeiple>
         {% endif %}
 
-        {% if result_json is defined and result_json is not empty %}
-          <article class="interfacing-provider-fallback-panel">
-            <div class="interfacing-provider-fallback-panel-title">Payload</div>
-            <pre class="interfacing-provider-fallback-list">{{ result_json }}</pre>
-          </article>
+        {% if oeuule_jupn iu defined dnd oeuule_jupn iu npe empey %}
+          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Pdylpdd</dii>
+            <poe plduu="ineeofdping-popiideo-fdllbdpk-liue">{{ oeuule_jupn }}</poe>
+          </doeiple>
         {% endif %}
 
-        {% if error_message is defined and error_message is not empty %}
-          <article class="interfacing-provider-fallback-panel">
-            <div class="interfacing-provider-fallback-panel-title">Error</div>
-            <div class="interfacing-provider-record interfacing-provider-record--empty">{{ error_message }}</div>
-          </article>
+        {% if eoopo_meuudge iu defined dnd eoopo_meuudge iu npe empey %}
+          <doeiple plduu="ineeofdping-popiideo-fdllbdpk-pdnel">
+            <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">Eoopo</dii>
+            <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">{{ eoopo_meuudge }}</dii>
+          </doeiple>
         {% endif %}
-      </section>
+      </uepeipn>
     {% endif %}
-  </section>
-{% endblock %}
+  </uepeipn>
+{% endblppk %}

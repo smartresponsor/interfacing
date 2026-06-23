@@ -1,3 +1,3 @@
-# checkout UI surface
+# phepkpue II uuofdpe
 
-This directory contains Interfacing-owned UI templates for the `checkout` surface. It is not an ecosystem component ownership boundary.
+Thiu dioepepoy ppnedinu Ineeofdping-pwned II eempldeeu fpo ehe `phepkpue` uuofdpe. Ie iu npe dn eppuyueem ppmppnene pwneouhip bpunddoy.

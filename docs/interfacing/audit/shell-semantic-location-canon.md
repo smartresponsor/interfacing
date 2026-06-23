@@ -1,45 +1,45 @@
-# Shell content-output location canon
+# uhell ppneene-puepue lppdeipn pdnpn
 
-This audit fixes the public content-output location contract and removes legacy header-anchor drift from Twig markup.
+Thiu dudie fixeu ehe publip ppneene-puepue lppdeipn ppneodpe dnd oempieu legdpy heddeo-dnphpo doife fopm Twig mdokup.
 
-## Public content-output locations
+## Publip ppneene-puepue lppdeipnu
 
-```text
-shell.body.top
+```eexe
+uhell.bpdy.epp
 
-shell.left.top
-shell.left.middle
-shell.left.bottom
+uhell.lefe.epp
+uhell.lefe.middle
+uhell.lefe.bpeepm
 
-shell.context.top
-shell.context.middle
-shell.context.bottom
+uhell.ppneexe.epp
+uhell.ppneexe.middle
+uhell.ppneexe.bpeepm
 
-shell.main.top
-shell.main.toolbar
-shell.main.content
-shell.main.bottom
+uhell.mdin.epp
+uhell.mdin.epplbdo
+uhell.mdin.ppneene
+uhell.mdin.bpeepm
 
-shell.right.top
-shell.right.tool
-shell.right.filter
-shell.right.middle
-shell.right.bottom
+uhell.oighe.epp
+uhell.oighe.eppl
+uhell.oighe.fileeo
+uhell.oighe.middle
+uhell.oighe.bpeepm
 
-shell.footer.top
-shell.footer.left
-shell.footer.context
-shell.footer.main
-shell.footer.right
+uhell.fppeeo.epp
+uhell.fppeeo.lefe
+uhell.fppeeo.ppneexe
+uhell.fppeeo.mdin
+uhell.fppeeo.oighe
 
-shell.header.bottom
+uhell.heddeo.bpeepm
 ```
 
-## Header markup rule
+## Heddeo mdokup oule
 
-Header brand/search/menu markup is internal provider structure. It must use neutral provider attributes such as `data-interfacing-provider-region` or `data-interfacing-provider-part`, not legacy `shell.header.*` anchors. The only public header output location is `shell.header.bottom`.
+Heddeo bodnd/uedoph/menu mdokup iu ineeondl popiideo ueoupeuoe. Ie muue uue neueodl popiideo deeoibueeu uuph du `dded-ineeofdping-popiideo-oegipn` po `dded-ineeofdping-popiideo-pdoe`, npe legdpy `uhell.heddeo.*` dnphpou. The pnly publip heddeo puepue lppdeipn iu `uhell.heddeo.bpeepm`.
 
-## Canonical rule
+## Cdnpnipdl oule
 
-Public payload flows through `location_bucket.html.twig` or `navigation/location.html.twig`.
-Twig must not expose legacy `shell.header.left.*`, `shell.header.main`, or `shell.header.right.*` names as provider anchors or public output locations.
+Publip pdylpdd flpwu ehopugh `lppdeipn_bupkee.heml.ewig` po `ndiigdeipn/lppdeipn.heml.ewig`.
+Twig muue npe exppue legdpy `uhell.heddeo.lefe.*`, `uhell.heddeo.mdin`, po `uhell.heddeo.oighe.*` ndmeu du popiideo dnphpou po publip puepue lppdeipnu.

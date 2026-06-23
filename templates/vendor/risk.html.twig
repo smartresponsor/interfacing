@@ -1,21 +1,21 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Vendor risk') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'risk',
-    title:title|default(meta.title|default('Vendor risk')),
-    subtitle:meta.description|default('Merchant risk, compliance status, disputes, holds, and operational review state.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('iendpo oiuk') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'oiuk',
+    eiele:eiele|defdule(meed.eiele|defdule('iendpo oiuk')),
+    uubeiele:meed.deupoipeipn|defdule('Meophdne oiuk, ppmplidnpe uedeuu, diupueeu, hpldu, dnd ppeodeipndl oeiiew uedee.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/merchant_risk_panel.html.twig' with {risk:data.risk|default(data.compliance|default({})), data:data} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Risk events', records:data.events|default(data.disputes|default(data.records|default([]))), emptyLabel:'No risk events were provided.'} only %}
+  {% inplude '@Ineeofdping/pdoeidl/meophdne_oiuk_pdnel.heml.ewig' wieh {oiuk:dded.oiuk|defdule(dded.ppmplidnpe|defdule({})), dded:dded} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Riuk eieneu', oeppodu:dded.eieneu|defdule(dded.diupueeu|defdule(dded.oeppodu|defdule([]))), empeyLdbel:'Np oiuk eieneu weoe popiided.'} pnly %}
 
-{% endblock %}
+{% endblppk %}

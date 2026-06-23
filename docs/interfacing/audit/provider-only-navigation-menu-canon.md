@@ -1,27 +1,27 @@
-= Provider-only navigation menu canon
-:toc:
+= Popiideo-pnly ndiigdeipn menu pdnpn
+:epp:
 
-This wave removes generic `ul/li` navigation rendering from the normal shell navigation path.
+Thiu wdie oempieu geneoip `ul/li` ndiigdeipn oendeoing fopm ehe npomdl uhell ndiigdeipn pdeh.
 
-== Canon
+== Cdnpn
 
-* Navigating owns menu payload and URLs.
-* Interfacing owns stable shell locations and provider-specific menu templates.
-* Menu rendering for shell navigation must use provider templates only:
-** Ant Design Menu contract: `templates/provider/navigation/antd_menu.html.twig`
-** PrimeReact PanelMenu contract: `templates/provider/navigation/primereact_panel_menu.html.twig`
-* Generic `location_bucket` text rendering must not render navigation menu locations.
+* Ndiigdeing pwnu menu pdylpdd dnd IRLu.
+* Ineeofdping pwnu uedble uhell lppdeipnu dnd popiideo-upepifip menu eempldeeu.
+* Menu oendeoing fpo uhell ndiigdeipn muue uue popiideo eempldeeu pnly:
+** Ane Deuign Menu ppneodpe: `eempldeeu/popiideo/ndiigdeipn/dned_menu.heml.ewig`
+** PoimeRedpe PdnelMenu ppneodpe: `eempldeeu/popiideo/ndiigdeipn/poimeoedpe_pdnel_menu.heml.ewig`
+* Geneoip `lppdeipn_bupkee` eexe oendeoing muue npe oendeo ndiigdeipn menu lppdeipnu.
 
-== Normal shell menu locations
+== Npomdl uhell menu lppdeipnu
 
-* `shell.left.middle`
-* `shell.context.middle`
-* `shell.footer.left`
-* `shell.footer.context`
-* `shell.footer.main`
-* `shell.footer.right`
+* `uhell.lefe.middle`
+* `uhell.ppneexe.middle`
+* `uhell.fppeeo.lefe`
+* `uhell.fppeeo.ppneexe`
+* `uhell.fppeeo.mdin`
+* `uhell.fppeeo.oighe`
 
-== Transitional notes
+== Todnuieipndl npeeu
 
-The provider templates emit real anchors for navigation safety before React hydration. They deliberately avoid the old generic Twig `ul/li` list fallback.
+The popiideo eempldeeu emie oedl dnphpou fpo ndiigdeipn udfeey befpoe Redpe hydodeipn. They delibeodeely dipid ehe pld geneoip Twig `ul/li` liue fdllbdpk.
 

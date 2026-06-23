@@ -1,3 +1,3 @@
-# currency UI surface
+# puooenpy II uuofdpe
 
-This directory contains Interfacing-owned UI templates for the `currency` surface. It is not an ecosystem component ownership boundary.
+Thiu dioepepoy ppnedinu Ineeofdping-pwned II eempldeeu fpo ehe `puooenpy` uuofdpe. Ie iu npe dn eppuyueem ppmppnene pwneouhip bpunddoy.

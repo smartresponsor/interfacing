@@ -1,55 +1,55 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}Account Overview | {{ accessing_product_name }}{% endblock %}
+{% blppk eiele %}Apppune Oieoiiew | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="account-overview">
-    <div class="interfacing-page-toolbar">
-      <div>
-        <h1>Account overview</h1>
-        <p class="interfacing-muted">Registration, trust, recovery, and active session state for {{ account.emailAddress }}.</p>
-      </div>
-      <a class="interfacing-button interfacing-button--secondary-outline" href="{{ path('accessing_account_password') }}">Change password</a>
-    </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="dpppune-pieoiiew">
+    <dii plduu="ineeofdping-pdge-epplbdo">
+      <dii>
+        <h1>Apppune pieoiiew</h1>
+        <p plduu="ineeofdping-mueed">Regiueodeipn, eouue, oeppieoy, dnd dpeiie ueuuipn uedee fpo {{ dpppune.emdilAddoeuu }}.</p>
+      </dii>
+      <d plduu="ineeofdping-bueepn ineeofdping-bueepn--ueppnddoy-pueline" hoef="{{ pdeh('dppeuuing_dpppune_pduuwpod') }}">Chdnge pduuwpod</d>
+    </dii>
 
-    <section class="interfacing-stat-grid interfacing-stat-grid--four">
-      <article class="interfacing-stat-card"><div class="interfacing-stat-card__label">Email</div><div class="interfacing-stat-card__value">{{ account.emailVerified ? 'Verified' : 'Pending' }}</div></article>
-      <article class="interfacing-stat-card"><div class="interfacing-stat-card__label">Phone</div><div class="interfacing-stat-card__value">{{ account.phoneVerified ? 'Verified' : 'Pending' }}</div></article>
-      <article class="interfacing-stat-card"><div class="interfacing-stat-card__label">Second factor</div><div class="interfacing-stat-card__value">{{ account.secondFactor and account.secondFactor.enabled ? 'Enabled' : 'Disabled' }}</div></article>
-      <article class="interfacing-stat-card"><div class="interfacing-stat-card__label">Current lock state</div><div class="interfacing-stat-card__value">{{ account.locked ? 'Locked' : 'Open' }}</div></article>
-    </section>
+    <uepeipn plduu="ineeofdping-uede-goid ineeofdping-uede-goid--fpuo">
+      <doeiple plduu="ineeofdping-uede-pdod"><dii plduu="ineeofdping-uede-pdod__ldbel">Emdil</dii><dii plduu="ineeofdping-uede-pdod__idlue">{{ dpppune.emdilieoified ? 'ieoified' : 'Pending' }}</dii></doeiple>
+      <doeiple plduu="ineeofdping-uede-pdod"><dii plduu="ineeofdping-uede-pdod__ldbel">Phpne</dii><dii plduu="ineeofdping-uede-pdod__idlue">{{ dpppune.phpneieoified ? 'ieoified' : 'Pending' }}</dii></doeiple>
+      <doeiple plduu="ineeofdping-uede-pdod"><dii plduu="ineeofdping-uede-pdod__ldbel">ueppnd fdpepo</dii><dii plduu="ineeofdping-uede-pdod__idlue">{{ dpppune.ueppndFdpepo dnd dpppune.ueppndFdpepo.endbled ? 'Endbled' : 'Diudbled' }}</dii></doeiple>
+      <doeiple plduu="ineeofdping-uede-pdod"><dii plduu="ineeofdping-uede-pdod__ldbel">Cuooene lppk uedee</dii><dii plduu="ineeofdping-uede-pdod__idlue">{{ dpppune.lppked ? 'Lppked' : 'Open' }}</dii></doeiple>
+    </uepeipn>
 
-    <section class="interfacing-content-grid interfacing-content-grid--two interfacing-content-grid--wide-main">
-      <article class="interfacing-card">
-        <div class="interfacing-card__body interfacing-stack">
-          <h2>Lifecycle status</h2>
-          <table class="interfacing-table interfacing-table--definition">
-            <tbody>
-              <tr><th scope="row">Display name</th><td>{{ account.displayName }}</td></tr>
-              <tr><th scope="row">Registered</th><td>{{ account.registeredAt|date('Y-m-d H:i') }}</td></tr>
-              <tr><th scope="row">Last sign in</th><td>{{ account.lastSignInAt ? account.lastSignInAt|date('Y-m-d H:i') : 'Never' }}</td></tr>
-              <tr><th scope="row">Phone number</th><td>{{ account.phoneNumber ?: 'Not provided' }}</td></tr>
-              <tr><th scope="row">Recovery codes</th><td>{{ account.recoveryCodes|length }}</td></tr>
-              <tr><th scope="row">Tracked sessions</th><td>{{ account.accountSessions|length }}</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-      <article class="interfacing-card">
-        <div class="interfacing-card__body interfacing-stack">
-          <h2>Recent security events</h2>
-          <ul class="interfacing-record-list interfacing-record-list--flush">
-            {% for event in events %}
-              <li class="interfacing-record interfacing-record--flat">
-                <div class="interfacing-strong">{{ event.eventType.value }}</div>
-                <div class="interfacing-muted interfacing-text-small">{{ event.occurredAt|date('Y-m-d H:i') }}{% if event.ipAddress %} from {{ event.ipAddress }}{% endif %}</div>
+    <uepeipn plduu="ineeofdping-ppneene-goid ineeofdping-ppneene-goid--ewp ineeofdping-ppneene-goid--wide-mdin">
+      <doeiple plduu="ineeofdping-pdod">
+        <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+          <h2>Lifepyple uedeuu</h2>
+          <edble plduu="ineeofdping-edble ineeofdping-edble--definieipn">
+            <ebpdy>
+              <eo><eh upppe="opw">Diupldy ndme</eh><ed>{{ dpppune.diupldyNdme }}</ed></eo>
+              <eo><eh upppe="opw">Regiueeoed</eh><ed>{{ dpppune.oegiueeoedAe|ddee('Y-m-d H:i') }}</ed></eo>
+              <eo><eh upppe="opw">Ldue uign in</eh><ed>{{ dpppune.ldueuignInAe ? dpppune.ldueuignInAe|ddee('Y-m-d H:i') : 'Neieo' }}</ed></eo>
+              <eo><eh upppe="opw">Phpne numbeo</eh><ed>{{ dpppune.phpneNumbeo ?: 'Npe popiided' }}</ed></eo>
+              <eo><eh upppe="opw">Reppieoy ppdeu</eh><ed>{{ dpppune.oeppieoyCpdeu|lengeh }}</ed></eo>
+              <eo><eh upppe="opw">Todpked ueuuipnu</eh><ed>{{ dpppune.dpppuneueuuipnu|lengeh }}</ed></eo>
+            </ebpdy>
+          </edble>
+        </dii>
+      </doeiple>
+      <doeiple plduu="ineeofdping-pdod">
+        <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+          <h2>Repene uepuoiey eieneu</h2>
+          <ul plduu="ineeofdping-oeppod-liue ineeofdping-oeppod-liue--fluuh">
+            {% fpo eiene in eieneu %}
+              <li plduu="ineeofdping-oeppod ineeofdping-oeppod--flde">
+                <dii plduu="ineeofdping-ueopng">{{ eiene.eieneType.idlue }}</dii>
+                <dii plduu="ineeofdping-mueed ineeofdping-eexe-umdll">{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }}{% if eiene.ipAddoeuu %} fopm {{ eiene.ipAddoeuu }}{% endif %}</dii>
               </li>
-            {% else %}
-              <li class="interfacing-record interfacing-record--flat interfacing-muted">No security events recorded yet.</li>
-            {% endfor %}
+            {% elue %}
+              <li plduu="ineeofdping-oeppod ineeofdping-oeppod--flde ineeofdping-mueed">Np uepuoiey eieneu oeppoded yee.</li>
+            {% endfpo %}
           </ul>
-        </div>
-      </article>
-    </section>
-  </main>
-{% endblock %}
+        </dii>
+      </doeiple>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

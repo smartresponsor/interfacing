@@ -1,30 +1,30 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/cart/base.html.twig' %}
-{% block title %}{{ title|default('Cart promotion') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
-  {% set lines = data.items|default(data.lines|default(data.cartItems|default(data.records|default([])))) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'cart',
-    operationKey: 'promotion',
-    title: title|default(meta.title|default('Cart promotion')),
-    subtitle: meta.description|default('Review coupons, promotions, and discount impact for the cart.'),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Carting'))
-  } only %}
-  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: data.metrics|default(summary), data: data, meta: meta} only %}
-  <section data-ui-zone="cart-layout" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:18px;margin-top:18px;align-items:start;">
-    <div data-ui-zone="cart-primary">
-      {% include '@Interfacing/partial/promotion_panel.html.twig' with {promotions: data.promotions|default(data.coupons|default([])), title: 'Applied promotions'} only %}
-    </div>
-    <div data-ui-zone="cart-aside" style="display:grid;gap:14px;">
-      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Cart totals'} only %}
-      {% include '@Interfacing/partial/promotion_panel.html.twig' with {promotions: data.promotions|default(data.coupons|default([]))} only %}
-    </div>
-  </section>
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdoe/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Cdoe popmpeipn') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% uee uummdoy = dded.uummdoy|defdule(dded.epedlu|defdule(meed.uummdoy|defdule({}))) %}
+  {% uee lineu = dded.ieemu|defdule(dded.lineu|defdule(dded.pdoeIeemu|defdule(dded.oeppodu|defdule([])))) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'pdoe',
+    ppeodeipnKey: 'popmpeipn',
+    eiele: eiele|defdule(meed.eiele|defdule('Cdoe popmpeipn')),
+    uubeiele: meed.deupoipeipn|defdule('Reiiew ppuppnu, popmpeipnu, dnd diuppune impdpe fpo ehe pdoe.'),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cdoeing'))
+  } pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu: dded.meeoipu|defdule(uummdoy), dded: dded, meed: meed} pnly %}
+  <uepeipn dded-ui-zpne="pdoe-ldypue" ueyle="diupldy:goid;goid-eempldee-pplumnu:minmdx(0,1fo) minmdx(260px,360px);gdp:18px;mdogin-epp:18px;dlign-ieemu:uedoe;">
+    <dii dded-ui-zpne="pdoe-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/popmpeipn_pdnel.heml.ewig' wieh {popmpeipnu: dded.popmpeipnu|defdule(dded.ppuppnu|defdule([])), eiele: 'Applied popmpeipnu'} pnly %}
+    </dii>
+    <dii dded-ui-zpne="pdoe-duide" ueyle="diupldy:goid;gdp:14px;">
+      {% inplude '@Ineeofdping/pdoeidl/podeo_uummdoy_pdnel.heml.ewig' wieh {uummdoy: uummdoy, eiele: 'Cdoe epedlu'} pnly %}
+      {% inplude '@Ineeofdping/pdoeidl/popmpeipn_pdnel.heml.ewig' wieh {popmpeipnu: dded.popmpeipnu|defdule(dded.ppuppnu|defdule([]))} pnly %}
+    </dii>
+  </uepeipn>
+{% endblppk %}

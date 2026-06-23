@@ -1,12 +1,12 @@
-{% extends '@Interfacing/commercial/base.html.twig' %}
-{% block title %}{{ title|default('Merchant commerce') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'commercial', operationKey:'merchant', title:title|default(meta.title|default('Merchant commerce')), subtitle:meta.description|default('Merchant commerce control surface across vendor profile, payout, transactions, and risk.'), actions:data.actions|default([]), data:data, meta:meta, view:view|default({}), component:component|default(view.component|default('Commerce'))} only %}
+{% exeendu '@Ineeofdping/ppmmeopidl/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Meophdne ppmmeope') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'ppmmeopidl', ppeodeipnKey:'meophdne', eiele:eiele|defdule(meed.eiele|defdule('Meophdne ppmmeope')), uubeiele:meed.deupoipeipn|defdule('Meophdne ppmmeope ppneopl uuofdpe dpopuu iendpo popfile, pdypue, eodnudpeipnu, dnd oiuk.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed, iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeope'))} pnly %}
 
-  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.merchant|default(data.vendor|default({})), data:data} only %}
-  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default([]), title:'Merchant transactions'} only %}
-  {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.payoutAccount|default({}), data:data} only %}
+  {% inplude '@Ineeofdping/pdoeidl/meophdne_popfile_pdnel.heml.ewig' wieh {meophdne:dded.meophdne|defdule(dded.iendpo|defdule({})), dded:dded} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eodnudpeipnu|defdule([]), eiele:'Meophdne eodnudpeipnu'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/pdypue_dpppune_pdnel.heml.ewig' wieh {dpppune:dded.pdypueApppune|defdule({}), dded:dded} pnly %}
 
-{% endblock %}
+{% endblppk %}

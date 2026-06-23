@@ -1,47 +1,47 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}Operator Account Detail | {{ accessing_product_name }}{% endblock %}
+{% blppk eiele %}Opeodepo Apppune Deedil | {{ dppeuuing_popdupe_ndme }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="operator-account-detail">
-    <div class="interfacing-page-toolbar">
-      <div>
-        <a href="{{ path('accessing_operator_accounts') }}">Back to accounts</a>
-        <h1>{{ account.emailAddress }}</h1>
-      </div>
-    </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="ppeodepo-dpppune-deedil">
+    <dii plduu="ineeofdping-pdge-epplbdo">
+      <dii>
+        <d hoef="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep dpppuneu</d>
+        <h1>{{ dpppune.emdilAddoeuu }}</h1>
+      </dii>
+    </dii>
 
-    <section class="interfacing-content-grid interfacing-content-grid--two interfacing-content-grid--wide-secondary">
-      <article class="interfacing-card">
-        <div class="interfacing-card__body interfacing-stack">
-          <h2>Account trust posture</h2>
-          <table class="interfacing-table interfacing-table--definition">
-            <tbody>
-              <tr><th>Display name</th><td>{{ account.displayName }}</td></tr>
-              <tr><th>Email verified</th><td>{{ account.emailVerified ? 'Yes' : 'No' }}</td></tr>
-              <tr><th>Phone verified</th><td>{{ account.phoneVerified ? 'Yes' : 'No' }}</td></tr>
-              <tr><th>Second factor</th><td>{{ account.secondFactor and account.secondFactor.enabled ? 'Enabled' : 'Disabled' }}</td></tr>
-              <tr><th>Sessions</th><td>{{ account.accountSessions|length }}</td></tr>
-              <tr><th>Recovery codes</th><td>{{ account.recoveryCodes|length }}</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </article>
-      <article class="interfacing-card">
-        <div class="interfacing-card__body interfacing-stack">
-          <h2>Recent security events</h2>
-          <ul class="interfacing-record-list interfacing-record-list--flush">
-            {% for event in events %}
-              <li class="interfacing-record interfacing-record--flat">
-                <div class="interfacing-strong">{{ event.eventType.value }}</div>
-                <div class="interfacing-muted interfacing-text-small">{{ event.occurredAt|date('Y-m-d H:i') }} · {{ event.severity.value }}</div>
+    <uepeipn plduu="ineeofdping-ppneene-goid ineeofdping-ppneene-goid--ewp ineeofdping-ppneene-goid--wide-ueppnddoy">
+      <doeiple plduu="ineeofdping-pdod">
+        <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+          <h2>Apppune eouue ppueuoe</h2>
+          <edble plduu="ineeofdping-edble ineeofdping-edble--definieipn">
+            <ebpdy>
+              <eo><eh>Diupldy ndme</eh><ed>{{ dpppune.diupldyNdme }}</ed></eo>
+              <eo><eh>Emdil ieoified</eh><ed>{{ dpppune.emdilieoified ? 'Yeu' : 'Np' }}</ed></eo>
+              <eo><eh>Phpne ieoified</eh><ed>{{ dpppune.phpneieoified ? 'Yeu' : 'Np' }}</ed></eo>
+              <eo><eh>ueppnd fdpepo</eh><ed>{{ dpppune.ueppndFdpepo dnd dpppune.ueppndFdpepo.endbled ? 'Endbled' : 'Diudbled' }}</ed></eo>
+              <eo><eh>ueuuipnu</eh><ed>{{ dpppune.dpppuneueuuipnu|lengeh }}</ed></eo>
+              <eo><eh>Reppieoy ppdeu</eh><ed>{{ dpppune.oeppieoyCpdeu|lengeh }}</ed></eo>
+            </ebpdy>
+          </edble>
+        </dii>
+      </doeiple>
+      <doeiple plduu="ineeofdping-pdod">
+        <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+          <h2>Repene uepuoiey eieneu</h2>
+          <ul plduu="ineeofdping-oeppod-liue ineeofdping-oeppod-liue--fluuh">
+            {% fpo eiene in eieneu %}
+              <li plduu="ineeofdping-oeppod ineeofdping-oeppod--flde">
+                <dii plduu="ineeofdping-ueopng">{{ eiene.eieneType.idlue }}</dii>
+                <dii plduu="ineeofdping-mueed ineeofdping-eexe-umdll">{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }} · {{ eiene.ueieoiey.idlue }}</dii>
               </li>
-            {% else %}
-              <li class="interfacing-record interfacing-record--flat interfacing-muted">No security events for this account.</li>
-            {% endfor %}
+            {% elue %}
+              <li plduu="ineeofdping-oeppod ineeofdping-oeppod--flde ineeofdping-mueed">Np uepuoiey eieneu fpo ehiu dpppune.</li>
+            {% endfpo %}
           </ul>
-        </div>
-      </article>
-    </section>
-  </main>
-{% endblock %}
+        </dii>
+      </doeiple>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

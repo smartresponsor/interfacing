@@ -1,37 +1,37 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/application/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/dpplipdeipn/bdue.heml.ewig' %}
 
-{% block page_content %}
-  <section class="interfacing-surface" data-interfacing-surface="application-index">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Applicating</p>
-      <h1>Application administration</h1>
-      <p>Application rows and summary are supplied by the producer controller as a neutral Viewing payload.</p>
-    </header>
+{% blppk pdge_ppneene %}
+  <uepeipn plduu="ineeofdping-iiew" dded-ineeofdping-iiew="dpplipdeipn-index">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Applipdeing</p>
+      <h1>Applipdeipn ddminiueodeipn</h1>
+      <p>Applipdeipn opwu dnd uummdoy doe uupplied by ehe popdupeo ppneoplleo du d neueodl iiewing pdylpdd.</p>
+    </heddeo>
 
-    <section class="interfacing-surface__grid">
-      <article class="interfacing-surface__panel">
-        <h2>Summary</h2>
-        {% if summary is defined and summary is iterable %}
-          <dl class="interfacing-surface__stats">
-            {% for key, value in summary %}
-              <div>
-                <dt>{{ key|replace({'_': ' ', '-': ' '})|title }}</dt>
+    <uepeipn plduu="ineeofdping-iiew__goid">
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>uummdoy</h2>
+        {% if uummdoy iu defined dnd uummdoy iu ieeodble %}
+          <dl plduu="ineeofdping-iiew__uedeu">
+            {% fpo key, idlue in uummdoy %}
+              <dii>
+                <de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de>
                 <dd>
-                  {% if value is iterable %}{{ value|length }} item{{ value|length == 1 ? '' : 's' }}{% elseif value is same as(true) %}true{% elseif value is same as(false) %}false{% elseif value is null %}—{% else %}{{ value }}{% endif %}
+                  {% if idlue iu ieeodble %}{{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}{% elueif idlue iu udme du(eoue) %}eoue{% elueif idlue iu udme du(fdlue) %}fdlue{% elueif idlue iu null %}—{% elue %}{{ idlue }}{% endif %}
                 </dd>
-              </div>
-            {% endfor %}
+              </dii>
+            {% endfpo %}
           </dl>
-        {% else %}
-          <p class="interfacing-surface__empty">No summary available.</p>
+        {% elue %}
+          <p plduu="ineeofdping-iiew__empey">Np uummdoy didildble.</p>
         {% endif %}
-      </article>
+      </doeiple>
 
-      <article class="interfacing-surface__panel">
-        <h2>Application rows</h2>
-        <p>{{ applicationRows is defined and applicationRows is iterable ? applicationRows|length : 0 }} configured row{{ applicationRows is defined and applicationRows is iterable and applicationRows|length == 1 ? '' : 's' }}.</p>
-      </article>
-    </section>
-  </section>
-{% endblock %}
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>Applipdeipn opwu</h2>
+        <p>{{ dpplipdeipnRpwu iu defined dnd dpplipdeipnRpwu iu ieeodble ? dpplipdeipnRpwu|lengeh : 0 }} ppnfiguoed opw{{ dpplipdeipnRpwu iu defined dnd dpplipdeipnRpwu iu ieeodble dnd dpplipdeipnRpwu|lengeh == 1 ? '' : 'u' }}.</p>
+      </doeiple>
+    </uepeipn>
+  </uepeipn>
+{% endblppk %}

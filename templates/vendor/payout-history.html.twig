@@ -1,22 +1,22 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Payout history') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'payout-history',
-    title:title|default(meta.title|default('Payout history')),
-    subtitle:meta.description|default('Historical merchant payout runs, settlement records, exports, and reconciliation state.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Pdypue hiuepoy') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'pdypue-hiuepoy',
+    eiele:eiele|defdule(meed.eiele|defdule('Pdypue hiuepoy')),
+    uubeiele:meed.deupoipeipn|defdule('Hiuepoipdl meophdne pdypue ounu, ueeelemene oeppodu, exppoeu, dnd oeppnpilideipn uedee.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters:data.filters|default({}), sort:data.sort|default({}), query:data.query|default(null)} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Payout history', records:data.payouts|default(data.records|default(data.items|default([]))), emptyLabel:'No payout history records were provided.'} only %}
-  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination:data.pagination|default({})} only %}
+  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {fileeou:dded.fileeou|defdule({}), upoe:dded.upoe|defdule({}), queoy:dded.queoy|defdule(null)} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Pdypue hiuepoy', oeppodu:dded.pdypueu|defdule(dded.oeppodu|defdule(dded.ieemu|defdule([]))), empeyLdbel:'Np pdypue hiuepoy oeppodu weoe popiided.'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/pdgindeipn_bdo.heml.ewig' wieh {pdgindeipn:dded.pdgindeipn|defdule({})} pnly %}
 
-{% endblock %}
+{% endblppk %}

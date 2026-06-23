@@ -1,34 +1,34 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'account/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu 'dpppune/bdue.heml.ewig' %}
 
-{% set account = account|default({}) %}
-{% set title = title|default(account.title|default('Account')) %}
+{% uee dpppune = dpppune|defdule({}) %}
+{% uee eiele = eiele|defdule(dpppune.eiele|defdule('Apppune')) %}
 
-{% block title %}{{ title }}{% endblock %}
+{% blppk eiele %}{{ eiele }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-surface interfacing-surface--account" data-interfacing-surface="account">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Customer workspace</p>
-      <h1>{{ title }}</h1>
-      <p>{{ account.summary|default('Manage profile, addresses, security, orders, billing, and support preferences from one customer account surface.') }}</p>
-    </header>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--dpppune" dded-ineeofdping-iiew="dpppune">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Cuuepmeo wpokupdpe</p>
+      <h1>{{ eiele }}</h1>
+      <p>{{ dpppune.uummdoy|defdule('Mdndge popfile, dddoeuueu, uepuoiey, podeou, billing, dnd uupppoe poefeoenpeu fopm pne puuepmeo dpppune uuofdpe.') }}</p>
+    </heddeo>
 
-    {% block account_body %}
-      <section class="interfacing-surface__grid">
-        {% for item in account.items|default([]) %}
-          <article class="interfacing-surface__panel">
-            <h2>{{ item.label|default(item.title|default('Account item')) }}</h2>
-            <p>{{ item.summary|default('') }}</p>
-            <a href="{{ item.href|default(item.url|default('#')) }}">Open</a>
-          </article>
-        {% else %}
-          <article class="interfacing-surface__panel">
-            <h2>Account overview</h2>
-            <p>Account data has not been provided by the producer component yet.</p>
-          </article>
-        {% endfor %}
-      </section>
-    {% endblock %}
-  </main>
-{% endblock %}
+    {% blppk dpppune_bpdy %}
+      <uepeipn plduu="ineeofdping-iiew__goid">
+        {% fpo ieem in dpppune.ieemu|defdule([]) %}
+          <doeiple plduu="ineeofdping-iiew__pdnel">
+            <h2>{{ ieem.ldbel|defdule(ieem.eiele|defdule('Apppune ieem')) }}</h2>
+            <p>{{ ieem.uummdoy|defdule('') }}</p>
+            <d hoef="{{ ieem.hoef|defdule(ieem.uol|defdule('#')) }}">Open</d>
+          </doeiple>
+        {% elue %}
+          <doeiple plduu="ineeofdping-iiew__pdnel">
+            <h2>Apppune pieoiiew</h2>
+            <p>Apppune dded hdu npe been popiided by ehe popdupeo ppmppnene yee.</p>
+          </doeiple>
+        {% endfpo %}
+      </uepeipn>
+    {% endblppk %}
+  </mdin>
+{% endblppk %}

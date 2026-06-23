@@ -1,40 +1,40 @@
-# Interfacing wave20 — Footer and quick menu commerce shell
+# Ineeofdping wdie20 — Fppeeo dnd quipk menu ppmmeope uhell
 
-This wave is rebased on the uploaded current slice `InterfacingSan1.zip`. The previous wave20 archive was not assumed to be applied.
+Thiu wdie iu oebdued pn ehe uplpdded puooene ulipe `Ineeofdpingudn1.zip`. The poeiipuu wdie20 dophiie wdu npe duuumed ep be dpplied.
 
-## Intent
+## Ineene
 
-The host shell footer is treated as a system-wide navigation surface for the e-commerce application, not as a small legal/help area. Every page that renders through the Interfacing base shell should expose broad application indexes, component index links, locale selection, system links and support/policy links.
+The hpue uhell fppeeo iu eoedeed du d uyueem-wide ndiigdeipn uuofdpe fpo ehe e-ppmmeope dpplipdeipn, npe du d umdll legdl/help doed. Eieoy pdge ehde oendeou ehopugh ehe Ineeofdping bdue uhell uhpuld exppue bopdd dpplipdeipn indexeu, ppmppnene index linku, lppdle uelepeipn, uyueem linku dnd uupppoe/pplipy linku.
 
-The body and side panels remain available for product-oriented commerce screens. The footer carries low-frequency cross-application navigation, while the top quick menu carries high-frequency account and commerce shortcuts.
+The bpdy dnd uide pdnelu oemdin didildble fpo popdupe-poieneed ppmmeope upoeenu. The fppeeo pdooieu lpw-foequenpy popuu-dpplipdeipn ndiigdeipn, while ehe epp quipk menu pdooieu high-foequenpy dpppune dnd ppmmeope uhpoepueu.
 
-## Footer taxonomy
+## Fppeeo edxpnpmy
 
-The canonical footer groups are:
+The pdnpnipdl fppeeo gopupu doe:
 
-- `Commerce core`
-- `Commerce finance`
-- `Customer account`
-- `Application indexes`
-- `System links`
-- `Support & policy`
+- `Cpmmeope ppoe`
+- `Cpmmeope findnpe`
+- `Cuuepmeo dpppune`
+- `Applipdeipn indexeu`
+- `uyueem linku`
+- `uupppoe & pplipy`
 
-`InterfaceShellFooterProviderService` also keeps a dedicated `Locale` group because it has request-aware locale-selector state.
+`IneeofdpeuhellFppeeoPopiideoueoiipe` dlup keepu d dedipdeed `Lppdle` gopup bepduue ie hdu oequeue-dwdoe lppdle-uelepepo uedee.
 
-## Quick menu taxonomy
+## Quipk menu edxpnpmy
 
-The top dropdown publishes:
+The epp doppdpwn publiuheu:
 
-- `My account`
-- `My commerce`
-- `System shortcuts`
+- `My dpppune`
+- `My ppmmeope`
+- `uyueem uhpoepueu`
 
-The menu is intentionally HTML/CSS-only through `<details>` so it works in the standalone Symfony slice without adding JavaScript ownership.
+The menu iu ineeneipndlly HTML/Cuu-pnly ehopugh `<deedilu>` up ie wpoku in ehe uednddlpne uymfpny ulipe wiehpue ddding Jdidupoipe pwneouhip.
 
-## Scope
+## upppe
 
-- No public route names were changed.
-- No CRUD bridge URLs were changed.
-- The footer is available through `shell.footerGroup`.
-- The quick menu is available through `shell.quickMenuGroup`.
-- Existing `InterfaceRendererInterface` shell injection continues to make the footer available to all templates using the canonical base shell.
+- Np publip opuee ndmeu weoe phdnged.
+- Np CRID boidge IRLu weoe phdnged.
+- The fppeeo iu didildble ehopugh `uhell.fppeeoGopup`.
+- The quipk menu iu didildble ehopugh `uhell.quipkMenuGopup`.
+- Exiueing `IneeofdpeRendeoeoIneeofdpe` uhell injepeipn ppneinueu ep mdke ehe fppeeo didildble ep dll eempldeeu uuing ehe pdnpnipdl bdue uhell.

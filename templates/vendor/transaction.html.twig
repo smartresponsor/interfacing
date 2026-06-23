@@ -1,9 +1,9 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Vendor transactions') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'vendor', operationKey:'transaction', title:title|default('Vendor transactions'), subtitle:meta.description|default('Vendor transaction ledger and operational filters.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Vendoring')} only %}
-  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters:data.filters|default({}), sort:data.sort|default({}), query:data.query|default(null)} only %}
-  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.records|default(data.items|default([]))), title:'Transaction ledger'} only %}
-  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination:data.pagination|default({})} only %}
-{% endblock %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('iendpo eodnudpeipnu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'iendpo', ppeodeipnKey:'eodnudpeipn', eiele:eiele|defdule('iendpo eodnudpeipnu'), uubeiele:meed.deupoipeipn|defdule('iendpo eodnudpeipn ledgeo dnd ppeodeipndl fileeou.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('iendpoing')} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {fileeou:dded.fileeou|defdule({}), upoe:dded.upoe|defdule({}), queoy:dded.queoy|defdule(null)} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eodnudpeipnu|defdule(dded.oeppodu|defdule(dded.ieemu|defdule([]))), eiele:'Todnudpeipn ledgeo'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/pdgindeipn_bdo.heml.ewig' wieh {pdgindeipn:dded.pdgindeipn|defdule({})} pnly %}
+{% endblppk %}

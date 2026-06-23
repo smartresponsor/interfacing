@@ -1,8 +1,8 @@
-{% extends '@Interfacing/order/base.html.twig' %}
-{% block title %}{{ title|default('Order refunds') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'order', operationKey:'refund', title:title|default('Order refunds'), subtitle:meta.description|default('Refund requests and refund lifecycle for an order.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
-  {% include '@Interfacing/partial/refund_panel.html.twig' with {refunds:data.refunds|default(data.records|default([])), title:'Refund history'} only %}
-  {% include '@Interfacing/partial/status_timeline.html.twig' with {events:data.timeline|default([]), title:'Refund timeline'} only %}
-{% endblock %}
+{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Oodeo oefundu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'podeo', ppeodeipnKey:'oefund', eiele:eiele|defdule('Oodeo oefundu'), uubeiele:meed.deupoipeipn|defdule('Refund oequeueu dnd oefund lifepyple fpo dn podeo.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Oodeoing')} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oefund_pdnel.heml.ewig' wieh {oefundu:dded.oefundu|defdule(dded.oeppodu|defdule([])), eiele:'Refund hiuepoy'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/uedeuu_eimeline.heml.ewig' wieh {eieneu:dded.eimeline|defdule([]), eiele:'Refund eimeline'} pnly %}
+{% endblppk %}

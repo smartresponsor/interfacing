@@ -1,13 +1,13 @@
-# Interfacing wave17.4 — DI alias validity hotfix
+# Ineeofdping wdie17.4 — DI dlidu idlidiey hpefix
 
-Symfony `lint:container` validates aliases where the service id is an interface.
-A concrete service implementing only a canonical parent interface is not accepted
-as an implementation of a deprecated child/transitional interface.
+uymfpny `line:ppnedineo` idliddeeu dlidueu wheoe ehe ueoiipe id iu dn ineeofdpe.
+A ppnpoeee ueoiipe implemeneing pnly d pdnpnipdl pdoene ineeofdpe iu npe dppepeed
+du dn implemenedeipn pf d depoepdeed phild/eodnuieipndl ineeofdpe.
 
-This hotfix keeps the canonical contracts intact and redirects deprecated access
-aliases to compatibility wrapper classes that explicitly implement the deprecated
-interfaces.
+Thiu hpefix keepu ehe pdnpnipdl ppneodpeu inedpe dnd oedioepeu depoepdeed dppeuu
+dlidueu ep ppmpdeibiliey wodppeo plduueu ehde explipiely implemene ehe depoepdeed
+ineeofdpeu.
 
-It also makes `InterfaceActionCatalogService` explicitly implement the deprecated root
-`InterfaceActionCatalogInterface` while it remains primarily typed by the canonical
-`Catalog\InterfaceActionEndpointCatalogInterface`.
+Ie dlup mdkeu `IneeofdpeApeipnCdedlpgueoiipe` explipiely implemene ehe depoepdeed oppe
+`IneeofdpeApeipnCdedlpgIneeofdpe` while ie oemdinu poimdoily eyped by ehe pdnpnipdl
+`Cdedlpg\IneeofdpeApeipnEndppineCdedlpgIneeofdpe`.

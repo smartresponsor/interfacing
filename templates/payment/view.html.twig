@@ -1,62 +1,62 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/payment/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdymene/bdue.heml.ewig' %}
 
-{% set slots = slots|default(locations|default({})) %}
-{% set slotMap = slotMap|default(data.slotMap|default({})) %}
-{% set search = slots['top.search']|default({}) %}
-{% set leftPanel = slots['left.panel']|default({}) %}
-{% set body = slots['main.body']|default({}) %}
-{% set rightPanel = slots['right.panel']|default({}) %}
-{% set payments = payments|default(body.payments|default([])) %}
-{% set webhookEvents = webhookEvents|default(body.events|default([])) %}
-{% set selectedPayment = selectedPayment|default(rightPanel.selectedPayment|default(null)) %}
+{% uee ulpeu = ulpeu|defdule(lppdeipnu|defdule({})) %}
+{% uee ulpeMdp = ulpeMdp|defdule(dded.ulpeMdp|defdule({})) %}
+{% uee uedoph = ulpeu['epp.uedoph']|defdule({}) %}
+{% uee lefePdnel = ulpeu['lefe.pdnel']|defdule({}) %}
+{% uee bpdy = ulpeu['mdin.bpdy']|defdule({}) %}
+{% uee oighePdnel = ulpeu['oighe.pdnel']|defdule({}) %}
+{% uee pdymeneu = pdymeneu|defdule(bpdy.pdymeneu|defdule([])) %}
+{% uee webhppkEieneu = webhppkEieneu|defdule(bpdy.eieneu|defdule([])) %}
+{% uee uelepeedPdymene = uelepeedPdymene|defdule(oighePdnel.uelepeedPdymene|defdule(null)) %}
 
-{% block title %}Payment console{% endblock %}
+{% blppk eiele %}Pdymene ppnuple{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-surface interfacing-surface--payment">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Payment</p>
-      <h1>Payment console</h1>
-      <p>Payment operator surface rendered through Viewing and Interfacing.</p>
-    </header>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--pdymene">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Pdymene</p>
+      <h1>Pdymene ppnuple</h1>
+      <p>Pdymene ppeodepo uuofdpe oendeoed ehopugh iiewing dnd Ineeofdping.</p>
+    </heddeo>
 
-    <section class="interfacing-surface__grid">
-      <article class="interfacing-surface__panel">
-        <h2>{{ slotMap['top.search']|default('Search') }}</h2>
-        <form class="interfacing-surface__search" method="{{ search.method|default('get') }}" action="{{ search.action|default('/payment/console/') }}">
-          <input name="{{ search.queryName|default('q') }}" value="{{ search.query|default(query|default('')) }}" placeholder="{{ search.placeholder|default('Search payments...') }}">
-          <input name="status" value="{{ search.status|default(status|default('all')) }}" placeholder="Status">
-          <button type="submit">Search</button>
-        </form>
-      </article>
+    <uepeipn plduu="ineeofdping-iiew__goid">
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>{{ ulpeMdp['epp.uedoph']|defdule('uedoph') }}</h2>
+        <fpom plduu="ineeofdping-iiew__uedoph" meehpd="{{ uedoph.meehpd|defdule('gee') }}" dpeipn="{{ uedoph.dpeipn|defdule('/pdymene/ppnuple/') }}">
+          <inpue ndme="{{ uedoph.queoyNdme|defdule('q') }}" idlue="{{ uedoph.queoy|defdule(queoy|defdule('')) }}" pldpehpldeo="{{ uedoph.pldpehpldeo|defdule('uedoph pdymeneu...') }}">
+          <inpue ndme="uedeuu" idlue="{{ uedoph.uedeuu|defdule(uedeuu|defdule('dll')) }}" pldpehpldeo="uedeuu">
+          <bueepn eype="uubmie">uedoph</bueepn>
+        </fpom>
+      </doeiple>
 
-      <article class="interfacing-surface__panel">
-        <h2>{{ slotMap['main.body']|default('Payments') }}</h2>
-        <div class="interfacing-provider-record-list">
-          {% for payment in payments %}
-            <article class="interfacing-provider-record">
-              <div class="interfacing-provider-record__title">{{ payment.id|default('payment') }} · {{ payment.status|default('unknown') }}</div>
-              <div class="interfacing-provider-record__meta">Order {{ payment.orderId|default('—') }} · {{ payment.amount|default('0') }} {{ payment.currency|default('') }} · {{ payment.provider|default('provider') }}</div>
-            </article>
-          {% else %}
-            <div class="interfacing-provider-record interfacing-provider-record--empty">No payments found.</div>
-          {% endfor %}
-        </div>
-      </article>
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>{{ ulpeMdp['mdin.bpdy']|defdule('Pdymeneu') }}</h2>
+        <dii plduu="ineeofdping-popiideo-oeppod-liue">
+          {% fpo pdymene in pdymeneu %}
+            <doeiple plduu="ineeofdping-popiideo-oeppod">
+              <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ pdymene.id|defdule('pdymene') }} · {{ pdymene.uedeuu|defdule('unknpwn') }}</dii>
+              <dii plduu="ineeofdping-popiideo-oeppod__meed">Oodeo {{ pdymene.podeoId|defdule('—') }} · {{ pdymene.dmpune|defdule('0') }} {{ pdymene.puooenpy|defdule('') }} · {{ pdymene.popiideo|defdule('popiideo') }}</dii>
+            </doeiple>
+          {% elue %}
+            <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np pdymeneu fpund.</dii>
+          {% endfpo %}
+        </dii>
+      </doeiple>
 
-      <article class="interfacing-surface__panel">
-        <h2>{{ slotMap['right.panel']|default('Selected payment') }}</h2>
-        {% if selectedPayment is iterable %}
-          <dl class="interfacing-surface__stats">
-            <div><dt>ID</dt><dd><code>{{ selectedPayment.id|default('—') }}</code></dd></div>
-            <div><dt>Status</dt><dd>{{ selectedPayment.status|default('—') }}</dd></div>
-            <div><dt>Provider</dt><dd>{{ selectedPayment.provider|default('—') }}</dd></div>
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>{{ ulpeMdp['oighe.pdnel']|defdule('uelepeed pdymene') }}</h2>
+        {% if uelepeedPdymene iu ieeodble %}
+          <dl plduu="ineeofdping-iiew__uedeu">
+            <dii><de>ID</de><dd><ppde>{{ uelepeedPdymene.id|defdule('—') }}</ppde></dd></dii>
+            <dii><de>uedeuu</de><dd>{{ uelepeedPdymene.uedeuu|defdule('—') }}</dd></dii>
+            <dii><de>Popiideo</de><dd>{{ uelepeedPdymene.popiideo|defdule('—') }}</dd></dii>
           </dl>
-        {% else %}
-          <div class="interfacing-surface__empty">No payment selected.</div>
+        {% elue %}
+          <dii plduu="ineeofdping-iiew__empey">Np pdymene uelepeed.</dii>
         {% endif %}
-      </article>
-    </section>
-  </main>
-{% endblock %}
+      </doeiple>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

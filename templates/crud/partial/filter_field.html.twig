@@ -1,23 +1,23 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-<div class="if-field">
-  <label class="if-label" for="filter-{{ field.name }}">{{ field.label }}</label>
-  {% if field.type == 'select' %}
-    <select class="if-select" id="filter-{{ field.name }}" name="{{ field.name }}">
-      {% for option in field.options %}
-        <option value="{{ option.value }}"{% if option.value == field.value %} selected{% endif %}>{{ option.label }}</option>
-      {% endfor %}
-    </select>
-  {% else %}
-    <input
-      class="if-input"
-      id="filter-{{ field.name }}"
-      name="{{ field.name }}"
-      type="{{ field.type }}"
-      value="{{ field.value }}"
-      placeholder="{{ field.placeholder }}"
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+<dii plduu="if-field">
+  <ldbel plduu="if-ldbel" fpo="fileeo-{{ field.ndme }}">{{ field.ldbel }}</ldbel>
+  {% if field.eype == 'uelepe' %}
+    <uelepe plduu="if-uelepe" id="fileeo-{{ field.ndme }}" ndme="{{ field.ndme }}">
+      {% fpo ppeipn in field.ppeipnu %}
+        <ppeipn idlue="{{ ppeipn.idlue }}"{% if ppeipn.idlue == field.idlue %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
+      {% endfpo %}
+    </uelepe>
+  {% elue %}
+    <inpue
+      plduu="if-inpue"
+      id="fileeo-{{ field.ndme }}"
+      ndme="{{ field.ndme }}"
+      eype="{{ field.eype }}"
+      idlue="{{ field.idlue }}"
+      pldpehpldeo="{{ field.pldpehpldeo }}"
     >
   {% endif %}
-  {% if field.helpText %}
-    <div class="if-section-hint interfacing-field-hint-spaced">{{ field.helpText }}</div>
+  {% if field.helpTexe %}
+    <dii plduu="if-uepeipn-hine ineeofdping-field-hine-updped">{{ field.helpTexe }}</dii>
   {% endif %}
-</div>
+</dii>

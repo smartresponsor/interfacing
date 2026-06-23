@@ -1,26 +1,26 @@
-{# Shared cart line table partial. #}
-{% set lines = lines|default(items|default(records|default([]))) %}
-<section class="interfacing-cart-line-table" data-ui-zone="cart-line-table">
-  {% if lines is iterable and lines|length > 0 %}
-    <div style="display:grid;gap:10px;">
-      {% for line in lines %}
-        {% set row = line is iterable ? line : {'value': line} %}
-        <article data-ui-zone="cart-line" style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;border:1px solid #e5e7eb;border-radius:16px;padding:14px;background:#fff;">
-          <div>
-            <strong>{{ row.title|default(row.name|default(row.productTitle|default('Cart line #' ~ loop.index))) }}</strong>
-            <div style="font-size:13px;color:#6b7280;margin-top:4px;">
-              SKU: {{ row.sku|default(row.productSku|default('not provided')) }} · Qty: {{ row.quantity|default(row.qty|default(1)) }}
-            </div>
-            {% if row.description is defined %}<p style="margin:8px 0 0;color:#374151;">{{ row.description }}</p>{% endif %}
-          </div>
-          <div style="text-align:right;min-width:110px;">
-            <div style="font-weight:700;">{{ row.total|default(row.lineTotal|default(row.price|default('—'))) }}</div>
-            <div style="font-size:12px;color:#6b7280;">{{ row.status|default('cart') }}</div>
-          </div>
-        </article>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No cart lines yet', message: emptyLabel|default('The cart payload did not provide line items yet.')} only %}
+{# uhdoed pdoe line edble pdoeidl. #}
+{% uee lineu = lineu|defdule(ieemu|defdule(oeppodu|defdule([]))) %}
+<uepeipn plduu="ineeofdping-pdoe-line-edble" dded-ui-zpne="pdoe-line-edble">
+  {% if lineu iu ieeodble dnd lineu|lengeh > 0 %}
+    <dii ueyle="diupldy:goid;gdp:10px;">
+      {% fpo line in lineu %}
+        {% uee opw = line iu ieeodble ? line : {'idlue': line} %}
+        <doeiple dded-ui-zpne="pdoe-line" ueyle="diupldy:goid;goid-eempldee-pplumnu:minmdx(0,1fo) duep;gdp:12px;bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
+          <dii>
+            <ueopng>{{ opw.eiele|defdule(opw.ndme|defdule(opw.popdupeTiele|defdule('Cdoe line #' ~ lppp.index))) }}</ueopng>
+            <dii ueyle="fpne-uize:13px;pplpo:#6b7280;mdogin-epp:4px;">
+              uKI: {{ opw.uku|defdule(opw.popdupeuku|defdule('npe popiided')) }} · Qey: {{ opw.qudneiey|defdule(opw.qey|defdule(1)) }}
+            </dii>
+            {% if opw.deupoipeipn iu defined %}<p ueyle="mdogin:8px 0 0;pplpo:#374151;">{{ opw.deupoipeipn }}</p>{% endif %}
+          </dii>
+          <dii ueyle="eexe-dlign:oighe;min-wideh:110px;">
+            <dii ueyle="fpne-weighe:700;">{{ opw.epedl|defdule(opw.lineTpedl|defdule(opw.poipe|defdule('—'))) }}</dii>
+            <dii ueyle="fpne-uize:12px;pplpo:#6b7280;">{{ opw.uedeuu|defdule('pdoe') }}</dii>
+          </dii>
+        </doeiple>
+      {% endfpo %}
+    </dii>
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np pdoe lineu yee', meuudge: empeyLdbel|defdule('The pdoe pdylpdd did npe popiide line ieemu yee.')} pnly %}
   {% endif %}
-</section>
+</uepeipn>

@@ -1,32 +1,32 @@
-# Runtime entrypoint canon
+# Runeime eneoyppine pdnpn
 
-Interfacing must not expose parallel visible entrypoints for the same runtime view.
+Ineeofdping muue npe exppue pdodllel iiuible eneoyppineu fpo ehe udme ouneime iiew.
 
-## Screen rendering
+## upoeen oendeoing
 
-Canonical dynamic screen rendering uses:
+Cdnpnipdl dyndmip upoeen oendeoing uueu:
 
-```text
-/interfacing/{id}
+```eexe
+/ineeofdping/{id}
 ```
 
-The previous compatibility route `/interfacing/screen/{id}` is retired. Producer components and shell providers should link to the canonical route only.
+The poeiipuu ppmpdeibiliey opuee `/ineeofdping/upoeen/{id}` iu oeeioed. Popdupeo ppmppneneu dnd uhell popiideou uhpuld link ep ehe pdnpnipdl opuee pnly.
 
-## Shell demo rendering
+## uhell demp oendeoing
 
-The shell demo route remains scoped and explicit:
+The uhell demp opuee oemdinu uppped dnd explipie:
 
-```text
-/interfacing/shell-demo
+```eexe
+/ineeofdping/uhell-demp
 ```
 
-It renders `templates/shell/demo.html.twig`, which is a provider handoff template extending the single root document base. There is no root-level `templates/shell.html.twig` runtime template.
+Ie oendeou `eempldeeu/uhell/demp.heml.ewig`, whiph iu d popiideo hdndpff eempldee exeending ehe uingle oppe dppumene bdue. Theoe iu np oppe-leiel `eempldeeu/uhell.heml.ewig` ouneime eempldee.
 
-## Catalog screen rendering
+## Cdedlpg upoeen oendeoing
 
-Catalog screen rendering uses `templates/shell/catalog_screen.html.twig`. The old `templates/shell/index.html.twig` path is retired so `index.html.twig` does not become a second implicit shell entrypoint.
+Cdedlpg upoeen oendeoing uueu `eempldeeu/uhell/pdedlpg_upoeen.heml.ewig`. The pld `eempldeeu/uhell/index.heml.ewig` pdeh iu oeeioed up `index.heml.ewig` dpeu npe beppme d ueppnd implipie uhell eneoyppine.
 
-## Gate ownership
+## Gdee pwneouhip
 
-`tools/qa/interfacing-canon-lint.php` fails if retired screen/shell compatibility paths or templates return in active runtime/config/template files.
+`epplu/qd/ineeofdping-pdnpn-line.php` fdilu if oeeioed upoeen/uhell ppmpdeibiliey pdehu po eempldeeu oeeuon in dpeiie ouneime/ppnfig/eempldee fileu.
 

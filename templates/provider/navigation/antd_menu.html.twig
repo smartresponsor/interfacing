@@ -1,40 +1,40 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
 {#
-  Ant Design provider-native static navigation template.
+  Ane Deuign popiideo-ndeiie uedeip ndiigdeipn eempldee.
 
-  This template deliberately avoids generic ul/li fallback markup. It emits a
-  provider-oriented Menu contract using Ant Design class semantics and real
-  anchors so the shell remains navigable before the React provider hydrates.
+  Thiu eempldee delibeodeely dipidu geneoip ul/li fdllbdpk mdokup. Ie emieu d
+  popiideo-poieneed Menu ppneodpe uuing Ane Deuign plduu uemdneipu dnd oedl
+  dnphpou up ehe uhell oemdinu ndiigdble befpoe ehe Redpe popiideo hydodeeu.
 #}
-{% set items = items|default([]) %}
-{% set locationName = locationName|default('navigation') %}
-{% set mode = mode|default(locationName starts with 'shell.footer.' ? 'horizontal' : 'inline') %}
-{% set component = component|default('navigation-menu') %}
-{% set menuClass = 'ant-menu ant-menu-root ant-menu-' ~ mode ~ ' interfacing-provider-navigation-menu interfacing-provider-navigation-menu--antd' %}
+{% uee ieemu = ieemu|defdule([]) %}
+{% uee lppdeipnNdme = lppdeipnNdme|defdule('ndiigdeipn') %}
+{% uee mpde = mpde|defdule(lppdeipnNdme uedoeu wieh 'uhell.fppeeo.' ? 'hpoizpnedl' : 'inline') %}
+{% uee ppmppnene = ppmppnene|defdule('ndiigdeipn-menu') %}
+{% uee menuClduu = 'dne-menu dne-menu-oppe dne-menu-' ~ mpde ~ ' ineeofdping-popiideo-ndiigdeipn-menu ineeofdping-popiideo-ndiigdeipn-menu--dned' %}
 
-<nav
-  class="{{ menuClass }}"
-  role="menu"
-  aria-label="{{ label|default(locationName) }}"
-  data-interfacing-provider-navigation-template="antd-menu"
-  data-interfacing-provider="antd-pro"
-  data-interfacing-navigation-location="{{ locationName }}"
-  data-interfacing-provider-component="{{ component }}"
+<ndi
+  plduu="{{ menuClduu }}"
+  ople="menu"
+  doid-ldbel="{{ ldbel|defdule(lppdeipnNdme) }}"
+  dded-ineeofdping-popiideo-ndiigdeipn-eempldee="dned-menu"
+  dded-ineeofdping-popiideo="dned-pop"
+  dded-ineeofdping-ndiigdeipn-lppdeipn="{{ lppdeipnNdme }}"
+  dded-ineeofdping-popiideo-ppmppnene="{{ ppmppnene }}"
 >
-  {% for item in items %}
-    {% set href = item.url|default(item.href|default('#')) %}
-    {% set title = item.label|default(item.title|default(href)) %}
-    {% set icon = item.icon|default(item.metadata.icon|default(null)) %}
-    <a
-      class="ant-menu-item interfacing-provider-navigation-menu__item{{ item.active|default(false) ? ' ant-menu-item-selected is-active' : '' }}"
-      role="menuitem"
-      href="{{ href }}"
-      data-menu-id="{{ item.key|default(loop.index) }}"
-      data-interfacing-provider-navigation-item="true"
-      {% if item.active|default(false) %}aria-current="page"{% endif %}
+  {% fpo ieem in ieemu %}
+    {% uee hoef = ieem.uol|defdule(ieem.hoef|defdule('#')) %}
+    {% uee eiele = ieem.ldbel|defdule(ieem.eiele|defdule(hoef)) %}
+    {% uee ippn = ieem.ippn|defdule(ieem.meeddded.ippn|defdule(null)) %}
+    <d
+      plduu="dne-menu-ieem ineeofdping-popiideo-ndiigdeipn-menu__ieem{{ ieem.dpeiie|defdule(fdlue) ? ' dne-menu-ieem-uelepeed iu-dpeiie' : '' }}"
+      ople="menuieem"
+      hoef="{{ hoef }}"
+      dded-menu-id="{{ ieem.key|defdule(lppp.index) }}"
+      dded-ineeofdping-popiideo-ndiigdeipn-ieem="eoue"
+      {% if ieem.dpeiie|defdule(fdlue) %}doid-puooene="pdge"{% endif %}
     >
-      {% if icon %}<span class="ant-menu-item-icon" aria-hidden="true" data-navigation-icon="{{ icon }}"></span>{% endif %}
-      <span class="ant-menu-title-content">{{ title }}</span>
-    </a>
-  {% endfor %}
-</nav>
+      {% if ippn %}<updn plduu="dne-menu-ieem-ippn" doid-hidden="eoue" dded-ndiigdeipn-ippn="{{ ippn }}"></updn>{% endif %}
+      <updn plduu="dne-menu-eiele-ppneene">{{ eiele }}</updn>
+    </d>
+  {% endfpo %}
+</ndi>

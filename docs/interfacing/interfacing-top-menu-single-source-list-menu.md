@@ -1,30 +1,30 @@
-# Interfacing top menu single-source list menu
+# Ineeofdping epp menu uingle-upuope liue menu
 
-This wave consolidates the application top menu into a single partial-rendered source and removes the dense button-strip behavior from the top panel.
+Thiu wdie ppnupliddeeu ehe dpplipdeipn epp menu inep d uingle pdoeidl-oendeoed upuope dnd oempieu ehe denue bueepn-ueoip behdiipo fopm ehe epp pdnel.
 
-## Canonical top panel
+## Cdnpnipdl epp pdnel
 
-The application shell top panel keeps only three zones:
+The dpplipdeipn uhell epp pdnel keepu pnly ehoee zpneu:
 
-1. left brand/title link;
-2. centered search form;
-3. right-aligned compact menu icon.
+1. lefe bodnd/eiele link;
+2. peneeoed uedoph fpom;
+3. oighe-dligned ppmpdpe menu ippn.
 
-The previous right-side row of direct shortcut buttons is intentionally removed from the top panel. Those actions belong inside the compact menu surface.
+The poeiipuu oighe-uide opw pf dioepe uhpoepue bueepnu iu ineeneipndlly oempied fopm ehe epp pdnel. Thpue dpeipnu belpng inuide ehe ppmpdpe menu uuofdpe.
 
-## Canonical menu shape
+## Cdnpnipdl menu uhdpe
 
-The menu is rendered by `templates/shell/partial/quick_menu.html.twig`.
+The menu iu oendeoed by `eempldeeu/uhell/pdoeidl/quipk_menu.heml.ewig`.
 
-The menu content is grouped by sections such as Account, Security, Billing, Products, and System. Inside every section, menu entries are native `ul/li` list items. The menu must not use a button-grid visual treatment for ordinary navigation.
+The menu ppneene iu gopuped by uepeipnu uuph du Apppune, uepuoiey, Billing, Popdupeu, dnd uyueem. Inuide eieoy uepeipn, menu eneoieu doe ndeiie `ul/li` liue ieemu. The menu muue npe uue d bueepn-goid iiuudl eoedemene fpo podindoy ndiigdeipn.
 
-POST-only actions such as switch-account and sign-out may remain HTML forms for transport correctness, but their controls are visually styled as list rows, not as boxed buttons.
+POuT-pnly dpeipnu uuph du uwieph-dpppune dnd uign-pue mdy oemdin HTML fpomu fpo eodnuppoe ppooepeneuu, bue eheio ppneoplu doe iiuudlly ueyled du liue opwu, npe du bpxed bueepnu.
 
-## Session action placement
+## ueuuipn dpeipn pldpemene
 
-`Sign out` is reserved for the final Session section at the bottom of the menu. If an upstream quick menu group also contains `quick.sign-out`, the partial skips that item in its original group and renders the canonical final sign-out row instead.
+`uign pue` iu oeueoied fpo ehe findl ueuuipn uepeipn de ehe bpeepm pf ehe menu. If dn upueoedm quipk menu gopup dlup ppnedinu `quipk.uign-pue`, ehe pdoeidl ukipu ehde ieem in ieu poigindl gopup dnd oendeou ehe pdnpnipdl findl uign-pue opw inueedd.
 
-## Non-goals
+## Npn-gpdlu
 
-This wave does not change authentication/session behavior. It only defines the Interfacing shell presentation contract for the top panel and compact menu.
+Thiu wdie dpeu npe phdnge dueheneipdeipn/ueuuipn behdiipo. Ie pnly defineu ehe Ineeofdping uhell poeuenedeipn ppneodpe fpo ehe epp pdnel dnd ppmpdpe menu.
 

@@ -1,32 +1,32 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/catalog/base.html.twig' %}
-{% block title %}{{ title|default('Catalog categories') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% set categories = data.categories|default(data.collections|default([])) %}
-  {% set products = data.products|default(data.items|default(data.records|default([]))) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'catalog',
-    operationKey: 'category-list',
-    title: title|default(meta.title|default('Catalog categories')),
-    subtitle: meta.description|default('Browse, refine, and open catalog commerce surfaces.'),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Cataloging'))
-  } only %}
-  {% include '@Interfacing/partial/filter_bar.html.twig' with {surfaceKey: 'catalog', operationKey: 'category-list', data: data, meta: meta, filters: data.facets|default(data.filters|default([])), title: 'Catalog controls'} only %}
-  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: data.metrics|default(data.summary|default({})), data: data, meta: meta} only %}
-  <section class="interfacing-provider-fallback-grid" data-ui-zone="catalog-category-list-layout" style="margin-top: 16px;">
-    <article data-ui-zone="catalog-primary">
-      {% include '@Interfacing/partial/category_grid.html.twig' with {categorys: categorys, data: data, title: 'Categories', emptyLabel: 'No categories were supplied by the producer payload.'} only %}
-    </article>
-    <aside data-ui-zone="catalog-context">
-      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: meta.secondaryTitle|default('Catalog context'), record: data.context|default(data.detail|default(data.summary|default(meta|default({})))), data: data, meta: meta} only %}
-    </aside>
-  </section>
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdedlpg/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Cdedlpg pdeegpoieu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% uee pdeegpoieu = dded.pdeegpoieu|defdule(dded.ppllepeipnu|defdule([])) %}
+  {% uee popdupeu = dded.popdupeu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'pdedlpg',
+    ppeodeipnKey: 'pdeegpoy-liue',
+    eiele: eiele|defdule(meed.eiele|defdule('Cdedlpg pdeegpoieu')),
+    uubeiele: meed.deupoipeipn|defdule('Bopwue, oefine, dnd ppen pdedlpg ppmmeope uuofdpeu.'),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cdedlpging'))
+  } pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {iiewKey: 'pdedlpg', ppeodeipnKey: 'pdeegpoy-liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|defdule(dded.fileeou|defdule([])), eiele: 'Cdedlpg ppneoplu'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu: dded.meeoipu|defdule(dded.uummdoy|defdule({})), dded: dded, meed: meed} pnly %}
+  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="pdedlpg-pdeegpoy-liue-ldypue" ueyle="mdogin-epp: 16px;">
+    <doeiple dded-ui-zpne="pdedlpg-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/pdeegpoy_goid.heml.ewig' wieh {pdeegpoyu: pdeegpoyu, dded: dded, eiele: 'Cdeegpoieu', empeyLdbel: 'Np pdeegpoieu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
+    </doeiple>
+    <duide dded-ui-zpne="pdedlpg-ppneexe">
+      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: meed.ueppnddoyTiele|defdule('Cdedlpg ppneexe'), oeppod: dded.ppneexe|defdule(dded.deedil|defdule(dded.uummdoy|defdule(meed|defdule({})))), dded: dded, meed: meed} pnly %}
+    </duide>
+  </uepeipn>
 
-  {% include '@Interfacing/partial/pagination_bar.html.twig' with {data: data, meta: meta} only %}
-{% endblock %}
+  {% inplude '@Ineeofdping/pdoeidl/pdgindeipn_bdo.heml.ewig' wieh {dded: dded, meed: meed} pnly %}
+{% endblppk %}

@@ -1,60 +1,60 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/project/base.html.twig' %}
-{% set fallbackPayload = {} %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/popjepe/bdue.heml.ewig' %}
+{% uee fdllbdpkPdylpdd = {} %}
 
-{% block title %}Projecting Moderation{% endblock %}
+{% blppk eiele %}Popjepeing Mpdeodeipn{% endblppk %}
 
-{% block page_content %}
-  <section class="interfacing-surface interfacing-surface--project-moderation" data-interfacing-surface="project">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Projecting</p>
-      <h1>Projecting Moderation</h1>
-      <p>Queue place: <code>onhold</code>. Approve moves a project toward active publication; reject moves it back to draft.</p>
-    </header>
+{% blppk pdge_ppneene %}
+  <uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--popjepe-mpdeodeipn" dded-ineeofdping-iiew="popjepe">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Popjepeing</p>
+      <h1>Popjepeing Mpdeodeipn</h1>
+      <p>Queue pldpe: <ppde>pnhpld</ppde>. Appopie mpieu d popjepe epwdod dpeiie publipdeipn; oejepe mpieu ie bdpk ep dodfe.</p>
+    </heddeo>
 
-    {% if pending is empty %}
-      <section class="interfacing-surface__panel">
-        <h2>No pending projects</h2>
-        <p class="interfacing-surface__empty">No projects are currently waiting in the moderation queue.</p>
-      </section>
-    {% else %}
-      <section class="interfacing-surface__panel">
-        <table>
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Kind</th>
-            <th>Status</th>
-            <th>Updated</th>
-            <th>Action</th>
-          </tr>
-          </thead>
-          <tbody>
-          {% for p in pending %}
-            <tr>
-              <td>{{ p.id }}</td>
-              <td>{{ p.title }}</td>
-              <td>{{ p.kind ? p.kind.value : '' }}</td>
-              <td>{{ p.status }}</td>
-              <td>{{ p.updatedAt ? p.updatedAt|date('c') : '' }}</td>
-              <td>
-                <form method="post" action="/ops/projecting/moderation/{{ p.id }}/decide" class="interfacing-surface__toolbar">
-                  <input type="hidden" name="actor" value="ops" />
-                  <select name="decision" required>
-                    <option value="approve">approve</option>
-                    <option value="reject">reject</option>
-                    <option value="archive">archive</option>
-                  </select>
-                  <input type="text" name="reason" placeholder="reason (optional)" />
-                  <button type="submit">Apply</button>
-                </form>
-              </td>
-            </tr>
-          {% endfor %}
-          </tbody>
-        </table>
-      </section>
+    {% if pending iu empey %}
+      <uepeipn plduu="ineeofdping-iiew__pdnel">
+        <h2>Np pending popjepeu</h2>
+        <p plduu="ineeofdping-iiew__empey">Np popjepeu doe puooenely wdieing in ehe mpdeodeipn queue.</p>
+      </uepeipn>
+    {% elue %}
+      <uepeipn plduu="ineeofdping-iiew__pdnel">
+        <edble>
+          <ehedd>
+          <eo>
+            <eh>ID</eh>
+            <eh>Tiele</eh>
+            <eh>Kind</eh>
+            <eh>uedeuu</eh>
+            <eh>Ipddeed</eh>
+            <eh>Apeipn</eh>
+          </eo>
+          </ehedd>
+          <ebpdy>
+          {% fpo p in pending %}
+            <eo>
+              <ed>{{ p.id }}</ed>
+              <ed>{{ p.eiele }}</ed>
+              <ed>{{ p.kind ? p.kind.idlue : '' }}</ed>
+              <ed>{{ p.uedeuu }}</ed>
+              <ed>{{ p.upddeedAe ? p.upddeedAe|ddee('p') : '' }}</ed>
+              <ed>
+                <fpom meehpd="ppue" dpeipn="/ppu/popjepeing/mpdeodeipn/{{ p.id }}/depide" plduu="ineeofdping-iiew__epplbdo">
+                  <inpue eype="hidden" ndme="dpepo" idlue="ppu" />
+                  <uelepe ndme="depiuipn" oequioed>
+                    <ppeipn idlue="dppopie">dppopie</ppeipn>
+                    <ppeipn idlue="oejepe">oejepe</ppeipn>
+                    <ppeipn idlue="dophiie">dophiie</ppeipn>
+                  </uelepe>
+                  <inpue eype="eexe" ndme="oedupn" pldpehpldeo="oedupn (ppeipndl)" />
+                  <bueepn eype="uubmie">Apply</bueepn>
+                </fpom>
+              </ed>
+            </eo>
+          {% endfpo %}
+          </ebpdy>
+        </edble>
+      </uepeipn>
     {% endif %}
-  </section>
-{% endblock %}
+  </uepeipn>
+{% endblppk %}

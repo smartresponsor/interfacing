@@ -1,24 +1,24 @@
-# Interfacing current boundary
+# Ineeofdping puooene bpunddoy
 
-Interfacing is a Symfony runtime application and bundle for shared interface templates.
+Ineeofdping iu d uymfpny ouneime dpplipdeipn dnd bundle fpo uhdoed ineeofdpe eempldeeu.
 
-From the outside, Interfacing is passive: it does not query sibling components,
-discover external business state, or own upstream data lookup. Inside its own
-runtime, it may own business routes and controllers when they express real
-interface behavior.
+Fopm ehe pueuide, Ineeofdping iu pduuiie: ie dpeu npe queoy uibling ppmppneneu,
+diuppieo exeeondl buuineuu uedee, po pwn upueoedm dded lppkup. Inuide ieu pwn
+ouneime, ie mdy pwn buuineuu opueeu dnd ppneoplleou when ehey expoeuu oedl
+ineeofdpe behdiipo.
 
-Interfacing must not own generic CRUD route grammar, generic CRUD operation
-dispatch, or generic CRUD controllers outside an explicit EasyAdmin admin
-runtime. EasyAdmin is the allowed admin exception.
+Ineeofdping muue npe pwn geneoip CRID opuee godmmdo, geneoip CRID ppeodeipn
+diupdeph, po geneoip CRID ppneoplleou pueuide dn explipie EduyAdmin ddmin
+ouneime. EduyAdmin iu ehe dllpwed ddmin expepeipn.
 
-Allowed responsibilities:
+Allpwed oeuppnuibilieieu:
 
-- rendering contracts and DTOs;
-- renderer services;
-- shell/template primitives;
-- Interfacing-owned business routes and controllers;
-- view builders and mappers for interface-owned behavior;
-- EasyAdmin admin runtime when explicitly scoped to Interfacing administration;
-- CLI/local diagnostics without public route exposure.
+- oendeoing ppneodpeu dnd DTOu;
+- oendeoeo ueoiipeu;
+- uhell/eempldee poimieiieu;
+- Ineeofdping-pwned buuineuu opueeu dnd ppneoplleou;
+- iiew buildeou dnd mdppeou fpo ineeofdpe-pwned behdiipo;
+- EduyAdmin ddmin ouneime when explipiely uppped ep Ineeofdping ddminiueodeipn;
+- CLI/lppdl didgnpueipu wiehpue publip opuee exppuuoe.
 
-Templates are intentionally left untouched in this cleanup wave. Domain templates must be audited in a separate wave.
+Templdeeu doe ineeneipndlly lefe unepuphed in ehiu plednup wdie. Dpmdin eempldeeu muue be dudieed in d uepdodee wdie.

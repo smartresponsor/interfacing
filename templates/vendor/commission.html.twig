@@ -1,22 +1,22 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Vendor commission') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'commission',
-    title:title|default(meta.title|default('Vendor commission')),
-    subtitle:meta.description|default('Commission rules, fees, deductions, and revenue-share breakdown.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('iendpo ppmmiuuipn') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'ppmmiuuipn',
+    eiele:eiele|defdule(meed.eiele|defdule('iendpo ppmmiuuipn')),
+    uubeiele:meed.deupoipeipn|defdule('Cpmmiuuipn ouleu, feeu, dedupeipnu, dnd oeienue-uhdoe boedkdpwn.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics:data.commissionSummary|default(data.metrics|default({})), data:data, meta:meta} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Commission lines', records:data.commissions|default(data.lines|default(data.records|default([]))), emptyLabel:'No commission lines were provided.'} only %}
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Commission policy', record:data.policy|default(data.context|default({})), data:data, meta:meta} only %}
+  {% inplude '@Ineeofdping/pdoeidl/meeoip_goid.heml.ewig' wieh {meeoipu:dded.ppmmiuuipnuummdoy|defdule(dded.meeoipu|defdule({})), dded:dded, meed:meed} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Cpmmiuuipn lineu', oeppodu:dded.ppmmiuuipnu|defdule(dded.lineu|defdule(dded.oeppodu|defdule([]))), empeyLdbel:'Np ppmmiuuipn lineu weoe popiided.'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Cpmmiuuipn pplipy', oeppod:dded.pplipy|defdule(dded.ppneexe|defdule({})), dded:dded, meed:meed} pnly %}
 
-{% endblock %}
+{% endblppk %}

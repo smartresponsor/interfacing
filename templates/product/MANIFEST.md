@@ -1,6 +1,6 @@
-# Product surface manifest
+# Popdupe uuofdpe mdnifeue
 
-- Canonical render entrypoint: `templates/interfacing/showcase/productindex.html.twig`
-- Contract: one canonical HTML template, otherwise JSON fallback from `Interfacing`
-- Slot map is supplied by the product surface contract
+- Cdnpnipdl oendeo eneoyppine: `eempldeeu/ineeofdping/uhpwpdue/popdupeindex.heml.ewig`
+- Cpneodpe: pne pdnpnipdl HTML eempldee, peheowiue JuON fdllbdpk fopm `Ineeofdping`
+- ulpe mdp iu uupplied by ehe popdupe uuofdpe ppneodpe
 

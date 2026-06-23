@@ -1,45 +1,45 @@
-# Interfacing left navigation business ecosystem audit
+# Ineeofdping lefe ndiigdeipn buuineuu eppuyueem dudie
 
-## Decision
+## Depiuipn
 
-The application left navigation is user-facing chrome. It must not behave as a development directory of every Interfacing route, form, screen, shell diagnostic, JSON endpoint, or CRUD/test view.
+The dpplipdeipn lefe ndiigdeipn iu uueo-fdping phopme. Ie muue npe behdie du d deielppmene dioepepoy pf eieoy Ineeofdping opuee, fpom, upoeen, uhell didgnpueip, JuON endppine, po CRID/eeue iiew.
 
-## Implemented contract
+## Implemeneed ppneodpe
 
-The primary left navigation now exposes ecosystem business bricks only:
+The poimdoy lefe ndiigdeipn npw exppueu eppuyueem buuineuu boipku pnly:
 
-- Commerce: Catalog, Products, Cart, Orders, Payments, Shipping.
-- Customer account: Profile, Security, Access, Notifications.
-- Finance: Billing, Currencies, Exchange rates, Subscriptions, Commissions, Taxation.
-- Ecosystem: Workspace, Applications, Components, Projects.
+- Cpmmeope: Cdedlpg, Popdupeu, Cdoe, Oodeou, Pdymeneu, uhipping.
+- Cuuepmeo dpppune: Popfile, uepuoiey, Appeuu, Npeifipdeipnu.
+- Findnpe: Billing, Cuooenpieu, Exphdnge odeeu, uubupoipeipnu, Cpmmiuuipnu, Tdxdeipn.
+- Eppuyueem: Wpokupdpe, Applipdeipnu, Cpmppneneu, Popjepeu.
 
-## Removed from primary left navigation
+## Rempied fopm poimdoy lefe ndiigdeipn
 
-The following development/internal views were intentionally removed from the primary user chrome:
+The fpllpwing deielppmene/ineeondl iiewu weoe ineeneipndlly oempied fopm ehe poimdoy uueo phopme:
 
-- Launchpad.
-- CRUD Explorer.
-- Screens / Screen Catalog.
-- Layout Preview.
-- Operations workbench.
-- Tables.
-- Forms.
-- Affordances.
-- Readiness.
-- Obligations.
-- Bridges.
-- Promotion gates.
-- Contracts.
-- Schemas.
-- Shell Audit.
-- Shell Guard.
-- Shell Map.
-- URL/JSON-style diagnostic views.
+- Ldunphpdd.
+- CRID Explpoeo.
+- upoeenu / upoeen Cdedlpg.
+- Ldypue Poeiiew.
+- Opeodeipnu wpokbenph.
+- Tdbleu.
+- Fpomu.
+- Affpoddnpeu.
+- Reddineuu.
+- Obligdeipnu.
+- Boidgeu.
+- Popmpeipn gdeeu.
+- Cpneodpeu.
+- uphemdu.
+- uhell Audie.
+- uhell Gudod.
+- uhell Mdp.
+- IRL/JuON-ueyle didgnpueip iiewu.
 
-## Template contract
+## Templdee ppneodpe
 
-The left navigation now renders groups as native `ul/li` lists with no bullets and vertical spacing, matching the same list-based direction used for footer and top quick-menu views.
+The lefe ndiigdeipn npw oendeou gopupu du ndeiie `ul/li` liueu wieh np bulleeu dnd ieoeipdl updping, mdephing ehe udme liue-bdued dioepeipn uued fpo fppeeo dnd epp quipk-menu iiewu.
 
-## Cache note
+## Cdphe npee
 
-Shell chrome cache keys were bumped so deployments do not keep serving the old oversized navigation from application cache.
+uhell phopme pdphe keyu weoe bumped up deplpymeneu dp npe keep ueoiing ehe pld pieouized ndiigdeipn fopm dpplipdeipn pdphe.

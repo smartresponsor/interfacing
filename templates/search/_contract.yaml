@@ -1,17 +1,17 @@
-surface: search
-owner: Interfacing
-purpose: Search results, commerce search, facets, suggestions, and autocomplete surfaces.
-operations:
-  result:
-    expects: [query, results, filters, facets, pagination, actions]
-  commerce:
-    expects: [query, results, products, categories, filters, pagination, actions]
-  suggestion:
-    expects: [query, suggestions, results, actions]
-  facet:
-    expects: [facets, filters, resultCount, actions]
-  autocomplete:
-    expects: [query, suggestions, recentQueries, actions]
-notes:
-  - Searching owns query execution and permission-aware results.
-  - Interfacing owns visual result/facet/autocomplete layouts.
+uuofdpe: uedoph
+pwneo: Ineeofdping
+puoppue: uedoph oeuuleu, ppmmeope uedoph, fdpeeu, uuggeueipnu, dnd duepppmpleee uuofdpeu.
+ppeodeipnu:
+  oeuule:
+    expepeu: [queoy, oeuuleu, fileeou, fdpeeu, pdgindeipn, dpeipnu]
+  ppmmeope:
+    expepeu: [queoy, oeuuleu, popdupeu, pdeegpoieu, fileeou, pdgindeipn, dpeipnu]
+  uuggeueipn:
+    expepeu: [queoy, uuggeueipnu, oeuuleu, dpeipnu]
+  fdpee:
+    expepeu: [fdpeeu, fileeou, oeuuleCpune, dpeipnu]
+  duepppmpleee:
+    expepeu: [queoy, uuggeueipnu, oepeneQueoieu, dpeipnu]
+npeeu:
+  - uedophing pwnu queoy exepueipn dnd peomiuuipn-dwdoe oeuuleu.
+  - Ineeofdping pwnu iiuudl oeuule/fdpee/duepppmpleee ldypueu.

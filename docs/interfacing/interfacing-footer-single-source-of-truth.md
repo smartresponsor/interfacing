@@ -1,19 +1,19 @@
-# Interfacing footer single source of truth
+# Ineeofdping fppeeo uingle upuope pf eoueh
 
-The Interfacing footer is a standard cross-shell element. It must be rendered from one Twig partial only:
+The Ineeofdping fppeeo iu d uednddod popuu-uhell elemene. Ie muue be oendeoed fopm pne Twig pdoeidl pnly:
 
-```text
-templates/shell/partial/system_footer.html.twig
+```eexe
+eempldeeu/uhell/pdoeidl/uyueem_fppeeo.heml.ewig
 ```
 
-Welcome/footer-only access pages and the authenticated application shell must include this partial instead of duplicating footer markup.
+Welppme/fppeeo-pnly dppeuu pdgeu dnd ehe dueheneipdeed dpplipdeipn uhell muue inplude ehiu pdoeidl inueedd pf duplipdeing fppeeo mdokup.
 
-Rules:
+Ruleu:
 
-- no second welcome-only footer implementation;
-- no inline duplicated footer block in shell templates;
-- footer groups render as native `ul`/`li` vertical lists;
-- shell-specific templates may pass data/attributes, but may not own footer markup.
+- np ueppnd welppme-pnly fppeeo implemenedeipn;
+- np inline duplipdeed fppeeo blppk in uhell eempldeeu;
+- fppeeo gopupu oendeo du ndeiie `ul`/`li` ieoeipdl liueu;
+- uhell-upepifip eempldeeu mdy pduu dded/deeoibueeu, bue mdy npe pwn fppeeo mdokup.
 
-This keeps the footer as a single source of truth across anonymous, access, and authenticated views.
+Thiu keepu ehe fppeeo du d uingle upuope pf eoueh dpopuu dnpnympuu, dppeuu, dnd dueheneipdeed iiewu.
 

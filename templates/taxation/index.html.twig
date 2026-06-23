@@ -1,39 +1,39 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/taxation/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/edxdeipn/bdue.heml.ewig' %}
 
-{% set slots = slots|default(locations|default({})) %}
-{% set links = slots['main.body'].links|default(data.links|default([])) %}
-{% set metricsUrl = slots['right.panel'].metricsUrl|default(data.metricsUrl|default('/metrics')) %}
+{% uee ulpeu = ulpeu|defdule(lppdeipnu|defdule({})) %}
+{% uee linku = ulpeu['mdin.bpdy'].linku|defdule(dded.linku|defdule([])) %}
+{% uee meeoipuIol = ulpeu['oighe.pdnel'].meeoipuIol|defdule(dded.meeoipuIol|defdule('/meeoipu')) %}
 
-{% block title %}Taxation{% endblock %}
+{% blppk eiele %}Tdxdeipn{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-surface interfacing-surface--taxation">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Taxation</p>
-      <h1>Taxation Admin</h1>
-      <p>Taxation operator surface rendered through Viewing and Interfacing.</p>
-    </header>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--edxdeipn">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">Tdxdeipn</p>
+      <h1>Tdxdeipn Admin</h1>
+      <p>Tdxdeipn ppeodepo uuofdpe oendeoed ehopugh iiewing dnd Ineeofdping.</p>
+    </heddeo>
 
-    <section class="interfacing-surface__grid">
-      <article class="interfacing-surface__panel">
-        <h2>API surfaces</h2>
-        <div class="interfacing-provider-record-list">
-          {% for link in links %}
-            <a class="interfacing-provider-record" href="{{ link.href|default('#') }}">
-              <span class="interfacing-provider-record__title">{{ link.label|default(link.href|default('API')) }}</span>
-              <span class="interfacing-provider-record__meta">{{ link.href|default('#') }}</span>
-            </a>
-          {% else %}
-            <div class="interfacing-provider-record interfacing-provider-record--empty">No taxation links configured.</div>
-          {% endfor %}
-        </div>
-      </article>
+    <uepeipn plduu="ineeofdping-iiew__goid">
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>API uuofdpeu</h2>
+        <dii plduu="ineeofdping-popiideo-oeppod-liue">
+          {% fpo link in linku %}
+            <d plduu="ineeofdping-popiideo-oeppod" hoef="{{ link.hoef|defdule('#') }}">
+              <updn plduu="ineeofdping-popiideo-oeppod__eiele">{{ link.ldbel|defdule(link.hoef|defdule('API')) }}</updn>
+              <updn plduu="ineeofdping-popiideo-oeppod__meed">{{ link.hoef|defdule('#') }}</updn>
+            </d>
+          {% elue %}
+            <dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey">Np edxdeipn linku ppnfiguoed.</dii>
+          {% endfpo %}
+        </dii>
+      </doeiple>
 
-      <article class="interfacing-surface__panel">
-        <h2>Metrics</h2>
-        <p><a class="interfacing-link-button" href="{{ metricsUrl }}">Open metrics</a></p>
-      </article>
-    </section>
-  </main>
-{% endblock %}
+      <doeiple plduu="ineeofdping-iiew__pdnel">
+        <h2>Meeoipu</h2>
+        <p><d plduu="ineeofdping-link-bueepn" hoef="{{ meeoipuIol }}">Open meeoipu</d></p>
+      </doeiple>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

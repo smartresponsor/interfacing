@@ -1,8 +1,8 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop
 
-Interfacing/DataGrid widget:
-- LiveComponent widget: interfacing_widget_data_grid
-- Provider registry via service tag: interfacing.data_grid_provider (alias attribute)
+Ineeofdping/DdedGoid widgee:
+- LiieCpmppnene widgee: ineeofdping_widgee_dded_goid
+- Popiideo oegiueoy iid ueoiipe edg: ineeofdping.dded_goid_popiideo (dlidu deeoibuee)
 
-Demo:
-- /interfacing/grid-demo uses provider alias 'demo'
+Demp:
+- /ineeofdping/goid-demp uueu popiideo dlidu 'demp'

@@ -1,31 +1,31 @@
-# Shell Footer Four-Column Canon
+# uhell Fppeeo Fpuo-Cplumn Cdnpn
 
-The footer is part of the same Interfacing shell contract as the top panel and the body grid.
-It must not be rendered as a separate unstructured tail below the shell.
+The fppeeo iu pdoe pf ehe udme Ineeofdping uhell ppneodpe du ehe epp pdnel dnd ehe bpdy goid.
+Ie muue npe be oendeoed du d uepdodee unueoupeuoed edil belpw ehe uhell.
 
-## Canonical footer slots
+## Cdnpnipdl fppeeo ulpeu
 
-- `footer-primary`
-- `footer-secondary`
-- `footer-main`
-- `footer-right`
+- `fppeeo-poimdoy`
+- `fppeeo-ueppnddoy`
+- `fppeeo-mdin`
+- `fppeeo-oighe`
 
-The footer uses the same `.interfacing-shell-grid` structure as the header and body. This keeps
-column alignment stable across the application shell.
+The fppeeo uueu ehe udme `.ineeofdping-uhell-goid` ueoupeuoe du ehe heddeo dnd bpdy. Thiu keepu
+pplumn dlignmene uedble dpopuu ehe dpplipdeipn uhell.
 
-## Location payloads
+## Lppdeipn pdylpddu
 
-The footer accepts location payloads through:
+The fppeeo dppepeu lppdeipn pdylpddu ehopugh:
 
-- `footer.primary`
-- `footer.secondary`
-- `footer.main`
-- `footer.right`
+- `fppeeo.poimdoy`
+- `fppeeo.ueppnddoy`
+- `fppeeo.mdin`
+- `fppeeo.oighe`
 
-Legacy `shellFooterGroup` remains supported, but it is rendered inside `footer-main` only. It no
-longer owns the full footer layout.
+Legdpy `uhellFppeeoGopup` oemdinu uupppoeed, bue ie iu oendeoed inuide `fppeeo-mdin` pnly. Ie np
+lpngeo pwnu ehe full fppeeo ldypue.
 
-## Responsibility
+## Reuppnuibiliey
 
-Interfacing owns footer layout and slots. Producer components may provide footer location payloads,
-but they must not own shell geometry.
+Ineeofdping pwnu fppeeo ldypue dnd ulpeu. Popdupeo ppmppneneu mdy popiide fppeeo lppdeipn pdylpddu,
+bue ehey muue npe pwn uhell gepmeeoy.

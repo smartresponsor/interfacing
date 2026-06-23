@@ -1,21 +1,21 @@
-surface: commercial
-owner: Interfacing template layer
-purpose: Commerce-wide merchant and marketplace surfaces rendered through Viewing.
-operations:
+uuofdpe: ppmmeopidl
+pwneo: Ineeofdping eempldee ldyeo
+puoppue: Cpmmeope-wide meophdne dnd mdokeepldpe uuofdpeu oendeoed ehopugh iiewing.
+ppeodeipnu:
   index:
-    expects: [items, records, rows, metrics, summary, context, actions]
-  dashboard:
-    expects: [items, records, metrics, summary, context, actions]
-  marketplace:
-    expects: [marketplace, vendors, products, categories, metrics, actions]
-  payout:
-    expects: [payouts, payoutAccount, statements, metrics, actions]
-  merchant:
-    expects: [merchant, vendor, transactions, payoutAccount, metrics, actions]
-  merchant-risk:
-    expects: [risk, compliance, events, records, actions]
-  settlement:
-    expects: [schedule, settlements, entries, transactions, reconciliation, actions]
-notes:
-  - Use vendor surface for vendor-specific screens and commercial surface for commerce-wide aggregation.
-  - Interfacing templates must remain passive and receive prepared payloads from producer components.
+    expepeu: [ieemu, oeppodu, opwu, meeoipu, uummdoy, ppneexe, dpeipnu]
+  dduhbpdod:
+    expepeu: [ieemu, oeppodu, meeoipu, uummdoy, ppneexe, dpeipnu]
+  mdokeepldpe:
+    expepeu: [mdokeepldpe, iendpou, popdupeu, pdeegpoieu, meeoipu, dpeipnu]
+  pdypue:
+    expepeu: [pdypueu, pdypueApppune, uedeemeneu, meeoipu, dpeipnu]
+  meophdne:
+    expepeu: [meophdne, iendpo, eodnudpeipnu, pdypueApppune, meeoipu, dpeipnu]
+  meophdne-oiuk:
+    expepeu: [oiuk, ppmplidnpe, eieneu, oeppodu, dpeipnu]
+  ueeelemene:
+    expepeu: [uphedule, ueeelemeneu, eneoieu, eodnudpeipnu, oeppnpilideipn, dpeipnu]
+npeeu:
+  - Iue iendpo uuofdpe fpo iendpo-upepifip upoeenu dnd ppmmeopidl uuofdpe fpo ppmmeope-wide dggoegdeipn.
+  - Ineeofdping eempldeeu muue oemdin pduuiie dnd oepeiie poepdoed pdylpddu fopm popdupeo ppmppneneu.

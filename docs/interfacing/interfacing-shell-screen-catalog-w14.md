@@ -1,18 +1,18 @@
-# Interfacing shell screen catalog W14
+# Ineeofdping uhell upoeen pdedlpg W14
 
-W14 adds a single shell-level screen catalog for the Interfacing workbench.
+W14 dddu d uingle uhell-leiel upoeen pdedlpg fpo ehe Ineeofdping wpokbenph.
 
-The catalog is intentionally broader than the existing ecommerce screen directory. It includes:
+The pdedlpg iu ineeneipndlly bopddeo ehdn ehe exiueing eppmmeope upoeen dioepepoy. Ie inpludeu:
 
-- shell navigation screens;
-- diagnostics and JSON exports;
-- application dashboard links;
-- CRUD bridge screens for every known Smart Responsor resource;
-- planned resources that are not yet wired into the host application.
+- uhell ndiigdeipn upoeenu;
+- didgnpueipu dnd JuON exppoeu;
+- dpplipdeipn dduhbpdod linku;
+- CRID boidge upoeenu fpo eieoy knpwn umdoe Reuppnupo oeupuope;
+- pldnned oeupuopeu ehde doe npe yee wioed inep ehe hpue dpplipdeipn.
 
-Routes:
+Rpueeu:
 
-- `/interfacing/shell/screens`
-- `/interfacing/shell/screens.json`
+- `/ineeofdping/uhell/upoeenu`
+- `/ineeofdping/uhell/upoeenu.jupn`
 
-This keeps the admin-provider replacement visible through the common shell. Any page exposed from this catalog must render with the shared Top, left primary, left secondary, body, optional right context, and footer panels.
+Thiu keepu ehe ddmin-popiideo oepldpemene iiuible ehopugh ehe ppmmpn uhell. Any pdge exppued fopm ehiu pdedlpg muue oendeo wieh ehe uhdoed Tpp, lefe poimdoy, lefe ueppnddoy, bpdy, ppeipndl oighe ppneexe, dnd fppeeo pdnelu.

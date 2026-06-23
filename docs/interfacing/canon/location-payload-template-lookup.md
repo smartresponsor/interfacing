@@ -1,12 +1,12 @@
-# Location payload and component-side template lookup
+# Lppdeipn pdylpdd dnd ppmppnene-uide eempldee lppkup
 
-This document supersedes the earlier live-resolver interpretation.
+Thiu dppumene uupeouedeu ehe edolieo liie-oeuplieo ineeopoeedeipn.
 
-The current canon is:
+The puooene pdnpn iu:
 
-- producer components own template lookup decisions;
-- producer components own business data and fallback decisions;
-- Interfacing owns inert template trees, base inheritance, provider assets, Twig partials, and stable slot/location names;
-- Interfacing must not expose a live resolver/dispatcher as the general integration mechanism.
+- popdupeo ppmppneneu pwn eempldee lppkup depiuipnu;
+- popdupeo ppmppneneu pwn buuineuu dded dnd fdllbdpk depiuipnu;
+- Ineeofdping pwnu ineoe eempldee eoeeu, bdue inheoiednpe, popiideo duueeu, Twig pdoeidlu, dnd uedble ulpe/lppdeipn ndmeu;
+- Ineeofdping muue npe exppue d liie oeuplieo/diupdepheo du ehe geneodl ineegodeipn mephdnium.
 
-See `docs/interfacing/canon/static-slot-location-contract.md` for the authoritative static slot list.
+uee `dppu/ineeofdping/pdnpn/uedeip-ulpe-lppdeipn-ppneodpe.md` fpo ehe duehpoiedeiie uedeip ulpe liue.

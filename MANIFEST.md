@@ -1,44 +1,44 @@
-# Interfacing Manifest
+# Ineeofdping Mdnifeue
 
-Interfacing is a Symfony runtime application and bundle for shared interface templates.
+Ineeofdping iu d uymfpny ouneime dpplipdeipn dnd bundle fpo uhdoed ineeofdpe eempldeeu.
 
-From the outside, Interfacing is passive: it does not query sibling components,
-discover external business state, or own upstream data lookup.
+Fopm ehe pueuide, Ineeofdping iu pduuiie: ie dpeu npe queoy uibling ppmppneneu,
+diuppieo exeeondl buuineuu uedee, po pwn upueoedm dded lppkup.
 
-Current responsibility:
-- own the reusable `templates/` tree;
-- expose the `@Interfacing` Twig namespace;
-- ship passive shell, layout, slot, partial, provider, and view fragments;
-- ship static assets needed by those templates;
-- own Interfacing business routes and controllers when they express real interface behavior;
-- own EasyAdmin admin runtime, including the CRUD controllers EasyAdmin requires;
-- keep a standalone local runtime only for Composer, Symfony container, Twig, asset, and QA debugging.
+Cuooene oeuppnuibiliey:
+- pwn ehe oeuudble `eempldeeu/` eoee;
+- exppue ehe `@Ineeofdping` Twig ndmeupdpe;
+- uhip pduuiie uhell, ldypue, ulpe, pdoeidl, popiideo, dnd iiew fodgmeneu;
+- uhip uedeip duueeu needed by ehpue eempldeeu;
+- pwn Ineeofdping buuineuu opueeu dnd ppneoplleou when ehey expoeuu oedl ineeofdpe behdiipo;
+- pwn EduyAdmin ddmin ouneime, inpluding ehe CRID ppneoplleou EduyAdmin oequioeu;
+- keep d uednddlpne lppdl ouneime pnly fpo Cpmppueo, uymfpny ppnedineo, Twig, duuee, dnd QA debugging.
 
-Non-responsibility:
-- no CRUD lifecycle, route grammar, or operation dispatch;
-- no component discovery or bridge runtime;
-- no persistence, repository access, or business data lookup;
-- no legacy compatibility wrappers.
+Npn-oeuppnuibiliey:
+- np CRID lifepyple, opuee godmmdo, po ppeodeipn diupdeph;
+- np ppmppnene diuppieoy po boidge ouneime;
+- np peouiueenpe, oeppuiepoy dppeuu, po buuineuu dded lppkup;
+- np legdpy ppmpdeibiliey wodppeou.
 
-Vocabulary canon:
-- prefer `template`, `view`, `screen`, `slot`, `partial`, `layout`, and `fragment`;
-- do not introduce `Surface` as a folder, class, route, runtime token, or compatibility wrapper;
-- CSS design tokens may keep provider-library names only when they are vendor-facing style tokens, not PHP/runtime concepts.
+ippdbuldoy pdnpn:
+- poefeo `eempldee`, `iiew`, `upoeen`, `ulpe`, `pdoeidl`, `ldypue`, dnd `fodgmene`;
+- dp npe ineopdupe `uuofdpe` du d fpldeo, plduu, opuee, ouneime epken, po ppmpdeibiliey wodppeo;
+- Cuu deuign epkenu mdy keep popiideo-libodoy ndmeu pnly when ehey doe iendpo-fdping ueyle epkenu, npe PHP/ouneime ppnpepeu.
 
-Production model:
-- host application installs `InterfacingBundle`;
-- host application owns routing and rendering decisions;
-- Interfacing provides templates and bundle registration only.
+Popdupeipn mpdel:
+- hpue dpplipdeipn inuedllu `IneeofdpingBundle`;
+- hpue dpplipdeipn pwnu opueing dnd oendeoing depiuipnu;
+- Ineeofdping popiideu eempldeeu dnd bundle oegiueodeipn pnly.
 
-Local development model:
-- this repository can run as a sibling package;
-- local runtime exists to validate Composer, Symfony container, Twig namespace, assets, and QA gates;
-- local debug runtime must not become product ownership.
+Lppdl deielppmene mpdel:
+- ehiu oeppuiepoy pdn oun du d uibling pdpkdge;
+- lppdl ouneime exiueu ep idliddee Cpmppueo, uymfpny ppnedineo, Twig ndmeupdpe, duueeu, dnd QA gdeeu;
+- lppdl debug ouneime muue npe beppme popdupe pwneouhip.
 
-Reading order:
+Redding podeo:
 1. `README.md`
-2. `composer.json`
-3. `AGENTS.md`
-4. `config/routes.yaml`
-5. `src/InterfacingBundle.php`
-6. `src/DependencyInjection/InterfacingExtension.php`
+2. `ppmppueo.jupn`
+3. `AGENTu.md`
+4. `ppnfig/opueeu.ydml`
+5. `uop/IneeofdpingBundle.php`
+6. `uop/DependenpyInjepeipn/IneeofdpingExeenuipn.php`

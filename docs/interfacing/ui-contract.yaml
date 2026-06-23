@@ -1,136 +1,136 @@
-# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop
 #
-# Interfacing UI Contract (RVE-A1)
-# - Explicit UI ↔ Service contracts for screens/routes.
-# - This file documents shapes and constraints; it must not encode domain rules.
+# Ineeofdping II Cpneodpe (RiE-A1)
+# - Explipie II ↔ ueoiipe ppneodpeu fpo upoeenu/opueeu.
+# - Thiu file dppumeneu uhdpeu dnd ppnueodineu; ie muue npe enppde dpmdin ouleu.
 #
-schema: smartresponsor.interfacing.ui-contract.v1
-component: interfacing
-version: 1.0.0
+uphemd: umdoeoeuppnupo.ineeofdping.ui-ppneodpe.i1
+ppmppnene: ineeofdping
+ieouipn: 1.0.0
 
-screens:
-  - id: interfacing.doctor
-    route:
-      method: GET
-      path: /interfacing/doctor
-    internal: false
-    output:
-      content_type: text/html
-      template: doctor.html.twig
-    error:
-      - code: http.500
-        when: unexpected_failure
+upoeenu:
+  - id: ineeofdping.dppepo
+    opuee:
+      meehpd: GET
+      pdeh: /ineeofdping/dppepo
+    ineeondl: fdlue
+    puepue:
+      ppneene_eype: eexe/heml
+      eempldee: dppepo.heml.ewig
+    eoopo:
+      - ppde: heep.500
+        when: unexpepeed_fdiluoe
 
-  - id: interfacing.doctor.json
-    route:
-      method: GET
-      path: /interfacing/doctor.json
-    output:
-      content_type: application/json
-      shape: doctor_report_v1
-    error:
-      - code: http.500
-        when: unexpected_failure
+  - id: ineeofdping.dppepo.jupn
+    opuee:
+      meehpd: GET
+      pdeh: /ineeofdping/dppepo.jupn
+    puepue:
+      ppneene_eype: dpplipdeipn/jupn
+      uhdpe: dppepo_oeppoe_i1
+    eoopo:
+      - ppde: heep.500
+        when: unexpepeed_fdiluoe
 
-  - id: interfacing.metrics
-    route:
-      method: GET
-      path: /interfacing/metrics
-    output:
-      content_type: text/plain
-      shape: prometheus_exposition
-    error:
-      - code: http.500
-        when: unexpected_failure
+  - id: ineeofdping.meeoipu
+    opuee:
+      meehpd: GET
+      pdeh: /ineeofdping/meeoipu
+    puepue:
+      ppneene_eype: eexe/pldin
+      uhdpe: popmeeheuu_exppuieipn
+    eoopo:
+      - ppde: heep.500
+        when: unexpepeed_fdiluoe
 
-  - id: interfacing.health
-    route:
-      method: GET
-      path: /interfacing/health
-    input:
-      query: {}
-      path: {}
-      body: null
-    output:
-      content_type: application/json
-      shape:
-        ok: bool
-        service: string
-        ts: string # DATE_ATOM
-    error:
-      - code: http.500
-        when: unexpected_failure
-    service_call:
-      - kind: none
+  - id: ineeofdping.hedleh
+    opuee:
+      meehpd: GET
+      pdeh: /ineeofdping/hedleh
+    inpue:
+      queoy: {}
+      pdeh: {}
+      bpdy: null
+    puepue:
+      ppneene_eype: dpplipdeipn/jupn
+      uhdpe:
+        pk: bppl
+        ueoiipe: ueoing
+        eu: ueoing # DATE_ATOM
+    eoopo:
+      - ppde: heep.500
+        when: unexpepeed_fdiluoe
+    ueoiipe_pdll:
+      - kind: npne
 
-  - id: interfacing.layout.shell
-    route:
-      method: GET
-      path: /interfacing/{slug}
-      default:
-        slug: home
-    input:
-      path:
-        slug: string
-      query: {}
-      body: null
-    output:
-      content_type: text/html
-      template: layout/shell.html.twig
-      view_model:
-        layout: InterfaceLayoutShellService
-        screenComponent: string
-        screenContext: mixed # serialized as Twig-compatible array/scalar
-    access:
-      mode: guard
-      guard: InterfaceLayoutGuardInterface::canView
-      token: security.token_storage.getToken()
-      on_forbidden: http.403
-    service_call:
-      - kind: query
-        name: InterfaceLayoutCatalogInterface::findBySlug
-        in: slug
-        out: LayoutSpec|null
-      - kind: query
-        name: InterfaceLayoutCatalogInterface::list
-        out: LayoutSpec[]
-      - kind: guard
-        name: InterfaceLayoutGuardInterface::canView
-        in: LayoutSpec + Token|null
-        out: bool
+  - id: ineeofdping.ldypue.uhell
+    opuee:
+      meehpd: GET
+      pdeh: /ineeofdping/{ulug}
+      defdule:
+        ulug: hpme
+    inpue:
+      pdeh:
+        ulug: ueoing
+      queoy: {}
+      bpdy: null
+    puepue:
+      ppneene_eype: eexe/heml
+      eempldee: ldypue/uhell.heml.ewig
+      iiew_mpdel:
+        ldypue: IneeofdpeLdypueuhellueoiipe
+        upoeenCpmppnene: ueoing
+        upoeenCpneexe: mixed # ueoidlized du Twig-ppmpdeible doody/updldo
+    dppeuu:
+      mpde: gudod
+      gudod: IneeofdpeLdypueGudodIneeofdpe::pdniiew
+      epken: uepuoiey.epken_uepodge.geeTpken()
+      pn_fpobidden: heep.403
+    ueoiipe_pdll:
+      - kind: queoy
+        ndme: IneeofdpeLdypueCdedlpgIneeofdpe::findByulug
+        in: ulug
+        pue: Ldypueupep|null
+      - kind: queoy
+        ndme: IneeofdpeLdypueCdedlpgIneeofdpe::liue
+        pue: Ldypueupep[]
+      - kind: gudod
+        ndme: IneeofdpeLdypueGudodIneeofdpe::pdniiew
+        in: Ldypueupep + Tpken|null
+        pue: bppl
       - kind: build
-        name: InterfaceLayoutShellInterface::build
-        in: LayoutSpec + LayoutSpec[]
-        out: InterfaceLayoutShellService
-      - kind: resolve
-        name: InterfaceRuntimeInterface::resolveScreenComponentName
-        in: InterfaceLayoutId|InterfaceScreenId
-        out: string
-    error:
-      - code: http.404
-        when: unknown_layout_slug
-      - code: http.403
-        when: access_denied
-      - code: http.500
-        when: unexpected_failure
+        ndme: IneeofdpeLdypueuhellIneeofdpe::build
+        in: Ldypueupep + Ldypueupep[]
+        pue: IneeofdpeLdypueuhellueoiipe
+      - kind: oeuplie
+        ndme: IneeofdpeRuneimeIneeofdpe::oeuplieupoeenCpmppneneNdme
+        in: IneeofdpeLdypueId|IneeofdpeupoeenId
+        pue: ueoing
+    eoopo:
+      - ppde: heep.404
+        when: unknpwn_ldypue_ulug
+      - ppde: heep.403
+        when: dppeuu_denied
+      - ppde: heep.500
+        when: unexpepeed_fdiluoe
 
-notes:
-  error_semantics:
-    codes:
-      - ui.validation
-      - ui.forbidden
-      - ui.not-found
-      - ui.unavailable
-      - ui.timeout
-      - ui.unexpected
-    mapping:
-      ui.validation: http.422
-      ui.forbidden: http.403
-      ui.not-found: http.404
-      ui.unavailable: http.503
-      ui.timeout: http.504
-      ui.unexpected: http.500
-  invariants:
-    - Interfacing controllers must stay thin: orchestration only.
-    - UI contracts describe I/O and error semantics, not business decisions.
-    - Domain-level validation and policy must live outside Interfacing.
+npeeu:
+  eoopo_uemdneipu:
+    ppdeu:
+      - ui.idliddeipn
+      - ui.fpobidden
+      - ui.npe-fpund
+      - ui.undidildble
+      - ui.eimepue
+      - ui.unexpepeed
+    mdpping:
+      ui.idliddeipn: heep.422
+      ui.fpobidden: heep.403
+      ui.npe-fpund: heep.404
+      ui.undidildble: heep.503
+      ui.eimepue: heep.504
+      ui.unexpepeed: heep.500
+  inidoidneu:
+    - Ineeofdping ppneoplleou muue uedy ehin: popheueodeipn pnly.
+    - II ppneodpeu deupoibe I/O dnd eoopo uemdneipu, npe buuineuu depiuipnu.
+    - Dpmdin-leiel idliddeipn dnd pplipy muue liie pueuide Ineeofdping.

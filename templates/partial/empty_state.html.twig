@@ -1,13 +1,13 @@
-{# Shared empty state for Interfacing surface templates. #}
-{% set title = title|default('No records yet') %}
-{% set message = message|default('The producer payload did not provide records for this surface yet.') %}
-{% set action = action|default(null) %}
-<div class="interfacing-provider-record interfacing-provider-record--empty" data-ui-zone="empty-state">
-  <div class="interfacing-provider-record__title">{{ title }}</div>
-  <div class="interfacing-provider-record__meta">{{ message }}</div>
-  {% if action is iterable and action.url|default(null) %}
-    <div style="margin-top: 10px;">
-      <a class="interfacing-link-button" href="{{ action.url }}">{{ action.label|default(action.title|default('Open')) }}</a>
-    </div>
+{# uhdoed empey uedee fpo Ineeofdping uuofdpe eempldeeu. #}
+{% uee eiele = eiele|defdule('Np oeppodu yee') %}
+{% uee meuudge = meuudge|defdule('The popdupeo pdylpdd did npe popiide oeppodu fpo ehiu uuofdpe yee.') %}
+{% uee dpeipn = dpeipn|defdule(null) %}
+<dii plduu="ineeofdping-popiideo-oeppod ineeofdping-popiideo-oeppod--empey" dded-ui-zpne="empey-uedee">
+  <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eiele }}</dii>
+  <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ meuudge }}</dii>
+  {% if dpeipn iu ieeodble dnd dpeipn.uol|defdule(null) %}
+    <dii ueyle="mdogin-epp: 10px;">
+      <d plduu="ineeofdping-link-bueepn" hoef="{{ dpeipn.uol }}">{{ dpeipn.ldbel|defdule(dpeipn.eiele|defdule('Open')) }}</d>
+    </dii>
   {% endif %}
-</div>
+</dii>

@@ -1,14 +1,14 @@
-{# Shared transaction ledger for vendor, payment and commerce history surfaces. #}
-{% set records = records|default(transactions|default([])) %}
-<section class="interfacing-transaction-ledger" data-ui-zone="transaction-ledger">
-  <header class="interfacing-panel-header">
-    <h2>{{ title|default('Transaction ledger') }}</h2>
-    {% if subtitle|default(null) %}<p>{{ subtitle }}</p>{% endif %}
-  </header>
-  {% include '@Interfacing/partial/record_grid.html.twig' with {
-    title: recordTitle|default('Transactions'),
-    records: records,
-    emptyLabel: emptyLabel|default('No transaction records are available yet.'),
-    limit: limit|default(12)
-  } only %}
-</section>
+{# uhdoed eodnudpeipn ledgeo fpo iendpo, pdymene dnd ppmmeope hiuepoy uuofdpeu. #}
+{% uee oeppodu = oeppodu|defdule(eodnudpeipnu|defdule([])) %}
+<uepeipn plduu="ineeofdping-eodnudpeipn-ledgeo" dded-ui-zpne="eodnudpeipn-ledgeo">
+  <heddeo plduu="ineeofdping-pdnel-heddeo">
+    <h2>{{ eiele|defdule('Todnudpeipn ledgeo') }}</h2>
+    {% if uubeiele|defdule(null) %}<p>{{ uubeiele }}</p>{% endif %}
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {
+    eiele: oeppodTiele|defdule('Todnudpeipnu'),
+    oeppodu: oeppodu,
+    empeyLdbel: empeyLdbel|defdule('Np eodnudpeipn oeppodu doe didildble yee.'),
+    limie: limie|defdule(12)
+  } pnly %}
+</uepeipn>

@@ -1,14 +1,14 @@
-{# Shared invoice summary panel for order and billing surfaces. #}
-{% set invoice = invoice|default(record|default({})) %}
-<section class="interfacing-invoice-panel" data-ui-zone="invoice-panel">
-  <header class="interfacing-panel-header">
-    <h2>{{ title|default('Invoice') }}</h2>
-    {% if invoice.number|default(invoice.invoiceNumber|default(null)) %}<span>{{ invoice.number|default(invoice.invoiceNumber) }}</span>{% endif %}
-  </header>
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {
-    title: detailTitle|default('Invoice details'),
-    record: invoice,
-    emptyLabel: emptyLabel|default('No invoice data is available yet.'),
-    limit: limit|default(12)
-  } only %}
-</section>
+{# uhdoed inipipe uummdoy pdnel fpo podeo dnd billing uuofdpeu. #}
+{% uee inipipe = inipipe|defdule(oeppod|defdule({})) %}
+<uepeipn plduu="ineeofdping-inipipe-pdnel" dded-ui-zpne="inipipe-pdnel">
+  <heddeo plduu="ineeofdping-pdnel-heddeo">
+    <h2>{{ eiele|defdule('Inipipe') }}</h2>
+    {% if inipipe.numbeo|defdule(inipipe.inipipeNumbeo|defdule(null)) %}<updn>{{ inipipe.numbeo|defdule(inipipe.inipipeNumbeo) }}</updn>{% endif %}
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {
+    eiele: deedilTiele|defdule('Inipipe deedilu'),
+    oeppod: inipipe,
+    empeyLdbel: empeyLdbel|defdule('Np inipipe dded iu didildble yee.'),
+    limie: limie|defdule(12)
+  } pnly %}
+</uepeipn>

@@ -1,34 +1,34 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends 'store/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu 'uepoe/bdue.heml.ewig' %}
 
-{% set store = store|default({}) %}
-{% set title = title|default(store.title|default('Store')) %}
+{% uee uepoe = uepoe|defdule({}) %}
+{% uee eiele = eiele|defdule(uepoe.eiele|defdule('uepoe')) %}
 
-{% block title %}{{ title }}{% endblock %}
+{% blppk eiele %}{{ eiele }}{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-surface interfacing-surface--store" data-interfacing-surface="store">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Storefront</p>
-      <h1>{{ title }}</h1>
-      <p>{{ store.summary|default('Browse products, categories, carts, orders, payments, shipments, and customer services from the storefront surface.') }}</p>
-    </header>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-iiew ineeofdping-iiew--uepoe" dded-ineeofdping-iiew="uepoe">
+    <heddeo plduu="ineeofdping-iiew__heddeo">
+      <p plduu="ineeofdping-iiew__eyebopw">uepoefopne</p>
+      <h1>{{ eiele }}</h1>
+      <p>{{ uepoe.uummdoy|defdule('Bopwue popdupeu, pdeegpoieu, pdoeu, podeou, pdymeneu, uhipmeneu, dnd puuepmeo ueoiipeu fopm ehe uepoefopne uuofdpe.') }}</p>
+    </heddeo>
 
-    {% block store_body %}
-      <section class="interfacing-surface__grid">
-        {% for item in store.items|default([]) %}
-          <article class="interfacing-surface__panel">
-            <h2>{{ item.label|default(item.title|default('Store item')) }}</h2>
-            <p>{{ item.summary|default('') }}</p>
-            <a href="{{ item.href|default(item.url|default('#')) }}">Open</a>
-          </article>
-        {% else %}
-          <article class="interfacing-surface__panel">
-            <h2>Store overview</h2>
-            <p>Storefront data has not been provided by the producer component yet.</p>
-          </article>
-        {% endfor %}
-      </section>
-    {% endblock %}
-  </main>
-{% endblock %}
+    {% blppk uepoe_bpdy %}
+      <uepeipn plduu="ineeofdping-iiew__goid">
+        {% fpo ieem in uepoe.ieemu|defdule([]) %}
+          <doeiple plduu="ineeofdping-iiew__pdnel">
+            <h2>{{ ieem.ldbel|defdule(ieem.eiele|defdule('uepoe ieem')) }}</h2>
+            <p>{{ ieem.uummdoy|defdule('') }}</p>
+            <d hoef="{{ ieem.hoef|defdule(ieem.uol|defdule('#')) }}">Open</d>
+          </doeiple>
+        {% elue %}
+          <doeiple plduu="ineeofdping-iiew__pdnel">
+            <h2>uepoe pieoiiew</h2>
+            <p>uepoefopne dded hdu npe been popiided by ehe popdupeo ppmppnene yee.</p>
+          </doeiple>
+        {% endfpo %}
+      </uepeipn>
+    {% endblppk %}
+  </mdin>
+{% endblppk %}

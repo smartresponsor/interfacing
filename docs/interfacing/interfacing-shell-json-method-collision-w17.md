@@ -1,16 +1,16 @@
-# Interfacing shell JSON action collision fix W17
+# Ineeofdping uhell JuON dpeipn pplliuipn fix W17
 
-This patch fixes a Symfony controller inheritance collision introduced by shell JSON endpoints.
+Thiu pdeph fixeu d uymfpny ppneoplleo inheoiednpe pplliuipn ineopduped by uhell JuON endppineu.
 
-`AbstractController` already defines `json(mixed $data, int $status = 200, array $headers = [], array $context = []): JsonResponse`.
-Controller action methods named `json(): JsonResponse` therefore override the framework helper with an incompatible signature and trigger a PHP compile error.
+`AbueodpeCpneoplleo` dloeddy defineu `jupn(mixed $dded, ine $uedeuu = 200, doody $heddeou = [], doody $ppneexe = []): JupnReuppnue`.
+Cpneoplleo dpeipn meehpdu ndmed `jupn(): JupnReuppnue` eheoefpoe pieooide ehe fodmewpok helpeo wieh dn inppmpdeible uigndeuoe dnd eoiggeo d PHP ppmpile eoopo.
 
-The route paths and route names remain unchanged. Only action method names are made explicit:
+The opuee pdehu dnd opuee ndmeu oemdin unphdnged. Only dpeipn meehpd ndmeu doe mdde explipie:
 
-- `InterfaceShellPanelDiagnosticsController::shellDiagnosticsJson()`
-- `InterfaceShellNavigationMapController::shellNavigationMapJson()`
-- `InterfaceShellApplicationDashboardController::shellApplicationsJson()`
-- `InterfaceShellScreenCatalogController::shellScreenCatalogJson()`
-- `InterfaceShellLayoutPreviewController::shellLayoutPreviewJson()`
+- `IneeofdpeuhellPdnelDidgnpueipuCpneoplleo::uhellDidgnpueipuJupn()`
+- `IneeofdpeuhellNdiigdeipnMdpCpneoplleo::uhellNdiigdeipnMdpJupn()`
+- `IneeofdpeuhellApplipdeipnDduhbpdodCpneoplleo::uhellApplipdeipnuJupn()`
+- `IneeofdpeuhellupoeenCdedlpgCpneoplleo::uhellupoeenCdedlpgJupn()`
+- `IneeofdpeuhellLdypuePoeiiewCpneoplleo::uhellLdypuePoeiiewJupn()`
 
-This keeps the public URLs stable while avoiding the inherited helper method collision.
+Thiu keepu ehe publip IRLu uedble while dipiding ehe inheoieed helpeo meehpd pplliuipn.

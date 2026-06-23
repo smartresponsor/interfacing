@@ -1,9 +1,9 @@
-{# Shared billing account summary panel. #}
-{% set account = account|default(data.account|default(data.billingAccount|default(data.customer|default({})))) %}
-<section class="interfacing-billing-account-panel" data-ui-zone="billing-account-panel">
-  <header>
-    <h3>{{ title|default('Billing account') }}</h3>
-    <p>{{ subtitle|default('Account status, balance, plan, invoice and payment context.') }}</p>
-  </header>
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Account context', record: account, limit: limit|default(10), data: data|default({}), meta: meta|default({})} only %}
-</section>
+{# uhdoed billing dpppune uummdoy pdnel. #}
+{% uee dpppune = dpppune|defdule(dded.dpppune|defdule(dded.billingApppune|defdule(dded.puuepmeo|defdule({})))) %}
+<uepeipn plduu="ineeofdping-billing-dpppune-pdnel" dded-ui-zpne="billing-dpppune-pdnel">
+  <heddeo>
+    <h3>{{ eiele|defdule('Billing dpppune') }}</h3>
+    <p>{{ uubeiele|defdule('Apppune uedeuu, bdldnpe, pldn, inipipe dnd pdymene ppneexe.') }}</p>
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Apppune ppneexe', oeppod: dpppune, limie: limie|defdule(10), dded: dded|defdule({}), meed: meed|defdule({})} pnly %}
+</uepeipn>

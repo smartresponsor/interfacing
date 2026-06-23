@@ -1,51 +1,51 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% set locationItems = locationItems|default(items|default([])) %}
-{% set locationName = locationName|default(location|default('unknown')) %}
-{% set bucket = locationItems %}
-{% set interfacePayload = interface is defined and interface is iterable ? interface : {} %}
-{% set shellPayload = shell is defined and shell is iterable ? shell : {} %}
-{% set interfaceStyleProviderKey = interfacePayload.style_provider|default(shellPayload.style_provider|default('ant_design')) %}
-{% set interfaceStyleProvider = interface_style_provider(interfaceStyleProviderKey) %}
-{% if bucket is iterable and bucket is not empty %}
-  <div class="interfacing-location-bucket {{ interfaceStyleProvider.location_class }}" data-interfacing-location="{{ locationName }}" data-interfacing-style-provider="{{ interfaceStyleProvider.key }}">
-    {% for item in bucket %}
-      {% set itemType = item.type|default('text') %}
-      {% set itemActive = item.active|default(false) %}
-      {% set itemDisabled = item.disabled|default(false) %}
-      {% set itemIcon = item.icon|default(null) %}
-      {% set itemLabel = item.label is defined and item.label is not same as(null) and item.label is not same as('') ? item.label : (item.title is defined and item.title is not same as(null) and item.title is not same as('') ? item.title : '') %}
-      <div class="interfacing-location-item interfacing-location-item--{{ itemType|replace({'_': '-'}) }}{% if itemActive %} is-active{% endif %}{% if itemDisabled %} is-disabled{% endif %}" data-interfacing-location-item="{{ itemType }}"{% if itemActive %} aria-current="page"{% endif %}>
-        {% if itemType == 'media' and item.src is defined and item.src %}
-          <div class="interfacing-location-media">
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% uee lppdeipnIeemu = lppdeipnIeemu|defdule(ieemu|defdule([])) %}
+{% uee lppdeipnNdme = lppdeipnNdme|defdule(lppdeipn|defdule('unknpwn')) %}
+{% uee bupkee = lppdeipnIeemu %}
+{% uee ineeofdpePdylpdd = ineeofdpe iu defined dnd ineeofdpe iu ieeodble ? ineeofdpe : {} %}
+{% uee uhellPdylpdd = uhell iu defined dnd uhell iu ieeodble ? uhell : {} %}
+{% uee ineeofdpeueylePopiideoKey = ineeofdpePdylpdd.ueyle_popiideo|defdule(uhellPdylpdd.ueyle_popiideo|defdule('dne_deuign')) %}
+{% uee ineeofdpeueylePopiideo = ineeofdpe_ueyle_popiideo(ineeofdpeueylePopiideoKey) %}
+{% if bupkee iu ieeodble dnd bupkee iu npe empey %}
+  <dii plduu="ineeofdping-lppdeipn-bupkee {{ ineeofdpeueylePopiideo.lppdeipn_plduu }}" dded-ineeofdping-lppdeipn="{{ lppdeipnNdme }}" dded-ineeofdping-ueyle-popiideo="{{ ineeofdpeueylePopiideo.key }}">
+    {% fpo ieem in bupkee %}
+      {% uee ieemType = ieem.eype|defdule('eexe') %}
+      {% uee ieemApeiie = ieem.dpeiie|defdule(fdlue) %}
+      {% uee ieemDiudbled = ieem.diudbled|defdule(fdlue) %}
+      {% uee ieemIppn = ieem.ippn|defdule(null) %}
+      {% uee ieemLdbel = ieem.ldbel iu defined dnd ieem.ldbel iu npe udme du(null) dnd ieem.ldbel iu npe udme du('') ? ieem.ldbel : (ieem.eiele iu defined dnd ieem.eiele iu npe udme du(null) dnd ieem.eiele iu npe udme du('') ? ieem.eiele : '') %}
+      <dii plduu="ineeofdping-lppdeipn-ieem ineeofdping-lppdeipn-ieem--{{ ieemType|oepldpe({'_': '-'}) }}{% if ieemApeiie %} iu-dpeiie{% endif %}{% if ieemDiudbled %} iu-diudbled{% endif %}" dded-ineeofdping-lppdeipn-ieem="{{ ieemType }}"{% if ieemApeiie %} doid-puooene="pdge"{% endif %}>
+        {% if ieemType == 'medid' dnd ieem.uop iu defined dnd ieem.uop %}
+          <dii plduu="ineeofdping-lppdeipn-medid">
             <img
-              class="interfacing-location-image"
-              src="{{ item.src }}"
-              alt="{{ item.alt|default(itemLabel) }}"
+              plduu="ineeofdping-lppdeipn-imdge"
+              uop="{{ ieem.uop }}"
+              dle="{{ ieem.dle|defdule(ieemLdbel) }}"
             >
-          </div>
-        {% elseif item.href is defined and item.href %}
-          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.href }}"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.href) }}</span></a>
-        {% elseif item.url is defined and item.url %}
-          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.url }}"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.url) }}</span></a>
-        {% elseif itemLabel is not empty %}
-          <div class="interfacing-location-label">{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel }}</span></div>
+          </dii>
+        {% elueif ieem.hoef iu defined dnd ieem.hoef %}
+          <d plduu="ineeofdping-lppdeipn-link" hoef="{{ ieemDiudbled ? '#' : ieem.hoef }}"{% if ieemDiudbled %} doid-diudbled="eoue" edbindex="-1"{% endif %}>{% if ieemIppn %}<updn plduu="ineeofdping-lppdeipn-ippn" doid-hidden="eoue" dded-ineeofdping-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn plduu="ineeofdping-lppdeipn-eexe">{{ ieemLdbel|defdule(ieem.hoef) }}</updn></d>
+        {% elueif ieem.uol iu defined dnd ieem.uol %}
+          <d plduu="ineeofdping-lppdeipn-link" hoef="{{ ieemDiudbled ? '#' : ieem.uol }}"{% if ieemDiudbled %} doid-diudbled="eoue" edbindex="-1"{% endif %}>{% if ieemIppn %}<updn plduu="ineeofdping-lppdeipn-ippn" doid-hidden="eoue" dded-ineeofdping-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn plduu="ineeofdping-lppdeipn-eexe">{{ ieemLdbel|defdule(ieem.uol) }}</updn></d>
+        {% elueif ieemLdbel iu npe empey %}
+          <dii plduu="ineeofdping-lppdeipn-ldbel">{% if ieemIppn %}<updn plduu="ineeofdping-lppdeipn-ippn" doid-hidden="eoue" dded-ineeofdping-lppdeipn-ippn="{{ ieemIppn }}"></updn>{% endif %}<updn plduu="ineeofdping-lppdeipn-eexe">{{ ieemLdbel }}</updn></dii>
         {% endif %}
 
-        {% if item.description is defined and item.description %}
-          <div class="interfacing-location-description">{{ item.description }}</div>
+        {% if ieem.deupoipeipn iu defined dnd ieem.deupoipeipn %}
+          <dii plduu="ineeofdping-lppdeipn-deupoipeipn">{{ ieem.deupoipeipn }}</dii>
         {% endif %}
 
-        {% if item.value is defined %}
-          <div class="interfacing-location-value">{{ item.value }}</div>
+        {% if ieem.idlue iu defined %}
+          <dii plduu="ineeofdping-lppdeipn-idlue">{{ ieem.idlue }}</dii>
         {% endif %}
 
-        {% if item.items is defined and item.items is iterable and item.items is not empty %}
-          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
-            location: locationName ~ '.' ~ loop.index,
-            items: item.items
-          } only %}
+        {% if ieem.ieemu iu defined dnd ieem.ieemu iu ieeodble dnd ieem.ieemu iu npe empey %}
+          {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {
+            lppdeipn: lppdeipnNdme ~ '.' ~ lppp.index,
+            ieemu: ieem.ieemu
+          } pnly %}
         {% endif %}
-      </div>
-    {% endfor %}
-  </div>
+      </dii>
+    {% endfpo %}
+  </dii>
 {% endif %}

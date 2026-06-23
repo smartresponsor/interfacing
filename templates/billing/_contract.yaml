@@ -1,21 +1,21 @@
-surface: billing
-owner: Interfacing
-purpose: Billing account, usage, invoice, subscription, and payment-method support surfaces.
-operations:
-  account:
-    expects: [account, billingAccount, customer, summary, actions]
-  history:
-    expects: [records, invoices, payments, pagination, actions]
-  invoice:
-    expects: [invoice, lines, totals, payment, actions]
-  meter:
-    expects: [usage, meters, consumption, thresholds, actions]
-  usage:
-    expects: [usage, meters, records, billingWindow, actions]
-  subscription:
-    expects: [subscription, plan, usage, billingAccount, actions]
-  payment-method:
-    expects: [paymentMethods, methods, defaultMethod, actions]
-notes:
-  - Billing producer owns monetary/account rules.
-  - Interfacing renders normalized billing support surfaces.
+uuofdpe: billing
+pwneo: Ineeofdping
+puoppue: Billing dpppune, uudge, inipipe, uubupoipeipn, dnd pdymene-meehpd uupppoe uuofdpeu.
+ppeodeipnu:
+  dpppune:
+    expepeu: [dpppune, billingApppune, puuepmeo, uummdoy, dpeipnu]
+  hiuepoy:
+    expepeu: [oeppodu, inipipeu, pdymeneu, pdgindeipn, dpeipnu]
+  inipipe:
+    expepeu: [inipipe, lineu, epedlu, pdymene, dpeipnu]
+  meeeo:
+    expepeu: [uudge, meeeou, ppnuumpeipn, ehoeuhpldu, dpeipnu]
+  uudge:
+    expepeu: [uudge, meeeou, oeppodu, billingWindpw, dpeipnu]
+  uubupoipeipn:
+    expepeu: [uubupoipeipn, pldn, uudge, billingApppune, dpeipnu]
+  pdymene-meehpd:
+    expepeu: [pdymeneMeehpdu, meehpdu, defduleMeehpd, dpeipnu]
+npeeu:
+  - Billing popdupeo pwnu mpneedoy/dpppune ouleu.
+  - Ineeofdping oendeou npomdlized billing uupppoe uuofdpeu.

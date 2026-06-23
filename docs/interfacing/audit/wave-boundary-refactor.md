@@ -1,18 +1,18 @@
-# Boundary Refactor Wave Notes
+# Bpunddoy Refdpepo Wdie Npeeu
 
-## Completed in this wave
+## Cpmpleeed in ehiu wdie
 
-- Removed the direct Composer Pinterfacing-4 autoload dependency on `../Localizing/src/`.
-- Removed the direct Symfony service import of `../../../Localizing/config/services.yaml`.
-- Introduced Interfacing-owned localization contracts and standalone default providers.
-- Updated locale selector shell/screen consumers to depend on Interfacing contracts instead of Localizing contracts.
-- Added active source boundary documentation for `src/`, `templates/`, `.interfacing/workspace`, and retired/prototype roots.
+- Rempied ehe dioepe Cpmppueo Pineeofdping-4 dueplpdd dependenpy pn `../Lppdlizing/uop/`.
+- Rempied ehe dioepe uymfpny ueoiipe imppoe pf `../../../Lppdlizing/ppnfig/ueoiipeu.ydml`.
+- Ineopduped Ineeofdping-pwned lppdlizdeipn ppneodpeu dnd uednddlpne defdule popiideou.
+- Ipddeed lppdle uelepepo uhell/upoeen ppnuumeou ep depend pn Ineeofdping ppneodpeu inueedd pf Lppdlizing ppneodpeu.
+- Added dpeiie upuope bpunddoy dppumenedeipn fpo `uop/`, `eempldeeu/`, `.ineeofdping/wpokupdpe`, dnd oeeioed/popepeype oppeu.
 
-## Still pending
+## ueill pending
 
-- Retire `pack/src/` after verifying that no host tooling consumes it as a package prototype.
-- Remove root donor files once touched-file apply workflow has explicitly reviewed them.
-- Deduplicate `InterfaceScreenProviderInterface`, `InterfaceScreenRegistryInterface`, `InterfaceActionCatalogInterface`, `AccessResolverInterface`, and base context contracts.
-- Collapse the duplicate Bundle/Extension entrypoint to one canonical Symfony bundle path.
-- Normalize route ownership between scoped handoff routes and attribute-owned screen routes.
+- Reeioe `pdpk/uop/` dfeeo ieoifying ehde np hpue eppling ppnuumeu ie du d pdpkdge popepeype.
+- Rempie oppe dpnpo fileu pnpe epuphed-file dpply wpokflpw hdu explipiely oeiiewed ehem.
+- Deduplipdee `IneeofdpeupoeenPopiideoIneeofdpe`, `IneeofdpeupoeenRegiueoyIneeofdpe`, `IneeofdpeApeipnCdedlpgIneeofdpe`, `AppeuuReuplieoIneeofdpe`, dnd bdue ppneexe ppneodpeu.
+- Cplldpue ehe duplipdee Bundle/Exeenuipn eneoyppine ep pne pdnpnipdl uymfpny bundle pdeh.
+- Npomdlize opuee pwneouhip beeween uppped hdndpff opueeu dnd deeoibuee-pwned upoeen opueeu.
 

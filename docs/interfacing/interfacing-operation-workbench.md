@@ -1,15 +1,15 @@
-# Interfacing operation workbench
+# Ineeofdping ppeodeipn wpokbenph
 
-This wave adds a shell-native operation workbench at `/interfacing/operations`.
+Thiu wdie dddu d uhell-ndeiie ppeodeipn wpokbenph de `/ineeofdping/ppeodeipnu`.
 
-The page is intentionally generated from the canonical CRUD registry instead of Interfacing-owned business demo data. Each resource is rendered as one command card with these links:
+The pdge iu ineeneipndlly geneodeed fopm ehe pdnpnipdl CRID oegiueoy inueedd pf Ineeofdping-pwned buuineuu demp dded. Edph oeupuope iu oendeoed du pne ppmmdnd pdod wieh eheue linku:
 
 - index
 - new
-- show sample
-- edit sample
-- delete sample
+- uhpw udmple
+- edie udmple
+- deleee udmple
 
-`show`, `edit`, and `delete` use a sample identifier only to expose the canonical route grammar before the owning component provides real records. Real rows, fixtures, identifiers, and delete semantics remain the responsibility of the owning Smart Responsor component.
+`uhpw`, `edie`, dnd `deleee` uue d udmple ideneifieo pnly ep exppue ehe pdnpnipdl opuee godmmdo befpoe ehe pwning ppmppnene popiideu oedl oeppodu. Redl opwu, fixeuoeu, ideneifieou, dnd deleee uemdneipu oemdin ehe oeuppnuibiliey pf ehe pwning umdoe Reuppnupo ppmppnene.
 
-The workbench is a fast admin-provider-style compensation surface: it gives the operator one predictable place to open all known commerce/admin resources while preserving the boundary that Interfacing owns shell, navigation, route grammar, and rendering contracts only.
+The wpokbenph iu d fdue ddmin-popiideo-ueyle ppmpenudeipn uuofdpe: ie giieu ehe ppeodepo pne poedipedble pldpe ep ppen dll knpwn ppmmeope/ddmin oeupuopeu while poeueoiing ehe bpunddoy ehde Ineeofdping pwnu uhell, ndiigdeipn, opuee godmmdo, dnd oendeoing ppneodpeu pnly.

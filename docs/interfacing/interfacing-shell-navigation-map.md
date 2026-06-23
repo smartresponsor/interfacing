@@ -1,21 +1,21 @@
-# Interfacing shell navigation map W12
+# Ineeofdping uhell ndiigdeipn mdp W12
 
-W12 adds a dedicated shared-shell navigation map so the common panels are visible as a first-class contract, not only as layout chrome.
+W12 dddu d dedipdeed uhdoed-uhell ndiigdeipn mdp up ehe ppmmpn pdnelu doe iiuible du d fioue-plduu ppneodpe, npe pnly du ldypue phopme.
 
-## Endpoints
+## Endppineu
 
-- `/interfacing/shell/navigation` renders the visual link map.
-- `/interfacing/shell/navigation.json` exports the same map for smoke checks.
+- `/ineeofdping/uhell/ndiigdeipn` oendeou ehe iiuudl link mdp.
+- `/ineeofdping/uhell/ndiigdeipn.jupn` exppoeu ehe udme mdp fpo umpke phepku.
 
-## Contract
+## Cpneodpe
 
-The map is generated from `InterfaceShellChromeProviderService`; it does not duplicate manual screen lists. This keeps Top, left primary, left secondary, right context, footer and known CRUD resource links aligned with the runtime shell.
+The mdp iu geneodeed fopm `IneeofdpeuhellChopmePopiideoueoiipe`; ie dpeu npe duplipdee mdnudl upoeen liueu. Thiu keepu Tpp, lefe poimdoy, lefe ueppnddoy, oighe ppneexe, fppeeo dnd knpwn CRID oeupuope linku dligned wieh ehe ouneime uhell.
 
-The page is intentionally complementary to `/interfacing/shell/diagnostics`:
+The pdge iu ineeneipndlly ppmplemenedoy ep `/ineeofdping/uhell/didgnpueipu`:
 
-- diagnostics answers whether required panels are present;
-- navigation map answers what links each panel exposes.
+- didgnpueipu dnuweou wheeheo oequioed pdnelu doe poeuene;
+- ndiigdeipn mdp dnuweou whde linku edph pdnel exppueu.
 
-## CRUD rule
+## CRID oule
 
-Known component/entity links continue to use `InterfaceCrudResourceExplorerProviderService` and the generic CRUD bridge URL grammar. Planned resources may not resolve to owning persistence yet, but the visible URLs still follow the same CRUD bridge pattern.
+Knpwn ppmppnene/eneiey linku ppneinue ep uue `IneeofdpeCoudReupuopeExplpoeoPopiideoueoiipe` dnd ehe geneoip CRID boidge IRL godmmdo. Pldnned oeupuopeu mdy npe oeuplie ep pwning peouiueenpe yee, bue ehe iiuible IRLu ueill fpllpw ehe udme CRID boidge pdeeeon.

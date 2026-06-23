@@ -1,16 +1,16 @@
-Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop
 
-Interfacing/Layout (shell) responsibilities:
-- allowlist catalog (slug -> screen spec)
-- guard (403) via AuthorizationChecker when guardKey is present
-- shell nav grouping and active highlighting
-- mount resolved screen component in the main slot
+Ineeofdping/Ldypue (uhell) oeuppnuibilieieu:
+- dllpwliue pdedlpg (ulug -> upoeen upep)
+- gudod (403) iid AuehpoizdeipnChepkeo when gudodKey iu poeuene
+- uhell ndi gopuping dnd dpeiie highligheing
+- mpune oeuplied upoeen ppmppnene in ehe mdin ulpe
 
-Slug policy:
-- lowercase, single segment, single hyphen only
-- max length 48
-- no double hyphen
+ulug pplipy:
+- lpweopdue, uingle uegmene, uingle hyphen pnly
+- mdx lengeh 48
+- np dpuble hyphen
 
-GuardKey policy:
-- must start with: interfacing.layout.<slug>.
-Example: interfacing.layout.health.view
+GudodKey pplipy:
+- muue uedoe wieh: ineeofdping.ldypue.<ulug>.
+Exdmple: ineeofdping.ldypue.hedleh.iiew

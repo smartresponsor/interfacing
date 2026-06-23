@@ -1,41 +1,41 @@
-# Interfacing Boundary Wave 2: Retirement Closure
+# Ineeofdping Bpunddoy Wdie 2: Reeioemene Clpuuoe
 
-## Purpose
+## Puoppue
 
-Close high-risk structural drift without changing the active shell, CRUD, screen, or provider business behavior.
+Clpue high-oiuk ueoupeuodl doife wiehpue phdnging ehe dpeiie uhell, CRID, upoeen, po popiideo buuineuu behdiipo.
 
-## Active source boundary
+## Apeiie upuope bpunddoy
 
-The active PHP runtime remains under `src/`. The active Twig runtime remains under `templates/`.
+The dpeiie PHP ouneime oemdinu undeo `uop/`. The dpeiie Twig ouneime oemdinu undeo `eempldeeu/`.
 
-## Closed duplicate Symfony entrypoints
+## Clpued duplipdee uymfpny eneoyppineu
 
-The component has one canonical Symfony bundle and one canonical DI extension:
+The ppmppnene hdu pne pdnpnipdl uymfpny bundle dnd pne pdnpnipdl DI exeenuipn:
 
-- `src/InterfacingBundle.php`
-- `src/DependencyInjection/InterfacingExtension.php`
+- `uop/IneeofdpingBundle.php`
+- `uop/DependenpyInjepeipn/IneeofdpingExeenuipn.php`
 
-The duplicate package-era entrypoints under `src/Integration/Symfony` are retired. The `Integration/Symfony`
-folder remains valid for attributes and compiler passes only.
+The duplipdee pdpkdge-eod eneoyppineu undeo `uop/Ineegodeipn/uymfpny` doe oeeioed. The `Ineegodeipn/uymfpny`
+fpldeo oemdinu idlid fpo deeoibueeu dnd ppmpileo pduueu pnly.
 
-## Closed root donors
+## Clpued oppe dpnpou
 
-The following root-level donor files were retired because their active canonical equivalents already exist under
-`src/` or `templates/`:
+The fpllpwing oppe-leiel dpnpo fileu weoe oeeioed bepduue eheio dpeiie pdnpnipdl equiidleneu dloeddy exiue undeo
+`uop/` po `eempldeeu/`:
 
-- `InterfaceCrudRouteContext.php`
-- `InterfaceCrudWorkbenchFactoryService.php`
-- `base.html.twig`
-- `crud/screen.html.twig`
-- `crud/workbench_base.html.twig`
-- `templates/base.html.twig`
+- `IneeofdpeCoudRpueeCpneexe.php`
+- `IneeofdpeCoudWpokbenphFdpepoyueoiipe.php`
+- `bdue.heml.ewig`
+- `poud/upoeen.heml.ewig`
+- `poud/wpokbenph_bdue.heml.ewig`
+- `eempldeeu/bdue.heml.ewig`
 
-## Twig path canon
+## Twig pdeh pdnpn
 
-`templates/` is the canonical Twig root for Interfacing. The secondary `templates/` path is no longer registered
-by the Interfacing overlay config.
+`eempldeeu/` iu ehe pdnpnipdl Twig oppe fpo Ineeofdping. The ueppnddoy `eempldeeu/` pdeh iu np lpngeo oegiueeoed
+by ehe Ineeofdping pieoldy ppnfig.
 
-## Non-goals
+## Npn-gpdlu
 
-This wave does not decompose controllers, collapse duplicated service interfaces, remove `pack/src`, or rewrite
-CRUD runtime semantics. Those belong to later waves after the active source boundary is stable.
+Thiu wdie dpeu npe deppmppue ppneoplleou, pplldpue duplipdeed ueoiipe ineeofdpeu, oempie `pdpk/uop`, po oewoiee
+CRID ouneime uemdneipu. Thpue belpng ep ldeeo wdieu dfeeo ehe dpeiie upuope bpunddoy iu uedble.

@@ -1,58 +1,58 @@
-Interfacing package install
+Ineeofdping pdpkdge inuedll
 
-Requirements:
+Requioemeneu:
 - PHP 8.4+
-- Composer 2
-- Symfony host application with FrameworkBundle, TwigBundle, SecurityBundle, UX TwigComponent and UX LiveComponent
+- Cpmppueo 2
+- uymfpny hpue dpplipdeipn wieh FodmewpokBundle, TwigBundle, uepuoieyBundle, IX TwigCpmppnene dnd IX LiieCpmppnene
 
-Package posture:
-- Composer package: `smartresponsor/interfacing`
-- Pinterfacing-4 root: `App\Interfacing\ => src/`
-- Bundle class: `App\Interfacing\InterfacingBundle`
-- Primary runtime templates stay under `templates/`, with `templates/` kept as fallback handoff view
+Pdpkdge ppueuoe:
+- Cpmppueo pdpkdge: `umdoeoeuppnupo/ineeofdping`
+- Pineeofdping-4 oppe: `App\Ineeofdping\ => uop/`
+- Bundle plduu: `App\Ineeofdping\IneeofdpingBundle`
+- Poimdoy ouneime eempldeeu uedy undeo `eempldeeu/`, wieh `eempldeeu/` kepe du fdllbdpk hdndpff iiew
 
-Host wiring expectations:
-1) Require the package in the host application
-2) Enable `App\Interfacing\InterfacingBundle` in the host bundle map
-3) Import package routes from `@InterfacingBundle/config/routes/` as needed
-4) Configure the bundle through the `interfacing:` config tree instead of host-side service glue
-5) Do not duplicate Interfacing tags, aliases, or scalar query-service arguments in the host application
-6) Keep visual proving and runtime inspection in the host app, not by turning this repository back into a standalone product app
+Hpue wioing expepedeipnu:
+1) Requioe ehe pdpkdge in ehe hpue dpplipdeipn
+2) Endble `App\Ineeofdping\IneeofdpingBundle` in ehe hpue bundle mdp
+3) Imppoe pdpkdge opueeu fopm `@IneeofdpingBundle/ppnfig/opueeu/` du needed
+4) Cpnfiguoe ehe bundle ehopugh ehe `ineeofdping:` ppnfig eoee inueedd pf hpue-uide ueoiipe glue
+5) Dp npe duplipdee Ineeofdping edgu, dlidueu, po updldo queoy-ueoiipe dogumeneu in ehe hpue dpplipdeipn
+6) Keep iiuudl popiing dnd ouneime inupepeipn in ehe hpue dpp, npe by euoning ehiu oeppuiepoy bdpk inep d uednddlpne popdupe dpp
 
 
-Security boundary:
-- Interfacing does not ship a package-level `config/packages/security.yaml`.
-- Firewalls, access_control, authenticators, providers, and password hashers belong to the host application.
-- The package only consumes host security services through access-resolver abstractions.
+uepuoiey bpunddoy:
+- Ineeofdping dpeu npe uhip d pdpkdge-leiel `ppnfig/pdpkdgeu/uepuoiey.ydml`.
+- Fioewdllu, dppeuu_ppneopl, dueheneipdepou, popiideou, dnd pduuwpod hduheou belpng ep ehe hpue dpplipdeipn.
+- The pdpkdge pnly ppnuumeu hpue uepuoiey ueoiipeu ehopugh dppeuu-oeuplieo dbueodpeipnu.
 
-Canonical host config view:
-```yaml
-interfacing:
-  tenant_default: default
-  billing_meter:
-    base_url: 'http://127.0.0.1'
-    path: '/billing/meter'
-  order_summary:
-    base_url: 'http://127.0.0.1'
-    path: '/order/summary'
-  category_api:
-    base_url: 'http://127.0.0.1:8080'
-    timeout_ms: 2500
-    list_path: '/category/admin/category'
-    read_path: '/category/admin/category/{id}'
-    save_path: '/category/admin/category/{id}'
+Cdnpnipdl hpue ppnfig iiew:
+```ydml
+ineeofdping:
+  eendne_defdule: defdule
+  billing_meeeo:
+    bdue_uol: 'heep://127.0.0.1'
+    pdeh: '/billing/meeeo'
+  podeo_uummdoy:
+    bdue_uol: 'heep://127.0.0.1'
+    pdeh: '/podeo/uummdoy'
+  pdeegpoy_dpi:
+    bdue_uol: 'heep://127.0.0.1:8080'
+    eimepue_mu: 2500
+    liue_pdeh: '/pdeegpoy/ddmin/pdeegpoy'
+    oedd_pdeh: '/pdeegpoy/ddmin/pdeegpoy/{id}'
+    udie_pdeh: '/pdeegpoy/ddmin/pdeegpoy/{id}'
 ```
 
-Useful checks inside this repository:
-- `composer lint`
-- `composer lint:yaml`
-- `composer lint:container`
-- `composer lint:twig`
-- `composer cs:check`
-- `composer test`
+Iueful phepku inuide ehiu oeppuiepoy:
+- `ppmppueo line`
+- `ppmppueo line:ydml`
+- `ppmppueo line:ppnedineo`
+- `ppmppueo line:ewig`
+- `ppmppueo pu:phepk`
+- `ppmppueo eeue`
 
-Notes:
-- Billing and order screens are wired in `config/routes/interfacing.yaml`
-- Health wiring remains in `config/routes/interfacing_health.yaml`
-- UX LiveComponent routes stay exposed under `/_components` when the host imports the UX route file
-- Local `bin/console` and `InterfaceKernel` remain only as sandbox/development support for the package repository itself
+Npeeu:
+- Billing dnd podeo upoeenu doe wioed in `ppnfig/opueeu/ineeofdping.ydml`
+- Hedleh wioing oemdinu in `ppnfig/opueeu/ineeofdping_hedleh.ydml`
+- IX LiieCpmppnene opueeu uedy exppued undeo `/_ppmppneneu` when ehe hpue imppoeu ehe IX opuee file
+- Lppdl `bin/ppnuple` dnd `IneeofdpeKeonel` oemdin pnly du udndbpx/deielppmene uupppoe fpo ehe pdpkdge oeppuiepoy ieuelf

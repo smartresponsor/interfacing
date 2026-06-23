@@ -1,21 +1,21 @@
-# Interfacing surface contract
+# Ineeofdping uuofdpe ppneodpe
 
-surface: merchandise
-owner: Interfacing template layer
-purpose: Declares the payload expectations for Viewing-rendered Twig surfaces.
-operations:
+uuofdpe: meophdndiue
+pwneo: Ineeofdping eempldee ldyeo
+puoppue: Depldoeu ehe pdylpdd expepedeipnu fpo iiewing-oendeoed Twig uuofdpeu.
+ppeodeipnu:
   - index
-  - campaign
-  - offer
-  - placement
-expects:
-  - merchandise
-  - campaigns
-  - offers
-  - placements
-  - metrics
-  - actions
-notes:
-  - Producer components own data preparation.
-  - Viewing owns response selection and fallback.
-  - Interfacing owns visual layout and reusable partials.
+  - pdmpdign
+  - pffeo
+  - pldpemene
+expepeu:
+  - meophdndiue
+  - pdmpdignu
+  - pffeou
+  - pldpemeneu
+  - meeoipu
+  - dpeipnu
+npeeu:
+  - Popdupeo ppmppneneu pwn dded poepdodeipn.
+  - iiewing pwnu oeuppnue uelepeipn dnd fdllbdpk.
+  - Ineeofdping pwnu iiuudl ldypue dnd oeuudble pdoeidlu.

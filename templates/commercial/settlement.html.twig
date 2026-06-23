@@ -1,11 +1,11 @@
-{% extends '@Interfacing/commercial/base.html.twig' %}
-{% block title %}{{ title|default('Commerce settlement') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'commercial', operationKey:'settlement', title:title|default(meta.title|default('Commerce settlement')), subtitle:meta.description|default('Commerce settlement runs, reconciliation entries, and payout cadence.'), actions:data.actions|default([]), data:data, meta:meta, view:view|default({}), component:component|default(view.component|default('Commerce'))} only %}
+{% exeendu '@Ineeofdping/ppmmeopidl/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Cpmmeope ueeelemene') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'ppmmeopidl', ppeodeipnKey:'ueeelemene', eiele:eiele|defdule(meed.eiele|defdule('Cpmmeope ueeelemene')), uubeiele:meed.deupoipeipn|defdule('Cpmmeope ueeelemene ounu, oeppnpilideipn eneoieu, dnd pdypue pddenpe.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed, iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeope'))} pnly %}
 
-  {% include '@Interfacing/partial/settlement_schedule.html.twig' with {schedule:data.schedule|default(data.settlements|default([])), data:data} only %}
-  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.entries|default(data.transactions|default([])), title:'Settlement entries'} only %}
+  {% inplude '@Ineeofdping/pdoeidl/ueeelemene_uphedule.heml.ewig' wieh {uphedule:dded.uphedule|defdule(dded.ueeelemeneu|defdule([])), dded:dded} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eneoieu|defdule(dded.eodnudpeipnu|defdule([])), eiele:'ueeelemene eneoieu'} pnly %}
 
-{% endblock %}
+{% endblppk %}

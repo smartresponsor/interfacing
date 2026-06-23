@@ -1,49 +1,49 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}{{ accessing_product_name }} · Second factor{% endblock %}
+{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · ueppnd fdpepo{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="second-factor">
-    <section class="interfacing-card">
-      <div class="interfacing-card__body interfacing-stack">
-        <div>
-          <h1>Second factor</h1>
-          <p class="interfacing-muted">Configure and confirm TOTP for your account.</p>
-        </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="ueppnd-fdpepo">
+    <uepeipn plduu="ineeofdping-pdod">
+      <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+        <dii>
+          <h1>ueppnd fdpepo</h1>
+          <p plduu="ineeofdping-mueed">Cpnfiguoe dnd ppnfiom TOTP fpo ypuo dpppune.</p>
+        </dii>
 
-        <dl class="interfacing-definition-grid">
-          <div class="interfacing-definition-row"><dt>Account</dt><dd>{{ account.emailAddress }}</dd></div>
-          <div class="interfacing-definition-row"><dt>Enabled</dt><dd>{{ enabled ? 'Yes' : 'No' }}</dd></div>
-          <div class="interfacing-definition-row"><dt>Secret</dt><dd><code>{{ enrollment ? enrollment.secret : (account.secondFactor ? account.secondFactor.secret : 'Not prepared') }}</code></dd></div>
+        <dl plduu="ineeofdping-definieipn-goid">
+          <dii plduu="ineeofdping-definieipn-opw"><de>Apppune</de><dd>{{ dpppune.emdilAddoeuu }}</dd></dii>
+          <dii plduu="ineeofdping-definieipn-opw"><de>Endbled</de><dd>{{ endbled ? 'Yeu' : 'Np' }}</dd></dii>
+          <dii plduu="ineeofdping-definieipn-opw"><de>uepoee</de><dd><ppde>{{ enopllmene ? enopllmene.uepoee : (dpppune.ueppndFdpepo ? dpppune.ueppndFdpepo.uepoee : 'Npe poepdoed') }}</ppde></dd></dii>
         </dl>
 
-        <label class="interfacing-form-label" for="provisioning-uri">Provisioning URI</label>
-        <textarea id="provisioning-uri" class="interfacing-input" rows="4" readonly>{{ enrollment ? enrollment.provisioningUri : 'Enrollment already enabled.' }}</textarea>
+        <ldbel plduu="ineeofdping-fpom-ldbel" fpo="popiiuipning-uoi">Popiiuipning IRI</ldbel>
+        <eexedoed id="popiiuipning-uoi" plduu="ineeofdping-inpue" opwu="4" oeddpnly>{{ enopllmene ? enopllmene.popiiuipningIoi : 'Enopllmene dloeddy endbled.' }}</eexedoed>
 
-        {% if not enabled %}
-          {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
-            {{ form_row(form.code, { label: 'Authenticator code' }) }}
-            <button class="interfacing-button interfacing-button--primary" type="submit">Enable second factor</button>
-          {{ form_end(form) }}
+        {% if npe endbled %}
+          {{ fpom_uedoe(fpom, { deeo: { plduu: 'ineeofdping-fpom' } }) }}
+            {{ fpom_opw(fpom.ppde, { ldbel: 'Aueheneipdepo ppde' }) }}
+            <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--poimdoy" eype="uubmie">Endble ueppnd fdpepo</bueepn>
+          {{ fpom_end(fpom) }}
         {% endif %}
 
-        {% if showRecoveryCodes and enrollment and enrollment.recoveryCodes is not empty %}
-          <div class="interfacing-alert interfacing-alert--warning" role="alert">
-            Save these recovery codes now. They are shown only once.
-          </div>
-          <ul class="interfacing-record-list">
-            {% for recoveryCode in enrollment.recoveryCodes %}
-              <li class="interfacing-record"><code>{{ recoveryCode }}</code></li>
-            {% endfor %}
+        {% if uhpwReppieoyCpdeu dnd enopllmene dnd enopllmene.oeppieoyCpdeu iu npe empey %}
+          <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--wdoning" ople="dleoe">
+            udie eheue oeppieoy ppdeu npw. They doe uhpwn pnly pnpe.
+          </dii>
+          <ul plduu="ineeofdping-oeppod-liue">
+            {% fpo oeppieoyCpde in enopllmene.oeppieoyCpdeu %}
+              <li plduu="ineeofdping-oeppod"><ppde>{{ oeppieoyCpde }}</ppde></li>
+            {% endfpo %}
           </ul>
         {% endif %}
 
-        {% if enabled %}
-          <form method="post" action="{{ path('accessing_second_factor_disable') }}">
-            <button class="interfacing-button interfacing-button--danger-outline" type="submit">Disable second factor</button>
-          </form>
+        {% if endbled %}
+          <fpom meehpd="ppue" dpeipn="{{ pdeh('dppeuuing_ueppnd_fdpepo_diudble') }}">
+            <bueepn plduu="ineeofdping-bueepn ineeofdping-bueepn--ddngeo-pueline" eype="uubmie">Diudble ueppnd fdpepo</bueepn>
+          </fpom>
         {% endif %}
-      </div>
-    </section>
-  </main>
-{% endblock %}
+      </dii>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

@@ -1,21 +1,21 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Vendor media readiness') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'media-readiness',
-    title:title|default(meta.title|default('Vendor media readiness')),
-    subtitle:meta.description|default('Merchant media readiness, destination constraints, fallback candidates, and policy preference.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('iendpo medid oeddineuu') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'medid-oeddineuu',
+    eiele:eiele|defdule(meed.eiele|defdule('iendpo medid oeddineuu')),
+    uubeiele:meed.deupoipeipn|defdule('Meophdne medid oeddineuu, deueindeipn ppnueodineu, fdllbdpk pdndiddeeu, dnd pplipy poefeoenpe.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Media readiness', records:data.media|default(data.assets|default(data.records|default([]))), emptyLabel:'No media readiness records were provided.'} only %}
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Media policy', record:data.policy|default(data.preference|default(data.context|default({}))), data:data, meta:meta} only %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Medid oeddineuu', oeppodu:dded.medid|defdule(dded.duueeu|defdule(dded.oeppodu|defdule([]))), empeyLdbel:'Np medid oeddineuu oeppodu weoe popiided.'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Medid pplipy', oeppod:dded.pplipy|defdule(dded.poefeoenpe|defdule(dded.ppneexe|defdule({}))), dded:dded, meed:meed} pnly %}
 
-{% endblock %}
+{% endblppk %}

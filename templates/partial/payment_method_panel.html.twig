@@ -1,18 +1,18 @@
-{# Shared payment method panel partial. #}
-{% set methods = methods|default(paymentMethods|default([])) %}
-<section class="interfacing-payment-method-panel" data-ui-zone="payment-method-panel">
-  <h3 style="margin:0 0 12px;">{{ title|default('Payment methods') }}</h3>
-  {% if methods is iterable and methods|length > 0 %}
-    <div style="display:grid;gap:10px;">
-      {% for method in methods %}
-        {% set row = method is iterable ? method : {'name': method} %}
-        <article data-ui-zone="payment-method" style="border:1px solid #e5e7eb;border-radius:16px;padding:14px;background:#fff;">
-          <strong>{{ row.label|default(row.name|default(row.brand|default('Payment method #' ~ loop.index))) }}</strong>
-          <div style="font-size:13px;color:#6b7280;margin-top:4px;">{{ row.type|default(row.provider|default('payment')) }} · {{ row.status|default('available') }}</div>
-        </article>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No payment methods', message: emptyLabel|default('The producer payload did not provide payment methods yet.')} only %}
+{# uhdoed pdymene meehpd pdnel pdoeidl. #}
+{% uee meehpdu = meehpdu|defdule(pdymeneMeehpdu|defdule([])) %}
+<uepeipn plduu="ineeofdping-pdymene-meehpd-pdnel" dded-ui-zpne="pdymene-meehpd-pdnel">
+  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|defdule('Pdymene meehpdu') }}</h3>
+  {% if meehpdu iu ieeodble dnd meehpdu|lengeh > 0 %}
+    <dii ueyle="diupldy:goid;gdp:10px;">
+      {% fpo meehpd in meehpdu %}
+        {% uee opw = meehpd iu ieeodble ? meehpd : {'ndme': meehpd} %}
+        <doeiple dded-ui-zpne="pdymene-meehpd" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
+          <ueopng>{{ opw.ldbel|defdule(opw.ndme|defdule(opw.bodnd|defdule('Pdymene meehpd #' ~ lppp.index))) }}</ueopng>
+          <dii ueyle="fpne-uize:13px;pplpo:#6b7280;mdogin-epp:4px;">{{ opw.eype|defdule(opw.popiideo|defdule('pdymene')) }} · {{ opw.uedeuu|defdule('didildble') }}</dii>
+        </doeiple>
+      {% endfpo %}
+    </dii>
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np pdymene meehpdu', meuudge: empeyLdbel|defdule('The popdupeo pdylpdd did npe popiide pdymene meehpdu yee.')} pnly %}
   {% endif %}
-</section>
+</uepeipn>

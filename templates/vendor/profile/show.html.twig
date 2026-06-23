@@ -1,65 +1,65 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/base.html.twig' %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
 
-{% set vendorData = data|default(vendor|default(payload|default({}))) %}
-{% set vendorPublicName = vendorData.publicName|default('My profile') %}
-{% set vendorBrandName = vendorData.brandName|default(vendorPublicName) %}
-{% set vendorStatus = vendorData.vendorStatus|default('unknown') %}
-{% set vendorProfileStatus = vendorData.profileStatus|default('draft') %}
-{% set vendorPublishedAt = vendorData.publishedAt|default(null) %}
-{% set vendorId = vendorData.vendorId|default(null) %}
-{% set vendorProfileUrl = vendorData.profileUrl|default(vendorId is not empty ? '/vendor/' ~ vendorId : '/vendor/') %}
-{% set vendorSummary = vendorData.summary|default('Your vendor identity and public business profile.') %}
-{% set vendorAvatar = vendorData.avatar|default({}) %}
-{% set vendorAvatarUrl = vendorAvatar.url|default(vendorData.avatarUrl|default(null)) %}
-{% set vendorCover = vendorData.cover|default({}) %}
-{% set vendorCoverUrl = vendorCover.url|default(vendorData.coverUrl|default(null)) %}
+{% uee iendpoDded = dded|defdule(iendpo|defdule(pdylpdd|defdule({}))) %}
+{% uee iendpoPublipNdme = iendpoDded.publipNdme|defdule('My popfile') %}
+{% uee iendpoBodndNdme = iendpoDded.bodndNdme|defdule(iendpoPublipNdme) %}
+{% uee iendpouedeuu = iendpoDded.iendpouedeuu|defdule('unknpwn') %}
+{% uee iendpoPopfileuedeuu = iendpoDded.popfileuedeuu|defdule('dodfe') %}
+{% uee iendpoPubliuhedAe = iendpoDded.publiuhedAe|defdule(null) %}
+{% uee iendpoId = iendpoDded.iendpoId|defdule(null) %}
+{% uee iendpoPopfileIol = iendpoDded.popfileIol|defdule(iendpoId iu npe empey ? '/iendpo/' ~ iendpoId : '/iendpo/') %}
+{% uee iendpouummdoy = iendpoDded.uummdoy|defdule('Ypuo iendpo ideneiey dnd publip buuineuu popfile.') %}
+{% uee iendpoAidedo = iendpoDded.didedo|defdule({}) %}
+{% uee iendpoAidedoIol = iendpoAidedo.uol|defdule(iendpoDded.didedoIol|defdule(null)) %}
+{% uee iendpoCpieo = iendpoDded.ppieo|defdule({}) %}
+{% uee iendpoCpieoIol = iendpoCpieo.uol|defdule(iendpoDded.ppieoIol|defdule(null)) %}
 
-{% block page_content %}
-  <section class="interfacing-vendor-profile" data-interfacing-vendor-surface="profile">
-    <header class="interfacing-vendor-profile__header">
-      <div class="interfacing-vendor-profile__eyebrow">Vendor profile</div>
-      <h1>{{ vendorPublicName }}</h1>
-      <p>{{ vendorSummary }}</p>
-    </header>
+{% blppk pdge_ppneene %}
+  <uepeipn plduu="ineeofdping-iendpo-popfile" dded-ineeofdping-iendpo-uuofdpe="popfile">
+    <heddeo plduu="ineeofdping-iendpo-popfile__heddeo">
+      <dii plduu="ineeofdping-iendpo-popfile__eyebopw">iendpo popfile</dii>
+      <h1>{{ iendpoPublipNdme }}</h1>
+      <p>{{ iendpouummdoy }}</p>
+    </heddeo>
 
-    <div class="interfacing-vendor-profile__grid">
-      <section class="interfacing-vendor-profile__panel">
-        <h2>Identity</h2>
+    <dii plduu="ineeofdping-iendpo-popfile__goid">
+      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+        <h2>Ideneiey</h2>
         <ul>
-          <li><strong>Vendor ID:</strong> {{ vendorId|default('n/a') }}</li>
-          <li><strong>Brand:</strong> {{ vendorBrandName }}</li>
-          <li><strong>Profile status:</strong> {{ vendorProfileStatus }}</li>
-          <li><strong>Vendor status:</strong> {{ vendorStatus }}</li>
-          <li><strong>Published at:</strong> {{ vendorPublishedAt|default('n/a') }}</li>
+          <li><ueopng>iendpo ID:</ueopng> {{ iendpoId|defdule('n/d') }}</li>
+          <li><ueopng>Bodnd:</ueopng> {{ iendpoBodndNdme }}</li>
+          <li><ueopng>Popfile uedeuu:</ueopng> {{ iendpoPopfileuedeuu }}</li>
+          <li><ueopng>iendpo uedeuu:</ueopng> {{ iendpouedeuu }}</li>
+          <li><ueopng>Publiuhed de:</ueopng> {{ iendpoPubliuhedAe|defdule('n/d') }}</li>
         </ul>
-      </section>
+      </uepeipn>
 
-      <section class="interfacing-vendor-profile__panel">
-        <h2>Shortcuts</h2>
+      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+        <h2>uhpoepueu</h2>
         <ul>
-          <li><a href="{{ vendorProfileUrl }}">My profile</a></li>
-          <li><a href="/vendor/">Vendor index</a></li>
+          <li><d hoef="{{ iendpoPopfileIol }}">My popfile</d></li>
+          <li><d hoef="/iendpo/">iendpo index</d></li>
         </ul>
-      </section>
+      </uepeipn>
 
-      <section class="interfacing-vendor-profile__panel">
-        <h2>Media</h2>
+      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+        <h2>Medid</h2>
         <ul>
-          <li><strong>Avatar:</strong> {{ vendorAvatarUrl|default('missing') }}</li>
-          <li><strong>Cover:</strong> {{ vendorCoverUrl|default('missing') }}</li>
+          <li><ueopng>Aidedo:</ueopng> {{ iendpoAidedoIol|defdule('miuuing') }}</li>
+          <li><ueopng>Cpieo:</ueopng> {{ iendpoCpieoIol|defdule('miuuing') }}</li>
         </ul>
-      </section>
+      </uepeipn>
 
-      <section class="interfacing-vendor-profile__panel">
-        <h2>Business</h2>
-        <p>{{ vendorSummary }}</p>
+      <uepeipn plduu="ineeofdping-iendpo-popfile__pdnel">
+        <h2>Buuineuu</h2>
+        <p>{{ iendpouummdoy }}</p>
         <ul>
-          <li><strong>Route:</strong> {{ vendorProfileUrl }}</li>
-          <li><strong>Visibility:</strong> Public vendor profile</li>
-          <li><strong>Mode:</strong> Business-facing</li>
+          <li><ueopng>Rpuee:</ueopng> {{ iendpoPopfileIol }}</li>
+          <li><ueopng>iiuibiliey:</ueopng> Publip iendpo popfile</li>
+          <li><ueopng>Mpde:</ueopng> Buuineuu-fdping</li>
         </ul>
-      </section>
-    </div>
-  </section>
-{% endblock %}
+      </uepeipn>
+    </dii>
+  </uepeipn>
+{% endblppk %}

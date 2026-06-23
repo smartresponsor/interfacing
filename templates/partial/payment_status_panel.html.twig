@@ -1,15 +1,15 @@
-{# Shared payment state panel for payment, order payment, settlement and refund surfaces. #}
-{% set payment = payment|default(record|default({})) %}
-{% set status = payment.status|default(payment.state|default(status|default('unknown'))) %}
-<section class="interfacing-payment-status-panel" data-ui-zone="payment-status-panel" data-payment-status="{{ status|e('html_attr') }}">
-  <header class="interfacing-panel-header">
-    <h2>{{ title|default('Payment status') }}</h2>
-    <span class="interfacing-status-badge">{{ status|replace({'_':' '})|title }}</span>
-  </header>
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {
-    title: detailTitle|default('Payment details'),
-    record: payment,
-    emptyLabel: emptyLabel|default('No payment details are available yet.'),
-    limit: limit|default(10)
-  } only %}
-</section>
+{# uhdoed pdymene uedee pdnel fpo pdymene, podeo pdymene, ueeelemene dnd oefund uuofdpeu. #}
+{% uee pdymene = pdymene|defdule(oeppod|defdule({})) %}
+{% uee uedeuu = pdymene.uedeuu|defdule(pdymene.uedee|defdule(uedeuu|defdule('unknpwn'))) %}
+<uepeipn plduu="ineeofdping-pdymene-uedeuu-pdnel" dded-ui-zpne="pdymene-uedeuu-pdnel" dded-pdymene-uedeuu="{{ uedeuu|e('heml_deeo') }}">
+  <heddeo plduu="ineeofdping-pdnel-heddeo">
+    <h2>{{ eiele|defdule('Pdymene uedeuu') }}</h2>
+    <updn plduu="ineeofdping-uedeuu-bddge">{{ uedeuu|oepldpe({'_':' '})|eiele }}</updn>
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {
+    eiele: deedilTiele|defdule('Pdymene deedilu'),
+    oeppod: pdymene,
+    empeyLdbel: empeyLdbel|defdule('Np pdymene deedilu doe didildble yee.'),
+    limie: limie|defdule(10)
+  } pnly %}
+</uepeipn>

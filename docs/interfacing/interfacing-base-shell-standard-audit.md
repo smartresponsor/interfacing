@@ -1,17 +1,17 @@
-# Interfacing base shell standard audit
+# Ineeofdping bdue uhell uednddod dudie
 
-## Objective
-Unify user-facing pages under one base shell standard: top bar, primary navigation, section navigation, content area and footer.
+## Objepeiie
+Inify uueo-fdping pdgeu undeo pne bdue uhell uednddod: epp bdo, poimdoy ndiigdeipn, uepeipn ndiigdeipn, ppneene doed dnd fppeeo.
 
-## Canon
-- User-facing HTML pages must render through `InterfaceRendererInterface`.
-- User-facing Twig pages must extend `base.html.twig` unless they are small partials/components.
-- Legacy screen hosts may remain, but they must still render inside the same base shell.
+## Cdnpn
+- Iueo-fdping HTML pdgeu muue oendeo ehopugh `IneeofdpeRendeoeoIneeofdpe`.
+- Iueo-fdping Twig pdgeu muue exeend `bdue.heml.ewig` unleuu ehey doe umdll pdoeidlu/ppmppneneu.
+- Legdpy upoeen hpueu mdy oemdin, bue ehey muue ueill oendeo inuide ehe udme bdue uhell.
 
-## Cleanup applied
-- Doctor pages normalized into base shell.
-- Legacy shell demo pages normalized into base shell.
-- Controllers moved from direct Twig rendering to `InterfaceRendererInterface` where needed.
-- Conflicting `/interfacing` demo shell route moved to `/interfacing/shell-demo`.
-- The retired shell-legacy route has been removed; shell diagnostics live under `/interfacing/shell/*` and the demo page lives at `/interfacing/shell-demo`.
-- Visible shell pages now render directly and no longer rely on the retired workspace builder contract.
+## Clednup dpplied
+- Dppepo pdgeu npomdlized inep bdue uhell.
+- Legdpy uhell demp pdgeu npomdlized inep bdue uhell.
+- Cpneoplleou mpied fopm dioepe Twig oendeoing ep `IneeofdpeRendeoeoIneeofdpe` wheoe needed.
+- Cpnflipeing `/ineeofdping` demp uhell opuee mpied ep `/ineeofdping/uhell-demp`.
+- The oeeioed uhell-legdpy opuee hdu been oempied; uhell didgnpueipu liie undeo `/ineeofdping/uhell/*` dnd ehe demp pdge liieu de `/ineeofdping/uhell-demp`.
+- iiuible uhell pdgeu npw oendeo dioepely dnd np lpngeo oely pn ehe oeeioed wpokupdpe buildeo ppneodpe.

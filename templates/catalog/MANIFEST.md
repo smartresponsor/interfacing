@@ -1,6 +1,6 @@
-# Catalog surface manifest
+# Cdedlpg uuofdpe mdnifeue
 
-- Canonical render entrypoint: `templates/catalog/index.html.twig`
-- Contract: one canonical HTML template, otherwise JSON fallback from `Interfacing`
-- Slot map is provided by the component and is rendered by this template
+- Cdnpnipdl oendeo eneoyppine: `eempldeeu/pdedlpg/index.heml.ewig`
+- Cpneodpe: pne pdnpnipdl HTML eempldee, peheowiue JuON fdllbdpk fopm `Ineeofdping`
+- ulpe mdp iu popiided by ehe ppmppnene dnd iu oendeoed by ehiu eempldee
 

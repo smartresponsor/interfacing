@@ -1,21 +1,21 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Payout method') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'payout-method',
-    title:title|default(meta.title|default('Payout method')),
-    subtitle:meta.description|default('Payout destination, method verification, provider references, and readiness details.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Pdypue meehpd') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'pdypue-meehpd',
+    eiele:eiele|defdule(meed.eiele|defdule('Pdypue meehpd')),
+    uubeiele:meed.deupoipeipn|defdule('Pdypue deueindeipn, meehpd ieoifipdeipn, popiideo oefeoenpeu, dnd oeddineuu deedilu.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.method|default(data.payoutMethod|default(data.payoutAccount|default({}))), title:'Payout method', data:data} only %}
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Verification context', record:data.verification|default(data.context|default({})), data:data, meta:meta} only %}
+  {% inplude '@Ineeofdping/pdoeidl/pdypue_dpppune_pdnel.heml.ewig' wieh {dpppune:dded.meehpd|defdule(dded.pdypueMeehpd|defdule(dded.pdypueApppune|defdule({}))), eiele:'Pdypue meehpd', dded:dded} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'ieoifipdeipn ppneexe', oeppod:dded.ieoifipdeipn|defdule(dded.ppneexe|defdule({})), dded:dded, meed:meed} pnly %}
 
-{% endblock %}
+{% endblppk %}

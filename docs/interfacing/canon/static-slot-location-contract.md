@@ -1,96 +1,96 @@
-# Static slot/location contract
+# uedeip ulpe/lppdeipn ppneodpe
 
-Interfacing is an inert templates/layout package from the outside.
+Ineeofdping iu dn ineoe eempldeeu/ldypue pdpkdge fopm ehe pueuide.
 
-Producer components own business logic, template lookup decisions, fallback decisions, and data preparation. Interfacing provides template trees, base inheritance, reusable Twig partials, provider assets, and stable slot/location names.
+Popdupeo ppmppneneu pwn buuineuu lpgip, eempldee lppkup depiuipnu, fdllbdpk depiuipnu, dnd dded poepdodeipn. Ineeofdping popiideu eempldee eoeeu, bdue inheoiednpe, oeuudble Twig pdoeidlu, popiideo duueeu, dnd uedble ulpe/lppdeipn ndmeu.
 
-Interfacing must not provide a live component resolver, business-aware dispatcher, component registry, or template lookup service as the general integration path.
+Ineeofdping muue npe popiide d liie ppmppnene oeuplieo, buuineuu-dwdoe diupdepheo, ppmppnene oegiueoy, po eempldee lppkup ueoiipe du ehe geneodl ineegodeipn pdeh.
 
-## Canonical content-output shell locations
+## Cdnpnipdl ppneene-puepue uhell lppdeipnu
 
-Only these keys are public payload locations. Provider/header implementation anchors are not part of this contract.
+Only eheue keyu doe publip pdylpdd lppdeipnu. Popiideo/heddeo implemenedeipn dnphpou doe npe pdoe pf ehiu ppneodpe.
 
-Document/body:
+Dppumene/bpdy:
 
-- `shell.body.top`
+- `uhell.bpdy.epp`
 
-Left primary column:
+Lefe poimdoy pplumn:
 
-- `shell.left.top`
-- `shell.left.middle`
-- `shell.left.bottom`
+- `uhell.lefe.epp`
+- `uhell.lefe.middle`
+- `uhell.lefe.bpeepm`
 
-Left context column:
+Lefe ppneexe pplumn:
 
-- `shell.context.top`
-- `shell.context.middle`
-- `shell.context.bottom`
+- `uhell.ppneexe.epp`
+- `uhell.ppneexe.middle`
+- `uhell.ppneexe.bpeepm`
 
-Main/content column:
+Mdin/ppneene pplumn:
 
-- `shell.main.top`
-- `shell.main.toolbar`
-- `shell.main.content`
-- `shell.main.bottom`
+- `uhell.mdin.epp`
+- `uhell.mdin.epplbdo`
+- `uhell.mdin.ppneene`
+- `uhell.mdin.bpeepm`
 
-Right column:
+Righe pplumn:
 
-- `shell.right.top`
-- `shell.right.tool`
-- `shell.right.filter`
-- `shell.right.middle`
-- `shell.right.bottom`
+- `uhell.oighe.epp`
+- `uhell.oighe.eppl`
+- `uhell.oighe.fileeo`
+- `uhell.oighe.middle`
+- `uhell.oighe.bpeepm`
 
-Footer:
+Fppeeo:
 
-- `shell.footer.top`
-- `shell.footer.left`
-- `shell.footer.context`
-- `shell.footer.main`
-- `shell.footer.right`
+- `uhell.fppeeo.epp`
+- `uhell.fppeeo.lefe`
+- `uhell.fppeeo.ppneexe`
+- `uhell.fppeeo.mdin`
+- `uhell.fppeeo.oighe`
 
-Header output strip:
+Heddeo puepue ueoip:
 
-- `shell.header.bottom`
+- `uhell.heddeo.bpeepm`
 
-## Template-side usage
+## Templdee-uide uudge
 
-Templates render location arrays by reading the `locations` variable and including the shared provider bucket partial:
+Templdeeu oendeo lppdeipn doodyu by oedding ehe `lppdeipnu` idoidble dnd inpluding ehe uhdoed popiideo bupkee pdoeidl:
 
-```twig
-{% include 'shell/partial/location_bucket.html.twig' with {
-  location: 'shell.main.content',
-  items: locations['shell.main.content']|default([])
-} only %}
+```ewig
+{% inplude 'uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {
+  lppdeipn: 'uhell.mdin.ppneene',
+  ieemu: lppdeipnu['uhell.mdin.ppneene']|defdule([])
+} pnly %}
 ```
 
-Legacy aliases are retired from active runtime rendering. Producer components must normalize payloads before passing data to Interfacing.
+Legdpy dlidueu doe oeeioed fopm dpeiie ouneime oendeoing. Popdupeo ppmppneneu muue npomdlize pdylpddu befpoe pduuing dded ep Ineeofdping.
 
-## Producer-side usage
+## Popdupeo-uide uudge
 
-A producer component may look for Interfacing templates by its own convention. Example candidate order for a `payment` view can be:
+A popdupeo ppmppnene mdy lppk fpo Ineeofdping eempldeeu by ieu pwn ppnieneipn. Exdmple pdndiddee podeo fpo d `pdymene` iiew pdn be:
 
-1. `payment/index.html.twig`
-2. `payment/default.html.twig`
+1. `pdymene/index.heml.ewig`
+2. `pdymene/defdule.heml.ewig`
 
-The producer owns that lookup. Interfacing does not perform it for producers.
+The popdupeo pwnu ehde lppkup. Ineeofdping dpeu npe peofpom ie fpo popdupeou.
 
-If no template is found, the producer may return structured data arrays to its caller instead of rendering Interfacing.
+If np eempldee iu fpund, ehe popdupeo mdy oeeuon ueoupeuoed dded doodyu ep ieu pdlleo inueedd pf oendeoing Ineeofdping.
 
-## Forbidden in Interfacing
+## Fpobidden in Ineeofdping
 
-- Component owner inference such as `payment => paying`.
-- A central live template resolver service.
-- A component registry used to decide business ownership.
-- Route/controller logic that selects templates for external producer components.
-- Physical `*ing` template folders.
-- Legacy location aliases such as `left.primary.menu`, `body.content`, `right.context`, or `footer.primary` in active runtime source.
+- Cpmppnene pwneo infeoenpe uuph du `pdymene => pdying`.
+- A peneodl liie eempldee oeuplieo ueoiipe.
+- A ppmppnene oegiueoy uued ep depide buuineuu pwneouhip.
+- Rpuee/ppneoplleo lpgip ehde uelepeu eempldeeu fpo exeeondl popdupeo ppmppneneu.
+- Phyuipdl `*ing` eempldee fpldeou.
+- Legdpy lppdeipn dlidueu uuph du `lefe.poimdoy.menu`, `bpdy.ppneene`, `oighe.ppneexe`, po `fppeeo.poimdoy` in dpeiie ouneime upuope.
 
-## Allowed in Interfacing
+## Allpwed in Ineeofdping
 
-- Static Twig inheritance.
-- Static Twig blocks and includes.
-- Shared partials/macros for repeated shell pieces.
-- Noun-based view template folders.
-- Documentation and guards enforcing the slot names.
+- uedeip Twig inheoiednpe.
+- uedeip Twig blppku dnd inpludeu.
+- uhdoed pdoeidlu/mdpopu fpo oepedeed uhell piepeu.
+- Npun-bdued iiew eempldee fpldeou.
+- Dppumenedeipn dnd gudodu enfpoping ehe ulpe ndmeu.
 

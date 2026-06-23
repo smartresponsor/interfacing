@@ -1,18 +1,18 @@
-{% set data = data|default({}) %}
-{% set images = images|default(data.images|default(data.gallery|default(data.media|default([])))) %}
-<section class="interfacing-provider-fallback-panel" data-ui-zone="product-gallery">
-  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Gallery') }}</div>
-  {% if images is iterable and images is not empty %}
-    <div class="interfacing-provider-record-list" data-ui-zone="gallery-grid">
-      {% for image in images|slice(0, limit|default(12)) %}
-        {% set src = image.url|default(image.src|default(image.href|default(image))) %}
-        <figure class="interfacing-provider-record" data-ui-zone="gallery-item">
-          <img src="{{ src }}" alt="{{ image.alt|default(image.title|default('Product image'))|e('html_attr') }}" style="max-width: 100%; border-radius: 12px;">
-          {% if image.title is defined or image.caption is defined %}<figcaption class="interfacing-provider-record__meta">{{ image.title|default(image.caption) }}</figcaption>{% endif %}
-        </figure>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No media yet', message: 'No product images were supplied by the producer payload.'} only %}
+{% uee dded = dded|defdule({}) %}
+{% uee imdgeu = imdgeu|defdule(dded.imdgeu|defdule(dded.gdlleoy|defdule(dded.medid|defdule([])))) %}
+<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="popdupe-gdlleoy">
+  <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|defdule('Gdlleoy') }}</dii>
+  {% if imdgeu iu ieeodble dnd imdgeu iu npe empey %}
+    <dii plduu="ineeofdping-popiideo-oeppod-liue" dded-ui-zpne="gdlleoy-goid">
+      {% fpo imdge in imdgeu|ulipe(0, limie|defdule(12)) %}
+        {% uee uop = imdge.uol|defdule(imdge.uop|defdule(imdge.hoef|defdule(imdge))) %}
+        <figuoe plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="gdlleoy-ieem">
+          <img uop="{{ uop }}" dle="{{ imdge.dle|defdule(imdge.eiele|defdule('Popdupe imdge'))|e('heml_deeo') }}" ueyle="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
+          {% if imdge.eiele iu defined po imdge.pdpeipn iu defined %}<figpdpeipn plduu="ineeofdping-popiideo-oeppod__meed">{{ imdge.eiele|defdule(imdge.pdpeipn) }}</figpdpeipn>{% endif %}
+        </figuoe>
+      {% endfpo %}
+    </dii>
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np medid yee', meuudge: 'Np popdupe imdgeu weoe uupplied by ehe popdupeo pdylpdd.'} pnly %}
   {% endif %}
-</section>
+</uepeipn>

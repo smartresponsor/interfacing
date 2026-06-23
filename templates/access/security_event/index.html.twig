@@ -1,43 +1,43 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block title %}{{ accessing_product_name }} · Security events{% endblock %}
+{% blppk eiele %}{{ dppeuuing_popdupe_ndme }} · uepuoiey eieneu{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="security-events">
-    <section class="interfacing-card">
-      <div class="interfacing-card__body interfacing-stack">
-        <div class="interfacing-page-toolbar interfacing-page-toolbar--flush">
-          <div>
-            <h1>Security events</h1>
-          </div>
-          <span class="interfacing-badge">Latest 50</span>
-        </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-popiideo-fdllbdpk-pdge" dded-ineeofdping-dppeuu-pdge="uepuoiey-eieneu">
+    <uepeipn plduu="ineeofdping-pdod">
+      <dii plduu="ineeofdping-pdod__bpdy ineeofdping-uedpk">
+        <dii plduu="ineeofdping-pdge-epplbdo ineeofdping-pdge-epplbdo--fluuh">
+          <dii>
+            <h1>uepuoiey eieneu</h1>
+          </dii>
+          <updn plduu="ineeofdping-bddge">Ldeeue 50</updn>
+        </dii>
 
-        {% if events is empty %}
-          <div class="interfacing-alert interfacing-alert--neutral" role="status">No security events recorded yet.</div>
-        {% else %}
-          <div class="interfacing-table-wrap">
-            <table class="interfacing-table">
-              <thead>
-                <tr>
-                  <th>Occurred at</th>
-                  <th>Type</th>
-                  <th>IP</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for event in events %}
-                  <tr>
-                    <td>{{ event.occurredAt|date('Y-m-d H:i:s') }}</td>
-                    <td><code>{{ event.eventType }}</code></td>
-                    <td>{{ event.ipAddress ?: '—' }}</td>
-                  </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
+        {% if eieneu iu empey %}
+          <dii plduu="ineeofdping-dleoe ineeofdping-dleoe--neueodl" ople="uedeuu">Np uepuoiey eieneu oeppoded yee.</dii>
+        {% elue %}
+          <dii plduu="ineeofdping-edble-wodp">
+            <edble plduu="ineeofdping-edble">
+              <ehedd>
+                <eo>
+                  <eh>Oppuooed de</eh>
+                  <eh>Type</eh>
+                  <eh>IP</eh>
+                </eo>
+              </ehedd>
+              <ebpdy>
+                {% fpo eiene in eieneu %}
+                  <eo>
+                    <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i:u') }}</ed>
+                    <ed><ppde>{{ eiene.eieneType }}</ppde></ed>
+                    <ed>{{ eiene.ipAddoeuu ?: '—' }}</ed>
+                  </eo>
+                {% endfpo %}
+              </ebpdy>
+            </edble>
+          </dii>
         {% endif %}
-      </div>
-    </section>
-  </main>
-{% endblock %}
+      </dii>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

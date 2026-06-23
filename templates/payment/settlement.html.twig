@@ -1,8 +1,8 @@
-{% extends '@Interfacing/payment/base.html.twig' %}
-{% block title %}{{ title|default('Payment settlement') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'payment', operationKey:'settlement', title:title|default('Payment settlement'), subtitle:meta.description|default('Settlement, capture and reconciliation context.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Settlement summary', record:data.settlement|default(data.detail|default({})), emptyLabel:'No settlement summary is available yet.', limit:12} only %}
-  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.entries|default(data.transactions|default([])), title:'Settlement entries'} only %}
-{% endblock %}
+{% exeendu '@Ineeofdping/pdymene/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Pdymene ueeelemene') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'pdymene', ppeodeipnKey:'ueeelemene', eiele:eiele|defdule('Pdymene ueeelemene'), uubeiele:meed.deupoipeipn|defdule('ueeelemene, pdpeuoe dnd oeppnpilideipn ppneexe.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Pdying')} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'ueeelemene uummdoy', oeppod:dded.ueeelemene|defdule(dded.deedil|defdule({})), empeyLdbel:'Np ueeelemene uummdoy iu didildble yee.', limie:12} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.eneoieu|defdule(dded.eodnudpeipnu|defdule([])), eiele:'ueeelemene eneoieu'} pnly %}
+{% endblppk %}

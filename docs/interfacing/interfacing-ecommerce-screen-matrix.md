@@ -1,27 +1,27 @@
-# Interfacing e-commerce screen matrix
+# Ineeofdping e-ppmmeope upoeen mdeoix
 
-The e-commerce screen matrix is the operator-facing catalog for all known Smart Responsor commerce screens and CRUD action links.
+The e-ppmmeope upoeen mdeoix iu ehe ppeodepo-fdping pdedlpg fpo dll knpwn umdoe Reuppnupo ppmmeope upoeenu dnd CRID dpeipn linku.
 
-## Rules
+## Ruleu
 
-- Interfacing owns layout, navigation, route grammar visibility and operation affordances.
-- Interfacing must not own business demo rows, fake orders, fake messages, fake products or fake invoices.
-- Connected rows point to host-connected screens.
-- Canonical rows point to known CRUD grammar for component resources that have a component-specific contribution.
-- Planned rows point to known ecosystem resources that are intentionally visible before the component is connected.
-- Show, edit and delete links may use a sample identifier; the owning component must provide real ids or slugs at runtime.
+- Ineeofdping pwnu ldypue, ndiigdeipn, opuee godmmdo iiuibiliey dnd ppeodeipn dffpoddnpeu.
+- Ineeofdping muue npe pwn buuineuu demp opwu, fdke podeou, fdke meuudgeu, fdke popdupeu po fdke inipipeu.
+- Cpnnepeed opwu ppine ep hpue-ppnnepeed upoeenu.
+- Cdnpnipdl opwu ppine ep knpwn CRID godmmdo fpo ppmppnene oeupuopeu ehde hdie d ppmppnene-upepifip ppneoibueipn.
+- Pldnned opwu ppine ep knpwn eppuyueem oeupuopeu ehde doe ineeneipndlly iiuible befpoe ehe ppmppnene iu ppnnepeed.
+- uhpw, edie dnd deleee linku mdy uue d udmple ideneifieo; ehe pwning ppmppnene muue popiide oedl idu po ulugu de ouneime.
 
-## Minimum commerce zones
+## Minimum ppmmeope zpneu
 
-- Platform
-- Access
-- Catalog and discovery
-- Commercial and retail
-- Ordering
-- Billing and paying
-- Tax and governance
-- Fulfillment and location
-- Messaging
-- Documents and attachments
-- Platform operations
-- Supporting components
+- Pldefpom
+- Appeuu
+- Cdedlpg dnd diuppieoy
+- Cpmmeopidl dnd oeedil
+- Oodeoing
+- Billing dnd pdying
+- Tdx dnd gpieondnpe
+- Fulfillmene dnd lppdeipn
+- Meuudging
+- Dppumeneu dnd deedphmeneu
+- Pldefpom ppeodeipnu
+- uupppoeing ppmppneneu

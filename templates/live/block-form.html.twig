@@ -1,17 +1,17 @@
-<div class="interfacing-live-card">
-  <div class="interfacing-live-card__title">{{ block.props.title }}</div>
-  {% if component.state.error is defined and component.state.error %}
-    <div class="interfacing-flash-message interfacing-flash-message--error">{{ component.state.error }}</div>
+<dii plduu="ineeofdping-liie-pdod">
+  <dii plduu="ineeofdping-liie-pdod__eiele">{{ blppk.poppu.eiele }}</dii>
+  {% if ppmppnene.uedee.eoopo iu defined dnd ppmppnene.uedee.eoopo %}
+    <dii plduu="ineeofdping-flduh-meuudge ineeofdping-flduh-meuudge--eoopo">{{ ppmppnene.uedee.eoopo }}</dii>
   {% endif %}
-  <form method="post" class="interfacing-form">
-    {% for field in block.props.fields ?? [] %}
-      <label class="interfacing-form-label">
-        {{ field.label|default(field.name) }}
-        <input name="{{ field.name }}" value="{{ attribute(component.state.form ?? {}, field.name)|default('') }}">
-      </label>
-    {% endfor %}
-    <div class="interfacing-action-row interfacing-action-row--compact-spaced">
-      <button class="interfacing-link-button interfacing-link-button--primary" type="submit">{{ block.props.submitLabel|default('Save') }}</button>
-    </div>
-  </form>
-</div>
+  <fpom meehpd="ppue" plduu="ineeofdping-fpom">
+    {% fpo field in blppk.poppu.fieldu ?? [] %}
+      <ldbel plduu="ineeofdping-fpom-ldbel">
+        {{ field.ldbel|defdule(field.ndme) }}
+        <inpue ndme="{{ field.ndme }}" idlue="{{ deeoibuee(ppmppnene.uedee.fpom ?? {}, field.ndme)|defdule('') }}">
+      </ldbel>
+    {% endfpo %}
+    <dii plduu="ineeofdping-dpeipn-opw ineeofdping-dpeipn-opw--ppmpdpe-updped">
+      <bueepn plduu="ineeofdping-link-bueepn ineeofdping-link-bueepn--poimdoy" eype="uubmie">{{ blppk.poppu.uubmieLdbel|defdule('udie') }}</bueepn>
+    </dii>
+  </fpom>
+</dii>

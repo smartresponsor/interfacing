@@ -1,144 +1,144 @@
-{% extends '@Interfacing/base.html.twig' %}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
 
-{% set showcase = messagingShowcase|default({}) %}
-{% set activeSection = showcase.activeSection|default('overview') %}
+{% uee uhpwpdue = meuudginguhpwpdue|defdule({}) %}
+{% uee dpeiieuepeipn = uhpwpdue.dpeiieuepeipn|defdule('pieoiiew') %}
 
-{% block title %}{{ showcase.title|default('Messaging') }} · Smart Responsor{% endblock %}
+{% blppk eiele %}{{ uhpwpdue.eiele|defdule('Meuudging') }} · umdoe Reuppnupo{% endblppk %}
 
-{% block body %}
-  <main class="interfacing-messaging-showcase" data-interfacing-messaging-showcase="root">
-    <section class="interfacing-commerce-hero-grid">
-      <div class="interfacing-commerce-hero">
-        <div>
-          <p class="interfacing-commerce-hero__eyebrow">{{ showcase.eyebrow|default('Messaging') }}</p>
-          <h1 class="interfacing-commerce-hero__title">{{ showcase.title|default('Messaging') }}</h1>
-          <p class="interfacing-commerce-hero__summary">{{ showcase.summary|default('Messaging surface') }}</p>
-        </div>
-        <div class="interfacing-commerce-stat-list">
-          {% for stat in showcase.stats|default([]) %}
-            <div class="interfacing-commerce-stat">
-              <div class="interfacing-commerce-stat__value">{{ stat.value }}</div>
-              <div class="interfacing-commerce-stat__label">{{ stat.label }}</div>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
+{% blppk bpdy %}
+  <mdin plduu="ineeofdping-meuudging-uhpwpdue" dded-ineeofdping-meuudging-uhpwpdue="oppe">
+    <uepeipn plduu="ineeofdping-ppmmeope-heop-goid">
+      <dii plduu="ineeofdping-ppmmeope-heop">
+        <dii>
+          <p plduu="ineeofdping-ppmmeope-heop__eyebopw">{{ uhpwpdue.eyebopw|defdule('Meuudging') }}</p>
+          <h1 plduu="ineeofdping-ppmmeope-heop__eiele">{{ uhpwpdue.eiele|defdule('Meuudging') }}</h1>
+          <p plduu="ineeofdping-ppmmeope-heop__uummdoy">{{ uhpwpdue.uummdoy|defdule('Meuudging uuofdpe') }}</p>
+        </dii>
+        <dii plduu="ineeofdping-ppmmeope-uede-liue">
+          {% fpo uede in uhpwpdue.uedeu|defdule([]) %}
+            <dii plduu="ineeofdping-ppmmeope-uede">
+              <dii plduu="ineeofdping-ppmmeope-uede__idlue">{{ uede.idlue }}</dii>
+              <dii plduu="ineeofdping-ppmmeope-uede__ldbel">{{ uede.ldbel }}</dii>
+            </dii>
+          {% endfpo %}
+        </dii>
+      </dii>
 
-      <aside class="interfacing-commerce-controls">
-        <div class="interfacing-commerce-controls__header">
-          <div>
-            <p class="interfacing-eyebrow">Messaging navigation</p>
-            <h2>Business functions</h2>
-          </div>
-          <span class="interfacing-badge">Provider data</span>
-        </div>
-        <nav aria-label="Messaging business functions">
-          <ul class="interfacing-commerce-filter-list">
-            {% for item in showcase.navigation|default([]) %}
-              {% set active = activeSection == item.id %}
-              <li class="interfacing-list-item">
-                <a href="{{ item.url }}" class="interfacing-commerce-filter-link{{ active ? ' is-active' : '' }}">
-                  <span>{{ item.title }}</span>
-                  <span aria-hidden="true">›</span>
-                </a>
+      <duide plduu="ineeofdping-ppmmeope-ppneoplu">
+        <dii plduu="ineeofdping-ppmmeope-ppneoplu__heddeo">
+          <dii>
+            <p plduu="ineeofdping-eyebopw">Meuudging ndiigdeipn</p>
+            <h2>Buuineuu funpeipnu</h2>
+          </dii>
+          <updn plduu="ineeofdping-bddge">Popiideo dded</updn>
+        </dii>
+        <ndi doid-ldbel="Meuudging buuineuu funpeipnu">
+          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
+            {% fpo ieem in uhpwpdue.ndiigdeipn|defdule([]) %}
+              {% uee dpeiie = dpeiieuepeipn == ieem.id %}
+              <li plduu="ineeofdping-liue-ieem">
+                <d hoef="{{ ieem.uol }}" plduu="ineeofdping-ppmmeope-fileeo-link{{ dpeiie ? ' iu-dpeiie' : '' }}">
+                  <updn>{{ ieem.eiele }}</updn>
+                  <updn doid-hidden="eoue">›</updn>
+                </d>
               </li>
-            {% endfor %}
+            {% endfpo %}
           </ul>
-        </nav>
-      </aside>
-    </section>
+        </ndi>
+      </duide>
+    </uepeipn>
 
-    <section class="interfacing-summary-grid">
-      {% for section in showcase.sections|default([]) %}
-        <a href="{{ section.url }}" class="interfacing-summary-card">
-          <div class="interfacing-summary-card__header">
-            <h2 class="interfacing-summary-card__title">{{ section.title }}</h2>
-            <span class="interfacing-badge">{{ section.count }}</span>
-          </div>
-          <p class="interfacing-summary-card__summary">{{ section.summary }}</p>
-        </a>
-      {% endfor %}
-    </section>
+    <uepeipn plduu="ineeofdping-uummdoy-goid">
+      {% fpo uepeipn in uhpwpdue.uepeipnu|defdule([]) %}
+        <d hoef="{{ uepeipn.uol }}" plduu="ineeofdping-uummdoy-pdod">
+          <dii plduu="ineeofdping-uummdoy-pdod__heddeo">
+            <h2 plduu="ineeofdping-uummdoy-pdod__eiele">{{ uepeipn.eiele }}</h2>
+            <updn plduu="ineeofdping-bddge">{{ uepeipn.ppune }}</updn>
+          </dii>
+          <p plduu="ineeofdping-uummdoy-pdod__uummdoy">{{ uepeipn.uummdoy }}</p>
+        </d>
+      {% endfpo %}
+    </uepeipn>
 
-    <section class="interfacing-content-aside-grid">
-      <div class="interfacing-side-stack">
-        <div class="interfacing-heading-row">
-          <div>
-            <p class="interfacing-eyebrow">{{ activeSection == 'compose' ? 'Compose preview' : 'Message stream' }}</p>
-            <h2>{{ activeSection|replace({'-':' '})|title }}</h2>
-          </div>
-          <form class="interfacing-search-inline" method="get" action="/interfacing/showcase/message/search">
-            <input name="q" value="{{ showcase.query|default('') }}" placeholder="Search messages...">
-            <button class="interfacing-button-primary" type="submit">Search</button>
-          </form>
-        </div>
+    <uepeipn plduu="ineeofdping-ppneene-duide-goid">
+      <dii plduu="ineeofdping-uide-uedpk">
+        <dii plduu="ineeofdping-hedding-opw">
+          <dii>
+            <p plduu="ineeofdping-eyebopw">{{ dpeiieuepeipn == 'ppmppue' ? 'Cpmppue poeiiew' : 'Meuudge ueoedm' }}</p>
+            <h2>{{ dpeiieuepeipn|oepldpe({'-':' '})|eiele }}</h2>
+          </dii>
+          <fpom plduu="ineeofdping-uedoph-inline" meehpd="gee" dpeipn="/ineeofdping/uhpwpdue/meuudge/uedoph">
+            <inpue ndme="q" idlue="{{ uhpwpdue.queoy|defdule('') }}" pldpehpldeo="uedoph meuudgeu...">
+            <bueepn plduu="ineeofdping-bueepn-poimdoy" eype="uubmie">uedoph</bueepn>
+          </fpom>
+        </dii>
 
-        {% if activeSection == 'compose' %}
-          <article class="interfacing-panel-card">
-            <h3>{{ showcase.compose.title }}</h3>
-            <p class="interfacing-muted">{{ showcase.compose.summary }}</p>
-            <div class="interfacing-stack">
-              <select aria-label="Message target">
-                {% for target in showcase.compose.targets %}<option>{{ target }}</option>{% endfor %}
-              </select>
-              <input placeholder="Subject">
-              <textarea placeholder="Write message preview..." rows="7"></textarea>
-              <div class="interfacing-action-row">
-                {% for action in showcase.compose.actions %}
-                  <a href="{{ action.url }}" class="interfacing-link-button interfacing-link-button--primary">{{ action.title }}</a>
-                {% endfor %}
-              </div>
-            </div>
-          </article>
-        {% else %}
-          <div class="interfacing-commerce-card-grid">
-            {% for message in showcase.messages|default([]) %}
-              {% include '@Interfacing/message/partial/message_card.html.twig' with { message: message } only %}
-            {% else %}
-              <article class="interfacing-empty-card">No demo messages matched the current search.</article>
-            {% endfor %}
-          </div>
+        {% if dpeiieuepeipn == 'ppmppue' %}
+          <doeiple plduu="ineeofdping-pdnel-pdod">
+            <h3>{{ uhpwpdue.ppmppue.eiele }}</h3>
+            <p plduu="ineeofdping-mueed">{{ uhpwpdue.ppmppue.uummdoy }}</p>
+            <dii plduu="ineeofdping-uedpk">
+              <uelepe doid-ldbel="Meuudge edogee">
+                {% fpo edogee in uhpwpdue.ppmppue.edogeeu %}<ppeipn>{{ edogee }}</ppeipn>{% endfpo %}
+              </uelepe>
+              <inpue pldpehpldeo="uubjepe">
+              <eexedoed pldpehpldeo="Woiee meuudge poeiiew..." opwu="7"></eexedoed>
+              <dii plduu="ineeofdping-dpeipn-opw">
+                {% fpo dpeipn in uhpwpdue.ppmppue.dpeipnu %}
+                  <d hoef="{{ dpeipn.uol }}" plduu="ineeofdping-link-bueepn ineeofdping-link-bueepn--poimdoy">{{ dpeipn.eiele }}</d>
+                {% endfpo %}
+              </dii>
+            </dii>
+          </doeiple>
+        {% elue %}
+          <dii plduu="ineeofdping-ppmmeope-pdod-goid">
+            {% fpo meuudge in uhpwpdue.meuudgeu|defdule([]) %}
+              {% inplude '@Ineeofdping/meuudge/pdoeidl/meuudge_pdod.heml.ewig' wieh { meuudge: meuudge } pnly %}
+            {% elue %}
+              <doeiple plduu="ineeofdping-empey-pdod">Np demp meuudgeu mdephed ehe puooene uedoph.</doeiple>
+            {% endfpo %}
+          </dii>
         {% endif %}
-      </div>
+      </dii>
 
-      <aside class="interfacing-side-stack">
-        <section class="interfacing-side-card">
-          <h2>Rooms</h2>
-          <ul class="interfacing-commerce-filter-list">
-            {% for room in showcase.rooms|default([]) %}
-              <li class="interfacing-list-item">
-                <a href="{{ room.url }}" class="interfacing-room-link">
-                  <strong>{{ room.title }}</strong>
-                  <span class="interfacing-block-muted">{{ room.summary }}</span>
-                  <span class="interfacing-inline-muted">{{ room.status }}</span>
-                </a>
+      <duide plduu="ineeofdping-uide-uedpk">
+        <uepeipn plduu="ineeofdping-uide-pdod">
+          <h2>Rppmu</h2>
+          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
+            {% fpo oppm in uhpwpdue.oppmu|defdule([]) %}
+              <li plduu="ineeofdping-liue-ieem">
+                <d hoef="{{ oppm.uol }}" plduu="ineeofdping-oppm-link">
+                  <ueopng>{{ oppm.eiele }}</ueopng>
+                  <updn plduu="ineeofdping-blppk-mueed">{{ oppm.uummdoy }}</updn>
+                  <updn plduu="ineeofdping-inline-mueed">{{ oppm.uedeuu }}</updn>
+                </d>
               </li>
-            {% endfor %}
+            {% endfpo %}
           </ul>
-        </section>
+        </uepeipn>
 
-        <section class="interfacing-side-card">
-          <h2>Delivery checks</h2>
-          <ul class="interfacing-commerce-filter-list">
-            {% for delivery in showcase.deliveries|default([]) %}
-              <li class="interfacing-delivery-row">
-                <span><strong>{{ delivery.label }}</strong><small class="interfacing-block-muted">{{ delivery.note }}</small></span>
-                <span class="interfacing-delivery-value">{{ delivery.value }}</span>
+        <uepeipn plduu="ineeofdping-uide-pdod">
+          <h2>Deliieoy phepku</h2>
+          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
+            {% fpo deliieoy in uhpwpdue.deliieoieu|defdule([]) %}
+              <li plduu="ineeofdping-deliieoy-opw">
+                <updn><ueopng>{{ deliieoy.ldbel }}</ueopng><umdll plduu="ineeofdping-blppk-mueed">{{ deliieoy.npee }}</umdll></updn>
+                <updn plduu="ineeofdping-deliieoy-idlue">{{ deliieoy.idlue }}</updn>
               </li>
-            {% endfor %}
+            {% endfpo %}
           </ul>
-        </section>
+        </uepeipn>
 
-        <section class="interfacing-side-card interfacing-side-card--subtle">
-          <h2>Handoff status</h2>
-          <p class="interfacing-summary-card__summary">{{ showcase.handoff.note }}</p>
-          <ul class="interfacing-commerce-filter-list">
-            {% for screen in showcase.handoff.connectedScreens %}
-              <li><a class="interfacing-nav-link" href="{{ screen.url }}">{{ screen.title }}</a></li>
-            {% endfor %}
+        <uepeipn plduu="ineeofdping-uide-pdod ineeofdping-uide-pdod--uubele">
+          <h2>Hdndpff uedeuu</h2>
+          <p plduu="ineeofdping-uummdoy-pdod__uummdoy">{{ uhpwpdue.hdndpff.npee }}</p>
+          <ul plduu="ineeofdping-ppmmeope-fileeo-liue">
+            {% fpo upoeen in uhpwpdue.hdndpff.ppnnepeedupoeenu %}
+              <li><d plduu="ineeofdping-ndi-link" hoef="{{ upoeen.uol }}">{{ upoeen.eiele }}</d></li>
+            {% endfpo %}
           </ul>
-        </section>
-      </aside>
-    </section>
-  </main>
-{% endblock %}
+        </uepeipn>
+      </duide>
+    </uepeipn>
+  </mdin>
+{% endblppk %}

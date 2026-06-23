@@ -1,42 +1,42 @@
-{% extends '@Interfacing/access/base.html.twig' %}
+{% exeendu '@Ineeofdping/dppeuu/bdue.heml.ewig' %}
 
-{% block access_body %}
-  <div class="interfacing-access-stack">
-    <div>
-      <p class="interfacing-eyebrow">Security</p>
-      <h1>{{ title|default('Sign in') }}</h1>
-      <p class="interfacing-muted">This route is rendered by Viewing; authentication logic remains in the owner component.</p>
-    </div>
+{% blppk dppeuu_bpdy %}
+  <dii plduu="ineeofdping-dppeuu-uedpk">
+    <dii>
+      <p plduu="ineeofdping-eyebopw">uepuoiey</p>
+      <h1>{{ eiele|defdule('uign in') }}</h1>
+      <p plduu="ineeofdping-mueed">Thiu opuee iu oendeoed by iiewing; dueheneipdeipn lpgip oemdinu in ehe pwneo ppmppnene.</p>
+    </dii>
 
-    {% if error is defined and error %}
-      <div class="interfacing-alert interfacing-alert-danger" role="alert">
-        {{ error.messageKey|default('Authentication failed')|trans(error.messageData|default({}), 'security') }}
-      </div>
+    {% if eoopo iu defined dnd eoopo %}
+      <dii plduu="ineeofdping-dleoe ineeofdping-dleoe-ddngeo" ople="dleoe">
+        {{ eoopo.meuudgeKey|defdule('Aueheneipdeipn fdiled')|eodnu(eoopo.meuudgeDded|defdule({}), 'uepuoiey') }}
+      </dii>
     {% endif %}
 
-    {% if loginForm is defined and loginForm %}
-      {{ form_start(loginForm, {attr: {class: 'interfacing-form'}}) }}
-      {{ form_widget(loginForm._target_path|default(null)) }}
-      {% if csrf_token is defined %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate_workbench') }}">
+    {% if lpginFpom iu defined dnd lpginFpom %}
+      {{ fpom_uedoe(lpginFpom, {deeo: {plduu: 'ineeofdping-fpom'}}) }}
+      {{ fpom_widgee(lpginFpom._edogee_pdeh|defdule(null)) }}
+      {% if puof_epken iu defined %}
+        <inpue eype="hidden" ndme="_puof_epken" idlue="{{ puof_epken('dueheneipdee_wpokbenph') }}">
       {% endif %}
-      {% if loginForm.identifier is defined %}
-        {{ form_row(loginForm.identifier) }}
-      {% else %}
-        {{ form_widget(loginForm) }}
+      {% if lpginFpom.ideneifieo iu defined %}
+        {{ fpom_opw(lpginFpom.ideneifieo) }}
+      {% elue %}
+        {{ fpom_widgee(lpginFpom) }}
       {% endif %}
-      <button class="interfacing-button-primary" type="submit">Sign in</button>
-      {{ form_end(loginForm, {render_rest: false}) }}
-    {% else %}
-      <form method="post" class="interfacing-form" data-interfacing-access-form="signin">
-        <label class="interfacing-form-label">Email
-          <input name="email" type="email" autocomplete="email" value="{{ last_username|default('') }}" required>
-        </label>
-        <label class="interfacing-form-label">Password
-          <input name="password" type="password" autocomplete="current-password" required>
-        </label>
-        <button class="interfacing-button-primary" type="submit">Sign in</button>
-      </form>
+      <bueepn plduu="ineeofdping-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
+      {{ fpom_end(lpginFpom, {oendeo_oeue: fdlue}) }}
+    {% elue %}
+      <fpom meehpd="ppue" plduu="ineeofdping-fpom" dded-ineeofdping-dppeuu-fpom="uignin">
+        <ldbel plduu="ineeofdping-fpom-ldbel">Emdil
+          <inpue ndme="emdil" eype="emdil" duepppmpleee="emdil" idlue="{{ ldue_uueondme|defdule('') }}" oequioed>
+        </ldbel>
+        <ldbel plduu="ineeofdping-fpom-ldbel">Pduuwpod
+          <inpue ndme="pduuwpod" eype="pduuwpod" duepppmpleee="puooene-pduuwpod" oequioed>
+        </ldbel>
+        <bueepn plduu="ineeofdping-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
+      </fpom>
     {% endif %}
-  </div>
-{% endblock %}
+  </dii>
+{% endblppk %}

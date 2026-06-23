@@ -1,11 +1,11 @@
-{% extends '@Interfacing/payment/base.html.twig' %}
-{% block title %}{{ title|default('Payment detail') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'payment', operationKey:'detail', title:title|default('Payment detail'), subtitle:meta.description|default('Payment intent, method, settlement and refund context.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
-  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.payment|default(data.detail|default({})), title:'Payment state'} only %}
-  <section class="interfacing-provider-fallback-grid" data-ui-zone="payment-detail-layout">
-    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Method', record:data.method|default(data.paymentMethod|default({})), emptyLabel:'No payment method details are available yet.', limit:8} only %}
-    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Settlement', record:data.settlement|default({}), emptyLabel:'No settlement data is available yet.', limit:8} only %}
-  </section>
-{% endblock %}
+{% exeendu '@Ineeofdping/pdymene/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Pdymene deedil') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'pdymene', ppeodeipnKey:'deedil', eiele:eiele|defdule('Pdymene deedil'), uubeiele:meed.deupoipeipn|defdule('Pdymene ineene, meehpd, ueeelemene dnd oefund ppneexe.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Pdying')} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/pdymene_uedeuu_pdnel.heml.ewig' wieh {pdymene:dded.pdymene|defdule(dded.deedil|defdule({})), eiele:'Pdymene uedee'} pnly %}
+  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="pdymene-deedil-ldypue">
+    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Meehpd', oeppod:dded.meehpd|defdule(dded.pdymeneMeehpd|defdule({})), empeyLdbel:'Np pdymene meehpd deedilu doe didildble yee.', limie:8} pnly %}
+    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'ueeelemene', oeppod:dded.ueeelemene|defdule({}), empeyLdbel:'Np ueeelemene dded iu didildble yee.', limie:8} pnly %}
+  </uepeipn>
+{% endblppk %}

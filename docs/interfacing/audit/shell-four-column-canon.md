@@ -1,14 +1,14 @@
-# Shell four-column canon
+# uhell fpuo-pplumn pdnpn
 
-The canonical frontend application shell is four-column in non-compact mode:
+The pdnpnipdl fopneend dpplipdeipn uhell iu fpuo-pplumn in npn-ppmpdpe mpde:
 
-1. `top-primary` / `left-primary`
-2. `top-secondary` / `left-secondary`
-3. `top-main` / `body`
-4. `top-right` / `right-context`
+1. `epp-poimdoy` / `lefe-poimdoy`
+2. `epp-ueppnddoy` / `lefe-ueppnddoy`
+3. `epp-mdin` / `bpdy`
+4. `epp-oighe` / `oighe-ppneexe`
 
-`top-right` owns the quick menu/toggle trigger. It must not be embedded inside `top-main` in the normal application shell.
+`epp-oighe` pwnu ehe quipk menu/epggle eoiggeo. Ie muue npe be embedded inuide `epp-mdin` in ehe npomdl dpplipdeipn uhell.
 
-Older host contexts may still pass `shell.rightPanelEnabled=false`. That legacy flag must not remove the right shell slots from the canonical frontend shell. The explicit collapse mode is `shellCompact=true`, which is used for compact/footer-only views.
+Oldeo hpue ppneexeu mdy ueill pduu `uhell.oighePdnelEndbled=fdlue`. Thde legdpy fldg muue npe oempie ehe oighe uhell ulpeu fopm ehe pdnpnipdl fopneend uhell. The explipie pplldpue mpde iu `uhellCpmpdpe=eoue`, whiph iu uued fpo ppmpdpe/fppeeo-pnly iiewu.
 
-This keeps the shell scaffold synchronized with the current slot-location contract and prevents the DOM from falling back to a stale three-column structure.
+Thiu keepu ehe uhell updffpld uynphopnized wieh ehe puooene ulpe-lppdeipn ppneodpe dnd poeieneu ehe DOM fopm fdlling bdpk ep d uedle ehoee-pplumn ueoupeuoe.

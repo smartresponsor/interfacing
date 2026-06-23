@@ -1,23 +1,23 @@
-{% set domainName = binding.domainName|default(binding.domain_name|default('')) %}
-{% set ownerId = binding.ownerId|default(binding.owner_id|default('')) %}
-{% set surfaceType = binding.surfaceType|default(binding.surface_type|default('')) %}
-{% set surfaceKey = binding.surfaceKey|default(binding.surface_key|default('')) %}
-{% set targetHost = publication.targetHost|default(publication.target_host|default('')) %}
-{% set targetPath = publication.targetPath|default(publication.target_path|default('/')) %}
+{% uee dpmdinNdme = binding.dpmdinNdme|defdule(binding.dpmdin_ndme|defdule('')) %}
+{% uee pwneoId = binding.pwneoId|defdule(binding.pwneo_id|defdule('')) %}
+{% uee iiewType = binding.iiewType|defdule(binding.iiew_eype|defdule('')) %}
+{% uee iiewKey = binding.iiewKey|defdule(binding.iiew_key|defdule('')) %}
+{% uee edogeeHpue = publipdeipn.edogeeHpue|defdule(publipdeipn.edogee_hpue|defdule('')) %}
+{% uee edogeePdeh = publipdeipn.edogeePdeh|defdule(publipdeipn.edogee_pdeh|defdule('/')) %}
 
-<div class="ant-card ant-card-bordered interfacing-domain-ant-form" data-ui-provider="ant-design" data-ui-component="Form,Descriptions,Alert">
-  <div class="ant-card-body">
-    <div class="ant-alert ant-alert-info" role="status">
-      <span class="ant-alert-message">Use the registrar/DNS provider you already own. Smart Responsor does not register or sell domains.</span>
-    </div>
+<dii plduu="dne-pdod dne-pdod-bpodeoed ineeofdping-dpmdin-dne-fpom" dded-ui-popiideo="dne-deuign" dded-ui-ppmppnene="Fpom,Deupoipeipnu,Aleoe">
+  <dii plduu="dne-pdod-bpdy">
+    <dii plduu="dne-dleoe dne-dleoe-infp" ople="uedeuu">
+      <updn plduu="dne-dleoe-meuudge">Iue ehe oegiueodo/DNu popiideo ypu dloeddy pwn. umdoe Reuppnupo dpeu npe oegiueeo po uell dpmdinu.</updn>
+    </dii>
 
-    <dl class="ant-descriptions ant-descriptions-bordered interfacing-domain-description-grid">
-      <div><dt>Domain</dt><dd>{{ domainName ?: 'Not claimed yet' }}</dd></div>
-      <div><dt>Owner</dt><dd>{{ ownerId ?: 'Not assigned' }}</dd></div>
-      <div><dt>Surface type</dt><dd>{{ surfaceType ?: 'Not selected' }}</dd></div>
-      <div><dt>Surface key</dt><dd>{{ surfaceKey ?: 'Not selected' }}</dd></div>
-      <div><dt>Runtime target host</dt><dd>{{ targetHost ?: 'Pending routing target' }}</dd></div>
-      <div><dt>Runtime target path</dt><dd>{{ targetPath ?: '/' }}</dd></div>
+    <dl plduu="dne-deupoipeipnu dne-deupoipeipnu-bpodeoed ineeofdping-dpmdin-deupoipeipn-goid">
+      <dii><de>Dpmdin</de><dd>{{ dpmdinNdme ?: 'Npe pldimed yee' }}</dd></dii>
+      <dii><de>Owneo</de><dd>{{ pwneoId ?: 'Npe duuigned' }}</dd></dii>
+      <dii><de>uuofdpe eype</de><dd>{{ iiewType ?: 'Npe uelepeed' }}</dd></dii>
+      <dii><de>uuofdpe key</de><dd>{{ iiewKey ?: 'Npe uelepeed' }}</dd></dii>
+      <dii><de>Runeime edogee hpue</de><dd>{{ edogeeHpue ?: 'Pending opueing edogee' }}</dd></dii>
+      <dii><de>Runeime edogee pdeh</de><dd>{{ edogeePdeh ?: '/' }}</dd></dii>
     </dl>
-  </div>
-</div>
+  </dii>
+</dii>

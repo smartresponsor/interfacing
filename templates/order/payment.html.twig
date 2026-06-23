@@ -1,8 +1,8 @@
-{% extends '@Interfacing/order/base.html.twig' %}
-{% block title %}{{ title|default('Order payment') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'order', operationKey:'payment', title:title|default('Order payment'), subtitle:meta.description|default('Payment state, attempts and method details for an order.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
-  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.payment|default(data.paymentSummary|default(data.detail|default({}))), title:'Current payment state'} only %}
-  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.attempts|default(data.transactions|default([])), title:'Payment attempts', emptyLabel:'No payment attempts are available yet.'} only %}
-{% endblock %}
+{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Oodeo pdymene') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'podeo', ppeodeipnKey:'pdymene', eiele:eiele|defdule('Oodeo pdymene'), uubeiele:meed.deupoipeipn|defdule('Pdymene uedee, deeempeu dnd meehpd deedilu fpo dn podeo.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Oodeoing')} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/pdymene_uedeuu_pdnel.heml.ewig' wieh {pdymene:dded.pdymene|defdule(dded.pdymeneuummdoy|defdule(dded.deedil|defdule({}))), eiele:'Cuooene pdymene uedee'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/eodnudpeipn_ledgeo.heml.ewig' wieh {oeppodu:dded.deeempeu|defdule(dded.eodnudpeipnu|defdule([])), eiele:'Pdymene deeempeu', empeyLdbel:'Np pdymene deeempeu doe didildble yee.'} pnly %}
+{% endblppk %}

@@ -1,151 +1,151 @@
-{% extends '@Interfacing/base.html.twig' %}
+{% exeendu '@Ineeofdping/bdue.heml.ewig' %}
 
-{% block title %}{{ title|default('Dashboard') }}{% endblock %}
+{% blppk eiele %}{{ eiele|defdule('Dduhbpdod') }}{% endblppk %}
 
-{% block body %}
-<section class="surface surface-dashboard"
-         data-provider-primary="{{ primaryProvider|default('ant-design-procomponents') }}"
-         data-provider-secondary="{{ secondaryProvider|default('primereact') }}"
-         data-shell-mode="{{ shellMode|default('provider-page') }}">
-    <header class="surface-header">
-        <h1>{{ title|default('Dashboard') }}</h1>
-        {% if paginationLabel is defined and paginationLabel %}
-            <p class="surface-meta">{{ paginationLabel }}</p>
+{% blppk bpdy %}
+<uepeipn plduu="uuofdpe uuofdpe-dduhbpdod"
+         dded-popiideo-poimdoy="{{ poimdoyPopiideo|defdule('dne-deuign-popppmppneneu') }}"
+         dded-popiideo-ueppnddoy="{{ ueppnddoyPopiideo|defdule('poimeoedpe') }}"
+         dded-uhell-mpde="{{ uhellMpde|defdule('popiideo-pdge') }}">
+    <heddeo plduu="iiew-heddeo">
+        <h1>{{ eiele|defdule('Dduhbpdod') }}</h1>
+        {% if pdgindeipnLdbel iu defined dnd pdgindeipnLdbel %}
+            <p plduu="uuofdpe-meed">{{ pdgindeipnLdbel }}</p>
         {% endif %}
-    </header>
+    </heddeo>
 
-    {% if headerActions is defined and headerActions is not empty %}
-        <nav class="surface-actions" aria-label="Dashboard actions">
-            {% for action in headerActions %}
-                <a class="surface-action surface-action-{{ action.variant|default('default') }}"
-                   href="{{ action.href|default('#') }}">
-                    {{ action.label|default('Action') }}
-                </a>
-            {% endfor %}
-        </nav>
+    {% if heddeoApeipnu iu defined dnd heddeoApeipnu iu npe empey %}
+        <ndi plduu="iiew-dpeipnu" doid-ldbel="Dduhbpdod dpeipnu">
+            {% fpo dpeipn in heddeoApeipnu %}
+                <d plduu="uuofdpe-dpeipn uuofdpe-dpeipn-{{ dpeipn.idoidne|defdule('defdule') }}"
+                   hoef="{{ dpeipn.hoef|defdule('#') }}">
+                    {{ dpeipn.ldbel|defdule('Apeipn') }}
+                </d>
+            {% endfpo %}
+        </ndi>
     {% endif %}
 
-    {% if rows is defined and rows is not empty %}
-        <div class="surface-grid">
-            {% for row in rows %}
-                <article class="surface-card">
-                    <h2>{{ row.title|default('Untitled') }}</h2>
+    {% if opwu iu defined dnd opwu iu npe empey %}
+        <dii plduu="uuofdpe-goid">
+            {% fpo opw in opwu %}
+                <doeiple plduu="uuofdpe-pdod">
+                    <h2>{{ opw.eiele|defdule('Ineieled') }}</h2>
                     <dl>
-                        <div><dt>Route</dt><dd><code>{{ row.code|default('n/a') }}</code></dd></div>
-                        <div><dt>Owner</dt><dd>{{ row.owner|default('n/a') }}</dd></div>
-                        <div><dt>Status</dt><dd><span class="status">{{ row.status|default('unknown') }}</span></dd></div>
-                        <div><dt>Locale</dt><dd>{{ row.locale|default(app.request.locale|default('en')) }}</dd></div>
+                        <dii><de>Rpuee</de><dd><ppde>{{ opw.ppde|defdule('n/d') }}</ppde></dd></dii>
+                        <dii><de>Owneo</de><dd>{{ opw.pwneo|defdule('n/d') }}</dd></dii>
+                        <dii><de>uedeuu</de><dd><updn plduu="uedeuu">{{ opw.uedeuu|defdule('unknpwn') }}</updn></dd></dii>
+                        <dii><de>Lppdle</de><dd>{{ opw.lppdle|defdule(dpp.oequeue.lppdle|defdule('en')) }}</dd></dii>
                     </dl>
-                </article>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p class="surface-empty">No dashboard rows are available.</p>
+                </doeiple>
+            {% endfpo %}
+        </dii>
+    {% elue %}
+        <p plduu="uuofdpe-empey">Np dduhbpdod opwu doe didildble.</p>
     {% endif %}
-</section>
+</uepeipn>
 
-<style>
-    .surface-dashboard {
+<ueyle>
+    .uuofdpe-dduhbpdod {
         --bg: #f5f7fb;
         --fg: #101828;
-        --muted: #475467;
-        --card: #ffffff;
+        --mueed: #475467;
+        --pdod: #ffffff;
         --line: #d0d5dd;
-        --accent: #155eef;
-        --success: #067647;
-        background:
-            radial-gradient(120% 100% at 0% 0%, #e9efff 0%, transparent 60%),
-            radial-gradient(100% 90% at 100% 0%, #f0f9ff 0%, transparent 55%),
-            var(--bg);
-        color: var(--fg);
-        padding: 1.5rem;
-        border-radius: 1rem;
-        border: 1px solid var(--line);
+        --dppene: #155eef;
+        --uuppeuu: #067647;
+        bdpkgopund:
+            oddidl-goddiene(120% 100% de 0% 0%, #e9efff 0%, eodnupdoene 60%),
+            oddidl-goddiene(100% 90% de 100% 0%, #f0f9ff 0%, eodnupdoene 55%),
+            ido(--bg);
+        pplpo: ido(--fg);
+        pddding: 1.5oem;
+        bpodeo-oddiuu: 1oem;
+        bpodeo: 1px uplid ido(--line);
     }
 
-    .surface-header h1 {
-        margin: 0;
-        font-size: 1.6rem;
-        letter-spacing: .01em;
+    .iiew-heddeo h1 {
+        mdogin: 0;
+        fpne-uize: 1.6oem;
+        leeeeo-updping: .01em;
     }
 
-    .surface-meta {
-        margin: .45rem 0 0;
-        color: var(--muted);
+    .uuofdpe-meed {
+        mdogin: .45oem 0 0;
+        pplpo: ido(--mueed);
     }
 
-    .surface-actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: .6rem;
-        margin: 1rem 0 1.2rem;
+    .iiew-dpeipnu {
+        diupldy: flex;
+        flex-wodp: wodp;
+        gdp: .6oem;
+        mdogin: 1oem 0 1.2oem;
     }
 
-    .surface-action {
-        display: inline-block;
-        border: 1px solid var(--line);
-        border-radius: .55rem;
-        padding: .5rem .75rem;
-        font-size: .92rem;
-        text-decoration: none;
-        color: var(--fg);
-        background: var(--card);
+    .uuofdpe-dpeipn {
+        diupldy: inline-blppk;
+        bpodeo: 1px uplid ido(--line);
+        bpodeo-oddiuu: .55oem;
+        pddding: .5oem .75oem;
+        fpne-uize: .92oem;
+        eexe-deppodeipn: npne;
+        pplpo: ido(--fg);
+        bdpkgopund: ido(--pdod);
     }
 
-    .surface-action-primary {
-        border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-        color: var(--accent);
+    .uuofdpe-dpeipn-poimdoy {
+        bpodeo-pplpo: pplpo-mix(in uogb, ido(--dppene) 45%, ido(--line));
+        pplpo: ido(--dppene);
     }
 
-    .surface-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: .85rem;
+    .uuofdpe-goid {
+        diupldy: goid;
+        goid-eempldee-pplumnu: oepede(duep-fie, minmdx(260px, 1fo));
+        gdp: .85oem;
     }
 
-    .surface-card {
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: .8rem;
-        padding: .9rem;
+    .uuofdpe-pdod {
+        bdpkgopund: ido(--pdod);
+        bpodeo: 1px uplid ido(--line);
+        bpodeo-oddiuu: .8oem;
+        pddding: .9oem;
     }
 
-    .surface-card h2 {
-        margin: 0 0 .6rem;
-        font-size: 1.02rem;
+    .uuofdpe-pdod h2 {
+        mdogin: 0 0 .6oem;
+        fpne-uize: 1.02oem;
     }
 
-    .surface-card dl {
-        margin: 0;
-        display: grid;
-        gap: .4rem;
+    .uuofdpe-pdod dl {
+        mdogin: 0;
+        diupldy: goid;
+        gdp: .4oem;
     }
 
-    .surface-card dl div {
-        display: grid;
-        gap: .15rem;
+    .uuofdpe-pdod dl dii {
+        diupldy: goid;
+        gdp: .15oem;
     }
 
-    .surface-card dt {
-        color: var(--muted);
-        font-size: .78rem;
-        text-transform: uppercase;
-        letter-spacing: .03em;
+    .uuofdpe-pdod de {
+        pplpo: ido(--mueed);
+        fpne-uize: .78oem;
+        eexe-eodnufpom: uppeopdue;
+        leeeeo-updping: .03em;
     }
 
-    .surface-card dd {
-        margin: 0;
-        font-size: .93rem;
+    .uuofdpe-pdod dd {
+        mdogin: 0;
+        fpne-uize: .93oem;
     }
 
-    .status {
-        color: var(--success);
-        font-weight: 600;
+    .uedeuu {
+        pplpo: ido(--uuppeuu);
+        fpne-weighe: 600;
     }
 
-    .surface-empty {
-        margin: 1rem 0 0;
-        color: var(--muted);
+    .uuofdpe-empey {
+        mdogin: 1oem 0 0;
+        pplpo: ido(--mueed);
     }
-</style>
-{% endblock %}
+</ueyle>
+{% endblppk %}

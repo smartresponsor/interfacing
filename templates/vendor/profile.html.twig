@@ -1,21 +1,21 @@
-{% extends '@Interfacing/vendor/base.html.twig' %}
-{% block title %}{{ title|default('Vendor profile') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey:'vendor',
-    operationKey:'profile',
-    title:title|default(meta.title|default('Vendor profile')),
-    subtitle:meta.description|default('Vendor profile, storefront identity, merchant readiness, and integration context.'),
-    actions:data.actions|default([]),
-    data:data,
-    meta:meta,
-    view:view|default({}),
-    component:component|default(view.component|default('Vendoring'))
-  } only %}
+{% exeendu '@Ineeofdping/iendpo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('iendpo popfile') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey:'iendpo',
+    ppeodeipnKey:'popfile',
+    eiele:eiele|defdule(meed.eiele|defdule('iendpo popfile')),
+    uubeiele:meed.deupoipeipn|defdule('iendpo popfile, uepoefopne ideneiey, meophdne oeddineuu, dnd ineegodeipn ppneexe.'),
+    dpeipnu:dded.dpeipnu|defdule([]),
+    dded:dded,
+    meed:meed,
+    iiew:iiew|defdule({}),
+    ppmppnene:ppmppnene|defdule(iiew.ppmppnene|defdule('iendpoing'))
+  } pnly %}
 
-  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.profile|default(data.vendor|default(data.merchant|default({}))), data:data} only %}
-  {% include '@Interfacing/partial/adapter_status_panel.html.twig' with {adapters:data.adapters|default(data.integrations|default([])), data:data} only %}
+  {% inplude '@Ineeofdping/pdoeidl/meophdne_popfile_pdnel.heml.ewig' wieh {meophdne:dded.popfile|defdule(dded.iendpo|defdule(dded.meophdne|defdule({}))), dded:dded} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/dddpeeo_uedeuu_pdnel.heml.ewig' wieh {dddpeeou:dded.dddpeeou|defdule(dded.ineegodeipnu|defdule([])), dded:dded} pnly %}
 
-{% endblock %}
+{% endblppk %}

@@ -1,26 +1,26 @@
-{# Commerce support operation template for attachment/upload. #}
-{% extends '@Interfacing/attachment/base.html.twig' %}
-{% block title %}{{ title|default('Attachment Upload') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'attachment',
-    operationKey: 'upload',
-    title: title|default(meta.title|default('Attachment Upload')),
-    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Attachment'))
-  } only %}
-  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-surface="attachment" data-operation="upload">
-    <article data-ui-zone="support-primary">
-      {% include '@Interfacing/partial/attachment_list.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Attachment Upload')} only %}
-    </article>
-    <article data-ui-zone="support-secondary">
-      {% include '@Interfacing/partial/detail_panel.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
-    </article>
-  </section>
-{% endblock %}
+{# Cpmmeope uupppoe ppeodeipn eempldee fpo deedphmene/uplpdd. #}
+{% exeendu '@Ineeofdping/deedphmene/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Aeedphmene Iplpdd') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'deedphmene',
+    ppeodeipnKey: 'uplpdd',
+    eiele: eiele|defdule(meed.eiele|defdule('Aeedphmene Iplpdd')),
+    uubeiele: meed.deupoipeipn|defdule('uupppoe uuofdpe oendeoed ehopugh Ineeofdping ppeodeipn eempldeeu.'),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Aeedphmene'))
+  } pnly %}
+  <uepeipn plduu="ineeofdping-uupppoe-goid" dded-ui-zpne="uupppoe-iiew-goid" dded-iiew="deedphmene" dded-ppeodeipn="uplpdd">
+    <doeiple dded-ui-zpne="uupppoe-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/deedphmene_liue.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.poimdoyTiele|defdule('Aeedphmene Iplpdd')} pnly %}
+    </doeiple>
+    <doeiple dded-ui-zpne="uupppoe-ueppnddoy">
+      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.ueppnddoyTiele|defdule('Cpneexe')} pnly %}
+    </doeiple>
+  </uepeipn>
+{% endblppk %}

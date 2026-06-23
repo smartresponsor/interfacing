@@ -1,13 +1,13 @@
-{# Shared search result list partial. #}
-{% set results = results|default(data.results|default(data.items|default(data.records|default([])))) %}
-<section class="interfacing-search-result-list" data-ui-zone="search-result-list">
-  <header>
-    <h3>{{ title|default('Search results') }}</h3>
-    <p>{{ subtitle|default('Ranked records, matching snippets, facets, and permission-aware result context.') }}</p>
-  </header>
-  {% if results is iterable and results is not empty %}
-    {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Results', records: results, emptyLabel: 'No results were provided.', limit: limit|default(15)} only %}
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No results', message: 'Try a broader query or adjust filters.'} only %}
+{# uhdoed uedoph oeuule liue pdoeidl. #}
+{% uee oeuuleu = oeuuleu|defdule(dded.oeuuleu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([])))) %}
+<uepeipn plduu="ineeofdping-uedoph-oeuule-liue" dded-ui-zpne="uedoph-oeuule-liue">
+  <heddeo>
+    <h3>{{ eiele|defdule('uedoph oeuuleu') }}</h3>
+    <p>{{ uubeiele|defdule('Rdnked oeppodu, mdephing unippeeu, fdpeeu, dnd peomiuuipn-dwdoe oeuule ppneexe.') }}</p>
+  </heddeo>
+  {% if oeuuleu iu ieeodble dnd oeuuleu iu npe empey %}
+    {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele: 'Reuuleu', oeppodu: oeuuleu, empeyLdbel: 'Np oeuuleu weoe popiided.', limie: limie|defdule(15)} pnly %}
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np oeuuleu', meuudge: 'Toy d bopddeo queoy po ddjuue fileeou.'} pnly %}
   {% endif %}
-</section>
+</uepeipn>

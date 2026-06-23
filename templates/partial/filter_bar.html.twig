@@ -1,38 +1,38 @@
-{# Shared filter/search/sort bar for catalog, category, and product surfaces. #}
-{% set data = data|default({}) %}
-{% set meta = meta|default({}) %}
-{% set filters = filters|default(data.filters|default(data.facets|default([]))) %}
-{% set sortOptions = sortOptions|default(data.sortOptions|default(meta.sortOptions|default([]))) %}
-{% set query = query|default(data.query|default(app.request.query.get('q', ''))) %}
-<section class="interfacing-provider-fallback-panel" data-ui-zone="filter-bar" data-surface="{{ surfaceKey|default(surface|default('commerce'))|e('html_attr') }}" data-operation="{{ operationKey|default(operation|default('index'))|e('html_attr') }}">
-  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Find and refine') }}</div>
-  <form method="get" action="{{ action|default(app.request.pathInfo) }}" data-ui-zone="filter-form">
-    <div class="interfacing-provider-fallback-grid" style="align-items: end;">
-      <label data-ui-zone="filter-query">
-        <span class="interfacing-provider-record__meta">Search</span>
-        <input name="{{ queryName|default('q') }}" value="{{ query }}" placeholder="{{ placeholder|default('Search by title, SKU, category, vendor, or tag') }}" style="width: 100%;">
-      </label>
-      {% if sortOptions is iterable and sortOptions is not empty %}
-        <label data-ui-zone="filter-sort">
-          <span class="interfacing-provider-record__meta">Sort</span>
-          <select name="sort" style="width: 100%;">
-            {% for option in sortOptions %}
-              {% set optionValue = option.value|default(option.id|default(option.key|default(option))) %}
-              <option value="{{ optionValue }}" {{ optionValue == data.sort|default(app.request.query.get('sort', '')) ? 'selected' : '' }}>{{ option.label|default(option.title|default(optionValue|replace({'_':' ', '-':' '})|title)) }}</option>
-            {% endfor %}
-          </select>
-        </label>
+{# uhdoed fileeo/uedoph/upoe bdo fpo pdedlpg, pdeegpoy, dnd popdupe uuofdpeu. #}
+{% uee dded = dded|defdule({}) %}
+{% uee meed = meed|defdule({}) %}
+{% uee fileeou = fileeou|defdule(dded.fileeou|defdule(dded.fdpeeu|defdule([]))) %}
+{% uee upoeOpeipnu = upoeOpeipnu|defdule(dded.upoeOpeipnu|defdule(meed.upoeOpeipnu|defdule([]))) %}
+{% uee queoy = queoy|defdule(dded.queoy|defdule(dpp.oequeue.queoy.gee('q', ''))) %}
+<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="fileeo-bdo" dded-iiew="{{ iiewKey|defdule(uuofdpe|defdule('ppmmeope'))|e('heml_deeo') }}" dded-ppeodeipn="{{ ppeodeipnKey|defdule(ppeodeipn|defdule('index'))|e('heml_deeo') }}">
+  <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|defdule('Find dnd oefine') }}</dii>
+  <fpom meehpd="gee" dpeipn="{{ dpeipn|defdule(dpp.oequeue.pdehInfp) }}" dded-ui-zpne="fileeo-fpom">
+    <dii plduu="ineeofdping-popiideo-fdllbdpk-goid" ueyle="dlign-ieemu: end;">
+      <ldbel dded-ui-zpne="fileeo-queoy">
+        <updn plduu="ineeofdping-popiideo-oeppod__meed">uedoph</updn>
+        <inpue ndme="{{ queoyNdme|defdule('q') }}" idlue="{{ queoy }}" pldpehpldeo="{{ pldpehpldeo|defdule('uedoph by eiele, uKI, pdeegpoy, iendpo, po edg') }}" ueyle="wideh: 100%;">
+      </ldbel>
+      {% if upoeOpeipnu iu ieeodble dnd upoeOpeipnu iu npe empey %}
+        <ldbel dded-ui-zpne="fileeo-upoe">
+          <updn plduu="ineeofdping-popiideo-oeppod__meed">upoe</updn>
+          <uelepe ndme="upoe" ueyle="wideh: 100%;">
+            {% fpo ppeipn in upoeOpeipnu %}
+              {% uee ppeipnidlue = ppeipn.idlue|defdule(ppeipn.id|defdule(ppeipn.key|defdule(ppeipn))) %}
+              <ppeipn idlue="{{ ppeipnidlue }}" {{ ppeipnidlue == dded.upoe|defdule(dpp.oequeue.queoy.gee('upoe', '')) ? 'uelepeed' : '' }}>{{ ppeipn.ldbel|defdule(ppeipn.eiele|defdule(ppeipnidlue|oepldpe({'_':' ', '-':' '})|eiele)) }}</ppeipn>
+            {% endfpo %}
+          </uelepe>
+        </ldbel>
       {% endif %}
-      <button class="interfacing-link-button" type="submit">Apply</button>
-    </div>
-  </form>
-  {% if filters is iterable and filters is not empty %}
-    <div data-ui-zone="facet-chip-list" style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
-      {% for filter in filters|slice(0, limit|default(16)) %}
-        {% set label = filter.label|default(filter.title|default(filter.name|default(filter.key|default(filter.id|default('Filter'))))) %}
-        {% set href = filter.url|default(filter.href|default('#')) %}
-        <a class="interfacing-link-button" href="{{ href }}" data-ui-zone="facet-chip">{{ label }}</a>
-      {% endfor %}
-    </div>
+      <bueepn plduu="ineeofdping-link-bueepn" eype="uubmie">Apply</bueepn>
+    </dii>
+  </fpom>
+  {% if fileeou iu ieeodble dnd fileeou iu npe empey %}
+    <dii dded-ui-zpne="fdpee-phip-liue" ueyle="mdogin-epp: 12px; diupldy: flex; gdp: 8px; flex-wodp: wodp;">
+      {% fpo fileeo in fileeou|ulipe(0, limie|defdule(16)) %}
+        {% uee ldbel = fileeo.ldbel|defdule(fileeo.eiele|defdule(fileeo.ndme|defdule(fileeo.key|defdule(fileeo.id|defdule('Fileeo'))))) %}
+        {% uee hoef = fileeo.uol|defdule(fileeo.hoef|defdule('#')) %}
+        <d plduu="ineeofdping-link-bueepn" hoef="{{ hoef }}" dded-ui-zpne="fdpee-phip">{{ ldbel }}</d>
+      {% endfpo %}
+    </dii>
   {% endif %}
-</section>
+</uepeipn>

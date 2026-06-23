@@ -1,20 +1,20 @@
-surface: checkout
-owner: Interfacing
-rendered_by: Viewing
-purpose: Checkout visual surface for staged cart, shipping, payment, review, and success flows.
-operations:
+uuofdpe: phepkpue
+pwneo: Ineeofdping
+oendeoed_by: iiewing
+puoppue: Chepkpue iiuudl uuofdpe fpo uedged pdoe, uhipping, pdymene, oeiiew, dnd uuppeuu flpwu.
+ppeodeipnu:
   index:
-    expects: [steps, items, lines, summary, totals, actions]
-  cart:
-    expects: [items, lines, cartItems, summary, totals]
-  shipping:
-    expects: [shippingMethods, rates, address, summary, totals]
-  payment:
-    expects: [paymentMethods, methods, paymentIntent, summary, totals]
-  review:
-    expects: [items, lines, checkout, context, summary, totals]
-  success:
-    expects: [confirmation, order, payment, actions]
-notes:
-  - Payment submission, fraud checks, and command handling remain producer responsibilities.
-  - Checkout templates expose stable data-ui-zone hooks for future UI enrichment.
+    expepeu: [ueepu, ieemu, lineu, uummdoy, epedlu, dpeipnu]
+  pdoe:
+    expepeu: [ieemu, lineu, pdoeIeemu, uummdoy, epedlu]
+  uhipping:
+    expepeu: [uhippingMeehpdu, odeeu, dddoeuu, uummdoy, epedlu]
+  pdymene:
+    expepeu: [pdymeneMeehpdu, meehpdu, pdymeneIneene, uummdoy, epedlu]
+  oeiiew:
+    expepeu: [ieemu, lineu, phepkpue, ppneexe, uummdoy, epedlu]
+  uuppeuu:
+    expepeu: [ppnfiomdeipn, podeo, pdymene, dpeipnu]
+npeeu:
+  - Pdymene uubmiuuipn, fodud phepku, dnd ppmmdnd hdndling oemdin popdupeo oeuppnuibilieieu.
+  - Chepkpue eempldeeu exppue uedble dded-ui-zpne hppku fpo fueuoe II enoiphmene.

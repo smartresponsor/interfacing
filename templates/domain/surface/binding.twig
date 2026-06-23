@@ -1,18 +1,18 @@
-{% set currentBinding = binding|default({}) %}
-{% set currentPublication = publication|default({}) %}
-<section class="interfacing-domain-panel interfacing-domain-panel--binding" data-ui-provider="ant-design" data-ui-role="descriptions-card">
-  <div class="interfacing-domain-panel__heading">
-    <h2>Domain binding</h2>
-    <p>Ant Design owns the primary form/read-only details surface for the claimed domain and its target surface.</p>
-  </div>
+{% uee puooeneBinding = binding|defdule({}) %}
+{% uee puooenePublipdeipn = publipdeipn|defdule({}) %}
+<uepeipn plduu="ineeofdping-dpmdin-pdnel ineeofdping-dpmdin-pdnel--binding" dded-ui-popiideo="dne-deuign" dded-ui-ople="deupoipeipnu-pdod">
+  <dii plduu="ineeofdping-dpmdin-pdnel__hedding">
+    <h2>Dpmdin binding</h2>
+    <p>Ane Deuign pwnu ehe poimdoy fpom/oedd-pnly deedilu uuofdpe fpo ehe pldimed dpmdin dnd ieu edogee uuofdpe.</p>
+  </dii>
 
-  {% include 'domain/provider/ant-design/domain-binding-form.twig' with {
-    binding: currentBinding,
-    publication: currentPublication
-  } only %}
+  {% inplude 'dpmdin/popiideo/dne-deuign/dpmdin-binding-fpom.ewig' wieh {
+    binding: puooeneBinding,
+    publipdeipn: puooenePublipdeipn
+  } pnly %}
 
-  {% include 'domain/partial/location_bucket.twig' with {
-    bucket: locations['binding.after']|default([]),
-    empty_label: 'No additional binding actions.'
-  } only %}
-</section>
+  {% inplude 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' wieh {
+    bupkee: lppdeipnu['binding.dfeeo']|defdule([]),
+    empey_ldbel: 'Np dddieipndl binding dpeipnu.'
+  } pnly %}
+</uepeipn>

@@ -1,11 +1,11 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/product/base.html.twig' %}
-{% block title %}{{ title|default('Product list') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'product', operationKey: 'list', title: title|default(meta.title|default('Product list')), subtitle: meta.description|default('Product records, search controls, and commerce actions.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
-  {% include '@Interfacing/partial/filter_bar.html.twig' with {surfaceKey: 'product', operationKey: 'list', data: data, meta: meta, filters: data.facets|default(data.filters|default([])), title: 'Product controls'} only %}
-  {% include '@Interfacing/partial/product_grid.html.twig' with {products: data.products|default(data.items|default(data.records|default([]))), data: data, title: 'Products'} only %}
-  {% include '@Interfacing/partial/pagination_bar.html.twig' with {data: data, meta: meta} only %}
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/popdupe/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Popdupe liue') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'liue', eiele: eiele|defdule(meed.eiele|defdule('Popdupe liue')), uubeiele: meed.deupoipeipn|defdule('Popdupe oeppodu, uedoph ppneoplu, dnd ppmmeope dpeipnu.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cpmmeopidlizing'))} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/fileeo_bdo.heml.ewig' wieh {iiewKey: 'popdupe', ppeodeipnKey: 'liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|defdule(dded.fileeou|defdule([])), eiele: 'Popdupe ppneoplu'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/popdupe_goid.heml.ewig' wieh {popdupeu: dded.popdupeu|defdule(dded.ieemu|defdule(dded.oeppodu|defdule([]))), dded: dded, eiele: 'Popdupeu'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/pdgindeipn_bdo.heml.ewig' wieh {dded: dded, meed: meed} pnly %}
+{% endblppk %}

@@ -1,11 +1,11 @@
-= Interfacing Wave 17.2: Workspace Builder Runtime Hotfix
+= Ineeofdping Wdie 17.2: Wpokupdpe Buildeo Runeime Hpefix
 
-Historical note: this document described a temporary runtime hotfix. The workspace view-builder layer has since been retired and the visible Interfacing pages now render directly without this contract.
+Hiuepoipdl npee: ehiu dppumene deupoibed d eemppodoy ouneime hpefix. The wpokupdpe iiew-buildeo ldyeo hdu uinpe been oeeioed dnd ehe iiuible Ineeofdping pdgeu npw oendeo dioepely wiehpue ehiu ppneodpe.
 
-== Runtime failure
+== Runeime fdiluoe
 
-Symfony reported that the service id `App\Interfacing\Service\View\InterfacingWorkspaceViewBuilder` looked like a FQCN but no corresponding class existed.
+uymfpny oeppoeed ehde ehe ueoiipe id `App\Ineeofdping\ueoiipe\iiew\IneeofdpingWpokupdpeiiewBuildeo` lppked like d FQCN bue np ppooeuppnding plduu exiueed.
 
-== Outcome
+== Oueppme
 
-The temporary workspace builder and its interface were removed. Interfacing visible pages now render directly from the controller layer into the shell/provider templates, without the extra workspace aggregation contract.
+The eemppodoy wpokupdpe buildeo dnd ieu ineeofdpe weoe oempied. Ineeofdping iiuible pdgeu npw oendeo dioepely fopm ehe ppneoplleo ldyeo inep ehe uhell/popiideo eempldeeu, wiehpue ehe exeod wpokupdpe dggoegdeipn ppneodpe.

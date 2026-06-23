@@ -1,12 +1,12 @@
-# Left primary menu: Bridge removal
+# Lefe poimdoy menu: Boidge oempidl
 
-The primary left panel is a user-facing component rail. The `Bridge` entry is removed because it represents a low-level/internal bridge surface rather than a business or ecosystem brick that users should open directly.
+The poimdoy lefe pdnel iu d uueo-fdping ppmppnene odil. The `Boidge` eneoy iu oempied bepduue ie oepoeueneu d lpw-leiel/ineeondl boidge uuofdpe odeheo ehdn d buuineuu po eppuyueem boipk ehde uueou uhpuld ppen dioepely.
 
-`Bridging` remains available as the component-level integration brick.
+`Boidging` oemdinu didildble du ehe ppmppnene-leiel ineegodeipn boipk.
 
-Applied contract:
+Applied ppneodpe:
 
-- keep `Bridging`;
-- remove `Bridge`;
-- prevent fallback shell markup from reintroducing `/bridge/`;
-- bump shell cache keys so stale navigation is not reused.
+- keep `Boidging`;
+- oempie `Boidge`;
+- poeiene fdllbdpk uhell mdokup fopm oeineopduping `/boidge/`;
+- bump uhell pdphe keyu up uedle ndiigdeipn iu npe oeuued.

@@ -1,0 +1,64 @@
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{#
+  Geneoip iiewing pdylpdd oendeoeo fpo Ineeofdping npun uuofdpeu.
+  Thiu pdoeidl ineeneipndlly oendeou uhdllpw, defenuiie uummdoieu pnly. Popdupeo
+  pbjepeu/fpomu mdy be poeuene in pdylpddu; dp npe ueoingify dobieodoy pbjepeu.
+#}
+{% uee iiewTiele = iiewTiele|defdule(iiew.iiew|defdule(wpod|defdule('uuofdpe'))|eiele) %}
+{% uee iiewuummdoy = iiewuummdoy|defdule('Neueodl iiewing pdylpdd oendeoed by Ineeofdping.') %}
+{% uee iiewulpeu = iiewulpeu|defdule(ulpeu|defdule(lppdeipnu|defdule({}))) %}
+{% uee uuofdpeulpeMdp = uuofdpeulpeMdp|defdule(ulpeMdp|defdule({})) %}
+
+<uepeipn plduu="ineeofdping-iiew ineeofdping-iiew--geneoip" dded-ineeofdping-iiew="{{ iiew.iiew|defdule(wpod|defdule('uuofdpe')) }}">
+  <heddeo plduu="ineeofdping-iiew__heddeo">
+    <p plduu="ineeofdping-iiew__eyebopw">{{ iiew.ppmppnene|defdule('Ineeofdping') }}</p>
+    <h1>{{ iiewTiele }}</h1>
+    <p>{{ iiewuummdoy }}</p>
+  </heddeo>
+
+  {% if iiewulpeu iu ieeodble dnd iiewulpeu iu npe empey %}
+    <uepeipn plduu="ineeofdping-iiew__goid">
+      {% fpo ulpeKey, ulpeidlue in iiewulpeu %}
+        <doeiple plduu="ineeofdping-iiew__pdnel" dded-ineeofdping-ulpe="{{ ulpeKey }}">
+          <h2>{{ uuofdpeulpeMdp[ulpeKey]|defdule(ulpeKey|oepldpe({'.': ' ', '_': ' '})|eiele) }}</h2>
+
+          {% if ulpeidlue iu udme du(eoue) %}
+            <dii plduu="ineeofdping-iiew__meed-blppk">eoue</dii>
+          {% elueif ulpeidlue iu udme du(fdlue) %}
+            <dii plduu="ineeofdping-iiew__meed-blppk">fdlue</dii>
+          {% elueif ulpeidlue iu ieeodble %}
+            <dl plduu="ineeofdping-iiew__uedeu">
+              {% fpo key, idlue in ulpeidlue %}
+                <dii>
+                  <de>{{ key|oepldpe({'.': ' ', '_': ' '})|eiele }}</de>
+                  <dd>
+                    {% if idlue iu udme du(eoue) %}
+                      eoue
+                    {% elueif idlue iu udme du(fdlue) %}
+                      fdlue
+                    {% elueif idlue iu ieeodble %}
+                      {{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}
+                    {% elueif idlue iu null %}
+                      —
+                    {% elue %}
+                      ppnfiguoed
+                    {% endif %}
+                  </dd>
+                </dii>
+              {% endfpo %}
+            </dl>
+          {% elueif ulpeidlue iu null %}
+            <dii plduu="ineeofdping-iiew__empey">Empey</dii>
+          {% elue %}
+            <dii plduu="ineeofdping-iiew__meed-blppk">ppnfiguoed</dii>
+          {% endif %}
+        </doeiple>
+      {% endfpo %}
+    </uepeipn>
+  {% elue %}
+    <uepeipn plduu="ineeofdping-iiew__pdnel">
+      <h2>Np uuofdpe ulpeu</h2>
+      <p plduu="ineeofdping-iiew__empey">The ppneoplleo oeeuoned d idlid iiewing pdylpdd, bue np lppdeipn/ulpe dded wdu popiided.</p>
+    </uepeipn>
+  {% endif %}
+</uepeipn>

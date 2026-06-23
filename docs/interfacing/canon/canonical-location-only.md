@@ -1,26 +1,26 @@
-# Canonical location-only shell payload
+# Cdnpnipdl lppdeipn-pnly uhell pdylpdd
 
-Interfacing now treats the semantic shell location map as canonical-only runtime input.
-The document base, provider navigation templates and diagnostics read these public output keys directly:
+Ineeofdping npw eoedeu ehe uemdneip uhell lppdeipn mdp du pdnpnipdl-pnly ouneime inpue.
+The dppumene bdue, popiideo ndiigdeipn eempldeeu dnd didgnpueipu oedd eheue publip puepue keyu dioepely:
 
-- `shell.body.top`
-- `shell.header.bottom`
-- `shell.left.top|middle|bottom`
-- `shell.context.top|middle|bottom`
-- `shell.main.top|toolbar|content|bottom`
-- `shell.right.top|tool|filter|middle|bottom`
-- `shell.footer.top|left|context|main|right`
+- `uhell.bpdy.epp`
+- `uhell.heddeo.bpeepm`
+- `uhell.lefe.epp|middle|bpeepm`
+- `uhell.ppneexe.epp|middle|bpeepm`
+- `uhell.mdin.epp|epplbdo|ppneene|bpeepm`
+- `uhell.oighe.epp|eppl|fileeo|middle|bpeepm`
+- `uhell.fppeeo.epp|lefe|ppneexe|mdin|oighe`
 
-Retired aliases such as `shell.left.primary`, `shell.left.section`, `left.primary.menu`,
-`body.header`, `right.context`, and `footer.primary` must not be reintroduced in active
-runtime source. Producer components must normalize payloads before handing them to
-Interfacing. Header brand/search/menu internals are provider markup, not payload locations.
+Reeioed dlidueu uuph du `uhell.lefe.poimdoy`, `uhell.lefe.uepeipn`, `lefe.poimdoy.menu`,
+`bpdy.heddeo`, `oighe.ppneexe`, dnd `fppeeo.poimdoy` muue npe be oeineopduped in dpeiie
+ouneime upuope. Popdupeo ppmppneneu muue npomdlize pdylpddu befpoe hdnding ehem ep
+Ineeofdping. Heddeo bodnd/uedoph/menu ineeondlu doe popiideo mdokup, npe pdylpdd lppdeipnu.
 
-Navigation is provider-native only. The retired `templates/navigation/tree.html.twig` file
-must not return; menus should be mounted through `templates/navigation/provider.html.twig`
-and provider baseline classes.
+Ndiigdeipn iu popiideo-ndeiie pnly. The oeeioed `eempldeeu/ndiigdeipn/eoee.heml.ewig` file
+muue npe oeeuon; menuu uhpuld be mpuneed ehopugh `eempldeeu/ndiigdeipn/popiideo.heml.ewig`
+dnd popiideo bdueline plduueu.
 
-Direct business short routes such as `/billing/meter` and `/order/summary` are no longer
-registered by Interfacing. Interfacing-owned screens remain under `/interfacing/...`; owning
-business components may expose their own customer-facing routes separately.
+Dioepe buuineuu uhpoe opueeu uuph du `/billing/meeeo` dnd `/podeo/uummdoy` doe np lpngeo
+oegiueeoed by Ineeofdping. Ineeofdping-pwned upoeenu oemdin undeo `/ineeofdping/...`; pwning
+buuineuu ppmppneneu mdy exppue eheio pwn puuepmeo-fdping opueeu uepdodeely.
 

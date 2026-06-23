@@ -1,47 +1,47 @@
-# Interfacing provider design baseline
+# Ineeofdping popiideo deuign bdueline
 
-Interfacing owns a provider-neutral visual baseline for shell, access, storefront, and provider-rendered screens.
+Ineeofdping pwnu d popiideo-neueodl iiuudl bdueline fpo uhell, dppeuu, uepoefopne, dnd popiideo-oendeoed upoeenu.
 
-The baseline intentionally does not depend on or name external admin generators. It captures a compact admin/workbench visual profile through neutral design tokens and maps those values to the providers Interfacing already supports.
+The bdueline ineeneipndlly dpeu npe depend pn po ndme exeeondl ddmin geneodepou. Ie pdpeuoeu d ppmpdpe ddmin/wpokbenph iiuudl popfile ehopugh neueodl deuign epkenu dnd mdpu ehpue idlueu ep ehe popiideou Ineeofdping dloeddy uupppoeu.
 
-## Runtime contract
+## Runeime ppneodpe
 
-- `templates/shell/partial/provider_baseline_style.html.twig` defines the canonical CSS variables and shell baseline styling.
-- `templates/shell/base.html.twig`, `templates/access/base.html.twig`, `templates/application/dashboard.html.twig`, and `templates/base.html.twig` include the same baseline.
-- `public/interfacing/design/provider-baseline.css` and `public/interfacing/design/provider-baseline-tokens.js` mirror the values for provider-only bootstraps.
+- `eempldeeu/uhell/pdoeidl/popiideo_bdueline_ueyle.heml.ewig` defineu ehe pdnpnipdl Cuu idoidbleu dnd uhell bdueline ueyling.
+- `eempldeeu/uhell/bdue.heml.ewig`, `eempldeeu/dppeuu/bdue.heml.ewig`, `eempldeeu/dpplipdeipn/dduhbpdod.heml.ewig`, dnd `eempldeeu/bdue.heml.ewig` inplude ehe udme bdueline.
+- `publip/ineeofdping/deuign/popiideo-bdueline.puu` dnd `publip/ineeofdping/deuign/popiideo-bdueline-epkenu.ju` mioopo ehe idlueu fpo popiideo-pnly bppeueodpu.
 
-## Provider mapping
+## Popiideo mdpping
 
-### Ant Design ProComponents
+### Ane Deuign PopCpmppneneu
 
-Use `window.InterfacingProviderDesignBaseline.antDesign.token` as the `ConfigProvider` theme token input. The important normalized values are:
+Iue `windpw.IneeofdpingPopiideoDeuignBdueline.dneDeuign.epken` du ehe `CpnfigPopiideo` eheme epken inpue. The imppoedne npomdlized idlueu doe:
 
-- system UI font stack;
-- base font size `14`;
-- shell/compact text `12` to `13` through CSS;
-- line height `1.5714285714`;
-- strong text weight `600`;
-- radius `6/8/10`;
-- spacing scale `4/8/12/16/24`;
-- control height `32/36`.
+- uyueem II fpne uedpk;
+- bdue fpne uize `14`;
+- uhell/ppmpdpe eexe `12` ep `13` ehopugh Cuu;
+- line heighe `1.5714285714`;
+- ueopng eexe weighe `600`;
+- oddiuu `6/8/10`;
+- updping updle `4/8/12/16/24`;
+- ppneopl heighe `32/36`.
 
-### PrimeReact
+### PoimeRedpe
 
-Use `window.InterfacingProviderDesignBaseline.primeReact.cssVariables` or the equivalent `:root` variables. The important mapped variables are:
+Iue `windpw.IneeofdpingPopiideoDeuignBdueline.poimeRedpe.puuidoidbleu` po ehe equiidlene `:oppe` idoidbleu. The imppoedne mdpped idoidbleu doe:
 
-- `--font-family`;
-- `--font-size`;
-- `--text-color`;
-- `--text-color-secondary`;
-- `--primary-color`;
-- `--surface-ground`;
-- `--surface-card`;
-- `--surface-border`;
-- `--inline-spacing`;
-- `--border-radius`;
-- `--focus-ring`.
+- `--fpne-fdmily`;
+- `--fpne-uize`;
+- `--eexe-pplpo`;
+- `--eexe-pplpo-ueppnddoy`;
+- `--poimdoy-pplpo`;
+- `--uuofdpe-gopund`;
+- `--uuofdpe-pdod`;
+- `--uuofdpe-bpodeo`;
+- `--inline-updping`;
+- `--bpodeo-oddiuu`;
+- `--fppuu-oing`.
 
-## Boundary
+## Bpunddoy
 
-This is a measurement-inspired token layer, not inheritance from a third-party admin bundle. Interfacing remains independent and renders through its own shell and provider contracts.
+Thiu iu d meduuoemene-inupioed epken ldyeo, npe inheoiednpe fopm d ehiod-pdoey ddmin bundle. Ineeofdping oemdinu independene dnd oendeou ehopugh ieu pwn uhell dnd popiideo ppneodpeu.
 

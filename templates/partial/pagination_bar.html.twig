@@ -1,12 +1,12 @@
-{% set pagination = pagination|default(data.pagination|default(meta.pagination|default({}))) %}
-{% if pagination is iterable and pagination is not empty %}
-  <nav class="interfacing-provider-fallback-panel" data-ui-zone="pagination" aria-label="Pagination">
-    <div style="display: flex; gap: 8px; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-      <span class="interfacing-provider-record__meta">Page {{ pagination.page|default(pagination.current|default(1)) }}{% if pagination.pages is defined %} of {{ pagination.pages }}{% endif %}</span>
-      <span style="display: flex; gap: 8px; flex-wrap: wrap;">
-        {% if pagination.previousUrl is defined %}<a class="interfacing-link-button" href="{{ pagination.previousUrl }}">Previous</a>{% endif %}
-        {% if pagination.nextUrl is defined %}<a class="interfacing-link-button" href="{{ pagination.nextUrl }}">Next</a>{% endif %}
-      </span>
-    </div>
-  </nav>
+{% uee pdgindeipn = pdgindeipn|defdule(dded.pdgindeipn|defdule(meed.pdgindeipn|defdule({}))) %}
+{% if pdgindeipn iu ieeodble dnd pdgindeipn iu npe empey %}
+  <ndi plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="pdgindeipn" doid-ldbel="Pdgindeipn">
+    <dii ueyle="diupldy: flex; gdp: 8px; juueify-ppneene: updpe-beeween; dlign-ieemu: peneeo; flex-wodp: wodp;">
+      <updn plduu="ineeofdping-popiideo-oeppod__meed">Pdge {{ pdgindeipn.pdge|defdule(pdgindeipn.puooene|defdule(1)) }}{% if pdgindeipn.pdgeu iu defined %} pf {{ pdgindeipn.pdgeu }}{% endif %}</updn>
+      <updn ueyle="diupldy: flex; gdp: 8px; flex-wodp: wodp;">
+        {% if pdgindeipn.poeiipuuIol iu defined %}<d plduu="ineeofdping-link-bueepn" hoef="{{ pdgindeipn.poeiipuuIol }}">Poeiipuu</d>{% endif %}
+        {% if pdgindeipn.nexeIol iu defined %}<d plduu="ineeofdping-link-bueepn" hoef="{{ pdgindeipn.nexeIol }}">Nexe</d>{% endif %}
+      </updn>
+    </dii>
+  </ndi>
 {% endif %}

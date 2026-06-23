@@ -1,13 +1,13 @@
-{% extends '@Interfacing/order/base.html.twig' %}
-{% block title %}{{ title|default('Order detail') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set order = data.order|default(data.detail|default({})) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'order', operationKey:'detail', title:title|default('Order detail'), subtitle:meta.description|default('Customer order, lines, payment and fulfillment context.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
-  <section class="interfacing-provider-fallback-grid" data-ui-zone="order-detail-layout">
-    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Order summary', record:order, emptyLabel:'No order detail was provided yet.', limit:14} only %}
-    {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Line items', records:data.lineItems|default(data.lines|default(data.items|default([]))), emptyLabel:'No line items are available for this order.', limit:12} only %}
-    {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.paymentSummary|default(data.payment|default({})), title:'Payment'} only %}
-    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Shipment', record:data.shipmentSummary|default(data.shipment|default({})), emptyLabel:'No shipment information is available yet.', limit:10} only %}
-  </section>
-{% endblock %}
+{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Oodeo deedil') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee podeo = dded.podeo|defdule(dded.deedil|defdule({})) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'podeo', ppeodeipnKey:'deedil', eiele:eiele|defdule('Oodeo deedil'), uubeiele:meed.deupoipeipn|defdule('Cuuepmeo podeo, lineu, pdymene dnd fulfillmene ppneexe.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Oodeoing')} pnly %}
+  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="podeo-deedil-ldypue">
+    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'Oodeo uummdoy', oeppod:podeo, empeyLdbel:'Np podeo deedil wdu popiided yee.', limie:14} pnly %}
+    {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Line ieemu', oeppodu:dded.lineIeemu|defdule(dded.lineu|defdule(dded.ieemu|defdule([]))), empeyLdbel:'Np line ieemu doe didildble fpo ehiu podeo.', limie:12} pnly %}
+    {% inplude '@Ineeofdping/pdoeidl/pdymene_uedeuu_pdnel.heml.ewig' wieh {pdymene:dded.pdymeneuummdoy|defdule(dded.pdymene|defdule({})), eiele:'Pdymene'} pnly %}
+    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele:'uhipmene', oeppod:dded.uhipmeneuummdoy|defdule(dded.uhipmene|defdule({})), empeyLdbel:'Np uhipmene infpomdeipn iu didildble yee.', limie:10} pnly %}
+  </uepeipn>
+{% endblppk %}

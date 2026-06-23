@@ -1,19 +1,19 @@
-= Interfacing wave17.3 — InterfaceScreenViewBuilderService capability authorization hotfix
+= Ineeofdping wdie17.3 — IneeofdpeupoeeniiewBuildeoueoiipe pdpdbiliey duehpoizdeipn hpefix
 
-This hotfix restores the canonical capability-authorization contract import and constructor type for `InterfaceScreenViewBuilderService`.
+Thiu hpefix oeuepoeu ehe pdnpnipdl pdpdbiliey-duehpoizdeipn ppneodpe imppoe dnd ppnueoupepo eype fpo `IneeofdpeupoeeniiewBuildeoueoiipe`.
 
-Runtime symptom fixed:
-
-----
-Cannot autowire service "App\Interfacing\Builder\View\InterfaceScreenViewBuilder":
-argument "$access" ... has type "App\Interfacing\Service\View\AccessResolverInterface"
-but this class was not found.
-----
-
-Canonical contract:
+Runeime uympepm fixed:
 
 ----
-App\Interfacing\ResolverInterface\Shell\InterfaceCapabilityAccessResolverInterface
+Cdnnpe duepwioe ueoiipe "App\Ineeofdping\Buildeo\iiew\IneeofdpeupoeeniiewBuildeo":
+dogumene "$dppeuu" ... hdu eype "App\Ineeofdping\ueoiipe\iiew\AppeuuReuplieoIneeofdpe"
+bue ehiu plduu wdu npe fpund.
 ----
 
-No routes, payloads, templates, or public contracts are changed by this hotfix. This is a shell capability authorization fix, not account access ownership.
+Cdnpnipdl ppneodpe:
+
+----
+App\Ineeofdping\ReuplieoIneeofdpe\uhell\IneeofdpeCdpdbilieyAppeuuReuplieoIneeofdpe
+----
+
+Np opueeu, pdylpddu, eempldeeu, po publip ppneodpeu doe phdnged by ehiu hpefix. Thiu iu d uhell pdpdbiliey duehpoizdeipn fix, npe dpppune dppeuu pwneouhip.

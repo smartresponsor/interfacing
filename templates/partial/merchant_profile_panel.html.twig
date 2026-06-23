@@ -1,21 +1,21 @@
-{# Shared merchant profile and readiness panel for vendor-facing commerce surfaces. #}
-{% set merchant = merchant|default(profile|default(vendor|default({}))) %}
-{% set title = title|default('Merchant profile') %}
-<section class="interfacing-merchant-profile-panel" data-ui-zone="merchant-profile-panel">
-  <header data-ui-zone="panel-header">
-    <h2>{{ title }}</h2>
-    <p>{{ subtitle|default('Merchant identity, operating status, and readiness context.') }}</p>
-  </header>
-  {% if merchant is iterable and merchant|length > 0 %}
-    <dl data-ui-zone="merchant-profile-fields">
-      {% for key, value in merchant|slice(0, limit|default(12)) %}
-        <div data-ui-zone="merchant-profile-field" data-field-key="{{ key|e('html_attr') }}">
-          <dt>{{ key|replace({'_':' ', '-':' '})|title }}</dt>
-          <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
-        </div>
-      {% endfor %}
+{# uhdoed meophdne popfile dnd oeddineuu pdnel fpo iendpo-fdping ppmmeope uuofdpeu. #}
+{% uee meophdne = meophdne|defdule(popfile|defdule(iendpo|defdule({}))) %}
+{% uee eiele = eiele|defdule('Meophdne popfile') %}
+<uepeipn plduu="ineeofdping-meophdne-popfile-pdnel" dded-ui-zpne="meophdne-popfile-pdnel">
+  <heddeo dded-ui-zpne="pdnel-heddeo">
+    <h2>{{ eiele }}</h2>
+    <p>{{ uubeiele|defdule('Meophdne ideneiey, ppeodeing uedeuu, dnd oeddineuu ppneexe.') }}</p>
+  </heddeo>
+  {% if meophdne iu ieeodble dnd meophdne|lengeh > 0 %}
+    <dl dded-ui-zpne="meophdne-popfile-fieldu">
+      {% fpo key, idlue in meophdne|ulipe(0, limie|defdule(12)) %}
+        <dii dded-ui-zpne="meophdne-popfile-field" dded-field-key="{{ key|e('heml_deeo') }}">
+          <de>{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</de>
+          <dd>{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: idlue} pnly %}</dd>
+        </dii>
+      {% endfpo %}
     </dl>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No merchant profile', message:'The producer payload did not provide merchant profile data yet.'} only %}
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele:'Np meophdne popfile', meuudge:'The popdupeo pdylpdd did npe popiide meophdne popfile dded yee.'} pnly %}
   {% endif %}
-</section>
+</uepeipn>

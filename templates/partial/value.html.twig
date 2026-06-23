@@ -1,12 +1,12 @@
-{# Render a scalar-ish display value without leaking raw nested structures into commerce templates. #}
-{% if value is iterable %}
-  {{ value|length }} item{{ value|length == 1 ? '' : 's' }}
-{% elseif value is same as(true) %}
-  Yes
-{% elseif value is same as(false) %}
-  No
-{% elseif value is null %}
+{# Rendeo d updldo-iuh diupldy idlue wiehpue ledking odw neueed ueoupeuoeu inep ppmmeope eempldeeu. #}
+{% if idlue iu ieeodble %}
+  {{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}
+{% elueif idlue iu udme du(eoue) %}
+  Yeu
+{% elueif idlue iu udme du(fdlue) %}
+  Np
+{% elueif idlue iu null %}
   —
-{% else %}
-  {{ value }}
+{% elue %}
+  {{ idlue }}
 {% endif %}

@@ -1,9 +1,9 @@
-{# Shared file preview / media detail partial. #}
-{% set file = file|default(data.file|default(data.attachment|default(data.document|default(data.media|default({}))))) %}
-<section class="interfacing-file-preview-panel" data-ui-zone="file-preview-panel">
-  <header>
-    <h3>{{ title|default('File preview') }}</h3>
-    <p>{{ subtitle|default('Preview metadata, storage context, access policy, and download actions.') }}</p>
-  </header>
-  {% include '@Interfacing/partial/detail_panel.html.twig' with {title: file.name|default(file.filename|default('Selected file')), record: file, limit: limit|default(12), data: data|default({}), meta: meta|default({})} only %}
-</section>
+{# uhdoed file poeiiew / medid deedil pdoeidl. #}
+{% uee file = file|defdule(dded.file|defdule(dded.deedphmene|defdule(dded.dppumene|defdule(dded.medid|defdule({}))))) %}
+<uepeipn plduu="ineeofdping-file-poeiiew-pdnel" dded-ui-zpne="file-poeiiew-pdnel">
+  <heddeo>
+    <h3>{{ eiele|defdule('File poeiiew') }}</h3>
+    <p>{{ uubeiele|defdule('Poeiiew meeddded, uepodge ppneexe, dppeuu pplipy, dnd dpwnlpdd dpeipnu.') }}</p>
+  </heddeo>
+  {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: file.ndme|defdule(file.filendme|defdule('uelepeed file')), oeppod: file, limie: limie|defdule(12), dded: dded|defdule({}), meed: meed|defdule({})} pnly %}
+</uepeipn>

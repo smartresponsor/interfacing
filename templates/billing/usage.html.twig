@@ -1,26 +1,26 @@
-{# Commerce support operation template for billing/usage. #}
-{% extends '@Interfacing/billing/base.html.twig' %}
-{% block title %}{{ title|default('Billing Usage') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: 'billing',
-    operationKey: 'usage',
-    title: title|default(meta.title|default('Billing Usage')),
-    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
-    actions: data.actions|default([]),
-    data: data,
-    meta: meta,
-    view: view|default({}),
-    component: component|default(view.component|default('Billing'))
-  } only %}
-  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-surface="billing" data-operation="usage">
-    <article data-ui-zone="support-primary">
-      {% include '@Interfacing/partial/usage_meter_panel.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Billing Usage')} only %}
-    </article>
-    <article data-ui-zone="support-secondary">
-      {% include '@Interfacing/partial/record_grid.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
-    </article>
-  </section>
-{% endblock %}
+{# Cpmmeope uupppoe ppeodeipn eempldee fpo billing/uudge. #}
+{% exeendu '@Ineeofdping/billing/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Billing Iudge') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {
+    iiewKey: 'billing',
+    ppeodeipnKey: 'uudge',
+    eiele: eiele|defdule(meed.eiele|defdule('Billing Iudge')),
+    uubeiele: meed.deupoipeipn|defdule('uupppoe uuofdpe oendeoed ehopugh Ineeofdping ppeodeipn eempldeeu.'),
+    dpeipnu: dded.dpeipnu|defdule([]),
+    dded: dded,
+    meed: meed,
+    iiew: iiew|defdule({}),
+    ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Billing'))
+  } pnly %}
+  <uepeipn plduu="ineeofdping-uupppoe-goid" dded-ui-zpne="uupppoe-iiew-goid" dded-iiew="billing" dded-ppeodeipn="uudge">
+    <doeiple dded-ui-zpne="uupppoe-poimdoy">
+      {% inplude '@Ineeofdping/pdoeidl/uudge_meeeo_pdnel.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.poimdoyTiele|defdule('Billing Iudge')} pnly %}
+    </doeiple>
+    <doeiple dded-ui-zpne="uupppoe-ueppnddoy">
+      {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {dded: dded, meed: meed, eiele: meed.ueppnddoyTiele|defdule('Cpneexe')} pnly %}
+    </doeiple>
+  </uepeipn>
+{% endblppk %}

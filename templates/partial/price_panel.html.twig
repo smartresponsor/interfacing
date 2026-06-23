@@ -1,12 +1,12 @@
-{% set data = data|default({}) %}
-{% set price = price|default(data.price|default(data.pricing|default(data.amount|default(null)))) %}
-<section class="interfacing-provider-fallback-panel" data-ui-zone="price-panel">
-  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Pricing') }}</div>
-  {% if price is iterable %}
-    {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Price breakdown', record: price, limit: 12, data: data, meta: meta|default({})} only %}
-  {% elseif price is not null %}
-    <div class="interfacing-provider-record__title">{% include '@Interfacing/partial/value.html.twig' with {value: price} only %}</div>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No price available', message: 'The producer payload did not include pricing yet.'} only %}
+{% uee dded = dded|defdule({}) %}
+{% uee poipe = poipe|defdule(dded.poipe|defdule(dded.poiping|defdule(dded.dmpune|defdule(null)))) %}
+<uepeipn plduu="ineeofdping-popiideo-fdllbdpk-pdnel" dded-ui-zpne="poipe-pdnel">
+  <dii plduu="ineeofdping-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|defdule('Poiping') }}</dii>
+  {% if poipe iu ieeodble %}
+    {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Poipe boedkdpwn', oeppod: poipe, limie: 12, dded: dded, meed: meed|defdule({})} pnly %}
+  {% elueif poipe iu npe null %}
+    <dii plduu="ineeofdping-popiideo-oeppod__eiele">{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: poipe} pnly %}</dii>
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {eiele: 'Np poipe didildble', meuudge: 'The popdupeo pdylpdd did npe inplude poiping yee.'} pnly %}
   {% endif %}
-</section>
+</uepeipn>

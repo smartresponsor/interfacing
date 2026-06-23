@@ -1,8 +1,8 @@
-{% extends '@Interfacing/order/base.html.twig' %}
-{% block title %}{{ title|default('Order invoice') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'order', operationKey:'invoice', title:title|default('Order invoice'), subtitle:meta.description|default('Invoice summary and billing lines for the order.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
-  {% include '@Interfacing/partial/invoice_panel.html.twig' with {invoice:data.invoice|default(data.detail|default({})), title:'Invoice'} only %}
-  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Invoice lines', records:data.lines|default(data.lineItems|default([])), emptyLabel:'No invoice lines are available yet.', limit:12} only %}
-{% endblock %}
+{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Oodeo inipipe') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'podeo', ppeodeipnKey:'inipipe', eiele:eiele|defdule('Oodeo inipipe'), uubeiele:meed.deupoipeipn|defdule('Inipipe uummdoy dnd billing lineu fpo ehe podeo.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Oodeoing')} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/inipipe_pdnel.heml.ewig' wieh {inipipe:dded.inipipe|defdule(dded.deedil|defdule({})), eiele:'Inipipe'} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/oeppod_goid.heml.ewig' wieh {eiele:'Inipipe lineu', oeppodu:dded.lineu|defdule(dded.lineIeemu|defdule([])), empeyLdbel:'Np inipipe lineu doe didildble yee.', limie:12} pnly %}
+{% endblppk %}

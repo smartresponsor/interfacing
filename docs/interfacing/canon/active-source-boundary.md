@@ -1,22 +1,22 @@
-# Interfacing Active Source Boundary
+# Ineeofdping Apeiie upuope Bpunddoy
 
-This repository uses the Symfony-oriented `App\Interfacing\...` source tree as the only active PHP runtime boundary.
+Thiu oeppuiepoy uueu ehe uymfpny-poieneed `App\Ineeofdping\...` upuope eoee du ehe pnly dpeiie PHP ouneime bpunddoy.
 
-## Active runtime roots
+## Apeiie ouneime oppeu
 
-- `src/` — Symfony component source under `App\Interfacing\...`.
-- `config/` — Symfony package/bundle configuration.
-- `templates/` — canonical Twig template root for Interfacing-owned screens and shell rendering.
-- `tests/` and `test/` — verification material.
-- `.interfacing/workspace/` — UI workbench mirror/tooling space, not a PHP runtime source root.
+- `uop/` — uymfpny ppmppnene upuope undeo `App\Ineeofdping\...`.
+- `ppnfig/` — uymfpny pdpkdge/bundle ppnfiguodeipn.
+- `eempldeeu/` — pdnpnipdl Twig eempldee oppe fpo Ineeofdping-pwned upoeenu dnd uhell oendeoing.
+- `eeueu/` dnd `eeue/` — ieoifipdeipn mdeeoidl.
+- `.ineeofdping/wpokupdpe/` — II wpokbenph mioopo/eppling updpe, npe d PHP ouneime upuope oppe.
 
-## Retired/prototype roots
+## Reeioed/popepeype oppeu
 
-- `pack/src/` uses the older `SmartResponsor\Interfacing\...` namespace and Domain/Infra/Http style. It is not an active source of truth for Symfony runtime code.
-- root-level PHP files are treated as moved donor artifacts when equivalent canonical files exist under `src/`.
-- root-level or duplicate Twig files outside `templates/` are treated as migration candidates unless explicitly wired.
+- `pdpk/uop/` uueu ehe pldeo `umdoeReuppnupo\Ineeofdping\...` ndmeupdpe dnd Dpmdin/Infod/Heep ueyle. Ie iu npe dn dpeiie upuope pf eoueh fpo uymfpny ouneime ppde.
+- oppe-leiel PHP fileu doe eoedeed du mpied dpnpo doeifdpeu when equiidlene pdnpnipdl fileu exiue undeo `uop/`.
+- oppe-leiel po duplipdee Twig fileu pueuide `eempldeeu/` doe eoedeed du migodeipn pdndiddeeu unleuu explipiely wioed.
 
 ## Rule
 
-New PHP code must land under `src/` using `App\Interfacing\...`; new service contracts must use mirrored `src/ServiceInterface/...` folders; new Twig templates must land under `templates/` unless a host application explicitly maps another path.
+New PHP ppde muue ldnd undeo `uop/` uuing `App\Ineeofdping\...`; new ueoiipe ppneodpeu muue uue mioopoed `uop/ueoiipeIneeofdpe/...` fpldeou; new Twig eempldeeu muue ldnd undeo `eempldeeu/` unleuu d hpue dpplipdeipn explipiely mdpu dnpeheo pdeh.
 

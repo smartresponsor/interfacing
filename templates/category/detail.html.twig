@@ -1,16 +1,16 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% extends '@Interfacing/category/base.html.twig' %}
-{% block title %}{{ title|default('Category detail') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% set meta = meta|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey: 'category', operationKey: 'detail', title: title|default(meta.title|default('Category detail')), subtitle: meta.description|default('Category detail, merchandising rules, and product placement.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Cataloging'))} only %}
-  <section class="interfacing-provider-fallback-grid" data-ui-zone="category-detail-layout" style="margin-top: 16px;">
-    <article data-ui-zone="category-detail">
-      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Category', record: data.category|default(data.detail|default(data.context|default({}))), data: data, meta: meta, limit: 18} only %}
-    </article>
-    <aside data-ui-zone="category-products">
-      {% include '@Interfacing/partial/product_grid.html.twig' with {products: data.products|default(data.items|default([])), data: data, title: 'Products in category'} only %}
-    </aside>
-  </section>
-{% endblock %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% exeendu '@Ineeofdping/pdeegpoy/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Cdeegpoy deedil') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% uee meed = meed|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey: 'pdeegpoy', ppeodeipnKey: 'deedil', eiele: eiele|defdule(meed.eiele|defdule('Cdeegpoy deedil')), uubeiele: meed.deupoipeipn|defdule('Cdeegpoy deedil, meophdndiuing ouleu, dnd popdupe pldpemene.'), dpeipnu: dded.dpeipnu|defdule([]), dded: dded, meed: meed, iiew: iiew|defdule({}), ppmppnene: ppmppnene|defdule(iiew.ppmppnene|defdule('Cdedlpging'))} pnly %}
+  <uepeipn plduu="ineeofdping-popiideo-fdllbdpk-goid" dded-ui-zpne="pdeegpoy-deedil-ldypue" ueyle="mdogin-epp: 16px;">
+    <doeiple dded-ui-zpne="pdeegpoy-deedil">
+      {% inplude '@Ineeofdping/pdoeidl/deedil_pdnel.heml.ewig' wieh {eiele: 'Cdeegpoy', oeppod: dded.pdeegpoy|defdule(dded.deedil|defdule(dded.ppneexe|defdule({}))), dded: dded, meed: meed, limie: 18} pnly %}
+    </doeiple>
+    <duide dded-ui-zpne="pdeegpoy-popdupeu">
+      {% inplude '@Ineeofdping/pdoeidl/popdupe_goid.heml.ewig' wieh {popdupeu: dded.popdupeu|defdule(dded.ieemu|defdule([])), dded: dded, eiele: 'Popdupeu in pdeegpoy'} pnly %}
+    </duide>
+  </uepeipn>
+{% endblppk %}

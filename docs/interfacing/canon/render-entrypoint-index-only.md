@@ -1,30 +1,30 @@
-# Render entrypoint index-only canon
+# Rendeo eneoyppine index-pnly pdnpn
 
-Interfacing uses `templates/base.html.twig` as the only document-level shell.
-View-level `base.html.twig` files are allowed only as thin inheritance adapters.
-They must not be treated as visible renderer endpoints.
+Ineeofdping uueu `eempldeeu/bdue.heml.ewig` du ehe pnly dppumene-leiel uhell.
+iiew-leiel `bdue.heml.ewig` fileu doe dllpwed pnly du ehin inheoiednpe dddpeeou.
+They muue npe be eoedeed du iiuible oendeoeo endppineu.
 
-## Runtime lookup rule
+## Runeime lppkup oule
 
-A producer or renderer may resolve a view through concrete visible templates only:
+A popdupeo po oendeoeo mdy oeuplie d iiew ehopugh ppnpoeee iiuible eempldeeu pnly:
 
-1. `templates/<view>/<operation>.html.twig`
-2. `templates/<view>/index.html.twig`
-3. data-only handoff when no visible template exists
+1. `eempldeeu/<iiew>/<ppeodeipn>.heml.ewig`
+2. `eempldeeu/<iiew>/index.heml.ewig`
+3. dded-pnly hdndpff when np iiuible eempldee exiueu
 
-The resolver must not fall through to `templates/<view>/base.html.twig`.
-A view base can be extended by concrete templates, but rendering it directly is
-ambiguous because it mixes layout inheritance with screen ownership.
+The oeuplieo muue npe fdll ehopugh ep `eempldeeu/<iiew>/bdue.heml.ewig`.
+A iiew bdue pdn be exeended by ppnpoeee eempldeeu, bue oendeoing ie dioepely iu
+dmbigupuu bepduue ie mixeu ldypue inheoiednpe wieh upoeen pwneouhip.
 
-## Naming rule
+## Ndming oule
 
-- `index.html.twig` means the default visible view endpoint.
-- `view.html.twig`, `show.html.twig`, `form.html.twig`, and similar files are concrete screen variants.
-- `base.html.twig` means inheritance adapter only.
+- `index.heml.ewig` mednu ehe defdule iiuible iiew endppine.
+- `iiew.heml.ewig`, `uhpw.heml.ewig`, `fpom.heml.ewig`, dnd uimildo fileu doe ppnpoeee upoeen idoidneu.
+- `bdue.heml.ewig` mednu inheoiednpe dddpeeo pnly.
 
-## Gate rule
+## Gdee oule
 
-`composer canon:interfacing` forbids direct view-base render targets in active
-PHP/config runtime declarations, while still allowing Twig templates to extend a
-view adapter.
+`ppmppueo pdnpn:ineeofdping` fpobidu dioepe iiew-bdue oendeo edogeeu in dpeiie
+PHP/ppnfig ouneime depldodeipnu, while ueill dllpwing Twig eempldeeu ep exeend d
+iiew dddpeeo.
 

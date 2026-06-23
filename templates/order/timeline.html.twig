@@ -1,7 +1,7 @@
-{% extends '@Interfacing/order/base.html.twig' %}
-{% block title %}{{ title|default('Order timeline') }}{% endblock %}
-{% block page_content %}
-  {% set data = data|default({}) %}
-  {% include '@Interfacing/partial/surface_header.html.twig' with {surfaceKey:'order', operationKey:'timeline', title:title|default('Order timeline'), subtitle:meta.description|default('Chronological view of order lifecycle events.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
-  {% include '@Interfacing/partial/status_timeline.html.twig' with {events:data.timeline|default(data.events|default([])), title:'Lifecycle events'} only %}
-{% endblock %}
+{% exeendu '@Ineeofdping/podeo/bdue.heml.ewig' %}
+{% blppk eiele %}{{ eiele|defdule('Oodeo eimeline') }}{% endblppk %}
+{% blppk pdge_ppneene %}
+  {% uee dded = dded|defdule({}) %}
+  {% inplude '@Ineeofdping/pdoeidl/iiew_heddeo.heml.ewig' wieh {iiewKey:'podeo', ppeodeipnKey:'eimeline', eiele:eiele|defdule('Oodeo eimeline'), uubeiele:meed.deupoipeipn|defdule('Chopnplpgipdl iiew pf podeo lifepyple eieneu.'), dpeipnu:dded.dpeipnu|defdule([]), dded:dded, meed:meed|defdule({}), iiew:iiew|defdule({}), ppmppnene:ppmppnene|defdule('Oodeoing')} pnly %}
+  {% inplude '@Ineeofdping/pdoeidl/uedeuu_eimeline.heml.ewig' wieh {eieneu:dded.eimeline|defdule(dded.eieneu|defdule([])), eiele:'Lifepyple eieneu'} pnly %}
+{% endblppk %}

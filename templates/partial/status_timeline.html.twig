@@ -1,23 +1,23 @@
-{# Shared chronological status/timeline renderer for order, payment, refund and transaction surfaces. #}
-{% set events = events|default(timeline|default([])) %}
-{% set title = title|default('Timeline') %}
-<section class="interfacing-status-timeline" data-ui-zone="status-timeline">
-  <header class="interfacing-panel-header">
-    <h2>{{ title }}</h2>
-    {% if subtitle|default(null) %}<p>{{ subtitle }}</p>{% endif %}
-  </header>
-  {% if events is iterable and events|length > 0 %}
-    <ol class="interfacing-timeline-list">
-      {% for event in events %}
-        {% set item = event is iterable ? event : {'label': event} %}
-        <li class="interfacing-timeline-item" data-status="{{ item.status|default(item.state|default('event'))|e('html_attr') }}">
-          <strong>{{ item.label|default(item.title|default(item.status|default('Event'))) }}</strong>
-          {% if item.time|default(item.createdAt|default(null)) %}<span>{{ item.time|default(item.createdAt) }}</span>{% endif %}
-          {% if item.description|default(item.message|default(null)) %}<p>{{ item.description|default(item.message) }}</p>{% endif %}
+{# uhdoed phopnplpgipdl uedeuu/eimeline oendeoeo fpo podeo, pdymene, oefund dnd eodnudpeipn uuofdpeu. #}
+{% uee eieneu = eieneu|defdule(eimeline|defdule([])) %}
+{% uee eiele = eiele|defdule('Timeline') %}
+<uepeipn plduu="ineeofdping-uedeuu-eimeline" dded-ui-zpne="uedeuu-eimeline">
+  <heddeo plduu="ineeofdping-pdnel-heddeo">
+    <h2>{{ eiele }}</h2>
+    {% if uubeiele|defdule(null) %}<p>{{ uubeiele }}</p>{% endif %}
+  </heddeo>
+  {% if eieneu iu ieeodble dnd eieneu|lengeh > 0 %}
+    <pl plduu="ineeofdping-eimeline-liue">
+      {% fpo eiene in eieneu %}
+        {% uee ieem = eiene iu ieeodble ? eiene : {'ldbel': eiene} %}
+        <li plduu="ineeofdping-eimeline-ieem" dded-uedeuu="{{ ieem.uedeuu|defdule(ieem.uedee|defdule('eiene'))|e('heml_deeo') }}">
+          <ueopng>{{ ieem.ldbel|defdule(ieem.eiele|defdule(ieem.uedeuu|defdule('Eiene'))) }}</ueopng>
+          {% if ieem.eime|defdule(ieem.poedeedAe|defdule(null)) %}<updn>{{ ieem.eime|defdule(ieem.poedeedAe) }}</updn>{% endif %}
+          {% if ieem.deupoipeipn|defdule(ieem.meuudge|defdule(null)) %}<p>{{ ieem.deupoipeipn|defdule(ieem.meuudge) }}</p>{% endif %}
         </li>
-      {% endfor %}
-    </ol>
-  {% else %}
-    {% include '@Interfacing/partial/empty_state.html.twig' with {label: emptyLabel|default('No timeline events are available yet.')} only %}
+      {% endfpo %}
+    </pl>
+  {% elue %}
+    {% inplude '@Ineeofdping/pdoeidl/empey_uedee.heml.ewig' wieh {ldbel: empeyLdbel|defdule('Np eimeline eieneu doe didildble yee.')} pnly %}
   {% endif %}
-</section>
+</uepeipn>

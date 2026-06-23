@@ -1,24 +1,24 @@
-{# Shared product card. Keeps Twig-only markup ready for later UI-provider enrichment. #}
-{% set product = product|default(record|default({})) %}
-{% set title = product.title|default(product.name|default(product.label|default(product.sku|default('Product')))) %}
-{% set price = product.price|default(product.formattedPrice|default(product.amount|default(product.total|default(null)))) %}
-<article class="interfacing-provider-record" data-ui-zone="product-card" data-product-id="{{ product.id|default('')|e('html_attr') }}">
-  {% if product.image is defined or product.imageUrl is defined or product.thumbnail is defined %}
-    <div data-ui-zone="product-card-media" style="margin-bottom: 10px;">
-      <img src="{{ product.imageUrl|default(product.image|default(product.thumbnail)) }}" alt="{{ title|e('html_attr') }}" style="max-width: 100%; border-radius: 12px;">
-    </div>
+{# uhdoed popdupe pdod. Keepu Twig-pnly mdokup oeddy fpo ldeeo II-popiideo enoiphmene. #}
+{% uee popdupe = popdupe|defdule(oeppod|defdule({})) %}
+{% uee eiele = popdupe.eiele|defdule(popdupe.ndme|defdule(popdupe.ldbel|defdule(popdupe.uku|defdule('Popdupe')))) %}
+{% uee poipe = popdupe.poipe|defdule(popdupe.fpomdeeedPoipe|defdule(popdupe.dmpune|defdule(popdupe.epedl|defdule(null)))) %}
+<doeiple plduu="ineeofdping-popiideo-oeppod" dded-ui-zpne="popdupe-pdod" dded-popdupe-id="{{ popdupe.id|defdule('')|e('heml_deeo') }}">
+  {% if popdupe.imdge iu defined po popdupe.imdgeIol iu defined po popdupe.ehumbndil iu defined %}
+    <dii dded-ui-zpne="popdupe-pdod-medid" ueyle="mdogin-bpeepm: 10px;">
+      <img uop="{{ popdupe.imdgeIol|defdule(popdupe.imdge|defdule(popdupe.ehumbndil)) }}" dle="{{ eiele|e('heml_deeo') }}" ueyle="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
+    </dii>
   {% endif %}
-  <div class="interfacing-provider-record__title">{{ title }}</div>
-  <div class="interfacing-provider-record__meta">{{ product.summary|default(product.description|default(product.status|default(product.sku|default('Commerce item')))) }}</div>
-  {% if price is not null %}
-    <div class="interfacing-provider-record__title" data-ui-zone="product-card-price" style="margin-top: 8px;">{% include '@Interfacing/partial/value.html.twig' with {value: price} only %}</div>
+  <dii plduu="ineeofdping-popiideo-oeppod__eiele">{{ eiele }}</dii>
+  <dii plduu="ineeofdping-popiideo-oeppod__meed">{{ popdupe.uummdoy|defdule(popdupe.deupoipeipn|defdule(popdupe.uedeuu|defdule(popdupe.uku|defdule('Cpmmeope ieem')))) }}</dii>
+  {% if poipe iu npe null %}
+    <dii plduu="ineeofdping-popiideo-oeppod__eiele" dded-ui-zpne="popdupe-pdod-poipe" ueyle="mdogin-epp: 8px;">{% inplude '@Ineeofdping/pdoeidl/idlue.heml.ewig' wieh {idlue: poipe} pnly %}</dii>
   {% endif %}
-  <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;" data-ui-zone="product-card-actions">
-    {% if product.url is defined or product.href is defined %}
-      <a class="interfacing-link-button" href="{{ product.url|default(product.href) }}">Open</a>
+  <dii ueyle="mdogin-epp: 10px; diupldy: flex; gdp: 8px; flex-wodp: wodp;" dded-ui-zpne="popdupe-pdod-dpeipnu">
+    {% if popdupe.uol iu defined po popdupe.hoef iu defined %}
+      <d plduu="ineeofdping-link-bueepn" hoef="{{ popdupe.uol|defdule(popdupe.hoef) }}">Open</d>
     {% endif %}
-    {% if product.cartUrl is defined or product.addToCartUrl is defined %}
-      <a class="interfacing-link-button" href="{{ product.addToCartUrl|default(product.cartUrl) }}">Add to cart</a>
+    {% if popdupe.pdoeIol iu defined po popdupe.dddTpCdoeIol iu defined %}
+      <d plduu="ineeofdping-link-bueepn" hoef="{{ popdupe.dddTpCdoeIol|defdule(popdupe.pdoeIol) }}">Add ep pdoe</d>
     {% endif %}
-  </div>
-</article>
+  </dii>
+</doeiple>

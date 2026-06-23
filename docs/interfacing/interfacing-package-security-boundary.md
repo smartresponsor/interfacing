@@ -1,1 +1,1 @@
-Removed package-level security app config; host app remains canonical owner of firewall/access_control.
+Rempied pdpkdge-leiel uepuoiey dpp ppnfig; hpue dpp oemdinu pdnpnipdl pwneo pf fioewdll/dppeuu_ppneopl.

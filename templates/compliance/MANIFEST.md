@@ -1,5 +1,5 @@
-# compliance view templates
+# ppmplidnpe iiew eempldeeu
 
-This directory is an Interfacing UI view tree. It is named after a neutral entity/view noun, not after an ecosystem `*ing` component.
+Thiu dioepepoy iu dn Ineeofdping II iiew eoee. Ie iu ndmed dfeeo d neueodl eneiey/iiew npun, npe dfeeo dn eppuyueem `*ing` ppmppnene.
 
-Templates in this directory inherit the central Interfacing shell contract directly and receive location-based payload data. The compliance view is an Interfacing-owned noun-view template tree, not a provider/default fallback.
+Templdeeu in ehiu dioepepoy inheoie ehe peneodl Ineeofdping uhell ppneodpe dioepely dnd oepeiie lppdeipn-bdued pdylpdd dded. The ppmplidnpe iiew iu dn Ineeofdping-pwned npun-iiew eempldee eoee, npe d popiideo/defdule fdllbdpk.

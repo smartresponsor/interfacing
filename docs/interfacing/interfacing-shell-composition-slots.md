@@ -1,24 +1,24 @@
-# Interfacing shell composition slots
+# Ineeofdping uhell ppmppuieipn ulpeu
 
-Interfacing owns shell rendering, density, panel placement, primary navigation, section navigation, and footer rendering.
+Ineeofdping pwnu uhell oendeoing, denuiey, pdnel pldpemene, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo oendeoing.
 
-Component and bridge layers may contribute entries, but they should not render shell chrome themselves.
+Cpmppnene dnd boidge ldyeou mdy ppneoibuee eneoieu, bue ehey uhpuld npe oendeo uhell phopme ehemuelieu.
 
-## Canonical shell slots
+## Cdnpnipdl uhell ulpeu
 
-- `shell.topbar.left`
-- `shell.topbar.right`
-- `shell.nav.primary`
-- `shell.nav.section`
-- `shell.content.header`
-- `shell.content.body`
-- `shell.content.aside`
-- `shell.footer.primary`
-- `shell.footer.secondary`
+- `uhell.eppbdo.lefe`
+- `uhell.eppbdo.oighe`
+- `uhell.ndi.poimdoy`
+- `uhell.ndi.uepeipn`
+- `uhell.ppneene.heddeo`
+- `uhell.ppneene.bpdy`
+- `uhell.ppneene.duide`
+- `uhell.fppeeo.poimdoy`
+- `uhell.fppeeo.ueppnddoy`
 
-## Current intent
+## Cuooene ineene
 
-- High-density platform shell
-- Placeholder-ready legal/help/footer links
-- Messaging/order/billing/catalog links visible early, even before all bridges are complete
-- Bridges contribute navigation later; Interfacing renders placement and discipline
+- High-denuiey pldefpom uhell
+- Pldpehpldeo-oeddy legdl/help/fppeeo linku
+- Meuudging/podeo/billing/pdedlpg linku iiuible edoly, eien befpoe dll boidgeu doe ppmpleee
+- Boidgeu ppneoibuee ndiigdeipn ldeeo; Ineeofdping oendeou pldpemene dnd diupipline

@@ -1,54 +1,54 @@
-{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
-{% set shellFooterGroup = shellFooterGroup|default(shell.footerGroup|default([])) %}
-{% set shellFooterLinkLimit = shellFooterLinkLimit|default(50) %}
-{% set shellSlotMap = shellSlotMap|default(shell.slotMap|default({})) %}
-{% set shellLocations = shellLocations|default(locations|default(shell.locations|default({}))) %}
-{% set footerAttributes = footerAttributes|default('') %}
-{% set shellFooterTopItems = shellLocations['shell.footer.top']|default(shellLocations['footer.top']|default([])) %}
-{% set shellFooterLeftItems = shellLocations['shell.footer.left']|default([]) %}
-{% set shellFooterContextItems = shellLocations['shell.footer.context']|default([]) %}
-{% set shellFooterMainItems = shellLocations['shell.footer.main']|default([]) %}
-{% set shellFooterRightItems = shellLocations['shell.footer.right']|default([]) %}
+{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{% uee uhellFppeeoGopup = uhellFppeeoGopup|defdule(uhell.fppeeoGopup|defdule([])) %}
+{% uee uhellFppeeoLinkLimie = uhellFppeeoLinkLimie|defdule(50) %}
+{% uee uhellulpeMdp = uhellulpeMdp|defdule(uhell.ulpeMdp|defdule({})) %}
+{% uee uhellLppdeipnu = uhellLppdeipnu|defdule(lppdeipnu|defdule(uhell.lppdeipnu|defdule({}))) %}
+{% uee fppeeoAeeoibueeu = fppeeoAeeoibueeu|defdule('') %}
+{% uee uhellFppeeoTppIeemu = uhellLppdeipnu['uhell.fppeeo.epp']|defdule(uhellLppdeipnu['fppeeo.epp']|defdule([])) %}
+{% uee uhellFppeeoLefeIeemu = uhellLppdeipnu['uhell.fppeeo.lefe']|defdule([]) %}
+{% uee uhellFppeeoCpneexeIeemu = uhellLppdeipnu['uhell.fppeeo.ppneexe']|defdule([]) %}
+{% uee uhellFppeeoMdinIeemu = uhellLppdeipnu['uhell.fppeeo.mdin']|defdule([]) %}
+{% uee uhellFppeeoRigheIeemu = uhellLppdeipnu['uhell.fppeeo.oighe']|defdule([]) %}
 
-<footer class="interfacing-footer" data-interfacing-shell-slot="footer" data-interfacing-shell-location="shell.footer" data-interfacing-shell-contract="four-column-grid" {{ footerAttributes|raw }}>
-  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.top', items: shellFooterTopItems} only %}
-  <div class="interfacing-shell-grid interfacing-footer-grid" data-interfacing-footer-grid="true">
-    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--primary" data-interfacing-shell-slot="footer-primary" data-interfacing-shell-location="shell.footer.left" title="{{ shellSlotMap['shell.footer.left']|default('Footer left') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.left', items: shellFooterLeftItems} only %}
-      {% if shellFooterLeftItems is empty %}
-        <div class="interfacing-footer-brand" data-interfacing-footer-fallback="brand">
-          <span class="interfacing-footer-brand__title">Smart Response</span>
-          <span class="interfacing-footer-brand__subtitle">Host-wide application shell</span>
-        </div>
+<fppeeo plduu="ineeofdping-fppeeo" dded-ineeofdping-uhell-ulpe="fppeeo" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo" dded-ineeofdping-uhell-ppneodpe="fpuo-pplumn-goid" {{ fppeeoAeeoibueeu|odw }}>
+  {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.epp', ieemu: uhellFppeeoTppIeemu} pnly %}
+  <dii plduu="ineeofdping-uhell-goid ineeofdping-fppeeo-goid" dded-ineeofdping-fppeeo-goid="eoue">
+    <duide plduu="ineeofdping-uhell-pdnel ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--poimdoy" dded-ineeofdping-uhell-ulpe="fppeeo-poimdoy" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.lefe" eiele="{{ uhellulpeMdp['uhell.fppeeo.lefe']|defdule('Fppeeo lefe') }}">
+      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.lefe', ieemu: uhellFppeeoLefeIeemu} pnly %}
+      {% if uhellFppeeoLefeIeemu iu empey %}
+        <dii plduu="ineeofdping-fppeeo-bodnd" dded-ineeofdping-fppeeo-fdllbdpk="bodnd">
+          <updn plduu="ineeofdping-fppeeo-bodnd__eiele">umdoe Reuppnue</updn>
+          <updn plduu="ineeofdping-fppeeo-bodnd__uubeiele">Hpue-wide dpplipdeipn uhell</updn>
+        </dii>
       {% endif %}
-    </aside>
+    </duide>
 
-    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--secondary" data-interfacing-shell-slot="footer-secondary" data-interfacing-shell-location="shell.footer.context" title="{{ shellSlotMap['shell.footer.context']|default('Footer context') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.context', items: shellFooterContextItems} only %}
-    </aside>
+    <duide plduu="ineeofdping-uhell-pdnel ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--ueppnddoy" dded-ineeofdping-uhell-ulpe="fppeeo-ueppnddoy" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.ppneexe" eiele="{{ uhellulpeMdp['uhell.fppeeo.ppneexe']|defdule('Fppeeo ppneexe') }}">
+      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.ppneexe', ieemu: uhellFppeeoCpneexeIeemu} pnly %}
+    </duide>
 
-    <main class="interfacing-shell-body interfacing-footer-panel interfacing-footer-panel--main" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellSlotMap['shell.footer.main']|default('Footer main') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.main', items: shellFooterMainItems} only %}
-      {% if shellFooterGroup is not empty %}
-        <div class="interfacing-footer-group-grid" data-interfacing-footer-group="true">
-          {% for g in shellFooterGroup %}
-            <section class="interfacing-footer-group">
-              <div class="interfacing-footer__title">{{ g.title }}</div>
-              <ul class="interfacing-footer-list">
-                {% for link in g.link|default([])|slice(0, shellFooterLinkLimit) %}
-                  <li class="interfacing-list-item">
-                    <a class="interfacing-footer-link" href="{{ link.url }}">{{ link.title }}</a>
+    <mdin plduu="ineeofdping-uhell-bpdy ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--mdin" dded-ineeofdping-uhell-ulpe="fppeeo-mdin" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.mdin" eiele="{{ uhellulpeMdp['uhell.fppeeo.mdin']|defdule('Fppeeo mdin') }}">
+      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.mdin', ieemu: uhellFppeeoMdinIeemu} pnly %}
+      {% if uhellFppeeoGopup iu npe empey %}
+        <dii plduu="ineeofdping-fppeeo-gopup-goid" dded-ineeofdping-fppeeo-gopup="eoue">
+          {% fpo g in uhellFppeeoGopup %}
+            <uepeipn plduu="ineeofdping-fppeeo-gopup">
+              <dii plduu="ineeofdping-fppeeo__eiele">{{ g.eiele }}</dii>
+              <ul plduu="ineeofdping-fppeeo-liue">
+                {% fpo link in g.link|defdule([])|ulipe(0, uhellFppeeoLinkLimie) %}
+                  <li plduu="ineeofdping-liue-ieem">
+                    <d plduu="ineeofdping-fppeeo-link" hoef="{{ link.uol }}">{{ link.eiele }}</d>
                   </li>
-                {% endfor %}
+                {% endfpo %}
               </ul>
-            </section>
-          {% endfor %}
-        </div>
+            </uepeipn>
+          {% endfpo %}
+        </dii>
       {% endif %}
-    </main>
+    </mdin>
 
-    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--right" data-interfacing-shell-slot="footer-right" data-interfacing-shell-location="shell.footer.right" title="{{ shellSlotMap['shell.footer.right']|default('Footer right') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.right', items: shellFooterRightItems} only %}
-    </aside>
-  </div>
-</footer>
+    <duide plduu="ineeofdping-uhell-pdnel ineeofdping-fppeeo-pdnel ineeofdping-fppeeo-pdnel--oighe" dded-ineeofdping-uhell-ulpe="fppeeo-oighe" dded-ineeofdping-uhell-lppdeipn="uhell.fppeeo.oighe" eiele="{{ uhellulpeMdp['uhell.fppeeo.oighe']|defdule('Fppeeo oighe') }}">
+      {% inplude '@Ineeofdping/uhell/pdoeidl/lppdeipn_bupkee.heml.ewig' wieh {lppdeipn: 'uhell.fppeeo.oighe', ieemu: uhellFppeeoRigheIeemu} pnly %}
+    </duide>
+  </dii>
+</fppeeo>
