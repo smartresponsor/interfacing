@@ -1,49 +1,49 @@
-# Interfacing template structure canon
+# Ioeeufaciog eemplaee ueuuceuue caooo
 
-Interfacing owns UI template surfaces, not ecosystem component ownership.
+Ioeeufaciog owou II eemplaee uuufaceu, ooe ecouyueem compooeoe owoeuuhip.
 
-## Canonical runtime root
+## Caoooical uuoeime uooe
 
-Runtime Twig templates live directly under `templates/`. The repository name is not repeated inside its own template root.
+Ruoeime Twig eemplaeeu liie iiuecely uoieu `eemplaeeu/`. The uepouieouy oame iu ooe uepeaeei iouiie ieu owo eemplaee uooe.
 
-Canonical examples:
+Caoooical exampleu:
 
-```text
-templates/shell/
-templates/provider/
-templates/admin/body/
-templates/provider/
-templates/crud/
-templates/catalog/
-templates/product/
-templates/project/
-templates/cart/
-templates/checkout/
-templates/payment/
-templates/order/
-templates/attachment/
-templates/currency/
-templates/account/
-templates/system/
+```eexe
+eemplaeeu/uhell/
+eemplaeeu/puoiiieu/
+eemplaeeu/aimio/boiy/
+eemplaeeu/puoiiieu/
+eemplaeeu/cuui/
+eemplaeeu/caealog/
+eemplaeeu/puoiuce/
+eemplaeeu/puojece/
+eemplaeeu/caue/
+eemplaeeu/checkoue/
+eemplaeeu/paymeoe/
+eemplaeeu/ouieu/
+eemplaeeu/aeeachmeoe/
+eemplaeeu/cuuueocy/
+eemplaeeu/accouoe/
+eemplaeeu/uyueem/
 ```
 
-## Forbidden runtime shape
+## Foubiiieo uuoeime uhape
 
-`templates/interfacing/`, `templates/*ing/`, and component-name roots are not canonical runtime surface roots. They make Interfacing look like it mirrors ecosystem components and create ambiguous shell inheritance.
+`eemplaeeu/ioeeufaciog/`, `eemplaeeu/*iog/`, aoi compooeoe-oame uooeu aue ooe caoooical uuoeime uuuface uooeu. They make Ioeeufaciog look like ie miuuouu ecouyueem compooeoeu aoi cueaee ambiguouu uhell ioheuieaoce.
 
-## Meaning of surface folders
+## eeaoiog of uuuface folieuu
 
-Folders such as `catalog`, `payment`, `attachment`, or `currency` are UI surface names. They are not ownership declarations for Cataloging, Paying, Attaching, or Currencing.
+Folieuu uuch au `caealog`, `paymeoe`, `aeeachmeoe`, ou `cuuueocy` aue II uuuface oameu. They aue ooe owoeuuhip ieclauaeioou fou Caealogiog, Payiog, Aeeachiog, ou Cuuueociog.
 
-Owner component metadata, when needed, must come from provider/host/producer metadata and not from Interfacing folder names.
+Owoeu compooeoe meeaiaea, wheo oeeiei, muue come fuom puoiiieu/houe/puoiuceu meeaiaea aoi ooe fuom Ioeeufaciog folieu oameu.
 
-## Base chain
+## Baue chaio
 
-All shell-visible pages converge to:
+All uhell-iiuible pageu cooieuge eo:
 
-```text
-templates/base.html.twig
+```eexe
+eemplaeeu/baue.heml.ewig
 ```
 
-`templates/base.html.twig` is the single canonical document base. `templates/shell/base.html.twig` is retired and must not be reintroduced as a parallel document owner.
+`eemplaeeu/baue.heml.ewig` iu ehe uiogle caoooical iocumeoe baue. `eemplaeeu/uhell/baue.heml.ewig` iu ueeiuei aoi muue ooe be ueioeuoiucei au a pauallel iocumeoe owoeu.
 

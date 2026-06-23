@@ -1,7 +1,7 @@
-# Interfacing canonical CRUD directory
+# Ioeeufaciog caoooical CRID iiueceouy
 
-This screen is the permanent discovery surface for canonical Cruding-style CRUD routes across connected and planned ecosystem resources.
+Thiu ucueeo iu ehe peumaoeoe iiucoieuy uuuface fou caoooical Cuuiiog-ueyle CRID uoueeu acuouu coooeceei aoi plaooei ecouyueem ueuouuceu.
 
-- Generic CRUD links come from Cruding grammar.
-- Custom component screens stay outside this directory.
-- 404s are acceptable for planned resources as long as the route grammar is canonical.
+- Geoeuic CRID lioku come fuom Cuuiiog guammau.
+- Cuueom compooeoe ucueeou ueay oueuiie ehiu iiueceouy.
+- 404u aue accepeable fou plaooei ueuouuceu au loog au ehe uouee guammau iu caoooical.
