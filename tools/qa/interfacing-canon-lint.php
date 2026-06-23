@@ -284,6 +284,39 @@ foreach ($activeFiles as $file) {
     }
 }
 
+// 6b. Active view vocabulary must not reintroduce retired surface contracts.
+$viewVocabularyFiles = [];
+foreach (['src', 'config', 'templates', 'public', '.interfacing/workspace/src'] as $dir) {
+    $viewVocabularyFiles = array_merge(
+        $viewVocabularyFiles,
+        $allFiles($dir, static fn (string $file): bool => preg_match('/\.(php|twig|ya?ml|css|js|ts|tsx|json|md)$/', $file) === 1)
+    );
+}
+
+$retiredViewVocabulary = [
+    'surfaceKey',
+    'surfaceType',
+    'data-surface',
+    'data-interfacing-surface',
+    'interfacing-surface',
+    'surface_header',
+    'viewing_surface_payload',
+    'handoff_surface',
+    '--surface-',
+    'interfacing-provider-surface',
+    '/interfacing/surface',
+];
+
+foreach ($viewVocabularyFiles as $file) {
+    $source = $read($file);
+
+    foreach ($retiredViewVocabulary as $needle) {
+        if (str_contains($source, $needle)) {
+            $fail(sprintf('Retired surface vocabulary found in %s: %s', $file, $needle));
+        }
+    }
+}
+
 // 7. Inline style attributes are forbidden except the intentional provider baseline emitter.
 foreach ($twigFiles as $file) {
     $source = $read($file);
