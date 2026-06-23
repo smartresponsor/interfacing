@@ -28,7 +28,7 @@
   padding: 12px;
   border: 1px solid var(--interfacing-provider-border);
   border-radius: var(--interfacing-provider-radius);
-  background: var(--interfacing-provider-surface-subtle);
+  background: var(--interfacing-provider-panel-subtle);
 }
 
 .interfacing-react-provider-tag-row {
