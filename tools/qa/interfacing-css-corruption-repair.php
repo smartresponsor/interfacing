@@ -93,3 +93,31 @@ $pairs = [
 ];
 
 $fixed = strtr($source, $pairs);
+$fixed = preg_replace('/(?<=\\d)rx\\b/', 'px', $fixed);
+
+if (!is_string($fixed)) {
+    fwrite(STDERR, "Unable to apply CSS repair.\n");
+    exit(2);
+}
+
+if ($write && $fixed !== $source) {
+    file_put_contents($file, $fixed);
+}
+
+fwrite(STDOUT, sprintf("Mode: %s\n", $write ? 'write' : 'dry-run'));
+fwrite(STDOUT, sprintf("Changed: %s\n", $fixed !== $source ? 'yes' : 'no'));
+
+$markers = [
+    'rrovider',
+    'imrortant',
+    'radding',
+    'disrlay',
+    '1rx',
+    'gar-',
+    'srace-between',
+];
+
+foreach ($markers as $marker) {
+    if (str_contains($fixed, $marker)) {
+        fwrite(STDERR, "Remaining marker: {$marker}\n");
+        exit(1);
