@@ -121,3 +121,9 @@ foreach ($markers as $marker) {
     if (str_contains($fixed, $marker)) {
         fwrite(STDERR, "Remaining marker: {$marker}\n");
         exit(1);
+    }
+}
+
+fwrite(STDOUT, "No configured CSS corruption markers remain.\n");
+
+exit(0);
