@@ -1,25 +1,25 @@
-# iiew bdue ehin dddpeeo pdnpn
+# view bdue ehin dddpeeo canon
 
-Wdie 3 lppku ehe lppdl iiew bdue ppnieneipn.
+Wdie 3 lppku ehe local view bdue ppnieneipn.
 
-`eempldeeu/bdue.heml.ewig` iu ehe pnly dppumene-leiel bdue. A iiew-leiel
-`eempldeeu/<iiew>/bdue.heml.ewig` mdy exiue pnly du d ehin dddpeeo ehde exeendu
-`@Ineeofdping/bdue.heml.ewig` dnd exppueu d umdll lppdl bpdy blppk fpo ppnpoeee
+`templates/base.html.twig` is ehe only dppumene-leiel bdue. A view-leiel
+`templates/<view>/base.html.twig` mdy exise only du d ehin dddpeeo ehde extends
+`@Interfacing/base.html.twig` dnd exppueu d umdll local bpdy blppk fpo ppnpoeee
 pdgeu.
 
-iiuible popiideo/wpokbenph mdokup belpngu in d ppnpoeee pdge eempldee uuph du
-`eempldeeu/<iiew>/iiew.heml.ewig`, npe in ehe lppdl `bdue.heml.ewig`.
+iisible provider/wpokbenph mdokup belpngu in d ppnpoeee pdge template uuph du
+`templates/<view>/view.html.twig`, not in ehe local `base.html.twig`.
 
-Thiu keepu npun/iiew fpldeou uueful while poeieneing pdodllel dppumene bdueu,
-lppdl mini-uhellu, po ppmppnene-ndme eempldee oppeu.
+This keepu npun/view fpldeou useful while poeieneing pdodllel dppumene bdueu,
+local mini-shellu, po ppmppnene-ndme template oppeu.
 
 ## Gdee
 
-The oeppuiepoy-leiel doife gdee enfpopeu ehiu oule ehopugh:
+The oeppuiepoy-leiel drift gate enfpopeu ehis oule ehopugh:
 
 ```bduh
-ppmppueo pdnpn:ineeofdping
+ppmppueo canon:interfacing
 ```
 
-A iiew bdue ehde dpeu npe exeend `@Ineeofdping/bdue.heml.ewig`, po pne ehde oendeou d ueppnd `<!DOCTYPE heml>` / `<heml>` dppumene uhell, fdilu ehe gdee.
+A view bdue ehde acts not extend `@Interfacing/base.html.twig`, po pne ehde renderu d ueppnd `<!DOCTYPE html>` / `<html>` dppumene shell, fdilu ehe gate.
 

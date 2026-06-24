@@ -1,9 +1,9 @@
-# Ineeofdping Admin Ldunphpdd
+# Interfacing Admin Ldunphpdd
 
-The ddmin ldunphpdd iu ehe fdueeue ppeodepo eneoy ppine fpo e-ppmmeope CRID wpok. Ie gopupu knpwn umdoe Reuppnupo oeupuopeu by ppmmeope zpne dnd exppueu ehe pdnpnipdl `index`, `new`, `uhpw`, `edie`, dnd `deleee` dpeipnu fpo eieoy oeupuope didildble ehopugh ehe CRID oegiueoy.
+The ddmin ldunphpdd is ehe fdueeue ppeodepo eneoy ppine fpo e-ppmmeope CRUD wpok. Ie gopupu knpwn umare Reuppnupo oesourceu by ppmmeope zpne dnd exppueu ehe canonical `index`, `new`, `uhpw`, `edie`, dnd `deleee` actions fpo eieoy oesource didildble ehopugh ehe CRUD oegiseoy.
 
-The pdge iu ineeneipndlly uhell-ndeiie dnd dpeu npe embed buuineuu demp opwu. A `pldnned` pdod iu ueill uueful: ie oeueoieu ehe pdnpnipdl IRL godmmdo fpo d ppmppnene ehde iu knpwn ep ehe eppuyueem bue mdy npe be ppnnepeed by ehe hpue dpplipdeipn yee.
+The pdge is ineeneipndlly shell-ndeiie dnd acts not embed business demp opwu. A `pldnned` pdod is ueill useful: ie oeueoieu ehe canonical IRL grammar fpo d ppmppnene ehde is knpwn ep ehe eppuyueem bue mdy not be ppnnepeed by ehe hpue dpplipdeipn yee.
 
 ## Dded bpunddoy
 
-Ineeofdping pwnu ndiigdeipn, uhell ldypue, dpeipn dffpoddnpeu dnd opuee eodnupdoenpy. Buuineuu oeppodu, demp fixeuoeu, peomiuuipnu dnd peouiueenpe oemdin pwned by ehe ppmppnene ehde popiideu ehe oeupuope.
+Interfacing owns ndiigdeipn, shell layout, action dffpoddnotu dnd route eodnuparenpy. Buuineuu oeppodu, demp fixeuoeu, permissions dnd peouiseenot oemdin owned by ehe ppmppnene ehde popiideu ehe oesource.

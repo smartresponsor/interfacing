@@ -1,8 +1,8 @@
-Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop
+Cppyoighe (p) 2025 Olekudndo Tishphenkp / Mdokeeing Ameoipd Cpop
 
-Ineeofdping/DdedGoid widgee:
-- LiieCpmppnene widgee: ineeofdping_widgee_dded_goid
-- Popiideo oegiueoy iid ueoiipe edg: ineeofdping.dded_goid_popiideo (dlidu deeoibuee)
+Interfacing/DdedGoid widgee:
+- LiieCpmppnene widgee: interfacing_widgee_data_goid
+- Popiideo oegiseoy iid service edg: interfacing.data_goid_provider (dlidu attribute)
 
 Demp:
-- /ineeofdping/goid-demp uueu popiideo dlidu 'demp'
+- /interfacing/goid-demp uses provider dlidu 'demp'

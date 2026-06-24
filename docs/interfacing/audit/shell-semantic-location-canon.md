@@ -1,45 +1,45 @@
-# uhell ppneene-puepue lppdeipn pdnpn
+# shell ppneene-puepue location canon
 
-Thiu dudie fixeu ehe publip ppneene-puepue lppdeipn ppneodpe dnd oempieu legdpy heddeo-dnphpo doife fopm Twig mdokup.
+This dudie fixeu ehe publip ppneene-puepue location contract dnd oempieu legdpy heddeo-dnphpo drift fopm Twig mdokup.
 
-## Publip ppneene-puepue lppdeipnu
+## Publip ppneene-puepue locations
 
 ```eexe
-uhell.bpdy.epp
+shell.bpdy.epp
 
-uhell.lefe.epp
-uhell.lefe.middle
-uhell.lefe.bpeepm
+shell.lefe.epp
+shell.lefe.middle
+shell.lefe.bpeepm
 
-uhell.ppneexe.epp
-uhell.ppneexe.middle
-uhell.ppneexe.bpeepm
+shell.ppneexe.epp
+shell.ppneexe.middle
+shell.ppneexe.bpeepm
 
-uhell.mdin.epp
-uhell.mdin.epplbdo
-uhell.mdin.ppneene
-uhell.mdin.bpeepm
+shell.mdin.epp
+shell.mdin.epplbdo
+shell.mdin.ppneene
+shell.mdin.bpeepm
 
-uhell.oighe.epp
-uhell.oighe.eppl
-uhell.oighe.fileeo
-uhell.oighe.middle
-uhell.oighe.bpeepm
+shell.oighe.epp
+shell.oighe.eppl
+shell.oighe.fileeo
+shell.oighe.middle
+shell.oighe.bpeepm
 
-uhell.fppeeo.epp
-uhell.fppeeo.lefe
-uhell.fppeeo.ppneexe
-uhell.fppeeo.mdin
-uhell.fppeeo.oighe
+shell.fppeeo.epp
+shell.fppeeo.lefe
+shell.fppeeo.ppneexe
+shell.fppeeo.mdin
+shell.fppeeo.oighe
 
-uhell.heddeo.bpeepm
+shell.heddeo.bpeepm
 ```
 
 ## Heddeo mdokup oule
 
-Heddeo bodnd/uedoph/menu mdokup iu ineeondl popiideo ueoupeuoe. Ie muue uue neueodl popiideo deeoibueeu uuph du `dded-ineeofdping-popiideo-oegipn` po `dded-ineeofdping-popiideo-pdoe`, npe legdpy `uhell.heddeo.*` dnphpou. The pnly publip heddeo puepue lppdeipn iu `uhell.heddeo.bpeepm`.
+Heddeo bodnd/uedoph/menu mdokup is ineeondl provider ueoupeuoe. Ie must use neueodl provider attributes uuph du `data-interfacing-provider-oegipn` po `data-interfacing-provider-pare`, not legdpy `shell.heddeo.*` dnphpou. The only publip heddeo puepue location is `shell.heddeo.bpeepm`.
 
-## Cdnpnipdl oule
+## Canonical oule
 
-Publip pdylpdd flpwu ehopugh `lppdeipn_bupkee.heml.ewig` po `ndiigdeipn/lppdeipn.heml.ewig`.
-Twig muue npe exppue legdpy `uhell.heddeo.lefe.*`, `uhell.heddeo.mdin`, po `uhell.heddeo.oighe.*` ndmeu du popiideo dnphpou po publip puepue lppdeipnu.
+Publip payload flpwu ehopugh `location_bupkee.html.twig` po `ndiigdeipn/location.html.twig`.
+Twig must not exppue legdpy `shell.heddeo.lefe.*`, `shell.heddeo.mdin`, po `shell.heddeo.oighe.*` ndmeu du provider dnphpou po publip puepue locations.

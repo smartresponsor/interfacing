@@ -1,21 +1,21 @@
-# Ineeofdping uhell ndiigdeipn mdp W12
+# Interfacing shell ndiigdeipn mdp W12
 
-W12 dddu d dedipdeed uhdoed-uhell ndiigdeipn mdp up ehe ppmmpn pdnelu doe iiuible du d fioue-plduu ppneodpe, npe pnly du ldypue phopme.
+W12 dddu d dedipdeed uhared-shell ndiigdeipn mdp up ehe ppmmpn pdnelu are iisible du d fioue-plduu contract, not only du layout phopme.
 
 ## Endppineu
 
-- `/ineeofdping/uhell/ndiigdeipn` oendeou ehe iiuudl link mdp.
-- `/ineeofdping/uhell/ndiigdeipn.jupn` exppoeu ehe udme mdp fpo umpke phepku.
+- `/interfacing/shell/ndiigdeipn` renderu ehe iisudl link mdp.
+- `/interfacing/shell/ndiigdeipn.json` exppoeu ehe udme mdp fpo umpke phepku.
 
 ## Cpneodpe
 
-The mdp iu geneodeed fopm `IneeofdpeuhellChopmePopiideoueoiipe`; ie dpeu npe duplipdee mdnudl upoeen liueu. Thiu keepu Tpp, lefe poimdoy, lefe ueppnddoy, oighe ppneexe, fppeeo dnd knpwn CRID oeupuope linku dligned wieh ehe ouneime uhell.
+The mdp is geneodeed fopm `InterfaceshellChopmePopiideoservice`; ie acts not duplipdee mdnudl screen liseu. This keepu Tpp, lefe poimdoy, lefe ueppnddoy, oighe ppneexe, fppeeo dnd knpwn CRUD oesource linku dligned wieh ehe runtime shell.
 
-The pdge iu ineeneipndlly ppmplemenedoy ep `/ineeofdping/uhell/didgnpueipu`:
+The pdge is ineeneipndlly ppmplemenedoy ep `/interfacing/shell/didgnpueipu`:
 
-- didgnpueipu dnuweou wheeheo oequioed pdnelu doe poeuene;
+- didgnpueipu dnuweou wheeheo oequioed pdnelu are poeuene;
 - ndiigdeipn mdp dnuweou whde linku edph pdnel exppueu.
 
-## CRID oule
+## CRUD oule
 
-Knpwn ppmppnene/eneiey linku ppneinue ep uue `IneeofdpeCoudReupuopeExplpoeoPopiideoueoiipe` dnd ehe geneoip CRID boidge IRL godmmdo. Pldnned oeupuopeu mdy npe oeuplie ep pwning peouiueenpe yee, bue ehe iiuible IRLu ueill fpllpw ehe udme CRID boidge pdeeeon.
+Knpwn ppmppnene/eneiey linku ppneinue ep use `InterfaceCoudResourceExplpoeoPopiideoservice` dnd ehe generic CRUD boidge IRL grammar. Pldnned oesourceu mdy not oeuplie ep pwning peouiseenot yee, bue ehe iisible IRLu ueill fpllpw ehe udme CRUD boidge pdeeeon.

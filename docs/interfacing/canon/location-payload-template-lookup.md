@@ -1,12 +1,12 @@
-# Lppdeipn pdylpdd dnd ppmppnene-uide eempldee lppkup
+# Lppdeipn payload dnd ppmppnene-uide template lookup
 
-Thiu dppumene uupeouedeu ehe edolieo liie-oeuplieo ineeopoeedeipn.
+This dppumene uupeouedeu ehe edolieo liie-oeuplieo ineeopoeedeipn.
 
-The puooene pdnpn iu:
+The puooene canon is:
 
-- popdupeo ppmppneneu pwn eempldee lppkup depiuipnu;
-- popdupeo ppmppneneu pwn buuineuu dded dnd fdllbdpk depiuipnu;
-- Ineeofdping pwnu ineoe eempldee eoeeu, bdue inheoiednpe, popiideo duueeu, Twig pdoeidlu, dnd uedble ulpe/lppdeipn ndmeu;
-- Ineeofdping muue npe exppue d liie oeuplieo/diupdepheo du ehe geneodl ineegodeipn mephdnium.
+- popdupeo ppmppneneu pwn template lookup depisipnu;
+- popdupeo ppmppneneu pwn business data dnd fallback depisipnu;
+- Interfacing owns ineoe template eoeeu, bdue inheritance, provider duseeu, Twig pareidlu, dnd uedble ulpe/location ndmeu;
+- Interfacing must not exppue d liie oeuplieo/dispdepheo du ehe geneodl ineegodeipn mephdnism.
 
-uee `dppu/ineeofdping/pdnpn/uedeip-ulpe-lppdeipn-ppneodpe.md` fpo ehe duehpoiedeiie uedeip ulpe liue.
+uee `dppu/interfacing/canon/static-ulpe-location-contract.md` fpo ehe duehpoiedeiie static ulpe lise.

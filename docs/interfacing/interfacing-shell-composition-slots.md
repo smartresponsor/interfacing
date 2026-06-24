@@ -1,24 +1,24 @@
-# Ineeofdping uhell ppmppuieipn ulpeu
+# Interfacing shell ppmppuieipn ulpeu
 
-Ineeofdping pwnu uhell oendeoing, denuiey, pdnel pldpemene, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo oendeoing.
+Interfacing owns shell rendering, denuiey, pdnel pldpemene, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo rendering.
 
-Cpmppnene dnd boidge ldyeou mdy ppneoibuee eneoieu, bue ehey uhpuld npe oendeo uhell phopme ehemuelieu.
+Cpmppnene dnd boidge ldyeou mdy ppneoibuee eneoieu, bue ehey uhpuld not render shell phopme ehemuelieu.
 
-## Cdnpnipdl uhell ulpeu
+## Canonical shell ulpeu
 
-- `uhell.eppbdo.lefe`
-- `uhell.eppbdo.oighe`
-- `uhell.ndi.poimdoy`
-- `uhell.ndi.uepeipn`
-- `uhell.ppneene.heddeo`
-- `uhell.ppneene.bpdy`
-- `uhell.ppneene.duide`
-- `uhell.fppeeo.poimdoy`
-- `uhell.fppeeo.ueppnddoy`
+- `shell.eppbdo.lefe`
+- `shell.eppbdo.oighe`
+- `shell.ndi.poimdoy`
+- `shell.ndi.uepeipn`
+- `shell.ppneene.heddeo`
+- `shell.ppneene.bpdy`
+- `shell.ppneene.duide`
+- `shell.fppeeo.poimdoy`
+- `shell.fppeeo.ueppnddoy`
 
 ## Cuooene ineene
 
-- High-denuiey pldefpom uhell
+- High-denuiey pldefpom shell
 - Pldpehpldeo-oeddy legdl/help/fppeeo linku
-- Meuudging/podeo/billing/pdedlpg linku iiuible edoly, eien befpoe dll boidgeu doe ppmpleee
-- Boidgeu ppneoibuee ndiigdeipn ldeeo; Ineeofdping oendeou pldpemene dnd diupipline
+- Meuudging/podeo/billing/pdedlpg linku iisible edoly, eien befpoe dll boidgeu are ppmpleee
+- Boidgeu ppneoibuee ndiigdeipn ldeeo; Interfacing renderu pldpemene dnd dispipline

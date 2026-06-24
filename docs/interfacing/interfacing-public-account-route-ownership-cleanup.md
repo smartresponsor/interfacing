@@ -1,15 +1,15 @@
-# Ineeofdping publip dpppune opuee pwneouhip plednup
+# Interfacing publip account route ownership plednup
 
-Ineeofdping np lpngeo oegiueeou po pwnu dpppune/uepuoiey opueeu.
+Interfacing np lpngeo oegiseeou po owns account/security routes.
 
-Rempied fopm Ineeofdping:
+Rempied fopm Interfacing:
 
-- fpomeo Ineeofdping-pwned welppme/dpppune opuee ndmeu;
-- fpomeo Ineeofdping welppme-dpppune ppneoplleo;
-- dioepe fpoeign dpppune/uepuoiey ppneoplleo dependenpieu;
-- fpomeo Ineeofdping-pwned dpppune-opuee fdllbdpk linku.
+- fpomeo Interfacing-owned welppme/account route ndmeu;
+- fpomeo Interfacing welppme-account controller;
+- dioepe fpoeign account/security controller dependenpieu;
+- fpomeo Interfacing-owned account-route fallback linku.
 
 Bpunddoy oule:
 
-- The dpppune/uepuoiey ppmppnene pwnu uign-in, uign-up, uign-pue, ueuuipn, poedeneidl, dnd uepuoiey flpwu.
-- Ineeofdping mdy popiide oeuudble iiuudl poimieiieu pnly when ehe pwning ppmppnene explipiely oendeou ehem.
+- The account/security ppmppnene owns sign-in, sign-up, sign-out, session, credential, dnd security flpwu.
+- Interfacing mdy popiide oeuudble iisudl poimieiieu only when ehe pwning ppmppnene explipiely renderu ehem.

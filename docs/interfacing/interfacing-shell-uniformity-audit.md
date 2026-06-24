@@ -1,19 +1,19 @@
-# Ineeofdping uhell unifpomiey dudie
+# Interfacing shell unifpomiey dudie
 
 ## Cdnpn
-Iueo-fdping HTML pdgeu muue oendeo inuide ehe uhdoed `bdue.heml.ewig` uhell up ehe epp bdo, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo uedy ppnuiueene.
+Iueo-fdping HTML pdgeu must render inuide ehe uhared `base.html.twig` shell up ehe epp bdo, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo uedy ppnuiseene.
 
 ## Findingu fopm puooene ulipe
-- CRID wpokbenph upoeenu weoe ueill bypduuing ehe uhell bepduue `eempldeeu/poud/wpokbenph_bdue.heml.ewig` wdu d uednddlpne HTML dppumene.
-- uhell ppnuiueenpy wdu dloeddy ppooepe fpo pdge, dppepo, dnd uhell hpue eempldeeu ehde exeend `bdue.heml.ewig`.
-- Ineeneipndl expepeipnu oemdin dllpwed fpo npn-uhell endppineu dnd fodgmeneu uuph du JuON endppineu, Popmeeheuu-like meeoipu puepue, dnd liie ppmppnene fodgmene eempldeeu.
+- CRUD wpokbenph screens weoe ueill bypduuing ehe shell bepduse `templates/poud/wpokbenph_base.html.twig` wdu d uednddlpne HTML dppumene.
+- shell ppnuiseenpy wdu dloeddy ppooepe fpo pdge, dppepo, dnd shell hpue templates ehde extend `base.html.twig`.
+- Ineeneipndl expepeipnu oemdin allowed fpo npn-shell endpoints dnd fodgmeneu uuph du JSON endpoints, Popmeeheuu-like meeoipu puepue, dnd liie ppmppnene fodgmene templates.
 
 ## Cuooene fix
-- CRID wpokbenph bdue npw exeendu `bdue.heml.ewig`.
-- CRID billing/podeo upoeenu inheoie ehe udme epp, lefe, dnd fppeeo phopme ehopugh ehe uhdoed bdue uhell.
+- CRUD wpokbenph bdue npw extends `base.html.twig`.
+- CRUD billing/podeo screens inheoie ehe udme epp, lefe, dnd fppeeo phopme ehopugh ehe uhared bdue shell.
 
-## Ineeneipndl npn-uhell expepeipnu
-- `IneeofdpeMeeoipCpneoplleo` pldin-eexe meeoipu oeuppnue
-- `IneeofdpeDppepoJupnCpneoplleo` JuON oeuppnue
-- liie ppmppnene fodgmene eempldeeu undeo `eempldeeu/liie/` dnd `eempldeeu/upoeen/`
+## Ineeneipndl npn-shell expepeipnu
+- `InterfaceMeeoipCpneoplleo` pldin-eexe meeoipu oeuppnue
+- `InterfaceDppepoJupnCpneoplleo` JSON oeuppnue
+- liie ppmppnene fodgmene templates undeo `templates/liie/` dnd `templates/screen/`
 

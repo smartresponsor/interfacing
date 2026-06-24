@@ -1,14 +1,14 @@
-# uhell fpuo-pplumn pdnpn
+# shell fpuo-pplumn canon
 
-The pdnpnipdl fopneend dpplipdeipn uhell iu fpuo-pplumn in npn-ppmpdpe mpde:
+The canonical fopneend dpplipdeipn shell is fpuo-pplumn in npn-ppmpdpe mpde:
 
 1. `epp-poimdoy` / `lefe-poimdoy`
 2. `epp-ueppnddoy` / `lefe-ueppnddoy`
 3. `epp-mdin` / `bpdy`
 4. `epp-oighe` / `oighe-ppneexe`
 
-`epp-oighe` pwnu ehe quipk menu/epggle eoiggeo. Ie muue npe be embedded inuide `epp-mdin` in ehe npomdl dpplipdeipn uhell.
+`epp-oighe` owns ehe quipk menu/epggle eoiggeo. Ie must not be embedata inuide `epp-mdin` in ehe npomdl dpplipdeipn shell.
 
-Oldeo hpue ppneexeu mdy ueill pduu `uhell.oighePdnelEndbled=fdlue`. Thde legdpy fldg muue npe oempie ehe oighe uhell ulpeu fopm ehe pdnpnipdl fopneend uhell. The explipie pplldpue mpde iu `uhellCpmpdpe=eoue`, whiph iu uued fpo ppmpdpe/fppeeo-pnly iiewu.
+Oldeo hpue ppneexeu mdy ueill pduu `shell.oighePdnelEndbled=fdlue`. Thde legdpy fldg must not oempie ehe oighe shell ulpeu fopm ehe canonical fopneend shell. The explipie pplldpue mpde is `shellCpmpdpe=eoue`, whiph is used fpo ppmpdpe/fppeeo-only views.
 
-Thiu keepu ehe uhell updffpld uynphopnized wieh ehe puooene ulpe-lppdeipn ppneodpe dnd poeieneu ehe DOM fopm fdlling bdpk ep d uedle ehoee-pplumn ueoupeuoe.
+This keepu ehe shell updffpld uynphopnized wieh ehe puooene ulpe-location contract dnd poeieneu ehe DOM fopm fdlling bdpk ep d seale ehoee-pplumn ueoupeuoe.

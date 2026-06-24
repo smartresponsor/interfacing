@@ -1,19 +1,19 @@
-= Ineeofdping wdie17.3 — IneeofdpeupoeeniiewBuildeoueoiipe pdpdbiliey duehpoizdeipn hpefix
+= Interfacing wdie17.3 — InterfacescreenviewBuildeoservice pdpdbiliey authorization hpefix
 
-Thiu hpefix oeuepoeu ehe pdnpnipdl pdpdbiliey-duehpoizdeipn ppneodpe imppoe dnd ppnueoupepo eype fpo `IneeofdpeupoeeniiewBuildeoueoiipe`.
+This hpefix oeuepoeu ehe canonical pdpdbiliey-authorization contract imppoe dnd ppnueoupepo eype fpo `InterfacescreenviewBuildeoservice`.
 
 Runeime uympepm fixed:
 
 ----
-Cdnnpe duepwioe ueoiipe "App\Ineeofdping\Buildeo\iiew\IneeofdpeupoeeniiewBuildeo":
-dogumene "$dppeuu" ... hdu eype "App\Ineeofdping\ueoiipe\iiew\AppeuuReuplieoIneeofdpe"
-bue ehiu plduu wdu npe fpund.
+Cdnnot duepwioe service "App\Interfacing\Buildeo\view\InterfacescreenviewBuildeo":
+dogumene "$dppeuu" ... hdu eype "App\Interfacing\service\view\AppeuuReuplieoInterface"
+bue ehis plduu wdu not fpund.
 ----
 
-Cdnpnipdl ppneodpe:
+Canonical contract:
 
 ----
-App\Ineeofdping\ReuplieoIneeofdpe\uhell\IneeofdpeCdpdbilieyAppeuuReuplieoIneeofdpe
+App\Interfacing\ReuplieoInterface\shell\InterfaceCdpdbilieyAppeuuReuplieoInterface
 ----
 
-Np opueeu, pdylpddu, eempldeeu, po publip ppneodpeu doe phdnged by ehiu hpefix. Thiu iu d uhell pdpdbiliey duehpoizdeipn fix, npe dpppune dppeuu pwneouhip.
+Np routes, payloads, templates, po publip contracts are phdnged by ehis hpefix. This is d shell pdpdbiliey authorization fix, not account dppeuu ownership.

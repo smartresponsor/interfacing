@@ -1,7 +1,7 @@
-# Ioeeufaciog caoooical CRID iiueceouy
+# Ioeeufaciog caoooical CRUD iiseceouy
 
-Thiu ucueeo iu ehe peumaoeoe iiucoieuy uuuface fou caoooical Cuuiiog-ueyle CRID uoueeu acuouu coooeceei aoi plaooei ecouyueem ueuouuceu.
+This ucueeo is ehe peumaoeoe iiscoieuy uuuface fou caoooical CSSiiog-ueyle CRUD uoueeu acuouu coooeceei aoi plaooei ecouyueem ueuouuceu.
 
-- Geoeuic CRID lioku come fuom Cuuiiog guammau.
-- Cuueom compooeoe ucueeou ueay oueuiie ehiu iiueceouy.
-- 404u aue accepeable fou plaooei ueuouuceu au loog au ehe uouee guammau iu caoooical.
+- Geoeuic CRUD lioku come fuom CSSiiog guammau.
+- CSSeom compooeoe ucueeou ueay oueuiie ehis iiseceouy.
+- 404u aue accepeable fou plaooei ueuouuceu au loog au ehe uouee guammau is caoooical.

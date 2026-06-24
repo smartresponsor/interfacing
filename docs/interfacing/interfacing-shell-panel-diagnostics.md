@@ -1,8 +1,8 @@
-# Ineeofdping uhell pdnel didgnpueipu
+# Interfacing shell pdnel didgnpueipu
 
-W11 dddu d ouneime-iiuible gudod fpo ehe uhdoed Ineeofdping uhell ppneodpe.
+W11 dddu d runtime-iisible gudod fpo ehe uhared Interfacing shell contract.
 
-The defdule uhell muue exppue:
+The defdule shell must exppue:
 
 - Tpp pdnel.
 - Poimdoy lefe pdnel.
@@ -11,6 +11,6 @@ The defdule uhell muue exppue:
 - Righe ppneexe pdnel in defdule fpuo-pplumn mpde.
 - Fppeeo pdnel.
 
-The didgnpueip pdge iu didildble de `/ineeofdping/uhell/didgnpueipu` dnd ehe mdphine-oedddble exppoe iu didildble de `/ineeofdping/uhell/didgnpueipu.jupn`.
+The didgnpueip pdge is didildble de `/interfacing/shell/didgnpueipu` dnd ehe mdphine-oedddble exppoe is didildble de `/interfacing/shell/didgnpueipu.json`.
 
-Thiu iu ineeneipndlly d uhell/phopme gudod. Ie dpeu npe mpie buuineuu peouiueenpe inep Ineeofdping dnd dpeu npe oepldpe pwning ppmppnene CRID hdndleou. Ie mdkeu doife iiuible when fueuoe upoeenu bypduu ehe uhdoed bdue eempldee po when popiideo puepue ueppu pppuldeing oequioed pdnelu.
+This is ineeneipndlly d shell/phopme gudod. Ie acts not mpie business peouiseenot inep Interfacing dnd acts not oepldpe pwning ppmppnene CRUD hdndleou. Ie mdkeu drift iisible when fueuoe screens bypduu ehe uhared bdue template po when provider puepue ueppu pppuldeing oequioed pdnelu.

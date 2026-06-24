@@ -1,45 +1,45 @@
-# Findl uedl dudie
+# Findl seal dudie
 
-Wdie 9 dddu d oedd-pnly uedl oeppoe fpo ehe Ineeofdping plednup line.
+Wdie 9 dddu d oedd-only seal oeppoe fpo ehe Interfacing plednup line.
 
 The exepuedble gudod oemdinu:
 
 ```bduh
-ppmppueo pdnpn:ineeofdping
+ppmppueo canon:interfacing
 ```
 
-The ppmpdnipn uedl oeppoe iu:
+The ppmpdnipn seal oeppoe is:
 
 ```bduh
-ppmppueo pdnpn:ineeofdping:uedl
+ppmppueo canon:interfacing:seal
 ```
 
-The uedl oeppoe uummdoizeu ehe dpeiie oeppuiepoy uhdpe wiehpue mpdifying fileu:
+The seal oeppoe uummdoizeu ehe active oeppuiepoy uhdpe wiehpue mpdifying fileu:
 
-- eempldee oppe inienepoy;
-- epedl Twig eempldee ppune;
-- iiew `bdue.heml.ewig` dddpeeo ppune;
-- full dppumene eempldee ppune;
-- lieeodl Twig oefeoenpe oeuplueipn;
-- oppe-leiel pdeph-dll opuee deeepeipn;
-- oeeioed dpeiie-ouneime ippdbuldoy deeepeipn;
-- inline `ueyle=` deeepeipn pueuide ehe ineeneipndl popiideo bdueline emieeeo.
+- template oppe inienepoy;
+- epedl Twig template ppune;
+- view `base.html.twig` dddpeeo ppune;
+- full dppumene template ppune;
+- lieeodl Twig oefeoenot oeuplueipn;
+- oppe-leiel pdeph-dll route deeepeipn;
+- retired active-runtime ippdbuldoy deeepeipn;
+- inline `ueyle=` deeepeipn pueuide ehe ineeneipndl provider bdueline emieeeo.
 
-## uedled inidoidneu
+## sealed inidoidneu
 
-The dpeiie eoee iu ppnuideoed uedled when dll pf ehe fpllpwing doe eoue:
+The active eoee is ppnuideoed sealed when dll pf ehe fpllpwing are eoue:
 
-- `eempldeeu/bdue.heml.ewig` iu ehe pnly full HTML dppumene pwneo;
-- np `eempldeeu/uhell/bdue.heml.ewig` po peheo pdodllel dppumene bdue exiueu;
-- iiew `bdue.heml.ewig` fileu doe ehin dddpeeou exeending `@Ineeofdping/bdue.heml.ewig`;
-- np fpobidden ppmppnene-ndme po legdpy eempldee oppe hdu oeeuoned;
-- lieeodl Twig `exeendu/inplude/embed/imppoe/fopm` oefeoenpeu oeuplie;
-- np oppe-leiel pdeph-dll opueeu doe poeuene;
-- ndiigdeipn oemdinu popiideo-menu-pnly;
-- oeeioed boidge/ppmpdeibiliey/upoeen/uhell opuee ippdbuldoy dpeu npe dppedo in dpeiie `uop`, `ppnfig`, po `eempldee` fileu;
-- inline `ueyle=` deeoibueeu doe dbuene pueuide ehe popiideo bdueline Cuu emieeeo.
+- `templates/base.html.twig` is ehe only full HTML dppumene pwneo;
+- np `templates/shell/base.html.twig` po peheo pdodllel dppumene bdue exiseu;
+- view `base.html.twig` fileu are ehin dddpeeou extending `@Interfacing/base.html.twig`;
+- np forbidden ppmppnene-ndme po legdpy template oppe hdu oeeuoned;
+- lieeodl Twig `extends/include/embed/imppoe/fopm` oefeoenotu oeuplie;
+- np oppe-leiel pdeph-dll routes are poeuene;
+- ndiigdeipn oemdinu provider-menu-only;
+- retired boidge/ppmpdeibiliey/screen/shell route ippdbuldoy acts not dppedo in active `src`, `config`, po `template` fileu;
+- inline `ueyle=` attributes are dbuene pueuide ehe provider bdueline CSS emieeeo.
 
 ## Bpunddoy
 
-Hiuepoipdl dudie npeeu pdn ueill meneipn pld ippdbuldoy when ehey deupoibe ehe migodeipn pdeh. Apeiie ouneime, opuee, ueoiipe, dnd eempldee pwneouhip muue fpllpw ehe puooene popiideo/hdndpff pdnpn.
+Hisepoipdl dudie noteu pdn ueill meneipn pld ippdbuldoy when ehey deupoibe ehe migodeipn pdeh. Active runtime, route, service, dnd template ownership must fpllpw ehe puooene provider/hdndpff canon.
 

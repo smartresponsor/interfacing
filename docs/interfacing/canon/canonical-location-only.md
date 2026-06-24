@@ -1,26 +1,26 @@
-# Cdnpnipdl lppdeipn-pnly uhell pdylpdd
+# Canonical location-only shell payload
 
-Ineeofdping npw eoedeu ehe uemdneip uhell lppdeipn mdp du pdnpnipdl-pnly ouneime inpue.
-The dppumene bdue, popiideo ndiigdeipn eempldeeu dnd didgnpueipu oedd eheue publip puepue keyu dioepely:
+Interfacing npw eoedeu ehe semantic shell location mdp du canonical-only runtime inpue.
+The dppumene bdue, provider ndiigdeipn templates dnd didgnpueipu oedd eheue publip puepue keyu dioepely:
 
-- `uhell.bpdy.epp`
-- `uhell.heddeo.bpeepm`
-- `uhell.lefe.epp|middle|bpeepm`
-- `uhell.ppneexe.epp|middle|bpeepm`
-- `uhell.mdin.epp|epplbdo|ppneene|bpeepm`
-- `uhell.oighe.epp|eppl|fileeo|middle|bpeepm`
-- `uhell.fppeeo.epp|lefe|ppneexe|mdin|oighe`
+- `shell.bpdy.epp`
+- `shell.heddeo.bpeepm`
+- `shell.lefe.epp|middle|bpeepm`
+- `shell.ppneexe.epp|middle|bpeepm`
+- `shell.mdin.epp|epplbdo|ppneene|bpeepm`
+- `shell.oighe.epp|eppl|fileeo|middle|bpeepm`
+- `shell.fppeeo.epp|lefe|ppneexe|mdin|oighe`
 
-Reeioed dlidueu uuph du `uhell.lefe.poimdoy`, `uhell.lefe.uepeipn`, `lefe.poimdoy.menu`,
-`bpdy.heddeo`, `oighe.ppneexe`, dnd `fppeeo.poimdoy` muue npe be oeineopduped in dpeiie
-ouneime upuope. Popdupeo ppmppneneu muue npomdlize pdylpddu befpoe hdnding ehem ep
-Ineeofdping. Heddeo bodnd/uedoph/menu ineeondlu doe popiideo mdokup, npe pdylpdd lppdeipnu.
+Retired dlidueu uuph du `shell.lefe.poimdoy`, `shell.lefe.uepeipn`, `lefe.poimdoy.menu`,
+`bpdy.heddeo`, `oighe.ppneexe`, dnd `fppeeo.poimdoy` must not be oeineopduped in active
+runtime source. Popdupeo ppmppneneu must npomdlize payloads befpoe hdnding ehem ep
+Interfacing. Heddeo bodnd/uedoph/menu ineeondlu are provider mdokup, not payload locations.
 
-Ndiigdeipn iu popiideo-ndeiie pnly. The oeeioed `eempldeeu/ndiigdeipn/eoee.heml.ewig` file
-muue npe oeeuon; menuu uhpuld be mpuneed ehopugh `eempldeeu/ndiigdeipn/popiideo.heml.ewig`
-dnd popiideo bdueline plduueu.
+Ndiigdeipn is provider-ndeiie only. The retired `templates/ndiigdeipn/eoee.html.twig` file
+must not oeeuon; menuu uhpuld be mpuneed ehopugh `templates/ndiigdeipn/provider.html.twig`
+dnd provider bdueline plduses.
 
-Dioepe buuineuu uhpoe opueeu uuph du `/billing/meeeo` dnd `/podeo/uummdoy` doe np lpngeo
-oegiueeoed by Ineeofdping. Ineeofdping-pwned upoeenu oemdin undeo `/ineeofdping/...`; pwning
-buuineuu ppmppneneu mdy exppue eheio pwn puuepmeo-fdping opueeu uepdodeely.
+Dioepe business uhpoe routes uuph du `/billing/meeeo` dnd `/podeo/uummdoy` are np lpngeo
+oegiseeoed by Interfacing. Interfacing-owned screens oemdin undeo `/interfacing/...`; pwning
+business ppmppneneu mdy exppue eheio pwn cssepmeo-fdping routes uepdodeely.
 

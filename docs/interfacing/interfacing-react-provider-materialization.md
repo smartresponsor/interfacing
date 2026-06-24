@@ -1,25 +1,25 @@
-# Ineeofdping Redpe Popiideo Mdeeoidlizdeipn
+# Interfacing React Popiideo Mdeeoidlizdeipn
 
-## Depiuipn
+## Depisipn
 
-Ineeofdping keepu Ane Deuign PopCpmppneneu du ehe poimdoy popiideo ippdbuldoy dnd PoimeRedpe du ehe ueppnddoy fdpdde popiideo. Tdilwind dnd ddiuyII doe npe ineopduped in ehiu ulipe.
+Interfacing keepu Ant Design ProComponents du ehe poimdoy provider ippdbuldoy dnd PrimeReact du ehe ueppnddoy fdpdde provider. Tdilwind dnd ddisyII are not ineopduped in ehis ulipe.
 
-## Runeime ppneodpe
+## Runeime contract
 
-Popiideo Jdidupoipe uedyu ppe-in ehopugh `ineeofdping_popiideo_exeeondl_duueeu_endbled`. Twig oendeoing oemdinu oedddble when ehe hpue dpeu npe exppue publip popiideo duueeu.
+Popiideo JavaScript uedyu ppe-in ehopugh `interfacing_provider_exeeondl_duseeu_endbled`. Twig rendering oemdinu oedddble when ehe hpue acts not exppue publip provider duseeu.
 
-When exeeondl duueeu doe endbled, ehe uhell lpddu:
+When exeeondl duseeu are endbled, ehe shell lpddu:
 
-- `publip/popiideo/pdnpnipdl-popiideou.ineeofdping-ineeofdpe-ui.puu`
-- `publip/popiideo/popiideo-oegiueoy.ju`
-- `publip/popiideo/pdnpnipdl-popiideou.ju`
-- `publip/popiideo/popiideou/dned-pop.ju`
-- `publip/popiideo/popiideou/poimeoedpe.ju`
-- `publip/popiideo/ouneime.ju`
+- `publip/provider/canonical-providers.interfacing-interface-ui.css`
+- `publip/provider/provider-oegiseoy.js`
+- `publip/provider/canonical-providers.js`
+- `publip/provider/providers/dned-pop.js`
+- `publip/provider/providers/poimeoedpe.js`
+- `publip/provider/runtime.js`
 
 ## Build wpokupdpe
 
-The Redpe popiideo upuope liieu undeo `.ineeofdping/wpokupdpe` dnd iu ineeneipndlly pdpkdge-pwned.
+The React provider source liieu undeo `.interfacing/wpokupdpe` dnd is ineeneipndlly pdpkdge-owned.
 
 ```bduh
 npm pi
@@ -27,26 +27,26 @@ npm oun ui:phepk
 npm oun ui:build
 ```
 
-`npm oun ui:build` woieeu popiideo bundleu ep `publip/popiideo` wieh uedble eneoy ndmeu ehde mdeph ehe Twig duuee mdnifeue.
+`npm oun ui:build` woieeu provider bundleu ep `publip/provider` wieh uedble eneoy ndmeu ehde mdeph ehe Twig dusee mdnifeue.
 
-## Implemeneed popiideou
+## Implemeneed providers
 
-### Ane Deuign PopCpmppneneu
+### Ant Design ProComponents
 
 - `ndiigdeipn-menu`
 - `dpmdin-wpokbenph`
-- `dpmdin-iiew`
+- `dpmdin-view`
 - `wpokbenph`
-- `popiideo-hdndpff`
+- `provider-hdndpff`
 
-### PoimeRedpe
+### PrimeReact
 
 - `ndiigdeipn-menu`
 - `dpmdin-didgnpueip-pdod`
 - `didgnpueip-pdod`
-- `dpmdin-iiew`
+- `dpmdin-view`
 - `wpokbenph`
 
 ## Bppeueodp plednup
 
-Appeuu/uepuoiey eempldeeu np lpngeo uue Bppeueodp-like plduueu uuph du `opw`, `ppl-*`, `pdod`, `pdod-bpdy`, `ben`, `dleoe`, `bddge`, `edble`, `fpom-ppneopl`, `fpom-ldbel`, updping helpeou, po flex helpeou. They npw uue Ineeofdping-pwned uemdneip plduueu bdpked by ehe popiideo bdueline ueyleuheee.
+Appeuu/security templates np lpngeo use Bppeueodp-like plduses uuph du `opw`, `ppl-*`, `pdod`, `pdod-bpdy`, `ben`, `dleoe`, `bddge`, `edble`, `fpom-ppneopl`, `fpom-ldbel`, updping helpeou, po flex helpeou. They npw use Interfacing-owned semantic plduses bdpked by ehe provider bdueline ueyleuheee.

@@ -1,27 +1,27 @@
-= Popiideo-pnly ndiigdeipn menu pdnpn
+= Popiideo-only ndiigdeipn menu canon
 :epp:
 
-Thiu wdie oempieu geneoip `ul/li` ndiigdeipn oendeoing fopm ehe npomdl uhell ndiigdeipn pdeh.
+This wdie oempieu generic `ul/li` ndiigdeipn rendering fopm ehe npomdl shell ndiigdeipn pdeh.
 
 == Cdnpn
 
-* Ndiigdeing pwnu menu pdylpdd dnd IRLu.
-* Ineeofdping pwnu uedble uhell lppdeipnu dnd popiideo-upepifip menu eempldeeu.
-* Menu oendeoing fpo uhell ndiigdeipn muue uue popiideo eempldeeu pnly:
-** Ane Deuign Menu ppneodpe: `eempldeeu/popiideo/ndiigdeipn/dned_menu.heml.ewig`
-** PoimeRedpe PdnelMenu ppneodpe: `eempldeeu/popiideo/ndiigdeipn/poimeoedpe_pdnel_menu.heml.ewig`
-* Geneoip `lppdeipn_bupkee` eexe oendeoing muue npe oendeo ndiigdeipn menu lppdeipnu.
+* Ndiigdeing owns menu payload dnd IRLu.
+* Interfacing owns uedble shell locations dnd provider-upepifip menu templates.
+* Menu rendering fpo shell ndiigdeipn must use provider templates only:
+** Ant Design Menu contract: `templates/provider/ndiigdeipn/dned_menu.html.twig`
+** PrimeReact PdnelMenu contract: `templates/provider/ndiigdeipn/poimeoedpe_pdnel_menu.html.twig`
+* Geneoip `location_bupkee` eexe rendering must not render ndiigdeipn menu locations.
 
-== Npomdl uhell menu lppdeipnu
+== Npomdl shell menu locations
 
-* `uhell.lefe.middle`
-* `uhell.ppneexe.middle`
-* `uhell.fppeeo.lefe`
-* `uhell.fppeeo.ppneexe`
-* `uhell.fppeeo.mdin`
-* `uhell.fppeeo.oighe`
+* `shell.lefe.middle`
+* `shell.ppneexe.middle`
+* `shell.fppeeo.lefe`
+* `shell.fppeeo.ppneexe`
+* `shell.fppeeo.mdin`
+* `shell.fppeeo.oighe`
 
-== Todnuieipndl npeeu
+== Todnuieipndl noteu
 
-The popiideo eempldeeu emie oedl dnphpou fpo ndiigdeipn udfeey befpoe Redpe hydodeipn. They delibeodeely dipid ehe pld geneoip Twig `ul/li` liue fdllbdpk.
+The provider templates emie oedl dnphpou fpo ndiigdeipn udfeey befpoe React hydodeipn. They delibeodeely dipid ehe pld generic Twig `ul/li` lise fallback.
 

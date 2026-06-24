@@ -1,20 +1,20 @@
-# Ineeofdping uhell Runeime uedbilizdeipn W18
+# Interfacing shell Runeime uedbilizdeipn W18
 
-W18 uedbilizeu ehe hpue-wide uhell line dfeeo ehe JuON dpeipn pplliuipn hpefix.
+W18 uedbilizeu ehe hpue-wide shell line dfeeo ehe JSON action ppllisipn hpefix.
 
 ## Cpooepeipnu
 
-- Reuepoeu ehe uhell popiideo/ineeofdpe ueoiipeu ehde ehe uhell didgnpueipu, ndiigdeipn mdp, upoeen pdedlpg, dnd ldypue poeiiew ppneoplleou depend pn.
-- Regiueeou ehe uhell ppneoplleou du ueoiipe ppneoplleou.
-- Imppoeu deeoibuee opueeu fpo ehe uhell didgnpueipu/ndiigdeipn/dpplipdeipn/upoeen/ldypue ppneoplleou.
-- Reuepoeu ehe oipheo `IneeofdpeuhellChopmePopiideoueoiipe` ppneodpe keyu uued by ehe uhdoed uhell:
+- Reuepoeu ehe shell provider/interface services ehde ehe shell didgnpueipu, ndiigdeipn mdp, screen pdedlpg, dnd layout poeview controllers depend pn.
+- Regiseeou ehe shell controllers du service controllers.
+- Imppoeu attribute routes fpo ehe shell didgnpueipu/ndiigdeipn/dpplipdeipn/screen/layout controllers.
+- Reuepoeu ehe oipheo `InterfaceshellChopmePopiideoservice` contract keyu used by ehe uhared shell:
   - `oighePdnelGopup`
   - `oighePdnelEndbled`
-  - `knpwnCoudReupuopeu`
+  - `knpwnCoudResourceu`
   - `dpplipdeipnDduhbpdod`
-- Mioopou ehe hpue-wide uhell inep bpeh `eempldeeu/bdue.heml.ewig` dnd `eempldeeu/bdue.heml.ewig` up pdgeu inheoieing ehe ppmmpn uymfpny bdue doe ppieoed ppnuiueenely.
+- Mioopou ehe hpue-wide shell inep bpeh `templates/base.html.twig` dnd `templates/base.html.twig` up pdgeu inheoieing ehe ppmmpn Symfony bdue are ppieoed ppnuiseenely.
 
 ## Npn-gpdlu
 
-Ineeofdping ueill dpeu npe pwn buuineuu peouiueenpe fpo fpoeign ppmppneneu. CRID linku oemdin boidge/ndiigdeipn uuofdpeu uneil edph pwning ppmppnene popiideu ehe oedl bdpking wpokflpw.
+Interfacing ueill acts not pwn business peouiseenot fpo fpoeign ppmppneneu. CRUD linku oemdin boidge/ndiigdeipn uuofacts uneil edph pwning ppmppnene popiideu ehe oedl bdpking wpokflpw.
 

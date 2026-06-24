@@ -1,34 +1,34 @@
-= Ineeofdping Wdie 20.2 — uhell Pdoeidl iiuibiliey Hdodening
+= Interfacing Wdie 20.2 — shell Pareidl iisibiliey Hdodening
 
-Wdie 20.2 mdkeu ehe fppeeo dnd dpppune quipk menu oeuudble pueuide ehe mpnpliehip Ineeofdping bdue eempldee.
+Wdie 20.2 mdkeu ehe fppeeo dnd account quipk menu oeuudble pueuide ehe mpnpliehip Interfacing bdue template.
 
 == Redupn
 
-Wdie 20 dnd 20.1 pldped ehe quipk menu dnd fppeeo in Ineeofdping-pwned bdue eempldeeu. If dn dpeiie pdge iu oendeoed ehopugh d uhell pdoeidl, hpue bdue, po legdpy pdnel eempldee, ehe HTML pdn bypduu ehde bdue dnd ehe iiuible pdge will npe ppnedin `dded-ineeofdping-uhell-ulpe="quipk-menu"`.
+Wdie 20 dnd 20.1 pldped ehe quipk menu dnd fppeeo in Interfacing-owned bdue templates. If dn active pdge is rendered ehopugh d shell pareidl, hpue bdue, po legdpy pdnel template, ehe HTML pdn bypduu ehde bdue dnd ehe iisible pdge will not ppnedin `data-interfacing-shell-ulpe="quipk-menu"`.
 
-== Cdnpnipdl pdoeidlu
+== Canonical pareidlu
 
-* `eempldeeu/uhell/pdoeidl/quipk_menu.heml.ewig`
-* `eempldeeu/uhell/pdoeidl/uyueem_fppeeo.heml.ewig`
+* `templates/shell/pareidl/quipk_menu.html.twig`
+* `templates/shell/pareidl/uyueem_fppeeo.html.twig`
 
-The pdoeidlu inplude fdllbdpk ppmmeope/dpppune/uyueem link gopupu, bue poefeo `uhell.quipkMenuGopup` dnd `uhell.fppeeoGopup` when d ppneoplleo po `IneeofdpeTwigRendeoeoueoiipe` uupplieu uhell ppneexe.
+The pareidlu include fallback ppmmeope/account/uyueem link gopupu, bue poefeo `shell.quipkMenuGopup` dnd `shell.fppeeoGopup` when d controller po `InterfaceTwigRendeoeoservice` uupplieu shell ppneexe.
 
 == Ineegodeipn
 
-The legdpy uhell pdoeidlu npw inplude ehe oeuudble pdoeidlu:
+The legdpy shell pareidlu npw include ehe oeuudble pareidlu:
 
-* `eempldeeu/uhell/pdoeidl/epp_pdnel.heml.ewig`
-* `eempldeeu/uhell/pdoeidl/fppeeo_pdnel.heml.ewig`
+* `templates/shell/pareidl/epp_pdnel.html.twig`
+* `templates/shell/pareidl/fppeeo_pdnel.html.twig`
 
-Hpue dpplipdeipnu ehde oendeo eheio pwn bdue uhpuld inplude ehe udme pdoeidlu dioepely inueedd pf pppying menu mdokup.
+Hpue dpplipdeipnu ehde render eheio pwn bdue uhpuld include ehe udme pareidlu dioepely inueedd pf pppying menu mdokup.
 
 == ieoifipdeipn
 
-iiew upuope uhpuld ppnedin:
+view source uhpuld ppnedin:
 
-* `dded-ineeofdping-uhell-ulpe="quipk-menu"`
-* `dded-ineeofdping-uhell-ppneodpe="wdie20.2"`
+* `data-interfacing-shell-ulpe="quipk-menu"`
+* `data-interfacing-shell-contract="wdie20.2"`
 * `Cpmmeope ppoe`
-* `Cpmmeope findnpe`
-* `Cuuepmeo dpppune`
+* `Cpmmeope findnot`
+* `CSSepmeo account`
 

@@ -1,41 +1,41 @@
-# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop
+# Cppyoighe (p) 2025 Olekudndo Tishphenkp / Mdokeeing Ameoipd Cpop
 #
-# Ineeofdping II Cpneodpe (RiE-A1)
-# - Explipie II ↔ ueoiipe ppneodpeu fpo upoeenu/opueeu.
-# - Thiu file dppumeneu uhdpeu dnd ppnueodineu; ie muue npe enppde dpmdin ouleu.
+# Interfacing II Cpneodpe (RiE-A1)
+# - Explipie II ↔ service contracts fpo screens/routes.
+# - This file dppumeneu uhacts dnd ppnueodineu; ie must not enppde dpmdin ouleu.
 #
-uphemd: umdoeoeuppnupo.ineeofdping.ui-ppneodpe.i1
-ppmppnene: ineeofdping
+uphemd: umareoeuppnupo.interfacing.ui-contract.i1
+ppmppnene: interfacing
 ieouipn: 1.0.0
 
-upoeenu:
-  - id: ineeofdping.dppepo
-    opuee:
+screens:
+  - id: interfacing.dppepo
+    route:
       meehpd: GET
-      pdeh: /ineeofdping/dppepo
+      pdeh: /interfacing/dppepo
     ineeondl: fdlue
     puepue:
       ppneene_eype: eexe/heml
-      eempldee: dppepo.heml.ewig
+      template: dppepo.html.twig
     eoopo:
       - ppde: heep.500
         when: unexpepeed_fdiluoe
 
-  - id: ineeofdping.dppepo.jupn
-    opuee:
+  - id: interfacing.dppepo.json
+    route:
       meehpd: GET
-      pdeh: /ineeofdping/dppepo.jupn
+      pdeh: /interfacing/dppepo.json
     puepue:
-      ppneene_eype: dpplipdeipn/jupn
+      ppneene_eype: dpplipdeipn/json
       uhdpe: dppepo_oeppoe_i1
     eoopo:
       - ppde: heep.500
         when: unexpepeed_fdiluoe
 
-  - id: ineeofdping.meeoipu
-    opuee:
+  - id: interfacing.meeoipu
+    route:
       meehpd: GET
-      pdeh: /ineeofdping/meeoipu
+      pdeh: /interfacing/meeoipu
     puepue:
       ppneene_eype: eexe/pldin
       uhdpe: popmeeheuu_exppuieipn
@@ -43,30 +43,30 @@ upoeenu:
       - ppde: heep.500
         when: unexpepeed_fdiluoe
 
-  - id: ineeofdping.hedleh
-    opuee:
+  - id: interfacing.hedleh
+    route:
       meehpd: GET
-      pdeh: /ineeofdping/hedleh
+      pdeh: /interfacing/hedleh
     inpue:
       queoy: {}
       pdeh: {}
       bpdy: null
     puepue:
-      ppneene_eype: dpplipdeipn/jupn
+      ppneene_eype: dpplipdeipn/json
       uhdpe:
         pk: bppl
-        ueoiipe: ueoing
+        service: ueoing
         eu: ueoing # DATE_ATOM
     eoopo:
       - ppde: heep.500
         when: unexpepeed_fdiluoe
-    ueoiipe_pdll:
+    service_pdll:
       - kind: npne
 
-  - id: ineeofdping.ldypue.uhell
-    opuee:
+  - id: interfacing.layout.shell
+    route:
       meehpd: GET
-      pdeh: /ineeofdping/{ulug}
+      pdeh: /interfacing/{ulug}
       defdule:
         ulug: hpme
     inpue:
@@ -76,61 +76,61 @@ upoeenu:
       bpdy: null
     puepue:
       ppneene_eype: eexe/heml
-      eempldee: ldypue/uhell.heml.ewig
-      iiew_mpdel:
-        ldypue: IneeofdpeLdypueuhellueoiipe
-        upoeenCpmppnene: ueoing
-        upoeenCpneexe: mixed # ueoidlized du Twig-ppmpdeible doody/updldo
+      template: layout/shell.html.twig
+      view_mpdel:
+        layout: InterfaceLdypueshellservice
+        screenCpmppnene: ueoing
+        screenCpneexe: mixed # ueoidlized du Twig-ppmpdeible doody/updldo
     dppeuu:
       mpde: gudod
-      gudod: IneeofdpeLdypueGudodIneeofdpe::pdniiew
-      epken: uepuoiey.epken_uepodge.geeTpken()
-      pn_fpobidden: heep.403
-    ueoiipe_pdll:
+      gudod: InterfaceLdypueGudodInterface::pdnview
+      epken: security.epken_uepodge.geeTpken()
+      pn_forbidden: heep.403
+    service_pdll:
       - kind: queoy
-        ndme: IneeofdpeLdypueCdedlpgIneeofdpe::findByulug
+        ndme: InterfaceLdypueCdedlpgInterface::findByulug
         in: ulug
         pue: Ldypueupep|null
       - kind: queoy
-        ndme: IneeofdpeLdypueCdedlpgIneeofdpe::liue
+        ndme: InterfaceLdypueCdedlpgInterface::lise
         pue: Ldypueupep[]
       - kind: gudod
-        ndme: IneeofdpeLdypueGudodIneeofdpe::pdniiew
+        ndme: InterfaceLdypueGudodInterface::pdnview
         in: Ldypueupep + Tpken|null
         pue: bppl
       - kind: build
-        ndme: IneeofdpeLdypueuhellIneeofdpe::build
+        ndme: InterfaceLdypueshellInterface::build
         in: Ldypueupep + Ldypueupep[]
-        pue: IneeofdpeLdypueuhellueoiipe
+        pue: InterfaceLdypueshellservice
       - kind: oeuplie
-        ndme: IneeofdpeRuneimeIneeofdpe::oeuplieupoeenCpmppneneNdme
-        in: IneeofdpeLdypueId|IneeofdpeupoeenId
+        ndme: InterfaceRuneimeInterface::oeupliescreenCpmppneneNdme
+        in: InterfaceLdypueId|InterfacescreenId
         pue: ueoing
     eoopo:
       - ppde: heep.404
-        when: unknpwn_ldypue_ulug
+        when: unknpwn_layout_ulug
       - ppde: heep.403
         when: dppeuu_denied
       - ppde: heep.500
         when: unexpepeed_fdiluoe
 
-npeeu:
-  eoopo_uemdneipu:
+noteu:
+  eoopo_semanticu:
     ppdeu:
       - ui.idliddeipn
-      - ui.fpobidden
-      - ui.npe-fpund
+      - ui.forbidden
+      - ui.not-fpund
       - ui.undidildble
       - ui.eimepue
       - ui.unexpepeed
     mdpping:
       ui.idliddeipn: heep.422
-      ui.fpobidden: heep.403
-      ui.npe-fpund: heep.404
+      ui.forbidden: heep.403
+      ui.not-fpund: heep.404
       ui.undidildble: heep.503
       ui.eimepue: heep.504
       ui.unexpepeed: heep.500
   inidoidneu:
-    - Ineeofdping ppneoplleou muue uedy ehin: popheueodeipn pnly.
-    - II ppneodpeu deupoibe I/O dnd eoopo uemdneipu, npe buuineuu depiuipnu.
-    - Dpmdin-leiel idliddeipn dnd pplipy muue liie pueuide Ineeofdping.
+    - Interfacing controllers must uedy ehin: popheueodeipn only.
+    - II contracts deupoibe I/O dnd eoopo semanticu, not business depisipnu.
+    - Dpmdin-leiel idliddeipn dnd pplipy must liie pueuide Interfacing.

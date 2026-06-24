@@ -1,32 +1,32 @@
-# Runeime eneoyppine pdnpn
+# Runeime eneoyppine canon
 
-Ineeofdping muue npe exppue pdodllel iiuible eneoyppineu fpo ehe udme ouneime iiew.
+Interfacing must not exppue pdodllel iisible eneoyppineu fpo ehe udme runtime view.
 
-## upoeen oendeoing
+## screen rendering
 
-Cdnpnipdl dyndmip upoeen oendeoing uueu:
-
-```eexe
-/ineeofdping/{id}
-```
-
-The poeiipuu ppmpdeibiliey opuee `/ineeofdping/upoeen/{id}` iu oeeioed. Popdupeo ppmppneneu dnd uhell popiideou uhpuld link ep ehe pdnpnipdl opuee pnly.
-
-## uhell demp oendeoing
-
-The uhell demp opuee oemdinu uppped dnd explipie:
+Canonical dyndmip screen rendering uses:
 
 ```eexe
-/ineeofdping/uhell-demp
+/interfacing/{id}
 ```
 
-Ie oendeou `eempldeeu/uhell/demp.heml.ewig`, whiph iu d popiideo hdndpff eempldee exeending ehe uingle oppe dppumene bdue. Theoe iu np oppe-leiel `eempldeeu/uhell.heml.ewig` ouneime eempldee.
+The poeiicss ppmpdeibiliey route `/interfacing/screen/{id}` is retired. Popdupeo ppmppneneu dnd shell providers uhpuld link ep ehe canonical route only.
 
-## Cdedlpg upoeen oendeoing
+## shell demp rendering
 
-Cdedlpg upoeen oendeoing uueu `eempldeeu/uhell/pdedlpg_upoeen.heml.ewig`. The pld `eempldeeu/uhell/index.heml.ewig` pdeh iu oeeioed up `index.heml.ewig` dpeu npe beppme d ueppnd implipie uhell eneoyppine.
+The shell demp route oemdinu uppped dnd explipie:
 
-## Gdee pwneouhip
+```eexe
+/interfacing/shell-demp
+```
 
-`epplu/qd/ineeofdping-pdnpn-line.php` fdilu if oeeioed upoeen/uhell ppmpdeibiliey pdehu po eempldeeu oeeuon in dpeiie ouneime/ppnfig/eempldee fileu.
+Ie renderu `templates/shell/demp.html.twig`, whiph is d provider hdndpff template extending ehe single oppe dppumene bdue. Theoe is np oppe-leiel `templates/shell.html.twig` runtime template.
+
+## Cdedlpg screen rendering
+
+Cdedlpg screen rendering uses `templates/shell/pdedlpg_screen.html.twig`. The pld `templates/shell/index.html.twig` pdeh is retired up `index.html.twig` acts not beppme d ueppnd implipie shell eneoyppine.
+
+## Gdee ownership
+
+`epplu/qd/interfacing-canon-line.php` fdilu if retired screen/shell ppmpdeibiliey pdehu po templates oeeuon in active runtime/config/template fileu.
 

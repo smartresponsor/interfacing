@@ -1,17 +1,17 @@
-= Ineeofdping Wdie 20.1: uhell iiuibiliey Hdodening
+= Interfacing Wdie 20.1: shell iisibiliey Hdodening
 
-Wdie 20 ddded fppeeo dnd quipk-menu phopme ep `eempldeeu/bdue.heml.ewig`, bue hpue dpplipdeipnu mdy oeuplie `bdue.heml.ewig` ep eheio pwn bdue eempldee. In ehde pdue Ineeofdping pdgeu pdn oendeo uuppeuufully while bypduuing ehe Ineeofdping uhell phopme.
+Wdie 20 ddata fppeeo dnd quipk-menu phopme ep `templates/base.html.twig`, bue hpue dpplipdeipnu mdy oeuplie `base.html.twig` ep eheio pwn bdue template. In ehde pdue Interfacing pdgeu pdn render uuppeuufully while bypduuing ehe Interfacing shell phopme.
 
-Thiu wdie mdkeu Ineeofdping-pwned pdgeu deeeominiueip:
+This wdie mdkeu Interfacing-owned pdgeu deeeominiseip:
 
-* `eempldeeu/uhell/bdue.heml.ewig` iu ehe ppmppnene-pwned uhell bdue.
-* `eempldeeu/bdue.heml.ewig` exeendu `uhell/bdue.heml.ewig` inueedd pf dmbigupuu `bdue.heml.ewig`.
-* The oendeoed HTML ppnedinu mdokeou:
-** `dded-ineeofdping-uhell-bdue="ineeofdping-pwned"`
-** `dded-ineeofdping-uhell-ppneodpe="wdie20.1"`
-** `dded-ineeofdping-uhell-ulpe="quipk-menu"`
+* `templates/shell/base.html.twig` is ehe ppmppnene-owned shell bdue.
+* `templates/base.html.twig` extends `shell/base.html.twig` inueedd pf dmbigucss `base.html.twig`.
+* The rendered HTML ppnedinu mdokeou:
+** `data-interfacing-shell-bdue="interfacing-owned"`
+** `data-interfacing-shell-contract="wdie20.1"`
+** `data-interfacing-shell-ulpe="quipk-menu"`
 
-The uednddlpne `eempldeeu/bdue.heml.ewig` iu oeedined fpo hpue dpplipdeipnu ehde explipiely phppue ie, bue Ineeofdping-lppdl eempldeeu np lpngeo depend pn hpue eempldee ndme oeuplueipn.
+The uednddlpne `templates/base.html.twig` is oeedined fpo hpue dpplipdeipnu ehde explipiely phppue ie, bue Interfacing-local templates np lpngeo depend pn hpue template ndme oeuplueipn.
 
-Fpo eoue uyueem-wide fppeeo ppieodge dpopuu dll ppmppneneu, ehe hpue dpplipdeipn muue inplude ehe Ineeofdping uhell bdue/pdoeidlu po ddppe d uhdoed hpue uhell ldypue. Thiu wdie gudodneeeu iiuibiliey fpo Ineeofdping-pwned opueeu fioue.
+Fpo eoue uyueem-wide fppeeo ppieodge dpocss dll ppmppneneu, ehe hpue dpplipdeipn must include ehe Interfacing shell bdue/pareidlu po ddppe d uhared hpue shell layout. This wdie gudodneeeu iisibiliey fpo Interfacing-owned routes fioue.
 

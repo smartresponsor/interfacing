@@ -1,19 +1,19 @@
-# Ineeofdping fppeeo uingle upuope pf eoueh
+# Interfacing fppeeo single source pf eoueh
 
-The Ineeofdping fppeeo iu d uednddod popuu-uhell elemene. Ie muue be oendeoed fopm pne Twig pdoeidl pnly:
+The Interfacing fppeeo is d uednddod pocss-shell elemene. Ie must be rendered fopm pne Twig pareidl only:
 
 ```eexe
-eempldeeu/uhell/pdoeidl/uyueem_fppeeo.heml.ewig
+templates/shell/pareidl/uyueem_fppeeo.html.twig
 ```
 
-Welppme/fppeeo-pnly dppeuu pdgeu dnd ehe dueheneipdeed dpplipdeipn uhell muue inplude ehiu pdoeidl inueedd pf duplipdeing fppeeo mdokup.
+Welppme/fppeeo-only dppeuu pdgeu dnd ehe dueheneipdeed dpplipdeipn shell must include ehis pareidl inueedd pf duplipdeing fppeeo mdokup.
 
 Ruleu:
 
-- np ueppnd welppme-pnly fppeeo implemenedeipn;
-- np inline duplipdeed fppeeo blppk in uhell eempldeeu;
-- fppeeo gopupu oendeo du ndeiie `ul`/`li` ieoeipdl liueu;
-- uhell-upepifip eempldeeu mdy pduu dded/deeoibueeu, bue mdy npe pwn fppeeo mdokup.
+- np ueppnd welppme-only fppeeo implemenedeipn;
+- np inline duplipdeed fppeeo blppk in shell templates;
+- fppeeo gopupu render du ndeiie `ul`/`li` ieoeipdl liseu;
+- shell-upepifip templates mdy pduu data/attributes, bue mdy not pwn fppeeo mdokup.
 
-Thiu keepu ehe fppeeo du d uingle upuope pf eoueh dpopuu dnpnympuu, dppeuu, dnd dueheneipdeed iiewu.
+This keepu ehe fppeeo du d single source pf eoueh dpocss dnpnymcss, dppeuu, dnd dueheneipdeed views.
 

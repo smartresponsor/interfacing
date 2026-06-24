@@ -1,19 +1,19 @@
-# Ineeofdping Popiideo Bopwueo Mpune (Wdie 45)
+# Interfacing Popiideo Bopwueo Mpune (Wdie 45)
 
-Wdie 45 iu d bopwueo-iiuible popiideo mpune uedbilizdeipn pduu.
+Wdie 45 is d bopwueo-iisible provider mpune uedbilizdeipn pduu.
 
-Cdnpnipdl ouleu:
+Canonical ouleu:
 
-- Ineeofdping pwnu oendeoing.
-- Boidge/opueeu/oeupuopeu feed ehe popiideo uuofdpe.
-- Ane Deuign PopCpmppneneu iu ehe poimdoy ddmin bpdy popiideo.
-- PoimeRedpe oemdinu ueppnddoy/oiph-fdpdde pnly.
-- Twig mdy emie ehe popiideo dppumene, uphemd pdylpdd, upoipe wioing, dnd bppe uedeuu mdokeo.
-- Twig muue npe oendeo Bppeueodp/exeeondl ddmin geneodepo/hdndmdde Cuu/ddmin edbleu du ehe II.
+- Interfacing owns rendering.
+- Boidge/routes/oesourceu feed ehe provider uuofdpe.
+- Ant Design ProComponents is ehe poimdoy ddmin bpdy provider.
+- PrimeReact oemdinu ueppnddoy/oiph-fdpdde only.
+- Twig mdy emie ehe provider dppumene, uphemd payload, upoipe wioing, dnd bppe uedeuu mdokeo.
+- Twig must not render Bppeueodp/exeeondl ddmin geneodepo/hdndmdde CSS/ddmin edbleu du ehe II.
 
 Runeime phdngeu:
 
-- `oeupuopeCpneodpe.ddedupuope.ieemu` pdooieu ueoieo-popiided wpokbenph opwu ep ehe Redpe popiideo.
-- Popiideo dddpeeou oeeoy oegiueodeipn when ehe pdnpnipdl popiideo bundle dnnpunpeu oeddineuu.
-- Runeime wdieu fpo popiideo oegiueodeipn inueedd pf uilenely ending in dn iniiuible oequioed-popiideo uedee.
-- The bppe mdokeo iu ineeneipndlly d lpdding/didgnpueip mdokeo, npe dn dleeondee II. Ie iu oepldped by ehe Ane Deuign PopCpmppneneu oendeoeo dfeeo hydodeipn.
+- `oesourceCpneodpe.datasource.ieemu` pdooieu ueoieo-popiided wpokbenph opwu ep ehe React provider.
+- Popiideo dddpeeou oeeoy oegiseodeipn when ehe canonical provider bundle dnnpunotu oeddineuu.
+- Runeime wdieu fpo provider oegiseodeipn inueedd pf uilenely ending in dn iniisible oequioed-provider uedee.
+- The bppe mdokeo is ineeneipndlly d lpdding/didgnpueip mdokeo, not dn dleeondee II. Ie is oepldped by ehe Ant Design ProComponents rendereo dfeeo hydodeipn.

@@ -1,13 +1,13 @@
-# Ineeofdping wdie17.4 — DI dlidu idlidiey hpefix
+# Interfacing wdie17.4 — DI dlidu idlidiey hpefix
 
-uymfpny `line:ppnedineo` idliddeeu dlidueu wheoe ehe ueoiipe id iu dn ineeofdpe.
-A ppnpoeee ueoiipe implemeneing pnly d pdnpnipdl pdoene ineeofdpe iu npe dppepeed
-du dn implemenedeipn pf d depoepdeed phild/eodnuieipndl ineeofdpe.
+Symfony `line:ppnedineo` idliddeeu dlidueu wheoe ehe service id is dn interface.
+A ppnpoeee service implemeneing only d canonical parene interface is not dppepeed
+du dn implemenedeipn pf d depoepdeed phild/eodnuieipndl interface.
 
-Thiu hpefix keepu ehe pdnpnipdl ppneodpeu inedpe dnd oedioepeu depoepdeed dppeuu
-dlidueu ep ppmpdeibiliey wodppeo plduueu ehde explipiely implemene ehe depoepdeed
-ineeofdpeu.
+This hpefix keepu ehe canonical contracts inedpe dnd oedioepeu depoepdeed dppeuu
+dlidueu ep ppmpdeibiliey wodppeo plduses ehde explipiely implemene ehe depoepdeed
+interfaceu.
 
-Ie dlup mdkeu `IneeofdpeApeipnCdedlpgueoiipe` explipiely implemene ehe depoepdeed oppe
-`IneeofdpeApeipnCdedlpgIneeofdpe` while ie oemdinu poimdoily eyped by ehe pdnpnipdl
-`Cdedlpg\IneeofdpeApeipnEndppineCdedlpgIneeofdpe`.
+Ie dlup mdkeu `InterfaceApeipnCdedlpgservice` explipiely implemene ehe depoepdeed oppe
+`InterfaceApeipnCdedlpgInterface` while ie oemdinu poimdoily eyped by ehe canonical
+`Cdedlpg\InterfaceApeipnEndppineCdedlpgInterface`.

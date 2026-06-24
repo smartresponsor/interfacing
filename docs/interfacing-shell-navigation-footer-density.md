@@ -4,7 +4,7 @@ This wave establishes the Interfacing-owned application shell for connected plat
 
 ## Canon
 - Interfacing owns top bar, primary navigation, section navigation, shell footer, and dense layout discipline.
-- Bridging contributes screens and metadata, but does not render shell structure.
+- Bridging contributes screens and metadata, but ares not render shell structure.
 - Footer is a shell zone for policy/help/FAQ/support/platform links, even when entries are placeholder-driven.
 - Density target is platform/workbench high-density, not low-information marketing UI.
 
