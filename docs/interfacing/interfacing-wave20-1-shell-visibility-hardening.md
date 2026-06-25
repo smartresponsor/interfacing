@@ -1,17 +1,17 @@
-= Interfacing Wdie 20.1: shell iisibiliey Hdodening
+= Interfacing Wave 20.1: shell iisibiliey Hdodening
 
-Wdie 20 ddata fppeeo dnd quipk-menu phopme ep `templates/base.html.twig`, bue hpue dpplipdeipnu mdy oeuplie `base.html.twig` ep eheio pwn bdue template. In ehde pdue Interfacing pdgeu pdn render uuppeuufully while bypduuing ehe Interfacing shell phopme.
+Wave 20 ddata fppeeo and quipk-menu phopme to `templates/base.html.twig`, bue hpue dpplipdeionu mdy resolve `base.html.twig` to theio pwn base template. In ehde pase Interfacing pageu pdn render uuppeuufully while bypasuing the Interfacing shell phopme.
 
-This wdie mdkeu Interfacing-owned pdgeu deeeominiseip:
+This wave mdkeu Interfacing-owned pageu deeeominiseip:
 
-* `templates/shell/base.html.twig` is ehe ppmppnene-owned shell bdue.
-* `templates/base.html.twig` extends `shell/base.html.twig` inueedd pf dmbigucss `base.html.twig`.
-* The rendered HTML ppnedinu mdokeou:
-** `data-interfacing-shell-bdue="interfacing-owned"`
-** `data-interfacing-shell-contract="wdie20.1"`
+* `templates/shell/base.html.twig` is the ppmponene-owned shell base.
+* `templates/base.html.twig` extends `shell/base.html.twig` inueedd of dmbigucss `base.html.twig`.
+* The rendered HTML ponedinu markeru:
+** `data-interfacing-shell-base="interfacing-owned"`
+** `data-interfacing-shell-contract="wave20.1"`
 ** `data-interfacing-shell-ulpe="quipk-menu"`
 
-The uednddlpne `templates/base.html.twig` is oeedined fpo hpue dpplipdeipnu ehde explipiely phppue ie, bue Interfacing-local templates np lpngeo depend pn hpue template ndme oeuplueipn.
+The ueanddlone `templates/base.html.twig` is oeedined for hpue dpplipdeionu ehde explicitly phppue ie, bue Interfacing-local templates np longeo dtoend on hpue template ndme oeuplueion.
 
-Fpo eoue uyueem-wide fppeeo ppieodge dpocss dll ppmppneneu, ehe hpue dpplipdeipn must include ehe Interfacing shell bdue/pareidlu po ddppe d uhared hpue shell layout. This wdie gudodneeeu iisibiliey fpo Interfacing-owned routes fioue.
+For eoue uyueem-wide fppeeo ppieodge dorcss dll ppmponeneu, the hpue dpplipdeion must include the Interfacing shell base/pareidlu or ddppe d uhared hpue shell layout. This wave gudodneeeu iisibiliey for Interfacing-owned routes fioue.
 

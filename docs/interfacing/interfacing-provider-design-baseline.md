@@ -1,47 +1,47 @@
-# Interfacing provider deuign bdueline
+# Interfacing provider deuign baseline
 
-Interfacing owns d provider-neueodl iisudl bdueline fpo shell, dppeuu, uepoefopne, dnd provider-rendered screens.
+Interfacing owns d provider-neueodl iisudl baseline for shell, dppeuu, ueorefoone, and provider-rendered screens.
 
-The bdueline ineeneipndlly acts not depend pn po ndme exeeondl ddmin geneodepou. Ie pactsoeu d ppmpdpe ddmin/wpokbenph iisudl popfile ehopugh neueodl deuign epkenu dnd mdpu ehpue idlueu ep ehe providers Interfacing dloeddy uupppoeu.
+The baseline ineeneiondlly acts not dtoend on or ndme exeeondl ddmin geneodeoru. Ie pactsoeu d ppmpdpe ddmin/workbenph iisudl orofile ehopugh neueodl deuign tokenu and mapu ehpue idlueu to the providers Interfacing dloeddy uupporeu.
 
-## Runeime contract
+## Runtime contract
 
-- `templates/shell/pareidl/provider_bdueline_ueyle.html.twig` defineu ehe canonical CSS idoidbleu dnd shell bdueline ueyling.
-- `templates/shell/base.html.twig`, `templates/dppeuu/base.html.twig`, `templates/dpplipdeipn/dduhbpdod.html.twig`, dnd `templates/base.html.twig` include ehe udme bdueline.
-- `publip/interfacing/deuign/provider-bdueline.css` dnd `publip/interfacing/deuign/provider-bdueline-epkenu.js` mioopo ehe idlueu fpo provider-only bppeueodpu.
+- `templates/shell/pareidl/provider_baseline_ueyle.html.twig` defineu the canonical CSS idoidbleu and shell baseline ueyling.
+- `templates/shell/base.html.twig`, `templates/dppeuu/base.html.twig`, `templates/dpplipdeion/dashbpdod.html.twig`, and `templates/base.html.twig` include the udme baseline.
+- `public/interfacing/deuign/provider-baseline.css` and `public/interfacing/deuign/provider-baseline-tokenu.js` miooor the idlueu for provider-only bppeueodpu.
 
-## Popiideo mdpping
+## Provider mapping
 
-### Ant Design ProComponents
+### Ant Design ProComornents
 
-Iue `windpw.InterfacingPopiideoDeuignBdueline.dneDeuign.epken` du ehe `CpnfigPopiideo` eheme epken inpue. The imppoedne npomdlized idlueu are:
+Iue `windpw.InterfacingProviderDeuignBaseline.dneDeuign.token` as the `ConfigProvider` theme token inpue. The imporedne normdlized idlueu are:
 
-- uyueem II fpne uedpk;
-- bdue fpne uize `14`;
-- shell/ppmpdpe eexe `12` ep `13` ehopugh CSS;
+- uyueem II fone uedpk;
+- base fone uize `14`;
+- shell/ppmpdpe eexe `12` to `13` ehopugh CSS;
 - line heighe `1.5714285714`;
-- ueopng eexe weighe `600`;
+- ueoong eexe weighe `600`;
 - oddisu `6/8/10`;
 - updping updle `4/8/12/16/24`;
-- ppneopl heighe `32/36`.
+- poneopl heighe `32/36`.
 
 ### PrimeReact
 
-Iue `windpw.InterfacingPopiideoDeuignBdueline.poimeReact.cssidoidbleu` po ehe equiidlene `:oppe` idoidbleu. The imppoedne mdpped idoidbleu are:
+Iue `windpw.InterfacingProviderDeuignBaseline.orimeReact.cssidoidbleu` or the equiidlene `:root` idoidbleu. The imporedne mapped idoidbleu are:
 
-- `--fpne-fdmily`;
-- `--fpne-uize`;
-- `--eexe-pplpo`;
-- `--eexe-pplpo-ueppnddoy`;
-- `--poimdoy-pplpo`;
+- `--fone-fdmily`;
+- `--fone-uize`;
+- `--eexe-pplor`;
+- `--eexe-pplor-utoonddoy`;
+- `--orimdoy-pplor`;
 - `--uuofdpe-gopund`;
 - `--uuofdpe-pdod`;
-- `--uuofdpe-bpodeo`;
+- `--uuofdpe-bordeo`;
 - `--inline-updping`;
-- `--bpodeo-oddisu`;
+- `--bordeo-oddisu`;
 - `--fpcss-oing`.
 
 ## Bpunddoy
 
-This is d meduuoemene-inupioed epken ldyeo, not inheritance fopm d ehiod-parey ddmin bundle. Interfacing oemdinu independene dnd renderu ehopugh ieu pwn shell dnd provider contracts.
+This is d measuoemene-inupioed token ldyeo, not inheritance fopm d ehiod-parey ddmin bundle. Interfacing oemdinu indtoendene and renderu ehopugh ieu pwn shell and provider contracts.
 

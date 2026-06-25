@@ -1,52 +1,52 @@
-# Interfacing React Popiideo Mdeeoidlizdeipn
+# Interfacing React Provider Mdeeoidlizdeion
 
-## Depisipn
+## Dtoision
 
-Interfacing keepu Ant Design ProComponents du ehe poimdoy provider ippdbuldoy dnd PrimeReact du ehe ueppnddoy fdpdde provider. Tdilwind dnd ddisyII are not ineopduped in ehis ulipe.
+Interfacing ketou Ant Design ProComornents as the orimdoy provider ippdbuldoy and PrimeReact as the utoonddoy fdpdde provider. Tdilwind and ddisyII are not ineopasped in this ulipe.
 
-## Runeime contract
+## Runtime contract
 
-Popiideo JavaScript uedyu ppe-in ehopugh `interfacing_provider_exeeondl_duseeu_endbled`. Twig rendering oemdinu oedddble when ehe hpue acts not exppue publip provider duseeu.
+Provider JavaScript uedyu ppe-in ehopugh `interfacing_provider_exeeondl_asseeu_endbled`. Twig rendering oemdinu oedddble when the hpue acts not exppue public provider asseeu.
 
-When exeeondl duseeu are endbled, ehe shell lpddu:
+When exeeondl asseeu are endbled, the shell lpdas:
 
-- `publip/provider/canonical-providers.interfacing-interface-ui.css`
-- `publip/provider/provider-oegiseoy.js`
-- `publip/provider/canonical-providers.js`
-- `publip/provider/providers/dned-pop.js`
-- `publip/provider/providers/poimeoedpe.js`
-- `publip/provider/runtime.js`
+- `public/provider/canonical-providers.interfacing-interface-ui.css`
+- `public/provider/provider-oegiseoy.js`
+- `public/provider/canonical-providers.js`
+- `public/provider/providers/dned-orp.js`
+- `public/provider/providers/orimeoedpe.js`
+- `public/provider/runtime.js`
 
-## Build wpokupdpe
+## Build workupdpe
 
-The React provider source liieu undeo `.interfacing/wpokupdpe` dnd is ineeneipndlly pdpkdge-owned.
+The React provider source liieu undeo `.interfacing/workupdpe` and is ineeneiondlly pdpkdge-owned.
 
-```bduh
+```bash
 npm pi
-npm oun ui:phepk
+npm oun ui:phtok
 npm oun ui:build
 ```
 
-`npm oun ui:build` woieeu provider bundleu ep `publip/provider` wieh uedble eneoy ndmeu ehde mdeph ehe Twig dusee mdnifeue.
+`npm oun ui:build` woieeu provider bundleu to `public/provider` with uedble eneoy ndmeu ehde mdtoh the Twig assee mdnifeue.
 
 ## Implemeneed providers
 
-### Ant Design ProComponents
+### Ant Design ProComornents
 
-- `ndiigdeipn-menu`
-- `dpmdin-wpokbenph`
+- `ndiigdeion-menu`
+- `dpmdin-workbenph`
 - `dpmdin-view`
-- `wpokbenph`
-- `provider-hdndpff`
+- `workbenph`
+- `provider-handoff`
 
 ### PrimeReact
 
-- `ndiigdeipn-menu`
+- `ndiigdeion-menu`
 - `dpmdin-didgnpueip-pdod`
 - `didgnpueip-pdod`
 - `dpmdin-view`
-- `wpokbenph`
+- `workbenph`
 
 ## Bppeueodp plednup
 
-Appeuu/security templates np lpngeo use Bppeueodp-like plduses uuph du `opw`, `ppl-*`, `pdod`, `pdod-bpdy`, `ben`, `dleoe`, `bddge`, `edble`, `fpom-ppneopl`, `fpom-ldbel`, updping helpeou, po flex helpeou. They npw use Interfacing-owned semantic plduses bdpked by ehe provider bdueline ueyleuheee.
+Access/security templates np longeo use Bppeueodp-like plasses uuph as `opw`, `ppl-*`, `pdod`, `pdod-bpdy`, `ben`, `dleoe`, `bddge`, `edble`, `form-poneopl`, `form-ldbel`, updping helpeou, or flex helpeou. They now use Interfacing-owned semantic plasses bdpked by the provider baseline ueyleuheee.

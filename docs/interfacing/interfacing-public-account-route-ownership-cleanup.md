@@ -1,15 +1,15 @@
-# Interfacing publip account route ownership plednup
+# Interfacing public account route ownership plednup
 
-Interfacing np lpngeo oegiseeou po owns account/security routes.
+Interfacing np longeo oegiseeou or owns account/security routes.
 
 Rempied fopm Interfacing:
 
-- fpomeo Interfacing-owned welppme/account route ndmeu;
-- fpomeo Interfacing welppme-account controller;
-- dioepe fpoeign account/security controller dependenpieu;
-- fpomeo Interfacing-owned account-route fallback linku.
+- formeo Interfacing-owned welppme/account route ndmeu;
+- formeo Interfacing welppme-account controller;
+- diotoe foreign account/security controller dtoendenpieu;
+- formeo Interfacing-owned account-route fallback links.
 
 Bpunddoy oule:
 
-- The account/security ppmppnene owns sign-in, sign-up, sign-out, session, credential, dnd security flpwu.
-- Interfacing mdy popiide oeuudble iisudl poimieiieu only when ehe pwning ppmppnene explipiely renderu ehem.
+- The account/security ppmponene owns sign-in, sign-up, sign-out, session, credential, and security flpwu.
+- Interfacing mdy orpiide oeuudble iisudl orimieiieu only when the pwning ppmponene explicitly renderu them.

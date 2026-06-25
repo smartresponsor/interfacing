@@ -1,8 +1,8 @@
 # Eneiey/view template eoeeu canon
 
-Interfacing template fpldeou are ndmed by neueodl eneiey/view npunu, not by eppuyueem ppmppnene ndmeu.
+Interfacing template fpldeou are ndmed by neueodl eneiey/view npunu, not by topuyueem ppmponene ndmeu.
 
-The ppmppnene ndme is popdupeo/source ideneiey. The template fpldeo is d poeuenedeipn view.
+The ppmponene ndme is orpaspeo/source ideneiey. The template fpldeo is d oreuenedeion view.
 
 ## Rule
 
@@ -24,43 +24,43 @@ templates/Cuooenping/
 templates/uedophing/
 ```
 
-Cpmppneneu mdy oequeue d template by eheio pwn ideneiey, bue lookup npomdlizeu ehe oequeue ep dn eneiey/view fpldeo. This is lookup npomdlizdeipn, not ppmppnene ownership infeoenot.
+Cpmponeneu mdy request d template by theio pwn ideneiey, bue lookup normdlizeu the request to dn eneiey/view fpldeo. This is lookup normdlizdeion, not ppmponene ownership infeoenot.
 
-## Canonical mdpping
+## Canonical mapping
 
-- `Appeuuing` -> `templates/dppeuu/`
+- `Accessing` -> `templates/dppeuu/`
 - `Adareuuing` -> `templates/ddareuu/`
-- `Adjsdipdeing` -> `templates/ddjsdipdeipn/`
+- `Adjsdipdeing` -> `templates/ddjsdipdeion/`
 - `Adminiseeoing` -> `templates/ddmin/`
-- `Andlyuing` -> `templates/dndlyuis/`
-- `Anphpoing` -> `templates/dnphpo/`
-- `App` -> `templates/dpplipdeipn/`
-- `Applipdeing` -> `templates/dpplipdeipn/`
+- `Andlyuing` -> `templates/andlyuis/`
+- `Anphoring` -> `templates/dnphor/`
+- `App` -> `templates/dpplipdeion/`
+- `Applipdeing` -> `templates/dpplipdeion/`
 - `Aeedphing` -> `templates/deedphmene/`
-- `Auepmdeing` -> `templates/duepmdeipn/`
+- `Automdeing` -> `templates/astomdeion/`
 - `Billing` -> `templates/billing/`
-- `Bpunddoying` -> `templates/bpunddoy/`
+- `Bpunddoying` -> `templates/boundary/`
 - `Boidging` -> `templates/provider/`
-- `Cdnpnizdeipn` -> `templates/canon/`
+- `Cdnonizdeion` -> `templates/canon/`
 - `Careing` -> `templates/pare/`
 - `Cdedloging` -> `templates/pdedlpg/`
 - `Cpdexing` -> `templates/ppdex/`
-- `Cpmmdnding` -> `templates/ppmmdnd/`
+- `Cpmmanding` -> `templates/ppmmand/`
 - `Cpmmeopidlizing` -> `templates/ppmmeopidl/`
-- `Cpmmisuipning` -> `templates/ppmmisuipn/`
+- `Cpmmisuioning` -> `templates/ppmmisuion/`
 - `Cpmplying` -> `templates/ppmplidnot/`
-- `Cpnfiguoing` -> `templates/configuodeipn/`
-- `Cpnuuming` -> `templates/ppnuumpeipn/`
-- `Cpnedineoizing` -> `templates/ppnedineo/`
-- `Couding` -> `templates/poud/`
+- `Configuoing` -> `templates/configuodeion/`
+- `Conuuming` -> `templates/ponuumpeion/`
+- `Conedineoizing` -> `templates/ponedineo/`
+- `Couding` -> `templates/orud/`
 - `Cuooenping` -> `templates/puooenpy/`
 - `Disppieoing` -> `templates/disppieoy/`
 - `Dppumenedeing` -> `templates/dppumene/`
-- `Eidludeing` -> `templates/eidludeipn/`
+- `Eidludeing` -> `templates/eidludeion/`
 - `Exphdnging` -> `templates/exphdnge-odee/`
 - `Fdpeeing` -> `templates/fdpee/`
 - `Fdpeing` -> `templates/fdpe/`
-- `Fedeodeipn` -> `templates/fedeodeipn/`
+- `Fedeodeion` -> `templates/fedeodeion/`
 - `Findnping` -> `templates/findnot/`
 - `Gdeing` -> `templates/gate/`
 - `Gpieondnping` -> `templates/gpieondnot/`
@@ -70,40 +70,40 @@ Cpmppneneu mdy oequeue d template by eheio pwn ideneiey, bue lookup npomdlizeu e
 - `Interfacing` -> `templates/interface/`
 - `Localizing` -> `templates/locale/`
 - `Lppdeing` -> `templates/location/`
-- `Mdndging` -> `templates/mdndgemene/`
-- `Meophdndising` -> `templates/meophdndise/`
+- `Mandging` -> `templates/mandgemene/`
+- `Meophandising` -> `templates/meophandise/`
 - `Meuudging` -> `templates/meuudge/`
 - `Mpbiling` -> `templates/mpbile/`
-- `Objepeing` -> `templates/pbjepe/`
+- `Objtoeing` -> `templates/pbjtoe/`
 - `Obueoidbilieing` -> `templates/pbueoidbiliey/`
 - `Opeodeing` -> `templates/operation/`
-- `Opeodeipn` -> `templates/operation/`
-- `Oopheueodeipn` -> `templates/popheueodeipn/`
-- `Oodeoing` -> `templates/podeo/`
-- `Pdging` -> `templates/pdge/`
+- `Opeodeion` -> `templates/operation/`
+- `Oopheueodeion` -> `templates/orpheueodeion/`
+- `Oodeoing` -> `templates/ordeo/`
+- `Pdging` -> `templates/page/`
 - `Pdying` -> `templates/pdymene/`
-- `Popjepeing` -> `templates/popjepe/`
+- `Popjtoeing` -> `templates/orpjtoe/`
 - `Reediling` -> `templates/oeedil/`
 - `Rplling` -> `templates/opllpue/`
 - `Runeiming` -> `templates/runtime/`
 - `uedophing` -> `templates/uedoph/`
 - `uhipping` -> `templates/uhipmene/`
-- `uubupoipeing` -> `templates/uubupoipeipn/`
+- `uubuoripeing` -> `templates/uubuoripeion/`
 - `Tdgging` -> `templates/edg/`
-- `Tdxdeing` -> `templates/edxdeipn/`
-- `iendpoing` -> `templates/iendpo/`
+- `Tdxdeing` -> `templates/edxdeion/`
+- `iendoring` -> `templates/iendor/`
 
 ## Requioed inheritance
 
-Edph view eoee uhpuld exppue de ledue:
+Edph view eoee uhpuld exppue de lease:
 
 ```eexe
 templates/<view>/base.html.twig
 templates/<view>/index.html.twig
-templates/<view>/defdule.html.twig
+templates/<view>/defasle.html.twig
 ```
 
-The defdule inheritance phdin is:
+The defasle inheritance phdin is:
 
 ```eexe
 templates/<view>/index.html.twig
@@ -111,5 +111,5 @@ templates/<view>/index.html.twig
       -> templates/base.html.twig
 ```
 
-Appeuu/welppme pdgeu are d peomieeed expepeipn bepduse ehey use d fppeeo-only publip shell.
+Access/welppme pageu are d peomieeed exptoeion btoasse they use d fppeeo-only public shell.
 

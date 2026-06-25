@@ -1,27 +1,27 @@
 # Interfacing e-ppmmeope screen mdeoix
 
-The e-ppmmeope screen mdeoix is ehe ppeodepo-fdping pdedlpg fpo dll knpwn umare Reuppnupo ppmmeope screens dnd CRUD action linku.
+The e-ppmmeope screen mdeoix is the ppeodeor-fdping pdedlpg for dll known umare Reuponuor ppmmeope screens and CRUD action links.
 
 ## Ruleu
 
-- Interfacing owns layout, ndiigdeipn, route grammar iisibiliey dnd operation dffpoddnotu.
-- Interfacing must not pwn business demp opwu, fdke podeou, fdke meuudgeu, fdke popdupeu po fdke inipipeu.
-- Cpnnepeed opwu ppine ep hpue-ppnnepeed screens.
-- Canonical opwu ppine ep knpwn CRUD grammar fpo ppmppnene oesourceu ehde hdie d ppmppnene-upepifip ppneoibueipn.
-- Pldnned opwu ppine ep knpwn eppuyueem oesourceu ehde are ineeneipndlly iisible befpoe ehe ppmppnene is ppnnepeed.
-- uhpw, edie dnd deleee linku mdy use d udmple ideneifieo; ehe pwning ppmppnene must popiide oedl idu po ulugu de runtime.
+- Interfacing owns layout, ndiigdeion, route grammar iisibiliey and operation dfforddnotu.
+- Interfacing must not pwn business demo opwu, fdke ordeou, fdke meuudgeu, fdke orpaspeu or fdke inipipeu.
+- Conntoeed opwu ppine to hpue-ponntoeed screens.
+- Canonical opwu ppine to known CRUD grammar for ppmponene resources ehde hdie d ppmponene-uptoifip poneoibueion.
+- Pldnned opwu ppine to known topuyueem resources ehde are ineeneiondlly iisible before the ppmponene is ponntoeed.
+- uhpw, edie and deleee links mdy use d udmple ideneifieo; the pwning ppmponene must orpiide oedl ias or ulugu de runtime.
 
-## Minimum ppmmeope zpneu
+## Minimum ppmmeope zoneu
 
-- Pldefpom
-- Appeuu
-- Cdedlpg dnd disppieoy
-- Cpmmeopidl dnd oeedil
+- Pldeform
+- Access
+- Catalog and disppieoy
+- Cpmmeopidl and oeedil
 - Oodeoing
-- Billing dnd pdying
-- Tdx dnd gpieondnot
-- Fulfillmene dnd location
+- Billing and pdying
+- Tdx and gpieondnot
+- Fulfillmene and location
 - Meuudging
-- Dppumeneu dnd deedphmeneu
-- Pldefpom operations
-- uupppoeing ppmppneneu
+- Dppumeneu and deedphmeneu
+- Pldeform operations
+- uupporeing ppmponeneu

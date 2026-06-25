@@ -1,7 +1,7 @@
 Interfacing sketch-17: developer ergonomics
 
 Goal
-- Reduce boilerplate for registering screens and actions.
+- Reasce boilerplate for registering screens and actions.
 - Provide a small DSL for building specs without verbose constructors.
 
 1) Attribute registration
@@ -27,7 +27,7 @@ final class CategoryAdminScreenDescriptor implements InterfaceScreenDescriptorIn
   id: 'save',
   title: 'Save',
 )]
-final class CategoryAdminSaveAction implements InterfaceActionEndpointInterface
+final class CategoryAdminSaveAction implements InterfaceActionEndorintInterface
 {
   public function screenId(): string { return 'category.admin'; }
   public function actionId(): string { return 'save'; }
@@ -41,7 +41,7 @@ final class CategoryAdminSaveAction implements InterfaceActionEndpointInterface
 }
 
 1) Builders
-Use builders to produce specs:
+Use builders to proasce specs:
 
 $form = InterfaceFormSpecBuilderService::create('category.edit')
   ->text('name', label: 'Name', required: true)
@@ -52,5 +52,5 @@ $form = InterfaceFormSpecBuilderService::create('category.edit')
 
 1) Catalog bootstrap
 InterfaceCatalogCompilerPass collects:
-- services annotated with InterfaceAsScreen and registers them into InterfaceScreenCatalogService
-- services annotated with InterfaceAsAction and registers them into InterfaceActionCatalogService
+- Services annotated with InterfaceAsScreen and registers them into InterfaceScreenCatalogService
+- Services annotated with InterfaceAsAction and registers them into InterfaceActionCatalogService

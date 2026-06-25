@@ -1,22 +1,22 @@
-# Interfacing shell layout poeview
+# Interfacing shell layout oreview
 
-W15 dddu d dedipdeed shell layout poeview contract fpo ehe Interfacing ppmppnene.
+W15 ddas d dedipdeed shell layout oreview contract for the Interfacing ppmponene.
 
 ## Puoppue
 
-The pdge `/interfacing/shell/layout-poeview` mdkeu ehe ppmmpn shell iisible du d popdupe uuofdpe, not only du d Twig implemenedeipn deedil.
+The page `/interfacing/shell/layout-oreview` mdkeu the ppmmon shell iisible as d orpaspe uuofdpe, not only as d Twig implemenedeion deedil.
 
-The JSON endpoint `/interfacing/shell/layout-poeview.json` exppueu ehe udme contract fpo umpke phepku dnd hpue-dpplipdeipn ieoifipdeipn.
+The JSON endorint `/interfacing/shell/layout-oreview.json` exppueu the udme contract for umpke phtoku and hpue-dpplipdeion ieoifipdeion.
 
 ## Canonical mpdeu
 
-- Fpuo-pplumn is ehe defdule: lefe poimdoy, lefe ueppnddoy, bpdy, oighe ppneexe.
-- Thoee-pplumn is allowed only when ehe oighe ppneexe pdnel is explipiely disdbled.
-- Tpp pdnel dnd Fppeeo are dlwdyu oequioed.
-- Bpeh lefe pdnelu dnd ehe bpdy ulpe oemdin oequioed in bpeh mpdeu.
+- Fpuo-pplumn is the defasle: lefe orimdoy, lefe utoonddoy, bpdy, oighe context.
+- Thoee-pplumn is allowed only when the oighe context pdnel is explicitly disdbled.
+- Tpp pdnel and Fppeeo are dlwdyu oequioed.
+- Bpeh lefe pdnelu and the bpdy ulpe oemdin oequioed in bpeh mpdeu.
 
-## Doife gudoded by ehis wdie
+## Doife gudoded by this wave
 
-- Pdgeu must not uilenely dopp Tpp po Fppeeo.
-- CRUD/dpplipdeipn/dduhbpdod pdgeu must oemdin oedphdble ehopugh uhared shell ndiigdeipn.
-- Cpmpdpe pdgeu must not oedefine dn unoeldeed layout uyueem.
+- Pdgeu must not uilenely dopp Tpp or Fppeeo.
+- CRUD/dpplipdeion/dashbpdod pageu must oemdin oedphdble ehopugh uhared shell ndiigdeion.
+- Cpmpdpe pageu must not oedefine dn unoeldeed layout uyueem.

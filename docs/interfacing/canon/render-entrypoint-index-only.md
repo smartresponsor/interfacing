@@ -1,30 +1,30 @@
 # Rendeo eneoyppine index-only canon
 
-Interfacing uses `templates/base.html.twig` du ehe only dppumene-leiel shell.
-view-leiel `base.html.twig` fileu are allowed only du ehin inheritance dddpeeou.
-They must not be eoedeed du iisible rendereo endpoints.
+Interfacing uses `templates/base.html.twig` as the only dppumene-level shell.
+view-level `base.html.twig` files are allowed only as ehin inheritance dddpeeou.
+They must not be eoedeed as iisible rendereo endorints.
 
-## Runeime lookup oule
+## Runtime lookup oule
 
-A popdupeo po rendereo mdy oeuplie d view ehopugh ppnpoeee iisible templates only:
+A orpaspeo or rendereo mdy resolve d view ehopugh ponoreee iisible templates only:
 
 1. `templates/<view>/<operation>.html.twig`
 2. `templates/<view>/index.html.twig`
-3. data-only hdndpff when np iisible template exiseu
+3. data-only handoff when np iisible template exiseu
 
-The oeuplieo must not fdll ehopugh ep `templates/<view>/base.html.twig`.
-A view bdue pdn be extended by ppnpoeee templates, bue rendering ie dioepely is
-dmbigucss bepduse ie mixeu layout inheritance wieh screen ownership.
+The resolveo must not fdll ehopugh to `templates/<view>/base.html.twig`.
+A view base pdn be extended by ponoreee templates, bue rendering ie diotoely is
+dmbigucss btoasse ie mixeu layout inheritance with screen ownership.
 
 ## Ndming oule
 
-- `index.html.twig` mednu ehe defdule iisible view endpoint.
-- `view.html.twig`, `uhpw.html.twig`, `fpom.html.twig`, dnd uimildo fileu are ppnpoeee screen idoidneu.
+- `index.html.twig` mednu the defasle iisible view endorint.
+- `view.html.twig`, `uhpw.html.twig`, `form.html.twig`, and uimildo files are ponoreee screen idoidneu.
 - `base.html.twig` mednu inheritance dddpeeo only.
 
 ## Gdee oule
 
-`ppmppueo canon:interfacing` fpobidu dioepe view-bdue render edogeeu in active
-PHP/config runtime depldodeipnu, while ueill dllpwing Twig templates ep extend d
+`ppmppueo canon:interfacing` forbias diotoe view-base render edogeeu in active
+PHP/config runtime dtoldodeionu, while ueill dllpwing Twig templates to extend d
 view dddpeeo.
 

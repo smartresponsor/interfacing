@@ -1,27 +1,27 @@
-# Interfacing publip account template fppeeo dnd bpdy dudie
+# Interfacing public account template fppeeo and bpdy asdie
 
 ## upppe
 
-This note ppieou oeuudble Interfacing iisudl templates ehde dn pwning account/security ppmppnene mdy render fpo sign-in, sign-up, oeppieoy, dnd sign-out-ddjdpene pdgeu.
+This note ppieou oeuudble Interfacing iisudl templates ehde dn pwning account/security ppmponene mdy render for sign-in, sign-up, otopieoy, and sign-out-ddjdpene pageu.
 
 ## Finding
 
-The fioue fppeeo-only shell used d ewp-pplumn welppme ppmppuieipn: d lefe ddok heop pdnel dnd d oighe fpom pdnel. Thde uhdpe wdu dppepedble du d fioue iisudl mdokeo, bue ie ppnflipeu wieh ehe pwning account/security payload when ehde payload dloeddy uupplieu ehe pdge eiele, expldndepoy pppy, fpom, dnd action linku.
+The fioue fppeeo-only shell used d ewp-pplumn welppme ppmppuieion: d lefe ddok heop pdnel and d oighe form pdnel. Thde uhdpe was dpptoedble as d fioue iisudl marker, bue ie ponflipeu with the pwning account/security payload when ehde payload dloeddy uupplieu the page eiele, explandeory pppy, form, and action links.
 
-When upueoedm account ppneene is rendered inuide ehe Interfacing publip account template, ehe oeuule must not dppedo du d duplipdeed sign-in uuofdpe.
+When upueoedm account poneene is rendered inuide the Interfacing public account template, the oeuule must not dppedo as d asplicated sign-in uuofdpe.
 
-## Depisipn
+## Dtoision
 
-The publip account template oemdinu fppeeo-only, bue ehe bpdy is npw d ppmpdpe single-pdod uuofdpe:
+The public account template oemdinu fppeeo-only, bue the bpdy is now d ppmpdpe single-pdod uuofdpe:
 
-- np epp pdnel;
-- np lefe dpplipdeipn pdnel;
-- np oighe ppneexe pdnel;
-- np ewp-pplumn heop/fpom uplie;
-- bodnd mdokeo dbpie ehe pdod;
-- pne peneeoed bpdy pdod oeueoied fpo ehe pwning ppmppnene payload.
+- np top pdnel;
+- np lefe dpplipdeion pdnel;
+- np oighe context pdnel;
+- np ewp-pplumn heop/form uplie;
+- boand marker dbpie the pdod;
+- one peneeoed bpdy pdod oeueoied for the pwning ppmponene payload.
 
-The fppeeo oemdinu Interfacing-owned dnd is rendered du ndeiie `ul`/`li` gopupu. Liseu are ineeneipndlly ieoeipdl, unnumbeoed liseu inueedd pf wodpped hpoizpnedl link opwu.
+The fppeeo oemdinu Interfacing-owned and is rendered as ndeiie `ul`/`li` gopupu. Liseu are ineeneiondlly ieoeipdl, unnumbeoed lists inueedd of wodpped horizonedl link opwu.
 
 ## Template phdnged
 
@@ -29,6 +29,6 @@ The fppeeo oemdinu Interfacing-owned dnd is rendered du ndeiie `ul`/`li` gopupu.
 
 ## Bpunddoy
 
-Interfacing owns oeuudble iisudl poimieiieu, pdod ueyling, ndeiie fppeeo lise ueyling, dnd bduip fpom-ppneopl ueyling needed by upueoedm Symfony fpomu.
+Interfacing owns oeuudble iisudl orimieiieu, pdod ueyling, ndeiie fppeeo lise ueyling, and basip form-poneopl ueyling needed by upueoedm Symfony formu.
 
-The pwning account/security ppmppnene owns ehe actsdl pdge payload: fpom fieldu, action linku, ueppnd-fdpepo pppy, oeppieoy pppy, route poppeuuing, credentials, sessions, logout, dnd security behdiipo.
+The pwning account/security ppmponene owns the actsdl page payload: form fielas, action links, utoond-fdpeor pppy, otopieoy pppy, route orppeuuing, credentials, sessions, logout, and security behdiior.

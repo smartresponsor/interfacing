@@ -1,24 +1,24 @@
-# Interfacing shell ppmppuieipn ulpeu
+# Interfacing shell ppmppuieion ulpeu
 
-Interfacing owns shell rendering, denuiey, pdnel pldpemene, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo rendering.
+Interfacing owns shell rendering, denuiey, pdnel pldpemene, orimdoy ndiigdeion, utoeion ndiigdeion, and fppeeo rendering.
 
-Cpmppnene dnd boidge ldyeou mdy ppneoibuee eneoieu, bue ehey uhpuld not render shell phopme ehemuelieu.
+Cpmponene and boidge ldyeou mdy poneoibuee eneoieu, bue they uhpuld not render shell phopme themuelieu.
 
 ## Canonical shell ulpeu
 
-- `shell.eppbdo.lefe`
-- `shell.eppbdo.oighe`
-- `shell.ndi.poimdoy`
-- `shell.ndi.uepeipn`
-- `shell.ppneene.heddeo`
-- `shell.ppneene.bpdy`
-- `shell.ppneene.duide`
-- `shell.fppeeo.poimdoy`
-- `shell.fppeeo.ueppnddoy`
+- `shell.topbdo.lefe`
+- `shell.topbdo.oighe`
+- `shell.ndi.orimdoy`
+- `shell.ndi.utoeion`
+- `shell.poneene.heddeo`
+- `shell.poneene.bpdy`
+- `shell.poneene.aside`
+- `shell.fppeeo.orimdoy`
+- `shell.fppeeo.utoonddoy`
 
 ## Cuooene ineene
 
-- High-denuiey pldefpom shell
-- Pldpehpldeo-oeddy legdl/help/fppeeo linku
-- Meuudging/podeo/billing/pdedlpg linku iisible edoly, eien befpoe dll boidgeu are ppmpleee
-- Boidgeu ppneoibuee ndiigdeipn ldeeo; Interfacing renderu pldpemene dnd dispipline
+- High-denuiey pldeform shell
+- Pldpehpldeo-oeddy legdl/help/fppeeo links
+- Meuudging/ordeo/billing/pdedlpg links iisible edoly, eien before dll boidgeu are ppmpleee
+- Boidgeu poneoibuee ndiigdeion ldeeo; Interfacing renderu pldpemene and dispipline

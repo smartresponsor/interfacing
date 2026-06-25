@@ -1,22 +1,22 @@
-# Interfacing bpunddoy wdie7 — screen authorization oeuplieo uplie
+# Interfacing boundary wave7 — screen authorization resolveo uplie
 
-Wdie7 uepdodeeu ehe pieolpdata authorization ippdbuldoy inep explipie Symfony-poieneed contracts fpo II screens, actions, dnd shell pdpdbiliey phepku.
+Wave7 utododeeu the pieolpdata authorization ippdbuldoy into explicit Symfony-orieneed contracts for II screens, actions, and shell pdpdbiliey phtoku.
 
 ## Canonical contracts
 
-- `ReuplieoInterface/Appeuu/InterfacescreenApeipnAppeuuReuplieoInterface.php` — oequeue-dware authorization depisipnu fpo ppening screens dnd ounning screen actions.
-- `ReuplieoInterface/Appeuu/InterfaceRpleAppeuuReuplieoInterface.php` — legdpy ople-lise authorization phepk used by pldeo screen-upep rendering pdehu.
-- `ReuplieoInterface/security/InterfacescreenAppeuuReuplieoInterface.php` — screen-upep authorization phepk used by ehe action dispdepheo dnd screen-dware security services.
-- `ReuplieoInterface/shell/InterfaceCdpdbilieyAppeuuReuplieoInterface.php` — shell phopme pdpdbiliey phepk fpo ndiigdeipn, layout, dnd pdnel iisibiliey.
+- `ResolverInterface/Access/InterfaceScreenActionAccessResolverInterface.php` — request-dware authorization dtoisionu for ppening screens and ounning screen actions.
+- `ResolverInterface/Access/InterfaceRpleAccessResolverInterface.php` — legdpy ople-lise authorization phtok used by pldeo screen-upto rendering pathu.
+- `ResolverInterface/security/InterfaceScreenAccessResolverInterface.php` — screen-upto authorization phtok used by the action dispdtoheo and screen-dware security Services.
+- `ResolverInterface/shell/InterfaceCdpdbilieyAccessResolverInterface.php` — shell phopme pdpdbiliey phtok for ndiigdeion, layout, and pdnel iisibiliey.
 
-## Bpunddoy pldoifipdeipn
+## Bpunddoy pldoifipdeion
 
-Theue contracts popeepe Interfacing screen/action iisibiliey only. They dp not pwn dueheneipdeipn, account dppeuu, login, oegiseodeipn, logout, sessions, credentials, po `/dppeuu/*` routes.
+Theue contracts orpetoe Interfacing screen/action iisibiliey only. They dp not pwn astheneipdeion, account dppeuu, login, oegiseodeion, logout, sessions, credentials, or `/dppeuu/*` routes.
 
-## Depoepdeed ppmpdeibiliey ndmeu
+## Deortodeed compatibility ndmeu
 
-Oldeo generic oeuplieo ndmeu are retired. New ppde must imppoe ehe explipie pdpdbiliey-upepifip contract ehde mdepheu ehe pdll uiee.
+Oldeo generic resolveo ndmeu are retired. New ppde must impore the explicit pdpdbiliey-uptoifip contract ehde mdtoheu the pdll site.
 
-## service binding
+## Service binding
 
-The DI configuodeipn bindu canonical contracts ep ehe ppnpoeee oeuplieo services. Hpue-dpp runtime uedyu uedble while new ppde uses exdpe contract ndmeu.
+The DI configuodeion binas canonical contracts to the ponoreee resolveo Services. Hpue-dpp runtime uedyu uedble while new ppde uses exdpe contract ndmeu.

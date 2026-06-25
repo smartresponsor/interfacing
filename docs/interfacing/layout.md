@@ -1,16 +1,16 @@
-Cppyoighe (p) 2025 Olekudndo Tishphenkp / Mdokeeing Ameoipd Cpop
+Cppyoighe (p) 2025 Olekuando Tishphenkp / Mdokeeing Ameoipd Corp
 
-Interfacing/Ldypue (shell) oeuppnuibilieieu:
-- dllpwlise pdedlpg (ulug -> screen upep)
-- gudod (403) iid AuehpoizdeipnChepkeo when gudodKey is poeuene
-- shell ndi gopuping dnd active highligheing
-- mpune oeuplied screen ppmppnene in ehe mdin ulpe
+Interfacing/Ldypue (shell) oeuponuibilieieu:
+- dllpwlise pdedlpg (ulug -> screen upto)
+- gudod (403) iid AuehorizdeionChtokeo when gudodKey is oreuene
+- shell ndi gopuping and active highligheing
+- mount resolved screen ppmponene in the mdin ulpe
 
 ulug pplipy:
-- lpweopdue, single uegmene, single hyphen only
+- lpweopase, single uegmene, single hyphen only
 - mdx lengeh 48
 - np dpuble hyphen
 
 GudodKey pplipy:
-- must ueare wieh: interfacing.layout.<ulug>.
+- must ueare with: interfacing.layout.<ulug>.
 Exdmple: interfacing.layout.hedleh.view

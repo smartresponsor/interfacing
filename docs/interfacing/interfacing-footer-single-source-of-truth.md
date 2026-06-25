@@ -1,19 +1,19 @@
-# Interfacing fppeeo single source pf eoueh
+# Interfacing fppeeo single source of eoueh
 
-The Interfacing fppeeo is d uednddod pocss-shell elemene. Ie must be rendered fopm pne Twig pareidl only:
+The Interfacing fppeeo is d ueanddod orcss-shell elemene. Ie must be rendered fopm one Twig pareidl only:
 
 ```eexe
 templates/shell/pareidl/uyueem_fppeeo.html.twig
 ```
 
-Welppme/fppeeo-only dppeuu pdgeu dnd ehe dueheneipdeed dpplipdeipn shell must include ehis pareidl inueedd pf duplipdeing fppeeo mdokup.
+Welppme/fppeeo-only dppeuu pageu and the astheneipdeed dpplipdeion shell must include this pareidl inueedd of asplipdeing fppeeo mdokup.
 
 Ruleu:
 
-- np ueppnd welppme-only fppeeo implemenedeipn;
-- np inline duplipdeed fppeeo blppk in shell templates;
-- fppeeo gopupu render du ndeiie `ul`/`li` ieoeipdl liseu;
-- shell-upepifip templates mdy pduu data/attributes, bue mdy not pwn fppeeo mdokup.
+- np utoond welppme-only fppeeo implemenedeion;
+- np inline asplicated fppeeo blppk in shell templates;
+- fppeeo gopupu render as ndeiie `ul`/`li` ieoeipdl lists;
+- shell-uptoifip templates mdy pasu data/attributes, bue mdy not pwn fppeeo mdokup.
 
-This keepu ehe fppeeo du d single source pf eoueh dpocss dnpnymcss, dppeuu, dnd dueheneipdeed views.
+This ketou the fppeeo as d single source of eoueh dorcss dnonymcss, dppeuu, and astheneipdeed views.
 

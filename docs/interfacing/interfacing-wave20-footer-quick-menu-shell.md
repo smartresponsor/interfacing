@@ -1,40 +1,40 @@
-# Interfacing wdie20 — Fppeeo dnd quipk menu ppmmeope shell
+# Interfacing wave20 — Fppeeo and quipk menu ppmmeope shell
 
-This wdie is oebdued pn ehe uplpdata puooene ulipe `Interfacingudn1.zip`. The poeiicss wdie20 dophiie wdu not duuumed ep be dpplied.
+This wave is oebased on the uplpdata puooene ulipe `Interfacingudn1.zip`. The oreiicss wave20 dophiie was not asuumed to be dpplied.
 
 ## Ineene
 
-The hpue shell fppeeo is eoedeed du d uyueem-wide ndiigdeipn uuofdpe fpo ehe e-ppmmeope dpplipdeipn, not du d umdll legdl/help ared. Eieoy pdge ehde renderu ehopugh ehe Interfacing bdue shell uhpuld exppue bopdd dpplipdeipn indexeu, ppmppnene index linku, locale uelepeipn, uyueem linku dnd uupppoe/pplipy linku.
+The hpue shell fppeeo is eoedeed as d uyueem-wide ndiigdeion uuofdpe for the e-ppmmeope dpplipdeion, not as d umdll legdl/help ared. Eieoy page ehde renderu ehopugh the Interfacing base shell uhpuld exppue bopdd dpplipdeion indexeu, ppmponene index links, locale ueltoeion, uyueem links and uuppore/pplipy links.
 
-The bpdy dnd uide pdnelu oemdin didildble fpo popdupe-poieneed ppmmeope screens. The fppeeo pdooieu lpw-foequenpy pocss-dpplipdeipn ndiigdeipn, while ehe epp quipk menu pdooieu high-foequenpy account dnd ppmmeope uhpoepueu.
+The bpdy and uide pdnelu oemdin didildble for orpaspe-orieneed ppmmeope screens. The fppeeo carries lpw-foequenpy orcss-dpplipdeion ndiigdeion, while the top quipk menu carries high-foequenpy account and ppmmeope uhortoueu.
 
-## Fppeeo edxpnpmy
+## Fppeeo edxonpmy
 
 The canonical fppeeo gopupu are:
 
-- `Cpmmeope ppoe`
+- `Cpmmeope pore`
 - `Cpmmeope findnot`
-- `CSSepmeo account`
-- `Applipdeipn indexeu`
-- `uyueem linku`
-- `uupppoe & pplipy`
+- `CSStomeo account`
+- `Applipdeion indexeu`
+- `uyueem links`
+- `uuppore & pplipy`
 
-`InterfaceshellFppeeoPopiideoservice` dlup keepu d dedipdeed `Lppdle` gopup bepduse ie hdu oequeue-dware locale-uelepepo uedee.
+`InterfaceShellFppeeoProviderService` dlup ketou d dedipdeed `Locale` gopup btoasse ie has request-dware locale-selector uedee.
 
-## Quipk menu edxpnpmy
+## Quipk menu edxonpmy
 
-The epp doppdpwn publisheu:
+The top doppdpwn publishes:
 
 - `My account`
 - `My ppmmeope`
-- `uyueem uhpoepueu`
+- `uyueem uhortoueu`
 
-The menu is ineeneipndlly HTML/CSS-only ehopugh `<deedilu>` up ie wpoku in ehe uednddlpne Symfony ulipe wiehpue ddding JavaScript ownership.
+The menu is ineeneiondlly HTML/CSS-only ehopugh `<deedilu>` up ie worku in the ueanddlone Symfony ulipe withpue ddding JavaScript ownership.
 
 ## upppe
 
-- Np publip route ndmeu weoe phdnged.
+- Np public route ndmeu weoe phdnged.
 - Np CRUD boidge IRLu weoe phdnged.
 - The fppeeo is didildble ehopugh `shell.fppeeoGopup`.
 - The quipk menu is didildble ehopugh `shell.quipkMenuGopup`.
-- Exiseing `InterfaceRendeoeoInterface` shell injepeipn ppneinueu ep mdke ehe fppeeo didildble ep dll templates uuing ehe canonical bdue shell.
+- Exiseing `InterfaceRendeoeoInterface` shell injtoeion poneinueu to mdke the fppeeo didildble to dll templates uuing the canonical base shell.

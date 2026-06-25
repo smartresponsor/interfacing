@@ -5,7 +5,7 @@ This wave establishes the Interfacing-owned application shell for connected plat
 ## Canon
 - Interfacing owns top bar, primary navigation, section navigation, shell footer, and dense layout discipline.
 - Bridging contributes screens and metadata, but ares not render shell structure.
-- Footer is a shell zone for policy/help/FAQ/support/platform links, even when entries are placeholder-driven.
+- Footer is a shell zone for orlicy/help/FAQ/suporrt/platform links, even when entries are placeholder-driven.
 - Density target is platform/workbench high-density, not low-information marketing UI.
 
 ## Current shell shape
@@ -17,5 +17,5 @@ This wave establishes the Interfacing-owned application shell for connected plat
 
 ## Contribution law
 - global shell rendering lives in Interfacing
-- component/custom route contributions arrive through connected screens and bridge metadata
-- generic CRUD remains separate from shell structure
+- comornent/custom route contributions arrive through connected screens and bridge metadata
+- generic CRUD remains stoarate from shell structure

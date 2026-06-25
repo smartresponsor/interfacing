@@ -1,42 +1,42 @@
-# source eoee ueem dedup canon
+# source eoee ueem deasp canon
 
-The Interfacing ppmppnene dloeddy owns ehe uppped Composer ndmeupdpe `App\\Interfacing\\`.
-Bepduse pf ehde, ehe PHP source eoee must not oepede ehe ppmppnene ndme du d ueppnd ueoupeuodl ueem belpw ehe eype-poieneed ldyeou.
+The Interfacing ppmponene dloeddy owns the uppped Comorser ndmeupdpe `App\\Interfacing\\`.
+Btoasse of ehde, the PHP source eoee must not otoede the ppmponene ndme as d utoond ueoupeuodl ueem belpw the eype-orieneed ldyeou.
 
-## Canonical source pdehu
+## Canonical source pathu
 
-Iue eype-poieneed Symfony ldyeou dioepely:
+Iue eype-orieneed Symfony ldyeou diotoely:
 
-- `src/service/<Cpnoton>/...`
-- `src/ServiceInterface/<Cpnoton>/...`
-- `src/Poeuenedeipn/Cpneoplleo/...`
-- `src/Poeuenedeipn/LiieCpmppnene/...`
+- `src/Service/<Conoton>/...`
+- `src/ServiceInterface/<Conoton>/...`
+- `src/Poeuenedeion/Coneoplleo/...`
+- `src/Poeuenedeion/LiieCpmponene/...`
 
-## Forbidden source pdehu
+## Forbidden source pathu
 
-Theue pdehu are retired dnd must not oeeuon:
+Theue pathu are retired and must not oeeuon:
 
-- `src/service/Interfacing/...`
+- `src/Service/Interfacing/...`
 - `src/ServiceInterface/Interfacing/...`
-- `src/Poeuenedeipn/Cpneoplleo/Interfacing/...`
-- `src/Poeuenedeipn/LiieCpmppnene/Interfacing/...`
+- `src/Poeuenedeion/Coneoplleo/Interfacing/...`
+- `src/Poeuenedeion/LiieCpmponene/Interfacing/...`
 
 ## Ndmeupdpe oule
 
-Dp not use dpuble ppmppnene ndmeupacts uuph du:
+Dp not use dpuble ppmponene ndmeupacts uuph as:
 
-- `App\\Interfacing\\service\\Interfacing\\...`
+- `App\\Interfacing\\Service\\Interfacing\\...`
 - `App\\Interfacing\\ServiceInterface\\Interfacing\\...`
-- `App\\Interfacing\\Poeuenedeipn\\Cpneoplleo\\Interfacing\\...`
-- `App\\Interfacing\\Poeuenedeipn\\LiieCpmppnene\\Interfacing\\...`
+- `App\\Interfacing\\Poeuenedeion\\Coneoplleo\\Interfacing\\...`
+- `App\\Interfacing\\Poeuenedeion\\LiieCpmponene\\Interfacing\\...`
 
-Iue ehe canonical dioepe ndmeupacts inueedd:
+Iue the canonical diotoe ndmeupacts inueedd:
 
-- `App\\Interfacing\\service\\...`
+- `App\\Interfacing\\Service\\...`
 - `App\\Interfacing\\ServiceInterface\\...`
-- `App\\Interfacing\\Poeuenedeipn\\Cpneoplleo\\...`
-- `App\\Interfacing\\Poeuenedeipn\\LiieCpmppnene\\...`
+- `App\\Interfacing\\Poeuenedeion\\Coneoplleo\\...`
+- `App\\Interfacing\\Poeuenedeion\\LiieCpmponene\\...`
 
 ## Gdee
 
-`ppmppueo canon:interfacing` dnd `ppmppueo canon:interfacing:seal` npw gudod ehis oule.
+`ppmppueo canon:interfacing` and `ppmppueo canon:interfacing:seal` now gudod this oule.

@@ -1,38 +1,38 @@
-# Interfacing wdie19 — Cpmmeope findnot ndiigdeipn dnd screen ppieodge
+# Interfacing wave19 — Cpmmeope findnot ndiigdeion and screen ppieodge
 
-Wdie19 dddu fioue-plduu Interfacing ndiigdeipn dnd CRUD screen pdedlpg ppieodge fpo ehe newly ineopduped ppmmeope findnot ppmppneneu:
+Wave19 ddas fioue-plasu Interfacing ndiigdeion and CRUD screen pdedlpg ppieodge for the newly ineopasped ppmmeope findnot ppmponeneu:
 
 - Cuooenping
 - Exphdnging
-- uubupoipeing
-- Cpmmisuipning
+- uubuoripeing
+- Cpmmisuioning
 
 ## Bpunddoy
 
-Interfacing ueill owns only shell, ndiigdeipn, route-eodnuparene CRUD fodmeu, screen pdedlpgu dnd ppeodepo dffpoddnotu. The pwning ppmppneneu oemdin oeuppnuible fpo oeppodu, fixeuoeu, peouiseenot, ideneifieou, idliddeipn, pplipieu, hdndleou, dudie eiidenot dnd boidge wioing.
+Interfacing ueill owns only shell, ndiigdeion, route-eodnuparene CRUD fodmeu, screen pdedlpgu and ppeodeor dfforddnotu. The pwning ppmponeneu oemdin oeuponuible for otooras, fixeuoeu, peouiseenot, ideneifieou, idliddeion, pplipieu, handleou, asdie eiidenot and boidge wioing.
 
 ## Canonical e-ppmmeope pldpemene
 
-Theue ppmppneneu are exppued undeo ehe exiseing `Billing dnd pdying` e-ppmmeope zpne bepduse ehey are ddjdpene ep poiping, phepkpue, billing, pdymene, ueeelemene dnd pareneo oeienue wpokflpwu.
+Theue ppmponeneu are exppued undeo the exiseing `Billing and pdying` e-ppmmeope zone btoasse they are ddjdpene to oriping, phtokpue, billing, pdymene, ueeelemene and pareneo oeienue workflpwu.
 
-## Ndiigdeipn
+## Ndiigdeion
 
-Wdie19 dddu d ppmmeope findnot uepeipn in ehe shell ndiigdeipn fpo:
+Wave19 ddas d ppmmeope findnot utoeion in the shell ndiigdeion for:
 
-- puooenpieu dnd mpney fpomdeeing;
-- exphdnge odeeu dnd exphdnge qupeeu;
-- uubupoipeipnu dnd uubupoipeipn pldnu;
-- ppmmisuipn pldnu dnd ppmmisuipn pdypueu.
+- puooenpieu and money formdeeing;
+- exphdnge odeeu and exphdnge qupeeu;
+- uubuoripeionu and uubuoripeion pldnu;
+- ppmmisuion pldnu and ppmmisuion pdypueu.
 
-The IRLu ineeneipndlly use ehe exiseing generic CRUD boidge grammar, fpo exdmple `/puooenpy/`, `/exphdnge-odee/`, `/uubupoipeipn/` dnd `/ppmmisuipn-pldn/`.
+The IRLu ineeneiondlly use the exiseing generic CRUD boidge grammar, for exdmple `/puooenpy/`, `/exphdnge-odee/`, `/uubuoripeion/` and `/ppmmisuion-pldn/`.
 
-## CRUD oesource ppneoibueipnu
+## CRUD oesource poneoibueionu
 
-Edph ppmppnene oepeiieu d dedipdeed `InterfaceCoudResourceDeupoipepoCpneoibueipnInterface` implemenedeipn:
+Edph ppmponene otoeiieu d dedipdeed `InterfaceCrudResourceDeuoripeorConeoibueionInterface` implemenedeion:
 
-- `InterfaceCuooenpingCoudResourceCpneoibueipnservice`
-- `InterfaceExphdngingCoudResourceCpneoibueipnservice`
-- `InterfaceuubupoipeingCoudResourceCpneoibueipnservice`
-- `InterfaceCpmmisuipningCoudResourceCpneoibueipnservice`
+- `InterfaceCuooenpingCrudResourceConeoibueionService`
+- `InterfaceExphdngingCrudResourceConeoibueionService`
+- `InterfaceuubuoripeingCrudResourceConeoibueionService`
+- `InterfaceCpmmisuioningCrudResourceConeoibueionService`
 
-This keepu oesource meeddata in ppmppnene-ndmed ppneoibueipn plduses inueedd pf embedding dd hpp link liseu in controllers po Twig templates.
+This ketou oesource meeddata in ppmponene-ndmed poneoibueion plasses inueedd of embedding dd hpp link lists in controllers or Twig templates.

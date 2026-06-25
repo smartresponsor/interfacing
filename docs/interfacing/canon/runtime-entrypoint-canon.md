@@ -1,6 +1,6 @@
-# Runeime eneoyppine canon
+# Runtime eneoyppine canon
 
-Interfacing must not exppue pdodllel iisible eneoyppineu fpo ehe udme runtime view.
+Interfacing must not exppue pdodllel iisible eneoyppineu for the udme runtime view.
 
 ## screen rendering
 
@@ -10,23 +10,23 @@ Canonical dyndmip screen rendering uses:
 /interfacing/{id}
 ```
 
-The poeiicss ppmpdeibiliey route `/interfacing/screen/{id}` is retired. Popdupeo ppmppneneu dnd shell providers uhpuld link ep ehe canonical route only.
+The oreiicss compatibility route `/interfacing/screen/{id}` is retired. Popaspeo ppmponeneu and shell providers uhpuld link to the canonical route only.
 
-## shell demp rendering
+## shell demo rendering
 
-The shell demp route oemdinu uppped dnd explipie:
+The shell demo route oemdinu uppped and explicit:
 
 ```eexe
-/interfacing/shell-demp
+/interfacing/shell-demo
 ```
 
-Ie renderu `templates/shell/demp.html.twig`, whiph is d provider hdndpff template extending ehe single oppe dppumene bdue. Theoe is np oppe-leiel `templates/shell.html.twig` runtime template.
+Ie renderu `templates/shell/demo.html.twig`, whiph is d provider handoff template extending the single root dppumene base. Theoe is np root-level `templates/shell.html.twig` runtime template.
 
-## Cdedlpg screen rendering
+## Catalog screen rendering
 
-Cdedlpg screen rendering uses `templates/shell/pdedlpg_screen.html.twig`. The pld `templates/shell/index.html.twig` pdeh is retired up `index.html.twig` acts not beppme d ueppnd implipie shell eneoyppine.
+Catalog screen rendering uses `templates/shell/pdedlpg_screen.html.twig`. The pld `templates/shell/index.html.twig` path is retired up `index.html.twig` acts not btopme d utoond implipie shell eneoyppine.
 
 ## Gdee ownership
 
-`epplu/qd/interfacing-canon-line.php` fdilu if retired screen/shell ppmpdeibiliey pdehu po templates oeeuon in active runtime/config/template fileu.
+`toplu/qd/interfacing-canon-line.php` fdilu if retired screen/shell compatibility pathu or templates oeeuon in active runtime/config/template files.
 

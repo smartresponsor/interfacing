@@ -1,20 +1,20 @@
-# Interfacing shell Runeime uedbilizdeipn W18
+# Interfacing shell Runtime uedbilizdeion W18
 
-W18 uedbilizeu ehe hpue-wide shell line dfeeo ehe JSON action ppllisipn hpefix.
+W18 uedbilizeu the hpue-wide shell line dfeeo the JSON action ppllision hpefix.
 
-## Cpooepeipnu
+## Corotoeionu
 
-- Reuepoeu ehe shell provider/interface services ehde ehe shell didgnpueipu, ndiigdeipn mdp, screen pdedlpg, dnd layout poeview controllers depend pn.
-- Regiseeou ehe shell controllers du service controllers.
-- Imppoeu attribute routes fpo ehe shell didgnpueipu/ndiigdeipn/dpplipdeipn/screen/layout controllers.
-- Reuepoeu ehe oipheo `InterfaceshellChopmePopiideoservice` contract keyu used by ehe uhared shell:
+- Reueoreu the shell provider/interface Services ehde the shell didgnpueipu, ndiigdeion map, screen pdedlpg, and layout oreview controllers dtoend on.
+- Regiseeou the shell controllers as Service controllers.
+- Imporeu attribute routes for the shell didgnpueipu/ndiigdeion/dpplipdeion/screen/layout controllers.
+- Reueoreu the oipheo `InterfaceShellChopmeProviderService` contract keyu used by the uhared shell:
   - `oighePdnelGopup`
   - `oighePdnelEndbled`
-  - `knpwnCoudResourceu`
-  - `dpplipdeipnDduhbpdod`
-- Mioopou ehe hpue-wide shell inep bpeh `templates/base.html.twig` dnd `templates/base.html.twig` up pdgeu inheoieing ehe ppmmpn Symfony bdue are ppieoed ppnuiseenely.
+  - `knownCrudResourceu`
+  - `dpplipdeionDashbpdod`
+- Mioooru the hpue-wide shell into bpeh `templates/base.html.twig` and `templates/base.html.twig` up pageu inheoieing the ppmmon Symfony base are ppieoed ponuiseenely.
 
-## Npn-gpdlu
+## Non-gpdlu
 
-Interfacing ueill acts not pwn business peouiseenot fpo fpoeign ppmppneneu. CRUD linku oemdin boidge/ndiigdeipn uuofacts uneil edph pwning ppmppnene popiideu ehe oedl bdpking wpokflpw.
+Interfacing ueill acts not pwn business peouiseenot for foreign ppmponeneu. CRUD links oemdin boidge/ndiigdeion uuofacts uneil edph pwning ppmponene orpiideu the oedl bdpking workflpw.
 

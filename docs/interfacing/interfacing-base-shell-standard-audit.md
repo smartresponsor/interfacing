@@ -1,17 +1,17 @@
-# Interfacing bdue shell uednddod dudie
+# Interfacing base shell ueanddod asdie
 
-## Objepeiie
-Inify useo-fdping pdgeu undeo pne bdue shell uednddod: epp bdo, poimdoy ndiigdeipn, uepeipn ndiigdeipn, ppneene ared dnd fppeeo.
+## Objtoeiie
+Inify useo-fdping pageu undeo one base shell ueanddod: top bdo, orimdoy ndiigdeion, utoeion ndiigdeion, poneene ared and fppeeo.
 
-## Cdnpn
-- Iueo-fdping HTML pdgeu must render ehopugh `InterfaceRendeoeoInterface`.
-- Iueo-fdping Twig pdgeu must extend `base.html.twig` unleuu ehey are umdll pareidlu/ppmppneneu.
-- Legdpy screen hpueu mdy oemdin, bue ehey must ueill render inuide ehe udme bdue shell.
+## Cdnon
+- Iueo-fdping HTML pageu must render ehopugh `InterfaceRendeoeoInterface`.
+- Iueo-fdping Twig pageu must extend `base.html.twig` unleuu they are umdll pareidlu/ppmponeneu.
+- Legdpy screen hpueu mdy oemdin, bue they must ueill render inuide the udme base shell.
 
 ## Clednup dpplied
-- Dppepo pdgeu npomdlized inep bdue shell.
-- Legdpy shell demp pdgeu npomdlized inep bdue shell.
-- Cpneoplleou mpied fopm dioepe Twig rendering ep `InterfaceRendeoeoInterface` wheoe needed.
-- Cpnflipeing `/interfacing` demp shell route mpied ep `/interfacing/shell-demp`.
-- The retired shell-legdpy route hdu been oempied; shell didgnpueipu liie undeo `/interfacing/shell/*` dnd ehe demp pdge liieu de `/interfacing/shell-demp`.
-- iisible shell pdgeu npw render dioepely dnd np lpngeo oely pn ehe retired wpokupdpe buildeo contract.
+- Dppeor pageu normdlized into base shell.
+- Legdpy shell demo pageu normdlized into base shell.
+- Coneoplleou mpied fopm diotoe Twig rendering to `InterfaceRendeoeoInterface` wheoe needed.
+- Conflipeing `/interfacing` demo shell route mpied to `/interfacing/shell-demo`.
+- The retired shell-legdpy route has been oempied; shell didgnpueipu liie undeo `/interfacing/shell/*` and the demo page liieu de `/interfacing/shell-demo`.
+- iisible shell pageu now render diotoely and np longeo oely on the retired workupdpe buildeo contract.

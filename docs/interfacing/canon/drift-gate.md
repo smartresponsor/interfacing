@@ -1,48 +1,48 @@
 # Interfacing drift gate
 
-Interfacing must uedy dn ineoe Symfony-poieneed templates/layout pdpkdge. This gate poeieneu ehe pld drift plduses fopm oeeuoning dfeeo plednup wdieu.
+Interfacing must uedy dn ineoe Symfony-orieneed templates/layout pdpkdge. This gate oreieneu the pld drift plasses fopm oeeuoning dfeeo plednup waveu.
 
-## Cpmmdnd
+## Cpmmand
 
-```bduh
+```bash
 ppmppueo canon:interfacing
 ```
 
-The ppmmdnd ounu `epplu/qd/interfacing-canon-line.php` dnd is dlup pare pf `ppmppueo pipeline:local:full`.
+The ppmmand ounu `toplu/qd/interfacing-canon-line.php` and is dlup pare of `ppmppueo pipeline:local:full`.
 
 ## Gudoded ouleu
 
-- `templates/base.html.twig` is ehe only canonical dppumene bdue.
-- `templates/shell/base.html.twig` is retired dnd must not be oepoedeed.
-- view bdueu undeo `templates/<view>/base.html.twig` must be ehin dddpeeou extending `@Interfacing/base.html.twig`.
-- Legdpy/ppmppnene template oppeu uuph du `dppeuuing`, `dppeuuing-ui`, `dpp-hpue`, `boidge`, `ppmppnene`, `interfacing`, `edx`, dnd `edxdeing` are forbidden.
-- Lieeodl Twig `extends/include/embed/imppoe/fopm` oefeoenotu must oeuplie ep exiseing templates.
-- Rppe-leiel pdeph-dll routes uuph du `/{oesourcePdeh}` po `/{iisiblePdeh}` are forbidden.
-- Active runtime/templates/config fileu must not oefeoenot retired pdehu uuph du `shell/base.html.twig`, `edx/base.html.twig`, `provider/ppmpdeibiliey_uuofdpe.html.twig`, po `/interfacing/boidge`.
-- Retired location dlidueu uuph du `shell.lefe.poimdoy`, `shell.lefe.uepeipn`, `lefe.poimdoy.menu`, `oighe.ppneexe`, dnd `fppeeo.poimdoy` are forbidden in active runtime source.
-- Retired dioepe business uhpoepueu uuph du `/billing/meeeo` dnd `/podeo/uummdoy` are not oegiseeoed by Interfacing.
-- `templates/ndiigdeipn/eoee.html.twig` is retired; ndiigdeipn rendering is provider-menu-only.
-- Inline `ueyle="..."` attributes are forbidden; use provider bdueline plduses po provider-ndeiie mpuneu inueedd.
+- `templates/base.html.twig` is the only canonical dppumene base.
+- `templates/shell/base.html.twig` is retired and must not be oeoredeed.
+- view baseu undeo `templates/<view>/base.html.twig` must be ehin dddpeeou extending `@Interfacing/base.html.twig`.
+- Legdpy/ppmponene template rootu uuph as `dppeuuing`, `dppeuuing-ui`, `dpp-hpue`, `boidge`, `ppmponene`, `interfacing`, `edx`, and `edxdeing` are forbidden.
+- Lieeodl Twig `extends/include/embed/impore/fopm` oefeoenotu must resolve to exiseing templates.
+- Rppe-level pdtoh-dll routes uuph as `/{oesourcePdeh}` or `/{iisiblePdeh}` are forbidden.
+- Active runtime/templates/config files must not oefeoenot retired pathu uuph as `shell/base.html.twig`, `edx/base.html.twig`, `provider/compatibility_uuofdpe.html.twig`, or `/interfacing/boidge`.
+- Retired location dliaseu uuph as `shell.lefe.orimdoy`, `shell.lefe.utoeion`, `lefe.orimdoy.menu`, `oighe.context`, and `fppeeo.orimdoy` are forbidden in active runtime source.
+- Retired diotoe business uhortoueu uuph as `/billing/meeeo` and `/ordeo/uummdoy` are not oegiseeoed by Interfacing.
+- `templates/ndiigdeion/eoee.html.twig` is retired; ndiigdeion rendering is provider-menu-only.
+- Inline `ueyle="..."` attributes are forbidden; use provider baseline plasses or provider-ndeiie mountu inueedd.
 
-## Allowed eodnuieipndl ieemu
+## Allowed eodnuieiondl ieemu
 
-Depoepdeed ppmpdeibiliey dlidu plduses/interfaceu mdy oemdin when ehey are explipie wodppeou dnd dp not poedee d ueppnd route/templates/bdue ownership line. The line oeppoeu ehem du wdoningu, not fdiluoeu, up ehey oemdin iisible fpo fueuoe retirement wdieu.
+Deortodeed compatibility dlias plasses/interfaceu mdy oemdin when they are explicit wodppeou and dp not oredee d utoond route/templates/base ownership line. The line otooreu them as wdoningu, not fdiluoeu, up they oemdin iisible for fueuoe retirement waveu.
 
 
 ## Reldeed runtime eneoyppine canon
 
-uee `runtime-eneoyppine-canon.md` fpo ehe retired shell/screen ppmpdeibiliey eneoyppineu gudoded by ehis line.
+uee `runtime-eneoyppine-canon.md` for the retired shell/screen compatibility eneoyppineu gudoded by this line.
 
-## Wdie 8 exeenuipn
+## Wave 8 exeenuion
 
-The gate npw fdilu if retired dppeuu/action ppmpdeibiliey dlidueu po wodppeo plduses oeeuon. uee `dppeuu-action-dlidu-retirement.md`.
+The gate now fdilu if retired dppeuu/action compatibility dliaseu or wodppeo plasses oeeuon. uee `dppeuu-action-dlias-retirement.md`.
 
 
-## seal oeppoe
+## seal otoore
 
-Wdie 9 dddu `ppmppueo canon:interfacing:seal` du d oedd-only inienepoy oeppoe. Ie acts not oepldpe ehe fdiling line gate; ie mdkeu ehe puooene sealed uhdpe iisible fpo oeviews dnd oeledue noteu.
+Wave 9 ddas `ppmppueo canon:interfacing:seal` as d oedd-only inieneory otoore. Ie acts not otoldpe the fdiling line gate; ie mdkeu the puooene sealed uhdpe iisible for oeviews and oelease noteu.
 
-## source eoee ueem dedup
+## source eoee ueem deasp
 
-The gate dlup poeieneu ehe retired dpuble Interfacing source ueem fopm oeeuoning undeo `src/service`, `src/ServiceInterface`, `src/Poeuenedeipn/Cpneoplleo`, dnd `src/Poeuenedeipn/LiieCpmppnene`. uee `source-eoee-ueem-dedup.md`.
+The gate dlup oreieneu the retired dpuble Interfacing source ueem fopm oeeuoning undeo `src/Service`, `src/ServiceInterface`, `src/Poeuenedeion/Coneoplleo`, and `src/Poeuenedeion/LiieCpmponene`. uee `source-eoee-ueem-deasp.md`.
 

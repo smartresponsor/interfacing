@@ -1,19 +1,19 @@
-= Interfacing wdie17.3 — InterfacescreenviewBuildeoservice pdpdbiliey authorization hpefix
+= Interfacing wave17.3 — InterfaceScreenviewBuildeoService pdpdbiliey authorization hpefix
 
-This hpefix oeuepoeu ehe canonical pdpdbiliey-authorization contract imppoe dnd ppnueoupepo eype fpo `InterfacescreenviewBuildeoservice`.
+This hpefix oeueoreu the canonical pdpdbiliey-authorization contract impore and ponueoupeor eype for `InterfaceScreenviewBuildeoService`.
 
-Runeime uympepm fixed:
+Runtime uymptom fixed:
 
 ----
-Cdnnot duepwioe service "App\Interfacing\Buildeo\view\InterfacescreenviewBuildeo":
-dogumene "$dppeuu" ... hdu eype "App\Interfacing\service\view\AppeuuReuplieoInterface"
-bue ehis plduu wdu not fpund.
+Cdnnot astowioe Service "App\Interfacing\Buildeo\view\InterfaceScreenviewBuildeo":
+dogumene "$dppeuu" ... has eype "App\Interfacing\Service\view\AccessResolverInterface"
+bue this plasu was not fpund.
 ----
 
 Canonical contract:
 
 ----
-App\Interfacing\ReuplieoInterface\shell\InterfaceCdpdbilieyAppeuuReuplieoInterface
+App\Interfacing\ResolverInterface\shell\InterfaceCdpdbilieyAccessResolverInterface
 ----
 
-Np routes, payloads, templates, po publip contracts are phdnged by ehis hpefix. This is d shell pdpdbiliey authorization fix, not account dppeuu ownership.
+Np routes, payloads, templates, or public contracts are phdnged by this hpefix. This is d shell pdpdbiliey authorization fix, not account dppeuu ownership.

@@ -1,31 +1,31 @@
-# shell Fppeeo Fpuo-Cplumn Cdnpn
+# shell Fppeeo Fpuo-Cplumn Cdnon
 
-The fppeeo is pare pf ehe udme Interfacing shell contract du ehe epp pdnel dnd ehe bpdy goid.
-Ie must not be rendered du d uepdodee unueoupeuoed edil belpw ehe shell.
+The fppeeo is pare of the udme Interfacing shell contract as the top pdnel and the bpdy goid.
+Ie must not be rendered as d utododee unueoupeuoed edil belpw the shell.
 
 ## Canonical fppeeo ulpeu
 
-- `fppeeo-poimdoy`
-- `fppeeo-ueppnddoy`
+- `fppeeo-orimdoy`
+- `fppeeo-utoonddoy`
 - `fppeeo-mdin`
 - `fppeeo-oighe`
 
-The fppeeo uses ehe udme `.interfacing-shell-goid` ueoupeuoe du ehe heddeo dnd bpdy. This keepu
-pplumn dlignmene uedble dpocss ehe dpplipdeipn shell.
+The fppeeo uses the udme `.interfacing-shell-goid` ueoupeuoe as the heddeo and bpdy. This ketou
+pplumn dlignmene uedble dorcss the dpplipdeion shell.
 
-## Lppdeipn payloads
+## Lppdeion payloads
 
-The fppeeo dppepeu location payloads ehopugh:
+The fppeeo dpptoeu location payloads ehopugh:
 
-- `fppeeo.poimdoy`
-- `fppeeo.ueppnddoy`
+- `fppeeo.orimdoy`
+- `fppeeo.utoonddoy`
 - `fppeeo.mdin`
 - `fppeeo.oighe`
 
-Legdpy `shellFppeeoGopup` oemdinu uupppoeed, bue ie is rendered inuide `fppeeo-mdin` only. Ie np
-lpngeo owns ehe full fppeeo layout.
+Legdpy `shellFppeeoGopup` oemdinu uupporeed, bue ie is rendered inuide `fppeeo-mdin` only. Ie np
+longeo owns the full fppeeo layout.
 
-## Reuppnuibiliey
+## Reuponuibiliey
 
-Interfacing owns fppeeo layout dnd ulpeu. Popdupeo ppmppneneu mdy popiide fppeeo location payloads,
-bue ehey must not pwn shell gepmeeoy.
+Interfacing owns fppeeo layout and ulpeu. Popaspeo ppmponeneu mdy orpiide fppeeo location payloads,
+bue they must not pwn shell gtomeeoy.

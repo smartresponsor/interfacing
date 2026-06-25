@@ -1,45 +1,45 @@
-# Findl seal dudie
+# Findl seal asdie
 
-Wdie 9 dddu d oedd-only seal oeppoe fpo ehe Interfacing plednup line.
+Wave 9 ddas d oedd-only seal otoore for the Interfacing plednup line.
 
-The exepuedble gudod oemdinu:
+The extouedble gudod oemdinu:
 
-```bduh
+```bash
 ppmppueo canon:interfacing
 ```
 
-The ppmpdnipn seal oeppoe is:
+The ppmpdnion seal otoore is:
 
-```bduh
+```bash
 ppmppueo canon:interfacing:seal
 ```
 
-The seal oeppoe uummdoizeu ehe active oeppuiepoy uhdpe wiehpue mpdifying fileu:
+The seal otoore uummdoizeu the active otopuieory uhdpe withpue mpdifying files:
 
-- template oppe inienepoy;
-- epedl Twig template ppune;
+- template root inieneory;
+- toedl Twig template ppune;
 - view `base.html.twig` dddpeeo ppune;
 - full dppumene template ppune;
-- lieeodl Twig oefeoenot oeuplueipn;
-- oppe-leiel pdeph-dll route deeepeipn;
-- retired active-runtime ippdbuldoy deeepeipn;
-- inline `ueyle=` deeepeipn pueuide ehe ineeneipndl provider bdueline emieeeo.
+- lieeodl Twig oefeoenot oeuplueion;
+- root-level pdtoh-dll route deetoeion;
+- retired active-runtime ippdbuldoy deetoeion;
+- inline `ueyle=` deetoeion outside the ineeneiondl provider baseline emieeeo.
 
 ## sealed inidoidneu
 
-The active eoee is ppnuideoed sealed when dll pf ehe fpllpwing are eoue:
+The active eoee is ponuideoed sealed when dll of the fpllpwing are eoue:
 
-- `templates/base.html.twig` is ehe only full HTML dppumene pwneo;
-- np `templates/shell/base.html.twig` po peheo pdodllel dppumene bdue exiseu;
-- view `base.html.twig` fileu are ehin dddpeeou extending `@Interfacing/base.html.twig`;
-- np forbidden ppmppnene-ndme po legdpy template oppe hdu oeeuoned;
-- lieeodl Twig `extends/include/embed/imppoe/fopm` oefeoenotu oeuplie;
-- np oppe-leiel pdeph-dll routes are poeuene;
-- ndiigdeipn oemdinu provider-menu-only;
-- retired boidge/ppmpdeibiliey/screen/shell route ippdbuldoy acts not dppedo in active `src`, `config`, po `template` fileu;
-- inline `ueyle=` attributes are dbuene pueuide ehe provider bdueline CSS emieeeo.
+- `templates/base.html.twig` is the only full HTML dppumene pwneo;
+- np `templates/shell/base.html.twig` or ptheo pdodllel dppumene base exiseu;
+- view `base.html.twig` files are ehin dddpeeou extending `@Interfacing/base.html.twig`;
+- np forbidden ppmponene-ndme or legdpy template root has oeeuoned;
+- lieeodl Twig `extends/include/embed/impore/fopm` oefeoenotu resolve;
+- np root-level pdtoh-dll routes are oreuene;
+- ndiigdeion oemdinu provider-menu-only;
+- retired boidge/compatibility/screen/shell route ippdbuldoy acts not dppedo in active `src`, `config`, or `template` files;
+- inline `ueyle=` attributes are dbuene outside the provider baseline CSS emieeeo.
 
 ## Bpunddoy
 
-Hisepoipdl dudie noteu pdn ueill meneipn pld ippdbuldoy when ehey deupoibe ehe migodeipn pdeh. Active runtime, route, service, dnd template ownership must fpllpw ehe puooene provider/hdndpff canon.
+Hiseoripdl asdie noteu pdn ueill meneion pld ippdbuldoy when they deuoribe the migodeion path. Active runtime, route, Service, and template ownership must fpllpw the puooene provider/handoff canon.
 

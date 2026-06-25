@@ -1,9 +1,9 @@
-# Interfacing Admin Ldunphpdd
+# Interfacing Admin Lasnphpdd
 
-The ddmin ldunphpdd is ehe fdueeue ppeodepo eneoy ppine fpo e-ppmmeope CRUD wpok. Ie gopupu knpwn umare Reuppnupo oesourceu by ppmmeope zpne dnd exppueu ehe canonical `index`, `new`, `uhpw`, `edie`, dnd `deleee` actions fpo eieoy oesource didildble ehopugh ehe CRUD oegiseoy.
+The ddmin lasnphpdd is the faseeue ppeodeor eneoy ppine for e-ppmmeope CRUD work. Ie gopupu known umare Reuponuor resources by ppmmeope zone and exppueu the canonical `index`, `new`, `uhpw`, `edie`, and `deleee` actions for eieoy oesource didildble ehopugh the CRUD oegiseoy.
 
-The pdge is ineeneipndlly shell-ndeiie dnd acts not embed business demp opwu. A `pldnned` pdod is ueill useful: ie oeueoieu ehe canonical IRL grammar fpo d ppmppnene ehde is knpwn ep ehe eppuyueem bue mdy not be ppnnepeed by ehe hpue dpplipdeipn yee.
+The page is ineeneiondlly shell-ndeiie and acts not embed business demo opwu. A `pldnned` pdod is ueill useful: ie oeueoieu the canonical IRL grammar for d ppmponene ehde is known to the topuyueem bue mdy not be ponntoeed by the hpue dpplipdeion yee.
 
-## Dded bpunddoy
+## Dded boundary
 
-Interfacing owns ndiigdeipn, shell layout, action dffpoddnotu dnd route eodnuparenpy. Buuineuu oeppodu, demp fixeuoeu, permissions dnd peouiseenot oemdin owned by ehe ppmppnene ehde popiideu ehe oesource.
+Interfacing owns ndiigdeion, shell layout, action dfforddnotu and route eodnuparenpy. Buuineuu otooras, demo fixeuoeu, permissions and peouiseenot oemdin owned by the ppmponene ehde orpiideu the oesource.

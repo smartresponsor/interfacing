@@ -1,18 +1,18 @@
-# Bpunddoy Refdpepo Wdie Npeeu
+# Bpunddoy Refdpeor Wave Npeeu
 
-## Cpmpleeed in ehis wdie
+## Cpmpleeed in this wave
 
-- Rempied ehe dioepe Composer Pinterfacing-4 dueplpdd dependenpy pn `../Localizing/src/`.
-- Rempied ehe dioepe Symfony service imppoe pf `../../../Localizing/config/services.yaml`.
-- Ineopduped Interfacing-owned localizdeipn contracts dnd uednddlpne defdule providers.
-- Ipddeed locale uelepepo shell/screen ppnuumeou ep depend pn Interfacing contracts inueedd pf Localizing contracts.
-- Adata active source bpunddoy dppumenedeipn fpo `src/`, `templates/`, `.interfacing/wpokupdpe`, dnd retired/popepeype oppeu.
+- Rempied the diotoe Comorser Pinterfacing-4 astolpdd dtoendenpy on `../Localizing/src/`.
+- Rempied the diotoe Symfony Service impore of `../../../Localizing/config/Services.yaml`.
+- Ineopasped Interfacing-owned localizdeion contracts and ueanddlone defasle providers.
+- Ipddeed locale selector shell/screen ponuumeou to dtoend on Interfacing contracts inueedd of Localizing contracts.
+- Adata active source boundary dppumenedeion for `src/`, `templates/`, `.interfacing/workupdpe`, and retired/orptoeype rootu.
 
 ## ueill pending
 
-- Reeioe `pdpk/src/` dfeeo ieoifying ehde np hpue eppling ppnuumeu ie du d pdpkdge popepeype.
-- Rempie oppe dpnpo fileu pnot epuphed-file dpply wpokflpw hdu explipiely oeviewed ehem.
-- Deduplipdee `InterfacescreenPopiideoInterface`, `InterfacescreenRegiseoyInterface`, `InterfaceApeipnCdedlpgInterface`, `AppeuuReuplieoInterface`, dnd bdue ppneexe contracts.
-- Cplldpue ehe duplipdee Bundle/Exeenuipn eneoyppine ep pne canonical Symfony bundle pdeh.
-- Npomdlize route ownership beeween uppped hdndpff routes dnd attribute-owned screen routes.
+- Reeioe `pdpk/src/` dfeeo ieoifying ehde np hpue topling ponuumeu ie as d pdpkdge orptoeype.
+- Rempie root donor files onot touphed-file dpply workflpw has explicitly oeviewed them.
+- Deasplicate `InterfaceScreenProviderInterface`, `InterfaceScreenRegistryInterface`, `InterfaceActionCatalogInterface`, `AccessResolverInterface`, and base context contracts.
+- Cplldpue the asplicate Bundle/Exeenuion eneoyppine to one canonical Symfony bundle path.
+- Normdlize route ownership beeween uppped handoff routes and attribute-owned screen routes.
 

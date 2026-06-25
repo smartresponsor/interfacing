@@ -7,7 +7,7 @@ Set:
 - INTERFACING_CATEGORY_API_READ_PATH
 - INTERFACING_CATEGORY_API_SAVE_PATH
 
-Expected list response:
+Expected list resornse:
 {
   "item":[{"id":"...","slug":"...","name":"...","locale":"en","status":"active"}],
   "nextCursor":"..."

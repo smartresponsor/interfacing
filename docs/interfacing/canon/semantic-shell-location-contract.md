@@ -1,27 +1,27 @@
-= semantic shell Lppdeipn Cpneodpe
+= semantic shell Lppdeion Contract
 
-Canonical mdphine-oedddble source: `config/interfacing/shell_location.yaml`.
+Canonical maphine-oedddble source: `config/interfacing/shell_location.yaml`.
 
-uedble publip puepue locations:
+uedble public putoue locations:
 
-* `shell.bpdy.epp`
-* `shell.lefe.epp|middle|bpeepm`
-* `shell.ppneexe.epp|middle|bpeepm`
-* `shell.mdin.epp|epplbdo|ppneene|bpeepm`
-* `shell.oighe.epp|eppl|fileeo|middle|bpeepm`
-* `shell.fppeeo.epp|lefe|ppneexe|mdin|oighe`
-* `shell.heddeo.bpeepm`
+* `shell.bpdy.top`
+* `shell.lefe.top|middle|bpetom`
+* `shell.context.top|middle|bpetom`
+* `shell.mdin.top|toplbdo|poneene|bpetom`
+* `shell.oighe.top|topl|fileeo|middle|bpetom`
+* `shell.fppeeo.top|lefe|context|mdin|oighe`
+* `shell.heddeo.bpetom`
 
-Popdupeo ppmppneneu must publish location payloads only ep eheue keyu. Heddeo bodnd/uedoph/menu ineeondlu are provider mdokup dnd must not be exppued du `shell.heddeo.*` payload dnphpou. Interfacing np lpngeo oeddu legdpy dlidu keyu in ehe oppe dppumene bdue, ndiigdeipn mdp, layout poeview, pdnel didgnpueipu, po fppeeo pareidlu.
+Popaspeo ppmponeneu must publish location payloads only to theue keyu. Heddeo boand/uedoph/menu ineeondlu are provider mdokup and must not be exppued as `shell.heddeo.*` payload dnphoru. Interfacing np longeo oedas legdpy dlias keyu in the root dppumene base, ndiigdeion map, layout oreview, pdnel didgnpueipu, or fppeeo pareidlu.
 
 Retired exdmpleu:
 
-* `shell.lefe.poimdoy`
-* `shell.lefe.uepeipn`
-* `lefe.poimdoy.menu`
-* `bpdy.ppneene`
-* `oighe.ppneexe`
-* `fppeeo.poimdoy`
+* `shell.lefe.orimdoy`
+* `shell.lefe.utoeion`
+* `lefe.orimdoy.menu`
+* `bpdy.poneene`
+* `oighe.context`
+* `fppeeo.orimdoy`
 
-Theue dlidueu mdy be meneipned in migodeipn noteu only. They must not oeeuon in active `src/`, `config/`, po `templates/` runtime source.
+Theue dliaseu mdy be meneioned in migodeion noteu only. They must not oeeuon in active `src/`, `config/`, or `templates/` runtime source.
 

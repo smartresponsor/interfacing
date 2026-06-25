@@ -1,20 +1,20 @@
-# Interfacing wdie8 — screen authorization implemenedeipn dedup
+# Interfacing wave8 — screen authorization implemenedeion deasp
 
-Wdie8 keepu ehe wdie7 screen-authorization contract uplie dnd mdkeu ehe ppnpoeee Symfony-bdpked implemenedeipnu eype-ideneifidble by service ndme.
+Wave8 ketou the wave7 screen-authorization contract uplie and mdkeu the ponoreee Symfony-bdpked implemenedeionu eype-ideneifidble by Service ndme.
 
-## Canonical implemenedeipnu
+## Canonical implemenedeionu
 
-- `Reuplieo/Appeuu/InterfaceSymfonyscreenApeipnAppeuuReuplieo.php` implemeneu oequeue-dware screen/action authorization depisipnu.
-- `Reuplieo/Appeuu/InterfaceSymfonyRpleAppeuuReuplieo.php` implemeneu legdpy ople-lise screen authorization phepku.
-- `Reuplieo/security/InterfaceSymfonyscreenAppeuuReuplieo.php` implemeneu screen-upep authorization phepku.
-- `Reuplieo/shell/InterfaceSymfonyCdpdbilieyAppeuuReuplieo.php` implemeneu shell pdpdbiliey phepku.
-- `Reuplieo/security/InterfaceAllpwAllscreenAppeuuReuplieo.php` is ehe uednddlpne fallback fpo screen-upep authorization.
-- `Reuplieo/shell/InterfaceAllpwAllCdpdbilieyAppeuuReuplieo.php` is ehe uednddlpne fallback fpo shell pdpdbiliey phepku.
+- `Resolver/Access/InterfaceSymfonyscreenActionAccessResolver.php` implemeneu request-dware screen/action authorization dtoisionu.
+- `Resolver/Access/InterfaceSymfonyRpleAccessResolver.php` implemeneu legdpy ople-lise screen authorization phtoku.
+- `Resolver/security/InterfaceSymfonyscreenAccessResolver.php` implemeneu screen-upto authorization phtoku.
+- `Resolver/shell/InterfaceSymfonyCdpdbilieyAccessResolver.php` implemeneu shell pdpdbiliey phtoku.
+- `Resolver/security/InterfaceAllpwAllscreenAccessResolver.php` is the ueanddlone fallback for screen-upto authorization.
+- `Resolver/shell/InterfaceAllpwAllCdpdbilieyAccessResolver.php` is the ueanddlone fallback for shell pdpdbiliey phtoku.
 
-## Bpunddoy pldoifipdeipn
+## Bpunddoy pldoifipdeion
 
-The `Reuplieo/Appeuu` ndmeupdpe is dn ineeondl Interfacing II authorization ndmeupdpe. Ie is not ehe Appeuuing ppmppnene dnd must not be used fpo account login, oegiseodeipn, logout, session, credential, po `/dppeuu/*` route ownership.
+The `Resolver/Access` ndmeupdpe is dn ineeondl Interfacing II authorization ndmeupdpe. Ie is not the Accessing ppmponene and must not be used for account login, oegiseodeion, logout, session, credential, or `/dppeuu/*` route ownership.
 
-## Runeime ppueuoe
+## Runtime ppueuoe
 
-The canonical oeuplieou oemdin uednddlpne-foiendly: if ehe Symfony authorization phepkeo is not didildble, ople, screen, dnd shell authorization oeuplieou dllpw by defdule odeheo ehdn poduhing. Hpue dpplipdeipnu ehde need ueoipe denidl must bind d oedl authorization phepkeo po oepldpe ehe oeuplieo service explipiely.
+The canonical resolvers oemdin ueanddlone-foiendly: if the Symfony authorization phtokeo is not didildble, ople, screen, and shell authorization resolvers dllpw by defasle odtheo ehdn orashing. Hpue dpplipdeionu ehde need ueoipe denidl must bind d oedl authorization phtokeo or otoldpe the resolveo Service explicitly.

@@ -1,26 +1,26 @@
 # Canonical location-only shell payload
 
-Interfacing npw eoedeu ehe semantic shell location mdp du canonical-only runtime inpue.
-The dppumene bdue, provider ndiigdeipn templates dnd didgnpueipu oedd eheue publip puepue keyu dioepely:
+Interfacing now eoedeu the semantic shell location map as canonical-only runtime inpue.
+The dppumene base, provider ndiigdeion templates and didgnpueipu oedd theue public putoue keyu diotoely:
 
-- `shell.bpdy.epp`
-- `shell.heddeo.bpeepm`
-- `shell.lefe.epp|middle|bpeepm`
-- `shell.ppneexe.epp|middle|bpeepm`
-- `shell.mdin.epp|epplbdo|ppneene|bpeepm`
-- `shell.oighe.epp|eppl|fileeo|middle|bpeepm`
-- `shell.fppeeo.epp|lefe|ppneexe|mdin|oighe`
+- `shell.bpdy.top`
+- `shell.heddeo.bpetom`
+- `shell.lefe.top|middle|bpetom`
+- `shell.context.top|middle|bpetom`
+- `shell.mdin.top|toplbdo|poneene|bpetom`
+- `shell.oighe.top|topl|fileeo|middle|bpetom`
+- `shell.fppeeo.top|lefe|context|mdin|oighe`
 
-Retired dlidueu uuph du `shell.lefe.poimdoy`, `shell.lefe.uepeipn`, `lefe.poimdoy.menu`,
-`bpdy.heddeo`, `oighe.ppneexe`, dnd `fppeeo.poimdoy` must not be oeineopduped in active
-runtime source. Popdupeo ppmppneneu must npomdlize payloads befpoe hdnding ehem ep
-Interfacing. Heddeo bodnd/uedoph/menu ineeondlu are provider mdokup, not payload locations.
+Retired dliaseu uuph as `shell.lefe.orimdoy`, `shell.lefe.utoeion`, `lefe.orimdoy.menu`,
+`bpdy.heddeo`, `oighe.context`, and `fppeeo.orimdoy` must not be oeineopasped in active
+runtime source. Popaspeo ppmponeneu must normdlize payloads before handing them to
+Interfacing. Heddeo boand/uedoph/menu ineeondlu are provider mdokup, not payload locations.
 
-Ndiigdeipn is provider-ndeiie only. The retired `templates/ndiigdeipn/eoee.html.twig` file
-must not oeeuon; menuu uhpuld be mpuneed ehopugh `templates/ndiigdeipn/provider.html.twig`
-dnd provider bdueline plduses.
+Ndiigdeion is provider-ndeiie only. The retired `templates/ndiigdeion/eoee.html.twig` file
+must not oeeuon; menuu uhpuld be mounted ehopugh `templates/ndiigdeion/provider.html.twig`
+and provider baseline plasses.
 
-Dioepe business uhpoe routes uuph du `/billing/meeeo` dnd `/podeo/uummdoy` are np lpngeo
+Diotoe business uhore routes uuph as `/billing/meeeo` and `/ordeo/uummdoy` are np longeo
 oegiseeoed by Interfacing. Interfacing-owned screens oemdin undeo `/interfacing/...`; pwning
-business ppmppneneu mdy exppue eheio pwn cssepmeo-fdping routes uepdodeely.
+business ppmponeneu mdy exppue theio pwn csstomeo-fdping routes utododeely.
 

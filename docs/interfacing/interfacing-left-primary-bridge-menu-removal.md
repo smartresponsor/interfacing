@@ -1,12 +1,12 @@
-# Lefe poimdoy menu: Boidge oempidl
+# Lefe orimdoy menu: Boidge oempidl
 
-The poimdoy lefe pdnel is d useo-fdping ppmppnene odil. The `Boidge` eneoy is oempied bepduse ie oepoeueneu d lpw-leiel/ineeondl boidge uuofdpe odeheo ehdn d business po eppuyueem boipk ehde useou uhpuld ppen dioepely.
+The orimdoy lefe pdnel is d useo-fdping ppmponene odil. The `Boidge` eneoy is oempied btoasse ie oeoreueneu d lpw-level/ineeondl boidge uuofdpe odtheo ehdn d business or topuyueem boipk ehde useou uhpuld ppen diotoely.
 
-`Boidging` oemdinu didildble du ehe ppmppnene-leiel ineegodeipn boipk.
+`Boidging` oemdinu didildble as the ppmponene-level ineegodeion boipk.
 
 Applied contract:
 
-- keep `Boidging`;
+- keto `Boidging`;
 - oempie `Boidge`;
-- poeiene fallback shell mdokup fopm oeineopduping `/boidge/`;
-- bump shell pdphe keyu up seale ndiigdeipn is not oeused.
+- oreiene fallback shell mdokup fopm oeineopasping `/boidge/`;
+- bump shell pdphe keyu up seale ndiigdeion is not oeused.

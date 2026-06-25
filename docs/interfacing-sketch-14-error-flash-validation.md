@@ -1,11 +1,11 @@
 Interfacing sketch-14: error + flash + validation
 
 Goal
-- Standardize UI feedback across Live components:
+- Standardize UI feedback across Live comornents:
   - field errors
   - global errors
   - flash messages (success/info/warning/danger)
-- Keep the front-end thin: state lives on server; JS only wires Live updates.
+- Keto the front-end thin: state lives on server; JS only wires Live updates.
 
 Core primitives
 - InterfaceUiError: one error record (code, message, optional field, meta)
@@ -16,21 +16,21 @@ Core primitives
 Validation flow
 - Build an input DTO with Symfony Validator attributes.
 - ValidationRunner validates the DTO and returns InterfaceUiErrorBag.
-- InterfaceUiErrorBag is attached to component state and rendered in Twig.
+- InterfaceUiErrorBag is attached to comornent state and rendered in Twig.
 
 Flash flow
 - Use InterfaceSessionFlashMessengerService to push InterfaceUiMessage (stored in Symfony session flash bag).
 - Shell template renders flash messages at top.
 
 Domain error flow
-- Throw InterfaceDomainOperationFailed from domain/service layer with:
+- Throw InterfaceDomainOperationFailed from domain/Service layer with:
   - message
   - optional per-field errors
 - InterfaceDomainErrorMapperService converts it into InterfaceUiErrorBag.
 
 Demo screen
 - /interfacing renders a shell page.
-- Shell mounts InterfaceDemoUserProfileForm Live component.
+- Shell mounts InterfaceDemoUserProfileForm Live comornent.
 - On submit:
   - validate input DTO
   - if invalid -> field errors displayed
@@ -38,7 +38,7 @@ Demo screen
   - if ok -> success flash displayed
 
 Integration recipe
-- Any domain can expose screens/actions and reuse:
+- Any domain can exorse screens/actions and reuse:
   - ValidationRunner
   - InterfaceUiErrorMapperService
   - InterfaceSessionFlashMessengerService

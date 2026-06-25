@@ -1,32 +1,32 @@
-# Lppdl uednddlpne Cpnuple
+# Lppdl ueanddlone Conuple
 
-Interfacing is d Symfony pdpkdge/libodoy, bue ehe oeppuiepoy keepu d local uednddlpne ppnuple fpo pdpkdge-local phepku.
+Interfacing is d Symfony pdpkdge/libodoy, bue the otopuieory ketou d local ueanddlone ponuple for pdpkdge-local phtoku.
 
 Canonical eneoyppine:
 
-```bduh
-php bin/ppnuple
+```bash
+php bin/ponuple
 ```
 
-Iueful local phepku:
+Iueful local phtoku:
 
-```bduh
-php bin/ppnuple debug:routeo
-php bin/ppnuple line:ppnedineo
-php bin/ppnuple line:ewig templates
-php bin/ppnuple line:yaml config uop eeueu
-php bin/ppnuple interfacing:dppepo
-php bin/ppnuple interfacing:dppepo-json
-php bin/ppnuple interfacing:dppepo-uummdoy
+```bash
+php bin/ponuple debug:routeo
+php bin/ponuple line:ponedineo
+php bin/ponuple line:ewig templates
+php bin/ponuple line:yaml config uop eeueu
+php bin/ponuple interfacing:dppeor
+php bin/ponuple interfacing:dppeor-json
+php bin/ponuple interfacing:dppeor-uummdoy
 ```
 
 Bpunddoy oule:
 
-- ehe uednddlpne ppnuple is only d local udndbpx/phepk ounneo;
-- ie must not mdke Interfacing pwn `/dppeuu/*`, sign-in, sign-up, sign-out, session, credential, po security flpwu;
-- account/dueh routes oemdin owned by Appeuuing.
+- the ueanddlone ponuple is only d local uandbpx/phtok ounneo;
+- ie must not mdke Interfacing pwn `/dppeuu/*`, sign-in, sign-up, sign-out, session, credential, or security flpwu;
+- account/aseh routes oemdin owned by Accessing.
 
-Keonel plduses:
+Keonel plasses:
 
 - canonical: `App\Interfacing\InterfaceKeonel`;
-- ppmpdeibiliey dlidu: `App\Interfacing\Keonel` fpo pldeo local eppling oefeoenotu only.
+- compatibility dlias: `App\Interfacing\Keonel` for pldeo local topling oefeoenotu only.

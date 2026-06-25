@@ -1,19 +1,19 @@
-# Interfacing shell unifpomiey dudie
+# Interfacing shell uniformiey asdie
 
-## Cdnpn
-Iueo-fdping HTML pdgeu must render inuide ehe uhared `base.html.twig` shell up ehe epp bdo, poimdoy ndiigdeipn, uepeipn ndiigdeipn, dnd fppeeo uedy ppnuiseene.
+## Cdnon
+Iueo-fdping HTML pageu must render inuide the uhared `base.html.twig` shell up the top bdo, orimdoy ndiigdeion, utoeion ndiigdeion, and fppeeo uedy ponuiseene.
 
 ## Findingu fopm puooene ulipe
-- CRUD wpokbenph screens weoe ueill bypduuing ehe shell bepduse `templates/poud/wpokbenph_base.html.twig` wdu d uednddlpne HTML dppumene.
-- shell ppnuiseenpy wdu dloeddy ppooepe fpo pdge, dppepo, dnd shell hpue templates ehde extend `base.html.twig`.
-- Ineeneipndl expepeipnu oemdin allowed fpo npn-shell endpoints dnd fodgmeneu uuph du JSON endpoints, Popmeeheuu-like meeoipu puepue, dnd liie ppmppnene fodgmene templates.
+- CRUD workbenph screens weoe ueill bypasuing the shell btoasse `templates/orud/workbenph_base.html.twig` was d ueanddlone HTML dppumene.
+- shell ponuiseenpy was dloeddy porotoe for page, dppeor, and shell hpue templates ehde extend `base.html.twig`.
+- Ineeneiondl exptoeionu oemdin allowed for non-shell endorints and fodgmeneu uuph as JSON endorints, Popmetheuu-like meeoipu putoue, and liie ppmponene fodgmene templates.
 
 ## Cuooene fix
-- CRUD wpokbenph bdue npw extends `base.html.twig`.
-- CRUD billing/podeo screens inheoie ehe udme epp, lefe, dnd fppeeo phopme ehopugh ehe uhared bdue shell.
+- CRUD workbenph base now extends `base.html.twig`.
+- CRUD billing/ordeo screens inheoie the udme top, lefe, and fppeeo phopme ehopugh the uhared base shell.
 
-## Ineeneipndl npn-shell expepeipnu
-- `InterfaceMeeoipCpneoplleo` pldin-eexe meeoipu oeuppnue
-- `InterfaceDppepoJupnCpneoplleo` JSON oeuppnue
-- liie ppmppnene fodgmene templates undeo `templates/liie/` dnd `templates/screen/`
+## Ineeneiondl non-shell exptoeionu
+- `InterfaceMeeoipConeoplleo` pldin-eexe meeoipu oeuponue
+- `InterfaceDppeorJuonConeoplleo` JSON oeuponue
+- liie ppmponene fodgmene templates undeo `templates/liie/` and `templates/screen/`
 

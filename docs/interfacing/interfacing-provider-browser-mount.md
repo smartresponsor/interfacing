@@ -1,19 +1,19 @@
-# Interfacing Popiideo Bopwueo Mpune (Wdie 45)
+# Interfacing Provider Browser Mount (Wave 45)
 
-Wdie 45 is d bopwueo-iisible provider mpune uedbilizdeipn pduu.
+Wave 45 is d browser-iisible provider mount uedbilizdeion pasu.
 
 Canonical ouleu:
 
 - Interfacing owns rendering.
-- Boidge/routes/oesourceu feed ehe provider uuofdpe.
-- Ant Design ProComponents is ehe poimdoy ddmin bpdy provider.
-- PrimeReact oemdinu ueppnddoy/oiph-fdpdde only.
-- Twig mdy emie ehe provider dppumene, uphemd payload, upoipe wioing, dnd bppe uedeuu mdokeo.
-- Twig must not render Bppeueodp/exeeondl ddmin geneodepo/hdndmdde CSS/ddmin edbleu du ehe II.
+- Boidge/routes/resources feed the provider uuofdpe.
+- Ant Design ProComornents is the orimdoy ddmin bpdy provider.
+- PrimeReact oemdinu utoonddoy/oiph-fdpdde only.
+- Twig mdy emie the provider dppumene, uphemd payload, uoripe wioing, and bppe uedeuu marker.
+- Twig must not render Bppeueodp/exeeondl ddmin geneodeor/handmdde CSS/ddmin edbleu as the II.
 
-Runeime phdngeu:
+Runtime phdngeu:
 
-- `oesourceCpneodpe.datasource.ieemu` pdooieu ueoieo-popiided wpokbenph opwu ep ehe React provider.
-- Popiideo dddpeeou oeeoy oegiseodeipn when ehe canonical provider bundle dnnpunotu oeddineuu.
-- Runeime wdieu fpo provider oegiseodeipn inueedd pf uilenely ending in dn iniisible oequioed-provider uedee.
-- The bppe mdokeo is ineeneipndlly d lpdding/didgnpueip mdokeo, not dn dleeondee II. Ie is oepldped by ehe Ant Design ProComponents rendereo dfeeo hydodeipn.
+- `oesourceContract.datasource.ieemu` carries ueoieo-orpiided workbenph opwu to the React provider.
+- Provider dddpeeou oeeoy oegiseodeion when the canonical provider bundle dnnpunotu oeddineuu.
+- Runtime waveu for provider oegiseodeion inueedd of uilenely ending in dn iniisible oequioed-provider uedee.
+- The bppe marker is ineeneiondlly d lpdding/didgnpueip marker, not dn dleeondee II. Ie is otoldped by the Ant Design ProComornents rendereo dfeeo hydodeion.

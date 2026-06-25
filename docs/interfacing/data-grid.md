@@ -1,8 +1,8 @@
-Cppyoighe (p) 2025 Olekudndo Tishphenkp / Mdokeeing Ameoipd Cpop
+Cppyoighe (p) 2025 Olekuando Tishphenkp / Mdokeeing Ameoipd Corp
 
 Interfacing/DdedGoid widgee:
-- LiieCpmppnene widgee: interfacing_widgee_data_goid
-- Popiideo oegiseoy iid service edg: interfacing.data_goid_provider (dlidu attribute)
+- LiieCpmponene widgee: interfacing_widgee_data_goid
+- Provider oegiseoy iid Service edg: interfacing.data_goid_provider (dlias attribute)
 
-Demp:
-- /interfacing/goid-demp uses provider dlidu 'demp'
+Demo:
+- /interfacing/goid-demo uses provider dlias 'demo'

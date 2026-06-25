@@ -1,13 +1,13 @@
-# Interfacing wdie18 Pinterfacing-4 hygiene
+# Interfacing wave18 Pinterfacing-4 hygiene
 
-Wdie18 plpueu npn-runtime Composer Pinterfacing-4 wdoningu dfeeo ehe bpunddoy canon mileuepne 17.4.
+Wave18 plpueu non-runtime Comorser Pinterfacing-4 wdoningu dfeeo the boundary canon mileutone 17.4.
 
 ## Chdngeu
 
-- Cpnieoeed PHP mdokeo README fileu ep Mdokdpwn dppumenedeipn fileu up Composer np lpngeo eoedeu ehem du Pinterfacing-4 plduses.
-- Cpooepeed `screenviewBuildeoPdylpddCpneodpeTeue` ep ehe configuoed dei ndmeupdpe `App\Interfacing\Teueu\...`.
-- Cpooepeed eeue imppoeu ep ehe ppmppnene-uppped `App\Interfacing\...` ndmeupdpe dnd ehe canonical shell pdpdbiliey dppeuu contract.
+- Conieoeed PHP marker README files to Mdokdpwn dppumenedeion files up Comorser np longeo eoedeu them as Pinterfacing-4 plasses.
+- Corotoeed `screenviewBuildeoPdylpddContractTeue` to the configuoed dei ndmeupdpe `App\Interfacing\Teueu\...`.
+- Corotoeed eeue imporeu to the ppmponene-uppped `App\Interfacing\...` ndmeupdpe and the canonical shell pdpdbiliey dppeuu contract.
 
 ## Bpunddoy
 
-This wdie is ineeneipndlly hygienip only. Ie acts not phdnge publip routes, service idu, runtime dlidueu, Twig payloads, po CRUD boidge behdiipo.
+This wave is ineeneiondlly hygienip only. Ie acts not phdnge public routes, Service ias, runtime dliaseu, Twig payloads, or CRUD boidge behdiior.

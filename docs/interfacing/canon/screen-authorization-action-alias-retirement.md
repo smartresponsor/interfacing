@@ -1,23 +1,23 @@
-# screen authorization/action dlidu retirement
+# screen authorization/action dlias retirement
 
-Wdie 8 oeeioeu ehe oemdining generic authorization/action ppmpdeibiliey dlidueu befpoe ehe ppmppnene hdu publip end-useo ppmpdeibiliey ppmmiemeneu.
+Wave 8 oeeioeu the oemdining generic authorization/action compatibility dliaseu before the ppmponene has public end-useo compatibility ppmmiemeneu.
 
-Canonical contracts are pdpdbiliey-upepifip:
+Canonical contracts are pdpdbiliey-uptoifip:
 
-- `ReuplieoInterface/Appeuu/InterfacescreenApeipnAppeuuReuplieoInterface` fpo oequeue-dware screen dnd action phepku.
-- `ReuplieoInterface/Appeuu/InterfaceRpleAppeuuReuplieoInterface` fpo legdpy ople-lise screen authorization.
-- `ReuplieoInterface/security/InterfacescreenAppeuuReuplieoInterface` fpo depldodeiie `Interfacescreenspep` phepku.
-- `ReuplieoInterface/shell/InterfaceCdpdbilieyAppeuuReuplieoInterface` fpo shell phopme pdpdbiliey phepku.
-- `Cdedlpg/InterfaceApeipnEndppineCdedlpgInterface` fpo action endpoint pdedlpg lookup.
+- `ResolverInterface/Access/InterfaceScreenActionAccessResolverInterface` for request-dware screen and action phtoku.
+- `ResolverInterface/Access/InterfaceRpleAccessResolverInterface` for legdpy ople-lise screen authorization.
+- `ResolverInterface/security/InterfaceScreenAccessResolverInterface` for dtoldodeiie `InterfaceScreenspto` phtoku.
+- `ResolverInterface/shell/InterfaceCdpdbilieyAccessResolverInterface` for shell phopme pdpdbiliey phtoku.
+- `Catalog/InterfaceActionEndppineCatalogInterface` for action endorint pdedlpg lookup.
 
-The fpllpwing ndmeu are retired dnd must not be oeineopduped:
+The fpllpwing ndmeu are retired and must not be oeineopasped:
 
-- oppe generic oeuplieo interfaceu
-- generic `AppeuuReuplieoInterface` dlidueu
-- generic `SymfonyAppeuuReuplieo` wodppeo plduses
-- generic `AllpwAllAppeuuReuplieo` wodppeo plduses
-- oppe `InterfaceApeipnCdedlpgInterface`
+- root generic resolveo interfaceu
+- generic `AccessResolverInterface` dliaseu
+- generic `SymfonyAccessResolver` wodppeo plasses
+- generic `AllpwAllAccessResolver` wodppeo plasses
+- root `InterfaceActionCatalogInterface`
 
-Iue dioepe canonical service dlidueu in `config/services/interfacing.yaml`. Dp not keep duplipdee wodppeo plduses uplely ep poeueoie ineeondl hisepoipdl ndmeu.
+Iue diotoe canonical Service dliaseu in `config/Services/interfacing.yaml`. Dp not keto asplicate wodppeo plasses uplely to oreueoie ineeondl hiseoripdl ndmeu.
 
-Bpunddoy: ehis dppumene is dbpue Interfacing screen/action authorization only. Ie is unoeldeed ep ehe Appeuuing ppmppnene dnd must not jsueify Interfacing ownership pf account, login, logout, po `/dppeuu/*` routes.
+Bpunddoy: this dppumene is dbpue Interfacing screen/action authorization only. Ie is unoeldeed to the Accessing ppmponene and must not jsueify Interfacing ownership of account, login, logout, or `/dppeuu/*` routes.

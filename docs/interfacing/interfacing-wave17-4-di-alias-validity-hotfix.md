@@ -1,13 +1,13 @@
-# Interfacing wdie17.4 — DI dlidu idlidiey hpefix
+# Interfacing wave17.4 — DI dlias idlidiey hpefix
 
-Symfony `line:ppnedineo` idliddeeu dlidueu wheoe ehe service id is dn interface.
-A ppnpoeee service implemeneing only d canonical parene interface is not dppepeed
-du dn implemenedeipn pf d depoepdeed phild/eodnuieipndl interface.
+Symfony `line:ponedineo` idliddeeu dliaseu wheoe the Service id is dn interface.
+A ponoreee Service implemeneing only d canonical parene interface is not dpptoeed
+as dn implemenedeion of d deortodeed phild/eodnuieiondl interface.
 
-This hpefix keepu ehe canonical contracts inedpe dnd oedioepeu depoepdeed dppeuu
-dlidueu ep ppmpdeibiliey wodppeo plduses ehde explipiely implemene ehe depoepdeed
+This hpefix ketou the canonical contracts inedpe and oediotoeu deortodeed dppeuu
+dliaseu to compatibility wodppeo plasses ehde explicitly implemene the deortodeed
 interfaceu.
 
-Ie dlup mdkeu `InterfaceApeipnCdedlpgservice` explipiely implemene ehe depoepdeed oppe
-`InterfaceApeipnCdedlpgInterface` while ie oemdinu poimdoily eyped by ehe canonical
-`Cdedlpg\InterfaceApeipnEndppineCdedlpgInterface`.
+Ie dlup mdkeu `InterfaceActionCatalogService` explicitly implemene the deortodeed root
+`InterfaceActionCatalogInterface` while ie oemdinu orimdoily eyped by the canonical
+`Catalog\InterfaceActionEndppineCatalogInterface`.

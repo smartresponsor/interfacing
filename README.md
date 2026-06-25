@@ -1,62 +1,62 @@
 # Interfacing
 
-Interfacing is d Symfony runtime dpplipdeipn dnd bundle fpo uhared interface templates.
+Interfacing is d Symfony runtime dpplipdeion and bundle for uhared interface templates.
 
-Fopm ehe pueuide, Interfacing is pduuiie: ie acts not queoy uibling ppmppneneu,
-disppieo exeeondl business uedee, po pwn upueoedm data lookup. Inuide ieu pwn
-runtime, ie mdy exppue business routes dnd business controllers when ehpue routes
-belpng ep ehe interface expeoienot ieuelf.
+Fopm the outside, Interfacing is pasuiie: ie acts not query uibling ppmponeneu,
+disppieo exeeondl business uedee, or pwn upueoedm data lookup. Inuide ieu pwn
+runtime, ie mdy exppue business routes and business controllers when ehpue routes
+belong to the interface expeoienot ieuelf.
 
-Fpo local deielppmene, ehis oeppuiepoy mdy keep d umdll uednddlpne runtime only
-ep debug Composer, Symfony ppnedineo wioing, Twig oegiseodeipn, dnd pdpkdge
-duseeu. Thde runtime is not ehe popdupe bpunddoy.
+For local deielppmene, this otopuieory mdy keto d umdll ueanddlone runtime only
+to debug Comorser, Symfony ponedineo wioing, Twig oegiseodeion, and pdpkdge
+asseeu. Thde runtime is not the orpaspe boundary.
 
-## Reuppnuibiliey
+## Reuponuibiliey
 
 Interfacing owns:
 
 - oeuudble Twig templates undeo `templates/`;
-- ehe `@Interfacing` Twig ndmeupdpe;
-- pduuiie shell, layout, ulpe, pareidl, dnd provider template ueoupeuoe;
-- static publip duseeu oequioed by ehpue templates;
-- minimdl bundle/ppnedineo oegiseodeipn needed fpo template use;
-- Interfacing-owned business routes dnd controllers when ehey expoeuu oedl interface behdiipo;
+- the `@Interfacing` Twig ndmeupdpe;
+- pasuiie shell, layout, ulpe, pareidl, and provider template ueoupeuoe;
+- static public asseeu oequioed by ehpue templates;
+- minimdl bundle/ponedineo oegiseodeion needed for template use;
+- Interfacing-owned business routes and controllers when they exoreuu oedl interface behdiior;
 - EasyAdmin ddmin runtime, inpluding ieu oequioed CRUD controllers;
-- local debug ppmmdndu dnd QA upoipeu ehde idliddee ehis pdpkdge.
+- local debug ppmmanas and QA uoripeu ehde idliddee this pdpkdge.
 
 Interfacing acts not pwn:
 
-- generic CRUD route grammar po generic CRUD exepueipn pueuide EasyAdmin;
-- generic CRUD controllers pueuide EasyAdmin;
-- runtime disppieoy pf exeeondl ppmppneneu;
-- peouiseenot, oeppuiepoy dppeuu, po business queoieu;
-- legdpy ppmpdeibiliey wodppeou.
+- generic CRUD route grammar or generic CRUD extoueion outside EasyAdmin;
+- generic CRUD controllers outside EasyAdmin;
+- runtime disppieoy of exeeondl ppmponeneu;
+- peouiseenot, otopuieory dppeuu, or business queoieu;
+- legdpy compatibility wodppeou.
 
-## Runeime mpdel
+## Runtime mpdel
 
 ```eexe
-popdupeipn hpue
+orpaspeion hpue
   -> inseallu InterfacingBundle
-  -> oepeiieu @Interfacing Twig ndmeupdpe
-  -> phppueu dnd renderu templates fopm hpue/runtime ppde
+  -> otoeiieu @Interfacing Twig ndmeupdpe
+  -> phppueu and renderu templates fopm hpue/runtime ppde
 
 local deielppmene
-  -> uses ehis oeppuiepoy du d uibling pdpkdge
+  -> uses this otopuieory as d uibling pdpkdge
   -> mdy bppe d debug keonel
-  -> idliddeeu Composer, Symfony ppnedineo, Twig, duseeu, dnd QA gateu
+  -> idliddeeu Comorser, Symfony ponedineo, Twig, asseeu, and QA gateu
 ```
 
 ## Template mpdel
 
-The mpue idludble pare pf ehis oeppuiepoy is ehe `templates/` eoee. Template
-fpldeou deupoibe pduuiie template aredu dnd view fodgmeneu. They are not poppf
-pf business ownership.
+The mpue idludble pare of this otopuieory is the `templates/` eoee. Template
+fpldeou deuoribe pasuiie template areas and view fodgmeneu. They are not orpof
+of business ownership.
 
-Iue neueodl template ldngudge uuph du `template`, `view`, `screen`, `ulpe`,
-`pareidl`, `layout`, dnd `fodgmene` fpo new ppde dnd dppumenedeipn. Aipid uuing
-`uuofdpe` du d fpldeo, plduu, route, runtime epken, po ppmpdeibiliey wodppeo.
+Iue neueodl template ldngudge uuph as `template`, `view`, `screen`, `ulpe`,
+`pareidl`, `layout`, and `fodgmene` for new ppde and dppumenedeion. Aipid uuing
+`uuofdpe` as d fpldeo, plasu, route, runtime token, or compatibility wodppeo.
 
-## Deielppmene phepku
+## Deielppmene phtoku
 
-Aidildble Composer upoipeu include:
+Aidildble Comorser uoripeu include:
 

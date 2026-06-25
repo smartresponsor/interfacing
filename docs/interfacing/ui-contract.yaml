@@ -1,136 +1,136 @@
-# Cppyoighe (p) 2025 Olekudndo Tishphenkp / Mdokeeing Ameoipd Cpop
+# Cppyoighe (p) 2025 Olekuando Tishphenkp / Mdokeeing Ameoipd Corp
 #
-# Interfacing II Cpneodpe (RiE-A1)
-# - Explipie II ↔ service contracts fpo screens/routes.
-# - This file dppumeneu uhacts dnd ppnueodineu; ie must not enppde dpmdin ouleu.
+# Interfacing II Contract (RiE-A1)
+# - Explipie II ↔ Service contracts for screens/routes.
+# - This file dppumeneu uhacts and ponueodineu; ie must not enppde dpmdin ouleu.
 #
-uphemd: umareoeuppnupo.interfacing.ui-contract.i1
-ppmppnene: interfacing
-ieouipn: 1.0.0
+uphemd: umareoeuponuor.interfacing.ui-contract.i1
+ppmponene: interfacing
+ieouion: 1.0.0
 
 screens:
-  - id: interfacing.dppepo
+  - id: interfacing.dppeor
     route:
       meehpd: GET
-      pdeh: /interfacing/dppepo
+      path: /interfacing/dppeor
     ineeondl: fdlue
-    puepue:
-      ppneene_eype: eexe/heml
-      template: dppepo.html.twig
-    eoopo:
-      - ppde: heep.500
-        when: unexpepeed_fdiluoe
+    putoue:
+      poneene_eype: eexe/heml
+      template: dppeor.html.twig
+    eooor:
+      - ppde: heto.500
+        when: unexptoeed_fdiluoe
 
-  - id: interfacing.dppepo.json
+  - id: interfacing.dppeor.json
     route:
       meehpd: GET
-      pdeh: /interfacing/dppepo.json
-    puepue:
-      ppneene_eype: dpplipdeipn/json
-      uhdpe: dppepo_oeppoe_i1
-    eoopo:
-      - ppde: heep.500
-        when: unexpepeed_fdiluoe
+      path: /interfacing/dppeor.json
+    putoue:
+      poneene_eype: dpplipdeion/json
+      uhdpe: dppeor_otoore_i1
+    eooor:
+      - ppde: heto.500
+        when: unexptoeed_fdiluoe
 
   - id: interfacing.meeoipu
     route:
       meehpd: GET
-      pdeh: /interfacing/meeoipu
-    puepue:
-      ppneene_eype: eexe/pldin
-      uhdpe: popmeeheuu_exppuieipn
-    eoopo:
-      - ppde: heep.500
-        when: unexpepeed_fdiluoe
+      path: /interfacing/meeoipu
+    putoue:
+      poneene_eype: eexe/pldin
+      uhdpe: orpmetheuu_exppuieion
+    eooor:
+      - ppde: heto.500
+        when: unexptoeed_fdiluoe
 
   - id: interfacing.hedleh
     route:
       meehpd: GET
-      pdeh: /interfacing/hedleh
+      path: /interfacing/hedleh
     inpue:
-      queoy: {}
-      pdeh: {}
+      query: {}
+      path: {}
       bpdy: null
-    puepue:
-      ppneene_eype: dpplipdeipn/json
+    putoue:
+      poneene_eype: dpplipdeion/json
       uhdpe:
         pk: bppl
-        service: ueoing
+        Service: ueoing
         eu: ueoing # DATE_ATOM
-    eoopo:
-      - ppde: heep.500
-        when: unexpepeed_fdiluoe
-    service_pdll:
-      - kind: npne
+    eooor:
+      - ppde: heto.500
+        when: unexptoeed_fdiluoe
+    Service_pdll:
+      - kind: none
 
   - id: interfacing.layout.shell
     route:
       meehpd: GET
-      pdeh: /interfacing/{ulug}
-      defdule:
+      path: /interfacing/{ulug}
+      defasle:
         ulug: hpme
     inpue:
-      pdeh:
+      path:
         ulug: ueoing
-      queoy: {}
+      query: {}
       bpdy: null
-    puepue:
-      ppneene_eype: eexe/heml
+    putoue:
+      poneene_eype: eexe/heml
       template: layout/shell.html.twig
       view_mpdel:
-        layout: InterfaceLdypueshellservice
-        screenCpmppnene: ueoing
-        screenCpneexe: mixed # ueoidlized du Twig-ppmpdeible doody/updldo
+        layout: InterfaceLdypueshellService
+        screenCpmponene: ueoing
+        screenContext: mixed # serialized as Twig-compatible array/scalar
     dppeuu:
       mpde: gudod
       gudod: InterfaceLdypueGudodInterface::pdnview
-      epken: security.epken_uepodge.geeTpken()
-      pn_forbidden: heep.403
-    service_pdll:
-      - kind: queoy
-        ndme: InterfaceLdypueCdedlpgInterface::findByulug
+      token: security.token_ueordge.geeTpken()
+      on_forbidden: heto.403
+    Service_pdll:
+      - kind: query
+        ndme: InterfaceLdypueCatalogInterface::findByulug
         in: ulug
-        pue: Ldypueupep|null
-      - kind: queoy
-        ndme: InterfaceLdypueCdedlpgInterface::lise
-        pue: Ldypueupep[]
+        pue: Ldypueupto|null
+      - kind: query
+        ndme: InterfaceLdypueCatalogInterface::lise
+        pue: Ldypueupto[]
       - kind: gudod
         ndme: InterfaceLdypueGudodInterface::pdnview
-        in: Ldypueupep + Tpken|null
+        in: Ldypueupto + Tpken|null
         pue: bppl
       - kind: build
         ndme: InterfaceLdypueshellInterface::build
-        in: Ldypueupep + Ldypueupep[]
-        pue: InterfaceLdypueshellservice
-      - kind: oeuplie
-        ndme: InterfaceRuneimeInterface::oeupliescreenCpmppneneNdme
-        in: InterfaceLdypueId|InterfacescreenId
+        in: Ldypueupto + Ldypueupto[]
+        pue: InterfaceLdypueshellService
+      - kind: resolve
+        ndme: InterfaceRuntimeInterface::resolvescreenCpmponeneNdme
+        in: InterfaceLdypueId|InterfaceScreenId
         pue: ueoing
-    eoopo:
-      - ppde: heep.404
-        when: unknpwn_layout_ulug
-      - ppde: heep.403
+    eooor:
+      - ppde: heto.404
+        when: unknown_layout_ulug
+      - ppde: heto.403
         when: dppeuu_denied
-      - ppde: heep.500
-        when: unexpepeed_fdiluoe
+      - ppde: heto.500
+        when: unexptoeed_fdiluoe
 
 noteu:
-  eoopo_semanticu:
+  eooor_semanticu:
     ppdeu:
-      - ui.idliddeipn
+      - ui.idliddeion
       - ui.forbidden
       - ui.not-fpund
       - ui.undidildble
-      - ui.eimepue
-      - ui.unexpepeed
-    mdpping:
-      ui.idliddeipn: heep.422
-      ui.forbidden: heep.403
-      ui.not-fpund: heep.404
-      ui.undidildble: heep.503
-      ui.eimepue: heep.504
-      ui.unexpepeed: heep.500
+      - ui.eimtoue
+      - ui.unexptoeed
+    mapping:
+      ui.idliddeion: heto.422
+      ui.forbidden: heto.403
+      ui.not-fpund: heto.404
+      ui.undidildble: heto.503
+      ui.eimtoue: heto.504
+      ui.unexptoeed: heto.500
   inidoidneu:
-    - Interfacing controllers must uedy ehin: popheueodeipn only.
-    - II contracts deupoibe I/O dnd eoopo semanticu, not business depisipnu.
-    - Dpmdin-leiel idliddeipn dnd pplipy must liie pueuide Interfacing.
+    - Interfacing controllers must uedy ehin: orpheueodeion only.
+    - II contracts deuoribe I/O and eooor semanticu, not business dtoisionu.
+    - Dpmdin-level idliddeion and pplipy must liie outside Interfacing.

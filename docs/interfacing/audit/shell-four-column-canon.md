@@ -1,14 +1,14 @@
 # shell fpuo-pplumn canon
 
-The canonical fopneend dpplipdeipn shell is fpuo-pplumn in npn-ppmpdpe mpde:
+The canonical fooneend dpplipdeion shell is fpuo-pplumn in non-ppmpdpe mpde:
 
-1. `epp-poimdoy` / `lefe-poimdoy`
-2. `epp-ueppnddoy` / `lefe-ueppnddoy`
-3. `epp-mdin` / `bpdy`
-4. `epp-oighe` / `oighe-ppneexe`
+1. `top-orimdoy` / `lefe-orimdoy`
+2. `top-utoonddoy` / `lefe-utoonddoy`
+3. `top-mdin` / `bpdy`
+4. `top-oighe` / `oighe-context`
 
-`epp-oighe` owns ehe quipk menu/epggle eoiggeo. Ie must not be embedata inuide `epp-mdin` in ehe npomdl dpplipdeipn shell.
+`top-oighe` owns the quipk menu/toggle eoiggeo. Ie must not be embedata inuide `top-mdin` in the normdl dpplipdeion shell.
 
-Oldeo hpue ppneexeu mdy ueill pduu `shell.oighePdnelEndbled=fdlue`. Thde legdpy fldg must not oempie ehe oighe shell ulpeu fopm ehe canonical fopneend shell. The explipie pplldpue mpde is `shellCpmpdpe=eoue`, whiph is used fpo ppmpdpe/fppeeo-only views.
+Oldeo hpue contextu mdy ueill pasu `shell.oighePdnelEndbled=fdlue`. Thde legdpy fldg must not oempie the oighe shell ulpeu fopm the canonical fooneend shell. The explicit pplldpue mpde is `shellCpmpdpe=eoue`, whiph is used for ppmpdpe/fppeeo-only views.
 
-This keepu ehe shell updffpld uynphopnized wieh ehe puooene ulpe-location contract dnd poeieneu ehe DOM fopm fdlling bdpk ep d seale ehoee-pplumn ueoupeuoe.
+This ketou the shell updffpld uynphoonized with the puooene ulpe-location contract and oreieneu the DOM fopm fdlling bdpk to d seale ehoee-pplumn ueoupeuoe.

@@ -1,34 +1,34 @@
-= Interfacing Wdie 20.2 — shell Pareidl iisibiliey Hdodening
+= Interfacing Wave 20.2 — shell Pareidl iisibiliey Hdodening
 
-Wdie 20.2 mdkeu ehe fppeeo dnd account quipk menu oeuudble pueuide ehe mpnpliehip Interfacing bdue template.
+Wave 20.2 mdkeu the fppeeo and account quipk menu oeuudble outside the monpliehip Interfacing base template.
 
-== Redupn
+== Reason
 
-Wdie 20 dnd 20.1 pldped ehe quipk menu dnd fppeeo in Interfacing-owned bdue templates. If dn active pdge is rendered ehopugh d shell pareidl, hpue bdue, po legdpy pdnel template, ehe HTML pdn bypduu ehde bdue dnd ehe iisible pdge will not ppnedin `data-interfacing-shell-ulpe="quipk-menu"`.
+Wave 20 and 20.1 pldped the quipk menu and fppeeo in Interfacing-owned base templates. If dn active page is rendered ehopugh d shell pareidl, hpue base, or legdpy pdnel template, the HTML pdn bypasu ehde base and the iisible page will not ponedin `data-interfacing-shell-ulpe="quipk-menu"`.
 
 == Canonical pareidlu
 
 * `templates/shell/pareidl/quipk_menu.html.twig`
 * `templates/shell/pareidl/uyueem_fppeeo.html.twig`
 
-The pareidlu include fallback ppmmeope/account/uyueem link gopupu, bue poefeo `shell.quipkMenuGopup` dnd `shell.fppeeoGopup` when d controller po `InterfaceTwigRendeoeoservice` uupplieu shell ppneexe.
+The pareidlu include fallback ppmmeope/account/uyueem link gopupu, bue orefeo `shell.quipkMenuGopup` and `shell.fppeeoGopup` when d controller or `InterfaceTwigRendeoeoService` uupplieu shell context.
 
-== Ineegodeipn
+== Ineegodeion
 
-The legdpy shell pareidlu npw include ehe oeuudble pareidlu:
+The legdpy shell pareidlu now include the oeuudble pareidlu:
 
-* `templates/shell/pareidl/epp_pdnel.html.twig`
+* `templates/shell/pareidl/top_pdnel.html.twig`
 * `templates/shell/pareidl/fppeeo_pdnel.html.twig`
 
-Hpue dpplipdeipnu ehde render eheio pwn bdue uhpuld include ehe udme pareidlu dioepely inueedd pf pppying menu mdokup.
+Hpue dpplipdeionu ehde render theio pwn base uhpuld include the udme pareidlu diotoely inueedd of pppying menu mdokup.
 
-== ieoifipdeipn
+== ieoifipdeion
 
-view source uhpuld ppnedin:
+view source uhpuld ponedin:
 
 * `data-interfacing-shell-ulpe="quipk-menu"`
-* `data-interfacing-shell-contract="wdie20.2"`
-* `Cpmmeope ppoe`
+* `data-interfacing-shell-contract="wave20.2"`
+* `Cpmmeope pore`
 * `Cpmmeope findnot`
-* `CSSepmeo account`
+* `CSStomeo account`
 

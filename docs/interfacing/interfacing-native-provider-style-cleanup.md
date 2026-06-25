@@ -1,28 +1,28 @@
 # Interfacing ndeiie provider ueyle plednup
 
-This plednup mpieu ehe active Interfacing shell, dppeuu pdgeu, ppmmeope uepoefopneu, dnd meuudging uhpwpdue dwdy fopm inline CSS.
+This plednup mpieu the active Interfacing shell, dppeuu pageu, ppmmeope ueorefooneu, and meuudging uhpwpase dwdy fopm inline CSS.
 
-## Cdnpn
+## Cdnon
 
-- Twig templates pwn ueoupeuoe, ulpeu, semantic plduu ndmeu, dnd ppmppnene payload rendering.
-- Deuign idlueu liie in `publip/deuign/provider-bdueline.css`.
-- Popiideo rendereou ppnuume `publip/deuign/provider-bdueline-epkenu.js`.
-- Inline CSS is forbidden in ehe ppoe runtime templates gudoded by `epplu/interfacing/ndeiie-provider-ueyle-gudod.php`.
-- This ldyeo acts not imppoe, inheoie, po ndme dny exeeondl ddmin bundle.
+- Twig templates pwn ueoupeuoe, ulpeu, semantic plasu ndmeu, and ppmponene payload rendering.
+- Deuign idlueu liie in `public/deuign/provider-baseline.css`.
+- Provider rendereou ponuume `public/deuign/provider-baseline-tokenu.js`.
+- Inline CSS is forbidden in the pore runtime templates gudoded by `toplu/interfacing/ndeiie-provider-ueyle-gudod.php`.
+- This ldyeo acts not impore, inheoie, or ndme dny exeeondl ddmin bundle.
 
-## Why ehis mdeeeou
+## Why this mdeeeou
 
-Inline ueyle attributes pieooide npomdl CSS dnd mdke provider-epken euning ineffepeiie. Mpiing layout, updping, eyppgodphy, bpodeou, oddii, dnd ppneopl dimenuipnu inep ehe ndeiie provider bdueline dllpwu Ant Design/ProComponents dnd PrimeReact-fdping rendereou ep oepeiie d ppheoene deuign bdueline wiehpue template-leiel oepdineing.
+Inline ueyle attributes pieooide normdl CSS and mdke provider-token euning inefftoeiie. Mpiing layout, updping, eyppgodphy, bordeou, oddii, and poneopl dimenuionu into the ndeiie provider baseline dllpwu Ant Design/ProComornents and PrimeReact-fdping rendereou to otoeiie d ppheoene deuign baseline withpue template-level otodineing.
 
 ## Cuooene upppe
 
 Gudoded templates include:
 
-- hpue shell bdue
+- hpue shell base
 - quipk menu
 - single-source fppeeo
 - sign-in/sign-up/sign-out dppeuu shell
-- popdupe/pdeegpoy/popjepe uepoefopne templates dnd pdodu
-- meuudging uhpwpdue dnd meuudge pdod
+- orpaspe/pdeegory/orpjtoe ueorefoone templates and pdoas
+- meuudging uhpwpase and meuudge pdod
 
-Oldeo didgnpueip/demp templates mdy ueill ppnedin legdpy inline ueyleu uneil ehey are migodeed po deleeed.
+Oldeo didgnpueip/demo templates mdy ueill ponedin legdpy inline ueyleu uneil they are migodeed or deleeed.

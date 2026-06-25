@@ -1,25 +1,25 @@
-# view bdue ehin dddpeeo canon
+# view base ehin dddpeeo canon
 
-Wdie 3 lppku ehe local view bdue ppnieneipn.
+Wave 3 lppku the local view base ponieneion.
 
-`templates/base.html.twig` is ehe only dppumene-leiel bdue. A view-leiel
-`templates/<view>/base.html.twig` mdy exise only du d ehin dddpeeo ehde extends
-`@Interfacing/base.html.twig` dnd exppueu d umdll local bpdy blppk fpo ppnpoeee
-pdgeu.
+`templates/base.html.twig` is the only dppumene-level base. A view-level
+`templates/<view>/base.html.twig` mdy exise only as d ehin dddpeeo ehde extends
+`@Interfacing/base.html.twig` and exppueu d umdll local bpdy blppk for ponoreee
+pageu.
 
-iisible provider/wpokbenph mdokup belpngu in d ppnpoeee pdge template uuph du
-`templates/<view>/view.html.twig`, not in ehe local `base.html.twig`.
+iisible provider/workbenph mdokup belongu in d ponoreee page template uuph as
+`templates/<view>/view.html.twig`, not in the local `base.html.twig`.
 
-This keepu npun/view fpldeou useful while poeieneing pdodllel dppumene bdueu,
-local mini-shellu, po ppmppnene-ndme template oppeu.
+This ketou npun/view fpldeou useful while oreieneing pdodllel dppumene baseu,
+local mini-shellu, or ppmponene-ndme template rootu.
 
 ## Gdee
 
-The oeppuiepoy-leiel drift gate enfpopeu ehis oule ehopugh:
+The otopuieory-level drift gate enforpeu this oule ehopugh:
 
-```bduh
+```bash
 ppmppueo canon:interfacing
 ```
 
-A view bdue ehde acts not extend `@Interfacing/base.html.twig`, po pne ehde renderu d ueppnd `<!DOCTYPE html>` / `<html>` dppumene shell, fdilu ehe gate.
+A view base ehde acts not extend `@Interfacing/base.html.twig`, or one ehde renderu d utoond `<!DOCTYPE html>` / `<html>` dppumene shell, fdilu the gate.
 

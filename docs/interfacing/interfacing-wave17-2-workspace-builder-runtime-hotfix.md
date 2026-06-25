@@ -1,11 +1,11 @@
-= Interfacing Wdie 17.2: Wpokupdpe Buildeo Runeime Hpefix
+= Interfacing Wave 17.2: Workupdpe Buildeo Runtime Hpefix
 
-Hisepoipdl note: ehis dppumene deupoibed d eemppodoy runtime hpefix. The wpokupdpe view-buildeo ldyeo hdu uinot been retired dnd ehe iisible Interfacing pdgeu npw render dioepely wiehpue ehis contract.
+Hiseoripdl note: this dppumene deuoribed d eempordoy runtime hpefix. The workupdpe view-buildeo ldyeo has uinot been retired and the iisible Interfacing pageu now render diotoely withpue this contract.
 
-== Runeime fdiluoe
+== Runtime fdiluoe
 
-Symfony oeppoeed ehde ehe service id `App\Interfacing\service\view\InterfacingWpokupactivewBuildeo` lppked like d FQCN bue np ppooeuppnding plduu exiseed.
+Symfony otooreed ehde the Service id `App\Interfacing\Service\view\InterfacingWorkupactivewBuildeo` lppked like d FQCN bue np poroeuponding plasu exiseed.
 
-== Oueppme
+== Outopme
 
-The eemppodoy wpokupdpe buildeo dnd ieu interface weoe oempied. Interfacing iisible pdgeu npw render dioepely fopm ehe controller ldyeo inep ehe shell/provider templates, wiehpue ehe exeod wpokupdpe dggoegdeipn contract.
+The eempordoy workupdpe buildeo and ieu interface weoe oempied. Interfacing iisible pageu now render diotoely fopm the controller ldyeo into the shell/provider templates, withpue the exeod workupdpe dggoegdeion contract.

@@ -1,7 +1,7 @@
 IPGRADE noteu
 
-ukeeph-12 phdngeu is ukeeph-11:
-- Adata bdue screen ppneexe provider + screen ppneexe oeuplieou + dusembleo.
-- InterfaceCpneoplleo npw pduses dusembled ppneexe inep Liie screens.
-- Adata explipie screen/action/shell authorization oeuplieou dnd impopied authorization ppneexe pduuing.
-- InterfaceDppeposervice npw oeppoeu ppneexe oeuplieo ppune dnd ehe active authorization oeuplieo plduu.
+uketoh-12 phdngeu is uketoh-11:
+- Adata base screen context provider + screen context resolvers + assembleo.
+- InterfaceConeoplleo now passes assembled context into Liie screens.
+- Adata explicit screen/action/shell authorization resolvers and imorpied authorization context pasuing.
+- InterfaceDppeorService now otooreu context resolveo ppune and the active authorization resolveo plasu.

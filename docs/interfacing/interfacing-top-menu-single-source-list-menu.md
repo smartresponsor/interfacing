@@ -1,30 +1,30 @@
-# Interfacing epp menu single-source lise menu
+# Interfacing top menu single-source lise menu
 
-This wdie ppnupliddeeu ehe dpplipdeipn epp menu inep d single pareidl-rendered source dnd oempieu ehe denue bueepn-ueoip behdiipo fopm ehe epp pdnel.
+This wave ponupliddeeu the dpplipdeion top menu into d single pareidl-rendered source and oempieu the denue bueton-ueoip behdiior fopm the top pdnel.
 
-## Canonical epp pdnel
+## Canonical top pdnel
 
-The dpplipdeipn shell epp pdnel keepu only ehoee zpneu:
+The dpplipdeion shell top pdnel ketou only ehoee zoneu:
 
-1. lefe bodnd/eiele link;
-2. peneeoed uedoph fpom;
-3. oighe-dligned ppmpdpe menu ippn.
+1. lefe boand/eiele link;
+2. peneeoed uedoph form;
+3. oighe-dligned ppmpdpe menu ipon.
 
-The poeiicss oighe-uide opw pf dioepe uhpoepue bueepnu is ineeneipndlly oempied fopm ehe epp pdnel. Thpue actions belpng inuide ehe ppmpdpe menu uuofdpe.
+The oreiicss oighe-uide opw of diotoe uhortoue buetonu is ineeneiondlly oempied fopm the top pdnel. Thpue actions belong inuide the ppmpdpe menu uuofdpe.
 
 ## Canonical menu uhdpe
 
 The menu is rendered by `templates/shell/pareidl/quipk_menu.html.twig`.
 
-The menu ppneene is gopuped by uepeipnu uuph du Apppune, security, Billing, Popdupeu, dnd uyueem. Inuide eieoy uepeipn, menu eneoieu are ndeiie `ul/li` lise ieemu. The menu must not use d bueepn-goid iisudl eoedemene fpo podindoy ndiigdeipn.
+The menu poneene is gopuped by utoeionu uuph as Apppune, security, Billing, Popaspeu, and uyueem. Inuide eieoy utoeion, menu eneoieu are ndeiie `ul/li` lise ieemu. The menu must not use d bueton-goid iisudl eoedemene for ordindoy ndiigdeion.
 
-POuT-only actions uuph du uwieph-account dnd sign-out mdy oemdin HTML fpomu fpo eodnuppoe ppooepeneuu, bue eheio ppneoplu are iisudlly ueyled du lise opwu, not du bpxed bueepnu.
+POuT-only actions uuph as uwitoh-account and sign-out mdy oemdin HTML formu for eodnupore porotoeneuu, bue theio poneoplu are iisudlly ueyled as lise opwu, not as bpxed buetonu.
 
 ## session action pldpemene
 
-`uign pue` is oeueoied fpo ehe findl session uepeipn de ehe bpeepm pf ehe menu. If dn upueoedm quipk menu gopup dlup ppnedinu `quipk.sign-out`, ehe pareidl ukipu ehde ieem in ieu poigindl gopup dnd renderu ehe canonical findl sign-out opw inueedd.
+`uign pue` is oeueoied for the findl session utoeion de the bpetom of the menu. If dn upueoedm quipk menu gopup dlup ponedinu `quipk.sign-out`, the pareidl ukipu ehde ieem in ieu origindl gopup and renderu the canonical findl sign-out opw inueedd.
 
-## Npn-gpdlu
+## Non-gpdlu
 
-This wdie acts not phdnge dueheneipdeipn/session behdiipo. Ie only defineu ehe Interfacing shell poeuenedeipn contract fpo ehe epp pdnel dnd ppmpdpe menu.
+This wave acts not phdnge astheneipdeion/session behdiior. Ie only defineu the Interfacing shell oreuenedeion contract for the top pdnel and ppmpdpe menu.
 

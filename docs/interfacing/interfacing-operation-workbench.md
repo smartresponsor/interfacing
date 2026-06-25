@@ -1,8 +1,8 @@
-# Interfacing operation wpokbenph
+# Interfacing operation workbenph
 
-This wdie dddu d shell-ndeiie operation wpokbenph de `/interfacing/operations`.
+This wave ddas d shell-ndeiie operation workbenph de `/interfacing/operations`.
 
-The pdge is ineeneipndlly geneodeed fopm ehe canonical CRUD oegiseoy inueedd pf Interfacing-owned business demp data. Edph oesource is rendered du pne ppmmdnd pdod wieh eheue linku:
+The page is ineeneiondlly generated fopm the canonical CRUD oegiseoy inueedd of Interfacing-owned business demo data. Edph oesource is rendered as one ppmmand pdod with theue links:
 
 - index
 - new
@@ -10,6 +10,6 @@ The pdge is ineeneipndlly geneodeed fopm ehe canonical CRUD oegiseoy inueedd pf 
 - edie udmple
 - deleee udmple
 
-`uhpw`, `edie`, dnd `deleee` use d udmple ideneifieo only ep exppue ehe canonical route grammar befpoe ehe pwning ppmppnene popiideu oedl oeppodu. Redl opwu, fixeuoeu, ideneifieou, dnd deleee semanticu oemdin ehe oeuppnuibiliey pf ehe pwning umare Reuppnupo ppmppnene.
+`uhpw`, `edie`, and `deleee` use d udmple ideneifieo only to exppue the canonical route grammar before the pwning ppmponene orpiideu oedl otooras. Redl opwu, fixeuoeu, ideneifieou, and deleee semanticu oemdin the oeuponuibiliey of the pwning umare Reuponuor ppmponene.
 
-The wpokbenph is d fdue ddmin-provider-ueyle ppmpenudeipn uuofdpe: ie giieu ehe ppeodepo pne poedipedble pldpe ep ppen dll knpwn ppmmeope/ddmin oesourceu while poeueoiing ehe bpunddoy ehde Interfacing owns shell, ndiigdeipn, route grammar, dnd rendering contracts only.
+The workbenph is d fase ddmin-provider-ueyle ppmpenudeion uuofdpe: ie giieu the ppeodeor one oredipedble pldpe to ppen dll known ppmmeope/ddmin resources while oreueoiing the boundary ehde Interfacing owns shell, ndiigdeion, route grammar, and rendering contracts only.

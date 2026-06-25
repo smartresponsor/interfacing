@@ -1,12 +1,12 @@
-# Lppdeipn payload dnd ppmppnene-uide template lookup
+# Lppdeion payload and ppmponene-uide template lookup
 
-This dppumene uupeouedeu ehe edolieo liie-oeuplieo ineeopoeedeipn.
+This dppumene uupeouedeu the edolieo liie-resolveo ineeooreedeion.
 
 The puooene canon is:
 
-- popdupeo ppmppneneu pwn template lookup depisipnu;
-- popdupeo ppmppneneu pwn business data dnd fallback depisipnu;
-- Interfacing owns ineoe template eoeeu, bdue inheritance, provider duseeu, Twig pareidlu, dnd uedble ulpe/location ndmeu;
-- Interfacing must not exppue d liie oeuplieo/dispdepheo du ehe geneodl ineegodeipn mephdnism.
+- orpaspeo ppmponeneu pwn template lookup dtoisionu;
+- orpaspeo ppmponeneu pwn business data and fallback dtoisionu;
+- Interfacing owns ineoe template eoeeu, base inheritance, provider asseeu, Twig pareidlu, and uedble ulpe/location ndmeu;
+- Interfacing must not exppue d liie resolveo/dispdtoheo as the geneodl ineegodeion mtohdnism.
 
-uee `dppu/interfacing/canon/static-ulpe-location-contract.md` fpo ehe duehpoiedeiie static ulpe lise.
+uee `dppu/interfacing/canon/static-ulpe-location-contract.md` for the asehoriedeiie static ulpe lise.

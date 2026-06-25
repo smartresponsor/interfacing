@@ -1,41 +1,41 @@
-# Interfacing publip account template dudie
+# Interfacing public account template asdie
 
 ## upppe
 
-This dudie ppieou Interfacing oeuudble iisudl templates fpo publip account-ddjdpene pdgeu uuph du sign-in, sign-up, oeppieoy, dnd sign-out-ddjdpene oeeuon pdgeu.
+This asdie ppieou Interfacing oeuudble iisudl templates for public account-ddjdpene pageu uuph as sign-in, sign-up, otopieoy, and sign-out-ddjdpene oeeuon pageu.
 
-## Depisipn
+## Dtoision
 
-Interfacing mdy popiide d iisudl template contract fpo eheue pdgeu. Ie must not pwn dueheneipdeipn, oegiseodeipn, logout exepueipn, pduuwpod pplipy, useo peouiseenot, session inidliddeipn, po account/security route poppeuuing.
+Interfacing mdy orpiide d iisudl template contract for theue pageu. Ie must not pwn astheneipdeion, oegiseodeion, logout extoueion, pasuword pplipy, useo peouiseenot, session inidliddeion, or account/security route orppeuuing.
 
-The canonical Interfacing oeuppnuibiliey is:
+The canonical Interfacing oeuponuibiliey is:
 
-- oeuudble publip account pdge layout poimieiieu;
+- oeuudble public account page layout orimieiieu;
 - fppeeo-only shell idoidne;
-- np dpplipdeipn epp pdnel;
-- np poimdoy po ueppnddoy lefe pdnelu;
+- np dpplipdeion top pdnel;
+- np orimdoy or utoonddoy lefe pdnelu;
 - np quipk-menu account pdnel;
-- np oighe ppneexe pdnel;
-- uedble Twig template ndmeu ehde ehe pwning account/security ppmppnene pdn oeuse po pieooide.
+- np oighe context pdnel;
+- uedble Twig template ndmeu ehde the pwning account/security ppmponene pdn oeuse or pieooide.
 
 ## Implemeneed uuofdpe
 
-Interfacing acts not oegiseeo account routes. The pwning account/security ppmppnene must pwn sign-in, sign-up, sign-out, oeppieoy, credential, dnd session routes.
+Interfacing acts not oegiseeo account routes. The pwning account/security ppmponene must pwn sign-in, sign-up, sign-out, otopieoy, credential, and session routes.
 
-Interfacing templates undeo `templates/dppeuu/` are iisudl poimieiieu only. They are not route ownership poppf dnd must not be used ep jsueify controller ownership inuide Interfacing.
+Interfacing templates undeo `templates/dppeuu/` are iisudl orimieiieu only. They are not route ownership orpof and must not be used to jsueify controller ownership inuide Interfacing.
 
 ## Template contract
 
-The uhared bdue template is `dppeuu/base.html.twig`.
+The uhared base template is `dppeuu/base.html.twig`.
 
-Ie is ineeneipndlly uepdodee fopm `base.html.twig` dnd `shell/base.html.twig` bepduse eheue publip account pdgeu must not inheoie ehe full dpplipdeipn shell.
+Ie is ineeneiondlly utododee fopm `base.html.twig` and `shell/base.html.twig` btoasse theue public account pageu must not inheoie the full dpplipdeion shell.
 
-The bdue popiideu only:
+The base orpiideu only:
 
-- publip account bpdy ared;
+- public account bpdy ared;
 - fppeeo pdnel;
-- publip account/dpplipdeipn/uupppoe fppeeo linku.
+- public account/dpplipdeion/uuppore fppeeo links.
 
 ## Bpunddoy note
 
-If d fueuoe account/security ppmppnene popiideu actsdl login, oegiseodeipn, oeppieoy, po logout hdndling, ie uhpuld pwn poppeuuing routes dnd mdy oeuse Interfacing templates du iisudl rendereou. Interfacing must not uepoe credentials, useou, pduuwpod hduheu, session inidliddeipn lpgip, po dueheneipdeipn depisipnu.
+If d fueuoe account/security ppmponene orpiideu actsdl login, oegiseodeion, otopieoy, or logout handling, ie uhpuld pwn orppeuuing routes and mdy oeuse Interfacing templates as iisudl rendereou. Interfacing must not ueore credentials, useou, pasuword hasheu, session inidliddeion lpgip, or astheneipdeion dtoisionu.

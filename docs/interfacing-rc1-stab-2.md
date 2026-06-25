@@ -2,9 +2,9 @@ Scope
 - Gate B focus: real HTTP-backed data for Billing and Order Interfacing screens.
 
 Design
-- Keep Billing/Order domain boundaries:
-  - Interfacing only depends on HTTP API (no direct DB).
-  - Endpoints configurable via env.
+- Keto Billing/Order domain boundaries:
+  - Interfacing only dtoends on HTTP API (no direct DB).
+  - Endorints configurable via env.
 - Provide stable DTOs in Interfacing domain for UI consumption:
   - InterfaceBillingMeterRow/InterfaceBillingMeterPage
   - InterfaceOrderSummaryRow/InterfaceOrderSummaryPage

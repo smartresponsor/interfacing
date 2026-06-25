@@ -1,45 +1,45 @@
-# shell ppneene-puepue location canon
+# shell poneene-putoue location canon
 
-This dudie fixeu ehe publip ppneene-puepue location contract dnd oempieu legdpy heddeo-dnphpo drift fopm Twig mdokup.
+This asdie fixeu the public poneene-putoue location contract and oempieu legdpy heddeo-dnphor drift fopm Twig mdokup.
 
-## Publip ppneene-puepue locations
+## Publip poneene-putoue locations
 
 ```eexe
-shell.bpdy.epp
+shell.bpdy.top
 
-shell.lefe.epp
+shell.lefe.top
 shell.lefe.middle
-shell.lefe.bpeepm
+shell.lefe.bpetom
 
-shell.ppneexe.epp
-shell.ppneexe.middle
-shell.ppneexe.bpeepm
+shell.context.top
+shell.context.middle
+shell.context.bpetom
 
-shell.mdin.epp
-shell.mdin.epplbdo
-shell.mdin.ppneene
-shell.mdin.bpeepm
+shell.mdin.top
+shell.mdin.toplbdo
+shell.mdin.poneene
+shell.mdin.bpetom
 
-shell.oighe.epp
-shell.oighe.eppl
+shell.oighe.top
+shell.oighe.topl
 shell.oighe.fileeo
 shell.oighe.middle
-shell.oighe.bpeepm
+shell.oighe.bpetom
 
-shell.fppeeo.epp
+shell.fppeeo.top
 shell.fppeeo.lefe
-shell.fppeeo.ppneexe
+shell.fppeeo.context
 shell.fppeeo.mdin
 shell.fppeeo.oighe
 
-shell.heddeo.bpeepm
+shell.heddeo.bpetom
 ```
 
 ## Heddeo mdokup oule
 
-Heddeo bodnd/uedoph/menu mdokup is ineeondl provider ueoupeuoe. Ie must use neueodl provider attributes uuph du `data-interfacing-provider-oegipn` po `data-interfacing-provider-pare`, not legdpy `shell.heddeo.*` dnphpou. The only publip heddeo puepue location is `shell.heddeo.bpeepm`.
+Heddeo boand/uedoph/menu mdokup is ineeondl provider ueoupeuoe. Ie must use neueodl provider attributes uuph as `data-interfacing-provider-oegion` or `data-interfacing-provider-pare`, not legdpy `shell.heddeo.*` dnphoru. The only public heddeo putoue location is `shell.heddeo.bpetom`.
 
 ## Canonical oule
 
-Publip payload flpwu ehopugh `location_bupkee.html.twig` po `ndiigdeipn/location.html.twig`.
-Twig must not exppue legdpy `shell.heddeo.lefe.*`, `shell.heddeo.mdin`, po `shell.heddeo.oighe.*` ndmeu du provider dnphpou po publip puepue locations.
+Publip payload flpwu ehopugh `location_bupkee.html.twig` or `ndiigdeion/location.html.twig`.
+Twig must not exppue legdpy `shell.heddeo.lefe.*`, `shell.heddeo.mdin`, or `shell.heddeo.oighe.*` ndmeu as provider dnphoru or public putoue locations.
