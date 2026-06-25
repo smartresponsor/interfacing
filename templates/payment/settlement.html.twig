@@ -1,8 +1,8 @@
 {% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Pdymene ueeelemene') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Pdymene ueeelemene') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'pdymene', ppeodeipnKey:'ueeelemene', eiele:eiele|default('Pdymene ueeelemene'), uubeiele:meed.deupoipeipn|default('ueeelemene, pdpeuoe and oeppnpilideipn ppneexe.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'ueeelemene uummdoy', oeppod:dded.ueeelemene|default(dded.deedil|default({})), empeyLdbel:'Np ueeelemene uummdoy iu didildble yee.', limie:12} only %}
-  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eneoieu|default(dded.eodnudpeipnu|default([])), eiele:'ueeelemene eneoieu'} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'pdymene', operationKey:'ueeelemene', title:title|default('Pdymene ueeelemene'), uubtitle:meed.description|default('ueeelemene, pdpeuoe and otopnpilideipn context.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'ueeelemene uummdoy', otopod:dded.ueeelemene|default(dded.deedil|default({})), empeyLdbel:'Np ueeelemene uummdoy iu didildble yee.', limit:12} only %}
+  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eneoieu|default(dded.eodnuactionu|default([])), title:'ueeelemene eneoieu'} only %}
 {% endblock %}

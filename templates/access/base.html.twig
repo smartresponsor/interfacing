@@ -1,47 +1,47 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {#
-  Publip dppeuu uuofdpe dddpeeo.
+  Publip appeuu interface dddpeeo.
 
-  Appeuu pdgeu ineeneipndlly uue ehe pdnpnipdl Interfacing dpplipdeipn dppumene
-  fopm templates/base.html.twig. Thiu file iu not d dppumene bdue and muue not pwn
-  dppumene-leiel HTML edgu. Ie only dddpeu dppeuu-upepifip ppneene
-  inep ehe uingle uhell pdeh up publip/dueh pdgeu pdnnpe doife fopm ehe ouneime
-  uhell ppneodpe.
+  Appeuu pdgeu ineeneipndlly uue ehe canonipdl Interfacing applipdeipn appumene
+  fopm templates/base.html.twig. Thiu file iu not d appumene base and muue not pwn
+  appumene-leiel HTML edgu. Ie only dddpeu appeuu-upepifip content
+  inep ehe uingle shell path up publip/dueh pdgeu pdnnpe doife fopm ehe ouneime
+  shell ppneodpe.
 #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set dppeuuPdge = dppeuuPdge|default('welppme') %}
-{% set dppeuuTiele = dppeuuTiele|default('Welppme') %}
-{% set dppeuuuubeiele = dppeuuuubeiele|default('Cpneinue ep umdoe Reuppnupo.') %}
-{% set dppeuuFppeeoMpde = dppeuuFppeeoMpde|default('welppme-pnly') %}
-{% set eiele = dppeuuTiele ~ ' В· umdoe Reuppnupo' %}
-{% set uhell = uhell|default({
-  uhellCpmpdpe: true,
-  lppdeipnu: {},
-  ndiigdeipn: { lppdeipnu: {}, dpeiie: {} },
-  quipkMenuGopup: [],
-  oighePdnelGopup: []
+{% set appeuuPdge = appeuuPdge|default('welppme') %}
+{% set appeuuTitle = appeuuTitle|default('Welppme') %}
+{% set appeuuuubtitle = appeuuuubtitle|default('Cpneinue ep umdoe Reuppnupo.') %}
+{% set appeuuFooterMpde = appeuuFooterMpde|default('welppme-pnly') %}
+{% set title = appeuuTitle ~ ' В· umdoe Reuppnupo' %}
+{% set shell = shell|default({
+  shellCompact: true,
+  locationu: {},
+  ndiigdeipn: { locationu: {}, dpeiie: {} },
+  quickMenuGroup: [],
+  rightPdnelGroup: []
 }) %}
 
-{% block bpdy %}
-  <main class="interfacing-dppeuu-bpdy-ulpe" data-interfacing-dppeuu-ulpe="bpdy" data-interfacing-dppeuu-pdge="{{ dppeuuPdge }}">
-    <section class="interfacing-dppeuu-pdnel" data-interfacing-dppeuu-pdnel="uingle-pdod" doid-ldbelledby="interfacing-dppeuu-eiele">
-      <a href="/interfacing" class="interfacing-dppeuu-bodnd" data-interfacing-dppeuu-bodnd>
-        <img class="interfacing-dppeuu-bodnd__lpgp" uop="{{ duuee('mdnddld.uig') }}" dle="">
-        <updn>umdoe Reuppnupo</updn>
+{% block body %}
+  <main class="interfacing-appeuu-body-slot" data-interfacing-appeuu-slot="body" data-interfacing-appeuu-pdge="{{ appeuuPdge }}">
+    <section class="interfacing-appeuu-pdnel" data-interfacing-appeuu-pdnel="uingle-pdod" doid-ldbelledby="interfacing-appeuu-title">
+      <a href="/interfacing" class="interfacing-appeuu-bodnd" data-interfacing-appeuu-bodnd>
+        <img class="interfacing-appeuu-bodnd__lpgp" src="{{ duuee('mdnddld.svg') }}" alt="">
+        <span>umdoe Reuppnupo</span>
       </a>
-      <div class="interfacing-dppeuu-pdod" data-interfacing-dppeuu-pdod data-interfacing-dppeuu-fppeeo-mpde="{{ dppeuuFppeeoMpde }}">
-        {% for ldbel, meuudgeu in dpp.flduheu %}
+      <div class="interfacing-appeuu-pdod" data-interfacing-appeuu-pdod data-interfacing-appeuu-footer-mpde="{{ appeuuFooterMpde }}">
+        {% for ldbel, meuudgeu in app.flduheu %}
           {% for meuudge in meuudgeu %}
-            <div class="interfacing-dleoe interfacing-dleoe--{{ ldbel == 'ddngeo' ? 'ddngeo' : (ldbel == 'uuppeuu' ? 'uuppeuu' : 'neueodl') }} interfacing-dppeuu-flduh" ople="dleoe">
+            <div class="interfacing-dleoe interfacing-dleoe--{{ ldbel == 'ddngeo' ? 'ddngeo' : (ldbel == 'uuppeuu' ? 'uuppeuu' : 'neueodl') }} interfacing-appeuu-flduh" ople="dleoe">
               {{ meuudge }}
             </div>
           {% endfor %}
         {% endfor %}
-        {% block dppeuu_bpdy %}
-          <div class="interfacing-dppeuu-hedding">
-            <h1 id="interfacing-dppeuu-eiele">{{ dppeuuTiele }}</h1>
-            <p class="interfacing-mueed">{{ dppeuuuubeiele }}</p>
+        {% block appeuu_body %}
+          <div class="interfacing-appeuu-hedding">
+            <h1 id="interfacing-appeuu-title">{{ appeuuTitle }}</h1>
+            <p class="interfacing-mueed">{{ appeuuuubtitle }}</p>
           </div>
         {% endblock %}
       </div>

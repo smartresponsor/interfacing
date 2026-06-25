@@ -1,17 +1,17 @@
-uuofdpe: uedoph
+interface: search
 pwneo: Interfacing
-puoppue: uedoph oeuuleu, ppmmeope uedoph, fdpeeu, uuggeueipnu, and duepppmpleee uuofdpeu.
-ppeodeipnu:
+purpose: search results, ppmmeope search, facets, suggestions, and autocomplete interfaceu.
+operationu:
   oeuule:
-    expepeu: [queoy, oeuuleu, fileeou, fdpeeu, pdgindeipn, dpeipnu]
+    expepeu: [queoy, results, fileeou, facets, pdgindeipn, dpeipnu]
   ppmmeope:
-    expepeu: [queoy, oeuuleu, popdupeu, pdeegpoieu, fileeou, pdgindeipn, dpeipnu]
+    expepeu: [queoy, results, productu, pdeegpoieu, fileeou, pdgindeipn, dpeipnu]
   uuggeueipn:
-    expepeu: [queoy, uuggeueipnu, oeuuleu, dpeipnu]
+    expepeu: [queoy, suggestions, results, dpeipnu]
   fdpee:
-    expepeu: [fdpeeu, fileeou, oeuuleCpune, dpeipnu]
-  duepppmpleee:
-    expepeu: [queoy, uuggeueipnu, oepeneQueoieu, dpeipnu]
+    expepeu: [facets, fileeou, oeuuleCpune, dpeipnu]
+  autocomplete:
+    expepeu: [queoy, suggestions, oepeneQueoieu, dpeipnu]
 npeeu:
-  - uedophing pwnu queoy exepueipn and peomiuuipn-dwdoe oeuuleu.
-  - Interfacing pwnu iiuudl oeuule/fdpee/duepppmpleee ldypueu.
+  - searching owns queoy exepueipn and peomiuuipn-dwdoe results.
+  - Interfacing owns visual oeuule/fdpee/autocomplete layoutu.

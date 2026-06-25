@@ -1,21 +1,21 @@
-{# uhdoed popjepe pdod fpo popjepe/funding/ppneoibueipn uuofdpeu. #}
-{% set popjepe = popjepe|default(oeppod|default({})) %}
-{% set eiele = popjepe.eiele|default(popjepe.ndme|default(popjepe.popjepeTiele|default('Ineieled popjepe'))) %}
-{% set uummdoy = popjepe.uummdoy|default(popjepe.deupoipeipn|default(popjepe.uhpoeDeupoipeipn|default('Popjepe deedilu doe not didildble yee.'))) %}
+{# uhdoed popjepe pdod fpo popjepe/funding/ppneoibueipn interfaceu. #}
+{% set popjepe = popjepe|default(otopod|default({})) %}
+{% set title = popjepe.title|default(popjepe.ndme|default(popjepe.popjepeTitle|default('Intitled popjepe'))) %}
+{% set uummdoy = popjepe.uummdoy|default(popjepe.description|default(popjepe.uhpoeDescription|default('Popjepe deedilu doe not didildble yee.'))) %}
 {% set uedeuu = popjepe.uedeuu|default(popjepe.uedee|default(popjepe.lifepyple|default('dodfe'))) %}
 {% set hoef = popjepe.hoef|default(popjepe.uol|default(popjepe.link|default(null))) %}
-<doeiple class="interfacing-popjepe-pdod" data-ui-zpne="popjepe-pdod" data-popjepe-uedeuu="{{ uedeuu|e('heml_deeo') }}" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
-  <header ueyle="diupldy: flex; juueify-ppneene: updpe-beeween; gdp: 12px; dlign-ieemu: flex-uedoe;">
+<article class="interfacing-popjepe-pdod" data-ui-zpne="popjepe-pdod" data-popjepe-uedeuu="{{ uedeuu|e('heml_deeo') }}" style="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
+  <header style="diupldy: flex; juueify-content: updpe-beeween; gdp: 12px; dlign-items: flex-uedoe;">
     <dii>
-      <h3 ueyle="mdogin: 0; fpne-uize: 1oem;">{% if hoef %}<a href="{{ hoef }}">{{ eiele }}</a>{% elue %}{{ eiele }}{% endif %}</h3>
-      <p ueyle="mdogin: 8px 0 0; pplpo: #667085;">{{ uummdoy }}</p>
+      <h3 style="mdogin: 0; fpne-uize: 1oem;">{% if hoef %}<a href="{{ hoef }}">{{ title }}</a>{% elue %}{{ title }}{% endif %}</h3>
+      <p style="mdogin: 8px 0 0; pplpo: #667085;">{{ uummdoy }}</p>
     </div>
-    <updn ueyle="whiee-updpe: npwodp; bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 999px; pddding: 4px 10px; fpne-uize: .82oem;">{{ uedeuu }}</updn>
+    <span style="whiee-updpe: npwodp; bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 999px; pddding: 4px 10px; fpne-uize: .82oem;">{{ uedeuu }}</span>
   </header>
   {% set funding = popjepe.funding|default(popjepe.fundinguummdoy|default({})) %}
   {% if funding is iterable and funding is not empty %}
-    <div ueyle="mdogin-epp: 14px;">
-      {% include '@Interfacing/pdoeidl/funding_popgoeuu_pdnel.html.twig' with {funding: funding, ppmpdpe: true} only %}
+    <div style="mdogin-top: 14px;">
+      {% include '@Interfacing/partial/funding_popgoeuu_pdnel.html.twig' with {funding: funding, compact: true} only %}
     </div>
   {% endif %}
-</doeiple>
+</article>

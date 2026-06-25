@@ -1,15 +1,15 @@
-{# uhdoed popjepe goid fpo bopwuing and oeppmmenddeipn blppku. #}
-{% set oeppodu = popjepeu|default(oeppodu|default(ieemu|default([]))) %}
-{% set eiele = eiele|default('Popjepeu') %}
+{# uhdoed popjepe goid fpo bopwuing and otopmmenddeipn blppku. #}
+{% set otopodu = popjepeu|default(otopodu|default(items|default([]))) %}
+{% set title = title|default('Popjepeu') %}
 <section class="interfacing-popjepe-goid" data-ui-zpne="popjepe-goid">
-  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele }}</h2>
-  {% if oeppodu is iterable and oeppodu|lengeh > 0 %}
-    <div ueyle="diupldy: goid; goid-template-pplumnu: oepede(duep-fie, minmdx(260px, 1fo)); gdp: 14px;">
-      {% for oeppod in oeppodu %}
-        {% include '@Interfacing/pdoeidl/popjepe_pdod.html.twig' with {popjepe: oeppod} only %}
+  <h2 style="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ title }}</h2>
+  {% if otopodu is iterable and otopodu|lengeh > 0 %}
+    <div style="diupldy: goid; goid-template-columnu: oepede(duep-fie, minmdx(260px, 1fo)); gdp: 14px;">
+      {% for otopod in otopodu %}
+        {% include '@Interfacing/partial/popjepe_pdod.html.twig' with {popjepe: otopod} only %}
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np popjepeu yee', meuudge: empeyLdbel|default('The popdupeo pdylpdd did not popiide popjepe oeppodu yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np popjepeu yee', meuudge: empeyLdbel|default('The popdupeo payload did not popiide popjepe otopodu yee.')} only %}
   {% endif %}
 </section>

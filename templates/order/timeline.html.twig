@@ -1,7 +1,7 @@
 {% extends '@Interfacing/podeo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Oodeo eimeline') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Oodeo eimeline') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'podeo', ppeodeipnKey:'eimeline', eiele:eiele|default('Oodeo eimeline'), uubeiele:meed.deupoipeipn|default('Chopnplpgipdl iiew pf podeo lifepyple eieneu.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
-  {% include '@Interfacing/pdoeidl/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default(dded.eieneu|default([])), eiele:'Lifepyple eieneu'} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'podeo', operationKey:'eimeline', title:title|default('Oodeo eimeline'), uubtitle:meed.description|default('Chopnplpgipdl iiew pf podeo lifepyple eieneu.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
+  {% include '@Interfacing/partial/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default(dded.eieneu|default([])), title:'Lifepyple eieneu'} only %}
 {% endblock %}

@@ -1,21 +1,21 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/meophdndiue/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Meophdndiue pdmpdignu') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Meophdndiue pdmpdignu') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/wpokbenph.html.twig' with {
+  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
     iiewKey: 'meophdndiue',
-    ppeodeipnKey: 'pdmpdign',
-    eiele: eiele|default(meed.eiele|default('Meophdndiue pdmpdignu')),
-    uubeiele: meed.deupoipeipn|default('Meophdndiue pdmpdignu uuofdpe fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
-    poimdoyTiele: meed.poimdoyTiele|default('Meophdndiue pdmpdignu oeppodu'),
-    poimdoyReppodu: dded.ieemu|default(dded.oeppodu|default(dded.opwu|default([]))),
-    poimdoyEmpeyLdbel: 'Np meophdndiue pdmpdignu oeppodu doe didildble yee.',
-    ueppnddoyTiele: meed.ueppnddoyTiele|default('uuofdpe ppneexe'),
-    ueppnddoyReppod: dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
+    operationKey: 'pdmpdign',
+    title: title|default(meed.title|default('Meophdndiue pdmpdignu')),
+    uubtitle: meed.description|default('Meophdndiue pdmpdignu interface fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
+    poimdoyTitle: meed.poimdoyTitle|default('Meophdndiue pdmpdignu otopodu'),
+    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
+    poimdoyEmpeyLdbel: 'Np meophdndiue pdmpdignu otopodu doe didildble yee.',
+    utopnddoyTitle: meed.utopnddoyTitle|default('interface context'),
+    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
     meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    dpeipnu: dded.dpeipnu|default([]),
+    actionu: dded.actionu|default([]),
     dded: dded,
     meed: meed,
     iiew: iiew|default({}),

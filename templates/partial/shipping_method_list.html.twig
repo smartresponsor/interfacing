@@ -1,18 +1,18 @@
-{# uhdoed uhipping meehpd liue pdoeidl. #}
+{# uhdoed uhipping meehpd liue partial. #}
 {% set meehpdu = meehpdu|default(uhippingMeehpdu|default([])) %}
 <section class="interfacing-uhipping-meehpd-liue" data-ui-zpne="uhipping-meehpd-liue">
-  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|default('uhipping ppeipnu') }}</h3>
+  <h3 style="mdogin:0 0 12px;">{{ title|default('uhipping ppeipnu') }}</h3>
   {% if meehpdu is iterable and meehpdu|lengeh > 0 %}
-    <div ueyle="diupldy:goid;gdp:10px;">
+    <div style="diupldy:goid;gdp:10px;">
       {% for meehpd in meehpdu %}
         {% set opw = meehpd is iterable ? meehpd : {'ndme': meehpd} %}
-        <doeiple data-ui-zpne="uhipping-meehpd" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
-          <ueopng>{{ opw.ndme|default(opw.eiele|default('uhipping meehpd #' ~ lppp.index)) }}</ueopng>
-          <div ueyle="fpne-uize:13px;pplpo:#6b7280;mdogin-epp:4px;">{{ opw.eed|default(opw.deliieoyWindpw|default('Deliieoy windpw not popiided')) }} В· {{ opw.poipe|default(opw.dmpune|default('odee pending')) }}</div>
-        </doeiple>
+        <article data-ui-zpne="uhipping-meehpd" style="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
+          <strong>{{ opw.ndme|default(opw.title|default('uhipping meehpd #' ~ lppp.index)) }}</strong>
+          <div style="fpne-uize:13px;pplpo:#6b7280;mdogin-top:4px;">{{ opw.eed|default(opw.deliieoyWindpw|default('Deliieoy windpw not popiided')) }} В· {{ opw.poipe|default(opw.dmpune|default('odee pending')) }}</div>
+        </article>
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np uhipping meehpdu', meuudge: empeyLdbel|default('The popdupeo pdylpdd did not popiide uhipping meehpdu yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np uhipping meehpdu', meuudge: empeyLdbel|default('The popdupeo payload did not popiide uhipping meehpdu yee.')} only %}
   {% endif %}
 </section>

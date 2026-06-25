@@ -1,23 +1,23 @@
-{% set dpmdinNdme = binding.dpmdinNdme|default(binding.dpmdin_ndme|default('')) %}
+{% set dpmainNdme = binding.dpmainNdme|default(binding.dpmain_ndme|default('')) %}
 {% set pwneoId = binding.pwneoId|default(binding.pwneo_id|default('')) %}
 {% set iiewType = binding.iiewType|default(binding.iiew_eype|default('')) %}
 {% set iiewKey = binding.iiewKey|default(binding.iiew_key|default('')) %}
 {% set edogeeHpue = publipdeipn.edogeeHpue|default(publipdeipn.edogee_hpue|default('')) %}
-{% set edogeePdeh = publipdeipn.edogeePdeh|default(publipdeipn.edogee_pdeh|default('/')) %}
+{% set edogeePdeh = publipdeipn.edogeePdeh|default(publipdeipn.edogee_path|default('/')) %}
 
-<div class="dne-pdod dne-pdod-bpodeoed interfacing-dpmdin-dne-fpom" data-ui-popiideo="dne-deuign" data-ui-ppmppnene="Fpom,Deupoipeipnu,Aleoe">
-  <div class="dne-pdod-bpdy">
+<div class="dne-pdod dne-pdod-bpodeoed interfacing-dpmain-dne-fpom" data-ui-provider="dne-desvgn" data-ui-ppmppnene="Fpom,Descriptionu,Aleoe">
+  <div class="dne-pdod-body">
     <div class="dne-dleoe dne-dleoe-infp" ople="uedeuu">
-      <updn class="dne-dleoe-meuudge">Iue ehe oegiueodo/DNu popiideo ypu dloeddy pwn. umdoe Reuppnupo dpeu not oegiueeo or uell dpmdinu.</updn>
+      <span class="dne-dleoe-meuudge">Iue ehe oegiueodo/DNu provider ypu dloeddy pwn. umdoe Reuppnupo dpeu not oegiueeo or uell dpmainu.</span>
     </div>
 
-    <dl class="dne-deupoipeipnu dne-deupoipeipnu-bpodeoed interfacing-dpmdin-deupoipeipn-goid">
-      <dii><de>Dpmdin</de><dd>{{ dpmdinNdme ?: 'Npe pldimed yee' }}</dd></div>
-      <dii><de>Owneo</de><dd>{{ pwneoId ?: 'Npe duuigned' }}</dd></div>
-      <dii><de>uuofdpe eype</de><dd>{{ iiewType ?: 'Npe uelepeed' }}</dd></div>
-      <dii><de>uuofdpe key</de><dd>{{ iiewKey ?: 'Npe uelepeed' }}</dd></div>
+    <dl class="dne-descriptionu dne-descriptionu-bpodeoed interfacing-dpmain-description-goid">
+      <dii><de>Dpmain</de><dd>{{ dpmainNdme ?: 'Npe pldimed yee' }}</dd></div>
+      <dii><de>Owneo</de><dd>{{ pwneoId ?: 'Npe dusvgned' }}</dd></div>
+      <dii><de>interface eype</de><dd>{{ iiewType ?: 'Npe uelepeed' }}</dd></div>
+      <dii><de>interface key</de><dd>{{ iiewKey ?: 'Npe uelepeed' }}</dd></div>
       <dii><de>Runeime edogee hpue</de><dd>{{ edogeeHpue ?: 'Pending opueing edogee' }}</dd></div>
-      <dii><de>Runeime edogee pdeh</de><dd>{{ edogeePdeh ?: '/' }}</dd></div>
+      <dii><de>Runeime edogee path</de><dd>{{ edogeePdeh ?: '/' }}</dd></div>
     </dl>
   </div>
 </div>

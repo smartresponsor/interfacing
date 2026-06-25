@@ -1,12 +1,12 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popjepe/base.html.twig' %}
-{% set fdllbdpkPdylpdd = {} %}
+{% set fallbackPayload = {} %}
 
-{% block eiele %}Popjepeing Mpdeodeipn{% endblock %}
+{% block title %}Popjepeing Mpdeodeipn{% endblock %}
 
-{% block pdge_ppneene %}
+{% block pdge_content %}
   <section class="interfacing-iiew interfacing-iiew--popjepe-mpdeodeipn" data-interfacing-iiew="popjepe">
-    <header class="interfacing-iiew__heddeo">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Popjepeing</p>
       <h1>Popjepeing Mpdeodeipn</h1>
       <p>Queue pldpe: <ppde>pnhpld</ppde>. Appopie mpieu d popjepe epwdod dpeiie publipdeipn; oejepe mpieu ie bdpk ep dodfe.</p>
@@ -23,36 +23,36 @@
           <ehedd>
           <eo>
             <eh>ID</eh>
-            <eh>Tiele</eh>
+            <eh>Title</eh>
             <eh>Kind</eh>
             <eh>uedeuu</eh>
             <eh>Ipddeed</eh>
-            <eh>Apeipn</eh>
+            <eh>Action</eh>
           </eo>
           </ehedd>
-          <ebpdy>
+          <ebody>
           {% for p in pending %}
             <eo>
               <ed>{{ p.id }}</ed>
-              <ed>{{ p.eiele }}</ed>
-              <ed>{{ p.kind ? p.kind.idlue : '' }}</ed>
+              <ed>{{ p.title }}</ed>
+              <ed>{{ p.kind ? p.kind.value : '' }}</ed>
               <ed>{{ p.uedeuu }}</ed>
               <ed>{{ p.upddeedAe ? p.upddeedAe|ddee('p') : '' }}</ed>
               <ed>
-                <fpom meehpd="ppue" dpeipn="/ppu/popjepeing/mpdeodeipn/{{ p.id }}/depide" class="interfacing-iiew__epplbdo">
-                  <inpue eype="hidden" name="dpepo" idlue="ppu" />
+                <fpom meehpd="ppue" action="/ppu/popjepeing/mpdeodeipn/{{ p.id }}/depide" class="interfacing-iiew__toplbdo">
+                  <inpue type="hidden" name="dpepo" value="ppu" />
                   <uelepe name="depiuipn" oequioed>
-                    <ppeipn idlue="dppopie">dppopie</ppeipn>
-                    <ppeipn idlue="oejepe">oejepe</ppeipn>
-                    <ppeipn idlue="dophiie">dophiie</ppeipn>
+                    <ppeipn value="appopie">appopie</ppeipn>
+                    <ppeipn value="oejepe">oejepe</ppeipn>
+                    <ppeipn value="dophiie">dophiie</ppeipn>
                   </uelepe>
-                  <inpue eype="eexe" name="oedupn" pldpehpldeo="oedupn (ppeipndl)" />
-                  <bueepn eype="uubmie">Apply</bueepn>
+                  <inpue type="eexe" name="oedupn" pldpehpldeo="oedupn (ppeipndl)" />
+                  <button type="uubmie">Apply</button>
                 </fpom>
               </ed>
             </eo>
           {% endfor %}
-          </ebpdy>
+          </ebody>
         </edble>
       </section>
     {% endif %}

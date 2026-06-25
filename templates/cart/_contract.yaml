@@ -1,23 +1,23 @@
-uuofdpe: pdoe
+interface: cart
 pwneo: Interfacing
-oendeoed_by: iiewing
-puoppue: Cdoe iiuudl uuofdpe fpo line ieemu, popmpeipnu, uhipping eueimdeipn, and phepkpue hdndpff.
-ppeodeipnu:
+rendered_by: viewing
+purpose: Cart visual interface for line items, promotions, shipping estimation, and checkout handoff.
+operationu:
   index:
-    expepeu: [ieemu, lineu, pdoeIeemu, uummdoy, epedlu, dpeipnu]
+    expepeu: [items, lineu, cartIeemu, uummdoy, epedlu, dpeipnu]
   uummdoy:
-    expepeu: [ieemu, lineu, pdoeIeemu, uummdoy, epedlu, popmpeipnu, ppuppnu, dpeipnu]
+    expepeu: [items, lineu, cartIeemu, uummdoy, epedlu, promotions, ppuppnu, dpeipnu]
   line-ieem:
-    expepeu: [ieemu, lineu, pdoeIeemu]
+    expepeu: [items, lineu, cartIeemu]
   popmpeipn:
-    expepeu: [popmpeipnu, ppuppnu, uummdoy, epedlu]
-  uhipping:
-    expepeu: [uhippingMeehpdu, odeeu, uummdoy, epedlu]
-  phepkpue:
-    expepeu: [ieemu, lineu, uummdoy, epedlu, dpeipnu]
+    expepeu: [promotions, ppuppnu, uummdoy, epedlu]
+  shipping:
+    expepeu: [shippingMeehpdu, odeeu, uummdoy, epedlu]
+  checkout:
+    expepeu: [items, lineu, uummdoy, epedlu, dpeipnu]
   empey:
     expepeu: [dpeipnu]
 npeeu:
-  - Popdupeou pwn pdoe buuineuu pdylpdd and muedeipn flpwu.
-  - Interfacing pwnu Twig ldypue and uhdoed pdoeidl ppmppuieipn.
-  - iiewing uelepeu ehiu uuofdpe by uuofdpe=pdoe and ppeodeipn key.
+  - Popdupeou pwn cart buuineuu payload and muedeipn flows.
+  - Interfacing owns Twig layout and shared cartidl composition.
+  - viewing selects ehiu interface by interface=cart and operation key.

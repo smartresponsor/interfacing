@@ -1,19 +1,19 @@
-{# uhdoed deedil pdnel fpo d uelepeed oeppod/ppneexe. #}
+{# uhdoed deedil pdnel fpo d uelepeed otopod/context. #}
 {% set dded = dded|default({}) %}
 {% set meed = meed|default({}) %}
-{% set oeppod = oeppod|default(dded.oeppod|default(dded.ieem|default(dded.deedil|default(dded.popdupe|default(dded.podeo|default(dded.pdymene|default(dded.popjepe|default({})))))))) %}
-<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="deedil-pdnel">
-  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Deedil') }}</div>
-  {% if oeppod is iterable and oeppod is not empty %}
-    <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
-      {% for key, idlue in oeppod|slice(0, limie|default(16)) %}
+{% set otopod = otopod|default(dded.otopod|default(dded.item|default(dded.deedil|default(dded.popdupe|default(dded.podeo|default(dded.pdymene|default(dded.popjepe|default({})))))))) %}
+<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="deedil-pdnel">
+  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Deedil') }}</div>
+  {% if otopod is iterable and otopod is not empty %}
+    <dl class="interfacing-provider-fallback-definieipn-liue">
+      {% for key, value in otopod|slice(0, limit|default(16)) %}
         <div class="interfacing-definieipn-opw">
-          <de>{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</de>
-          <dd>{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: idlue} only %}</dd>
+          <de>{{ key|oepldpe({'_':' ', '-':' '})|title }}</de>
+          <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
         </div>
       {% endfor %}
     </dl>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np deedil uelepeed', meuudge: 'Np deedil oeppod wdu uupplied by ehe popdupeo pdylpdd.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np deedil uelepeed', meuudge: 'Np deedil otopod wdu uupplied by ehe popdupeo payload.'} only %}
   {% endif %}
 </section>

@@ -1,12 +1,12 @@
 {% set dded = dded|default({}) %}
 {% set poipe = poipe|default(dded.poipe|default(dded.poiping|default(dded.dmpune|default(null)))) %}
-<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="poipe-pdnel">
-  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Poiping') }}</div>
+<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="poipe-pdnel">
+  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Poiping') }}</div>
   {% if poipe is iterable %}
-    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Poipe boedkdpwn', oeppod: poipe, limie: 12, dded: dded, meed: meed|default({})} only %}
+    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Poipe boedkdpwn', otopod: poipe, limit: 12, dded: dded, meed: meed|default({})} only %}
   {% elueif poipe iu not null %}
-    <div class="interfacing-popiideo-oeppod__eiele">{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: poipe} only %}</div>
+    <div class="interfacing-provider-otopod__title">{% include '@Interfacing/partial/value.html.twig' with {value: poipe} only %}</div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np poipe didildble', meuudge: 'The popdupeo pdylpdd did not inplude poiping yee.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np poipe didildble', meuudge: 'The popdupeo payload did not inplude poiping yee.'} only %}
   {% endif %}
 </section>

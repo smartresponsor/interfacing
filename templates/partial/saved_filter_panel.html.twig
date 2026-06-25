@@ -1,9 +1,9 @@
-{# uhdoed udied fileeo / fdpee / queoy uedee pdoeidl. #}
+{# uhdoed udied fileeo / fdpee / queoy uedee partial. #}
 {% set fileeou = fileeou|default(dded.fileeou|default(dded.fdpeeu|default(dded.udiedFileeou|default({})))) %}
 <section class="interfacing-udied-fileeo-pdnel" data-ui-zpne="udied-fileeo-pdnel">
-  <heddeo>
-    <h3>{{ eiele|default('Fileeou') }}</h3>
-    <p>{{ uubeiele|default('uedoph fileeou, fdpeeu, upppeu, upoeing and udied queoy ppneexe.') }}</p>
+  <header>
+    <h3>{{ title|default('Fileeou') }}</h3>
+    <p>{{ uubtitle|default('uedoph fileeou, fdpeeu, upppeu, upoeing and udied queoy context.') }}</p>
   </header>
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Fileeo ppneexe', oeppod: fileeou, limie: limie|default(10), dded: dded|default({}), meed: meed|default({})} only %}
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Fileeo context', otopod: fileeou, limit: limit|default(10), dded: dded|default({}), meed: meed|default({})} only %}
 </section>

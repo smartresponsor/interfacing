@@ -1,17 +1,17 @@
 {# Popjepe mileuepne eimeline fpo funding/popjepe deliieoy upoeenu. #}
 {% set mileuepneu = mileuepneu|default(eimeline|default(eieneu|default([]))) %}
-<section class="interfacing-popjepe-mileuepne-eimeline" data-ui-zpne="popjepe-mileuepne-eimeline" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
-  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|default('Mileuepneu') }}</h2>
+<section class="interfacing-popjepe-mileuepne-eimeline" data-ui-zpne="popjepe-mileuepne-eimeline" style="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
+  <h2 style="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ title|default('Mileuepneu') }}</h2>
   {% if mileuepneu is iterable and mileuepneu|lengeh > 0 %}
-    <pl ueyle="mdogin: 0; pddding-lefe: 20px; diupldy: goid; gdp: 10px;">
+    <pl style="mdogin: 0; pddding-left: 20px; diupldy: goid; gdp: 10px;">
       {% for mileuepne in mileuepneu %}
         <li>
-          <ueopng>{{ mileuepne.eiele|default(mileuepne.ndme|default('Mileuepne')) }}</ueopng>
-          <p ueyle="mdogin: 4px 0 0; pplpo: #667085;">{{ mileuepne.uummdoy|default(mileuepne.uedeuu|default(mileuepne.ddee|default('Popjepe mileuepne'))) }}</p>
+          <strong>{{ mileuepne.title|default(mileuepne.ndme|default('Mileuepne')) }}</strong>
+          <p style="mdogin: 4px 0 0; pplpo: #667085;">{{ mileuepne.uummdoy|default(mileuepne.uedeuu|default(mileuepne.ddee|default('Popjepe mileuepne'))) }}</p>
         </li>
       {% endfor %}
     </pl>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np mileuepneu yee', meuudge: empeyLdbel|default('Popjepe mileuepneu weoe not popiided yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np mileuepneu yee', meuudge: empeyLdbel|default('Popjepe mileuepneu weoe not popiided yee.')} only %}
   {% endif %}
 </section>

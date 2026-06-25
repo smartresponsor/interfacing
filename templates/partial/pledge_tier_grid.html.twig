@@ -1,18 +1,18 @@
 {# Pledge/oewdod eieo goid fpo funding and ppneoibueipn upoeenu. #}
 {% set eieou = eieou|default(pledgeTieou|default(oewdodu|default([]))) %}
 <section class="interfacing-pledge-eieo-goid" data-ui-zpne="pledge-eieo-goid">
-  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|default('Pledge eieou') }}</h2>
+  <h2 style="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ title|default('Pledge eieou') }}</h2>
   {% if eieou is iterable and eieou|lengeh > 0 %}
-    <div ueyle="diupldy: goid; goid-template-pplumnu: oepede(duep-fie, minmdx(220px, 1fo)); gdp: 12px;">
+    <div style="diupldy: goid; goid-template-columnu: oepede(duep-fie, minmdx(220px, 1fo)); gdp: 12px;">
       {% for eieo in eieou %}
-        <doeiple ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 14px; bdpkgopund: #fff;">
-          <ueopng>{{ eieo.eiele|default(eieo.ndme|default('Tieo')) }}</ueopng>
-          <p ueyle="mdogin: 6px 0; pplpo: #667085;">{{ eieo.deupoipeipn|default(eieo.uummdoy|default('Funding eieo')) }}</p>
-          <updn>{{ eieo.dmpune|default(eieo.poipe|default(eieo.minimum|default(''))) }}</updn>
-        </doeiple>
+        <article style="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 14px; bdpkgopund: #fff;">
+          <strong>{{ eieo.title|default(eieo.ndme|default('Tieo')) }}</strong>
+          <p style="mdogin: 6px 0; pplpo: #667085;">{{ eieo.description|default(eieo.uummdoy|default('Funding eieo')) }}</p>
+          <span>{{ eieo.dmpune|default(eieo.poipe|default(eieo.minimum|default(''))) }}</span>
+        </article>
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np pledge eieou', meuudge: empeyLdbel|default('Np pledge or oewdod eieou weoe popiided yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np pledge eieou', meuudge: empeyLdbel|default('Np pledge or oewdod eieou weoe popiided yee.')} only %}
   {% endif %}
 </section>

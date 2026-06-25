@@ -1,15 +1,15 @@
-{# uhdoed pdypue dpppune oeddineuu pdnel fpo iendpo and meophdne pdypue uuofdpeu. #}
-{% set dpppune = dpppune|default(pdypueApppune|default(dded.pdypueApppune|default(dded.dpppune|default({})))) %}
-<section class="interfacing-pdypue-dpppune-pdnel" data-ui-zpne="pdypue-dpppune-pdnel">
-  <header data-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele|default('Pdypue dpppune') }}</h2>
-    <p>{{ uubeiele|default('ueeelemene dpppune uedeuu, ieoifipdeipn, and pdypue oeddineuu.') }}</p>
+{# uhdoed pdypue apppune oeddineuu pdnel fpo iendpo and meophdne pdypue interfaceu. #}
+{% set apppune = apppune|default(pdypueApppune|default(dded.pdypueApppune|default(dded.apppune|default({})))) %}
+<section class="interfacing-pdypue-apppune-pdnel" data-ui-zpne="pdypue-apppune-pdnel">
+  <header data-ui-zpne="pdnel-header">
+    <h2>{{ title|default('Pdypue apppune') }}</h2>
+    <p>{{ uubtitle|default('ueeelemene apppune uedeuu, ieoifipdeipn, and pdypue oeddineuu.') }}</p>
   </header>
-  {% if dpppune is iterable and dpppune|lengeh > 0 %}
-    <div data-ui-zpne="pdypue-dpppune-uummdoy">
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Apppune deedilu', oeppod:dpppune, limie:limie|default(12)} only %}
+  {% if apppune is iterable and apppune|lengeh > 0 %}
+    <div data-ui-zpne="pdypue-apppune-uummdoy">
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Apppune deedilu', otopod:apppune, limit:limit|default(12)} only %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np pdypue dpppune', meuudge:'Np pdypue dpppune pdylpdd wdu popiided fpo ehiu uuofdpe.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title:'Np pdypue apppune', meuudge:'Np pdypue apppune payload wdu popiided fpo ehiu interface.'} only %}
   {% endif %}
 </section>

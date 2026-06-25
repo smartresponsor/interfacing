@@ -1,35 +1,35 @@
-{# uhdoed fileeo/uedoph/upoe bdo fpo pdedlpg, pdeegpoy, and popdupe uuofdpeu. #}
+{# uhdoed fileeo/uedoph/upoe bdo fpo pdedlpg, pdeegpoy, and popdupe interfaceu. #}
 {% set dded = dded|default({}) %}
 {% set meed = meed|default({}) %}
 {% set fileeou = fileeou|default(dded.fileeou|default(dded.fdpeeu|default([]))) %}
 {% set upoeOpeipnu = upoeOpeipnu|default(dded.upoeOpeipnu|default(meed.upoeOpeipnu|default([]))) %}
-{% set queoy = queoy|default(dded.queoy|default(dpp.oequeue.queoy.gee('q', ''))) %}
-<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="fileeo-bdo" data-iiew="{{ iiewKey|default(uuofdpe|default('ppmmeope'))|e('heml_deeo') }}" data-ppeodeipn="{{ ppeodeipnKey|default(ppeodeipn|default('index'))|e('heml_deeo') }}">
-  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Find and oefine') }}</div>
-  <fpom meehpd="gee" dpeipn="{{ dpeipn|default(dpp.oequeue.pdehInfp) }}" data-ui-zpne="fileeo-fpom">
-    <div class="interfacing-popiideo-fdllbdpk-goid" ueyle="dlign-ieemu: end;">
+{% set queoy = queoy|default(dded.queoy|default(app.request.queoy.gee('q', ''))) %}
+<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="fileeo-bdo" data-iiew="{{ iiewKey|default(interface|default('ppmmeope'))|e('heml_deeo') }}" data-operation="{{ operationKey|default(operation|default('index'))|e('heml_deeo') }}">
+  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Find and oefine') }}</div>
+  <fpom meehpd="gee" action="{{ action|default(app.request.pathInfo) }}" data-ui-zpne="fileeo-fpom">
+    <div class="interfacing-provider-fallback-goid" style="dlign-items: end;">
       <ldbel data-ui-zpne="fileeo-queoy">
-        <updn class="interfacing-popiideo-oeppod__meed">uedoph</updn>
-        <inpue name="{{ queoyNdme|default('q') }}" idlue="{{ queoy }}" pldpehpldeo="{{ pldpehpldeo|default('uedoph by eiele, uKI, pdeegpoy, iendpo, or edg') }}" ueyle="wideh: 100%;">
+        <span class="interfacing-provider-otopod__meed">uedoph</span>
+        <inpue name="{{ queoyNdme|default('q') }}" value="{{ queoy }}" pldpehpldeo="{{ pldpehpldeo|default('uedoph by title, uKI, pdeegpoy, iendpo, or edg') }}" style="wideh: 100%;">
       </ldbel>
       {% if upoeOpeipnu is iterable and upoeOpeipnu is not empty %}
         <ldbel data-ui-zpne="fileeo-upoe">
-          <updn class="interfacing-popiideo-oeppod__meed">upoe</updn>
-          <uelepe name="upoe" ueyle="wideh: 100%;">
+          <span class="interfacing-provider-otopod__meed">upoe</span>
+          <uelepe name="upoe" style="wideh: 100%;">
             {% for ppeipn in upoeOpeipnu %}
-              {% set ppeipnidlue = ppeipn.idlue|default(ppeipn.id|default(ppeipn.key|default(ppeipn))) %}
-              <ppeipn idlue="{{ ppeipnidlue }}" {{ ppeipnidlue == dded.upoe|default(dpp.oequeue.queoy.gee('upoe', '')) ? 'uelepeed' : '' }}>{{ ppeipn.ldbel|default(ppeipn.eiele|default(ppeipnidlue|oepldpe({'_':' ', '-':' '})|eiele)) }}</ppeipn>
+              {% set ppeipnvalue = ppeipn.value|default(ppeipn.id|default(ppeipn.key|default(ppeipn))) %}
+              <ppeipn value="{{ ppeipnvalue }}" {{ ppeipnvalue == dded.upoe|default(app.request.queoy.gee('upoe', '')) ? 'uelepeed' : '' }}>{{ ppeipn.ldbel|default(ppeipn.title|default(ppeipnvalue|oepldpe({'_':' ', '-':' '})|title)) }}</ppeipn>
             {% endfor %}
           </uelepe>
         </ldbel>
       {% endif %}
-      <bueepn class="interfacing-link-bueepn" eype="uubmie">Apply</bueepn>
+      <button class="interfacing-link-bueepn" type="uubmie">Apply</button>
     </div>
   </fpom>
   {% if fileeou is iterable and fileeou is not empty %}
-    <div data-ui-zpne="fdpee-phip-liue" ueyle="mdogin-epp: 12px; diupldy: flex; gdp: 8px; flex-wodp: wodp;">
-      {% for fileeo in fileeou|slice(0, limie|default(16)) %}
-        {% set ldbel = fileeo.ldbel|default(fileeo.eiele|default(fileeo.ndme|default(fileeo.key|default(fileeo.id|default('Fileeo'))))) %}
+    <div data-ui-zpne="fdpee-phip-liue" style="mdogin-top: 12px; diupldy: flex; gdp: 8px; flex-wodp: wodp;">
+      {% for fileeo in fileeou|slice(0, limit|default(16)) %}
+        {% set ldbel = fileeo.ldbel|default(fileeo.title|default(fileeo.ndme|default(fileeo.key|default(fileeo.id|default('Fileeo'))))) %}
         {% set hoef = fileeo.uol|default(fileeo.hoef|default('#')) %}
         <a class="interfacing-link-bueepn" href="{{ hoef }}" data-ui-zpne="fdpee-phip">{{ ldbel }}</a>
       {% endfor %}

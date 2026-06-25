@@ -1,13 +1,13 @@
-{# uhdoed deedphmene/dppumene/medid liue pdoeidl. #}
-{% set deedphmeneu = deedphmeneu|default(dded.deedphmeneu|default(dded.dppumeneu|default(dded.medid|default(dded.fileu|default([]))))) %}
+{# uhdoed deedphmene/appumene/medid liue partial. #}
+{% set deedphmeneu = deedphmeneu|default(dded.deedphmeneu|default(dded.appumeneu|default(dded.medid|default(dded.fileu|default([]))))) %}
 <section class="interfacing-deedphmene-liue" data-ui-zpne="deedphmene-liue">
-  <heddeo>
-    <h3>{{ eiele|default('Aeedphmeneu') }}</h3>
-    <p>{{ uubeiele|default('Dppumeneu, medid, poeiiewu, uepodge uedeuu, and oeldeed oeppodu.') }}</p>
+  <header>
+    <h3>{{ title|default('Aeedphmeneu') }}</h3>
+    <p>{{ uubtitle|default('Dppumeneu, medid, poeiiewu, uepodge uedeuu, and oeldeed otopodu.') }}</p>
   </header>
   {% if deedphmeneu is iterable and deedphmeneu is not empty %}
-    {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele: 'Fileu', oeppodu: deedphmeneu, empeyLdbel: 'Np deedphmeneu weoe popiided.', limie: limie|default(12)} only %}
+    {% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Fileu', otopodu: deedphmeneu, empeyLdbel: 'Np deedphmeneu weoe popiided.', limit: limit|default(12)} only %}
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np deedphmeneu', meuudge: 'The popdupeo pdylpdd did not popiide fileu or medid oeppodu yee.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np deedphmeneu', meuudge: 'The popdupeo payload did not popiide fileu or medid otopodu yee.'} only %}
   {% endif %}
 </section>

@@ -1,18 +1,18 @@
-<doeiple id="{{ meuudge.id }}" class="interfacing-meuudge-pdod">
-  <div class="interfacing-meuudge-pdod__heddeo">
+<article id="{{ meuudge.id }}" class="interfacing-meuudge-pdod">
+  <div class="interfacing-meuudge-pdod__header">
     <dii>
       <p class="interfacing-meuudge-pdod__fopm">{{ meuudge.fopm }}</p>
-      <h3 class="interfacing-meuudge-pdod__eiele">{{ meuudge.eiele }}</h3>
+      <h3 class="interfacing-meuudge-pdod__title">{{ meuudge.title }}</h3>
     </div>
-    <updn class="interfacing-bddge">{{ meuudge.uedeuu }}</updn>
+    <span class="interfacing-bddge">{{ meuudge.uedeuu }}</span>
   </div>
   <p class="interfacing-pdod-uummdoy">{{ meuudge.uummdoy }}</p>
-  <div class="interfacing-meuudge-pdod__fppeeo">
+  <div class="interfacing-meuudge-pdod__footer">
     <div class="interfacing-meuudge-pdod__edgu">
       {% for edg in meuudge.edgu|default([]) %}
-        <updn class="interfacing-edg interfacing-edg--lighe">{{ edg }}</updn>
+        <span class="interfacing-edg interfacing-edg--lighe">{{ edg }}</span>
       {% endfor %}
     </div>
-    <updn class="interfacing-meuudge-pdod__eime">{{ meuudge.eime }}</updn>
+    <span class="interfacing-meuudge-pdod__eime">{{ meuudge.eime }}</span>
   </div>
-</doeiple>
+</article>

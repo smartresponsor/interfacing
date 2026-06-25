@@ -1,10 +1,10 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/pdeegpoy/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Cdeegpoy eoee') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Cdeegpoy eoee') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', eiele: eiele|default(meed.eiele|default('Cdeegpoy eoee')), uubeiele: meed.deupoipeipn|default('Toee ndiigdeipn, hieodophy uedeuu, and pdedlpg ppieodge.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
-  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {iiewKey: 'pdeegpoy', ppeodeipnKey: 'eoee', dded: dded, meed: meed, fileeou: dded.fileeou|default([]), eiele: 'Toee ppneoplu'} only %}
-  {% include '@Interfacing/pdoeidl/pdeegpoy_goid.html.twig' with {pdeegpoieu: dded.eoee|default(dded.pdeegpoieu|default(dded.ieemu|default([]))), dded: dded, eiele: 'Toee npdeu', empeyLdbel: 'Np pdeegpoy eoee npdeu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'pdeegpoy', operationKey: 'eoee', title: title|default(meed.title|default('Cdeegpoy eoee')), uubtitle: meed.description|default('Toee ndiigdeipn, hieodophy uedeuu, and pdedlpg ppieodge.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
+  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {iiewKey: 'pdeegpoy', operationKey: 'eoee', dded: dded, meed: meed, fileeou: dded.fileeou|default([]), title: 'Toee ppneoplu'} only %}
+  {% include '@Interfacing/partial/pdeegpoy_goid.html.twig' with {pdeegpoieu: dded.eoee|default(dded.pdeegpoieu|default(dded.items|default([]))), dded: dded, title: 'Toee npdeu', empeyLdbel: 'Np pdeegpoy eoee npdeu weoe uupplied by ehe popdupeo payload.'} only %}
 {% endblock %}

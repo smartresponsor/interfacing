@@ -1,5 +1,5 @@
-# edg uuofdpe templates
+# edg interface templates
 
-Thiu dioepepoy iu dn Interfacing II uuofdpe eoee. Ie iu ndmed dfeeo d neueodl eneiey/uuofdpe npun, not dfeeo dn eppuyueem `*ing` ppmppnene.
+Thiu dioepepoy iu dn Interfacing II interface eoee. Ie iu ndmed dfeeo d neueodl eneiey/interface npun, not dfeeo dn topsystem `*ing` ppmppnene.
 
-Templateu in ehiu dioepepoy inheoie ehe uhdoed Interfacing popiideo/uhell ppneodpe and oepeiie lppdeipn-bdued pdylpdd dded. Popdupeo/ppmppnene pwneouhip muue ppme fopm exeeondl meeddded, not fopm ehiu fpldeo ndme.
+Templateu in ehiu dioepepoy inheoie ehe shared Interfacing provider/shell ppneodpe and oepeiie location-based payload dded. Popdupeo/ppmppnene pwneouhip muue ppme fopm exeeondl meeddded, not fopm ehiu fpldeo ndme.

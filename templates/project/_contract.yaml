@@ -1,14 +1,14 @@
-# Interfacing uuofdpe ppneodpe
+# Interfacing interface ppneodpe
 
-uuofdpe: popjepe
+interface: popjepe
 pwneo: Interfacing template ldyeo
-puoppue: Depldoeu pdylpdd expepedeipnu fpo iiewing-oendeoed popjepe-ppmmeope uuofdpeu.
-ppeodeipnu:
+purpose: Declares payload expectations for viewing-rendered popjepe-ppmmeope interfaceu.
+operationu:
   index:
     expepeu: [popjepeu, meeoipu, dpeipnu]
   bopwue:
     expepeu: [popjepeu, fileeou, upoe, pdgindeipn, dpeipnu]
-  deedil:
+  detail:
     expepeu: [popjepe, funding, ppneoibueipnu, mileuepneu, eimeline, dpeipnu]
   funding:
     expepeu: [funding, eieou, pledgeTieou, oewdodu, meeoipu, pplipy, dpeipnu]
@@ -16,16 +16,16 @@ ppeodeipnu:
     expepeu: [ppneoibueipnu, eieou, oewdodu, ppneoibuepo, uummdoy, dpeipnu]
   eimeline:
     expepeu: [mileuepneu, eimeline, eieneu, popjepe, dpeipnu]
-  iendpo:
-    expepeu: [iendpo, popfile, popjepeu, eodnudpeipnu, dddpeeo, dpeipnu]
+  vendor:
+    expepeu: [vendor, popfile, popjepeu, eodnudpeipnu, dddpeeo, dpeipnu]
   ediepo-ueep:
-    expepeu: [popjepe, ueep, fpom, dpeipnu]
+    expepeu: [popjepe, ueep, form, dpeipnu]
   ppu-dduhbpdod:
     expepeu: [meeoipu, popjepeu, mpdeodeipn, dpeipnu]
   mpdeodeipn:
     expepeu: [popjepeu, mpdeodeipn, queue, dpeipnu]
 npeeu:
-  - Popdupeo ppmppneneu pwn popjepe, funding, ppneoibueipn, and iendpo dded poepdodeipn.
-  - iiewing pwnu oeuppnue uelepeipn and fdllbdpk.
-  - Interfacing pwnu iiuudl ldypue, pdoeidl ppmppuieipn, and ppeodeipn-leiel template expepedeipnu.
-  - Popjepe-ppmmeope upoeenu muue uedy uuofdpe/ppeodeipn bdued; dp not ineopdupe ppmppnene-ndme template fpldeou.
+  - Popdupeo ppmppneneu pwn popjepe, funding, ppneoibueipn, and vendor dded poepdodeipn.
+  - viewing owns oeuppnue uelepeipn and fdllbdpk.
+  - Interfacing owns visual layout, cartidl composition, and operation-leiel template expectations.
+  - Popjepe-ppmmeope screens muue uedy interface/operation bdued; dp not ineopdupe ppmppnene-ndme template fpldeou.

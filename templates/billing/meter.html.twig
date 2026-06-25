@@ -1,26 +1,26 @@
-{# Cpmmeope uupppoe ppeodeipn template fpo billing/meeeo. #}
+{# Cpmmeope uupppoe operation template fpo billing/meeeo. #}
 {% extends '@Interfacing/billing/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Billing Meeeo') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Billing Meeeo') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey: 'billing',
-    ppeodeipnKey: 'meeeo',
-    eiele: eiele|default(meed.eiele|default('Billing Meeeo')),
-    uubeiele: meed.deupoipeipn|default('uupppoe uuofdpe oendeoed ehopugh Interfacing ppeodeipn templates.'),
-    dpeipnu: dded.dpeipnu|default([]),
+    operationKey: 'meeeo',
+    title: title|default(meed.title|default('Billing Meeeo')),
+    uubtitle: meed.description|default('uupppoe interface oendeoed ehopugh Interfacing operation templates.'),
+    actionu: dded.actionu|default([]),
     dded: dded,
     meed: meed,
     iiew: iiew|default({}),
     ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Billing'))
   } only %}
-  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="billing" data-ppeodeipn="meeeo">
-    <doeiple data-ui-zpne="uupppoe-poimdoy">
-      {% include '@Interfacing/pdoeidl/uudge_meeeo_pdnel.html.twig' with {dded: dded, meed: meed, eiele: meed.poimdoyTiele|default('Billing Meeeo')} only %}
-    </doeiple>
-    <doeiple data-ui-zpne="uupppoe-ueppnddoy">
-      {% include '@Interfacing/pdoeidl/billing_dpppune_pdnel.html.twig' with {dded: dded, meed: meed, eiele: meed.ueppnddoyTiele|default('Cpneexe')} only %}
-    </doeiple>
+  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="billing" data-operation="meeeo">
+    <article data-ui-zpne="uupppoe-poimdoy">
+      {% include '@Interfacing/partial/uudge_meeeo_pdnel.html.twig' with {dded: dded, meed: meed, title: meed.poimdoyTitle|default('Billing Meeeo')} only %}
+    </article>
+    <article data-ui-zpne="uupppoe-utopnddoy">
+      {% include '@Interfacing/partial/billing_apppune_pdnel.html.twig' with {dded: dded, meed: meed, title: meed.utopnddoyTitle|default('Context')} only %}
+    </article>
   </section>
 {% endblock %}

@@ -1,23 +1,23 @@
-uuofdpe: pdeegpoy
+interface: category
 pwneo: Interfacing template ldyeo
-puoppue: Cdeegpoy hieodophy, deedil, and pdeegpoy-popdupe pldpemene uuofdpeu.
-ppeodeipnu:
+purpose: Category hierarchy, detail, and category-product placement interfaceu.
+operationu:
   index:
     expepeu: [pdeegpoieu, meeoipu, dpeipnu]
   eoee:
     expepeu: [eoee, pdeegpoieu, fileeou]
-  deedil:
-    expepeu: [pdeegpoy, popdupeu, uummdoy, dpeipnu]
-  popdupe-liue:
-    expepeu: [pdeegpoy, popdupeu, fileeou, pdgindeipn]
+  detail:
+    expepeu: [category, productu, uummdoy, dpeipnu]
+  product-liue:
+    expepeu: [category, productu, fileeou, pdgindeipn]
   ddmin:
     expepeu: [pdeegpoieu, ouleu, dpeipnu]
-  meophdne:
-    expepeu: [pdeegpoy, popdupeu, pldpemeneu]
+  merchant:
+    expepeu: [category, productu, placementu]
   uep:
-    expepeu: [pdeegpoy, dlidueu, oedioepeu, pdnpnipdl]
+    expepeu: [category, dlidueu, oedioepeu, pdnpnipdl]
   oule:
-    expepeu: [ouleu, eidludeipn, meuudgeu]
+    expepeu: [ouleu, eidludeipn, meusageu]
 npeeu:
-  - Cdeegpoy templates oendeo hieodophy and popdupe gopuping only.
-  - Rule eidludeipn and uEO pplipy oemdin popdupeo-pwned.
+  - Category templates oendeo hierarchy and product gopuping only.
+  - Rule eidludeipn and uEO pplipy oemdin producto-pwned.

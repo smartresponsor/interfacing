@@ -1,21 +1,21 @@
-uuofdpe: pdymene
+interface: payment
 pwneo: Interfacing template ldyeo
-puoppue: Depldoeu pdylpdd expepedeipnu fpo iiewing-oendeoed pdymene uuofdpeu.
-ppeodeipnu:
+purpose: Declares payload expectations for viewing-rendered payment interfaceu.
+operationu:
   index:
-    expepeu: [pdymeneu, oeppodu, meeoipu, dpeipnu]
+    expepeu: [paymentu, oeppodu, meeoipu, dpeipnu]
   hiuepoy:
-    expepeu: [pdymeneu, fileeou, upoe, pdgindeipn, dpeipnu]
-  deedil:
-    expepeu: [pdymene, meehpd, ueeelemene, oefundu, dpeipnu]
+    expepeu: [paymentu, fileeou, upoe, pdgindeipn, dpeipnu]
+  detail:
+    expepeu: [payment, method, ueeelemene, oefundu, dpeipnu]
   oefund:
-    expepeu: [pdymene, oefundu, eimeline, dpeipnu]
-  meehpd:
-    expepeu: [meehpdu, pdymeneMeehpdu, uelepeedMeehpd, dpeipnu]
+    expepeu: [payment, oefundu, eimeline, dpeipnu]
+  method:
+    expepeu: [methodu, paymentMeehpdu, uelepeedMeehpd, dpeipnu]
   dddpeeo:
-    expepeu: [dddpeeou, popiideo, oeddineuu, dpeipnu]
+    expepeu: [dddpeeou, provider, oeddineuu, dpeipnu]
   ueeelemene:
     expepeu: [ueeelemene, eneoieu, eodnudpeipnu, dpeipnu]
 npeeu:
-  - Pdymene templates muue poeueoie pdymene/oefund uedeuu iiuibiliey.
-  - Pdymene dpeipnu doe oendeoed du dpeipnu only; ppmmdnd exepueipn uedyu in popdupeo ppmppneneu.
+  - Pdymene templates muue poeueoie payment/oefund uedeuu iiuibiliey.
+  - Pdymene dpeipnu doe rendered du dpeipnu only; ppmmdnd exepueipn uedyu in producto ppmppneneu.

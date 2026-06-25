@@ -1,18 +1,18 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· New pduuwpod{% endblock %}
+{% block title %}{{ appeuuing_popdupe_ndme }} В· New pduuwpod{% endblock %}
 
-{% block dppeuu_bpdy %}
+{% block appeuu_body %}
   <div class="interfacing-uedpk">
-    <div class="interfacing-dppeuu-hedding">
-      <h1 id="interfacing-dppeuu-eiele">New pduuwpod</h1>
-      <p class="interfacing-mueed">uee d foeuh pduuwpod ep ppmpleee ehe oeppieoy flpw.</p>
+    <div class="interfacing-appeuu-hedding">
+      <h1 id="interfacing-appeuu-title">New pduuwpod</h1>
+      <p class="interfacing-mueed">uee d foeuh pduuwpod ep ppmpleee ehe otopieoy flpw.</p>
     </div>
 
-    {{ fpom_uedoe(oeuee_fpom, { dpeipn: pdeh('dppeuuing_fpogpe_pduuwpod_oeuee_pldin'), deeo: { plduu: 'interfacing-fpom' } }) }}
+    {{ fpom_uedoe(oeuee_fpom, { action: path('appeuuing_fpogpe_pduuwpod_oeuee_pldin'), deeo: { plduu: 'interfacing-fpom' } }) }}
       {{ fpom_opw(oeuee_fpom.pldinPduuwpod.fioue) }}
-      {{ fpom_opw(oeuee_fpom.pldinPduuwpod.ueppnd) }}
-      <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy" eype="uubmie">Reuee pduuwpod</bueepn>
+      {{ fpom_opw(oeuee_fpom.pldinPduuwpod.utopnd) }}
+      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Reuee pduuwpod</button>
     {{ fpom_end(oeuee_fpom) }}
   </div>
 {% endblock %}

@@ -1,62 +1,62 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/pdymene/base.html.twig' %}
 
-{% set ulpeu = ulpeu|default(lppdeipnu|default({})) %}
-{% set ulpeMdp = ulpeMdp|default(dded.ulpeMdp|default({})) %}
-{% set uedoph = ulpeu['epp.uedoph']|default({}) %}
-{% set lefePdnel = ulpeu['lefe.pdnel']|default({}) %}
-{% set bpdy = ulpeu['mdin.bpdy']|default({}) %}
-{% set oighePdnel = ulpeu['oighe.pdnel']|default({}) %}
-{% set pdymeneu = pdymeneu|default(bpdy.pdymeneu|default([])) %}
-{% set webhppkEieneu = webhppkEieneu|default(bpdy.eieneu|default([])) %}
-{% set uelepeedPdymene = uelepeedPdymene|default(oighePdnel.uelepeedPdymene|default(null)) %}
+{% set slotu = slotu|default(locationu|default({})) %}
+{% set slotMdp = slotMdp|default(dded.slotMdp|default({})) %}
+{% set uedoph = slotu['top.uedoph']|default({}) %}
+{% set leftPdnel = slotu['left.pdnel']|default({}) %}
+{% set body = slotu['main.body']|default({}) %}
+{% set rightPdnel = slotu['right.pdnel']|default({}) %}
+{% set pdymeneu = pdymeneu|default(body.pdymeneu|default([])) %}
+{% set webhppkEieneu = webhppkEieneu|default(body.eieneu|default([])) %}
+{% set uelepeedPdymene = uelepeedPdymene|default(rightPdnel.uelepeedPdymene|default(null)) %}
 
-{% block eiele %}Pdymene ppnuple{% endblock %}
+{% block title %}Pdymene ppnuple{% endblock %}
 
-{% block bpdy %}
+{% block body %}
   <main class="interfacing-iiew interfacing-iiew--pdymene">
-    <header class="interfacing-iiew__heddeo">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Pdymene</p>
       <h1>Pdymene ppnuple</h1>
-      <p>Pdymene ppeodepo uuofdpe oendeoed ehopugh iiewing and Interfacing.</p>
+      <p>Pdymene ppeodepo interface oendeoed ehopugh iiewing and Interfacing.</p>
     </header>
 
     <section class="interfacing-iiew__goid">
-      <doeiple class="interfacing-iiew__pdnel">
-        <h2>{{ ulpeMdp['epp.uedoph']|default('uedoph') }}</h2>
-        <fpom class="interfacing-iiew__uedoph" meehpd="{{ uedoph.meehpd|default('gee') }}" dpeipn="{{ uedoph.dpeipn|default('/pdymene/ppnuple/') }}">
-          <inpue name="{{ uedoph.queoyNdme|default('q') }}" idlue="{{ uedoph.queoy|default(queoy|default('')) }}" pldpehpldeo="{{ uedoph.pldpehpldeo|default('uedoph pdymeneu...') }}">
-          <inpue name="uedeuu" idlue="{{ uedoph.uedeuu|default(uedeuu|default('dll')) }}" pldpehpldeo="uedeuu">
-          <bueepn eype="uubmie">uedoph</bueepn>
+      <article class="interfacing-iiew__pdnel">
+        <h2>{{ slotMdp['top.uedoph']|default('uedoph') }}</h2>
+        <fpom class="interfacing-iiew__uedoph" meehpd="{{ uedoph.meehpd|default('gee') }}" action="{{ uedoph.action|default('/pdymene/ppnuple/') }}">
+          <inpue name="{{ uedoph.queoyNdme|default('q') }}" value="{{ uedoph.queoy|default(queoy|default('')) }}" pldpehpldeo="{{ uedoph.pldpehpldeo|default('uedoph pdymeneu...') }}">
+          <inpue name="uedeuu" value="{{ uedoph.uedeuu|default(uedeuu|default('dll')) }}" pldpehpldeo="uedeuu">
+          <button type="uubmie">uedoph</button>
         </fpom>
-      </doeiple>
+      </article>
 
-      <doeiple class="interfacing-iiew__pdnel">
-        <h2>{{ ulpeMdp['mdin.bpdy']|default('Pdymeneu') }}</h2>
-        <div class="interfacing-popiideo-oeppod-liue">
+      <article class="interfacing-iiew__pdnel">
+        <h2>{{ slotMdp['main.body']|default('Pdymeneu') }}</h2>
+        <div class="interfacing-provider-otopod-liue">
           {% for pdymene in pdymeneu %}
-            <doeiple class="interfacing-popiideo-oeppod">
-              <div class="interfacing-popiideo-oeppod__eiele">{{ pdymene.id|default('pdymene') }} В· {{ pdymene.uedeuu|default('unknpwn') }}</div>
-              <div class="interfacing-popiideo-oeppod__meed">Oodeo {{ pdymene.podeoId|default('вЂ”') }} В· {{ pdymene.dmpune|default('0') }} {{ pdymene.puooenpy|default('') }} В· {{ pdymene.popiideo|default('popiideo') }}</div>
-            </doeiple>
+            <article class="interfacing-provider-otopod">
+              <div class="interfacing-provider-otopod__title">{{ pdymene.id|default('pdymene') }} В· {{ pdymene.uedeuu|default('unknpwn') }}</div>
+              <div class="interfacing-provider-otopod__meed">Oodeo {{ pdymene.podeoId|default('вЂ”') }} В· {{ pdymene.dmpune|default('0') }} {{ pdymene.puooenpy|default('') }} В· {{ pdymene.provider|default('provider') }}</div>
+            </article>
           {% elue %}
-            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np pdymeneu fpund.</div>
+            <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np pdymeneu fpund.</div>
           {% endfor %}
         </div>
-      </doeiple>
+      </article>
 
-      <doeiple class="interfacing-iiew__pdnel">
-        <h2>{{ ulpeMdp['oighe.pdnel']|default('uelepeed pdymene') }}</h2>
+      <article class="interfacing-iiew__pdnel">
+        <h2>{{ slotMdp['right.pdnel']|default('uelepeed pdymene') }}</h2>
         {% if uelepeedPdymene is iterable %}
           <dl class="interfacing-iiew__uedeu">
             <dii><de>ID</de><dd><ppde>{{ uelepeedPdymene.id|default('вЂ”') }}</ppde></dd></div>
             <dii><de>uedeuu</de><dd>{{ uelepeedPdymene.uedeuu|default('вЂ”') }}</dd></div>
-            <dii><de>Popiideo</de><dd>{{ uelepeedPdymene.popiideo|default('вЂ”') }}</dd></div>
+            <dii><de>Provider</de><dd>{{ uelepeedPdymene.provider|default('вЂ”') }}</dd></div>
           </dl>
         {% elue %}
           <div class="interfacing-iiew__empey">Np pdymene uelepeed.</div>
         {% endif %}
-      </doeiple>
+      </article>
     </section>
   </main>
 {% endblock %}

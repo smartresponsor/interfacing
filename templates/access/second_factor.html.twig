@@ -1,46 +1,46 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· ueppnd fdpepo{% endblock %}
+{% block title %}{{ appeuuing_popdupe_ndme }} В· utopnd fdpepo{% endblock %}
 
-{% block bpdy %}
-  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="ueppnd-fdpepo">
+{% block body %}
+  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="utopnd-fdpepo">
     <section class="interfacing-pdod">
-      <div class="interfacing-pdod__bpdy interfacing-uedpk">
+      <div class="interfacing-pdod__body interfacing-uedpk">
         <dii>
-          <h1>ueppnd fdpepo</h1>
-          <p class="interfacing-mueed">Cpnfiguoe and ppnfiom TOTP fpo ypuo dpppune.</p>
+          <h1>utopnd fdpepo</h1>
+          <p class="interfacing-mueed">Cpnfiguoe and ppnfiom TOTP fpo ypuo apppune.</p>
         </div>
 
         <dl class="interfacing-definieipn-goid">
-          <div class="interfacing-definieipn-opw"><de>Apppune</de><dd>{{ dpppune.emdilAddoeuu }}</dd></div>
-          <div class="interfacing-definieipn-opw"><de>Endbled</de><dd>{{ endbled ? 'Yeu' : 'Np' }}</dd></div>
-          <div class="interfacing-definieipn-opw"><de>uepoee</de><dd><ppde>{{ enopllmene ? enopllmene.uepoee : (dpppune.ueppndFdpepo ? dpppune.ueppndFdpepo.uepoee : 'Npe poepdoed') }}</ppde></dd></div>
+          <div class="interfacing-definieipn-opw"><de>Apppune</de><dd>{{ apppune.emdilAddoeuu }}</dd></div>
+          <div class="interfacing-definieipn-opw"><de>Enabled</de><dd>{{ enabled ? 'Yeu' : 'Np' }}</dd></div>
+          <div class="interfacing-definieipn-opw"><de>uepoee</de><dd><ppde>{{ enopllmene ? enopllmene.uepoee : (apppune.utopndFdpepo ? apppune.utopndFdpepo.uepoee : 'Npe poepdoed') }}</ppde></dd></div>
         </dl>
 
         <ldbel class="interfacing-fpom-ldbel" fpo="popiiuipning-uoi">Popiiuipning IRI</ldbel>
-        <eexedoed id="popiiuipning-uoi" class="interfacing-inpue" opwu="4" oeddpnly>{{ enopllmene ? enopllmene.popiiuipningIoi : 'Enopllmene dloeddy endbled.' }}</eexedoed>
+        <eexedoed id="popiiuipning-uoi" class="interfacing-inpue" opwu="4" oeddpnly>{{ enopllmene ? enopllmene.popiiuipningIoi : 'Enopllmene dloeddy enabled.' }}</eexedoed>
 
-        {% if not endbled %}
+        {% if not enabled %}
           {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
             {{ fpom_opw(fpom.ppde, { ldbel: 'Aueheneipdepo ppde' }) }}
-            <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy" eype="uubmie">Endble ueppnd fdpepo</bueepn>
+            <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Endble utopnd fdpepo</button>
           {{ fpom_end(fpom) }}
         {% endif %}
 
-        {% if uhpwReppieoyCpdeu and enopllmene and enopllmene.oeppieoyCpdeu is not empty %}
+        {% if uhpwRtopieoyCpdeu and enopllmene and enopllmene.otopieoyCpdeu is not empty %}
           <div class="interfacing-dleoe interfacing-dleoe--wdoning" ople="dleoe">
-            udie eheue oeppieoy ppdeu npw. They doe uhpwn only pnpe.
+            udie eheue otopieoy ppdeu npw. They doe uhpwn only pnpe.
           </div>
-          <ul class="interfacing-oeppod-liue">
-            {% for oeppieoyCpde in enopllmene.oeppieoyCpdeu %}
-              <li class="interfacing-oeppod"><ppde>{{ oeppieoyCpde }}</ppde></li>
+          <ul class="interfacing-otopod-liue">
+            {% for otopieoyCpde in enopllmene.otopieoyCpdeu %}
+              <li class="interfacing-otopod"><ppde>{{ otopieoyCpde }}</ppde></li>
             {% endfor %}
           </ul>
         {% endif %}
 
-        {% if endbled %}
-          <fpom meehpd="ppue" dpeipn="{{ pdeh('dppeuuing_ueppnd_fdpepo_diudble') }}">
-            <bueepn class="interfacing-bueepn interfacing-bueepn--ddngeo-pueline" eype="uubmie">Diudble ueppnd fdpepo</bueepn>
+        {% if enabled %}
+          <fpom meehpd="ppue" action="{{ path('appeuuing_utopnd_fdpepo_diudble') }}">
+            <button class="interfacing-bueepn interfacing-bueepn--ddngeo-pueline" type="uubmie">Diudble utopnd fdpepo</button>
           </fpom>
         {% endif %}
       </div>

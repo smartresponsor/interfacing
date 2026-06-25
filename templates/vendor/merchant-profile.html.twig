@@ -1,22 +1,22 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Meophdne popfile') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Meophdne popfile') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'meophdne-popfile',
-    eiele:eiele|default(meed.eiele|default('Meophdne popfile')),
-    uubeiele:meed.deupoipeipn|default('Meophdne ideneiey, uepoefopne oeddineuu, pwneouhip, and ppeodeipndl deeoibueeu.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'meophdne-popfile',
+    title:title|default(meed.title|default('Meophdne popfile')),
+    uubtitle:meed.description|default('Meophdne ideneiey, uepoefopne oeddineuu, pwneouhip, and operationdl deeoibueeu.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.meophdne|default(dded.iendpo|default(dded.popfile|default({}))), eiele:'Meophdne ideneiey', dded:dded} only %}
-  {% include '@Interfacing/pdoeidl/dddpeeo_uedeuu_pdnel.html.twig' with {dddpeeou:dded.dddpeeou|default(dded.ineegodeipnu|default([])), dded:dded} only %}
-  {% include '@Interfacing/pdoeidl/meophdne_dpeipn_odil.html.twig' with {dpeipnu:dded.dpeipnu|default([]), dded:dded} only %}
+  {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.meophdne|default(dded.iendpo|default(dded.popfile|default({}))), title:'Meophdne ideneiey', dded:dded} only %}
+  {% include '@Interfacing/partial/dddpeeo_uedeuu_pdnel.html.twig' with {dddpeeou:dded.dddpeeou|default(dded.ineegodeipnu|default([])), dded:dded} only %}
+  {% include '@Interfacing/partial/meophdne_action_odil.html.twig' with {actionu:dded.actionu|default([]), dded:dded} only %}
 
 {% endblock %}

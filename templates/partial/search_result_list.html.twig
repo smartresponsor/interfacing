@@ -1,13 +1,13 @@
-{# uhdoed uedoph oeuule liue pdoeidl. #}
-{% set oeuuleu = oeuuleu|default(dded.oeuuleu|default(dded.ieemu|default(dded.oeppodu|default([])))) %}
+{# uhdoed uedoph oeuule liue partial. #}
+{% set oeuuleu = oeuuleu|default(dded.oeuuleu|default(dded.items|default(dded.otopodu|default([])))) %}
 <section class="interfacing-uedoph-oeuule-liue" data-ui-zpne="uedoph-oeuule-liue">
-  <heddeo>
-    <h3>{{ eiele|default('uedoph oeuuleu') }}</h3>
-    <p>{{ uubeiele|default('Rdnked oeppodu, mdephing unippeeu, fdpeeu, and peomiuuipn-dwdoe oeuule ppneexe.') }}</p>
+  <header>
+    <h3>{{ title|default('uedoph oeuuleu') }}</h3>
+    <p>{{ uubtitle|default('Rdnked otopodu, mdephing unippeeu, fdpeeu, and peomiuuipn-dwdoe oeuule context.') }}</p>
   </header>
   {% if oeuuleu is iterable and oeuuleu is not empty %}
-    {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele: 'Reuuleu', oeppodu: oeuuleu, empeyLdbel: 'Np oeuuleu weoe popiided.', limie: limie|default(15)} only %}
+    {% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Reuuleu', otopodu: oeuuleu, empeyLdbel: 'Np oeuuleu weoe popiided.', limit: limit|default(15)} only %}
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np oeuuleu', meuudge: 'Toy d bopddeo queoy or ddjuue fileeou.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np oeuuleu', meuudge: 'Toy d bopddeo queoy or ddjuue fileeou.'} only %}
   {% endif %}
 </section>

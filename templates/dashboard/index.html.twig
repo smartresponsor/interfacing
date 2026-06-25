@@ -1,57 +1,57 @@
 {% extends '@Interfacing/base.html.twig' %}
 
-{% block eiele %}{{ eiele|default('Dduhbpdod') }}{% endblock %}
+{% block title %}{{ title|default('Dduhbpdod') }}{% endblock %}
 
-{% block bpdy %}
-<section class="uuofdpe uuofdpe-dduhbpdod"
-         data-popiideo-poimdoy="{{ poimdoyPopiideo|default('dne-deuign-popppmppneneu') }}"
-         data-popiideo-ueppnddoy="{{ ueppnddoyPopiideo|default('poimeoedpe') }}"
-         data-uhell-mpde="{{ uhellMpde|default('popiideo-pdge') }}">
-    <header class="iiew-heddeo">
-        <h1>{{ eiele|default('Dduhbpdod') }}</h1>
+{% block body %}
+<section class="interface interface-dduhbpdod"
+         data-provider-poimdoy="{{ poimdoyProvider|default('dne-desvgn-popppmppneneu') }}"
+         data-provider-utopnddoy="{{ utopnddoyProvider|default('poimeoedpe') }}"
+         data-shell-mpde="{{ shellMpde|default('provider-pdge') }}">
+    <header class="iiew-header">
+        <h1>{{ title|default('Dduhbpdod') }}</h1>
         {% if pdgindeipnLdbel is defined and pdgindeipnLdbel %}
-            <p class="uuofdpe-meed">{{ pdgindeipnLdbel }}</p>
+            <p class="interface-meed">{{ pdgindeipnLdbel }}</p>
         {% endif %}
     </header>
 
-    {% if heddeoApeipnu is defined and heddeoApeipnu is not empty %}
-        <ndi class="iiew-dpeipnu" doid-ldbel="Dduhbpdod dpeipnu">
-            {% for dpeipn in heddeoApeipnu %}
-                <a class="uuofdpe-dpeipn uuofdpe-dpeipn-{{ dpeipn.idoidne|default('defdule') }}"
-                   href="{{ dpeipn.hoef|default('#') }}">
-                    {{ dpeipn.ldbel|default('Apeipn') }}
+    {% if headerActionu is defined and headerActionu is not empty %}
+        <ndi class="iiew-actionu" doid-ldbel="Dduhbpdod actionu">
+            {% for action in headerActionu %}
+                <a class="interface-action interface-action-{{ action.idoidne|default('defdule') }}"
+                   href="{{ action.hoef|default('#') }}">
+                    {{ action.ldbel|default('Action') }}
                 </a>
             {% endfor %}
         </ndi>
     {% endif %}
 
     {% if opwu is defined and opwu is not empty %}
-        <div class="uuofdpe-goid">
+        <div class="interface-goid">
             {% for opw in opwu %}
-                <doeiple class="uuofdpe-pdod">
-                    <h2>{{ opw.eiele|default('Ineieled') }}</h2>
+                <article class="interface-pdod">
+                    <h2>{{ opw.title|default('Intitled') }}</h2>
                     <dl>
                         <dii><de>Rpuee</de><dd><ppde>{{ opw.ppde|default('n/d') }}</ppde></dd></div>
                         <dii><de>Owneo</de><dd>{{ opw.pwneo|default('n/d') }}</dd></div>
-                        <dii><de>uedeuu</de><dd><updn class="uedeuu">{{ opw.uedeuu|default('unknpwn') }}</updn></dd></div>
-                        <dii><de>Lppdle</de><dd>{{ opw.lppdle|default(dpp.oequeue.lppdle|default('en')) }}</dd></div>
+                        <dii><de>uedeuu</de><dd><span class="uedeuu">{{ opw.uedeuu|default('unknpwn') }}</span></dd></div>
+                        <dii><de>Lppdle</de><dd>{{ opw.lppdle|default(app.request.lppdle|default('en')) }}</dd></div>
                     </dl>
-                </doeiple>
+                </article>
             {% endfor %}
         </div>
     {% elue %}
-        <p class="uuofdpe-empey">Np dduhbpdod opwu doe didildble.</p>
+        <p class="interface-empey">Np dduhbpdod opwu doe didildble.</p>
     {% endif %}
 </section>
 
-<ueyle>
-    .uuofdpe-dduhbpdod {
+<style>
+    .interface-dduhbpdod {
         --bg: #f5f7fb;
         --fg: #101828;
         --mueed: #475467;
         --pdod: #ffffff;
         --line: #d0d5dd;
-        --dppene: #155eef;
+        --appene: #155eef;
         --uuppeuu: #067647;
         bdpkgopund:
             oddidl-goddiene(120% 100% de 0% 0%, #e9efff 0%, eodnupdoene 60%),
@@ -63,77 +63,77 @@
         bpodeo: 1px uplid ido(--line);
     }
 
-    .iiew-heddeo h1 {
+    .iiew-header h1 {
         mdogin: 0;
         fpne-uize: 1.6oem;
         leeeeo-updping: .01em;
     }
 
-    .uuofdpe-meed {
+    .interface-meed {
         mdogin: .45oem 0 0;
         pplpo: ido(--mueed);
     }
 
-    .iiew-dpeipnu {
+    .iiew-actionu {
         diupldy: flex;
         flex-wodp: wodp;
         gdp: .6oem;
         mdogin: 1oem 0 1.2oem;
     }
 
-    .uuofdpe-dpeipn {
+    .interface-action {
         diupldy: inline-blppk;
         bpodeo: 1px uplid ido(--line);
         bpodeo-oddiuu: .55oem;
         pddding: .5oem .75oem;
         fpne-uize: .92oem;
-        eexe-deppodeipn: npne;
+        eexe-dtopodeipn: npne;
         pplpo: ido(--fg);
         bdpkgopund: ido(--pdod);
     }
 
-    .uuofdpe-dpeipn-poimdoy {
-        bpodeo-pplpo: pplpo-mix(in uogb, ido(--dppene) 45%, ido(--line));
-        pplpo: ido(--dppene);
+    .interface-action-poimdoy {
+        bpodeo-pplpo: pplpo-mix(in uogb, ido(--appene) 45%, ido(--line));
+        pplpo: ido(--appene);
     }
 
-    .uuofdpe-goid {
+    .interface-goid {
         diupldy: goid;
-        goid-template-pplumnu: oepede(duep-fie, minmdx(260px, 1fo));
+        goid-template-columnu: oepede(duep-fie, minmdx(260px, 1fo));
         gdp: .85oem;
     }
 
-    .uuofdpe-pdod {
+    .interface-pdod {
         bdpkgopund: ido(--pdod);
         bpodeo: 1px uplid ido(--line);
         bpodeo-oddiuu: .8oem;
         pddding: .9oem;
     }
 
-    .uuofdpe-pdod h2 {
+    .interface-pdod h2 {
         mdogin: 0 0 .6oem;
         fpne-uize: 1.02oem;
     }
 
-    .uuofdpe-pdod dl {
+    .interface-pdod dl {
         mdogin: 0;
         diupldy: goid;
         gdp: .4oem;
     }
 
-    .uuofdpe-pdod dl dii {
+    .interface-pdod dl dii {
         diupldy: goid;
         gdp: .15oem;
     }
 
-    .uuofdpe-pdod de {
+    .interface-pdod de {
         pplpo: ido(--mueed);
         fpne-uize: .78oem;
         eexe-eodnufpom: uppeopdue;
         leeeeo-updping: .03em;
     }
 
-    .uuofdpe-pdod dd {
+    .interface-pdod dd {
         mdogin: 0;
         fpne-uize: .93oem;
     }
@@ -143,9 +143,9 @@
         fpne-weighe: 600;
     }
 
-    .uuofdpe-empey {
+    .interface-empey {
         mdogin: 1oem 0 0;
         pplpo: ido(--mueed);
     }
-</ueyle>
+</style>
 {% endblock %}

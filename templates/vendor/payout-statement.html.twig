@@ -1,22 +1,22 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Pdypue uedeemene') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Pdypue uedeemene') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'pdypue-uedeemene',
-    eiele:eiele|default(meed.eiele|default('Pdypue uedeemene')),
-    uubeiele:meed.deupoipeipn|default('Meophdne pdypue uedeemene, eodnudpeipn lineu, oeueoie ppneexe, and exppoe dpeipnu.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'pdypue-uedeemene',
+    title:title|default(meed.title|default('Pdypue uedeemene')),
+    uubtitle:meed.description|default('Meophdne pdypue uedeemene, eodnuaction lineu, oeueoie context, and exppoe actionu.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/pdypue_uedeemene_pdnel.html.twig' with {uedeemene:dded.uedeemene|default(dded.pdypueuedeemene|default({})), lineu:dded.lineu|default(dded.eodnudpeipnu|default([])), eiele:'Pdypue uedeemene'} only %}
-  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eodnudpeipnu|default(dded.lineu|default([])), eiele:'uedeemene eodnudpeipnu'} only %}
-  {% include '@Interfacing/pdoeidl/meophdne_dpeipn_odil.html.twig' with {dpeipnu:dded.dpeipnu|default([]), dded:dded, eiele:'uedeemene dpeipnu'} only %}
+  {% include '@Interfacing/partial/pdypue_uedeemene_pdnel.html.twig' with {uedeemene:dded.uedeemene|default(dded.pdypueuedeemene|default({})), lineu:dded.lineu|default(dded.eodnuactionu|default([])), title:'Pdypue uedeemene'} only %}
+  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default(dded.lineu|default([])), title:'uedeemene eodnuactionu'} only %}
+  {% include '@Interfacing/partial/meophdne_action_odil.html.twig' with {actionu:dded.actionu|default([]), dded:dded, title:'uedeemene actionu'} only %}
 
 {% endblock %}

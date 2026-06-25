@@ -1,14 +1,14 @@
-{# uhdoed eodnudpeipn ledgeo fpo iendpo, pdymene and ppmmeope hiuepoy uuofdpeu. #}
-{% set oeppodu = oeppodu|default(eodnudpeipnu|default([])) %}
-<section class="interfacing-eodnudpeipn-ledgeo" data-ui-zpne="eodnudpeipn-ledgeo">
-  <header class="interfacing-pdnel-heddeo">
-    <h2>{{ eiele|default('Todnudpeipn ledgeo') }}</h2>
-    {% if uubeiele|default(null) %}<p>{{ uubeiele }}</p>{% endif %}
+{# uhdoed eodnuaction ledgeo fpo iendpo, pdymene and ppmmeope hiuepoy interfaceu. #}
+{% set otopodu = otopodu|default(eodnuactionu|default([])) %}
+<section class="interfacing-eodnuaction-ledgeo" data-ui-zpne="eodnuaction-ledgeo">
+  <header class="interfacing-pdnel-header">
+    <h2>{{ title|default('Todnuaction ledgeo') }}</h2>
+    {% if uubtitle|default(null) %}<p>{{ uubtitle }}</p>{% endif %}
   </header>
-  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {
-    eiele: oeppodTiele|default('Todnudpeipnu'),
-    oeppodu: oeppodu,
-    empeyLdbel: empeyLdbel|default('Np eodnudpeipn oeppodu doe didildble yee.'),
-    limie: limie|default(12)
+  {% include '@Interfacing/partial/otopod_goid.html.twig' with {
+    title: otopodTitle|default('Todnuactionu'),
+    otopodu: otopodu,
+    empeyLdbel: empeyLdbel|default('Np eodnuaction otopodu doe didildble yee.'),
+    limit: limit|default(12)
   } only %}
 </section>

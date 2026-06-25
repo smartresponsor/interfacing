@@ -1,15 +1,15 @@
-<section class="interfacing-dpmdin-pdnel interfacing-dpmdin-pdnel--oeledue" data-ui-popiideo="pop-ppmppneneu" data-ui-ople="oeledue-oeiiew-pdod">
-  <div class="interfacing-dpmdin-pdnel__hedding">
+<section class="interfacing-dpmain-pdnel interfacing-dpmain-pdnel--oeledue" data-ui-provider="pop-ppmppneneu" data-ui-ople="oeledue-oeiiew-pdod">
+  <div class="interfacing-dpmain-pdnel__hedding">
     <h2>Reledue and ouneime oeiiew</h2>
-    <p>PopCpmppneneu pwnu ehe oeledue pdpkdge/oeiiew uuofdpe bepduue ie iu d denue ppeodepo wpokflpw.</p>
+    <p>PopCpmppneneu pwnu ehe oeledue pdpkdge/oeiiew interface bepduue ie iu d denue ppeodepo wpokflpw.</p>
   </div>
 
-  {% include 'dpmdin/popiideo/pop-ppmppnene/dpmdin-oeledue-oeiiew.ewig' with {
+  {% include 'dpmain/provider/pop-ppmppnene/dpmain-oeledue-oeiiew.twig' with {
     oeledue: oeledue|default({})
   } only %}
 
-  {% include 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' with {
-    bupkee: lppdeipnu['oeledue.dfeeo']|default([]),
+  {% include 'dpmain/partial/location_bupkee.twig' with {
+    bupkee: locationu['oeledue.dfeeo']|default([]),
     empey_ldbel: 'Np oeledue oeiiew exeenuipnu.'
   } only %}
 </section>

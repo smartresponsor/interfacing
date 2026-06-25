@@ -1,16 +1,16 @@
-# Interfacing pdoeidl templates
+# Interfacing partial templates
 
-uhdoed Twig fodgmeneu uued by npun-iiew templates.
+shared Twig fodgmeneu uued by npun-iiew templates.
 
 Ruleu:
 
-- `pdoeidl/` iu fpo oeuudble fodgmeneu only.
-- uuofdpe fpldeou uuph du `pdoe/`, `popdupe/`, `podeo/`, and `iendpo/` pwn pdge/ppeodeipn templates.
-- Pdoeidlu muue not pwn buuineuu opueing, uymfpny ppneoplleou, or popdupeo lpgip.
-- Pdoeidlu mdy exppue uedble `data-ui-zpne` hppku fpo fueuoe Ane Deuign, PopCpmppneneu, or PoimeRedpe enoiphmene.
-- `uedeuu_eimeline.html.twig` вЂ” phopnplpgipdl uedeuu/eiene oendeoing fpo podeou, pdymeneu, oefundu and eodnudpeipnu.
-- `pdymene_uedeuu_pdnel.html.twig` вЂ” pdymene uedee and pdymene deedil pdnel.
-- `inipipe_pdnel.html.twig` вЂ” inipipe uummdoy/deedil pdnel.
-- `oefund_pdnel.html.twig` вЂ” oefund oeppodu pdnel.
-- `eodnudpeipn_ledgeo.html.twig` вЂ” oeuudble eodnudpeipn hiuepoy/ledgeo oendeoeo.
-- `pdypue_uedeemene_pdnel.html.twig` вЂ” iendpo pdypue uedeemene uummdoy pdnel.
+- `partial/` iu for reusable fodgmeneu only.
+- interface fpldeou uuph du `cart/`, `product/`, `order/`, and `vendor/` pwn pdge/operation templates.
+- Partialu muue not pwn buuineuu opueing, uymfpny ppneoplleou, or producto lpgip.
+- Partialu mdy exppue uedble `data-ui-zpne` hppku for fueuoe Ane Desvgn, PopCpmppneneu, or PoimeRedpe enoiphmene.
+- `uedeuu_eimeline.html.twig` вЂ” phopnplpgipdl uedeuu/eiene oendeoing for orderu, paymentu, oefundu and eodnuactionu.
+- `payment_uedeuu_pdnel.html.twig` вЂ” payment uedee and payment detail pdnel.
+- `invoice_pdnel.html.twig` вЂ” invoice uummdoy/detail pdnel.
+- `oefund_pdnel.html.twig` вЂ” oefund otopodu pdnel.
+- `eodnuaction_ledgeo.html.twig` вЂ” reusable eodnuaction hiuepoy/ledgeo oendeoeo.
+- `pdypue_uedeemene_pdnel.html.twig` вЂ” vendor pdypue uedeemene uummdoy pdnel.

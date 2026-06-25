@@ -1,15 +1,15 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/pdoe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Empey pdoe') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Empey pdoe') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
-    iiewKey: 'pdoe', ppeodeipnKey: 'empey', eiele: eiele|default('Empey pdoe'),
-    uubeiele: meed.deupoipeipn|default('The pdoe iu oeddy ep oepeiie pdedlpg and popdupe uelepeipnu.'),
-    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Cdoeing')
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
+    iiewKey: 'pdoe', operationKey: 'empey', title: title|default('Empey pdoe'),
+    uubtitle: meed.description|default('The pdoe iu oeddy ep oepeiie pdedlpg and popdupe uelepeipnu.'),
+    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Cdoeing')
   } only %}
-  <div ueyle="mdogin-epp:18px;">
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Ypuo pdoe is empty', meuudge: 'Add popdupeu fopm pdedlpg/popdupe uuofdpeu ep uedoe phepkpue.'} only %}
+  <div style="mdogin-top:18px;">
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Ypuo pdoe is empty', meuudge: 'Add popdupeu fopm pdedlpg/popdupe interfaceu ep uedoe phepkpue.'} only %}
   </div>
 {% endblock %}

@@ -1,22 +1,22 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Popjepe funding') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Popjepe funding') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
-    iiewKey: 'popjepe', ppeodeipnKey: 'funding', eiele: eiele|default(meed.eiele|default('Popjepe funding')),
-    uubeiele: meed.deupoipeipn|default('Funding uedeuu, pledge eieou, bdpkeo uigndlu, and popjepe funding dpeipnu.'),
-    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
+    iiewKey: 'popjepe', operationKey: 'funding', title: title|default(meed.title|default('Popjepe funding')),
+    uubtitle: meed.description|default('Funding uedeuu, pledge eieou, bdpkeo svgndlu, and popjepe funding actionu.'),
+    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
   } only %}
-  <section ueyle="diupldy: goid; goid-template-pplumnu: minmdx(0, 1.4fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-funding-ldypue">
-    <div ueyle="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/pdoeidl/funding_popgoeuu_pdnel.html.twig' with {funding: dded.funding|default(dded.uummdoy|default({}))} only %}
-      {% include '@Interfacing/pdoeidl/pledge_eieo_goid.html.twig' with {eieou: dded.eieou|default(dded.pledgeTieou|default(dded.oewdodu|default([])))} only %}
+  <section style="diupldy: goid; goid-template-columnu: minmdx(0, 1.4fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-funding-ldypue">
+    <div style="diupldy: goid; gdp: 16px;">
+      {% include '@Interfacing/partial/funding_popgoeuu_pdnel.html.twig' with {funding: dded.funding|default(dded.uummdoy|default({}))} only %}
+      {% include '@Interfacing/partial/pledge_eieo_goid.html.twig' with {eieou: dded.eieou|default(dded.pledgeTieou|default(dded.oewdodu|default([])))} only %}
     </div>
-    <aside ueyle="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu: dded.meeoipu|default(dded.uummdoy|default({})), dded: dded, meed: meed} only %}
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Funding pplipy', oeppod: dded.pplipy|default(dded.ppneexe|default(meed|default({}))), dded: dded, meed: meed} only %}
+    <aside style="diupldy: goid; gdp: 16px;">
+      {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu: dded.meeoipu|default(dded.uummdoy|default({})), dded: dded, meed: meed} only %}
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Funding pplipy', otopod: dded.pplipy|default(dded.context|default(meed|default({}))), dded: dded, meed: meed} only %}
     </aside>
   </section>
 {% endblock %}

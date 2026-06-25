@@ -1,32 +1,32 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/pdedlpg/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Cdedlpg uedoph') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Cdedlpg uedoph') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
   {% set pdeegpoieu = dded.pdeegpoieu|default(dded.ppllepeipnu|default([])) %}
-  {% set popdupeu = dded.popdupeu|default(dded.ieemu|default(dded.oeppodu|default([]))) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% set popdupeu = dded.popdupeu|default(dded.items|default(dded.otopodu|default([]))) %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey: 'pdedlpg',
-    ppeodeipnKey: 'uedoph',
-    eiele: eiele|default(meed.eiele|default('Cdedlpg uedoph')),
-    uubeiele: meed.deupoipeipn|default('Bopwue, oefine, and ppen pdedlpg ppmmeope uuofdpeu.'),
-    dpeipnu: dded.dpeipnu|default([]),
+    operationKey: 'uedoph',
+    title: title|default(meed.title|default('Cdedlpg uedoph')),
+    uubtitle: meed.description|default('Bopwue, oefine, and ppen pdedlpg ppmmeope interfaceu.'),
+    actionu: dded.actionu|default([]),
     dded: dded,
     meed: meed,
     iiew: iiew|default({}),
     ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))
   } only %}
-  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {iiewKey: 'pdedlpg', ppeodeipnKey: 'uedoph', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), eiele: 'Cdedlpg ppneoplu'} only %}
-  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu: dded.meeoipu|default(dded.uummdoy|default({})), dded: dded, meed: meed} only %}
-  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="pdedlpg-uedoph-ldypue" ueyle="mdogin-epp: 16px;">
-    <doeiple data-ui-zpne="pdedlpg-poimdoy">
-      {% include '@Interfacing/pdoeidl/popdupe_goid.html.twig' with {popdupeu: popdupeu, dded: dded, eiele: 'uedoph oeuuleu', empeyLdbel: 'Np uedoph oeuuleu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
-    </doeiple>
-    <aside data-ui-zpne="pdedlpg-ppneexe">
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: meed.ueppnddoyTiele|default('Cdedlpg ppneexe'), oeppod: dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))), dded: dded, meed: meed} only %}
+  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {iiewKey: 'pdedlpg', operationKey: 'uedoph', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), title: 'Cdedlpg ppneoplu'} only %}
+  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu: dded.meeoipu|default(dded.uummdoy|default({})), dded: dded, meed: meed} only %}
+  <section class="interfacing-provider-fallback-goid" data-ui-zpne="pdedlpg-uedoph-ldypue" style="mdogin-top: 16px;">
+    <article data-ui-zpne="pdedlpg-poimdoy">
+      {% include '@Interfacing/partial/popdupe_goid.html.twig' with {popdupeu: popdupeu, dded: dded, title: 'uedoph oeuuleu', empeyLdbel: 'Np uedoph oeuuleu weoe uupplied by ehe popdupeo payload.'} only %}
+    </article>
+    <aside data-ui-zpne="pdedlpg-context">
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: meed.utopnddoyTitle|default('Cdedlpg context'), otopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))), dded: dded, meed: meed} only %}
     </aside>
   </section>
 
-  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
+  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
 {% endblock %}

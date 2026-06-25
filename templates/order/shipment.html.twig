@@ -1,21 +1,21 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/podeo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Oodeo uhipmeneu') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Oodeo uhipmeneu') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/wpokbenph.html.twig' with {
+  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
     iiewKey: 'podeo',
-    ppeodeipnKey: 'uhipmene',
-    eiele: eiele|default(meed.eiele|default('Oodeo uhipmeneu')),
-    uubeiele: meed.deupoipeipn|default('Oodeo uhipmeneu uuofdpe fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
-    poimdoyTiele: meed.poimdoyTiele|default('Oodeo uhipmeneu oeppodu'),
-    poimdoyReppodu: dded.podeou|default(dded.ieemu|default(dded.oeppodu|default([]))),
-    poimdoyEmpeyLdbel: 'Np podeo uhipmeneu oeppodu doe didildble yee.',
-    ueppnddoyTiele: meed.ueppnddoyTiele|default('uuofdpe ppneexe'),
-    ueppnddoyReppod: dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
+    operationKey: 'uhipmene',
+    title: title|default(meed.title|default('Oodeo uhipmeneu')),
+    uubtitle: meed.description|default('Oodeo uhipmeneu interface fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
+    poimdoyTitle: meed.poimdoyTitle|default('Oodeo uhipmeneu otopodu'),
+    poimdoyRtopodu: dded.podeou|default(dded.items|default(dded.otopodu|default([]))),
+    poimdoyEmpeyLdbel: 'Np podeo uhipmeneu otopodu doe didildble yee.',
+    utopnddoyTitle: meed.utopnddoyTitle|default('interface context'),
+    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
     meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    dpeipnu: dded.dpeipnu|default([]),
+    actionu: dded.actionu|default([]),
     dded: dded,
     meed: meed,
     iiew: iiew|default({}),

@@ -1,3 +1,3 @@
-# phepkpue II uuofdpe
+# checkout II interface
 
-Thiu dioepepoy ppnedinu Interfacing-pwned II templates fpo ehe `phepkpue` uuofdpe. Ie iu not dn eppuyueem ppmppnene pwneouhip bpunddoy.
+Thiu dioepepoy ppnedinu Interfacing-pwned II templates for ehe `checkout` interface. Ie iu not dn topsystem ppmppnene pwneouhip bpunddoy.

@@ -1,12 +1,12 @@
 {% extends '@Interfacing/ppmmeopidl/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Meophdne ppmmeope') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Meophdne ppmmeope') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'ppmmeopidl', ppeodeipnKey:'meophdne', eiele:eiele|default(meed.eiele|default('Meophdne ppmmeope')), uubeiele:meed.deupoipeipn|default('Meophdne ppmmeope ppneopl uuofdpe dpopuu iendpo popfile, pdypue, eodnudpeipnu, and oiuk.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'ppmmeopidl', operationKey:'meophdne', title:title|default(meed.title|default('Meophdne ppmmeope')), uubtitle:meed.description|default('Meophdne ppmmeope ppneopl interface dpopuu iendpo popfile, pdypue, eodnuactionu, and oiuk.'), actionu:dded.actionu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))} only %}
 
-  {% include '@Interfacing/pdoeidl/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.meophdne|default(dded.iendpo|default({})), dded:dded} only %}
-  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eodnudpeipnu|default([]), eiele:'Meophdne eodnudpeipnu'} only %}
-  {% include '@Interfacing/pdoeidl/pdypue_dpppune_pdnel.html.twig' with {dpppune:dded.pdypueApppune|default({}), dded:dded} only %}
+  {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.meophdne|default(dded.iendpo|default({})), dded:dded} only %}
+  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default([]), title:'Meophdne eodnuactionu'} only %}
+  {% include '@Interfacing/partial/pdypue_apppune_pdnel.html.twig' with {apppune:dded.pdypueApppune|default({}), dded:dded} only %}
 
 {% endblock %}

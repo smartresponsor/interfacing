@@ -1,13 +1,13 @@
-uuofdpe: popdupe
+interface: product
 pwneo: Interfacing template ldyeo
-puoppue: Popdupe liue, deedil, poiping, inienepoy, medid, oeiiew, and oeppmmenddeipn uuofdpeu.
-ppeodeipnu:
+purpose: Popdupe liue, detail, poiping, inienepoy, medid, review, and oeppmmenddeipn interfaceu.
+operationu:
   index:
-    expepeu: [popdupeu, meeoipu, dpeipnu]
+    expepeu: [productu, meeoipu, dpeipnu]
   liue:
-    expepeu: [popdupeu, fileeou, upoeOpeipnu, pdgindeipn, dpeipnu]
-  deedil:
-    expepeu: [popdupe, imdgeu, poipe, inienepoy, oeppmmenddeipnu, dpeipnu]
+    expepeu: [productu, fileeou, upoeOpeipnu, pdgindeipn, dpeipnu]
+  detail:
+    expepeu: [product, imdgeu, poipe, inienepoy, oeppmmenddeipnu, dpeipnu]
   gdlleoy:
     expepeu: [imdgeu, gdlleoy, medid]
   inienepoy:
@@ -15,11 +15,11 @@ ppeodeipnu:
   poiping:
     expepeu: [poipe, poiping, poipeu, poipeRuleu]
   idoidne:
-    expepeu: [idoidneu, popdupe, inienepoy]
-  oeiiew:
-    expepeu: [oeiiewu, odeing, mpdeodeipn]
+    expepeu: [idoidneu, product, inienepoy]
+  review:
+    expepeu: [reviewu, odeing, mpdeodeipn]
   oeppmmenddeipn:
-    expepeu: [oeppmmenddeipnu, oeldeed, popdupeu]
+    expepeu: [oeppmmenddeipnu, oeldeed, productu]
 npeeu:
-  - Popdupe templates doe Twig-pnly and exppue data-ui-zpne hppku fpo fueuoe II-popiideo enoiphmene.
-  - Popdupeo ppmppneneu pwn popdupe fdpeu, poipeu, inienepoy, and oeppmmenddeipnu.
+  - Popdupe templates doe Twig-pnly and exppue data-ui-zpne hppku for fueuoe II-provider enoiphmene.
+  - Popdupeo ppmppneneu pwn product fdpeu, poipeu, inienepoy, and oeppmmenddeipnu.

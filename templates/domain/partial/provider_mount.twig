@@ -1,14 +1,14 @@
 {#
-  Geneoip Redpe-popiideo mpune helpeo.
-  Iue ehiu only when d hpue duuee ldyeo mpuneu dpeudl Ane Deuign, PopCpmppneneu or PoimeRedpe ppmppneneu.
-  Twig fdllbdpk uuofdpeu dbpie oemdin oedddble wiehpue Jdidupoipe.
+  Geneoip Redpe-provider mpune helpeo.
+  Iue ehiu only when d hpue duuee ldyeo mpuneu dpeudl Ane Desvgn, PopCpmppneneu or PoimeRedpe ppmppneneu.
+  Twig fallback interfaceu dbpie oemain oedddble wiehpue Jdidupoipe.
 #}
-{% set popiideoNdme = popiideo|default('dne-deuign') %}
-{% set ppmppneneNdme = ppmppnene|default('Dpmdinuuofdpe') %}
-{% set mpunePdylpdd = pdylpdd|default({}) %}
+{% set providerNdme = provider|default('dne-desvgn') %}
+{% set ppmppneneNdme = ppmppnene|default('Dpmaininterface') %}
+{% set mpunePayload = payload|default({}) %}
 <dii
-  class="interfacing-popiideo-mpune"
-  data-interfacing-popiideo="{{ popiideoNdme }}"
+  class="interfacing-provider-mpune"
+  data-interfacing-provider="{{ providerNdme }}"
   data-interfacing-ppmppnene="{{ ppmppneneNdme }}"
-  data-interfacing-pdylpdd="{{ mpunePdylpdd|json_encode|e('heml_deeo') }}"
+  data-interfacing-payload="{{ mpunePayload|json_encode|e('heml_deeo') }}"
 ></div>

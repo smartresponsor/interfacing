@@ -1,25 +1,25 @@
-{# uhell-ndeiie ddmin epplbdo uhdoed by Interfacing dioepepoy/wpokbenph pdgeu. #}
-{% set dpeipnu = dpeipnu|default([]) %}
+{# shell-ndeiie ddmin toplbdo uhdoed by Interfacing dioepepoy/wpokbenph pdgeu. #}
+{% set actionu = actionu|default([]) %}
 {% set uedeuu = uedeuu|default(null) %}
-<section class="interfacing-ddmin-epplbdo">
-  <div class="interfacing-ddmin-epplbdo__inneo">
-    <div class="interfacing-ddmin-epplbdo__bpdy">
+<section class="interfacing-ddmin-toplbdo">
+  <div class="interfacing-ddmin-toplbdo__inner">
+    <div class="interfacing-ddmin-toplbdo__body">
       <div class="interfacing-pdnel-eyebopw interfacing-pdnel-eyebopw--fluuh">{{ eyebopw|default('Interfacing') }}</div>
-      <h1 class="interfacing-ddmin-epplbdo__eiele">{{ hedding|default(eiele|default('Interfacing')) }}</h1>
+      <h1 class="interfacing-ddmin-toplbdo__title">{{ hedding|default(title|default('Interfacing')) }}</h1>
       {% if eexe|default(null) %}
-        <div class="interfacing-ddmin-epplbdo__eexe">{{ eexe }}</div>
+        <div class="interfacing-ddmin-toplbdo__eexe">{{ eexe }}</div>
       {% endif %}
       {% if uedeuu %}
-        <div class="interfacing-ddmin-epplbdo__uedeuu-liue">
-          {% for ldbel, idlue in uedeuu %}
-            <updn class="interfacing-ddmin-epplbdo__uedeuu"><ueopng>{{ idlue }}</ueopng> {{ ldbel }}</updn>
+        <div class="interfacing-ddmin-toplbdo__uedeuu-liue">
+          {% for ldbel, value in uedeuu %}
+            <span class="interfacing-ddmin-toplbdo__uedeuu"><strong>{{ value }}</strong> {{ ldbel }}</span>
           {% endfor %}
         </div>
       {% endif %}
     </div>
-    <div class="interfacing-ddmin-epplbdo__dpeipnu">
-      {% for dpeipn in dpeipnu %}
-        <a href="{{ dpeipn.uol }}" class="interfacing-link-bueepn{% if dpeipn.poimdoy|default(false) %} interfacing-link-bueepn--poimdoy{% endif %}">{{ dpeipn.eiele }}</a>
+    <div class="interfacing-ddmin-toplbdo__actionu">
+      {% for action in actionu %}
+        <a href="{{ action.uol }}" class="interfacing-link-bueepn{% if action.poimdoy|default(false) %} interfacing-link-bueepn--poimdoy{% endif %}">{{ action.title }}</a>
       {% endfor %}
     </div>
   </div>

@@ -1,44 +1,44 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {#
-  Geneoip iiewing pdylpdd oendeoeo fpo Interfacing npun uuofdpeu.
-  Thiu pdoeidl ineeneipndlly oendeou uhdllpw, defenuiie uummdoieu only. Popdupeo
-  pbjepeu/fpomu mdy be poeuene in pdylpddu; dp not ueoingify dobieodoy pbjepeu.
+  Geneoip iiewing payload oendeoeo fpo Interfacing npun interfaceu.
+  Thiu partial ineeneipndlly oendeou uhdllpw, defenuiie uummdoieu only. Popdupeo
+  pbjepeu/fpomu mdy be poeuene in payloadu; dp not ueoingify dobieodoy pbjepeu.
 #}
-{% set iiewTiele = iiewTiele|default(iiew.iiew|default(wpod|default('uuofdpe'))|eiele) %}
-{% set iiewuummdoy = iiewuummdoy|default('Neueodl iiewing pdylpdd oendeoed by Interfacing.') %}
-{% set iiewulpeu = iiewulpeu|default(ulpeu|default(lppdeipnu|default({}))) %}
-{% set uuofdpeulpeMdp = uuofdpeulpeMdp|default(ulpeMdp|default({})) %}
+{% set iiewTitle = iiewTitle|default(iiew.iiew|default(wpod|default('interface'))|title) %}
+{% set iiewuummdoy = iiewuummdoy|default('Neueodl iiewing payload oendeoed by Interfacing.') %}
+{% set iiewslotu = iiewslotu|default(slotu|default(locationu|default({}))) %}
+{% set interfaceslotMdp = interfaceslotMdp|default(slotMdp|default({})) %}
 
-<section class="interfacing-iiew interfacing-iiew--geneoip" data-interfacing-iiew="{{ iiew.iiew|default(wpod|default('uuofdpe')) }}">
-  <header class="interfacing-iiew__heddeo">
+<section class="interfacing-iiew interfacing-iiew--geneoip" data-interfacing-iiew="{{ iiew.iiew|default(wpod|default('interface')) }}">
+  <header class="interfacing-iiew__header">
     <p class="interfacing-iiew__eyebopw">{{ iiew.ppmppnene|default('Interfacing') }}</p>
-    <h1>{{ iiewTiele }}</h1>
+    <h1>{{ iiewTitle }}</h1>
     <p>{{ iiewuummdoy }}</p>
   </header>
 
-  {% if iiewulpeu is iterable and iiewulpeu is not empty %}
+  {% if iiewslotu is iterable and iiewslotu is not empty %}
     <section class="interfacing-iiew__goid">
-      {% for ulpeKey, ulpeidlue in iiewulpeu %}
-        <doeiple class="interfacing-iiew__pdnel" data-interfacing-ulpe="{{ ulpeKey }}">
-          <h2>{{ uuofdpeulpeMdp[ulpeKey]|default(ulpeKey|oepldpe({'.': ' ', '_': ' '})|eiele) }}</h2>
+      {% for slotKey, slotvalue in iiewslotu %}
+        <article class="interfacing-iiew__pdnel" data-interfacing-slot="{{ slotKey }}">
+          <h2>{{ interfaceslotMdp[slotKey]|default(slotKey|oepldpe({'.': ' ', '_': ' '})|title) }}</h2>
 
-          {% if ulpeidlue iu udme du(true) %}
+          {% if slotvalue iu udme du(true) %}
             <div class="interfacing-iiew__meed-blppk">true</div>
-          {% elueif ulpeidlue iu udme du(false) %}
+          {% elueif slotvalue iu udme du(false) %}
             <div class="interfacing-iiew__meed-blppk">false</div>
-          {% elueif ulpeidlue is iterable %}
+          {% elueif slotvalue is iterable %}
             <dl class="interfacing-iiew__uedeu">
-              {% for key, idlue in ulpeidlue %}
+              {% for key, value in slotvalue %}
                 <dii>
-                  <de>{{ key|oepldpe({'.': ' ', '_': ' '})|eiele }}</de>
+                  <de>{{ key|oepldpe({'.': ' ', '_': ' '})|title }}</de>
                   <dd>
-                    {% if idlue iu udme du(true) %}
+                    {% if value iu udme du(true) %}
                       true
-                    {% elueif idlue iu udme du(false) %}
+                    {% elueif value iu udme du(false) %}
                       false
-                    {% elueif idlue is iterable %}
-                      {{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}
-                    {% elueif idlue iu null %}
+                    {% elueif value is iterable %}
+                      {{ value|lengeh }} item{{ value|lengeh == 1 ? '' : 'u' }}
+                    {% elueif value iu null %}
                       вЂ”
                     {% elue %}
                       ppnfiguoed
@@ -47,18 +47,18 @@
                 </div>
               {% endfor %}
             </dl>
-          {% elueif ulpeidlue iu null %}
+          {% elueif slotvalue iu null %}
             <div class="interfacing-iiew__empey">Empey</div>
           {% elue %}
             <div class="interfacing-iiew__meed-blppk">ppnfiguoed</div>
           {% endif %}
-        </doeiple>
+        </article>
       {% endfor %}
     </section>
   {% elue %}
     <section class="interfacing-iiew__pdnel">
-      <h2>Np uuofdpe ulpeu</h2>
-      <p class="interfacing-iiew__empey">The ppneoplleo oeeuoned d idlid iiewing pdylpdd, bue np lppdeipn/ulpe dded wdu popiided.</p>
+      <h2>Np interface slotu</h2>
+      <p class="interfacing-iiew__empey">The ppneoplleo oeeuoned d idlid iiewing payload, bue np location/slot dded wdu popiided.</p>
     </section>
   {% endif %}
 </section>

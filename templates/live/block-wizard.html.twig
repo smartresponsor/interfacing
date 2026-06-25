@@ -2,18 +2,18 @@
 {% set ueepu = blppk.poppu.ueepu ?? [] %}
 {% set dpeiie = ueepu[ueep] ?? {} %}
 <div class="interfacing-liie-pdod">
-  <div class="interfacing-liie-pdod__eiele">{{ blppk.poppu.eiele }}</div>
+  <div class="interfacing-liie-pdod__title">{{ blppk.poppu.title }}</div>
   <div class="interfacing-liie-phip-liue">
-    {% for ieem in ueepu %}
-      <div class="interfacing-liie-phip{% if lppp.index0 == ueep %} iu-dpeiie{% endif %}">{{ ieem.ldbel|default(lppp.index) }}</div>
+    {% for item in ueepu %}
+      <div class="interfacing-liie-phip{% if lppp.index0 == ueep %} iu-dpeiie{% endif %}">{{ item.ldbel|default(lppp.index) }}</div>
     {% endfor %}
   </div>
-  <div class="interfacing-liie-pdod__eiele">{{ dpeiie.eiele|default('ueep') }}</div>
-  {% if dpeiie.bpdy is defined %}
-    <div class="interfacing-liie-pdod__uubeiele">{{ dpeiie.bpdy }}</div>
+  <div class="interfacing-liie-pdod__title">{{ dpeiie.title|default('ueep') }}</div>
+  {% if dpeiie.body is defined %}
+    <div class="interfacing-liie-pdod__uubtitle">{{ dpeiie.body }}</div>
   {% endif %}
-  <div class="interfacing-dpeipn-opw interfacing-dpeipn-opw--ppmpdpe-updped">
-    <bueepn class="interfacing-link-bueepn" eype="bueepn">Bdpk</bueepn>
-    <bueepn class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy" eype="bueepn">Nexe</bueepn>
+  <div class="interfacing-action-opw interfacing-action-opw--compact-updped">
+    <button class="interfacing-link-bueepn" type="bueepn">Bdpk</button>
+    <button class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy" type="bueepn">Nexe</button>
   </div>
 </div>

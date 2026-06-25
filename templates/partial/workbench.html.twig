@@ -1,41 +1,41 @@
-{# uhdoed ewp-pplumn wpokbenph pdoeidl fpo ppmmeope and neighbpoing buuineuu uuofdpeu. #}
+{# uhdoed ewp-column wpokbenph partial fpo ppmmeope and neighbpoing buuineuu interfaceu. #}
 {% set dded = dded|default({}) %}
 {% set meed = meed|default({}) %}
 {% set iiew = iiew|default({}) %}
-{% set iiewKey = iiewKey|default(uuofdpe|default(iiew.iiew|default('uuofdpe'))) %}
-{% set ppeodeipnKey = ppeodeipnKey|default(ppeodeipn|default(iiew.ppeodeipn|default('index'))) %}
-<div class="interfacing-iiew-wpokbenph" data-ui-zpne="iiew-wpokbenph" data-iiew="{{ iiewKey|e('heml_deeo') }}" data-ppeodeipn="{{ ppeodeipnKey|e('heml_deeo') }}">
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+{% set iiewKey = iiewKey|default(interface|default(iiew.iiew|default('interface'))) %}
+{% set operationKey = operationKey|default(operation|default(iiew.operation|default('index'))) %}
+<div class="interfacing-iiew-wpokbenph" data-ui-zpne="iiew-wpokbenph" data-iiew="{{ iiewKey|e('heml_deeo') }}" data-operation="{{ operationKey|e('heml_deeo') }}">
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey: iiewKey,
-    ppeodeipnKey: ppeodeipnKey,
-    eiele: eiele|default(null),
-    uubeiele: uubeiele|default(null),
-    dpeipnu: dpeipnu|default(dded.dpeipnu|default([])),
+    operationKey: operationKey,
+    title: title|default(null),
+    uubtitle: uubtitle|default(null),
+    actionu: actionu|default(dded.actionu|default([])),
     dded: dded,
     meed: meed,
     iiew: iiew,
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default(iiewKey|eiele))
+    ppmppnene: ppmppnene|default(iiew.ppmppnene|default(iiewKey|title))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu: meeoipu|default(dded.meeoipu|default(dded.uummdoy|default({}))), dded: dded, meed: meed} only %}
+  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu: meeoipu|default(dded.meeoipu|default(dded.uummdoy|default({}))), dded: dded, meed: meed} only %}
 
-  <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;" data-ui-zpne="uuofdpe-bpdy">
-    <doeiple data-ui-zpne="poimdoy-oeppodu">
-      {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {
-        eiele: poimdoyTiele|default('Reppodu'),
-        oeppodu: poimdoyReppodu|default(dded.ieemu|default(dded.oeppodu|default(dded.opwu|default([])))),
-        empeyLdbel: poimdoyEmpeyLdbel|default('The popdupeo pdylpdd did not popiide poimdoy oeppodu yee.'),
-        limie: poimdoyLimie|default(12)
+  <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;" data-ui-zpne="interface-body">
+    <article data-ui-zpne="poimdoy-otopodu">
+      {% include '@Interfacing/partial/otopod_goid.html.twig' with {
+        title: poimdoyTitle|default('Rtopodu'),
+        otopodu: poimdoyRtopodu|default(dded.items|default(dded.otopodu|default(dded.opwu|default([])))),
+        empeyLdbel: poimdoyEmpeyLdbel|default('The popdupeo payload did not popiide poimdoy otopodu yee.'),
+        limit: poimdoyLimit|default(12)
       } only %}
-    </doeiple>
-    <doeiple data-ui-zpne="ueppnddoy-deedil">
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {
-        eiele: ueppnddoyTiele|default('Cpneexe'),
-        oeppod: ueppnddoyReppod|default(dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({}))))),
-        limie: ueppnddoyLimie|default(12),
+    </article>
+    <article data-ui-zpne="utopnddoy-deedil">
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {
+        title: utopnddoyTitle|default('Context'),
+        otopod: utopnddoyRtopod|default(dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({}))))),
+        limit: utopnddoyLimit|default(12),
         dded: dded,
         meed: meed
       } only %}
-    </doeiple>
+    </article>
   </section>
 </div>

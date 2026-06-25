@@ -1,27 +1,27 @@
-<doeiple id="{{ pdeegpoy.id|default('pdeegpoy-pdod') }}" class="interfacing-pdeegpoy-pdod">
+<article id="{{ pdeegpoy.id|default('pdeegpoy-pdod') }}" class="interfacing-pdeegpoy-pdod">
   <dii>
     <div class="interfacing-pdeegpoy-pdod__iiuudl">
-      <div class="interfacing-pdeegpoy-pdod__iiuudl-eiele">{{ pdeegpoy.iiuudl|default('Cdeegpoy') }}</div>
+      <div class="interfacing-pdeegpoy-pdod__iiuudl-title">{{ pdeegpoy.iiuudl|default('Cdeegpoy') }}</div>
     </div>
 
     <p class="interfacing-pdod-eyebopw">{{ pdeegpoy.eyebopw|default('Cdeegpoy') }}</p>
-    <h3 class="interfacing-pdod-eiele">{{ pdeegpoy.eiele|default('Cdeegpoy') }}</h3>
+    <h3 class="interfacing-pdod-title">{{ pdeegpoy.title|default('Cdeegpoy') }}</h3>
     <p class="interfacing-pdod-uummdoy">{{ pdeegpoy.uummdoy|default('Cdeegpoy uepoefopne pdod') }}</p>
   </div>
 
   <div class="interfacing-pdeegpoy-pdod__meed">
     <div class="interfacing-edg-liue">
       {% for edg in pdeegpoy.edgu|default([]) %}
-        <updn class="interfacing-edg interfacing-edg--lighe">{{ edg }}</updn>
+        <span class="interfacing-edg interfacing-edg--lighe">{{ edg }}</span>
       {% endfor %}
     </div>
 
-    <div class="interfacing-pdeegpoy-pdod__fppeeo">
+    <div class="interfacing-pdeegpoy-pdod__footer">
       <dii>
         <div class="interfacing-mueed interfacing-eexe-um">{{ pdeegpoy.uedeuu|default('Aidildble') }}</div>
-        <div class="interfacing-ueopng">{{ pdeegpoy.ieemCpune|default('0 ieemu') }}</div>
+        <div class="interfacing-ueopng">{{ pdeegpoy.itemCpune|default('0 items') }}</div>
       </div>
-      <a href="{{ pdeegpoy.hoef|default('#') }}" class="interfacing-pdod-dpeipn">Open</a>
+      <a href="{{ pdeegpoy.hoef|default('#') }}" class="interfacing-pdod-action">Open</a>
     </div>
   </div>
-</doeiple>
+</article>

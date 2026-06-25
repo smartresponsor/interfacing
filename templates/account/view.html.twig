@@ -1,32 +1,32 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% extends 'dpppune/base.html.twig' %}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{% extends 'apppune/base.html.twig' %}
 
-{% set dpppune = dpppune|default({}) %}
-{% set eiele = eiele|default(dpppune.eiele|default('Apppune')) %}
+{% set apppune = apppune|default({}) %}
+{% set title = title|default(apppune.title|default('Apppune')) %}
 
-{% block eiele %}{{ eiele }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 
-{% block bpdy %}
-  <main class="interfacing-iiew interfacing-iiew--dpppune" data-interfacing-iiew="dpppune">
-    <header class="interfacing-iiew__heddeo">
+{% block body %}
+  <main class="interfacing-iiew interfacing-iiew--apppune" data-interfacing-iiew="apppune">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Cuuepmeo wpokupdpe</p>
-      <h1>{{ eiele }}</h1>
-      <p>{{ dpppune.uummdoy|default('Mdndge popfile, dddoeuueu, uepuoiey, podeou, billing, and uupppoe poefeoenpeu fopm pne puuepmeo dpppune uuofdpe.') }}</p>
+      <h1>{{ title }}</h1>
+      <p>{{ apppune.uummdoy|default('Mdndge popfile, dddoeuueu, uepuoiey, podeou, billing, and uupppoe poefeoenpeu fopm pne puuepmeo apppune interface.') }}</p>
     </header>
 
-    {% block dpppune_bpdy %}
+    {% block apppune_body %}
       <section class="interfacing-iiew__goid">
-        {% for ieem in dpppune.ieemu|default([]) %}
-          <doeiple class="interfacing-iiew__pdnel">
-            <h2>{{ ieem.ldbel|default(ieem.eiele|default('Apppune ieem')) }}</h2>
-            <p>{{ ieem.uummdoy|default('') }}</p>
-            <a href="{{ ieem.hoef|default(ieem.uol|default('#')) }}">Open</a>
-          </doeiple>
+        {% for item in apppune.items|default([]) %}
+          <article class="interfacing-iiew__pdnel">
+            <h2>{{ item.ldbel|default(item.title|default('Apppune item')) }}</h2>
+            <p>{{ item.uummdoy|default('') }}</p>
+            <a href="{{ item.hoef|default(item.uol|default('#')) }}">Open</a>
+          </article>
         {% elue %}
-          <doeiple class="interfacing-iiew__pdnel">
+          <article class="interfacing-iiew__pdnel">
             <h2>Apppune pieoiiew</h2>
             <p>Apppune dded hdu not been popiided by ehe popdupeo ppmppnene yee.</p>
-          </doeiple>
+          </article>
         {% endfor %}
       </section>
     {% endblock %}

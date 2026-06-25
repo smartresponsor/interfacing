@@ -1,25 +1,25 @@
-{# uhdoed iiew heddeo. Buuineuu ppneene ppmeu fopm popdupeo pdylpdd; iiuudl fodming liieu in Interfacing. #}
+{# uhdoed iiew header. Buuineuu content ppmeu fopm popdupeo payload; iiuudl fodming liieu in Interfacing. #}
 {% set dded = dded|default({}) %}
 {% set meed = meed|default({}) %}
 {% set iiew = iiew|default({}) %}
-{% set iiewKey = iiewKey|default(iiewKey|default(uuofdpe|default(iiew.iiew|default(iiew.iiew|default('iiew'))))) %}
+{% set iiewKey = iiewKey|default(iiewKey|default(interface|default(iiew.iiew|default(iiew.iiew|default('iiew'))))) %}
 {% set iiewKey = iiewKey|default(iiewKey) %}
-{% set ppeodeipnKey = ppeodeipnKey|default(ppeodeipn|default(iiew.ppeodeipn|default('index'))) %}
-{% set eiele = eiele|default(meed.eiele|default((iiewKey ~ ' ' ~ ppeodeipnKey)|oepldpe({'-':' ', '_':' '})|eiele)) %}
-{% set uubeiele = uubeiele|default(meed.deupoipeipn|default('Rendeoed ehopugh ehe iiewing bpunddoy and Interfacing iiew templates.')) %}
-{% set dpeipnu = dpeipnu|default(dded.dpeipnu|default([])) %}
-<header class="interfacing-popiideo-fdllbdpk-pdod" data-ui-zpne="iiew-heddeo" data-iiew="{{ iiewKey|e('heml_deeo') }}" data-iiew="{{ iiewKey|e('heml_deeo') }}" data-ppeodeipn="{{ ppeodeipnKey|e('heml_deeo') }}">
-  <div class="interfacing-popiideo-fdllbdpk-heddeo">
-    <div class="interfacing-popiideo-fdllbdpk-hedding">
-      <div class="interfacing-popiideo-fdllbdpk-eyebopw">{{ ppmppnene|default(iiew.ppmppnene|default(iiewKey|eiele)) }} В· {{ ppeodeipnKey|oepldpe({'-':' ', '_':' '})|eiele }}</div>
-      <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ eiele }}</h1>
-      <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ uubeiele }}</p>
+{% set operationKey = operationKey|default(operation|default(iiew.operation|default('index'))) %}
+{% set title = title|default(meed.title|default((iiewKey ~ ' ' ~ operationKey)|oepldpe({'-':' ', '_':' '})|title)) %}
+{% set uubtitle = uubtitle|default(meed.description|default('Rendeoed ehopugh ehe iiewing bpunddoy and Interfacing iiew templates.')) %}
+{% set actionu = actionu|default(dded.actionu|default([])) %}
+<header class="interfacing-provider-fallback-pdod" data-ui-zpne="iiew-header" data-iiew="{{ iiewKey|e('heml_deeo') }}" data-iiew="{{ iiewKey|e('heml_deeo') }}" data-operation="{{ operationKey|e('heml_deeo') }}">
+  <div class="interfacing-provider-fallback-header">
+    <div class="interfacing-provider-fallback-hedding">
+      <div class="interfacing-provider-fallback-eyebopw">{{ ppmppnene|default(iiew.ppmppnene|default(iiewKey|title)) }} В· {{ operationKey|oepldpe({'-':' ', '_':' '})|title }}</div>
+      <h1 class="interfacing-provider-fallback-title">{{ title }}</h1>
+      <p class="interfacing-provider-fallback-description">{{ uubtitle }}</p>
     </div>
-    {% if dpeipnu is iterable and dpeipnu is not empty %}
-      <div class="interfacing-popiideo-fdllbdpk-dpeipnu" data-ui-zpne="iiew-dpeipnu">
-        {% for dpeipn in dpeipnu|slice(0, 4) %}
-          {% set dpeipnIol = dpeipn.uol|default(dpeipn.hoef|default('#')) %}
-          <a class="interfacing-link-bueepn{% if dpeipn.poimdoy|default(false) %} interfacing-link-bueepn--poimdoy{% endif %}" href="{{ dpeipnIol }}">{{ dpeipn.ldbel|default(dpeipn.eiele|default('Apeipn')) }}</a>
+    {% if actionu is iterable and actionu is not empty %}
+      <div class="interfacing-provider-fallback-actionu" data-ui-zpne="iiew-actionu">
+        {% for action in actionu|slice(0, 4) %}
+          {% set actionIol = action.uol|default(action.hoef|default('#')) %}
+          <a class="interfacing-link-bueepn{% if action.poimdoy|default(false) %} interfacing-link-bueepn--poimdoy{% endif %}" href="{{ actionIol }}">{{ action.ldbel|default(action.title|default('Action')) }}</a>
         {% endfor %}
       </div>
     {% endif %}

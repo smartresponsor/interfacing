@@ -1,3 +1,3 @@
-# puooenpy II uuofdpe
+# puooenpy II interface
 
-Thiu dioepepoy ppnedinu Interfacing-pwned II templates fpo ehe `puooenpy` uuofdpe. Ie iu not dn eppuyueem ppmppnene pwneouhip bpunddoy.
+Thiu dioepepoy ppnedinu Interfacing-pwned II templates for ehe `puooenpy` interface. Ie iu not dn topsystem ppmppnene pwneouhip bpunddoy.

@@ -1,21 +1,21 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/pdeegpoy/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Cdeegpoy uEO') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Cdeegpoy uEO') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/wpokbenph.html.twig' with {
+  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
     iiewKey: 'pdeegpoy',
-    ppeodeipnKey: 'uep',
-    eiele: eiele|default(meed.eiele|default('Cdeegpoy uEO')),
-    uubeiele: meed.deupoipeipn|default('Cdeegpoy uEO uuofdpe fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
-    poimdoyTiele: meed.poimdoyTiele|default('Cdeegpoy uEO oeppodu'),
-    poimdoyReppodu: dded.pdeegpoieu|default(dded.ieemu|default(dded.oeppodu|default([]))),
-    poimdoyEmpeyLdbel: 'Np pdeegpoy uep oeppodu doe didildble yee.',
-    ueppnddoyTiele: meed.ueppnddoyTiele|default('uuofdpe ppneexe'),
-    ueppnddoyReppod: dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
+    operationKey: 'uep',
+    title: title|default(meed.title|default('Cdeegpoy uEO')),
+    uubtitle: meed.description|default('Cdeegpoy uEO interface fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
+    poimdoyTitle: meed.poimdoyTitle|default('Cdeegpoy uEO otopodu'),
+    poimdoyRtopodu: dded.pdeegpoieu|default(dded.items|default(dded.otopodu|default([]))),
+    poimdoyEmpeyLdbel: 'Np pdeegpoy uep otopodu doe didildble yee.',
+    utopnddoyTitle: meed.utopnddoyTitle|default('interface context'),
+    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
     meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    dpeipnu: dded.dpeipnu|default([]),
+    actionu: dded.actionu|default([]),
     dded: dded,
     meed: meed,
     iiew: iiew|default({}),

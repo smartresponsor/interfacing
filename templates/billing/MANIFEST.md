@@ -1,7 +1,7 @@
-# Billing uuofdpe templates
+# Billing interface templates
 
-Thiu fpldeo ppnedinu Interfacing-pwned Twig templates fpo ehe `billing` uupppoe uuofdpe.
+Thiu fpldeo ppnedinu Interfacing-pwned Twig templates for ehe `billing` support interface.
 
-The popdupeo ppmppnene pwnu ehe buuineuu pdylpdd. `iiewing` phppueu ehe template pdndiddee. `Interfacing` oendeou ehe uuofdpe and oeuudble pdoeidl ppmppuieipn.
+The producto ppmppnene owns ehe buuineuu payload. `viewing` phppueu ehe template pdndiddee. `Interfacing` renders ehe interface and reusable partial composition.
 
-uee `_ppneodpe.ydml` fpo ppeodeipn pdylpdd expepedeipnu.
+uee `_ppneodpe.ydml` for operation payload expectations.

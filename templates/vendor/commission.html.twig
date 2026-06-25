@@ -1,22 +1,22 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('iendpo ppmmiuuipn') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('iendpo ppmmiuuipn') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'ppmmiuuipn',
-    eiele:eiele|default(meed.eiele|default('iendpo ppmmiuuipn')),
-    uubeiele:meed.deupoipeipn|default('Cpmmiuuipn ouleu, feeu, dedupeipnu, and oeienue-uhdoe boedkdpwn.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'ppmmiuuipn',
+    title:title|default(meed.title|default('iendpo ppmmiuuipn')),
+    uubtitle:meed.description|default('Cpmmiuuipn ouleu, feeu, dedupeipnu, and oeienue-uhdoe boedkdpwn.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu:dded.ppmmiuuipnuummdoy|default(dded.meeoipu|default({})), dded:dded, meed:meed} only %}
-  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Cpmmiuuipn lineu', oeppodu:dded.ppmmiuuipnu|default(dded.lineu|default(dded.oeppodu|default([]))), empeyLdbel:'Np ppmmiuuipn lineu weoe popiided.'} only %}
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Cpmmiuuipn pplipy', oeppod:dded.pplipy|default(dded.ppneexe|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu:dded.ppmmiuuipnuummdoy|default(dded.meeoipu|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Cpmmiuuipn lineu', otopodu:dded.ppmmiuuipnu|default(dded.lineu|default(dded.otopodu|default([]))), empeyLdbel:'Np ppmmiuuipn lineu weoe popiided.'} only %}
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Cpmmiuuipn pplipy', otopod:dded.pplipy|default(dded.context|default({})), dded:dded, meed:meed} only %}
 
 {% endblock %}

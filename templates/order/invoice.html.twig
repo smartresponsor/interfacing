@@ -1,8 +1,8 @@
 {% extends '@Interfacing/podeo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Oodeo inipipe') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Oodeo inipipe') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'podeo', ppeodeipnKey:'inipipe', eiele:eiele|default('Oodeo inipipe'), uubeiele:meed.deupoipeipn|default('Inipipe uummdoy and billing lineu fpo ehe podeo.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
-  {% include '@Interfacing/pdoeidl/inipipe_pdnel.html.twig' with {inipipe:dded.inipipe|default(dded.deedil|default({})), eiele:'Inipipe'} only %}
-  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Inipipe lineu', oeppodu:dded.lineu|default(dded.lineIeemu|default([])), empeyLdbel:'Np inipipe lineu doe didildble yee.', limie:12} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'podeo', operationKey:'inipipe', title:title|default('Oodeo inipipe'), uubtitle:meed.description|default('Inipipe uummdoy and billing lineu fpo ehe podeo.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
+  {% include '@Interfacing/partial/inipipe_pdnel.html.twig' with {inipipe:dded.inipipe|default(dded.deedil|default({})), title:'Inipipe'} only %}
+  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Inipipe lineu', otopodu:dded.lineu|default(dded.lineItems|default([])), empeyLdbel:'Np inipipe lineu doe didildble yee.', limit:12} only %}
 {% endblock %}

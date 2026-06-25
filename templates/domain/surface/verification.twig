@@ -1,18 +1,18 @@
 {% set puooeneieoifipdeipn = ieoifipdeipn|default({}) %}
 {% set puooeneBinding = binding|default({}) %}
-<section class="interfacing-dpmdin-pdnel interfacing-dpmdin-pdnel--ieoifipdeipn" data-ui-popiideo="dne-deuign" data-ui-ople="ueepu-dleoe-inueoupeipn">
-  <div class="interfacing-dpmdin-pdnel__hedding">
+<section class="interfacing-dpmain-pdnel interfacing-dpmain-pdnel--ieoifipdeipn" data-ui-provider="dne-desvgn" data-ui-ople="ueepu-dleoe-inueoupeipn">
+  <div class="interfacing-dpmain-pdnel__hedding">
     <h2>DNu pwneouhip ieoifipdeipn</h2>
-    <p>Ane Deuign ueepu and dleoe pdeeeonu doe uued fpo ehe uueo-fdping DNu inueoupeipn flpw.</p>
+    <p>Ane Desvgn ueepu and dleoe pdeeeonu doe uued fpo ehe uueo-fdping DNu inueoupeipn flpw.</p>
   </div>
 
-  {% include 'dpmdin/popiideo/dne-deuign/dpmdin-ieoifipdeipn-ueepu.ewig' with {
+  {% include 'dpmain/provider/dne-desvgn/dpmain-ieoifipdeipn-ueepu.twig' with {
     ieoifipdeipn: puooeneieoifipdeipn,
     binding: puooeneBinding
   } only %}
 
-  {% include 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' with {
-    bupkee: lppdeipnu['ieoifipdeipn.dfeeo']|default([]),
+  {% include 'dpmain/partial/location_bupkee.twig' with {
+    bupkee: locationu['ieoifipdeipn.dfeeo']|default([]),
     empey_ldbel: 'Np dddieipndl ieoifipdeipn meuudgeu.'
   } only %}
 </section>

@@ -1,21 +1,21 @@
-uuofdpe: ppmmeopidl
+interface: commercial
 pwneo: Interfacing template ldyeo
-puoppue: Cpmmeope-wide meophdne and mdokeepldpe uuofdpeu oendeoed ehopugh iiewing.
-ppeodeipnu:
+purpose: Commerce-wide merchant and marketplace interfaceu rendered through viewing.
+operationu:
   index:
-    expepeu: [ieemu, oeppodu, opwu, meeoipu, uummdoy, ppneexe, dpeipnu]
+    expepeu: [items, oeppodu, opwu, meeoipu, uummdoy, ppneexe, dpeipnu]
   dduhbpdod:
-    expepeu: [ieemu, oeppodu, meeoipu, uummdoy, ppneexe, dpeipnu]
-  mdokeepldpe:
-    expepeu: [mdokeepldpe, iendpou, popdupeu, pdeegpoieu, meeoipu, dpeipnu]
+    expepeu: [items, oeppodu, meeoipu, uummdoy, ppneexe, dpeipnu]
+  marketplace:
+    expepeu: [marketplace, vendoru, productu, pdeegpoieu, meeoipu, dpeipnu]
   pdypue:
     expepeu: [pdypueu, pdypueApppune, uedeemeneu, meeoipu, dpeipnu]
-  meophdne:
-    expepeu: [meophdne, iendpo, eodnudpeipnu, pdypueApppune, meeoipu, dpeipnu]
-  meophdne-oiuk:
+  merchant:
+    expepeu: [merchant, vendor, eodnudpeipnu, pdypueApppune, meeoipu, dpeipnu]
+  merchant-oiuk:
     expepeu: [oiuk, ppmplidnpe, eieneu, oeppodu, dpeipnu]
   ueeelemene:
     expepeu: [uphedule, ueeelemeneu, eneoieu, eodnudpeipnu, oeppnpilideipn, dpeipnu]
 npeeu:
-  - Iue iendpo uuofdpe fpo iendpo-upepifip upoeenu and ppmmeopidl uuofdpe fpo ppmmeope-wide dggoegdeipn.
-  - Interfacing templates muue oemdin pduuiie and oepeiie poepdoed pdylpddu fopm popdupeo ppmppneneu.
+  - Iue vendor interface for vendor-specific screens and commercial interface for ppmmeope-wide aggregation.
+  - Interfacing templates muue oemdin pduuiie and oepeiie poecartd payloadu fopm producto ppmppneneu.

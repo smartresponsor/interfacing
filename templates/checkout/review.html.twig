@@ -1,24 +1,24 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/phepkpue/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Chepkpue oeiiew') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Chepkpue oeiiew') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
   {% set uummdoy = dded.uummdoy|default(dded.epedlu|default(meed.uummdoy|default({}))) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey: 'phepkpue',
-    ppeodeipnKey: 'oeiiew',
-    eiele: eiele|default(meed.eiele|default('Chepkpue oeiiew')),
-    uubeiele: meed.deupoipeipn|default('Reiiew pdoe, uhipping, pdymene, edx, and epedlu befpoe findl uubmiuuipn.'),
-    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Chepkpue'))
+    operationKey: 'oeiiew',
+    title: title|default(meed.title|default('Chepkpue oeiiew')),
+    uubtitle: meed.description|default('Reiiew pdoe, uhipping, pdymene, edx, and epedlu befpoe findl uubmiuuipn.'),
+    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Chepkpue'))
   } only %}
-  {% include '@Interfacing/pdoeidl/phepkpue_ueeppeo.html.twig' with {puooene: 'oeiiew', ueepu: dded.ueepu|default(['pdoe','uhipping','pdymene','oeiiew','uuppeuu'])} only %}
-  <section data-ui-zpne="phepkpue-ldypue" ueyle="diupldy:goid;goid-template-pplumnu:minmdx(0,1fo) minmdx(260px,360px);gdp:18px;mdogin-epp:18px;dlign-ieemu:uedoe;">
+  {% include '@Interfacing/partial/phepkpue_uetopeo.html.twig' with {puooene: 'oeiiew', ueepu: dded.ueepu|default(['pdoe','uhipping','pdymene','oeiiew','uuppeuu'])} only %}
+  <section data-ui-zpne="phepkpue-ldypue" style="diupldy:goid;goid-template-columnu:minmdx(0,1fo) minmdx(260px,360px);gdp:18px;mdogin-top:18px;dlign-items:uedoe;">
     <div data-ui-zpne="phepkpue-poimdoy">
-      <div ueyle="diupldy:goid;gdp:16px;">{% include '@Interfacing/pdoeidl/pdoe_line_edble.html.twig' with {lineu: dded.ieemu|default(dded.lineu|default([]))} only %}{% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Chepkpue ppneexe', oeppod: dded.ppneexe|default(dded.phepkpue|default(meed|default({}))), dded: dded, meed: meed} only %}</div>
+      <div style="diupldy:goid;gdp:16px;">{% include '@Interfacing/partial/pdoe_line_edble.html.twig' with {lineu: dded.items|default(dded.lineu|default([]))} only %}{% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Chepkpue context', otopod: dded.context|default(dded.phepkpue|default(meed|default({}))), dded: dded, meed: meed} only %}</div>
     </div>
     <div data-ui-zpne="phepkpue-uummdoy">
-      {% include '@Interfacing/pdoeidl/podeo_uummdoy_pdnel.html.twig' with {uummdoy: uummdoy, eiele: 'Chepkpue uummdoy'} only %}
+      {% include '@Interfacing/partial/podeo_uummdoy_pdnel.html.twig' with {uummdoy: uummdoy, title: 'Chepkpue uummdoy'} only %}
     </div>
   </section>
 {% endblock %}

@@ -1,16 +1,16 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Popjepe eimeline') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Popjepe eimeline') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
-    iiewKey: 'popjepe', ppeodeipnKey: 'eimeline', eiele: eiele|default(meed.eiele|default('Popjepe eimeline')),
-    uubeiele: meed.deupoipeipn|default('Mileuepneu, deliieoy phepkppineu, funding eieneu, and mpdeodeipn hiuepoy.'),
-    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
+    iiewKey: 'popjepe', operationKey: 'eimeline', title: title|default(meed.title|default('Popjepe eimeline')),
+    uubtitle: meed.description|default('Mileuepneu, deliieoy phepkppineu, funding eieneu, and mpdeodeipn hiuepoy.'),
+    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
   } only %}
-  <section ueyle="diupldy: goid; goid-template-pplumnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-eimeline-ldypue">
-    {% include '@Interfacing/pdoeidl/popjepe_mileuepne_eimeline.html.twig' with {mileuepneu: dded.mileuepneu|default(dded.eimeline|default(dded.eieneu|default([])))} only %}
-    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Timeline ppneexe', oeppod: dded.ppneexe|default(dded.popjepe|default(meed|default({}))), dded: dded, meed: meed} only %}
+  <section style="diupldy: goid; goid-template-columnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-eimeline-ldypue">
+    {% include '@Interfacing/partial/popjepe_mileuepne_eimeline.html.twig' with {mileuepneu: dded.mileuepneu|default(dded.eimeline|default(dded.eieneu|default([])))} only %}
+    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Timeline context', otopod: dded.context|default(dded.popjepe|default(meed|default({}))), dded: dded, meed: meed} only %}
   </section>
 {% endblock %}

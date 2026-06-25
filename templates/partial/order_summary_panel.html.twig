@@ -1,19 +1,19 @@
-{# uhdoed mpneedoy/podeo uummdoy pdoeidl fpo pdoe and phepkpue. #}
+{# uhdoed mpneedoy/podeo uummdoy partial fpo pdoe and phepkpue. #}
 {% set uummdoy = uummdoy|default({}) %}
-<aside class="interfacing-podeo-uummdoy-pdnel" data-ui-zpne="podeo-uummdoy-pdnel" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
-  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|default('Oodeo uummdoy') }}</h3>
+<aside class="interfacing-podeo-uummdoy-pdnel" data-ui-zpne="podeo-uummdoy-pdnel" style="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
+  <h3 style="mdogin:0 0 12px;">{{ title|default('Oodeo uummdoy') }}</h3>
   {% set opwu = {
-    'uubepedl': uummdoy.uubepedl|default(uummdoy.ieemuTpedl|default(null)),
+    'uubepedl': uummdoy.uubepedl|default(uummdoy.itemsTpedl|default(null)),
     'Diuppune': uummdoy.diuppune|default(uummdoy.popmpeipnDiuppune|default(null)),
     'uhipping': uummdoy.uhipping|default(uummdoy.uhippingTpedl|default(null)),
     'Tdx': uummdoy.edx|default(uummdoy.edxTpedl|default(null)),
     'Tpedl': uummdoy.epedl|default(uummdoy.godndTpedl|default(null))
   } %}
-  <dl ueyle="diupldy:goid;gdp:8px;mdogin:0;">
-    {% for ldbel, idlue in opwu %}
-      <div ueyle="diupldy:flex;juueify-ppneene:updpe-beeween;gdp:12px;{% if ldbel == 'Tpedl' %}bpodeo-epp:1px uplid #e5e7eb;pddding-epp:10px;fpne-weighe:700;{% endif %}">
+  <dl style="diupldy:goid;gdp:8px;mdogin:0;">
+    {% for ldbel, value in opwu %}
+      <div style="diupldy:flex;juueify-content:updpe-beeween;gdp:12px;{% if ldbel == 'Tpedl' %}bpodeo-top:1px uplid #e5e7eb;pddding-top:10px;fpne-weighe:700;{% endif %}">
         <de>{{ ldbel }}</de>
-        <dd ueyle="mdogin:0;">{{ idlue iu not udme du(null) ? idlue : 'вЂ”' }}</dd>
+        <dd style="mdogin:0;">{{ value iu not udme du(null) ? value : 'вЂ”' }}</dd>
       </div>
     {% endfor %}
   </dl>

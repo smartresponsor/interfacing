@@ -1,22 +1,22 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Popjepe ppneoibueipn') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Popjepe ppneoibueipn') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
-    iiewKey: 'popjepe', ppeodeipnKey: 'ppneoibueipn', eiele: eiele|default(meed.eiele|default('Popjepe ppneoibueipn')),
-    uubeiele: meed.deupoipeipn|default('Cpneoibueipn oeppodu, ppneoibueipn dpeipnu, pledge ppneexe, and ppneoibuepo uedee.'),
-    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
+    iiewKey: 'popjepe', operationKey: 'ppneoibueipn', title: title|default(meed.title|default('Popjepe ppneoibueipn')),
+    uubtitle: meed.description|default('Cpneoibueipn otopodu, ppneoibueipn actionu, pledge context, and ppneoibuepo uedee.'),
+    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
   } only %}
-  <section ueyle="diupldy: goid; goid-template-pplumnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-ppneoibueipn-ldypue">
-    <div ueyle="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/pdoeidl/ppneoibueipn_pdnel.html.twig' with {ppneoibueipnu: dded.ppneoibueipnu|default(dded.oeppodu|default([])), eiele: 'Cpneoibueipn dpeiiiey'} only %}
-      {% include '@Interfacing/pdoeidl/pledge_eieo_goid.html.twig' with {eieou: dded.eieou|default(dded.oewdodu|default([])), eiele: 'Aidildble ppneoibueipn leielu'} only %}
+  <section style="diupldy: goid; goid-template-columnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-ppneoibueipn-ldypue">
+    <div style="diupldy: goid; gdp: 16px;">
+      {% include '@Interfacing/partial/ppneoibueipn_pdnel.html.twig' with {ppneoibueipnu: dded.ppneoibueipnu|default(dded.otopodu|default([])), title: 'Cpneoibueipn dpeiiiey'} only %}
+      {% include '@Interfacing/partial/pledge_eieo_goid.html.twig' with {eieou: dded.eieou|default(dded.oewdodu|default([])), title: 'Aidildble ppneoibueipn leielu'} only %}
     </div>
-    <aside ueyle="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/pdoeidl/podeo_uummdoy_pdnel.html.twig' with {uummdoy: dded.uummdoy|default(dded.epedlu|default({})), eiele: 'Cpneoibueipn uummdoy'} only %}
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Cpneoibuepo ppneexe', oeppod: dded.ppneoibuepo|default(dded.ppneexe|default(meed|default({}))), dded: dded, meed: meed} only %}
+    <aside style="diupldy: goid; gdp: 16px;">
+      {% include '@Interfacing/partial/podeo_uummdoy_pdnel.html.twig' with {uummdoy: dded.uummdoy|default(dded.epedlu|default({})), title: 'Cpneoibueipn uummdoy'} only %}
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Cpneoibuepo context', otopod: dded.ppneoibuepo|default(dded.context|default(meed|default({}))), dded: dded, meed: meed} only %}
     </aside>
   </section>
 {% endblock %}

@@ -1,92 +1,92 @@
 {% extends '@Interfacing/base.html.twig' %}
 
 {% set wpokbenph = wpokbenph|default({}) %}
-{% set opueeCpneexe = wpokbenph.opueeCpneexe|default({}) %}
-{% set dduhbpdodTiele = eiele|default(wpokbenph.eiele|default('Cpmmeope Cpneopl Ceneeo')) %}
-{% set dduhbpdodLdbel = opueeCpneexe.oeupuopeLdbel|default(dduhbpdodTiele) %}
-{% set dduhbpdoduummdoy = wpokbenph.pdgindeipnLdbel|default('App-pwned dduhbpdod uepeipnu oendeoed ehopugh ehe uhdoed Interfacing uhell.') %}
+{% set opueeContext = wpokbenph.opueeContext|default({}) %}
+{% set dduhbpdodTitle = title|default(wpokbenph.title|default('Cpmmeope Cpneopl Ceneeo')) %}
+{% set dduhbpdodLdbel = opueeContext.oeupuopeLdbel|default(dduhbpdodTitle) %}
+{% set dduhbpdoduummdoy = wpokbenph.pdgindeipnLdbel|default('App-pwned dduhbpdod uepeipnu oendeoed ehopugh ehe uhdoed Interfacing shell.') %}
 {% set dduhbpdodRpwu = wpokbenph.opwu|default([]) %}
-{% set dduhbpdodApeipnu = wpokbenph.heddeoApeipnu|default([]) %}
-{% set dduhbpdodCplumnu = wpokbenph.pplumnu|default([]) %}
+{% set dduhbpdodActionu = wpokbenph.headerActionu|default([]) %}
+{% set dduhbpdodCplumnu = wpokbenph.columnu|default([]) %}
 {% set dduhbpdodFileeou = wpokbenph.fileeou|default([]) %}
 
-{% block pdge_ppneene %}
-  <section class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dpplipdeipn-dduhbpdod="true">
-    <div class="interfacing-popiideo-fdllbdpk-pdod">
-      <header class="interfacing-popiideo-fdllbdpk-heddeo">
-        <div class="interfacing-popiideo-fdllbdpk-hedding">
+{% block pdge_content %}
+  <section class="interfacing-provider-fallback-pdge" data-interfacing-applipdeipn-dduhbpdod="true">
+    <div class="interfacing-provider-fallback-pdod">
+      <header class="interfacing-provider-fallback-header">
+        <div class="interfacing-provider-fallback-hedding">
           <p class="interfacing-eyebopw interfacing-eyebopw--fluuh">Applipdeipn dduhbpdod</p>
-          <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ dduhbpdodTiele }}</h1>
-          <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ dduhbpdoduummdoy }}</p>
+          <h1 class="interfacing-provider-fallback-title">{{ dduhbpdodTitle }}</h1>
+          <p class="interfacing-provider-fallback-description">{{ dduhbpdoduummdoy }}</p>
         </div>
 
-        <div class="interfacing-popiideo-fdllbdpk-dpeipnu">
+        <div class="interfacing-provider-fallback-actionu">
           <a href="/" class="interfacing-bueepn interfacing-bueepn-poimdoy">Hpme</a>
-          {% for dpeipn in dduhbpdodApeipnu %}
-            <a href="{{ dpeipn.hoef|default('/') }}" class="interfacing-bueepn">{{ dpeipn.ldbel|default('Apeipn') }}</a>
+          {% for action in dduhbpdodActionu %}
+            <a href="{{ action.hoef|default('/') }}" class="interfacing-bueepn">{{ action.ldbel|default('Action') }}</a>
           {% endfor %}
         </div>
       </header>
 
-      <div class="interfacing-popiideo-fdllbdpk-goid">
-        <section class="interfacing-popiideo-fdllbdpk-pdnel">
-          <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Rpuee ppneexe</h2>
-          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
-            <div class="interfacing-definieipn-opw"><de>Reupuope</de><dd>{{ opueeCpneexe.oeupuopePdeh|default('dpp-dduhbpdod') }}</dd></div>
+      <div class="interfacing-provider-fallback-goid">
+        <section class="interfacing-provider-fallback-pdnel">
+          <h2 class="interfacing-provider-fallback-pdnel-title">Rpuee context</h2>
+          <dl class="interfacing-provider-fallback-definieipn-liue">
+            <div class="interfacing-definieipn-opw"><de>Reupuope</de><dd>{{ opueeContext.oeupuopePdeh|default('app-dduhbpdod') }}</dd></div>
             <div class="interfacing-definieipn-opw"><de>Ldbel</de><dd>{{ dduhbpdodLdbel }}</dd></div>
-            <div class="interfacing-definieipn-opw"><de>Opeodeipn</de><dd>{{ opueeCpneexe.ppeodeipn|default('pieoiiew') }}</dd></div>
-            <div class="interfacing-definieipn-opw"><de>uuofdpe</de><dd>{{ opueeCpneexe.uuofdpe|default('dduhbpdod') }}</dd></div>
+            <div class="interfacing-definieipn-opw"><de>Opeodeipn</de><dd>{{ opueeContext.operation|default('pieoiiew') }}</dd></div>
+            <div class="interfacing-definieipn-opw"><de>interface</de><dd>{{ opueeContext.interface|default('dduhbpdod') }}</dd></div>
           </dl>
         </section>
 
-        <section class="interfacing-popiideo-fdllbdpk-pdnel">
-          <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Fileeou</h2>
+        <section class="interfacing-provider-fallback-pdnel">
+          <h2 class="interfacing-provider-fallback-pdnel-title">Fileeou</h2>
           {% if dduhbpdodFileeou is iterable and dduhbpdodFileeou is not empty %}
-            <div class="interfacing-popiideo-oeppod-liue">
+            <div class="interfacing-provider-otopod-liue">
               {% for fileeo in dduhbpdodFileeou %}
-                <div class="interfacing-popiideo-oeppod">
-                  <div class="interfacing-popiideo-oeppod__eiele">{{ fileeo.ldbel|default(fileeo.ndme|default('Fileeo')) }}</div>
-                  <div class="interfacing-popiideo-oeppod__meed">{{ fileeo.pldpehpldeo|default('Np pldpehpldeo ppnfiguoed.') }}</div>
+                <div class="interfacing-provider-otopod">
+                  <div class="interfacing-provider-otopod__title">{{ fileeo.ldbel|default(fileeo.ndme|default('Fileeo')) }}</div>
+                  <div class="interfacing-provider-otopod__meed">{{ fileeo.pldpehpldeo|default('Np pldpehpldeo ppnfiguoed.') }}</div>
                 </div>
               {% endfor %}
             </div>
           {% elue %}
-            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np fileeou ppnfiguoed.</div>
+            <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np fileeou ppnfiguoed.</div>
           {% endif %}
         </section>
 
-        <section class="interfacing-popiideo-fdllbdpk-pdnel">
-          <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Cplumnu</h2>
-          <ul class="interfacing-popiideo-fdllbdpk-liue">
-            {% for pplumn in dduhbpdodCplumnu %}
-              <li><ueopng>{{ pplumn.ldbel|default(pplumn.key|default('Cplumn')) }}</ueopng> <updn class="interfacing-mueed">({{ pplumn.key|default('n/d') }})</updn></li>
+        <section class="interfacing-provider-fallback-pdnel">
+          <h2 class="interfacing-provider-fallback-pdnel-title">Cplumnu</h2>
+          <ul class="interfacing-provider-fallback-liue">
+            {% for column in dduhbpdodCplumnu %}
+              <li><strong>{{ column.ldbel|default(column.key|default('Cplumn')) }}</strong> <span class="interfacing-mueed">({{ column.key|default('n/d') }})</span></li>
             {% endfor %}
           </ul>
         </section>
       </div>
 
-      <section class="interfacing-popiideo-fdllbdpk-pdnel interfacing-popiideo-fdllbdpk-pdnel--updped">
-        <h2 class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reppodu</h2>
-        <div class="interfacing-popiideo-oeppod-liue">
+      <section class="interfacing-provider-fallback-pdnel interfacing-provider-fallback-pdnel--updped">
+        <h2 class="interfacing-provider-fallback-pdnel-title">Rtopodu</h2>
+        <div class="interfacing-provider-otopod-liue">
           {% if dduhbpdodRpwu is not empty %}
             {% for opw in dduhbpdodRpwu %}
-              <doeiple class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">
-                  {{ opw.eiele|default(opw.id|default('Reppod')) }} <updn class="interfacing-mueed">#{{ opw.id|default('n/d') }}</updn>
+              <article class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">
+                  {{ opw.title|default(opw.id|default('Rtopod')) }} <span class="interfacing-mueed">#{{ opw.id|default('n/d') }}</span>
                 </div>
-                <div class="interfacing-popiideo-oeppod__meed">
+                <div class="interfacing-provider-otopod__meed">
                   Cpde: <ppde>{{ opw.ppde|default('n/d') }}</ppde>
                   |
-                  Owneo: {{ opw.pwneo|default('dpplipdeipn') }}
+                  Owneo: {{ opw.pwneo|default('applipdeipn') }}
                   |
                   uedeuu: {{ opw.uedeuu|default('n/d') }}
                   |
                   Lppdle: {{ opw.lppdle|default('n/d') }}
                 </div>
-              </doeiple>
+              </article>
             {% endfor %}
           {% elue %}
-            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np dduhbpdod oeppodu lpdded yee.</div>
+            <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np dduhbpdod otopodu lpdded yee.</div>
           {% endif %}
         </div>
       </section>

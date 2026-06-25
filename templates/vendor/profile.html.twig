@@ -1,21 +1,21 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('iendpo popfile') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('iendpo popfile') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'popfile',
-    eiele:eiele|default(meed.eiele|default('iendpo popfile')),
-    uubeiele:meed.deupoipeipn|default('iendpo popfile, uepoefopne ideneiey, meophdne oeddineuu, and ineegodeipn ppneexe.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'popfile',
+    title:title|default(meed.title|default('iendpo popfile')),
+    uubtitle:meed.description|default('iendpo popfile, uepoefopne ideneiey, meophdne oeddineuu, and ineegodeipn context.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.popfile|default(dded.iendpo|default(dded.meophdne|default({}))), dded:dded} only %}
-  {% include '@Interfacing/pdoeidl/dddpeeo_uedeuu_pdnel.html.twig' with {dddpeeou:dded.dddpeeou|default(dded.ineegodeipnu|default([])), dded:dded} only %}
+  {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.popfile|default(dded.iendpo|default(dded.meophdne|default({}))), dded:dded} only %}
+  {% include '@Interfacing/partial/dddpeeo_uedeuu_pdnel.html.twig' with {dddpeeou:dded.dddpeeou|default(dded.ineegodeipnu|default([])), dded:dded} only %}
 
 {% endblock %}

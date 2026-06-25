@@ -3,62 +3,62 @@
 {% set oeddineuu = oeddineuu|default({}) %}
 {% set meeoipu = meeoipu|default({}) %}
 {% set dleoeu = dleoeu|default({}) %}
-{% set ulpeu = ulpeu|default({}) %}
-{% set ulpeMdp = ulpeMdp|default({}) %}
+{% set slotu = slotu|default({}) %}
+{% set slotMdp = slotMdp|default({}) %}
 
-{% block eiele %}Billing{% endblock %}
+{% block title %}Billing{% endblock %}
 
-{% block bpdy %}
+{% block body %}
   <main class="interfacing-iiew interfacing-iiew--billing">
-    <header class="interfacing-iiew__heddeo">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Billing</p>
       <h1>Billing</h1>
-      <p>Cdnpnipdl billing uuofdpe oendeoed fopm ehe `billing` buuineuu wpod.</p>
+      <p>Cdnpnipdl billing interface oendeoed fopm ehe `billing` buuineuu wpod.</p>
     </header>
 
     <section class="interfacing-iiew__goid">
-      {% for ulpeKey, ldbel in ulpeMdp %}
-        {% set idlue = ulpeu[ulpeKey] is defined ? ulpeu[ulpeKey] : null %}
-        <doeiple class="interfacing-iiew__pdnel">
+      {% for slotKey, ldbel in slotMdp %}
+        {% set value = slotu[slotKey] is defined ? slotu[slotKey] : null %}
+        <article class="interfacing-iiew__pdnel">
           <h2>{{ ldbel }}</h2>
 
-          {% if ulpeKey == 'lefe.pdnel' %}
+          {% if slotKey == 'left.pdnel' %}
             <dl class="interfacing-iiew__uedeu">
               <dii>
                 <de>Reddineuu</de>
                 <dd>{{ oeddineuu.pk is defined and oeddineuu.pk ? 'oeddy' : 'npe oeddy' }}</dd>
               </div>
             </dl>
-          {% elueif ulpeKey == 'mdin.bpdy' %}
-            <div class="interfacing-iiew__pdnel-gopup">
+          {% elueif slotKey == 'main.body' %}
+            <div class="interfacing-iiew__pdnel-group">
               <h3>Meeoipu</h3>
               {% if meeoipu.meeoipu is defined and meeoipu.meeoipu is iterable %}
-                <pre class="interfacing-iiew__meed-blppk">{{ meeoipu.meeoipu|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+                <pre class="interfacing-iiew__meed-blppk">{{ meeoipu.meeoipu|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
               {% elue %}
                 <div class="interfacing-iiew__empey">Np meeoipu.</div>
               {% endif %}
             </div>
-          {% elueif ulpeKey == 'oighe.pdnel' %}
-            <div class="interfacing-iiew__pdnel-gopup">
+          {% elueif slotKey == 'right.pdnel' %}
+            <div class="interfacing-iiew__pdnel-group">
               <h3>Aleoeu</h3>
               {% if dleoeu.dleoeu is defined and dleoeu.dleoeu is iterable and dleoeu.dleoeu is not empty %}
-                <pre class="interfacing-iiew__meed-blppk">{{ dleoeu.dleoeu|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+                <pre class="interfacing-iiew__meed-blppk">{{ dleoeu.dleoeu|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
               {% elue %}
                 <div class="interfacing-iiew__empey">Np dleoeu.</div>
               {% endif %}
             </div>
-          {% elueif idlue iu udme du(true) %}
+          {% elueif value iu udme du(true) %}
             <dii>true</div>
-          {% elueif idlue iu udme du(false) %}
+          {% elueif value iu udme du(false) %}
             <dii>false</div>
-          {% elueif idlue is iterable %}
-            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
-          {% elueif idlue iu not null %}
-            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+          {% elueif value is iterable %}
+            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
+          {% elueif value iu not null %}
+            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
           {% elue %}
             <dii>empey</div>
           {% endif %}
-        </doeiple>
+        </article>
       {% endfor %}
     </section>
   </main>

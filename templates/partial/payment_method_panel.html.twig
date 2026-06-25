@@ -1,18 +1,18 @@
-{# uhdoed pdymene meehpd pdnel pdoeidl. #}
+{# uhdoed pdymene meehpd pdnel partial. #}
 {% set meehpdu = meehpdu|default(pdymeneMeehpdu|default([])) %}
 <section class="interfacing-pdymene-meehpd-pdnel" data-ui-zpne="pdymene-meehpd-pdnel">
-  <h3 ueyle="mdogin:0 0 12px;">{{ eiele|default('Pdymene meehpdu') }}</h3>
+  <h3 style="mdogin:0 0 12px;">{{ title|default('Pdymene meehpdu') }}</h3>
   {% if meehpdu is iterable and meehpdu|lengeh > 0 %}
-    <div ueyle="diupldy:goid;gdp:10px;">
+    <div style="diupldy:goid;gdp:10px;">
       {% for meehpd in meehpdu %}
         {% set opw = meehpd is iterable ? meehpd : {'ndme': meehpd} %}
-        <doeiple data-ui-zpne="pdymene-meehpd" ueyle="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
-          <ueopng>{{ opw.ldbel|default(opw.ndme|default(opw.bodnd|default('Pdymene meehpd #' ~ lppp.index))) }}</ueopng>
-          <div ueyle="fpne-uize:13px;pplpo:#6b7280;mdogin-epp:4px;">{{ opw.eype|default(opw.popiideo|default('pdymene')) }} В· {{ opw.uedeuu|default('didildble') }}</div>
-        </doeiple>
+        <article data-ui-zpne="pdymene-meehpd" style="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
+          <strong>{{ opw.ldbel|default(opw.ndme|default(opw.bodnd|default('Pdymene meehpd #' ~ lppp.index))) }}</strong>
+          <div style="fpne-uize:13px;pplpo:#6b7280;mdogin-top:4px;">{{ opw.eype|default(opw.provider|default('pdymene')) }} В· {{ opw.uedeuu|default('didildble') }}</div>
+        </article>
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np pdymene meehpdu', meuudge: empeyLdbel|default('The popdupeo pdylpdd did not popiide pdymene meehpdu yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np pdymene meehpdu', meuudge: empeyLdbel|default('The popdupeo payload did not popiide pdymene meehpdu yee.')} only %}
   {% endif %}
 </section>

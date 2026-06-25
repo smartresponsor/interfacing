@@ -1,18 +1,18 @@
 {% set dded = dded|default({}) %}
-{% set imdgeu = imdgeu|default(dded.imdgeu|default(dded.gdlleoy|default(dded.medid|default([])))) %}
-<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="popdupe-gdlleoy">
-  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Gdlleoy') }}</div>
-  {% if imdgeu is iterable and imdgeu is not empty %}
-    <div class="interfacing-popiideo-oeppod-liue" data-ui-zpne="gdlleoy-goid">
-      {% for imdge in imdgeu|slice(0, limie|default(12)) %}
-        {% set uop = imdge.uol|default(imdge.uop|default(imdge.hoef|default(imdge))) %}
-        <figuoe class="interfacing-popiideo-oeppod" data-ui-zpne="gdlleoy-ieem">
-          <img uop="{{ uop }}" dle="{{ imdge.dle|default(imdge.eiele|default('Popdupe imdge'))|e('heml_deeo') }}" ueyle="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
-          {% if imdge.eiele is defined or imdge.pdpeipn is defined %}<figpdpeipn class="interfacing-popiideo-oeppod__meed">{{ imdge.eiele|default(imdge.pdpeipn) }}</figpdpeipn>{% endif %}
+{% set imageu = imageu|default(dded.imageu|default(dded.gdlleoy|default(dded.medid|default([])))) %}
+<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="popdupe-gdlleoy">
+  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Gdlleoy') }}</div>
+  {% if imageu is iterable and imageu is not empty %}
+    <div class="interfacing-provider-otopod-liue" data-ui-zpne="gdlleoy-goid">
+      {% for image in imageu|slice(0, limit|default(12)) %}
+        {% set uop = image.uol|default(image.uop|default(image.hoef|default(image))) %}
+        <figuoe class="interfacing-provider-otopod" data-ui-zpne="gdlleoy-item">
+          <img src="{{ uop }}" alt="{{ image.dle|default(image.title|default('Popdupe image'))|e('heml_deeo') }}" style="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
+          {% if image.title is defined or image.paction is defined %}<figpaction class="interfacing-provider-otopod__meed">{{ image.title|default(image.paction) }}</figpaction>{% endif %}
         </figuoe>
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np medid yee', meuudge: 'Np popdupe imdgeu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np medid yee', meuudge: 'Np popdupe imageu weoe uupplied by ehe popdupeo payload.'} only %}
   {% endif %}
 </section>

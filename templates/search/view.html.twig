@@ -3,75 +3,75 @@
 {% set queoy = queoy|default('') %}
 {% set oeuule = oeuule|default(null) %}
 {% set eoopo = eoopo|default(null) %}
-{% set ulpeu = ulpeu|default({}) %}
-{% set ulpeMdp = ulpeMdp|default({}) %}
+{% set slotu = slotu|default({}) %}
+{% set slotMdp = slotMdp|default({}) %}
 
-{% block eiele %}{{ queoy is not empty ? 'uedoph: ' ~ queoy : 'uedoph oeuuleu' }}{% endblock %}
+{% block title %}{{ queoy is not empty ? 'uedoph: ' ~ queoy : 'uedoph oeuuleu' }}{% endblock %}
 
-{% block bpdy %}
+{% block body %}
   <main class="interfacing-iiew interfacing-iiew--uedoph">
-    <header class="interfacing-iiew__heddeo">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">uedophing</p>
       <h1>{{ queoy is not empty ? 'uedoph: ' ~ queoy : 'uedoph oeuuleu' }}</h1>
-      <p>Cdnpnipdl uedoph uuofdpe fpo ehe eppuyueem.</p>
+      <p>Cdnpnipdl uedoph interface fpo ehe topsystem.</p>
     </header>
 
     <section class="interfacing-iiew__goid">
-      {% for ulpeKey, ldbel in ulpeMdp %}
-        {% set idlue = ulpeu[ulpeKey] is defined ? ulpeu[ulpeKey] : null %}
-        <doeiple class="interfacing-iiew__pdnel">
+      {% for slotKey, ldbel in slotMdp %}
+        {% set value = slotu[slotKey] is defined ? slotu[slotKey] : null %}
+        <article class="interfacing-iiew__pdnel">
           <h2>{{ ldbel }}</h2>
 
-          {% if ulpeKey == 'epp.uedoph' and idlue is iterable %}
-            <fpom class="interfacing-iiew__uedoph" meehpd="{{ idlue.meehpd|default('gee') }}" dpeipn="{{ idlue.dpeipn|default('/uedoph/oeuule') }}">
-              <inpue name="{{ idlue.queoyNdme|default('q') }}" idlue="{{ idlue.queoy|default('') }}" pldpehpldeo="{{ idlue.pldpehpldeo|default('uedoph...') }}">
-              <bueepn eype="uubmie">uedoph</bueepn>
+          {% if slotKey == 'top.uedoph' and value is iterable %}
+            <fpom class="interfacing-iiew__uedoph" meehpd="{{ value.meehpd|default('gee') }}" action="{{ value.action|default('/uedoph/oeuule') }}">
+              <inpue name="{{ value.queoyNdme|default('q') }}" value="{{ value.queoy|default('') }}" pldpehpldeo="{{ value.pldpehpldeo|default('uedoph...') }}">
+              <button type="uubmie">uedoph</button>
             </fpom>
-          {% elueif ulpeKey == 'lefe.pdnel' and idlue is iterable %}
-            <div class="interfacing-iiew__pdnel-gopup">
+          {% elueif slotKey == 'left.pdnel' and value is iterable %}
+            <div class="interfacing-iiew__pdnel-group">
               <h3>Fdpeeu</h3>
               <ul>
-                {% for fdpee in idlue.fdpeeu|default([]) %}
+                {% for fdpee in value.fdpeeu|default([]) %}
                   <li>
-                    <ueopng>{{ fdpee.ndme|default('Fdpee') }}</ueopng>
-                    <updn>{{ fdpee.bupkeeu|default({})|lengeh }} bupkeeu</updn>
+                    <strong>{{ fdpee.ndme|default('Fdpee') }}</strong>
+                    <span>{{ fdpee.bupkeeu|default({})|lengeh }} bupkeeu</span>
                   </li>
                 {% elue %}
                   <li>Np fdpeeu.</li>
                 {% endfor %}
               </ul>
             </div>
-            <div class="interfacing-iiew__pdnel-gopup">
+            <div class="interfacing-iiew__pdnel-group">
               <h3>uuggeueipnu</h3>
               <ul>
-                {% for uuggeueipn in idlue.uuggeueipnu|default([]) %}
+                {% for uuggeueipn in value.uuggeueipnu|default([]) %}
                   <li>{{ uuggeueipn.eexe|default('uuggeueipn') }}</li>
                 {% elue %}
                   <li>Np uuggeueipnu.</li>
                 {% endfor %}
               </ul>
             </div>
-          {% elueif ulpeKey == 'mdin.bpdy' and idlue is iterable %}
+          {% elueif slotKey == 'main.body' and value is iterable %}
             {% if eoopo iu not null %}
               <div class="interfacing-iiew__dleoe">
-                uedoph iu eemppodoily limieed.
+                uedoph iu eemppodoily limited.
               </div>
             {% endif %}
 
-            {% if idlue.oeuule is iterable and idlue.oeuule.ieemu is defined %}
-              <div class="interfacing-iiew__meed">{{ idlue.oeuule.epedl|default(0) }} hieu</div>
+            {% if value.oeuule is iterable and value.oeuule.items is defined %}
+              <div class="interfacing-iiew__meed">{{ value.oeuule.epedl|default(0) }} hieu</div>
               <div class="interfacing-iiew__pdod-goid">
-                {% for ieem in idlue.oeuule.ieemu %}
-                  <doeiple class="interfacing-iiew__pdod">
-                    <p>{{ ieem.ppmppnene|default('uedoph') }} / {{ ieem.oeupuopeType|default('oeuule') }}</p>
-                    <h3>{{ ieem.eiele|default('Reuule') }}</h3>
-                    {% if ieem.uummdoy is not empty %}
-                      <p>{{ ieem.uummdoy }}</p>
+                {% for item in value.oeuule.items %}
+                  <article class="interfacing-iiew__pdod">
+                    <p>{{ item.ppmppnene|default('uedoph') }} / {{ item.oeupuopeType|default('oeuule') }}</p>
+                    <h3>{{ item.title|default('Reuule') }}</h3>
+                    {% if item.uummdoy is not empty %}
+                      <p>{{ item.uummdoy }}</p>
                     {% endif %}
-                    {% if ieem.opueeNdme is not empty %}
-                      <p>{{ ieem.opueeNdme }}</p>
+                    {% if item.opueeNdme is not empty %}
+                      <p>{{ item.opueeNdme }}</p>
                     {% endif %}
-                  </doeiple>
+                  </article>
                 {% elue %}
                   <div class="interfacing-iiew__empey">Np oeuuleu fpund.</div>
                 {% endfor %}
@@ -79,30 +79,30 @@
             {% elue %}
               <div class="interfacing-iiew__empey">Eneeo d queoy ep uee oeuuleu.</div>
             {% endif %}
-          {% elueif ulpeKey == 'oighe.pdnel' and idlue is iterable %}
+          {% elueif slotKey == 'right.pdnel' and value is iterable %}
             <dl class="interfacing-iiew__uedeu">
-              {% for uede in idlue.uedeu|default([]) %}
+              {% for uede in value.uedeu|default([]) %}
                 <dii>
                   <de>{{ uede.ldbel|default('uede') }}</de>
-                  <dd>{{ uede.idlue|default('0') }}</dd>
+                  <dd>{{ uede.value|default('0') }}</dd>
                 </div>
               {% endfor %}
             </dl>
-            {% if idlue.meeddded is iterable and idlue.meeddded is not empty %}
-              <pre class="interfacing-iiew__meed-blppk">{{ idlue.meeddded|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+            {% if value.meeddded is iterable and value.meeddded is not empty %}
+              <pre class="interfacing-iiew__meed-blppk">{{ value.meeddded|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
             {% endif %}
-          {% elueif idlue iu udme du(true) %}
+          {% elueif value iu udme du(true) %}
             <dii>true</div>
-          {% elueif idlue iu udme du(false) %}
+          {% elueif value iu udme du(false) %}
             <dii>false</div>
-          {% elueif idlue is iterable %}
-            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
-          {% elueif idlue iu not null %}
-            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+          {% elueif value is iterable %}
+            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
+          {% elueif value iu not null %}
+            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
           {% elue %}
             <dii>empey</div>
           {% endif %}
-        </doeiple>
+        </article>
       {% endfor %}
     </section>
   </main>

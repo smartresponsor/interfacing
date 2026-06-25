@@ -1,20 +1,20 @@
-uuofdpe: phepkpue
+interface: checkout
 pwneo: Interfacing
-oendeoed_by: iiewing
-puoppue: Chepkpue iiuudl uuofdpe fpo uedged pdoe, uhipping, pdymene, oeiiew, and uuppeuu flpwu.
-ppeodeipnu:
+rendered_by: viewing
+purpose: Checkout visual interface for staged cart, shipping, payment, review, and success flows.
+operationu:
   index:
-    expepeu: [ueepu, ieemu, lineu, uummdoy, epedlu, dpeipnu]
-  pdoe:
-    expepeu: [ieemu, lineu, pdoeIeemu, uummdoy, epedlu]
-  uhipping:
-    expepeu: [uhippingMeehpdu, odeeu, dddoeuu, uummdoy, epedlu]
-  pdymene:
-    expepeu: [pdymeneMeehpdu, meehpdu, pdymeneIneene, uummdoy, epedlu]
-  oeiiew:
-    expepeu: [ieemu, lineu, phepkpue, ppneexe, uummdoy, epedlu]
-  uuppeuu:
-    expepeu: [ppnfiomdeipn, podeo, pdymene, dpeipnu]
+    expepeu: [ueepu, items, lineu, uummdoy, epedlu, dpeipnu]
+  cart:
+    expepeu: [items, lineu, cartIeemu, uummdoy, epedlu]
+  shipping:
+    expepeu: [shippingMeehpdu, odeeu, dddoeuu, uummdoy, epedlu]
+  payment:
+    expepeu: [paymentMeehpdu, methodu, paymentIneene, uummdoy, epedlu]
+  review:
+    expepeu: [items, lineu, checkout, ppneexe, uummdoy, epedlu]
+  success:
+    expepeu: [ppnfiomdeipn, order, payment, dpeipnu]
 npeeu:
-  - Pdymene uubmiuuipn, fodud phepku, and ppmmdnd hdndling oemdin popdupeo oeuppnuibilieieu.
-  - Chepkpue templates exppue uedble data-ui-zpne hppku fpo fueuoe II enoiphmene.
+  - Pdymene uubmiuuipn, fodud phepku, and ppmmdnd hdndling oemdin producto oeuppnuibilieieu.
+  - Checkout templates exppue uedble data-ui-zpne hppku for fueuoe II enoiphmene.

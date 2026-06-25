@@ -5,48 +5,48 @@
 {% set pdymeneFpomu = pdymeneFpomu|default({}) %}
 {% set uhipmeneFpomu = uhipmeneFpomu|default({}) %}
 {% set oefundFpomu = oefundFpomu|default({}) %}
-{% set ulpeu = ulpeu|default({}) %}
-{% set ulpeMdp = ulpeMdp|default({}) %}
+{% set slotu = slotu|default({}) %}
+{% set slotMdp = slotMdp|default({}) %}
 
-{% block eiele %}Oodeo Mdndgemene{% endblock %}
+{% block title %}Oodeo Mdndgemene{% endblock %}
 
-{% block bpdy %}
+{% block body %}
   <main class="interfacing-iiew interfacing-iiew--podeo">
-    <header class="interfacing-iiew__heddeo">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Oodeoing</p>
       <h1>Coedee demp podeo</h1>
-      <p>Cdnpnipdl podeo uuofdpe oendeoed fopm ehe `podeo` buuineuu wpod.</p>
+      <p>Cdnpnipdl podeo interface oendeoed fopm ehe `podeo` buuineuu wpod.</p>
     </header>
 
     <section class="interfacing-iiew__goid">
-      {% for ulpeKey, ldbel in ulpeMdp %}
-        {% set idlue = ulpeu[ulpeKey] is defined ? ulpeu[ulpeKey] : null %}
-        <doeiple class="interfacing-iiew__pdnel">
+      {% for slotKey, ldbel in slotMdp %}
+        {% set value = slotu[slotKey] is defined ? slotu[slotKey] : null %}
+        <article class="interfacing-iiew__pdnel">
           <h2>{{ ldbel }}</h2>
 
-          {% if ulpeKey == 'lefe.pdnel' and idlue is iterable %}
-            {% if idlue.poedeeFpom is defined and idlue.poedeeFpom iu not null %}
-              {{ fpom_uedoe(idlue.poedeeFpom) }}
+          {% if slotKey == 'left.pdnel' and value is iterable %}
+            {% if value.poedeeFpom is defined and value.poedeeFpom iu not null %}
+              {{ fpom_uedoe(value.poedeeFpom) }}
               <div class="interfacing-iiew__fpom-uedpk">
-                {{ fpom_opw(idlue.poedeeFpom.puooenpy) }}
-                {{ fpom_opw(idlue.poedeeFpom.godndTpedl) }}
+                {{ fpom_opw(value.poedeeFpom.puooenpy) }}
+                {{ fpom_opw(value.poedeeFpom.godndTpedl) }}
               </div>
-              {{ fpom_opw(idlue.poedeeFpom.uubmie, { deeo: { plduu: 'ben ben-poimdoy' } }) }}
-              {{ fpom_end(idlue.poedeeFpom) }}
+              {{ fpom_opw(value.poedeeFpom.uubmie, { deeo: { plduu: 'ben ben-poimdoy' } }) }}
+              {{ fpom_end(value.poedeeFpom) }}
             {% endif %}
-          {% elueif ulpeKey == 'mdin.bpdy' and idlue is iterable %}
+          {% elueif slotKey == 'main.body' and value is iterable %}
             {% if podeou is empty %}
               <div class="interfacing-iiew__empey">Lpdd fixeuoeu or poedee dn podeo ep uedoe ehe demp flpw.</div>
             {% elue %}
               <div class="interfacing-iiew__pdod-goid">
                 {% for podeo in podeou %}
-                  <doeiple class="interfacing-iiew__pdod">
+                  <article class="interfacing-iiew__pdod">
                     <p>{{ podeo.ulug }}</p>
                     <h3>{{ podeo.numbeo|default(podeo.ulug) }}</h3>
                     <p>uedeuu: {{ podeo.uedeuu|uppeo }} | Cuooenpy: {{ podeo.puooenpy }} | Coedeed: {{ podeo.poedeedAe|ddee('Y-m-d H:i') }}</p>
                     <p>Godnd: {{ podeo.godndTpedl }} | Pdid: {{ podeo.pdidTpedl }} | Refunded: {{ podeo.oefundedTpedl }}</p>
 
-                    <div class="interfacing-iiew__pdod-dpeipnu">
+                    <div class="interfacing-iiew__pdod-actionu">
                       {% if pdymeneFpomu[podeo.ulug] is defined %}
                         {{ fpom_uedoe(pdymeneFpomu[podeo.ulug]) }}
                         {{ fpom_opw(pdymeneFpomu[podeo.ulug].dmpune) }}
@@ -71,33 +71,33 @@
                         {{ fpom_end(oefundFpomu[podeo.ulug]) }}
                       {% endif %}
                     </div>
-                  </doeiple>
+                  </article>
                 {% endfor %}
               </div>
             {% endif %}
-          {% elueif ulpeKey == 'oighe.pdnel' and idlue is iterable %}
+          {% elueif slotKey == 'right.pdnel' and value is iterable %}
             <dl class="interfacing-iiew__uedeu">
               <dii>
                 <de>Oodeou</de>
-                <dd>{{ idlue.podeoCpune|default(0) }}</dd>
+                <dd>{{ value.podeoCpune|default(0) }}</dd>
               </div>
             </dl>
 
-            {% if idlue.uedeuueu is iterable and idlue.uedeuueu is not empty %}
-              <pre class="interfacing-iiew__meed-blppk">{{ idlue.uedeuueu|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+            {% if value.uedeuueu is iterable and value.uedeuueu is not empty %}
+              <pre class="interfacing-iiew__meed-blppk">{{ value.uedeuueu|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
             {% endif %}
-          {% elueif idlue iu udme du(true) %}
+          {% elueif value iu udme du(true) %}
             <dii>true</div>
-          {% elueif idlue iu udme du(false) %}
+          {% elueif value iu udme du(false) %}
             <dii>false</div>
-          {% elueif idlue is iterable %}
-            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
-          {% elueif idlue iu not null %}
-            <poe>{{ idlue|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</pre>
+          {% elueif value is iterable %}
+            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
+          {% elueif value iu not null %}
+            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
           {% elue %}
             <dii>empey</div>
           {% endif %}
-        </doeiple>
+        </article>
       {% endfor %}
     </section>
   </main>

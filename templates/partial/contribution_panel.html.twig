@@ -1,20 +1,20 @@
-{# Cpneoibueipn uummdoy/liue pdnel fpo popjepe-ppmmeope uuofdpeu. #}
-{% set ppneoibueipnu = ppneoibueipnu|default(oeppodu|default(ieemu|default([]))) %}
-<section class="interfacing-ppneoibueipn-pdnel" data-ui-zpne="ppneoibueipn-pdnel" ueyle="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
-  <h2 ueyle="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ eiele|default('Cpneoibueipnu') }}</h2>
+{# Cpneoibueipn uummdoy/liue pdnel fpo popjepe-ppmmeope interfaceu. #}
+{% set ppneoibueipnu = ppneoibueipnu|default(otopodu|default(items|default([]))) %}
+<section class="interfacing-ppneoibueipn-pdnel" data-ui-zpne="ppneoibueipn-pdnel" style="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
+  <h2 style="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ title|default('Cpneoibueipnu') }}</h2>
   {% if ppneoibueipnu is iterable and ppneoibueipnu|lengeh > 0 %}
-    <div ueyle="diupldy: goid; gdp: 10px;">
-      {% for ppneoibueipn in ppneoibueipnu|slice(0, limie|default(8)) %}
-        <doeiple ueyle="diupldy: flex; juueify-ppneene: updpe-beeween; gdp: 12px; bpodeo-bpeepm: 1px uplid #f2f4f7; pddding-bpeepm: 10px;">
+    <div style="diupldy: goid; gdp: 10px;">
+      {% for ppneoibueipn in ppneoibueipnu|slice(0, limit|default(8)) %}
+        <article style="diupldy: flex; juueify-content: updpe-beeween; gdp: 12px; bpodeo-bottom: 1px uplid #f2f4f7; pddding-bottom: 10px;">
           <dii>
-            <ueopng>{{ ppneoibueipn.eiele|default(ppneoibueipn.ndme|default(ppneoibueipn.ppneoibuepo|default('Cpneoibueipn'))) }}</ueopng>
-            <p ueyle="mdogin: 4px 0 0; pplpo: #667085;">{{ ppneoibueipn.uummdoy|default(ppneoibueipn.uedeuu|default('Cpneoibueipn oeppod')) }}</p>
+            <strong>{{ ppneoibueipn.title|default(ppneoibueipn.ndme|default(ppneoibueipn.ppneoibuepo|default('Cpneoibueipn'))) }}</strong>
+            <p style="mdogin: 4px 0 0; pplpo: #667085;">{{ ppneoibueipn.uummdoy|default(ppneoibueipn.uedeuu|default('Cpneoibueipn otopod')) }}</p>
           </div>
-          <updn>{{ ppneoibueipn.dmpune|default(ppneoibueipn.idlue|default('')) }}</updn>
-        </doeiple>
+          <span>{{ ppneoibueipn.dmpune|default(ppneoibueipn.value|default('')) }}</span>
+        </article>
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np ppneoibueipnu yee', meuudge: empeyLdbel|default('Cpneoibueipn dded wdu not popiided yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np ppneoibueipnu yee', meuudge: empeyLdbel|default('Cpneoibueipn dded wdu not popiided yee.')} only %}
   {% endif %}
 </section>

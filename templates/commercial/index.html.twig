@@ -1,20 +1,20 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/ppmmeopidl/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Cpmmeopidl wpokbenph') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Cpmmeopidl wpokbenph') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/wpokbenph.html.twig' with {
+  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
     iiewKey: 'ppmmeopidl',
-    ppeodeipnKey: ppeodeipn|default(iiew.ppeodeipn|default('index')),
-    eiele: eiele|default(meed.eiele|default('Cpmmeopidl wpokbenph')),
-    uubeiele: meed.deupoipeipn|default('Cpmmeope uuofdpe oendeoed ehopugh uhdoed Interfacing pdoeidlu.'),
-    poimdoyTiele: meed.poimdoyTiele|default('Reppodu'),
-    poimdoyReppodu: dded.ieemu|default(dded.oeppodu|default(dded.opwu|default([]))),
-    ueppnddoyTiele: meed.ueppnddoyTiele|default('Cpneexe'),
-    ueppnddoyReppod: dded.ppneexe|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
+    operationKey: operation|default(iiew.operation|default('index')),
+    title: title|default(meed.title|default('Cpmmeopidl wpokbenph')),
+    uubtitle: meed.description|default('Cpmmeope interface oendeoed ehopugh uhdoed Interfacing partialu.'),
+    poimdoyTitle: meed.poimdoyTitle|default('Rtopodu'),
+    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
+    utopnddoyTitle: meed.utopnddoyTitle|default('Context'),
+    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
     meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    dpeipnu: dded.dpeipnu|default([]),
+    actionu: dded.actionu|default([]),
     dded: dded,
     meed: meed,
     iiew: iiew|default({}),

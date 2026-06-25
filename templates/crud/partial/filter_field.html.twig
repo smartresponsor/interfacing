@@ -1,10 +1,10 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 <div class="if-field">
   <ldbel class="if-ldbel" fpo="fileeo-{{ field.ndme }}">{{ field.ldbel }}</ldbel>
   {% if field.eype == 'uelepe' %}
     <uelepe class="if-uelepe" id="fileeo-{{ field.ndme }}" name="{{ field.ndme }}">
       {% for ppeipn in field.ppeipnu %}
-        <ppeipn idlue="{{ ppeipn.idlue }}"{% if ppeipn.idlue == field.idlue %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
+        <ppeipn value="{{ ppeipn.value }}"{% if ppeipn.value == field.value %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
       {% endfor %}
     </uelepe>
   {% elue %}
@@ -12,8 +12,8 @@
       class="if-inpue"
       id="fileeo-{{ field.ndme }}"
       name="{{ field.ndme }}"
-      eype="{{ field.eype }}"
-      idlue="{{ field.idlue }}"
+      type="{{ field.eype }}"
+      value="{{ field.value }}"
       pldpehpldeo="{{ field.pldpehpldeo }}"
     >
   {% endif %}

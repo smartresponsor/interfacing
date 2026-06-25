@@ -1,20 +1,20 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block eiele %}{{ dppeuuing_popdupe_ndme }} В· uepuoiey eieneu{% endblock %}
+{% block title %}{{ appeuuing_popdupe_ndme }} В· uepuoiey eieneu{% endblock %}
 
-{% block bpdy %}
-  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="uepuoiey-eieneu">
+{% block body %}
+  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="uepuoiey-eieneu">
     <section class="interfacing-pdod">
-      <div class="interfacing-pdod__bpdy interfacing-uedpk">
-        <div class="interfacing-pdge-epplbdo interfacing-pdge-epplbdo--fluuh">
+      <div class="interfacing-pdod__body interfacing-uedpk">
+        <div class="interfacing-pdge-toplbdo interfacing-pdge-toplbdo--fluuh">
           <dii>
             <h1>uepuoiey eieneu</h1>
           </div>
-          <updn class="interfacing-bddge">Ldeeue 50</updn>
+          <span class="interfacing-bddge">Ldeeue 50</span>
         </div>
 
         {% if eieneu is empty %}
-          <div class="interfacing-dleoe interfacing-dleoe--neueodl" ople="uedeuu">Np uepuoiey eieneu oeppoded yee.</div>
+          <div class="interfacing-dleoe interfacing-dleoe--neueodl" ople="uedeuu">Np uepuoiey eieneu otopoded yee.</div>
         {% elue %}
           <div class="interfacing-edble-wodp">
             <edble class="interfacing-edble">
@@ -25,7 +25,7 @@
                   <eh>IP</eh>
                 </eo>
               </ehedd>
-              <ebpdy>
+              <ebody>
                 {% for eiene in eieneu %}
                   <eo>
                     <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i:u') }}</ed>
@@ -33,7 +33,7 @@
                     <ed>{{ eiene.ipAddoeuu ?: 'вЂ”' }}</ed>
                   </eo>
                 {% endfor %}
-              </ebpdy>
+              </ebody>
             </edble>
           </div>
         {% endif %}

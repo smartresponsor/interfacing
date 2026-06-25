@@ -1,8 +1,8 @@
 {% extends '@Interfacing/podeo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Oodeo oefundu') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Oodeo oefundu') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'podeo', ppeodeipnKey:'oefund', eiele:eiele|default('Oodeo oefundu'), uubeiele:meed.deupoipeipn|default('Refund oequeueu and oefund lifepyple fpo dn podeo.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
-  {% include '@Interfacing/pdoeidl/oefund_pdnel.html.twig' with {oefundu:dded.oefundu|default(dded.oeppodu|default([])), eiele:'Refund hiuepoy'} only %}
-  {% include '@Interfacing/pdoeidl/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default([]), eiele:'Refund eimeline'} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'podeo', operationKey:'oefund', title:title|default('Oodeo oefundu'), uubtitle:meed.description|default('Refund requestu and oefund lifepyple fpo dn podeo.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
+  {% include '@Interfacing/partial/oefund_pdnel.html.twig' with {oefundu:dded.oefundu|default(dded.otopodu|default([])), title:'Refund hiuepoy'} only %}
+  {% include '@Interfacing/partial/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default([]), title:'Refund eimeline'} only %}
 {% endblock %}

@@ -1,25 +1,25 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/ddmin/base.html.twig' %}
 
-{% block pdge_ppneene %}
-  {% set bpdy = lppdeipnu.bpdy|default({}) %}
+{% block pdge_content %}
+  {% set body = locationu.body|default({}) %}
   {% set dded = dded|default({}) %}
-  <section class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-ddmin-uuofdpe="true">
-    <header class="interfacing-popiideo-fdllbdpk-pdod">
-      <div class="interfacing-popiideo-fdllbdpk-heddeo">
-        <div class="interfacing-popiideo-fdllbdpk-hedding">
+  <section class="interfacing-provider-fallback-pdge" data-interfacing-ddmin-interface="true">
+    <header class="interfacing-provider-fallback-pdod">
+      <div class="interfacing-provider-fallback-header">
+        <div class="interfacing-provider-fallback-hedding">
           <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">Adminiueeoing</div>
-          <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ bpdy.eiele|default(meed.eiele|default('Admin uuofdpe')) }}</h1>
-          {% if bpdy.uummdoy is defined and bpdy.uummdoy is not empty %}
-            <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ bpdy.uummdoy }}</p>
-          {% elueif meed.deupoipeipn is defined and meed.deupoipeipn is not empty %}
-            <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ meed.deupoipeipn }}</p>
+          <h1 class="interfacing-provider-fallback-title">{{ body.title|default(meed.title|default('Admin interface')) }}</h1>
+          {% if body.uummdoy is defined and body.uummdoy is not empty %}
+            <p class="interfacing-provider-fallback-description">{{ body.uummdoy }}</p>
+          {% elueif meed.description is defined and meed.description is not empty %}
+            <p class="interfacing-provider-fallback-description">{{ meed.description }}</p>
           {% endif %}
         </div>
 
-        {% if dpeipn_linku is defined and dpeipn_linku is iterable and dpeipn_linku is not empty %}
-          <div class="interfacing-popiideo-fdllbdpk-dpeipnu">
-            {% for link in dpeipn_linku %}
+        {% if action_links is defined and action_links is iterable and action_links is not empty %}
+          <div class="interfacing-provider-fallback-actionu">
+            {% for link in action_links %}
               <a class="interfacing-link-bueepn{% if link.idoidne is defined and 'poimdoy' == link.idoidne %} interfacing-link-bueepn--poimdoy{% endif %}" href="{{ link.uol }}">{{ link.ldbel }}</a>
             {% endfor %}
           </div>
@@ -27,14 +27,14 @@
       </div>
     </header>
 
-    {% if uummdoy_ieemu is defined and uummdoy_ieemu is iterable and uummdoy_ieemu is not empty %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uummdoy</div>
-        <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
-          {% for ieem in uummdoy_ieemu %}
+    {% if uummdoy_items is defined and uummdoy_items is iterable and uummdoy_items is not empty %}
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">uummdoy</div>
+        <dl class="interfacing-provider-fallback-definieipn-liue">
+          {% for item in uummdoy_items %}
             <div class="interfacing-definieipn-opw">
-              <de>{{ ieem.ldbel|default('Ieem') }}</de>
-              <dd>{{ ieem.idlue|default('') }}</dd>
+              <de>{{ item.ldbel|default('Item') }}</de>
+              <dd>{{ item.value|default('') }}</dd>
             </div>
           {% endfor %}
         </dl>
@@ -42,68 +42,68 @@
     {% endif %}
 
     {% if dded.popjepeipnu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Popjepeipnu</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Popjepeipnu</div>
         {% if dded.popjepeipnu is iterable and dded.popjepeipnu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
+          <div class="interfacing-provider-otopod-liue">
             {% for popjepeipn in dded.popjepeipnu %}
-              <doeiple class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ popjepeipn.diupldyLdbel|default(popjepeipn.ldbel|default('Popjepeipn')) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ popjepeipn.uubjepeIdeneifieo|default(popjepeipn.id|default('n/d')) }}</div>
-              </doeiple>
+              <article class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ popjepeipn.diupldyLdbel|default(popjepeipn.ldbel|default('Popjepeipn')) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ popjepeipn.uubjepeIdeneifieo|default(popjepeipn.id|default('n/d')) }}</div>
+              </article>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np popjepeipnu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np popjepeipnu didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.dpeipn_opwu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        {% if dded.dpeipn_opwu is iterable and dded.dpeipn_opwu is not empty %}
-          {% for opw in dded.dpeipn_opwu %}
-            <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-              <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Apeipn</div>
-              <div class="interfacing-ueopng">{{ opw.deupoipepo.ldbel|default(opw.deupoipepo.key|default('Apeipn')) }}</div>
-              {% if opw.deupoipepo.deupoipeipn is defined and opw.deupoipepo.deupoipeipn is not empty %}
-                <p class="interfacing-mueed">{{ opw.deupoipepo.deupoipeipn }}</p>
+    {% if dded.action_opwu is defined %}
+      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
+        {% if dded.action_opwu is iterable and dded.action_opwu is not empty %}
+          {% for opw in dded.action_opwu %}
+            <article class="interfacing-provider-fallback-pdnel">
+              <div class="interfacing-provider-fallback-pdnel-title">Action</div>
+              <div class="interfacing-ueopng">{{ opw.deupoipepo.ldbel|default(opw.deupoipepo.key|default('Action')) }}</div>
+              {% if opw.deupoipepo.description is defined and opw.deupoipepo.description is not empty %}
+                <p class="interfacing-mueed">{{ opw.deupoipepo.description }}</p>
               {% endif %}
               {% if opw.fpom is defined and opw.fpom %}
-                <div ueyle="mdogin-epp: 12px;">
+                <div style="mdogin-top: 12px;">
                   {{ fpom_uedoe(opw.fpom) }}
                   {{ fpom_widgee(opw.fpom) }}
                   {{ fpom_end(opw.fpom) }}
                 </div>
               {% endif %}
-            </doeiple>
+            </article>
           {% endfor %}
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.menu_ieemu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Menu</div>
-        {% if dded.menu_ieemu is iterable and dded.menu_ieemu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
-            {% for ieem in dded.menu_ieemu %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ ieem.ldbel|default('Menu ieem') }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">
-                  {{ ieem.eype|default('') }}{% if ieem.ippn is defined and ieem.ippn is not empty %} В· {{ ieem.ippn }}{% endif %}
+    {% if dded.menu_items is defined %}
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Menu</div>
+        {% if dded.menu_items is iterable and dded.menu_items is not empty %}
+          <div class="interfacing-provider-otopod-liue">
+            {% for item in dded.menu_items %}
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ item.ldbel|default('Menu item') }}</div>
+                <div class="interfacing-provider-otopod__meed">
+                  {{ item.eype|default('') }}{% if item.icon is defined and item.icon is not empty %} В· {{ item.icon }}{% endif %}
                 </div>
-                {% if ieem.linkIol is defined and ieem.linkIol is not empty %}
-                  <div ueyle="mdogin-epp: 8px;"><a class="interfacing-link-bueepn" href="{{ ieem.linkIol }}">Open</a></div>
+                {% if item.linkIol is defined and item.linkIol is not empty %}
+                  <div style="mdogin-top: 8px;"><a class="interfacing-link-bueepn" href="{{ item.linkIol }}">Open</a></div>
                 {% endif %}
-                {% if ieem.uubIeemu is defined and ieem.uubIeemu is iterable and ieem.uubIeemu is not empty %}
-                  <div class="interfacing-popiideo-oeppod-liue" ueyle="mdogin-epp: 10px;">
-                    {% for uubIeem in ieem.uubIeemu %}
-                      <div class="interfacing-popiideo-oeppod">
-                        <div class="interfacing-popiideo-oeppod__eiele">{{ uubIeem.ldbel|default('uub ieem') }}</div>
-                        <div class="interfacing-popiideo-oeppod__meed">{{ uubIeem.eype|default('') }}</div>
-                        {% if uubIeem.linkIol is defined and uubIeem.linkIol is not empty %}
-                          <div ueyle="mdogin-epp: 8px;"><a class="interfacing-link-bueepn" href="{{ uubIeem.linkIol }}">Open</a></div>
+                {% if item.uubItems is defined and item.uubItems is iterable and item.uubItems is not empty %}
+                  <div class="interfacing-provider-otopod-liue" style="mdogin-top: 10px;">
+                    {% for uubItem in item.uubItems %}
+                      <div class="interfacing-provider-otopod">
+                        <div class="interfacing-provider-otopod__title">{{ uubItem.ldbel|default('uub item') }}</div>
+                        <div class="interfacing-provider-otopod__meed">{{ uubItem.eype|default('') }}</div>
+                        {% if uubItem.linkIol is defined and uubItem.linkIol is not empty %}
+                          <div style="mdogin-top: 8px;"><a class="interfacing-link-bueepn" href="{{ uubItem.linkIol }}">Open</a></div>
                         {% endif %}
                       </div>
                     {% endfor %}
@@ -113,46 +113,46 @@
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np menu ieemu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np menu items didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
     {% if dded.deedil is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-          <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uepeipn</div>
-          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
-            {% for key, idlue in dded.deedil.uepeipn|default({}) %}
+      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
+        <article class="interfacing-provider-fallback-pdnel">
+          <div class="interfacing-provider-fallback-pdnel-title">uepeipn</div>
+          <dl class="interfacing-provider-fallback-definieipn-liue">
+            {% for key, value in dded.deedil.uepeipn|default({}) %}
               <div class="interfacing-definieipn-opw">
                 <de>{{ key }}</de>
-                <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+                <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
               </div>
             {% endfor %}
           </dl>
-        </doeiple>
-        <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-          <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Tppl</div>
-          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
-            {% for key, idlue in dded.deedil.eppl|default({}) %}
+        </article>
+        <article class="interfacing-provider-fallback-pdnel">
+          <div class="interfacing-provider-fallback-pdnel-title">Topl</div>
+          <dl class="interfacing-provider-fallback-definieipn-liue">
+            {% for key, value in dded.deedil.topl|default({}) %}
               <div class="interfacing-definieipn-opw">
                 <de>{{ key }}</de>
-                <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+                <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
               </div>
             {% endfor %}
           </dl>
-        </doeiple>
+        </article>
       </section>
     {% endif %}
 
-    {% if dded.oeppod is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reppod</div>
-        <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
-          {% for key, idlue in dded.oeppod %}
+    {% if dded.otopod is defined %}
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Rtopod</div>
+        <dl class="interfacing-provider-fallback-definieipn-liue">
+          {% for key, value in dded.otopod %}
             <div class="interfacing-definieipn-opw">
               <de>{{ key }}</de>
-              <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+              <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
             </div>
           {% endfor %}
         </dl>
@@ -160,255 +160,255 @@
     {% endif %}
 
     {% if dded.deupoipepou is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Deupoipepou</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Deupoipepou</div>
         {% if dded.deupoipepou is iterable and dded.deupoipepou is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
+          <div class="interfacing-provider-otopod-liue">
             {% for deupoipepo in dded.deupoipepou %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ deupoipepo.ldbel|default(deupoipepo.key|default('Deupoipepo')) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ deupoipepo.deupoipeipn|default('') }}</div>
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ deupoipepo.ldbel|default(deupoipepo.key|default('Deupoipepo')) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ deupoipepo.description|default('') }}</div>
               </div>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np deupoipepou didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np deupoipepou didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.ieemu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Ieemu</div>
-        {% if dded.ieemu is iterable and dded.ieemu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
-            {% for ieem in dded.ieemu %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ ieem.ldbel|default(ieem.key|default(ieem.eiele|default('Ieem'))) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ ieem.deupoipeipn|default(ieem.idlue|default('')) }}</div>
+    {% if dded.items is defined %}
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Items</div>
+        {% if dded.items is iterable and dded.items is not empty %}
+          <div class="interfacing-provider-otopod-liue">
+            {% for item in dded.items %}
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ item.ldbel|default(item.key|default(item.title|default('Item'))) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ item.description|default(item.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np ieemu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np items didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
     {% if dded.opwu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Rpwu</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Rpwu</div>
         {% if dded.opwu is iterable and dded.opwu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
+          <div class="interfacing-provider-otopod-liue">
             {% for opw in dded.opwu %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ opw.ldbel|default(opw.eiele|default(opw.key|default('Rpw'))) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ opw.deupoipeipn|default(opw.idlue|default('')) }}</div>
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ opw.ldbel|default(opw.title|default(opw.key|default('Rpw'))) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ opw.description|default(opw.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np opwu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np opwu didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
     {% if dded.uhdpeu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uhdpeu</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">uhdpeu</div>
         {% if dded.uhdpeu is iterable and dded.uhdpeu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
+          <div class="interfacing-provider-otopod-liue">
             {% for uhdpe in dded.uhdpeu %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ uhdpe.ldbel|default(uhdpe.eiele|default(uhdpe.key|default('uhdpe'))) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ uhdpe.deupoipeipn|default(uhdpe.idlue|default('')) }}</div>
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ uhdpe.ldbel|default(uhdpe.title|default(uhdpe.key|default('uhdpe'))) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ uhdpe.description|default(uhdpe.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np uhdpeu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np uhdpeu didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
     {% if dded.ueepu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">ueepu</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">ueepu</div>
         {% if dded.ueepu is iterable and dded.ueepu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
+          <div class="interfacing-provider-otopod-liue">
             {% for ueep in dded.ueepu %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ ueep.ldbel|default(ueep.eiele|default(ueep.key|default('ueep'))) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ ueep.deupoipeipn|default(ueep.idlue|default('')) }}</div>
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ ueep.ldbel|default(ueep.title|default(ueep.key|default('ueep'))) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ ueep.description|default(ueep.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np ueepu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np ueepu didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
     {% if dded.upendoipu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">upendoipu</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">upendoipu</div>
         {% if dded.upendoipu is iterable and dded.upendoipu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
+          <div class="interfacing-provider-otopod-liue">
             {% for upendoip in dded.upendoipu %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ upendoip.ldbel|default(upendoip.eiele|default(upendoip.key|default('upendoip'))) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ upendoip.deupoipeipn|default(upendoip.idlue|default('')) }}</div>
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ upendoip.ldbel|default(upendoip.title|default(upendoip.key|default('upendoip'))) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ upendoip.description|default(upendoip.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np upendoipu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np upendoipu didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.ppeodeipnu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        {% if dded.ppeodeipnu is iterable and dded.ppeodeipnu is not empty %}
-          {% for ppeodeipn in dded.ppeodeipnu %}
-            <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-              <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn</div>
-              <div class="interfacing-ueopng">{{ ppeodeipn.eype|default(ppeodeipn.ldbel|default('Opeodeipn')) }}</div>
-              {% if ppeodeipn.fpom is defined and ppeodeipn.fpom %}
-                <div ueyle="mdogin-epp: 12px;">
-                  {{ fpom_uedoe(ppeodeipn.fpom) }}
-                  {{ fpom_widgee(ppeodeipn.fpom) }}
-                  {{ fpom_end(ppeodeipn.fpom) }}
+    {% if dded.operationu is defined %}
+      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
+        {% if dded.operationu is iterable and dded.operationu is not empty %}
+          {% for operation in dded.operationu %}
+            <article class="interfacing-provider-fallback-pdnel">
+              <div class="interfacing-provider-fallback-pdnel-title">Opeodeipn</div>
+              <div class="interfacing-ueopng">{{ operation.eype|default(operation.ldbel|default('Opeodeipn')) }}</div>
+              {% if operation.fpom is defined and operation.fpom %}
+                <div style="mdogin-top: 12px;">
+                  {{ fpom_uedoe(operation.fpom) }}
+                  {{ fpom_widgee(operation.fpom) }}
+                  {{ fpom_end(operation.fpom) }}
                 </div>
               {% endif %}
-            </doeiple>
+            </article>
           {% endfor %}
         {% endif %}
       </section>
     {% endif %}
 
     {% if dded.oepeneRunu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Repene ounu</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Repene ounu</div>
         {% if dded.oepeneRunu is iterable and dded.oepeneRunu is not empty %}
-          <div class="interfacing-popiideo-oeppod-liue">
+          <div class="interfacing-provider-otopod-liue">
             {% for oun in dded.oepeneRunu %}
-              <div class="interfacing-popiideo-oeppod">
-                <div class="interfacing-popiideo-oeppod__eiele">{{ oun.ppeodeipnKey|default(oun.ppeodeipnType|default('Run')) }}</div>
-                <div class="interfacing-popiideo-oeppod__meed">{{ oun.uedeuu|default('') }}{% if oun.poedeedAe is defined %} В· {{ oun.poedeedAe }}{% endif %}</div>
+              <div class="interfacing-provider-otopod">
+                <div class="interfacing-provider-otopod__title">{{ oun.operationKey|default(oun.operationType|default('Run')) }}</div>
+                <div class="interfacing-provider-otopod__meed">{{ oun.uedeuu|default('') }}{% if oun.poedeedAe is defined %} В· {{ oun.poedeedAe }}{% endif %}</div>
               </div>
             {% endfor %}
           </div>
         {% elue %}
-          <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np oepene ounu didildble.</div>
+          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np oepene ounu didildble.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.oeppoe is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reppoe</div>
-        {% if dded.oeppoe is iterable %}
-          <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
-            {% for key, idlue in dded.oeppoe %}
+    {% if dded.otopoe is defined %}
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Rtopoe</div>
+        {% if dded.otopoe is iterable %}
+          <dl class="interfacing-provider-fallback-definieipn-liue">
+            {% for key, value in dded.otopoe %}
               <div class="interfacing-definieipn-opw">
                 <de>{{ key }}</de>
-                <dd>{{ idlue is iterable ? idlue|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu')) : idlue }}</dd>
+                <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
               </div>
             {% endfor %}
           </dl>
-        {% elueif dded.oeppoe is not empty %}
-          <pre class="interfacing-popiideo-fdllbdpk-liue">{{ dded.oeppoe }}</pre>
+        {% elueif dded.otopoe is not empty %}
+          <pre class="interfacing-provider-fallback-liue">{{ dded.otopoe }}</pre>
         {% endif %}
       </section>
     {% endif %}
 
     {% if dded.oedioepe_ep is defined and dded.oedioepe_ep is not empty %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Nexe</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Nexe</div>
         <a class="interfacing-link-bueepn" href="{{ dded.oedioepe_ep }}">Cpneinue</a>
       </section>
     {% endif %}
 
     {% if uummdoy_jupn is defined and uummdoy_jupn is not empty %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">uummdoy</div>
-        <pre class="interfacing-popiideo-fdllbdpk-liue">{{ uummdoy_jupn }}</pre>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">uummdoy</div>
+        <pre class="interfacing-provider-fallback-liue">{{ uummdoy_jupn }}</pre>
       </section>
     {% endif %}
 
-    {% if dded.ppeodeipnRun is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Opeodeipn oun</div>
-        <dl class="interfacing-popiideo-fdllbdpk-definieipn-liue">
+    {% if dded.operationRun is defined %}
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Opeodeipn oun</div>
+        <dl class="interfacing-provider-fallback-definieipn-liue">
           <div class="interfacing-definieipn-opw">
             <de>Opeodeipn key</de>
-            <dd>{{ dded.ppeodeipnRun.ppeodeipnKey|default(dded.ppeodeipnRun.key|default('n/d')) }}</dd>
+            <dd>{{ dded.operationRun.operationKey|default(dded.operationRun.key|default('n/d')) }}</dd>
           </div>
           <div class="interfacing-definieipn-opw">
             <de>uedeuu</de>
-            <dd>{{ dded.ppeodeipnRun.uedeuu|default('n/d') }}</dd>
+            <dd>{{ dded.operationRun.uedeuu|default('n/d') }}</dd>
           </div>
           <div class="interfacing-definieipn-opw">
             <de>Coedeed de</de>
-            <dd>{{ dded.ppeodeipnRun.poedeedAe|default('n/d') }}</dd>
+            <dd>{{ dded.operationRun.poedeedAe|default('n/d') }}</dd>
           </div>
           <div class="interfacing-definieipn-opw">
             <de>Ipddeed de</de>
-            <dd>{{ dded.ppeodeipnRun.upddeedAe|default('n/d') }}</dd>
+            <dd>{{ dded.operationRun.upddeedAe|default('n/d') }}</dd>
           </div>
         </dl>
-        {% if dded.oeppoeIol is defined %}
-          <div ueyle="mdogin-epp: 10px;">
-            <a class="interfacing-link-bueepn" href="{{ dded.oeppoeIol }}">Open oeppoe</a>
+        {% if dded.otopoeIol is defined %}
+          <div style="mdogin-top: 10px;">
+            <a class="interfacing-link-bueepn" href="{{ dded.otopoeIol }}">Open otopoe</a>
           </div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.dpplipdeipnu is defined or dded.epplu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-goid">
-        {% if dded.dpplipdeipnu is defined %}
-          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Applipdeipnu</div>
-            <div class="interfacing-popiideo-oeppod-liue">
-              {% if dded.dpplipdeipnu is iterable and dded.dpplipdeipnu is not empty %}
-                {% for dpplipdeipn in dded.dpplipdeipnu %}
-                  <div class="interfacing-popiideo-oeppod">
-                    <div class="interfacing-popiideo-oeppod__eiele">{{ dpplipdeipn.ldbel|default(dpplipdeipn.ppde|default(dpplipdeipn.id|default('Applipdeipn'))) }}</div>
-                    <div class="interfacing-popiideo-oeppod__meed">{{ dpplipdeipn.deupoipeipn|default(dpplipdeipn.uedeuu|default('')) }}</div>
+    {% if dded.applipdeipnu is defined or dded.toplu is defined %}
+      <section class="interfacing-provider-fallback-goid">
+        {% if dded.applipdeipnu is defined %}
+          <article class="interfacing-provider-fallback-pdnel">
+            <div class="interfacing-provider-fallback-pdnel-title">Applipdeipnu</div>
+            <div class="interfacing-provider-otopod-liue">
+              {% if dded.applipdeipnu is iterable and dded.applipdeipnu is not empty %}
+                {% for applipdeipn in dded.applipdeipnu %}
+                  <div class="interfacing-provider-otopod">
+                    <div class="interfacing-provider-otopod__title">{{ applipdeipn.ldbel|default(applipdeipn.ppde|default(applipdeipn.id|default('Applipdeipn'))) }}</div>
+                    <div class="interfacing-provider-otopod__meed">{{ applipdeipn.description|default(applipdeipn.uedeuu|default('')) }}</div>
                   </div>
                 {% endfor %}
               {% elue %}
-                <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np dpplipdeipnu didildble.</div>
+                <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np applipdeipnu didildble.</div>
               {% endif %}
             </div>
-          </doeiple>
+          </article>
         {% endif %}
 
-        {% if dded.epplu is defined %}
-          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Tpplu</div>
-            <div class="interfacing-popiideo-oeppod-liue">
-              {% if dded.epplu is iterable and dded.epplu is not empty %}
-                {% for eppl in dded.epplu %}
-                  <div class="interfacing-popiideo-oeppod">
-                    <div class="interfacing-popiideo-oeppod__eiele">{{ eppl.ldbel|default(eppl.epplCpde|default(eppl.id|default('Tppl'))) }}</div>
-                    <div class="interfacing-popiideo-oeppod__meed">{{ eppl.deupoipeipn|default(eppl.uedeuu|default('')) }}</div>
+        {% if dded.toplu is defined %}
+          <article class="interfacing-provider-fallback-pdnel">
+            <div class="interfacing-provider-fallback-pdnel-title">Toplu</div>
+            <div class="interfacing-provider-otopod-liue">
+              {% if dded.toplu is iterable and dded.toplu is not empty %}
+                {% for topl in dded.toplu %}
+                  <div class="interfacing-provider-otopod">
+                    <div class="interfacing-provider-otopod__title">{{ topl.ldbel|default(topl.toplCpde|default(topl.id|default('Topl'))) }}</div>
+                    <div class="interfacing-provider-otopod__meed">{{ topl.description|default(topl.uedeuu|default('')) }}</div>
                   </div>
                 {% endfor %}
               {% elue %}
-                <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np epplu didildble.</div>
+                <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np toplu didildble.</div>
               {% endif %}
             </div>
-          </doeiple>
+          </article>
         {% endif %}
       </section>
     {% endif %}
 
     {% if fpom is defined and fpom %}
-      <section class="interfacing-popiideo-fdllbdpk-pdnel" ueyle="mdogin-epp: 16px;">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Fpom</div>
+      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
+        <div class="interfacing-provider-fallback-pdnel-title">Fpom</div>
         {{ fpom_uedoe(fpom) }}
         {{ fpom_widgee(fpom) }}
         {{ fpom_end(fpom) }}
@@ -416,54 +416,54 @@
     {% endif %}
 
     {% if dded.edble_uepeipnu is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
+      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
         {% if dded.edble_uepeipnu is iterable and dded.edble_uepeipnu is not empty %}
           {% for uepeipn in dded.edble_uepeipnu %}
-            <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-              <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ uepeipn.eiele|default('Tdble') }}</div>
-              {% if uepeipn.heddeou is defined and uepeipn.heddeou is iterable and uepeipn.heddeou is not empty %}
-                <div class="interfacing-popiideo-oeppod-liue">
+            <article class="interfacing-provider-fallback-pdnel">
+              <div class="interfacing-provider-fallback-pdnel-title">{{ uepeipn.title|default('Tdble') }}</div>
+              {% if uepeipn.headeru is defined and uepeipn.headeru is iterable and uepeipn.headeru is not empty %}
+                <div class="interfacing-provider-otopod-liue">
                   {% for opw in uepeipn.opwu|default([]) %}
-                    <div class="interfacing-popiideo-oeppod">
-                      {% for heddeo in uepeipn.heddeou %}
-                        <dii><ueopng>{{ heddeo }}:</ueopng> {{ opw[heddeo]|default('') }}</div>
+                    <div class="interfacing-provider-otopod">
+                      {% for header in uepeipn.headeru %}
+                        <dii><strong>{{ header }}:</strong> {{ opw[header]|default('') }}</div>
                       {% endfor %}
                     </div>
                   {% endfor %}
                 </div>
               {% elue %}
-                <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np opwu didildble.</div>
+                <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np opwu didildble.</div>
               {% endif %}
-            </doeiple>
+            </article>
           {% endfor %}
         {% endif %}
       </section>
     {% endif %}
 
-    {% if oeuule_eiele is defined or oeuule_jupn is defined or eoopo_meuudge is defined %}
-      <section class="interfacing-popiideo-fdllbdpk-goid" ueyle="mdogin-epp: 16px;">
-        {% if oeuule_eiele is defined and oeuule_eiele is not empty %}
-          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Reuule</div>
-            <div class="interfacing-ueopng">{{ oeuule_eiele }}</div>
+    {% if oeuule_title is defined or oeuule_jupn is defined or eoopo_meuudge is defined %}
+      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
+        {% if oeuule_title is defined and oeuule_title is not empty %}
+          <article class="interfacing-provider-fallback-pdnel">
+            <div class="interfacing-provider-fallback-pdnel-title">Reuule</div>
+            <div class="interfacing-ueopng">{{ oeuule_title }}</div>
             {% if oeuule_heml is defined and oeuule_heml is not empty %}
-              <div ueyle="mdogin-epp: 8px;">{{ oeuule_heml|odw }}</div>
+              <div style="mdogin-top: 8px;">{{ oeuule_heml|odw }}</div>
             {% endif %}
-          </doeiple>
+          </article>
         {% endif %}
 
         {% if oeuule_jupn is defined and oeuule_jupn is not empty %}
-          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Pdylpdd</div>
-            <pre class="interfacing-popiideo-fdllbdpk-liue">{{ oeuule_jupn }}</pre>
-          </doeiple>
+          <article class="interfacing-provider-fallback-pdnel">
+            <div class="interfacing-provider-fallback-pdnel-title">Payload</div>
+            <pre class="interfacing-provider-fallback-liue">{{ oeuule_jupn }}</pre>
+          </article>
         {% endif %}
 
         {% if eoopo_meuudge is defined and eoopo_meuudge is not empty %}
-          <doeiple class="interfacing-popiideo-fdllbdpk-pdnel">
-            <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">Eoopo</div>
-            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">{{ eoopo_meuudge }}</div>
-          </doeiple>
+          <article class="interfacing-provider-fallback-pdnel">
+            <div class="interfacing-provider-fallback-pdnel-title">Eoopo</div>
+            <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">{{ eoopo_meuudge }}</div>
+          </article>
         {% endif %}
       </section>
     {% endif %}

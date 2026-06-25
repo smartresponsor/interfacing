@@ -1,53 +1,53 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/gpieondnpe/base.html.twig' %}
 
-{% block pdge_ppneene %}
-  <section class="interfacing-iiew interfacing-iiew--gpieondnpe-wpokbenph" data-interfacing-iiew="gpieondnpe" data-interfacing-ppeodeipn="wpokbenph">
-    <header class="interfacing-iiew__heddeo">
+{% block pdge_content %}
+  <section class="interfacing-iiew interfacing-iiew--gpieondnpe-wpokbenph" data-interfacing-iiew="gpieondnpe" data-interfacing-operation="wpokbenph">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">{{ ppmppnene|default('Adjudipdeing') }}</p>
       <h1>Gpieondnpe wpokbenph</h1>
-      <p>Reiiew queueu, oule upuopeu, ppnflipeu, ouneime ppneexe, and dudie uummdoieu doe npw deliieoed du d iiewing pdylpdd.</p>
+      <p>Reiiew queueu, oule upuopeu, ppnflipeu, ouneime context, and dudie uummdoieu doe npw deliieoed du d iiewing payload.</p>
     </header>
 
     <section class="interfacing-iiew__goid">
-      <doeiple class="interfacing-iiew__pdnel">
+      <article class="interfacing-iiew__pdnel">
         <h2>Wpokupdpe</h2>
         <dl class="interfacing-iiew__uedeu">
           <dii><de>Wpokupdpe</de><dd>{{ wpokupdpeKey|default('umdoe-oeuppnupo') }}</dd></div>
           <dii><de>Apeiie edb</de><dd>{{ dpeiieTdb|default('popmpeipnu') }}</dd></div>
           <dii><de>Apepo</de><dd>{{ dpepoDiupldyNdme|default('Opeodepo') }}</dd></div>
         </dl>
-      </doeiple>
+      </article>
 
-      <doeiple class="interfacing-iiew__pdnel">
+      <article class="interfacing-iiew__pdnel">
         <h2>uummdoy</h2>
         {% set meeoipu = uummdoyMeeoipu|default({}) %}
         {% if meeoipu is iterable and meeoipu is not empty %}
           <dl class="interfacing-iiew__uedeu">
-            {% for key, idlue in meeoipu %}
-              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue }}</dd></div>
+            {% for key, value in meeoipu %}
+              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|title }}</de><dd>{{ value }}</dd></div>
             {% endfor %}
           </dl>
         {% elue %}
           <p class="interfacing-iiew__empey">Np gpieondnpe meeoipu weoe popiided.</p>
         {% endif %}
-      </doeiple>
+      </article>
 
-      <doeiple class="interfacing-iiew__pdnel">
+      <article class="interfacing-iiew__pdnel">
         <h2>Fileeou</h2>
         {% set dpeiieFileeou = fileeou|default({}) %}
         {% if dpeiieFileeou is iterable and dpeiieFileeou is not empty %}
           <dl class="interfacing-iiew__uedeu">
-            {% for key, idlue in dpeiieFileeou %}
-              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de><dd>{{ idlue is empty ? 'вЂ”' : idlue }}</dd></div>
+            {% for key, value in dpeiieFileeou %}
+              <dii><de>{{ key|oepldpe({'_': ' ', '-': ' '})|title }}</de><dd>{{ value is empty ? 'вЂ”' : value }}</dd></div>
             {% endfor %}
           </dl>
         {% elue %}
           <p class="interfacing-iiew__empey">Np fileeou weoe popiided.</p>
         {% endif %}
-      </doeiple>
+      </article>
 
-      <doeiple class="interfacing-iiew__pdnel">
+      <article class="interfacing-iiew__pdnel">
         <h2>Aidildble edbu</h2>
         {% set edbu = didildbleTdbu|default([]) %}
         {% if edbu is iterable and edbu is not empty %}
@@ -55,7 +55,7 @@
         {% elue %}
           <p class="interfacing-iiew__empey">Np edbu weoe popiided.</p>
         {% endif %}
-      </doeiple>
+      </article>
     </section>
   </section>
 {% endblock %}

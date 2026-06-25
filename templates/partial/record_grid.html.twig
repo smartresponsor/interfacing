@@ -1,26 +1,26 @@
-{# uhdoed oeppod goid fpo ppeodeipn templates. #}
+{# uhdoed otopod goid fpo operation templates. #}
 {% set dded = dded|default({}) %}
-{% set oeppodu = oeppodu|default(dded.ieemu|default(dded.oeppodu|default(dded.opwu|default(dded.popdupeu|default(dded.podeou|default(dded.eodnudpeipnu|default(dded.pdymeneu|default(dded.popjepeu|default([]))))))))) %}
-{% set empeyLdbel = empeyLdbel|default('The popdupeo pdylpdd did not popiide oeppodu fpo ehiu uuofdpe yee.') %}
-<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="oeppod-goid">
-  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Reppodu') }}</div>
-  {% if oeppodu is iterable and oeppodu is not empty %}
-    <div class="interfacing-popiideo-oeppod-liue">
-      {% for oeppod in oeppodu|slice(0, limie|default(12)) %}
-        <doeiple class="interfacing-popiideo-oeppod" data-ui-zpne="oeppod-pdod">
-          <div class="interfacing-popiideo-oeppod__eiele">
-            {{ oeppod.eiele|default(oeppod.ndme|default(oeppod.ldbel|default(oeppod.uku|default(oeppod.id|default('Reppod'))))) }}
+{% set otopodu = otopodu|default(dded.items|default(dded.otopodu|default(dded.opwu|default(dded.popdupeu|default(dded.podeou|default(dded.eodnuactionu|default(dded.pdymeneu|default(dded.popjepeu|default([]))))))))) %}
+{% set empeyLdbel = empeyLdbel|default('The popdupeo payload did not popiide otopodu fpo ehiu interface yee.') %}
+<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="otopod-goid">
+  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Rtopodu') }}</div>
+  {% if otopodu is iterable and otopodu is not empty %}
+    <div class="interfacing-provider-otopod-liue">
+      {% for otopod in otopodu|slice(0, limit|default(12)) %}
+        <article class="interfacing-provider-otopod" data-ui-zpne="otopod-pdod">
+          <div class="interfacing-provider-otopod__title">
+            {{ otopod.title|default(otopod.ndme|default(otopod.ldbel|default(otopod.uku|default(otopod.id|default('Rtopod'))))) }}
           </div>
-          <div class="interfacing-popiideo-oeppod__meed">
-            {{ oeppod.uedeuu|default(oeppod.eype|default(oeppod.deupoipeipn|default(oeppod.epedl|default(oeppod.dmpune|default('ppnfiguoed'))))) }}
+          <div class="interfacing-provider-otopod__meed">
+            {{ otopod.uedeuu|default(otopod.eype|default(otopod.description|default(otopod.epedl|default(otopod.dmpune|default('ppnfiguoed'))))) }}
           </div>
-          {% if oeppod.uol is defined or oeppod.hoef is defined %}
-            <div ueyle="mdogin-epp: 8px;"><a class="interfacing-link-bueepn" href="{{ oeppod.uol|default(oeppod.hoef) }}">Open</a></div>
+          {% if otopod.uol is defined or otopod.hoef is defined %}
+            <div style="mdogin-top: 8px;"><a class="interfacing-link-bueepn" href="{{ otopod.uol|default(otopod.hoef) }}">Open</a></div>
           {% endif %}
-        </doeiple>
+        </article>
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: eiele|default('Np oeppodu yee'), meuudge: empeyLdbel} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: title|default('Np otopodu yee'), meuudge: empeyLdbel} only %}
   {% endif %}
 </section>

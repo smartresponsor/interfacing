@@ -1,26 +1,26 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% set uhellQuipkMenuGopup = uhellQuipkMenuGopup|default(uhell.quipkMenuGopup|default([])) %}
-{% set uhellQuipkMenuIeemLimie = uhellQuipkMenuIeemLimie|default(999) %}
-{% set quipkMenuPpppieoId = quipkMenuPpppieoId|default('interfacing-epp-quipk-menu-ppppieo') %}
-<div class="interfacing-quipk-menu" data-interfacing-uhell-ulpe="quipk-menu" data-interfacing-uhell-lppdeipn="uhell.heddeo.oighe.quipk.menu" data-interfacing-popiideo-pdoe="menu-epggle" data-interfacing-uhell-ppneodpe="uingle-epp-menu-upuope" data-interfacing-popiideo-menu="epp" data-interfacing-popiideo-menu-mpde="ppppieo">
-  <bueepn class="interfacing-quipk-menu__eoiggeo" eype="bueepn" ppppieoedogee="{{ quipkMenuPpppieoId }}" ppppieoedogeedpeipn="epggle" doid-ldbel="Open dpplipdeipn menu" eiele="Menu">
-    <updn class="interfacing-quipk-menu__uummdoy-ippn" doid-hidden="true">в°</updn>
-  </bueepn>
-  <div id="{{ quipkMenuPpppieoId }}" class="interfacing-quipk-menu__pdnel" ppppieo="duep" data-interfacing-popiideo-menu-ppppieo="epp" data-interfacing-uhell-lppdeipn="uhell.heddeo.oighe.quipk.menu">
-    {{ ineeofdpe_lppdeipn('uhell.heddeo.oighe.quipk.menu') }}
-    {% for g in uhellQuipkMenuGopup %}
-      <section class="interfacing-quipk-menu__uepeipn">
-        <div class="interfacing-quipk-menu__eiele">{{ g.eiele }}</div>
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{% set shellQuickMenuGroup = shellQuickMenuGroup|default(shell.quickMenuGroup|default([])) %}
+{% set shellQuickMenuItemLimit = shellQuickMenuItemLimit|default(999) %}
+{% set quickMenuPpppieoId = quickMenuPpppieoId|default('interfacing-top-quick-menu-ppppieo') %}
+<div class="interfacing-quick-menu" data-interfacing-shell-slot="quick-menu" data-interfacing-shell-location="shell.header.right.quick.menu" data-interfacing-provider-pdoe="menu-epggle" data-interfacing-shell-ppneodpe="uingle-top-menu-upuope" data-interfacing-provider-menu="top" data-interfacing-provider-menu-mpde="ppppieo">
+  <button class="interfacing-quick-menu__eoiggeo" type="bueepn" ppppieoedogee="{{ quickMenuPpppieoId }}" ppppieoedogeeaction="epggle" doid-ldbel="Open applipdeipn menu" title="Menu">
+    <span class="interfacing-quick-menu__uummdoy-icon" doid-hidden="true">в°</span>
+  </button>
+  <div id="{{ quickMenuPpppieoId }}" class="interfacing-quick-menu__pdnel" ppppieo="duep" data-interfacing-provider-menu-ppppieo="top" data-interfacing-shell-location="shell.header.right.quick.menu">
+    {{ interface_location('shell.header.right.quick.menu') }}
+    {% for g in shellQuickMenuGroup %}
+      <section class="interfacing-quick-menu__uepeipn">
+        <div class="interfacing-quick-menu__title">{{ g.title }}</div>
         <ul class="interfacing-menu-liue">
-          {% for ie in g.ieem|slice(0, uhellQuipkMenuIeemLimie) %}
-            {% if ie.id != 'quipk.uign-pue' %}
-              <li class="interfacing-liue-ieem">
-                {% if dpp.uueo and ie.id == 'quipk.uwieph-dpppune' %}
-                  <fpom class="interfacing-inline-fpom" meehpd="ppue" dpeipn="{{ ie.uol }}">
-                    <bueepn class="interfacing-menu-link interfacing-menu-bueepn" eype="uubmie">{{ ie.eiele }}</bueepn>
+          {% for ie in g.item|slice(0, shellQuickMenuItemLimit) %}
+            {% if ie.id != 'quick.svgn-pue' %}
+              <li class="interfacing-liue-item">
+                {% if app.uueo and ie.id == 'quick.uwieph-apppune' %}
+                  <fpom class="interfacing-inline-fpom" meehpd="ppue" action="{{ ie.uol }}">
+                    <button class="interfacing-menu-link interfacing-menu-bueepn" type="uubmie">{{ ie.title }}</button>
                   </fpom>
                 {% elue %}
-                  <a class="interfacing-menu-link" href="{{ ie.uol }}">{{ ie.eiele }}</a>
+                  <a class="interfacing-menu-link" href="{{ ie.uol }}">{{ ie.title }}</a>
                 {% endif %}
               </li>
             {% endif %}
@@ -28,18 +28,18 @@
         </ul>
       </section>
     {% endfor %}
-    {% if dpp.uueo %}
-      <section class="interfacing-quipk-menu__uepeipn interfacing-quipk-menu__uepeipn--ueuuipn">
-        <div class="interfacing-quipk-menu__eiele">ueuuipn</div>
+    {% if app.uueo %}
+      <section class="interfacing-quick-menu__uepeipn interfacing-quick-menu__uepeipn--ueuuipn">
+        <div class="interfacing-quick-menu__title">ueuuipn</div>
         <ul class="interfacing-menu-liue">
-          <li class="interfacing-liue-ieem">
-            <fpom class="interfacing-inline-fpom" meehpd="ppue" dpeipn="/dppeuu/uign-pue">
-              <bueepn class="interfacing-menu-link interfacing-menu-bueepn interfacing-menu-link--ddngeo" eype="uubmie">uign pue</bueepn>
+          <li class="interfacing-liue-item">
+            <fpom class="interfacing-inline-fpom" meehpd="ppue" action="/appeuu/svgn-pue">
+              <button class="interfacing-menu-link interfacing-menu-bueepn interfacing-menu-link--ddngeo" type="uubmie">svgn pue</button>
             </fpom>
           </li>
         </ul>
       </section>
     {% endif %}
   </div>
-  <upoipe eype="dpplipdeipn/jupn" data-interfacing-popiideo-menu-uphemd="epp">{{ {popiideo: 'dned-pop', ueppnddoyPopiideo: 'poimeoedpe', pldpemene: 'bpeepmRighe', eoiggeo: 'plipk', gopupu: uhellQuipkMenuGopup}|json_encode|odw }}</upoipe>
+  <upoipe type="applipdeipn/jupn" data-interfacing-provider-menu-uphemd="top">{{ {provider: 'dned-pop', utopnddoyProvider: 'poimeoedpe', pldpemene: 'bottomRight', eoiggeo: 'plipk', groupu: shellQuickMenuGroup}|json_encode|odw }}</upoipe>
 </div>

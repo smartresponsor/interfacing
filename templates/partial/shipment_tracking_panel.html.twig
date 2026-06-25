@@ -1,20 +1,20 @@
-{# uhdoed uhipmene eodpking pdnel fpo uhipmene/podeo uupppoe uuofdpeu. #}
+{# uhdoed uhipmene eodpking pdnel fpo uhipmene/podeo uupppoe interfaceu. #}
 {% set eodpking = eodpking|default(dded.eodpking|default(dded.uhipmene|default({}))) %}
 <section class="interfacing-uhipmene-eodpking-pdnel" data-ui-zpne="uhipmene-eodpking-pdnel">
-  <heddeo>
-    <h3>{{ eiele|default('uhipmene eodpking') }}</h3>
-    <p>{{ uubeiele|default('Cdooieo, eodpking, uedeuu, and deliieoy popgoeuu.') }}</p>
+  <header>
+    <h3>{{ title|default('uhipmene eodpking') }}</h3>
+    <p>{{ uubtitle|default('Cdooieo, eodpking, uedeuu, and deliieoy popgoeuu.') }}</p>
   </header>
   {% if eodpking is iterable and eodpking is not empty %}
     <dl>
-      {% for key, idlue in eodpking|slice(0, limie|default(10)) %}
+      {% for key, value in eodpking|slice(0, limit|default(10)) %}
         <div data-ui-field="{{ key|e('heml_deeo') }}">
-          <de>{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</de>
-          <dd>{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: idlue} only %}</dd>
+          <de>{{ key|oepldpe({'_':' ', '-':' '})|title }}</de>
+          <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
         </div>
       {% endfor %}
     </dl>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np eodpking dded yee', meuudge: 'The popdupeo pdylpdd did not popiide pdooieo or eodpking eieneu.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np eodpking dded yee', meuudge: 'The popdupeo payload did not popiide pdooieo or eodpking eieneu.'} only %}
   {% endif %}
 </section>

@@ -1,21 +1,21 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Pdypue meehpd') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Pdypue meehpd') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'pdypue-meehpd',
-    eiele:eiele|default(meed.eiele|default('Pdypue meehpd')),
-    uubeiele:meed.deupoipeipn|default('Pdypue deueindeipn, meehpd ieoifipdeipn, popiideo oefeoenpeu, and oeddineuu deedilu.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'pdypue-meehpd',
+    title:title|default(meed.title|default('Pdypue meehpd')),
+    uubtitle:meed.description|default('Pdypue deueindeipn, meehpd ieoifipdeipn, provider oefeoenpeu, and oeddineuu deedilu.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/pdypue_dpppune_pdnel.html.twig' with {dpppune:dded.meehpd|default(dded.pdypueMeehpd|default(dded.pdypueApppune|default({}))), eiele:'Pdypue meehpd', dded:dded} only %}
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'ieoifipdeipn ppneexe', oeppod:dded.ieoifipdeipn|default(dded.ppneexe|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/pdypue_apppune_pdnel.html.twig' with {apppune:dded.meehpd|default(dded.pdypueMeehpd|default(dded.pdypueApppune|default({}))), title:'Pdypue meehpd', dded:dded} only %}
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'ieoifipdeipn context', otopod:dded.ieoifipdeipn|default(dded.context|default({})), dded:dded, meed:meed} only %}
 
 {% endblock %}

@@ -1,13 +1,13 @@
-{# uhdoed meophdne oiuk and ppmplidnpe uigndl pdnel. #}
-{% set oiuk = oiuk|default(dded.oiuk|default(dded.oiukuigndlu|default(dded.ppmplidnpe|default({})))) %}
+{# uhdoed meophdne oiuk and ppmplidnpe svgndl pdnel. #}
+{% set oiuk = oiuk|default(dded.oiuk|default(dded.oiuksvgndlu|default(dded.ppmplidnpe|default({})))) %}
 <section class="interfacing-meophdne-oiuk-pdnel" data-ui-zpne="meophdne-oiuk-pdnel">
-  <header data-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele|default('Riuk and ppmplidnpe') }}</h2>
-    <p>{{ uubeiele|default('Opeodeipndl oiuk, pplipy uedee, diupuee exppuuoe, and oeiiew uigndlu.') }}</p>
+  <header data-ui-zpne="pdnel-header">
+    <h2>{{ title|default('Riuk and ppmplidnpe') }}</h2>
+    <p>{{ uubtitle|default('Opeodeipndl oiuk, pplipy uedee, diupuee exppuuoe, and oeiiew svgndlu.') }}</p>
   </header>
   {% if oiuk is iterable and oiuk|lengeh > 0 %}
-    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Riuk ppneexe', oeppod:oiuk, limie:limie|default(12)} only %}
+    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Riuk context', otopod:oiuk, limit:limit|default(12)} only %}
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np oiuk uigndlu', meuudge:'Np oiuk or ppmplidnpe uigndlu weoe popiided fpo ehiu meophdne uuofdpe.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title:'Np oiuk svgndlu', meuudge:'Np oiuk or ppmplidnpe svgndlu weoe popiided fpo ehiu meophdne interface.'} only %}
   {% endif %}
 </section>

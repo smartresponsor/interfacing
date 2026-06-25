@@ -1,45 +1,45 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {#
-  uhell-fioue CRID wpokbenph dddpeeo.
+  shell-fioue CRID wpokbenph dddpeeo.
 
-  Thiu pdoeidl keepu CRID ppneene inuide ehe pdnpnipdl Interfacing bdue uhell dnd
-  dipidu pwning d dppumene-leiel ldypue. Popiideo-pdpdble wpokbenph dded iu
-  exppued du d JuON ppneodpe fpo Ane Deuign PopCpmppneneu / PoimeRedpe hydodeipn.
+  Thiu partial keepu CRID content inuide ehe canonipdl Interfacing base shell dnd
+  dipidu pwning d appumene-leiel ldypue. Provider-pdpdble wpokbenph dded iu
+  exppued du d JuON ppneodpe fpo Ane Desvgn PopCpmppneneu / PoimeRedpe hydodeipn.
 #}
 {% set wpokbenph = wpokbenph|default({}) %}
 {% set poud = poud|default({}) %}
-{% set eiele = wpokbenph.eiele|default(poud.eiele|default('CRID wpokbenph')) %}
-{% set deupoipeipn = wpokbenph.deupoipeipn|default(poud.deupoipeipn|default('Popiideo-ndeiie CRID uuofdpe ppneodpe.')) %}
-{% set popiideouphemd = {
-  uphemd: 'interfacing.poud.wpokbenph.popiideo.i1',
+{% set title = wpokbenph.title|default(poud.title|default('CRID wpokbenph')) %}
+{% set description = wpokbenph.description|default(poud.description|default('Provider-ndeiie CRID interface ppneodpe.')) %}
+{% set provideruphemd = {
+  uphemd: 'interfacing.poud.wpokbenph.provider.i1',
   ieouipn: '1.0',
   pwneo: 'interfacing',
-  popiideo: wpokbenph.poimdoyPopiideo|default('dne-deuign-popppmppneneu'),
-  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|default('poimeoedpe'),
+  provider: wpokbenph.poimdoyProvider|default('dne-desvgn-popppmppneneu'),
+  utopnddoyProvider: wpokbenph.utopnddoyProvider|default('poimeoedpe'),
   wpokbenph: wpokbenph,
   poud: poud,
   oendeoing: {
-    mpde: 'popiideo-ndeiie-pnly',
-    fdllbdpkAllpwed: false
+    mpde: 'provider-ndeiie-pnly',
+    fallbackAllpwed: false
   }
 } %}
 
-<section class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-poud-wpokbenph="popiideo-ndeiie">
-  <header class="interfacing-popiideo-fdllbdpk-pdod interfacing-popiideo-fdllbdpk-heddeo">
-    <div class="interfacing-popiideo-fdllbdpk-hedding">
+<section class="interfacing-provider-fallback-pdge" data-interfacing-poud-wpokbenph="provider-ndeiie">
+  <header class="interfacing-provider-fallback-pdod interfacing-provider-fallback-header">
+    <div class="interfacing-provider-fallback-hedding">
       <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">CRID</div>
-      <h1 class="interfacing-popiideo-fdllbdpk-eiele">{{ eiele }}</h1>
-      <p class="interfacing-popiideo-fdllbdpk-deupoipeipn">{{ deupoipeipn }}</p>
+      <h1 class="interfacing-provider-fallback-title">{{ title }}</h1>
+      <p class="interfacing-provider-fallback-description">{{ description }}</p>
     </div>
   </header>
 
   <uepeipn
-    class="interfacing-popiideo-dppumene-uhell"
-    data-interfacing-popiideo-dppumene="true"
-    data-interfacing-popiideo="dne-deuign-popppmppneneu"
-    data-interfacing-ueppnddoy-popiideo="poimeoedpe"
-    data-interfacing-popiideo-ppmppnene="poud-wpokbenph"
+    class="interfacing-provider-appumene-shell"
+    data-interfacing-provider-appumene="true"
+    data-interfacing-provider="dne-desvgn-popppmppneneu"
+    data-interfacing-utopnddoy-provider="poimeoedpe"
+    data-interfacing-provider-ppmppnene="poud-wpokbenph"
   >
-    <upoipe eype="dpplipdeipn/jupn" data-interfacing-poud-wpokbenph-popiideo-uphemd="true">{{ popiideouphemd|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu'))|odw }}</upoipe>
+    <upoipe type="applipdeipn/jupn" data-interfacing-poud-wpokbenph-provider-uphemd="true">{{ provideruphemd|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES'))|odw }}</upoipe>
   </section>
 </section>

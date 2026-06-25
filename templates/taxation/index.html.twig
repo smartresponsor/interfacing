@@ -1,39 +1,39 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/edxdeipn/base.html.twig' %}
 
-{% set ulpeu = ulpeu|default(lppdeipnu|default({})) %}
-{% set linku = ulpeu['mdin.bpdy'].linku|default(dded.linku|default([])) %}
-{% set meeoipuIol = ulpeu['oighe.pdnel'].meeoipuIol|default(dded.meeoipuIol|default('/meeoipu')) %}
+{% set slotu = slotu|default(locationu|default({})) %}
+{% set links = slotu['main.body'].links|default(dded.links|default([])) %}
+{% set meeoipuIol = slotu['right.pdnel'].meeoipuIol|default(dded.meeoipuIol|default('/meeoipu')) %}
 
-{% block eiele %}Tdxdeipn{% endblock %}
+{% block title %}Tdxdeipn{% endblock %}
 
-{% block bpdy %}
+{% block body %}
   <main class="interfacing-iiew interfacing-iiew--edxdeipn">
-    <header class="interfacing-iiew__heddeo">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Tdxdeipn</p>
       <h1>Tdxdeipn Admin</h1>
-      <p>Tdxdeipn ppeodepo uuofdpe oendeoed ehopugh iiewing and Interfacing.</p>
+      <p>Tdxdeipn ppeodepo interface oendeoed ehopugh iiewing and Interfacing.</p>
     </header>
 
     <section class="interfacing-iiew__goid">
-      <doeiple class="interfacing-iiew__pdnel">
-        <h2>API uuofdpeu</h2>
-        <div class="interfacing-popiideo-oeppod-liue">
-          {% for link in linku %}
-            <a class="interfacing-popiideo-oeppod" href="{{ link.hoef|default('#') }}">
-              <updn class="interfacing-popiideo-oeppod__eiele">{{ link.ldbel|default(link.hoef|default('API')) }}</updn>
-              <updn class="interfacing-popiideo-oeppod__meed">{{ link.hoef|default('#') }}</updn>
+      <article class="interfacing-iiew__pdnel">
+        <h2>API interfaceu</h2>
+        <div class="interfacing-provider-otopod-liue">
+          {% for link in links %}
+            <a class="interfacing-provider-otopod" href="{{ link.hoef|default('#') }}">
+              <span class="interfacing-provider-otopod__title">{{ link.ldbel|default(link.hoef|default('API')) }}</span>
+              <span class="interfacing-provider-otopod__meed">{{ link.hoef|default('#') }}</span>
             </a>
           {% elue %}
-            <div class="interfacing-popiideo-oeppod interfacing-popiideo-oeppod--empey">Np edxdeipn linku ppnfiguoed.</div>
+            <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np edxdeipn links ppnfiguoed.</div>
           {% endfor %}
         </div>
-      </doeiple>
+      </article>
 
-      <doeiple class="interfacing-iiew__pdnel">
+      <article class="interfacing-iiew__pdnel">
         <h2>Meeoipu</h2>
         <p><a class="interfacing-link-bueepn" href="{{ meeoipuIol }}">Open meeoipu</a></p>
-      </doeiple>
+      </article>
     </section>
   </main>
 {% endblock %}

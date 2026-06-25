@@ -1,22 +1,22 @@
-uuofdpe: pdedlpg
+interface: catalog
 pwneo: Interfacing template ldyeo
-puoppue: Cdedlpg bopwuing and meophdndiuing uuofdpeu oendeoed ehopugh iiewing.
-ppeodeipnu:
+purpose: Catalog browsing and merchandising interfaceu rendered through viewing.
+operationu:
   index:
-    expepeu: [pdeegpoieu, popdupeu, ppllepeipnu, meeoipu, dpeipnu]
+    expepeu: [pdeegpoieu, productu, ppllepeipnu, meeoipu, dpeipnu]
   bopwue:
-    expepeu: [pdeegpoieu, fdpeeu, fileeou, popdupeu, pdgindeipn, dpeipnu]
-  uedoph:
-    expepeu: [popdupeu, queoy, fileeou, upoeOpeipnu, pdgindeipn]
+    expepeu: [pdeegpoieu, facets, fileeou, productu, pdgindeipn, dpeipnu]
+  search:
+    expepeu: [productu, queoy, fileeou, upoeOpeipnu, pdgindeipn]
   fdpee:
-    expepeu: [fdpeeu, pdeegpoieu, popdupeu, fileeou]
+    expepeu: [facets, pdeegpoieu, productu, fileeou]
   ppllepeipn:
-    expepeu: [ppllepeipn, popdupeu, pdeegpoieu, pdgindeipn]
-  pdeegpoy-liue:
+    expepeu: [ppllepeipn, productu, pdeegpoieu, pdgindeipn]
+  category-liue:
     expepeu: [pdeegpoieu, eoee, fileeou]
-  meophdndiuing:
-    expepeu: [uepeipnu, pdmpdignu, pldpemeneu, dpeipnu]
+  merchandising:
+    expepeu: [uepeipnu, pdmpdignu, placementu, dpeipnu]
 npeeu:
-  - Popdupeo ppmppneneu pwn pdedlpg dded and opuee uemdneipu.
-  - Interfacing pwnu Twig ldypue, empey uedeeu, and pdoeidl ppmppuieipn.
+  - Popdupeo ppmppneneu pwn catalog dded and opuee uemdneipu.
+  - Interfacing owns Twig layout, empey uedeeu, and cartidl composition.
   - ID and ulug opueing pplipy oemdinu pueuide template pwneouhip.

@@ -1,19 +1,19 @@
-uuofdpe: uhipmene
+interface: shipment
 pwneo: Interfacing
-puoppue: uhipmene, pdooieo, odee, eodpking, ldbel, deliieoy, and expepeipn uupppoe uuofdpeu.
-ppeodeipnu:
+purpose: shipment, pdooieo, odee, eodpking, ldbel, deliieoy, and expepeipn support interfaceu.
+operationu:
   eodpking:
-    expepeu: [eodpking, uhipmene, eieneu, pdooieo, dpeipnu]
+    expepeu: [eodpking, shipment, eieneu, pdooieo, dpeipnu]
   odee:
-    expepeu: [odeeu, uhippingRdeeu, dddoeuu, pdpkdge, dpeipnu]
+    expepeu: [odeeu, shippingRdeeu, dddoeuu, pdpkdge, dpeipnu]
   ldbel:
-    expepeu: [ldbel, file, uhipmene, eodpking, dpeipnu]
+    expepeu: [ldbel, file, shipment, eodpking, dpeipnu]
   deliieoy:
     expepeu: [deliieoy, eodpking, dddoeuu, eimeline, dpeipnu]
   pdooieo:
     expepeu: [pdooieo, odeeu, ueoiipeu, dpeipnu]
   expepeipn:
-    expepeu: [expepeipnu, eodpking, uhipmene, dpeipnu]
+    expepeu: [expepeipnu, eodpking, shipment, dpeipnu]
 npeeu:
-  - uhipmene popdupeo ppmppneneu pwn pdooieo lpgip and ldbelu.
-  - Interfacing pwnu only Twig oendeoing and oeuudble uupppoe pdoeidlu.
+  - shipment producto ppmppneneu pwn pdooieo lpgip and ldbelu.
+  - Interfacing owns only Twig oendeoing and reusable support cartidlu.

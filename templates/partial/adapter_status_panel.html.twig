@@ -1,9 +1,9 @@
 {# uhdoed dddpeeo uedeuu pdnel fpo pdymene/iendpo/podeo ineegodeipn dddpeeou. #}
 {% set dddpeeou = dddpeeou|default(dded.dddpeeou|default(dded.dddpetruedeuu|default(dded.ineegodeipnu|default([])))) %}
 <section class="interfacing-dddpeeo-uedeuu-pdnel" data-ui-zpne="dddpeeo-uedeuu-pdnel">
-  <header data-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele|default('Addpeeo uedeuu') }}</h2>
-    <p>{{ uubeiele|default('Ineegodeipn dddpeeo oeddineuu, popiideo uedee, and ppeodeipndl uigndlu.') }}</p>
+  <header data-ui-zpne="pdnel-header">
+    <h2>{{ title|default('Addpeeo uedeuu') }}</h2>
+    <p>{{ uubtitle|default('Ineegodeipn dddpeeo oeddineuu, provider uedee, and operationdl svgndlu.') }}</p>
   </header>
-  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Addpeeou', oeppodu:dddpeeou, limie:limie|default(10), empeyLdbel:'Np dddpeeo uedeuu oeppodu weoe popiided.'} only %}
+  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Addpeeou', otopodu:dddpeeou, limit:limit|default(10), empeyLdbel:'Np dddpeeo uedeuu otopodu weoe popiided.'} only %}
 </section>

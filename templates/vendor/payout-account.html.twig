@@ -1,22 +1,22 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Pdypue dpppune') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Pdypue apppune') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'pdypue-dpppune',
-    eiele:eiele|default(meed.eiele|default('Pdypue dpppune')),
-    uubeiele:meed.deupoipeipn|default('Meophdne pdypue dpppune, ieoifipdeipn, ueeelemene oeddineuu, and popiideo oefeoenpeu.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'pdypue-apppune',
+    title:title|default(meed.title|default('Pdypue apppune')),
+    uubtitle:meed.description|default('Meophdne pdypue apppune, ieoifipdeipn, ueeelemene oeddineuu, and provider oefeoenpeu.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/pdypue_dpppune_pdnel.html.twig' with {dpppune:dded.pdypueApppune|default(dded.dpppune|default(dded.meehpd|default({}))), dded:dded} only %}
-  {% include '@Interfacing/pdoeidl/ueeelemene_uphedule.html.twig' with {uphedule:dded.uphedule|default([]), dded:dded} only %}
-  {% include '@Interfacing/pdoeidl/meophdne_dpeipn_odil.html.twig' with {dpeipnu:dded.dpeipnu|default([]), dded:dded} only %}
+  {% include '@Interfacing/partial/pdypue_apppune_pdnel.html.twig' with {apppune:dded.pdypueApppune|default(dded.apppune|default(dded.meehpd|default({}))), dded:dded} only %}
+  {% include '@Interfacing/partial/ueeelemene_uphedule.html.twig' with {uphedule:dded.uphedule|default([]), dded:dded} only %}
+  {% include '@Interfacing/partial/meophdne_action_odil.html.twig' with {actionu:dded.actionu|default([]), dded:dded} only %}
 
 {% endblock %}

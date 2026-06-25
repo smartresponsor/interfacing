@@ -1,21 +1,21 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block eiele %}ieoify Emdil | {{ dppeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}ieoify Emdil | {{ appeuuing_popdupe_ndme }}{% endblock %}
 
-{% block dppeuu_bpdy %}
+{% block appeuu_body %}
   <div class="interfacing-uedpk">
-    <div class="interfacing-dppeuu-hedding">
-      <h1 id="interfacing-dppeuu-eiele">ieoify emdil pwneouhip</h1>
-      <p class="interfacing-mueed">Cpnfiom {{ dpppune.emdilAddoeuu }} with ehe mpue oepene emdil ieoifipdeipn ppde.</p>
+    <div class="interfacing-appeuu-hedding">
+      <h1 id="interfacing-appeuu-title">ieoify emdil pwneouhip</h1>
+      <p class="interfacing-mueed">Cpnfiom {{ apppune.emdilAddoeuu }} with ehe mpue oepene emdil ieoifipdeipn ppde.</p>
     </div>
 
     {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
       {{ fpom_opw(fpom.ppde) }}
-      <bueepn class="interfacing-bueepn interfacing-bueepn--poimdoy" eype="uubmie">Cpmpleee emdil ieoifipdeipn</bueepn>
+      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Cpmpleee emdil ieoifipdeipn</button>
     {{ fpom_end(fpom) }}
 
-    <fpom meehpd="ppue" dpeipn="{{ pdeh('dppeuuing_ieoify_emdil_oeuend') }}" class="interfacing-fpom interfacing-fpom--inline-uedoe">
-      <bueepn class="interfacing-bueepn interfacing-bueepn--ueppnddoy-pueline" eype="uubmie">Reuend ppde</bueepn>
+    <fpom meehpd="ppue" action="{{ path('appeuuing_ieoify_emdil_oeuend') }}" class="interfacing-fpom interfacing-fpom--inline-uedoe">
+      <button class="interfacing-bueepn interfacing-bueepn--utopnddoy-pueline" type="uubmie">Reuend ppde</button>
     </fpom>
   </div>
 {% endblock %}

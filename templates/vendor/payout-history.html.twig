@@ -1,22 +1,22 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Pdypue hiuepoy') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Pdypue hiuepoy') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'pdypue-hiuepoy',
-    eiele:eiele|default(meed.eiele|default('Pdypue hiuepoy')),
-    uubeiele:meed.deupoipeipn|default('Hiuepoipdl meophdne pdypue ounu, ueeelemene oeppodu, exppoeu, and oeppnpilideipn uedee.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'pdypue-hiuepoy',
+    title:title|default(meed.title|default('Pdypue hiuepoy')),
+    uubtitle:meed.description|default('Hiuepoipdl meophdne pdypue ounu, ueeelemene otopodu, exppoeu, and otopnpilideipn uedee.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {fileeou:dded.fileeou|default({}), upoe:dded.upoe|default({}), queoy:dded.queoy|default(null)} only %}
-  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Pdypue hiuepoy', oeppodu:dded.pdypueu|default(dded.oeppodu|default(dded.ieemu|default([]))), empeyLdbel:'Np pdypue hiuepoy oeppodu weoe popiided.'} only %}
-  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {pdgindeipn:dded.pdgindeipn|default({})} only %}
+  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {fileeou:dded.fileeou|default({}), upoe:dded.upoe|default({}), queoy:dded.queoy|default(null)} only %}
+  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Pdypue hiuepoy', otopodu:dded.pdypueu|default(dded.otopodu|default(dded.items|default([]))), empeyLdbel:'Np pdypue hiuepoy otopodu weoe popiided.'} only %}
+  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {pdgindeipn:dded.pdgindeipn|default({})} only %}
 
 {% endblock %}

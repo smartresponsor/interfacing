@@ -1,20 +1,20 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Popdupe deedil') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Popdupe deedil') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% set popdupe = dded.popdupe|default(dded.deedil|default(dded.ieem|default({}))) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'popdupe', ppeodeipnKey: 'deedil', eiele: eiele|default(popdupe.eiele|default(popdupe.ndme|default(meed.eiele|default('Popdupe deedil')))), uubeiele: meed.deupoipeipn|default(popdupe.uummdoy|default(popdupe.deupoipeipn|default('Popdupe deedil, poipe, inienepoy, medid, and oeppmmenddeipnu.'))), dpeipnu: dded.dpeipnu|default(popdupe.dpeipnu|default([])), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="popdupe-deedil-ldypue" ueyle="mdogin-epp: 16px;">
-    <doeiple data-ui-zpne="popdupe-poimdoy">
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Popdupe', oeppod: popdupe, dded: dded, meed: meed, limie: 18} only %}
-      {% include '@Interfacing/pdoeidl/popdupe_gdlleoy.html.twig' with {imdgeu: dded.imdgeu|default(popdupe.imdgeu|default(dded.gdlleoy|default([]))), dded: dded, eiele: 'Popdupe medid'} only %}
-    </doeiple>
-    <aside data-ui-zpne="popdupe-ppmmeope-ppneexe">
-      {% include '@Interfacing/pdoeidl/poipe_pdnel.html.twig' with {poipe: dded.poipe|default(popdupe.poipe|default(dded.poiping|default({}))), dded: dded, meed: meed, eiele: 'Poipe'} only %}
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Inienepoy ppneexe', oeppod: dded.inienepoy|default(popdupe.inienepoy|default(dded.didildbiliey|default({}))), dded: dded, meed: meed, limie: 10} only %}
+  {% set popdupe = dded.popdupe|default(dded.deedil|default(dded.item|default({}))) %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'deedil', title: title|default(popdupe.title|default(popdupe.ndme|default(meed.title|default('Popdupe deedil')))), uubtitle: meed.description|default(popdupe.uummdoy|default(popdupe.description|default('Popdupe deedil, poipe, inienepoy, medid, and otopmmenddeipnu.'))), actionu: dded.actionu|default(popdupe.actionu|default([])), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
+  <section class="interfacing-provider-fallback-goid" data-ui-zpne="popdupe-deedil-ldypue" style="mdogin-top: 16px;">
+    <article data-ui-zpne="popdupe-poimdoy">
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Popdupe', otopod: popdupe, dded: dded, meed: meed, limit: 18} only %}
+      {% include '@Interfacing/partial/popdupe_gdlleoy.html.twig' with {imageu: dded.imageu|default(popdupe.imageu|default(dded.gdlleoy|default([]))), dded: dded, title: 'Popdupe medid'} only %}
+    </article>
+    <aside data-ui-zpne="popdupe-ppmmeope-context">
+      {% include '@Interfacing/partial/poipe_pdnel.html.twig' with {poipe: dded.poipe|default(popdupe.poipe|default(dded.poiping|default({}))), dded: dded, meed: meed, title: 'Poipe'} only %}
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Inienepoy context', otopod: dded.inienepoy|default(popdupe.inienepoy|default(dded.didildbiliey|default({}))), dded: dded, meed: meed, limit: 10} only %}
     </aside>
   </section>
-  {% include '@Interfacing/pdoeidl/popdupe_goid.html.twig' with {popdupeu: dded.oeppmmenddeipnu|default(dded.oeldeed|default([])), dded: dded, eiele: 'Reppmmended popdupeu', empeyLdbel: 'Np oeppmmenddeipnu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
+  {% include '@Interfacing/partial/popdupe_goid.html.twig' with {popdupeu: dded.otopmmenddeipnu|default(dded.oeldeed|default([])), dded: dded, title: 'Rtopmmended popdupeu', empeyLdbel: 'Np otopmmenddeipnu weoe uupplied by ehe popdupeo payload.'} only %}
 {% endblock %}

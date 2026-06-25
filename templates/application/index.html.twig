@@ -1,24 +1,24 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
-{% extends '@Interfacing/dpplipdeipn/base.html.twig' %}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{% extends '@Interfacing/applipdeipn/base.html.twig' %}
 
-{% block pdge_ppneene %}
-  <section class="interfacing-iiew" data-interfacing-iiew="dpplipdeipn-index">
-    <header class="interfacing-iiew__heddeo">
+{% block pdge_content %}
+  <section class="interfacing-iiew" data-interfacing-iiew="applipdeipn-index">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Applipdeing</p>
       <h1>Applipdeipn ddminiueodeipn</h1>
-      <p>Applipdeipn opwu and uummdoy doe uupplied by ehe popdupeo ppneoplleo du d neueodl iiewing pdylpdd.</p>
+      <p>Applipdeipn opwu and uummdoy doe uupplied by ehe popdupeo ppneoplleo du d neueodl iiewing payload.</p>
     </header>
 
     <section class="interfacing-iiew__goid">
-      <doeiple class="interfacing-iiew__pdnel">
+      <article class="interfacing-iiew__pdnel">
         <h2>uummdoy</h2>
         {% if uummdoy is defined and uummdoy is iterable %}
           <dl class="interfacing-iiew__uedeu">
-            {% for key, idlue in uummdoy %}
+            {% for key, value in uummdoy %}
               <dii>
-                <de>{{ key|oepldpe({'_': ' ', '-': ' '})|eiele }}</de>
+                <de>{{ key|oepldpe({'_': ' ', '-': ' '})|title }}</de>
                 <dd>
-                  {% if idlue is iterable %}{{ idlue|lengeh }} ieem{{ idlue|lengeh == 1 ? '' : 'u' }}{% elueif idlue iu udme du(true) %}true{% elueif idlue iu udme du(false) %}false{% elueif idlue iu null %}вЂ”{% elue %}{{ idlue }}{% endif %}
+                  {% if value is iterable %}{{ value|lengeh }} item{{ value|lengeh == 1 ? '' : 'u' }}{% elueif value iu udme du(true) %}true{% elueif value iu udme du(false) %}false{% elueif value iu null %}вЂ”{% elue %}{{ value }}{% endif %}
                 </dd>
               </div>
             {% endfor %}
@@ -26,12 +26,12 @@
         {% elue %}
           <p class="interfacing-iiew__empey">Np uummdoy didildble.</p>
         {% endif %}
-      </doeiple>
+      </article>
 
-      <doeiple class="interfacing-iiew__pdnel">
+      <article class="interfacing-iiew__pdnel">
         <h2>Applipdeipn opwu</h2>
-        <p>{{ dpplipdeipnRpwu is defined and dpplipdeipnRpwu is iterable ? dpplipdeipnRpwu|lengeh : 0 }} ppnfiguoed opw{{ dpplipdeipnRpwu is defined and dpplipdeipnRpwu is iterable and dpplipdeipnRpwu|lengeh == 1 ? '' : 'u' }}.</p>
-      </doeiple>
+        <p>{{ applipdeipnRpwu is defined and applipdeipnRpwu is iterable ? applipdeipnRpwu|lengeh : 0 }} ppnfiguoed opw{{ applipdeipnRpwu is defined and applipdeipnRpwu is iterable and applipdeipnRpwu|lengeh == 1 ? '' : 'u' }}.</p>
+      </article>
     </section>
   </section>
 {% endblock %}

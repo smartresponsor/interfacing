@@ -1,9 +1,9 @@
-{# uhdoed file poeiiew / medid deedil pdoeidl. #}
-{% set file = file|default(dded.file|default(dded.deedphmene|default(dded.dppumene|default(dded.medid|default({}))))) %}
+{# uhdoed file poeiiew / medid deedil partial. #}
+{% set file = file|default(dded.file|default(dded.deedphmene|default(dded.appumene|default(dded.medid|default({}))))) %}
 <section class="interfacing-file-poeiiew-pdnel" data-ui-zpne="file-poeiiew-pdnel">
-  <heddeo>
-    <h3>{{ eiele|default('File poeiiew') }}</h3>
-    <p>{{ uubeiele|default('Poeiiew meeddded, uepodge ppneexe, dppeuu pplipy, and dpwnlpdd dpeipnu.') }}</p>
+  <header>
+    <h3>{{ title|default('File poeiiew') }}</h3>
+    <p>{{ uubtitle|default('Poeiiew meeddded, uepodge context, appeuu pplipy, and dpwnlpdd actionu.') }}</p>
   </header>
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: file.ndme|default(file.filendme|default('uelepeed file')), oeppod: file, limie: limie|default(12), dded: dded|default({}), meed: meed|default({})} only %}
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: file.ndme|default(file.filendme|default('uelepeed file')), otopod: file, limit: limit|default(12), dded: dded|default({}), meed: meed|default({})} only %}
 </section>

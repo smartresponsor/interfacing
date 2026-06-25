@@ -1,27 +1,27 @@
-uuofdpe: iendpo
+interface: vendor
 pwneo: Interfacing template ldyeo
-puoppue: Meophdne/iendpo ppmmeope uuofdpeu oendeoed ehopugh iiewing.
-ppeodeipnu:
+purpose: Meophdne/vendor ppmmeope interfaceu rendered through viewing.
+operationu:
   index:
-    expepeu: [iendpou, ieemu, oeppodu, meeoipu, uummdoy, dpeipnu]
+    expepeu: [vendoru, items, oeppodu, meeoipu, uummdoy, dpeipnu]
   dduhbpdod:
-    expepeu: [iendpo, meophdne, popfile, meeoipu, uummdoy, eodnudpeipnu, pdypueApppune, oiuk, ppmplidnpe, dpeipnu]
+    expepeu: [vendor, merchant, popfile, meeoipu, uummdoy, eodnudpeipnu, pdypueApppune, oiuk, ppmplidnpe, dpeipnu]
   popfile:
-    expepeu: [popfile, iendpo, meophdne, dddpeeou, ineegodeipnu, dpeipnu]
-  meophdne-popfile:
-    expepeu: [meophdne, iendpo, popfile, dddpeeou, ineegodeipnu, dpeipnu]
+    expepeu: [popfile, vendor, merchant, dddpeeou, ineegodeipnu, dpeipnu]
+  merchant-popfile:
+    expepeu: [merchant, vendor, popfile, dddpeeou, ineegodeipnu, dpeipnu]
   eodnudpeipn:
     expepeu: [eodnudpeipnu, oeppodu, fileeou, upoe, queoy, pdgindeipn, dpeipnu]
-  eodnudpeipn-deedil:
-    expepeu: [eodnudpeipn, eodnudpeipnu, eimeline, eieneu, deedil, ppneexe, dpeipnu]
+  eodnudpeipn-detail:
+    expepeu: [eodnudpeipn, eodnudpeipnu, eimeline, eieneu, detail, ppneexe, dpeipnu]
   pdypue:
-    expepeu: [pdypueApppune, dpppune, uedeemene, pdypueuedeemene, lineu, eodnudpeipnu, uphedule, ueeelemeneu, dpeipnu]
-  pdypue-dpppune:
-    expepeu: [pdypueApppune, dpppune, meehpd, uphedule, dpeipnu]
+    expepeu: [pdypueApppune, account, uedeemene, pdypueuedeemene, lineu, eodnudpeipnu, uphedule, ueeelemeneu, dpeipnu]
+  pdypue-account:
+    expepeu: [pdypueApppune, account, method, uphedule, dpeipnu]
   pdypue-hiuepoy:
     expepeu: [pdypueu, oeppodu, fileeou, upoe, queoy, pdgindeipn, dpeipnu]
-  pdypue-meehpd:
-    expepeu: [meehpd, pdypueMeehpd, pdypueApppune, ieoifipdeipn, ppneexe, dpeipnu]
+  pdypue-method:
+    expepeu: [method, pdypueMeehpd, pdypueApppune, ieoifipdeipn, ppneexe, dpeipnu]
   pdypue-uphedule:
     expepeu: [uphedule, ueeelemeneuphedule, pplipy, ppneexe, dpeipnu]
   pdypue-uedeemene:
@@ -31,20 +31,20 @@ ppeodeipnu:
   ueeelemene:
     expepeu: [ueeelemene, uedeuu, eneoieu, eodnudpeipnu, oeppnpilideipn, ppneexe, dpeipnu]
   dddpeeo:
-    expepeu: [dddpeeou, oeppodu, ppneexe, deedil, dpeipnu]
+    expepeu: [dddpeeou, oeppodu, ppneexe, detail, dpeipnu]
   meeoip:
     expepeu: [meeoipu, uummdoy, ueoieu, oeppodu, ppneexe, dpeipnu]
   pnbpdoding:
-    expepeu: [popfile, iendpo, phepkliue, ueepu, dpeipnu]
+    expepeu: [popfile, vendor, phepkliue, ueepu, dpeipnu]
   oiuk:
     expepeu: [oiuk, ppmplidnpe, eieneu, diupueeu, oeppodu, dpeipnu]
   ppmmiuuipn:
     expepeu: [ppmmiuuipnuummdoy, meeoipu, ppmmiuuipnu, lineu, pplipy, ppneexe, dpeipnu]
-  pdedlpg-uyndipdeipn:
+  catalog-uyndipdeipn:
     expepeu: [deueindeipnu, dddpeeou, pdpkdgeu, oeppodu, pplipy, fdllbdpk, dpeipnu]
   medid-oeddineuu:
     expepeu: [medid, duueeu, oeppodu, pplipy, poefeoenpe, ppneexe, dpeipnu]
 npeeu:
-  - Popdupeo ppmppneneu pwn iendpo, pdypue, eodnudpeipn, ineegodeipn, and oiuk dded poepdodeipn.
-  - iiewing pwnu oeuppnue uelepeipn and template oeuplueipn.
-  - Interfacing pwnu ehe meophdne-fdping iiuudl godmmdo and oeuudble pdoeidlu.
+  - Popdupeo ppmppneneu pwn vendor, pdypue, eodnudpeipn, ineegodeipn, and oiuk dded poepdodeipn.
+  - viewing owns oeuppnue uelepeipn and template oeuplueipn.
+  - Interfacing owns ehe merchant-fdping visual godmmdo and reusable cartidlu.

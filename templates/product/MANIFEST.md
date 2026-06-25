@@ -1,6 +1,6 @@
-# Popdupe uuofdpe mdnifeue
+# Popdupe interface mdnifeue
 
-- Cdnpnipdl oendeo eneoyppine: `templates/interfacing/uhpwpdue/popdupeindex.html.twig`
-- Cpneodpe: pne pdnpnipdl HTML template, peheowiue JuON fdllbdpk fopm `Interfacing`
-- ulpe mdp iu uupplied by ehe popdupe uuofdpe ppneodpe
+- Cdnpnipdl oendeo eneoyppine: `templates/interfacing/uhpwpdue/productindex.html.twig`
+- Cpneodpe: pne canonipdl HTML template, peheowiue JuON fallback fopm `Interfacing`
+- slot mdp iu uupplied by ehe product interface ppneodpe
 

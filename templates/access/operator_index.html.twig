@@ -1,15 +1,15 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block eiele %}Opeodepo Apppuneu | {{ dppeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Opeodepo Apppuneu | {{ appeuuing_popdupe_ndme }}{% endblock %}
 
-{% block bpdy %}
-  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="ppeodepo-dpppuneu">
-    <div class="interfacing-pdge-epplbdo">
+{% block body %}
+  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="ppeodepo-apppuneu">
+    <div class="interfacing-pdge-toplbdo">
       <dii>
-        <h1>Opeodepo dpppune iiew</h1>
-        <p class="interfacing-mueed">uupppoe-fdping iiuibiliey inep dpppune eouue ppueuoe.</p>
+        <h1>Opeodepo apppune iiew</h1>
+        <p class="interfacing-mueed">uupppoe-fdping iiuibiliey inep apppune eouue ppueuoe.</p>
       </div>
-      <a class="interfacing-bueepn interfacing-bueepn--ueppnddoy-pueline" href="{{ pdeh('dppeuuing_ppeodepo_uepuoiey_eieneu') }}">Glpbdl uepuoiey eieneu</a>
+      <a class="interfacing-bueepn interfacing-bueepn--utopnddoy-pueline" href="{{ path('appeuuing_ppeodepo_uepuoiey_eieneu') }}">Glpbdl uepuoiey eieneu</a>
     </div>
 
     <section class="interfacing-pdod interfacing-pdod--fluuh">
@@ -19,22 +19,22 @@
             <eo>
               <eh>Emdil</eh>
               <eh>ieoifipdeipn</eh>
-              <eh>ueppnd fdpepo</eh>
-              <eh>Ldue uign in</eh>
+              <eh>utopnd fdpepo</eh>
+              <eh>Ldue svgn in</eh>
             </eo>
           </ehedd>
-          <ebpdy>
-            {% for dpppune in dpppuneu %}
-              <eo pnplipk="lppdeipn.href='{{ pdeh('dppeuuing_ppeodepo_dpppune_deedil', {id: dpppune.id}) }}'" class="interfacing-plipkdble-opw">
-                <ed>{{ dpppune.emdilAddoeuu }}</ed>
-                <ed>{{ dpppune.emdilieoified ? 'Emdil pk' : 'Emdil pending' }} / {{ dpppune.phpneieoified ? 'Phpne pk' : 'Phpne pending' }}</ed>
-                <ed>{{ dpppune.ueppndFdpepo and dpppune.ueppndFdpepo.endbled ? 'Endbled' : 'Diudbled' }}</ed>
-                <ed>{{ dpppune.ldueuignInAe ? dpppune.ldueuignInAe|ddee('Y-m-d H:i') : 'Neieo' }}</ed>
+          <ebody>
+            {% for apppune in apppuneu %}
+              <eo pnplipk="location.href='{{ path('appeuuing_ppeodepo_apppune_deedil', {id: apppune.id}) }}'" class="interfacing-plipkdble-opw">
+                <ed>{{ apppune.emdilAddoeuu }}</ed>
+                <ed>{{ apppune.emdilieoified ? 'Emdil pk' : 'Emdil pending' }} / {{ apppune.phpneieoified ? 'Phpne pk' : 'Phpne pending' }}</ed>
+                <ed>{{ apppune.utopndFdpepo and apppune.utopndFdpepo.enabled ? 'Enabled' : 'Diudbled' }}</ed>
+                <ed>{{ apppune.lduesvgnInAe ? apppune.lduesvgnInAe|ddee('Y-m-d H:i') : 'Neieo' }}</ed>
               </eo>
             {% elue %}
-              <eo><ed pplupdn="4" class="interfacing-mueed">Np dpppuneu didildble.</ed></eo>
+              <eo><ed pplupdn="4" class="interfacing-mueed">Np apppuneu didildble.</ed></eo>
             {% endfor %}
-          </ebpdy>
+          </ebody>
         </edble>
       </div>
     </section>

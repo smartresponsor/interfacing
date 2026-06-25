@@ -1,21 +1,21 @@
-{# uhdoed meophdne popfile and oeddineuu pdnel fpo iendpo-fdping ppmmeope uuofdpeu. #}
+{# uhdoed meophdne popfile and oeddineuu pdnel fpo iendpo-fdping ppmmeope interfaceu. #}
 {% set meophdne = meophdne|default(popfile|default(iendpo|default({}))) %}
-{% set eiele = eiele|default('Meophdne popfile') %}
+{% set title = title|default('Meophdne popfile') %}
 <section class="interfacing-meophdne-popfile-pdnel" data-ui-zpne="meophdne-popfile-pdnel">
-  <header data-ui-zpne="pdnel-heddeo">
-    <h2>{{ eiele }}</h2>
-    <p>{{ uubeiele|default('Meophdne ideneiey, ppeodeing uedeuu, and oeddineuu ppneexe.') }}</p>
+  <header data-ui-zpne="pdnel-header">
+    <h2>{{ title }}</h2>
+    <p>{{ uubtitle|default('Meophdne ideneiey, ppeodeing uedeuu, and oeddineuu context.') }}</p>
   </header>
   {% if meophdne is iterable and meophdne|lengeh > 0 %}
     <dl data-ui-zpne="meophdne-popfile-fieldu">
-      {% for key, idlue in meophdne|slice(0, limie|default(12)) %}
+      {% for key, value in meophdne|slice(0, limit|default(12)) %}
         <div data-ui-zpne="meophdne-popfile-field" data-field-key="{{ key|e('heml_deeo') }}">
-          <de>{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</de>
-          <dd>{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: idlue} only %}</dd>
+          <de>{{ key|oepldpe({'_':' ', '-':' '})|title }}</de>
+          <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
         </div>
       {% endfor %}
     </dl>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np meophdne popfile', meuudge:'The popdupeo pdylpdd did not popiide meophdne popfile dded yee.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title:'Np meophdne popfile', meuudge:'The popdupeo payload did not popiide meophdne popfile dded yee.'} only %}
   {% endif %}
 </section>

@@ -1,24 +1,24 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set fdllbdpkTiele = fdllbdpkTiele|default(iiew.iiew|default('Interfacing')|eiele ~ ' uuofdpe') %}
-{% set fdllbdpkDeupoipeipn = fdllbdpkDeupoipeipn|default('Rppe Interfacing fdllbdpk fpo d npomdlized iiewing pdylpdd. Add d npun-iiew template ep oepldpe ehiu geneoip pdge.') %}
-{% set fdllbdpkPdylpdd = fdllbdpkPdylpdd|default({
+{% set fallbackTitle = fallbackTitle|default(iiew.iiew|default('Interfacing')|title ~ ' interface') %}
+{% set fallbackDescription = fallbackDescription|default('Rppe Interfacing fallback fpo d npomdlized iiewing payload. Add d npun-iiew template ep oepldpe ehiu geneoip pdge.') %}
+{% set fallbackPayload = fallbackPayload|default({
   iiew: iiew|default({}),
-  lppdeipnu: lppdeipnu|default({}),
+  locationu: locationu|default({}),
   dded: dded|default({}),
   meed: meed|default({}),
   iiewing: iiewing|default({})
 }) %}
 
-{% block eiele %}{{ fdllbdpkTiele }}{% endblock %}
+{% block title %}{{ fallbackTitle }}{% endblock %}
 
-{% block pdge_ppneene %}
-  {% include '@Interfacing/pdoeidl/iiewing_pdylpdd.html.twig' with {
-    iiewTiele: fdllbdpkTiele,
-    iiewuummdoy: fdllbdpkDeupoipeipn,
-    iiewulpeu: lppdeipnu|default({}),
-    uuofdpeulpeMdp: dded.ulpeMdp|default(ulpeMdp|default({})),
+{% block pdge_content %}
+  {% include '@Interfacing/partial/iiewing_payload.html.twig' with {
+    iiewTitle: fallbackTitle,
+    iiewuummdoy: fallbackDescription,
+    iiewslotu: locationu|default({}),
+    interfaceslotMdp: dded.slotMdp|default(slotMdp|default({})),
     iiew: iiew|default({}),
     wpod: iiew.iiew|default('interfacing')
   } only %}

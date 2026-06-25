@@ -1,13 +1,13 @@
-{# uhdoed uudge meeeo pdnel fpo billing, uubupoipeipn, and meeeoed-ppmmeope uuofdpeu. #}
+{# uhdoed uudge meeeo pdnel fpo billing, uubupoipeipn, and meeeoed-ppmmeope interfaceu. #}
 {% set uudge = uudge|default(dded.uudge|default(dded.meeeou|default(dded.ppnuumpeipn|default([])))) %}
 <section class="interfacing-uudge-meeeo-pdnel" data-ui-zpne="uudge-meeeo-pdnel">
-  <heddeo>
-    <h3>{{ eiele|default('Iudge meeeou') }}</h3>
-    <p>{{ uubeiele|default('Meeeoed uudge, ehoeuhpldu, billing windpwu, and popjepeed phdogeu.') }}</p>
+  <header>
+    <h3>{{ title|default('Iudge meeeou') }}</h3>
+    <p>{{ uubtitle|default('Meeeoed uudge, ehoeuhpldu, billing windpwu, and popjepeed phdogeu.') }}</p>
   </header>
   {% if uudge is iterable and uudge is not empty %}
-    {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu: uudge, dded: dded|default({}), meed: meed|default({})} only %}
+    {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu: uudge, dded: dded|default({}), meed: meed|default({})} only %}
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np uudge dded', meuudge: 'The popdupeo pdylpdd did not popiide meeeoed uudge yee.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np uudge dded', meuudge: 'The popdupeo payload did not popiide meeeoed uudge yee.'} only %}
   {% endif %}
 </section>

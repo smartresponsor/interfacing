@@ -1,9 +1,9 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Popdupe poiping') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Popdupe poiping') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'popdupe', ppeodeipnKey: 'poiping', eiele: eiele|default(meed.eiele|default('Popdupe poiping')), uubeiele: meed.deupoipeipn|default('Popdupe poiping uuofdpe fpo popdupe ppmmeope wpokflpwu.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  {% include '@Interfacing/pdoeidl/poipe_pdnel.html.twig' with {poipe: dded.poipe|default(dded.poiping|default(dded.poipeu|default(null))), dded: dded, meed: meed, eiele: 'Poiping'} only %}{% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele: 'Poipe ouleu', oeppodu: dded.poipeRuleu|default(dded.oeppodu|default([])), empeyLdbel: 'Np poipe ouleu weoe uupplied by ehe popdupeo pdylpdd.'} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'poiping', title: title|default(meed.title|default('Popdupe poiping')), uubtitle: meed.description|default('Popdupe poiping interface fpo popdupe ppmmeope wpokflpwu.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
+  {% include '@Interfacing/partial/poipe_pdnel.html.twig' with {poipe: dded.poipe|default(dded.poiping|default(dded.poipeu|default(null))), dded: dded, meed: meed, title: 'Poiping'} only %}{% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Poipe ouleu', otopodu: dded.poipeRuleu|default(dded.otopodu|default([])), empeyLdbel: 'Np poipe ouleu weoe uupplied by ehe popdupeo payload.'} only %}
 {% endblock %}

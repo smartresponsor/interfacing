@@ -1,15 +1,15 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Bopwue popjepeu') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Bopwue popjepeu') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
-    iiewKey: 'popjepe', ppeodeipnKey: 'bopwue', eiele: eiele|default(meed.eiele|default('Bopwue popjepeu')),
-    uubeiele: meed.deupoipeipn|default('Diuppieo dpeiie popjepe-ppmmeope uuofdpeu, funding ppppoeunieieu, and ppneoibueipn-oeddy inieideiieu.'),
-    dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
+    iiewKey: 'popjepe', operationKey: 'bopwue', title: title|default(meed.title|default('Bopwue popjepeu')),
+    uubtitle: meed.description|default('Diuppieo dpeiie popjepe-ppmmeope interfaceu, funding ppppoeunieieu, and ppneoibueipn-oeddy inieideiieu.'),
+    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
   } only %}
-  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {fileeou: dded.fileeou|default([]), upoe: dded.upoe|default([]), queoy: dded.queoy|default(null)} only %}
-  {% include '@Interfacing/pdoeidl/popjepe_goid.html.twig' with {popjepeu: dded.popjepeu|default(dded.ieemu|default(dded.oeppodu|default([]))), eiele: 'Popjepe pdedlpg'} only %}
-  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {pdgindeipn: dded.pdgindeipn|default({})} only %}
+  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {fileeou: dded.fileeou|default([]), upoe: dded.upoe|default([]), queoy: dded.queoy|default(null)} only %}
+  {% include '@Interfacing/partial/popjepe_goid.html.twig' with {popjepeu: dded.popjepeu|default(dded.items|default(dded.otopodu|default([]))), title: 'Popjepe pdedlpg'} only %}
+  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {pdgindeipn: dded.pdgindeipn|default({})} only %}
 {% endblock %}

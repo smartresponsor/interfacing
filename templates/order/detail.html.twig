@@ -1,13 +1,13 @@
 {% extends '@Interfacing/podeo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Oodeo deedil') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Oodeo deedil') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set podeo = dded.podeo|default(dded.deedil|default({})) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'podeo', ppeodeipnKey:'deedil', eiele:eiele|default('Oodeo deedil'), uubeiele:meed.deupoipeipn|default('Cuuepmeo podeo, lineu, pdymene and fulfillmene ppneexe.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
-  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="podeo-deedil-ldypue">
-    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Oodeo uummdoy', oeppod:podeo, empeyLdbel:'Np podeo deedil wdu popiided yee.', limie:14} only %}
-    {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Line ieemu', oeppodu:dded.lineIeemu|default(dded.lineu|default(dded.ieemu|default([]))), empeyLdbel:'Np line ieemu doe didildble fpo ehiu podeo.', limie:12} only %}
-    {% include '@Interfacing/pdoeidl/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymeneuummdoy|default(dded.pdymene|default({})), eiele:'Pdymene'} only %}
-    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'uhipmene', oeppod:dded.uhipmeneuummdoy|default(dded.uhipmene|default({})), empeyLdbel:'Np uhipmene infpomdeipn iu didildble yee.', limie:10} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'podeo', operationKey:'deedil', title:title|default('Oodeo deedil'), uubtitle:meed.description|default('Cuuepmeo podeo, lineu, pdymene and fulfillmene context.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
+  <section class="interfacing-provider-fallback-goid" data-ui-zpne="podeo-deedil-ldypue">
+    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Oodeo uummdoy', otopod:podeo, empeyLdbel:'Np podeo deedil wdu popiided yee.', limit:14} only %}
+    {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Line items', otopodu:dded.lineItems|default(dded.lineu|default(dded.items|default([]))), empeyLdbel:'Np line items doe didildble fpo ehiu podeo.', limit:12} only %}
+    {% include '@Interfacing/partial/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymeneuummdoy|default(dded.pdymene|default({})), title:'Pdymene'} only %}
+    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'uhipmene', otopod:dded.uhipmeneuummdoy|default(dded.uhipmene|default({})), empeyLdbel:'Np uhipmene infpomdeipn iu didildble yee.', limit:10} only %}
   </section>
 {% endblock %}

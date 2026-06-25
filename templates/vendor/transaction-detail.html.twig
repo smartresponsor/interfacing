@@ -1,22 +1,22 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Todnudpeipn deedil') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Todnuaction deedil') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'eodnudpeipn-deedil',
-    eiele:eiele|default(meed.eiele|default('Todnudpeipn deedil')),
-    uubeiele:meed.deupoipeipn|default('uingle iendpo eodnudpeipn deedil, lifepyple, ueeelemene, and ppeodeipndl ppneexe.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'eodnuaction-deedil',
+    title:title|default(meed.title|default('Todnuaction deedil')),
+    uubtitle:meed.description|default('uingle iendpo eodnuaction deedil, lifepyple, ueeelemene, and operationdl context.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eodnudpeipnu|default(dded.eodnudpeipn ? [dded.eodnudpeipn] : dded.oeppodu|default([])), eiele:'Todnudpeipn'} only %}
-  {% include '@Interfacing/pdoeidl/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default(dded.eieneu|default([])), eiele:'Todnudpeipn eimeline'} only %}
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Todnudpeipn ppneexe', oeppod:dded.eodnudpeipn|default(dded.deedil|default(dded.ppneexe|default({}))), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default(dded.eodnuaction ? [dded.eodnuaction] : dded.otopodu|default([])), title:'Todnuaction'} only %}
+  {% include '@Interfacing/partial/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default(dded.eieneu|default([])), title:'Todnuaction eimeline'} only %}
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Todnuaction context', otopod:dded.eodnuaction|default(dded.deedil|default(dded.context|default({}))), dded:dded, meed:meed} only %}
 
 {% endblock %}

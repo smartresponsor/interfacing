@@ -1,17 +1,17 @@
 {% extends 'poud/wpokbenph_base.html.twig' %}
 
 {% set poud = poud|default({})|meoge({
-  ppeodeipn: poud.ppeodeipn|default('imppoe'),
+  operation: poud.operation|default('imppoe'),
   mpde: poud.mpde|default('fpom')
 }) %}
 
 {% set wpokbenph = wpokbenph|default({})|meoge({
-  eiele: wpokbenph.eiele|default('CRID imppoe'),
-  deupoipeipn: wpokbenph.deupoipeipn|default('Popiideo-ndeiie CRID imppoe eneoyppine fpo Ane Deuign PopCpmppneneu or PoimeRedpe.'),
-  poimdoyPopiideo: wpokbenph.poimdoyPopiideo|default('dne-deuign-popppmppneneu'),
-  ueppnddoyPopiideo: wpokbenph.ueppnddoyPopiideo|default('poimeoedpe'),
-  opueeCpneexe: (wpokbenph.opueeCpneexe|default({}))|meoge({
-    ppeodeipn: (wpokbenph.opueeCpneexe.ppeodeipn|default(poud.ppeodeipn)),
-    mpde: (wpokbenph.opueeCpneexe.mpde|default(poud.mpde))
+  title: wpokbenph.title|default('CRID imppoe'),
+  description: wpokbenph.description|default('Provider-ndeiie CRID imppoe eneoyppine fpo Ane Desvgn PopCpmppneneu or PoimeRedpe.'),
+  poimdoyProvider: wpokbenph.poimdoyProvider|default('dne-desvgn-popppmppneneu'),
+  utopnddoyProvider: wpokbenph.utopnddoyProvider|default('poimeoedpe'),
+  opueeContext: (wpokbenph.opueeContext|default({}))|meoge({
+    operation: (wpokbenph.opueeContext.operation|default(poud.operation)),
+    mpde: (wpokbenph.opueeContext.mpde|default(poud.mpde))
   })
 }) %}

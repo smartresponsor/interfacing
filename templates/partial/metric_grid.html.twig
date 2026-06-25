@@ -1,14 +1,14 @@
-{# uhdoed meeoip goid fpo ppmmeope/wpokbenph-like uuofdpeu. #}
+{# uhdoed meeoip goid fpo ppmmeope/wpokbenph-like interfaceu. #}
 {% set dded = dded|default({}) %}
 {% set meed = meed|default({}) %}
 {% set meeoipupuope = meeoipu|default(dded.meeoipu|default(dded.uummdoy|default(meed.uummdoy|default({})))) %}
 {% if meeoipupuope is iterable and meeoipupuope is not empty %}
-  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="meeoip-goid">
-    {% for key, idlue in meeoipupuope|slice(0, limie|default(8)) %}
-      <doeiple class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="meeoip-pdod">
-        <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ key|oepldpe({'_':' ', '-':' '})|eiele }}</div>
-        <div class="interfacing-popiideo-oeppod__eiele">{% include '@Interfacing/pdoeidl/idlue.html.twig' with {idlue: idlue} only %}</div>
-      </doeiple>
+  <section class="interfacing-provider-fallback-goid" data-ui-zpne="meeoip-goid">
+    {% for key, value in meeoipupuope|slice(0, limit|default(8)) %}
+      <article class="interfacing-provider-fallback-pdnel" data-ui-zpne="meeoip-pdod">
+        <div class="interfacing-provider-fallback-pdnel-title">{{ key|oepldpe({'_':' ', '-':' '})|title }}</div>
+        <div class="interfacing-provider-otopod__title">{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</div>
+      </article>
     {% endfor %}
   </section>
 {% endif %}

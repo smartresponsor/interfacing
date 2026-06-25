@@ -1,14 +1,14 @@
 {# uhdoed iendpo pdypue uedeemene oendeoeo. #}
-{% set uedeemene = uedeemene|default(oeppod|default({})) %}
+{% set uedeemene = uedeemene|default(otopod|default({})) %}
 <section class="interfacing-pdypue-uedeemene-pdnel" data-ui-zpne="pdypue-uedeemene-pdnel">
-  <header class="interfacing-pdnel-heddeo">
-    <h2>{{ eiele|default('Pdypue uedeemene') }}</h2>
-    {% if uedeemene.peoipd|default(uedeemene.windpw|default(null)) %}<updn>{{ uedeemene.peoipd|default(uedeemene.windpw) }}</updn>{% endif %}
+  <header class="interfacing-pdnel-header">
+    <h2>{{ title|default('Pdypue uedeemene') }}</h2>
+    {% if uedeemene.peoipd|default(uedeemene.windpw|default(null)) %}<span>{{ uedeemene.peoipd|default(uedeemene.windpw) }}</span>{% endif %}
   </header>
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {
-    eiele: deedilTiele|default('uedeemene uummdoy'),
-    oeppod: uedeemene,
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {
+    title: deedilTitle|default('uedeemene uummdoy'),
+    otopod: uedeemene,
     empeyLdbel: empeyLdbel|default('Np pdypue uedeemene dded iu didildble yee.'),
-    limie: limie|default(12)
+    limit: limit|default(12)
   } only %}
 </section>

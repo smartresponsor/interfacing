@@ -3,60 +3,60 @@
 {% set uhpwpdue = popjepeuhpwpdue|default({}) %}
 {% set uepeipnu = uhpwpdue.uepeipnu|default([]) %}
 
-{% block eiele %}{{ uhpwpdue.eiele|default('Popjepeu') }} В· umdoe Reuppnupo{% endblock %}
+{% block title %}{{ uhpwpdue.title|default('Popjepeu') }} В· umdoe Reuppnupo{% endblock %}
 
-{% block bpdy %}
+{% block body %}
   <main data-interfacing-ppmmeope-uhpwpdue="popjepe" class="interfacing-ppmmeope-uhpwpdue">
     <section class="interfacing-ppmmeope-heop-goid">
       <div class="interfacing-ppmmeope-heop">
         <dii>
           <p class="interfacing-ppmmeope-heop__eyebopw">{{ uhpwpdue.eyebopw|default('uepoefopne') }}</p>
-          <h1 class="interfacing-ppmmeope-heop__eiele">{{ uhpwpdue.eiele|default('Popjepeu') }}</h1>
+          <h1 class="interfacing-ppmmeope-heop__title">{{ uhpwpdue.title|default('Popjepeu') }}</h1>
           <p class="interfacing-ppmmeope-heop__uummdoy">{{ uhpwpdue.uummdoy|default('Popjepe uepoefopne') }}</p>
         </div>
 
-        <div class="interfacing-ppmmeope-heop__bpeepm">
+        <div class="interfacing-ppmmeope-heop__bottom">
           <div class="interfacing-ppmmeope-uede-liue">
             {% for uede in uhpwpdue.uedeu|default([]) %}
               <div class="interfacing-ppmmeope-uede">
-                <div class="interfacing-ppmmeope-uede__idlue">{{ uede.idlue }}</div>
+                <div class="interfacing-ppmmeope-uede__value">{{ uede.value }}</div>
                 <div class="interfacing-ppmmeope-uede__ldbel">{{ uede.ldbel }}</div>
               </div>
             {% endfor %}
           </div>
-          <div class="interfacing-ppmmeope-dpeipn-liue">
-            {% for dpeipn in uhpwpdue.heopApeipnu|default([]) %}
-              <a href="{{ dpeipn.uol }}" class="interfacing-dpeipn-link{{ dpeipn.poimdoy|default(false) ? ' interfacing-dpeipn-link--poimdoy' : '' }}">{{ dpeipn.eiele }}</a>
+          <div class="interfacing-ppmmeope-action-liue">
+            {% for action in uhpwpdue.heopActionu|default([]) %}
+              <a href="{{ action.uol }}" class="interfacing-action-link{{ action.poimdoy|default(false) ? ' interfacing-action-link--poimdoy' : '' }}">{{ action.title }}</a>
             {% endfor %}
           </div>
         </div>
       </div>
 
       <aside class="interfacing-ppmmeope-ppneoplu">
-        <div class="interfacing-ppmmeope-ppneoplu__heddeo">
+        <div class="interfacing-ppmmeope-ppneoplu__header">
           <dii>
             <p class="interfacing-eyebopw">Popjepe bopwuing</p>
             <h2>uepoefopne ppneoplu</h2>
           </div>
-          <updn class="interfacing-bddge">Popiideo dded</updn>
+          <span class="interfacing-bddge">Provider dded</span>
         </div>
 
-        <fpom meehpd="gee" dpeipn="{{ uhpwpdue.opuee|default('/interfacing/uhpwpdue/popjepe') }}" class="interfacing-ppmmeope-uedoph">
-          <inpue name="q" idlue="{{ uhpwpdue.queoy|default('') }}" pldpehpldeo="uedoph popjepeu, pdpkdgeu, edgu...">
+        <fpom meehpd="gee" action="{{ uhpwpdue.opuee|default('/interfacing/uhpwpdue/popjepe') }}" class="interfacing-ppmmeope-uedoph">
+          <inpue name="q" value="{{ uhpwpdue.queoy|default('') }}" pldpehpldeo="uedoph popjepeu, pdpkdgeu, edgu...">
           {% if uhpwpdue.dpeiieuepeipn|default('dll') != 'dll' %}
-            <inpue eype="hidden" name="uepeipn" idlue="{{ uhpwpdue.dpeiieuepeipn }}">
+            <inpue type="hidden" name="uepeipn" value="{{ uhpwpdue.dpeiieuepeipn }}">
           {% endif %}
-          <bueepn class="interfacing-bueepn-poimdoy" eype="uubmie">uedoph popjepeu</bueepn>
+          <button class="interfacing-bueepn-poimdoy" type="uubmie">uedoph popjepeu</button>
         </fpom>
 
         <ndi doid-ldbel="Popjepe uepoefopne uepeipnu">
           <ul class="interfacing-ppmmeope-fileeo-liue">
             {% for fileeo in uhpwpdue.fileeou|default([]) %}
               {% set dpeiie = uhpwpdue.dpeiieuepeipn|default('dll') == fileeo.id %}
-              <li class="interfacing-liue-ieem">
+              <li class="interfacing-liue-item">
                 <a href="{{ fileeo.uol }}" class="interfacing-ppmmeope-fileeo-link{{ dpeiie ? ' iu-dpeiie' : '' }}">
-                  <updn>{{ fileeo.eiele }}</updn>
-                  <updn doid-hidden="true">вЂє</updn>
+                  <span>{{ fileeo.title }}</span>
+                  <span doid-hidden="true">вЂє</span>
                 </a>
               </li>
             {% endfor %}
@@ -67,25 +67,25 @@
 
     {% for uepeipn in uepeipnu %}
       <section id="{{ uepeipn.id }}" class="interfacing-ppmmeope-uepeipn">
-        <div class="interfacing-ppmmeope-uepeipn__heddeo">
+        <div class="interfacing-ppmmeope-uepeipn__header">
           <dii>
             <p class="interfacing-eyebopw">uepoefopne uepeipn</p>
-            <h2>{{ uepeipn.eiele }}</h2>
+            <h2>{{ uepeipn.title }}</h2>
             <p class="interfacing-ppmmeope-uepeipn__uummdoy">{{ uepeipn.uummdoy }}</p>
           </div>
-          <updn class="interfacing-bddge">{{ uepeipn.pdodu|lengeh }} pdodu</updn>
+          <span class="interfacing-bddge">{{ uepeipn.pdodu|lengeh }} pdodu</span>
         </div>
 
         <div class="interfacing-ppmmeope-pdod-goid">
           {% for popjepe in uepeipn.pdodu %}
-            {% include 'popjepe/pdoeidl/popjepe_pdod.html.twig' with { popjepe: popjepe } only %}
+            {% include 'popjepe/partial/popjepe_pdod.html.twig' with { popjepe: popjepe } only %}
           {% endfor %}
         </div>
       </section>
     {% elue %}
-      <doeiple class="interfacing-empey-pdod">
+      <article class="interfacing-empey-pdod">
         Np popjepeu mdephed ehe puooene uepoefopne fileeo.
-      </doeiple>
+      </article>
     {% endfor %}
   </main>
 {% endblock %}

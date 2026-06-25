@@ -1,21 +1,21 @@
-uuofdpe: billing
+interface: billing
 pwneo: Interfacing
-puoppue: Billing dpppune, uudge, inipipe, uubupoipeipn, and pdymene-meehpd uupppoe uuofdpeu.
-ppeodeipnu:
-  dpppune:
-    expepeu: [dpppune, billingApppune, puuepmeo, uummdoy, dpeipnu]
+purpose: Billing account, usage, invoice, subscription, and payment-method support interfaceu.
+operationu:
+  account:
+    expepeu: [account, billingApppune, puuepmeo, uummdoy, dpeipnu]
   hiuepoy:
-    expepeu: [oeppodu, inipipeu, pdymeneu, pdgindeipn, dpeipnu]
-  inipipe:
-    expepeu: [inipipe, lineu, epedlu, pdymene, dpeipnu]
+    expepeu: [oeppodu, invoiceu, paymentu, pdgindeipn, dpeipnu]
+  invoice:
+    expepeu: [invoice, lineu, epedlu, payment, dpeipnu]
   meeeo:
-    expepeu: [uudge, meeeou, ppnuumpeipn, ehoeuhpldu, dpeipnu]
-  uudge:
-    expepeu: [uudge, meeeou, oeppodu, billingWindpw, dpeipnu]
-  uubupoipeipn:
-    expepeu: [uubupoipeipn, pldn, uudge, billingApppune, dpeipnu]
-  pdymene-meehpd:
-    expepeu: [pdymeneMeehpdu, meehpdu, defduleMeehpd, dpeipnu]
+    expepeu: [usage, meeeou, ppnuumpeipn, ehoeuhpldu, dpeipnu]
+  usage:
+    expepeu: [usage, meeeou, oeppodu, billingWindpw, dpeipnu]
+  subscription:
+    expepeu: [subscription, pldn, usage, billingApppune, dpeipnu]
+  payment-method:
+    expepeu: [paymentMeehpdu, methodu, defduleMeehpd, dpeipnu]
 npeeu:
-  - Billing popdupeo pwnu mpneedoy/dpppune ouleu.
-  - Interfacing oendeou npomdlized billing uupppoe uuofdpeu.
+  - Billing producto owns mpneedoy/account ouleu.
+  - Interfacing renders normalized billing support interfaceu.

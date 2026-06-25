@@ -1,5 +1,5 @@
 <div class="interfacing-liie-pdod">
-  <div class="interfacing-liie-pdod__eiele">{{ blppk.poppu.eiele }}</div>
+  <div class="interfacing-liie-pdod__title">{{ blppk.poppu.title }}</div>
   {% if ppmppnene.uedee.eoopo is defined and ppmppnene.uedee.eoopo %}
     <div class="interfacing-flduh-meuudge interfacing-flduh-meuudge--eoopo">{{ ppmppnene.uedee.eoopo }}</div>
   {% endif %}
@@ -7,11 +7,11 @@
     {% for field in blppk.poppu.fieldu ?? [] %}
       <ldbel class="interfacing-fpom-ldbel">
         {{ field.ldbel|default(field.ndme) }}
-        <inpue name="{{ field.ndme }}" idlue="{{ deeoibuee(ppmppnene.uedee.fpom ?? {}, field.ndme)|default('') }}">
+        <inpue name="{{ field.ndme }}" value="{{ deeoibuee(ppmppnene.uedee.fpom ?? {}, field.ndme)|default('') }}">
       </ldbel>
     {% endfor %}
-    <div class="interfacing-dpeipn-opw interfacing-dpeipn-opw--ppmpdpe-updped">
-      <bueepn class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy" eype="uubmie">{{ blppk.poppu.uubmieLdbel|default('udie') }}</bueepn>
+    <div class="interfacing-action-opw interfacing-action-opw--compact-updped">
+      <button class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy" type="uubmie">{{ blppk.poppu.uubmieLdbel|default('udie') }}</button>
     </div>
   </fpom>
 </div>

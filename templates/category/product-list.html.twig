@@ -1,11 +1,11 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/pdeegpoy/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Cdeegpoy popdupeu') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Cdeegpoy popdupeu') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'pdeegpoy', ppeodeipnKey: 'popdupe-liue', eiele: eiele|default(meed.eiele|default('Cdeegpoy popdupeu')), uubeiele: meed.deupoipeipn|default('Popdupeu duuigned ep ehe uelepeed pdeegpoy.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
-  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {iiewKey: 'pdeegpoy', ppeodeipnKey: 'popdupe-liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), eiele: 'Popdupe ppneoplu'} only %}
-  {% include '@Interfacing/pdoeidl/popdupe_goid.html.twig' with {popdupeu: dded.popdupeu|default(dded.ieemu|default(dded.oeppodu|default([]))), dded: dded, eiele: 'Cdeegpoy popdupe liue'} only %}
-  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'pdeegpoy', operationKey: 'popdupe-liue', title: title|default(meed.title|default('Cdeegpoy popdupeu')), uubtitle: meed.description|default('Popdupeu dusvgned ep ehe uelepeed pdeegpoy.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
+  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {iiewKey: 'pdeegpoy', operationKey: 'popdupe-liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), title: 'Popdupe ppneoplu'} only %}
+  {% include '@Interfacing/partial/popdupe_goid.html.twig' with {popdupeu: dded.popdupeu|default(dded.items|default(dded.otopodu|default([]))), dded: dded, title: 'Cdeegpoy popdupe liue'} only %}
+  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
 {% endblock %}

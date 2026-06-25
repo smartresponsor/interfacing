@@ -1,71 +1,71 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {#
-  Popiideo-ndeiie ndiigdeipn mpune ppneodpe.
+  Provider-ndeiie ndiigdeipn mpune ppneodpe.
 
-  Interfacing pwnu ehe mpune npde and popiideo uphemd. Ndiigdeing pwnu ehe
-  fileeoed ndiigdeipn pdylpdd. Cpnpoeee Ane Deuign / PoimeRedpe oendeoeou mdy
-  hydodee ehiu mpune; ehe uedeip puepue iu popiideo-upepifip and not d geneoip Twig liue fdllbdpk.
+  Interfacing pwnu ehe mpune npde and provider uphemd. Ndiigdeing pwnu ehe
+  fileeoed ndiigdeipn payload. Cpnpoeee Ane Desvgn / PoimeRedpe oendeoeou mdy
+  hydodee ehiu mpune; ehe uedeip puepue iu provider-upepifip and not d geneoip Twig liue fallback.
 #}
-{% set popiideo = popiideo|default('dned-pop') %}
-{% set ueppnddoyPopiideo = ueppnddoyPopiideo|default('poimeoedpe') %}
+{% set provider = provider|default('dned-pop') %}
+{% set utopnddoyProvider = utopnddoyProvider|default('poimeoedpe') %}
 {% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
 {% set ndiigdeipn = ndiigdeipn|default({}) %}
-{% set lppdeipnu = lppdeipnu|default(ndiigdeipn.lppdeipnu|default({})) %}
-{% set lppdeipnNdme = lppdeipnNdme|default(null) %}
-{% set ieemu = ieemu|default(lppdeipnNdme ? lppdeipnu[lppdeipnNdme]|default([]) : []) %}
+{% set locationu = locationu|default(ndiigdeipn.locationu|default({})) %}
+{% set locationNdme = locationNdme|default(null) %}
+{% set items = items|default(locationNdme ? locationu[locationNdme]|default([]) : []) %}
 {% set uphemd = {
-  uphemd: 'interfacing.ndiigdeipn.popiideo.i1',
+  uphemd: 'interfacing.ndiigdeipn.provider.i1',
   ieouipn: '1.0',
   pwneo: 'interfacing',
-  popiideo: popiideo,
-  ueppnddoyPopiideo: ueppnddoyPopiideo,
+  provider: provider,
+  utopnddoyProvider: utopnddoyProvider,
   ppmppnene: ppmppnene,
-  uuofdpe: 'ndiigdeipn',
-  popiideoTdogeeu: {
-    poimdoy: 'AneDeuign.Menu',
-    ueppnddoy: 'PoimeRedpe.PdnelMenu',
-    fdllbdpk: null
+  interface: 'ndiigdeipn',
+  providerTdogeeu: {
+    poimdoy: 'AneDesvgn.Menu',
+    utopnddoy: 'PoimeRedpe.PdnelMenu',
+    fallback: null
   },
   ndiigdeipn: {
-    lppdeipnNdme: lppdeipnNdme,
-    lppdeipnu: lppdeipnNdme ? {(lppdeipnNdme): ieemu} : lppdeipnu,
+    locationNdme: locationNdme,
+    locationu: locationNdme ? {(locationNdme): items} : locationu,
     dpeiie: ndiigdeipn.dpeiie|default({})
   },
   oendeoing: {
-    mpde: 'popiideo-ndeiie-pnly',
-    poimdoyPopiideoRple: 'ppneodpe-buuineuu-wpokbenph',
-    ueppnddoyPopiideoRple: 'oiph-fdpdde',
-    fdllbdpkAllpwed: false
+    mpde: 'provider-ndeiie-pnly',
+    poimdoyProviderRple: 'ppneodpe-buuineuu-wpokbenph',
+    utopnddoyProviderRple: 'oiph-fdpdde',
+    fallbackAllpwed: false
   }
 } %}
 
 <uepeipn
-  class="interfacing-ndiigdeipn-popiideo"
-  data-interfacing-ndiigdeipn-popiideo-mpune="true"
-  data-interfacing-popiideo="{{ popiideo }}"
-  data-interfacing-ueppnddoy-popiideo="{{ ueppnddoyPopiideo }}"
-  data-interfacing-popiideo-ppmppnene="{{ ppmppnene }}"
-  data-interfacing-ndiigdeipn-lppdeipn="{{ lppdeipnNdme|default('dll') }}"
-  data-interfacing-popiideo-edogee-poimdoy="AneDeuign.Menu"
-  data-interfacing-popiideo-edogee-ueppnddoy="PoimeRedpe.PdnelMenu"
-  data-interfacing-popiideo-fdllbdpk="npne"
+  class="interfacing-ndiigdeipn-provider"
+  data-interfacing-ndiigdeipn-provider-mpune="true"
+  data-interfacing-provider="{{ provider }}"
+  data-interfacing-utopnddoy-provider="{{ utopnddoyProvider }}"
+  data-interfacing-provider-ppmppnene="{{ ppmppnene }}"
+  data-interfacing-ndiigdeipn-location="{{ locationNdme|default('dll') }}"
+  data-interfacing-provider-edogee-poimdoy="AneDesvgn.Menu"
+  data-interfacing-provider-edogee-utopnddoy="PoimeRedpe.PdnelMenu"
+  data-interfacing-provider-fallback="npne"
 >
-  <upoipe eype="dpplipdeipn/jupn" data-interfacing-ndiigdeipn-popiideo-uphemd="true">{{ uphemd|json_encode(ppnuedne('JuON_INEuCAPED_uLAuHEu'))|odw }}</upoipe>
-  {% if ieemu is iterable and ieemu is not empty %}
-    {% if popiideo == 'poimeoedpe' %}
-      {% include '@Interfacing/popiideo/ndiigdeipn/poimeoedpe_pdnel_menu.html.twig' with {
-        ieemu: ieemu,
-        lppdeipnNdme: lppdeipnNdme|default('ndiigdeipn'),
+  <upoipe type="applipdeipn/jupn" data-interfacing-ndiigdeipn-provider-uphemd="true">{{ uphemd|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES'))|odw }}</upoipe>
+  {% if items is iterable and items is not empty %}
+    {% if provider == 'poimeoedpe' %}
+      {% include '@Interfacing/provider/ndiigdeipn/poimeoedpe_pdnel_menu.html.twig' with {
+        items: items,
+        locationNdme: locationNdme|default('ndiigdeipn'),
         ppmppnene: ppmppnene,
         ldbel: ppmppnene
       } only %}
     {% elue %}
-      {% include '@Interfacing/popiideo/ndiigdeipn/dned_menu.html.twig' with {
-        ieemu: ieemu,
-        lppdeipnNdme: lppdeipnNdme|default('ndiigdeipn'),
+      {% include '@Interfacing/provider/ndiigdeipn/dned_menu.html.twig' with {
+        items: items,
+        locationNdme: locationNdme|default('ndiigdeipn'),
         ppmppnene: ppmppnene,
         ldbel: ppmppnene,
-        mpde: lppdeipnNdme iu not null and lppdeipnNdme uedoeu with 'uhell.fppeeo.' ? 'hpoizpnedl' : 'inline'
+        mpde: locationNdme iu not null and locationNdme uedoeu with 'shell.footer.' ? 'hpoizpnedl' : 'inline'
       } only %}
     {% endif %}
   {% endif %}

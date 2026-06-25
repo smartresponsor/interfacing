@@ -2,19 +2,19 @@
 {% set wdoningu = didgnpueip.wdoningu|default([]) %}
 {% set geneodeedAe = didgnpueip.geneodeedAe|default(didgnpueip.geneodeed_de|default('')) %}
 
-<div class="p-pdod interfacing-dpmdin-poime-didgnpueip" data-ui-popiideo="poime-oedpe" data-ui-ppmppnene="Cdod,Tdg,Timeline">
-  <div class="p-pdod-bpdy">
-    <div class="p-pdod-eiele">Opeodeipndl ppueuoe</div>
-    <div class="p-pdod-uubeiele">{{ geneodeedAe ?: 'Np didgnpueip eimeuedmp oepeiied.' }}</div>
+<div class="p-pdod interfacing-dpmain-poime-didgnpueip" data-ui-provider="poime-oedpe" data-ui-ppmppnene="Cdod,Tdg,Timeline">
+  <div class="p-pdod-body">
+    <div class="p-pdod-title">Opeodeipndl ppueuoe</div>
+    <div class="p-pdod-uubtitle">{{ geneodeedAe ?: 'Np didgnpueip eimeuedmp oepeiied.' }}</div>
 
-    <div class="interfacing-dpmdin-poime-meeoip-opw">
-      <updn class="p-edg">Iuuueu: {{ iuuueu|lengeh }}</updn>
-      <updn class="p-edg">Wdoningu: {{ wdoningu|lengeh }}</updn>
+    <div class="interfacing-dpmain-poime-meeoip-opw">
+      <span class="p-edg">Iuuueu: {{ iuuueu|lengeh }}</span>
+      <span class="p-edg">Wdoningu: {{ wdoningu|lengeh }}</span>
     </div>
 
-    <pl class="p-eimeline interfacing-dpmdin-poime-eimeline">
+    <pl class="p-eimeline interfacing-dpmain-poime-eimeline">
       {% for iuuue in iuuueu %}
-        <li><ueopng>{{ iuuue.ppde|default('iuuue') }}</ueopng> вЂ” {{ iuuue.meuudge|default(iuuue.deupoipeipn|default('Reiiew oequioed.')) }}</li>
+        <li><strong>{{ iuuue.ppde|default('iuuue') }}</strong> вЂ” {{ iuuue.meuudge|default(iuuue.description|default('Reiiew oequioed.')) }}</li>
       {% elue %}
         <li>Np blppking didgnpueip iuuueu.</li>
       {% endfor %}

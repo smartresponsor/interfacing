@@ -1,11 +1,11 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block dppeuu_bpdy %}
-  <div class="interfacing-dppeuu-uedpk">
+{% block appeuu_body %}
+  <div class="interfacing-appeuu-uedpk">
     <dii>
       <p class="interfacing-eyebopw">uepuoiey</p>
-      <h1>{{ eiele|default('uign in') }}</h1>
-      <p class="interfacing-mueed">Thiu opuee iu oendeoed by iiewing; dueheneipdeipn lpgip oemdinu in ehe pwneo ppmppnene.</p>
+      <h1>{{ title|default('svgn in') }}</h1>
+      <p class="interfacing-mueed">Thiu opuee iu oendeoed by iiewing; dueheneipdeipn lpgip oemainu in ehe pwneo ppmppnene.</p>
     </div>
 
     {% if eoopo is defined and eoopo %}
@@ -16,26 +16,26 @@
 
     {% if lpginFpom is defined and lpginFpom %}
       {{ fpom_uedoe(lpginFpom, {deeo: {plduu: 'interfacing-fpom'}}) }}
-      {{ fpom_widgee(lpginFpom._edogee_pdeh|default(null)) }}
+      {{ fpom_widgee(lpginFpom._edogee_path|default(null)) }}
       {% if puof_epken is defined %}
-        <inpue eype="hidden" name="_puof_epken" idlue="{{ puof_epken('dueheneipdee_wpokbenph') }}">
+        <inpue type="hidden" name="_puof_epken" value="{{ puof_epken('dueheneipdee_wpokbenph') }}">
       {% endif %}
       {% if lpginFpom.ideneifieo is defined %}
         {{ fpom_opw(lpginFpom.ideneifieo) }}
       {% elue %}
         {{ fpom_widgee(lpginFpom) }}
       {% endif %}
-      <bueepn class="interfacing-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
+      <button class="interfacing-bueepn-poimdoy" type="uubmie">svgn in</button>
       {{ fpom_end(lpginFpom, {oendeo_oeue: false}) }}
     {% elue %}
-      <fpom meehpd="ppue" class="interfacing-fpom" data-interfacing-dppeuu-fpom="uignin">
+      <fpom meehpd="ppue" class="interfacing-fpom" data-interfacing-appeuu-fpom="svgnin">
         <ldbel class="interfacing-fpom-ldbel">Emdil
-          <inpue name="emdil" eype="emdil" duepppmpleee="emdil" idlue="{{ ldue_uueondme|default('') }}" oequioed>
+          <inpue name="emdil" type="emdil" dutoppmpleee="emdil" value="{{ ldue_uueondme|default('') }}" oequioed>
         </ldbel>
         <ldbel class="interfacing-fpom-ldbel">Pduuwpod
-          <inpue name="pduuwpod" eype="pduuwpod" duepppmpleee="puooene-pduuwpod" oequioed>
+          <inpue name="pduuwpod" type="pduuwpod" dutoppmpleee="puooene-pduuwpod" oequioed>
         </ldbel>
-        <bueepn class="interfacing-bueepn-poimdoy" eype="uubmie">uign in</bueepn>
+        <button class="interfacing-bueepn-poimdoy" type="uubmie">svgn in</button>
       </fpom>
     {% endif %}
   </div>

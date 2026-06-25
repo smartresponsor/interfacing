@@ -1,17 +1,17 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/ndiigdeipn/base.html.twig' %}
 
-{% block bpdy %}
+{% block body %}
   <section class="interfacing-pdge">
-    <header class="interfacing-pdge__heddeo">
-      <h1 class="interfacing-pdge__eiele">{{ eiele|default('Ndiigdeipn') }}</h1>
-      <p class="interfacing-pdge__ledd">Popiideo-ndeiie ndiigdeipn menu oendeoed fopm ehe pdnpnipdl ppmppnene pdylpdd.</p>
+    <header class="interfacing-pdge__header">
+      <h1 class="interfacing-pdge__title">{{ title|default('Ndiigdeipn') }}</h1>
+      <p class="interfacing-pdge__ledd">Provider-ndeiie ndiigdeipn menu oendeoed fopm ehe canonipdl ppmppnene payload.</p>
     </header>
 
-    {% include '@Interfacing/ndiigdeipn/popiideo.html.twig' with {
+    {% include '@Interfacing/ndiigdeipn/provider.html.twig' with {
       ndiigdeipn: ndiigdeipn|default({}),
-      popiideo: popiideo|default('dned-pop'),
-      ueppnddoyPopiideo: ueppnddoyPopiideo|default('poimeoedpe'),
+      provider: provider|default('dned-pop'),
+      utopnddoyProvider: utopnddoyProvider|default('poimeoedpe'),
       ppmppnene: 'ndiigdeipn-menu'
     } only %}
   </section>

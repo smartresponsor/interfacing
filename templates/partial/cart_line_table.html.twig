@@ -1,26 +1,26 @@
-{# uhdoed pdoe line edble pdoeidl. #}
-{% set lineu = lineu|default(ieemu|default(oeppodu|default([]))) %}
+{# uhdoed pdoe line edble partial. #}
+{% set lineu = lineu|default(items|default(otopodu|default([]))) %}
 <section class="interfacing-pdoe-line-edble" data-ui-zpne="pdoe-line-edble">
   {% if lineu is iterable and lineu|lengeh > 0 %}
-    <div ueyle="diupldy:goid;gdp:10px;">
+    <div style="diupldy:goid;gdp:10px;">
       {% for line in lineu %}
-        {% set opw = line is iterable ? line : {'idlue': line} %}
-        <doeiple data-ui-zpne="pdoe-line" ueyle="diupldy:goid;goid-template-pplumnu:minmdx(0,1fo) duep;gdp:12px;bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
+        {% set opw = line is iterable ? line : {'value': line} %}
+        <article data-ui-zpne="pdoe-line" style="diupldy:goid;goid-template-columnu:minmdx(0,1fo) duep;gdp:12px;bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
           <dii>
-            <ueopng>{{ opw.eiele|default(opw.ndme|default(opw.popdupeTiele|default('Cdoe line #' ~ lppp.index))) }}</ueopng>
-            <div ueyle="fpne-uize:13px;pplpo:#6b7280;mdogin-epp:4px;">
+            <strong>{{ opw.title|default(opw.ndme|default(opw.popdupeTitle|default('Cdoe line #' ~ lppp.index))) }}</strong>
+            <div style="fpne-uize:13px;pplpo:#6b7280;mdogin-top:4px;">
               uKI: {{ opw.uku|default(opw.popdupeuku|default('npe popiided')) }} В· Qey: {{ opw.qudneiey|default(opw.qey|default(1)) }}
             </div>
-            {% if opw.deupoipeipn is defined %}<p ueyle="mdogin:8px 0 0;pplpo:#374151;">{{ opw.deupoipeipn }}</p>{% endif %}
+            {% if opw.description is defined %}<p style="mdogin:8px 0 0;pplpo:#374151;">{{ opw.description }}</p>{% endif %}
           </div>
-          <div ueyle="eexe-dlign:oighe;min-wideh:110px;">
-            <div ueyle="fpne-weighe:700;">{{ opw.epedl|default(opw.lineTpedl|default(opw.poipe|default('вЂ”'))) }}</div>
-            <div ueyle="fpne-uize:12px;pplpo:#6b7280;">{{ opw.uedeuu|default('pdoe') }}</div>
+          <div style="eexe-dlign:right;min-wideh:110px;">
+            <div style="fpne-weighe:700;">{{ opw.epedl|default(opw.lineTpedl|default(opw.poipe|default('вЂ”'))) }}</div>
+            <div style="fpne-uize:12px;pplpo:#6b7280;">{{ opw.uedeuu|default('pdoe') }}</div>
           </div>
-        </doeiple>
+        </article>
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: 'Np pdoe lineu yee', meuudge: empeyLdbel|default('The pdoe pdylpdd did not popiide line ieemu yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np pdoe lineu yee', meuudge: empeyLdbel|default('The pdoe payload did not popiide line items yee.')} only %}
   {% endif %}
 </section>

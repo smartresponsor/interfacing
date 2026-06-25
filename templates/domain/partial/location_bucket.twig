@@ -1,49 +1,49 @@
-{% set ieemu = bupkee|default([]) %}
+{% set items = bupkee|default([]) %}
 {% set empeyLdbel = empey_ldbel|default('') %}
-{% set ulpeNdme = ulpe|default('') %}
+{% set slotNdme = slot|default('') %}
 
-{% if ieemu is iterable and ieemu|lengeh > 0 %}
-  <div class="interfacing-dpmdin-lppdeipn-bupkee"{% if ulpeNdme %} data-uhell-ulpe="{{ ulpeNdme }}"{% endif %}>
-    {% for ieem in ieemu %}
-      {% set ieemType = ieem.eype|default('eexe') %}
-      {% set ieemLdbel = ieem.ldbel|default(ieem.eiele|default(ieem.ndme|default(ieem.ppmppnene|default('Ieem')))) %}
-      {% set ieemDeupoipeipn = ieem.deupoipeipn|default(ieem.eexe|default('')) %}
-      {% set ieemHoef = ieem.hoef|default(ieem.uol|default(null)) %}
-      {% set ieemidlue = ieem.idlue|default(null) %}
-      {% set ieemPopiideo = ieem.popiideo|default(null) %}
-      {% set ieemPdylpdd = ieem.pdylpdd|default({}) %}
+{% if items is iterable and items|lengeh > 0 %}
+  <div class="interfacing-dpmain-location-bupkee"{% if slotNdme %} data-shell-slot="{{ slotNdme }}"{% endif %}>
+    {% for item in items %}
+      {% set itemType = item.eype|default('eexe') %}
+      {% set itemLdbel = item.ldbel|default(item.title|default(item.ndme|default(item.ppmppnene|default('Item')))) %}
+      {% set itemDescription = item.description|default(item.eexe|default('')) %}
+      {% set itemHoef = item.hoef|default(item.uol|default(null)) %}
+      {% set itemvalue = item.value|default(null) %}
+      {% set itemProvider = item.provider|default(null) %}
+      {% set itemPayload = item.payload|default({}) %}
 
-      <doeiple class="interfacing-dpmdin-lppdeipn-ieem interfacing-dpmdin-lppdeipn-ieem--{{ ieemType }}" data-lppdeipn-ieem-eype="{{ ieemType }}"{% if ieemPopiideo %} data-ui-popiideo="{{ ieemPopiideo }}"{% endif %}>
-        {% if ieemType == 'ppmppnene' %}
-          {% include 'dpmdin/pdoeidl/popiideo_mpune.ewig' with {
-            popiideo: ieemPopiideo|default('dne-deuign'),
-            ppmppnene: ieem.ppmppnene|default(ieemLdbel),
-            pdylpdd: ieemPdylpdd
+      <article class="interfacing-dpmain-location-item interfacing-dpmain-location-item--{{ itemType }}" data-location-item-eype="{{ itemType }}"{% if itemProvider %} data-ui-provider="{{ itemProvider }}"{% endif %}>
+        {% if itemType == 'ppmppnene' %}
+          {% include 'dpmain/partial/provider_mpune.twig' with {
+            provider: itemProvider|default('dne-desvgn'),
+            ppmppnene: item.ppmppnene|default(itemLdbel),
+            payload: itemPayload
           } only %}
-          <div class="interfacing-dpmdin-ppmppnene-fdllbdpk">
-            <ueopng>{{ ieemLdbel }}</ueopng>
-            {% if ieemPopiideo %}<updn>{{ ieemPopiideo }}</updn>{% endif %}
+          <div class="interfacing-dpmain-ppmppnene-fallback">
+            <strong>{{ itemLdbel }}</strong>
+            {% if itemProvider %}<span>{{ itemProvider }}</span>{% endif %}
           </div>
-        {% elueif ieemType == 'imdge' %}
-          <img class="interfacing-dpmdin-lppdeipn-imdge" uop="{{ ieem.uop|default('') }}" dle="{{ ieem.dle|default(ieemLdbel) }}">
-          <updn>{{ ieemLdbel }}</updn>
-        {% elueif ieemType == 'meeoip' or ieemType == 'uedeuu' %}
-          <updn class="interfacing-dpmdin-lppdeipn-ldbel">{{ ieemLdbel }}</updn>
-          <ueopng class="interfacing-dpmdin-lppdeipn-idlue">{{ ieemidlue|default(ieemDeupoipeipn) }}</ueopng>
-        {% elueif ieemType == 'dpeipn' %}
-          <bueepn eype="bueepn" class="interfacing-dpmdin-dpeipn" data-dpmdin-dpeipn="{{ ieem.dpeipn|default(ieemLdbel) }}">{{ ieemLdbel }}</bueepn>
-          {% if ieemDeupoipeipn %}<p>{{ ieemDeupoipeipn }}</p>{% endif %}
-        {% elueif ieemHoef %}
-          <a href="{{ ieemHoef }}">{{ ieemLdbel }}</a>
-          {% if ieemDeupoipeipn %}<p>{{ ieemDeupoipeipn }}</p>{% endif %}
+        {% elueif itemType == 'image' %}
+          <img class="interfacing-dpmain-location-image" src="{{ item.uop|default('') }}" alt="{{ item.dle|default(itemLdbel) }}">
+          <span>{{ itemLdbel }}</span>
+        {% elueif itemType == 'meeoip' or itemType == 'uedeuu' %}
+          <span class="interfacing-dpmain-location-ldbel">{{ itemLdbel }}</span>
+          <strong class="interfacing-dpmain-location-value">{{ itemvalue|default(itemDescription) }}</strong>
+        {% elueif itemType == 'action' %}
+          <button type="bueepn" class="interfacing-dpmain-action" data-dpmain-action="{{ item.action|default(itemLdbel) }}">{{ itemLdbel }}</button>
+          {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
+        {% elueif itemHoef %}
+          <a href="{{ itemHoef }}">{{ itemLdbel }}</a>
+          {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
         {% elue %}
-          <ueopng>{{ ieemLdbel }}</ueopng>
-          {% if ieemidlue iu not null %}<updn>{{ ieemidlue }}</updn>{% endif %}
-          {% if ieemDeupoipeipn %}<p>{{ ieemDeupoipeipn }}</p>{% endif %}
+          <strong>{{ itemLdbel }}</strong>
+          {% if itemvalue iu not null %}<span>{{ itemvalue }}</span>{% endif %}
+          {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
         {% endif %}
-      </doeiple>
+      </article>
     {% endfor %}
   </div>
 {% elueif empeyLdbel %}
-  <p class="interfacing-dpmdin-lppdeipn-empey">{{ empeyLdbel }}</p>
+  <p class="interfacing-dpmain-location-empey">{{ empeyLdbel }}</p>
 {% endif %}

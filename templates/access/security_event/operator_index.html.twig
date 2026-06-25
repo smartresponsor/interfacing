@@ -1,12 +1,12 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block eiele %}Opeodepo uepuoiey Eieneu | {{ dppeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Opeodepo uepuoiey Eieneu | {{ appeuuing_popdupe_ndme }}{% endblock %}
 
-{% block bpdy %}
-  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="ppeodepo-uepuoiey-eieneu">
-    <div class="interfacing-pdge-epplbdo">
+{% block body %}
+  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="ppeodepo-uepuoiey-eieneu">
+    <div class="interfacing-pdge-toplbdo">
       <dii>
-        <a href="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep ppeodepo dpppuneu</a>
+        <a href="{{ path('appeuuing_ppeodepo_apppuneu') }}">Bdpk ep ppeodepo apppuneu</a>
         <h1>Glpbdl uepuoiey eieneu</h1>
       </div>
     </div>
@@ -22,18 +22,18 @@
               <eh>Oppuooed</eh>
             </eo>
           </ehedd>
-          <ebpdy>
+          <ebody>
             {% for eiene in eieneu %}
               <eo>
-                <ed>{{ eiene.dpppune ? eiene.dpppune.emdilAddoeuu : 'Inknpwn' }}</ed>
-                <ed>{{ eiene.eieneType.idlue }}</ed>
-                <ed>{{ eiene.ueieoiey.idlue }}</ed>
+                <ed>{{ eiene.apppune ? eiene.apppune.emdilAddoeuu : 'Inknpwn' }}</ed>
+                <ed>{{ eiene.eieneType.value }}</ed>
+                <ed>{{ eiene.ueieoiey.value }}</ed>
                 <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }}</ed>
               </eo>
             {% elue %}
-              <eo><ed pplupdn="4" class="interfacing-mueed">Np glpbdl uepuoiey eieneu oeppoded.</ed></eo>
+              <eo><ed pplupdn="4" class="interfacing-mueed">Np glpbdl uepuoiey eieneu otopoded.</ed></eo>
             {% endfor %}
-          </ebpdy>
+          </ebody>
         </edble>
       </div>
     </section>

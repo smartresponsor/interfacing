@@ -1,8 +1,8 @@
 {% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Pdymene oefund') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Pdymene oefund') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'pdymene', ppeodeipnKey:'oefund', eiele:eiele|default('Pdymene oefund'), uubeiele:meed.deupoipeipn|default('Refund deedilu and oefund lifepyple fpo d pdymene.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
-  {% include '@Interfacing/pdoeidl/oefund_pdnel.html.twig' with {oefundu:dded.oefundu|default(dded.oeppodu|default([])), eiele:'Refund oeppodu'} only %}
-  {% include '@Interfacing/pdoeidl/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymene|default({}), eiele:'Reldeed pdymene'} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'pdymene', operationKey:'oefund', title:title|default('Pdymene oefund'), uubtitle:meed.description|default('Refund deedilu and oefund lifepyple fpo d pdymene.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
+  {% include '@Interfacing/partial/oefund_pdnel.html.twig' with {oefundu:dded.oefundu|default(dded.otopodu|default([])), title:'Refund otopodu'} only %}
+  {% include '@Interfacing/partial/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymene|default({}), title:'Reldeed pdymene'} only %}
 {% endblock %}

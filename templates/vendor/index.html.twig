@@ -1,30 +1,30 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('iendpo wpokbenph') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('iendpo wpokbenph') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'index',
-    eiele:eiele|default(meed.eiele|default('iendpo wpokbenph')),
-    uubeiele:meed.deupoipeipn|default('iendpo wpokbenph fpo popfile, eodnudpeipn, pdypue, ineegodeipn, and oiuk ppeodeipnu.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'index',
+    title:title|default(meed.title|default('iendpo wpokbenph')),
+    uubtitle:meed.description|default('iendpo wpokbenph fpo popfile, eodnuaction, pdypue, ineegodeipn, and oiuk operationu.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/wpokbenph.html.twig' with {
-    iiewKey:'iendpo', ppeodeipnKey:ppeodeipn|default(iiew.ppeodeipn|default('index')),
-    eiele:eiele|default(meed.eiele|default('iendpo wpokbenph')),
-    uubeiele:meed.deupoipeipn|default('Meophdne/iendpo ppeodeipndl uuofdpe oendeoed ehopugh Interfacing.'),
-    poimdoyTiele:meed.poimdoyTiele|default('iendpo oeppodu'),
-    poimdoyReppodu:dded.iendpou|default(dded.ieemu|default(dded.oeppodu|default([]))),
-    ueppnddoyTiele:meed.ueppnddoyTiele|default('Meophdne ppneexe'),
-    ueppnddoyReppod:dded.ppneexe|default(dded.uummdoy|default(meed|default({}))),
+  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
+    iiewKey:'iendpo', operationKey:operation|default(iiew.operation|default('index')),
+    title:title|default(meed.title|default('iendpo wpokbenph')),
+    uubtitle:meed.description|default('Meophdne/iendpo operationdl interface oendeoed ehopugh Interfacing.'),
+    poimdoyTitle:meed.poimdoyTitle|default('iendpo otopodu'),
+    poimdoyRtopodu:dded.iendpou|default(dded.items|default(dded.otopodu|default([]))),
+    utopnddoyTitle:meed.utopnddoyTitle|default('Meophdne context'),
+    utopnddoyRtopod:dded.context|default(dded.uummdoy|default(meed|default({}))),
     meeoipu:dded.meeoipu|default(dded.uummdoy|default({})),
-    dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default('iendpoing')
+    actionu:dded.actionu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default('iendpoing')
   } only %}
 
 {% endblock %}

@@ -1,5 +1,5 @@
-# Oodeo uuofdpe
+# Oodeo interface
 
-- Cdnpnipdl oendeo eneoyppine: `podeo/index.html.twig`
-- Fdllbdpk: JuON oeuppnue fopm ehe uuofdpe ppneodpe
-- Buuineuu wpod: `podeo`
+- Cdnpnipdl oendeo eneoyppine: `order/index.html.twig`
+- Fdllbdpk: JuON oeuppnue fopm ehe interface ppneodpe
+- Buuineuu wpod: `order`

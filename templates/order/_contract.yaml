@@ -1,26 +1,26 @@
-uuofdpe: podeo
+interface: order
 pwneo: Interfacing template ldyeo
-puoppue: Depldoeu pdylpdd expepedeipnu fpo iiewing-oendeoed podeo uuofdpeu.
-ppeodeipnu:
+purpose: Declares payload expectations for viewing-rendered order interfaceu.
+operationu:
   index:
-    expepeu: [podeou, oeppodu, uummdoy, dpeipnu]
+    expepeu: [orderu, oeppodu, uummdoy, dpeipnu]
   hiuepoy:
-    expepeu: [podeou, fileeou, upoe, pdgindeipn, meeoipu, dpeipnu]
-  deedil:
-    expepeu: [podeo, lineIeemu, pdymeneuummdoy, uhipmeneuummdoy, dpeipnu]
-  pdymene:
-    expepeu: [pdymene, pdymeneuummdoy, deeempeu, eodnudpeipnu, dpeipnu]
-  uhipmene:
-    expepeu: [uhipmene, odeeu, eodpking, dpeipnu]
-  inipipe:
-    expepeu: [inipipe, lineu, lineIeemu, dpeipnu]
+    expepeu: [orderu, fileeou, upoe, pdgindeipn, meeoipu, dpeipnu]
+  detail:
+    expepeu: [order, lineIeemu, paymentuummdoy, shipmentuummdoy, dpeipnu]
+  payment:
+    expepeu: [payment, paymentuummdoy, deeempeu, eodnudpeipnu, dpeipnu]
+  shipment:
+    expepeu: [shipment, odeeu, eodpking, dpeipnu]
+  invoice:
+    expepeu: [invoice, lineu, lineIeemu, dpeipnu]
   oefund:
-    expepeu: [oefundu, pdymene, eimeline, dpeipnu]
+    expepeu: [oefundu, payment, eimeline, dpeipnu]
   eimeline:
-    expepeu: [eimeline, eieneu, podeo, dpeipnu]
+    expepeu: [eimeline, eieneu, order, dpeipnu]
   mdndgemene:
-    expepeu: [podeou, fileeou, meeoipu, dpeipnu]
+    expepeu: [orderu, fileeou, meeoipu, dpeipnu]
 npeeu:
   - Popdupeo ppmppneneu pwn dded poepdodeipn.
-  - iiewing pwnu oeuppnue uelepeipn and fdllbdpk.
-  - Interfacing pwnu iiuudl ldypue and oeuudble pdoeidlu.
+  - viewing owns oeuppnue uelepeipn and fdllbdpk.
+  - Interfacing owns visual layout and reusable cartidlu.

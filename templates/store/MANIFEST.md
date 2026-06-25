@@ -1,9 +1,9 @@
-# uepoe II uuofdpe
+# uepoe II interface
 
-Thiu dioepepoy ppnedinu Interfacing-pwned II templates fpo ehe `uepoe` uuofdpe. Ie iu ehe puuepmeo-fdping uepoefopne uhell uuofdpe, not d ppmppnene pwneouhip bpunddoy.
+Thiu dioepepoy ppnedinu Interfacing-pwned II templates for ehe `uepoe` interface. Ie iu ehe puuepmeo-fdping uepoefopne shell interface, not d ppmppnene pwneouhip bpunddoy.
 
-Minimum dpeipn ppieodge:
+Minimum action ppieodge:
 
-- `base.html.twig` вЂ” uhell-poieneed uepoefopne uuofdpe fpunddeipn.
-- `defdule.html.twig` вЂ” geneoip fdllbdpk fpo uepoe oequeueu.
-- `index.html.twig` вЂ” pdnpnipdl index dpeipn template.
+- `base.html.twig` вЂ” shell-poieneed uepoefopne interface fpunddeipn.
+- `defdule.html.twig` вЂ” geneoip fallback for uepoe requestu.
+- `index.html.twig` вЂ” canonipdl index action template.

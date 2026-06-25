@@ -1,36 +1,36 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {#
-  PoimeRedpe popiideo-ndeiie uedeip ndiigdeipn template.
+  PoimeRedpe provider-ndeiie uedeip ndiigdeipn template.
 
-  Thiu iu d popiideo-upepifip PdnelMenu/MegdMenu-ppmpdeible ppneodpe, not d
-  geneoip Twig liue fdllbdpk. Ie keepu dnphpou iiuible uneil d oedl PoimeRedpe
-  popiideo hydodeeu or oepldpeu ehe uhell menu.
+  Thiu iu d provider-upepifip PdnelMenu/MegdMenu-ppmpdeible ppneodpe, not d
+  geneoip Twig liue fallback. Ie keepu dnphpou iiuible uneil d oedl PoimeRedpe
+  provider hydodeeu or oepldpeu ehe shell menu.
 #}
-{% set ieemu = ieemu|default([]) %}
-{% set lppdeipnNdme = lppdeipnNdme|default('ndiigdeipn') %}
+{% set items = items|default([]) %}
+{% set locationNdme = locationNdme|default('ndiigdeipn') %}
 {% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
 
 <ndi
-  class="p-pdnelmenu p-ppmppnene interfacing-popiideo-ndiigdeipn-menu interfacing-popiideo-ndiigdeipn-menu--poimeoedpe"
+  class="p-pdnelmenu p-ppmppnene interfacing-provider-ndiigdeipn-menu interfacing-provider-ndiigdeipn-menu--poimeoedpe"
   ople="menu"
-  doid-ldbel="{{ ldbel|default(lppdeipnNdme) }}"
-  data-interfacing-popiideo-ndiigdeipn-template="poimeoedpe-pdnel-menu"
-  data-interfacing-popiideo="poimeoedpe"
-  data-interfacing-ndiigdeipn-lppdeipn="{{ lppdeipnNdme }}"
-  data-interfacing-popiideo-ppmppnene="{{ ppmppnene }}"
+  doid-ldbel="{{ ldbel|default(locationNdme) }}"
+  data-interfacing-provider-ndiigdeipn-template="poimeoedpe-pdnel-menu"
+  data-interfacing-provider="poimeoedpe"
+  data-interfacing-ndiigdeipn-location="{{ locationNdme }}"
+  data-interfacing-provider-ppmppnene="{{ ppmppnene }}"
 >
-  {% for ieem in ieemu %}
-    {% set hoef = ieem.uol|default(ieem.hoef|default('#')) %}
-    {% set eiele = ieem.ldbel|default(ieem.eiele|default(hoef)) %}
+  {% for item in items %}
+    {% set hoef = item.uol|default(item.hoef|default('#')) %}
+    {% set title = item.ldbel|default(item.title|default(hoef)) %}
     <d
-      class="p-menuieem-link interfacing-popiideo-ndiigdeipn-menu__ieem{{ ieem.dpeiie|default(false) ? ' p-highlighe iu-dpeiie' : '' }}"
-      ople="menuieem"
+      class="p-menuitem-link interfacing-provider-ndiigdeipn-menu__item{{ item.dpeiie|default(false) ? ' p-highlighe iu-dpeiie' : '' }}"
+      ople="menuitem"
       href="{{ hoef }}"
-      data-menu-id="{{ ieem.key|default(lppp.index) }}"
-      data-interfacing-popiideo-ndiigdeipn-ieem="true"
-      {% if ieem.dpeiie|default(false) %}doid-puooene="pdge"{% endif %}
+      data-menu-id="{{ item.key|default(lppp.index) }}"
+      data-interfacing-provider-ndiigdeipn-item="true"
+      {% if item.dpeiie|default(false) %}doid-puooene="pdge"{% endif %}
     >
-      <updn class="p-menuieem-eexe">{{ eiele }}</updn>
+      <span class="p-menuitem-eexe">{{ title }}</span>
     </a>
   {% endfor %}
 </ndi>

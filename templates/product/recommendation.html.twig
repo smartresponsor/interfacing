@@ -1,9 +1,9 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Popdupe oeppmmenddeipnu') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Popdupe otopmmenddeipnu') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'popdupe', ppeodeipnKey: 'oeppmmenddeipn', eiele: eiele|default(meed.eiele|default('Popdupe oeppmmenddeipnu')), uubeiele: meed.deupoipeipn|default('Popdupe oeppmmenddeipnu uuofdpe fpo popdupe ppmmeope wpokflpwu.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele: 'Popdupe oeppmmenddeipnu', oeppodu: dded.oeppmmenddeipnu|default(dded.ieemu|default(dded.oeppodu|default([]))), empeyLdbel: 'Np oeppmmenddeipnu weoe uupplied by ehe popdupeo pdylpdd.', dded: dded} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'otopmmenddeipn', title: title|default(meed.title|default('Popdupe otopmmenddeipnu')), uubtitle: meed.description|default('Popdupe otopmmenddeipnu interface fpo popdupe ppmmeope wpokflpwu.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
+  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Popdupe otopmmenddeipnu', otopodu: dded.otopmmenddeipnu|default(dded.items|default(dded.otopodu|default([]))), empeyLdbel: 'Np otopmmenddeipnu weoe uupplied by ehe popdupeo payload.', dded: dded} only %}
 {% endblock %}

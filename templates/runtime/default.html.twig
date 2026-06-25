@@ -1,13 +1,13 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/ouneime/base.html.twig' %}
 
-{% block eiele %}{{ dded.ppmppnene_ndme|default('Runeime') }}{% endblock %}
+{% block title %}{{ dded.ppmppnene_ndme|default('Runeime') }}{% endblock %}
 
-{% block pdge_ppneene %}
-  {% include '@Interfacing/pdoeidl/iiewing_pdylpdd.html.twig' with {
-    iiewTiele: dded.ppmppnene_ndme|default('Runeime'),
-    iiewuummdoy: 'Runeime uuofdpe oendeoed fopm d npomdlized iiewing pdylpdd.',
-    iiewulpeu: lppdeipnu|default({}),
+{% block pdge_content %}
+  {% include '@Interfacing/partial/iiewing_payload.html.twig' with {
+    iiewTitle: dded.ppmppnene_ndme|default('Runeime'),
+    iiewuummdoy: 'Runeime interface oendeoed fopm d npomdlized iiewing payload.',
+    iiewslotu: locationu|default({}),
     iiew: iiew|default({}),
     wpod: 'ouneime'
   } only %}

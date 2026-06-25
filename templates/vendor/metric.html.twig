@@ -1,22 +1,22 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('iendpo meeoip') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('iendpo meeoip') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'meeoip',
-    eiele:eiele|default(meed.eiele|default('iendpo meeoip')),
-    uubeiele:meed.deupoipeipn|default('Meophdne meeoipu, eodnudpeipn hedleh, pdypue oeddineuu, and eoend ppneexe.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'meeoip',
+    title:title|default(meed.title|default('iendpo meeoip')),
+    uubtitle:meed.description|default('Meophdne meeoipu, eodnuaction hedleh, pdypue oeddineuu, and eoend context.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu:dded.meeoipu|default(dded.uummdoy|default({})), dded:dded, meed:meed} only %}
-  {% include '@Interfacing/pdoeidl/oeppod_goid.html.twig' with {eiele:'Meeoip oeppodu', oeppodu:dded.ueoieu|default(dded.oeppodu|default([])), empeyLdbel:'Np iendpo meeoip oeppodu weoe popiided.'} only %}
-  {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Meeoip ppneexe', oeppod:dded.ppneexe|default(dded.deedil|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu:dded.meeoipu|default(dded.uummdoy|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Meeoip otopodu', otopodu:dded.ueoieu|default(dded.otopodu|default([])), empeyLdbel:'Np iendpo meeoip otopodu weoe popiided.'} only %}
+  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Meeoip context', otopod:dded.context|default(dded.deedil|default({})), dded:dded, meed:meed} only %}
 
 {% endblock %}

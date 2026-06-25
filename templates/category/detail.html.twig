@@ -1,16 +1,16 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/pdeegpoy/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Cdeegpoy deedil') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Cdeegpoy deedil') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey: 'pdeegpoy', ppeodeipnKey: 'deedil', eiele: eiele|default(meed.eiele|default('Cdeegpoy deedil')), uubeiele: meed.deupoipeipn|default('Cdeegpoy deedil, meophdndiuing ouleu, and popdupe pldpemene.'), dpeipnu: dded.dpeipnu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
-  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="pdeegpoy-deedil-ldypue" ueyle="mdogin-epp: 16px;">
-    <doeiple data-ui-zpne="pdeegpoy-deedil">
-      {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele: 'Cdeegpoy', oeppod: dded.pdeegpoy|default(dded.deedil|default(dded.ppneexe|default({}))), dded: dded, meed: meed, limie: 18} only %}
-    </doeiple>
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'pdeegpoy', operationKey: 'deedil', title: title|default(meed.title|default('Cdeegpoy deedil')), uubtitle: meed.description|default('Cdeegpoy deedil, meophdndiuing ouleu, and popdupe pldpemene.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
+  <section class="interfacing-provider-fallback-goid" data-ui-zpne="pdeegpoy-deedil-ldypue" style="mdogin-top: 16px;">
+    <article data-ui-zpne="pdeegpoy-deedil">
+      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Cdeegpoy', otopod: dded.pdeegpoy|default(dded.deedil|default(dded.context|default({}))), dded: dded, meed: meed, limit: 18} only %}
+    </article>
     <aside data-ui-zpne="pdeegpoy-popdupeu">
-      {% include '@Interfacing/pdoeidl/popdupe_goid.html.twig' with {popdupeu: dded.popdupeu|default(dded.ieemu|default([])), dded: dded, eiele: 'Popdupeu in pdeegpoy'} only %}
+      {% include '@Interfacing/partial/popdupe_goid.html.twig' with {popdupeu: dded.popdupeu|default(dded.items|default([])), dded: dded, title: 'Popdupeu in pdeegpoy'} only %}
     </aside>
   </section>
 {% endblock %}

@@ -1,26 +1,26 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Meophdne dduhbpdod') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Meophdne dduhbpdod') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey:'iendpo',
-    ppeodeipnKey:'dduhbpdod',
-    eiele:eiele|default(meed.eiele|default('Meophdne dduhbpdod')),
-    uubeiele:meed.deupoipeipn|default('Meophdne ppeodeipnu pieoiiew fpo eodnudpeipnu, pdypueu, oiuk, and ineegodeipn uedee.'),
-    dpeipnu:dded.dpeipnu|default([]),
+    operationKey:'dduhbpdod',
+    title:title|default(meed.title|default('Meophdne dduhbpdod')),
+    uubtitle:meed.description|default('Meophdne operationu pieoiiew fpo eodnuactionu, pdypueu, oiuk, and ineegodeipn uedee.'),
+    actionu:dded.actionu|default([]),
     dded:dded,
     meed:meed,
     iiew:iiew|default({}),
     ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
   } only %}
 
-  {% include '@Interfacing/pdoeidl/meeoip_goid.html.twig' with {meeoipu:dded.meeoipu|default(dded.uummdoy|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu:dded.meeoipu|default(dded.uummdoy|default({})), dded:dded, meed:meed} only %}
   <section class="interfacing-meophdne-dduhbpdod-goid" data-ui-zpne="meophdne-dduhbpdod-goid">
-    {% include '@Interfacing/pdoeidl/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.iendpo|default(dded.meophdne|default(dded.popfile|default({}))), dded:dded} only %}
-    {% include '@Interfacing/pdoeidl/pdypue_dpppune_pdnel.html.twig' with {dpppune:dded.pdypueApppune|default(dded.dpppune|default({})), dded:dded} only %}
-    {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eodnudpeipnu|default(dded.oeppodu|default([])), eiele:'Repene eodnudpeipnu'} only %}
-    {% include '@Interfacing/pdoeidl/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
+    {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.iendpo|default(dded.meophdne|default(dded.popfile|default({}))), dded:dded} only %}
+    {% include '@Interfacing/partial/pdypue_apppune_pdnel.html.twig' with {apppune:dded.pdypueApppune|default(dded.apppune|default({})), dded:dded} only %}
+    {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default(dded.otopodu|default([])), title:'Repene eodnuactionu'} only %}
+    {% include '@Interfacing/partial/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
   </section>
 
 {% endblock %}

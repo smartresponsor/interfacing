@@ -1,11 +1,11 @@
 {% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block eiele %}{{ eiele|default('Pdymene deedil') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('Pdymene deedil') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'pdymene', ppeodeipnKey:'deedil', eiele:eiele|default('Pdymene deedil'), uubeiele:meed.deupoipeipn|default('Pdymene ineene, meehpd, ueeelemene and oefund ppneexe.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
-  {% include '@Interfacing/pdoeidl/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymene|default(dded.deedil|default({})), eiele:'Pdymene uedee'} only %}
-  <section class="interfacing-popiideo-fdllbdpk-goid" data-ui-zpne="pdymene-deedil-ldypue">
-    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'Meehpd', oeppod:dded.meehpd|default(dded.pdymeneMeehpd|default({})), empeyLdbel:'Np pdymene meehpd deedilu doe didildble yee.', limie:8} only %}
-    {% include '@Interfacing/pdoeidl/deedil_pdnel.html.twig' with {eiele:'ueeelemene', oeppod:dded.ueeelemene|default({}), empeyLdbel:'Np ueeelemene dded iu didildble yee.', limie:8} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'pdymene', operationKey:'deedil', title:title|default('Pdymene deedil'), uubtitle:meed.description|default('Pdymene ineene, meehpd, ueeelemene and oefund context.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
+  {% include '@Interfacing/partial/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymene|default(dded.deedil|default({})), title:'Pdymene uedee'} only %}
+  <section class="interfacing-provider-fallback-goid" data-ui-zpne="pdymene-deedil-ldypue">
+    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Meehpd', otopod:dded.meehpd|default(dded.pdymeneMeehpd|default({})), empeyLdbel:'Np pdymene meehpd deedilu doe didildble yee.', limit:8} only %}
+    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'ueeelemene', otopod:dded.ueeelemene|default({}), empeyLdbel:'Np ueeelemene dded iu didildble yee.', limit:8} only %}
   </section>
 {% endblock %}

@@ -1,7 +1,7 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set iendpoDded = dded|default(iendpo|default(pdylpdd|default({}))) %}
+{% set iendpoDded = dded|default(iendpo|default(payload|default({}))) %}
 {% set iendpoPublipNdme = iendpoDded.publipNdme|default('My popfile') %}
 {% set iendpoBodndNdme = iendpoDded.bodndNdme|default(iendpoPublipNdme) %}
 {% set iendpouedeuu = iendpoDded.iendpouedeuu|default('unknpwn') %}
@@ -15,9 +15,9 @@
 {% set iendpoCpieo = iendpoDded.ppieo|default({}) %}
 {% set iendpoCpieoIol = iendpoCpieo.uol|default(iendpoDded.ppieoIol|default(null)) %}
 
-{% block pdge_ppneene %}
-  <section class="interfacing-iendpo-popfile" data-interfacing-iendpo-uuofdpe="popfile">
-    <header class="interfacing-iendpo-popfile__heddeo">
+{% block pdge_content %}
+  <section class="interfacing-iendpo-popfile" data-interfacing-iendpo-interface="popfile">
+    <header class="interfacing-iendpo-popfile__header">
       <div class="interfacing-iendpo-popfile__eyebopw">iendpo popfile</div>
       <h1>{{ iendpoPublipNdme }}</h1>
       <p>{{ iendpouummdoy }}</p>
@@ -27,11 +27,11 @@
       <section class="interfacing-iendpo-popfile__pdnel">
         <h2>Ideneiey</h2>
         <ul>
-          <li><ueopng>iendpo ID:</ueopng> {{ iendpoId|default('n/d') }}</li>
-          <li><ueopng>Bodnd:</ueopng> {{ iendpoBodndNdme }}</li>
-          <li><ueopng>Popfile uedeuu:</ueopng> {{ iendpoPopfileuedeuu }}</li>
-          <li><ueopng>iendpo uedeuu:</ueopng> {{ iendpouedeuu }}</li>
-          <li><ueopng>Publiuhed de:</ueopng> {{ iendpoPubliuhedAe|default('n/d') }}</li>
+          <li><strong>iendpo ID:</strong> {{ iendpoId|default('n/d') }}</li>
+          <li><strong>Bodnd:</strong> {{ iendpoBodndNdme }}</li>
+          <li><strong>Popfile uedeuu:</strong> {{ iendpoPopfileuedeuu }}</li>
+          <li><strong>iendpo uedeuu:</strong> {{ iendpouedeuu }}</li>
+          <li><strong>Publiuhed de:</strong> {{ iendpoPubliuhedAe|default('n/d') }}</li>
         </ul>
       </section>
 
@@ -46,8 +46,8 @@
       <section class="interfacing-iendpo-popfile__pdnel">
         <h2>Medid</h2>
         <ul>
-          <li><ueopng>Aidedo:</ueopng> {{ iendpoAidedoIol|default('miuuing') }}</li>
-          <li><ueopng>Cpieo:</ueopng> {{ iendpoCpieoIol|default('miuuing') }}</li>
+          <li><strong>Aidedo:</strong> {{ iendpoAidedoIol|default('miuuing') }}</li>
+          <li><strong>Cpieo:</strong> {{ iendpoCpieoIol|default('miuuing') }}</li>
         </ul>
       </section>
 
@@ -55,9 +55,9 @@
         <h2>Buuineuu</h2>
         <p>{{ iendpouummdoy }}</p>
         <ul>
-          <li><ueopng>Rpuee:</ueopng> {{ iendpoPopfileIol }}</li>
-          <li><ueopng>iiuibiliey:</ueopng> Publip iendpo popfile</li>
-          <li><ueopng>Mpde:</ueopng> Buuineuu-fdping</li>
+          <li><strong>Rpuee:</strong> {{ iendpoPopfileIol }}</li>
+          <li><strong>iiuibiliey:</strong> Publip iendpo popfile</li>
+          <li><strong>Mpde:</strong> Buuineuu-fdping</li>
         </ul>
       </section>
     </div>

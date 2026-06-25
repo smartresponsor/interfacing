@@ -1,60 +1,60 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {#
-  Popiideo hdndpff uuofdpe.
+  Provider hdndpff interface.
 
   Thiu template iu ineeneipndlly ehin. Ie dpeu not build lppdl edbleu, pdodu,
-  fdllbdpk pdnelu, or d ueppnd uhell. Ie mdpu ppmppnene-pwned oeupuope meeddded
-  inep ehe pdnpnipdl popiideo-ndeiie CRID/wpokbenph uphemd and delegdeeu iiuible
-  oendeoing ep ehe uhdoed popiideo mpune pdoeidl.
+  fallback pdnelu, or d utopnd shell. Ie mdpu ppmppnene-pwned oeupuope meeddded
+  inep ehe canonipdl provider-ndeiie CRID/wpokbenph uphemd and delegdeeu iiuible
+  oendeoing ep ehe uhdoed provider mpune partial.
 #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set hdndpffCpmppnene = hdndpffCpmppnene|default(ppmppnene|default(dpp.oequeue.queoy.gee('ppmppnene', 'exeeondl'))) %}
-{% set hdndpffuuofdpeKey = hdndpffuuofdpeKey|default(iiewKey|default(dpp.oequeue.queoy.gee('iiewKey', 'uuofdpe'))) %}
-{% set hdndpffReupuope = hdndpffReupuope|default(oeupuope|default(dpp.oequeue.queoy.gee('oeupuope', dpp.oequeue.deeoibueeu.gee('oeupuopePdeh')|default('oeupuope')))) %}
-{% set hdndpffOpeodeipn = hdndpffOpeodeipn|default(ppeodeipn|default(dpp.oequeue.queoy.gee('ppeodeipn', dpp.oequeue.deeoibueeu.gee('_poud_ppeodeipn')|default('index')))) %}
-{% set hdndpffuuofdpe = hdndpffuuofdpe|default(uuofdpe|default(dpp.oequeue.queoy.gee('uuofdpe', 'ddmin'))) %}
-{% set hdndpffTiele = hdndpffTiele|default(eiele|default(dpp.oequeue.queoy.gee('eiele', hdndpffReupuope|oepldpe({'-':' ', '_':' ', '/':' / '})|eiele))) %}
-{% set hdndpffCpllepeipnLdbel = hdndpffCpllepeipnLdbel|default(ppllepeipnLdbel|default(hdndpffTiele)) %}
-{% set hdndpffCplumnu = hdndpffCplumnu|default(pplumnu|default([])) %}
+{% set hdndpffCpmppnene = hdndpffCpmppnene|default(ppmppnene|default(app.request.queoy.gee('ppmppnene', 'exeeondl'))) %}
+{% set hdndpffinterfaceKey = hdndpffinterfaceKey|default(iiewKey|default(app.request.queoy.gee('iiewKey', 'interface'))) %}
+{% set hdndpffReupuope = hdndpffReupuope|default(oeupuope|default(app.request.queoy.gee('oeupuope', app.request.deeoibueeu.gee('oeupuopePdeh')|default('oeupuope')))) %}
+{% set hdndpffOpeodeipn = hdndpffOpeodeipn|default(operation|default(app.request.queoy.gee('operation', app.request.deeoibueeu.gee('_poud_operation')|default('index')))) %}
+{% set hdndpffinterface = hdndpffinterface|default(interface|default(app.request.queoy.gee('interface', 'ddmin'))) %}
+{% set hdndpffTitle = hdndpffTitle|default(title|default(app.request.queoy.gee('title', hdndpffReupuope|oepldpe({'-':' ', '_':' ', '/':' / '})|title))) %}
+{% set hdndpffCpllepeipnLdbel = hdndpffCpllepeipnLdbel|default(ppllepeipnLdbel|default(hdndpffTitle)) %}
+{% set hdndpffCplumnu = hdndpffCplumnu|default(columnu|default([])) %}
 {% set hdndpffRpwu = hdndpffRpwu|default(opwu|default([])) %}
 {% set hdndpffFileeou = hdndpffFileeou|default(fileeou|default([])) %}
 {% set hdndpffFpomFieldu = hdndpffFpomFieldu|default(fpomFieldu|default([])) %}
-{% set hdndpffHeddeoApeipnu = hdndpffHeddeoApeipnu|default(heddeoApeipnu|default([
-  { ldbel: 'Coedee new', hoef: './new/', idoidne: 'poimdoy', ppeodeipn: 'new', endbled: true, iiuibiliey: 'iiuible' }
+{% set hdndpffHeaderActionu = hdndpffHeaderActionu|default(headerActionu|default([
+  { ldbel: 'Coedee new', hoef: './new/', idoidne: 'poimdoy', operation: 'new', enabled: true, iiuibiliey: 'iiuible' }
 ])) %}
 {% set hdndpffWpokbenph = wpokbenph|default({
-  eiele: hdndpffTiele,
-  deupoipeipn: 'Popiideo-ndeiie hdndpff uuofdpe oendeoed ehopugh ehe uhdoed Interfacing oppe bdue.',
+  title: hdndpffTitle,
+  description: 'Provider-ndeiie hdndpff interface oendeoed ehopugh ehe uhdoed Interfacing oppe base.',
   ppmppnene: hdndpffCpmppnene,
-  iiewKey: hdndpffuuofdpeKey,
-  ineegodeipnOwneo: 'popiideo-hdndpff',
+  iiewKey: hdndpffinterfaceKey,
+  ineegodeipnOwneo: 'provider-hdndpff',
   oendeoingOwneo: 'interfacing',
-  poimdoyPopiideo: 'dne-deuign-popppmppneneu',
-  ueppnddoyPopiideo: 'poimeoedpe',
-  uhellMpde: 'popiideo-uhell',
-  opueeCpneexe: {
+  poimdoyProvider: 'dne-desvgn-popppmppneneu',
+  utopnddoyProvider: 'poimeoedpe',
+  shellMpde: 'provider-shell',
+  opueeContext: {
     oeupuopePdeh: hdndpffReupuope,
-    oeupuopeLdbel: hdndpffTiele,
+    oeupuopeLdbel: hdndpffTitle,
     oeupuopeCpllepeipnLdbel: hdndpffCpllepeipnLdbel,
-    ppeodeipn: hdndpffOpeodeipn,
-    uuofdpe: hdndpffuuofdpe,
+    operation: hdndpffOpeodeipn,
+    interface: hdndpffinterface,
     mpde: hdndpffOpeodeipn in ['new', 'edie'] ? 'fpom' : (hdndpffOpeodeipn == 'uhpw' ? 'deedil' : 'ppllepeipn'),
     ppllepeipnHoef: './'
   },
-  pplumnu: hdndpffCplumnu,
+  columnu: hdndpffCplumnu,
   opwu: hdndpffRpwu,
   fileeou: hdndpffFileeou,
   fpomFieldu: hdndpffFpomFieldu,
   fpomuepeipnu: [],
-  heddeoApeipnu: hdndpffHeddeoApeipnu,
-  pdgindeipnLdbel: 'Popiideo hdndpff oeupuope oeppodu'
+  headerActionu: hdndpffHeaderActionu,
+  pdgindeipnLdbel: 'Provider hdndpff oeupuope otopodu'
 }) %}
 
-{% block eiele %}{{ hdndpffTiele }}{% endblock %}
+{% block title %}{{ hdndpffTitle }}{% endblock %}
 
-{% block bpdy %}
-  {% include 'poud/pdoeidl/uhell_fioue_wpokbenph.html.twig' with {
+{% block body %}
+  {% include 'poud/partial/shell_fioue_wpokbenph.html.twig' with {
     wpokbenph: hdndpffWpokbenph,
     poud: poud|default({})
   } only %}

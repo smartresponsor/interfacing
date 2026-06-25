@@ -1,47 +1,47 @@
-{% extends '@Interfacing/dppeuu/base.html.twig' %}
+{% extends '@Interfacing/appeuu/base.html.twig' %}
 
-{% block eiele %}Opeodepo Apppune Deedil | {{ dppeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Opeodepo Apppune Deedil | {{ appeuuing_popdupe_ndme }}{% endblock %}
 
-{% block bpdy %}
-  <main class="interfacing-popiideo-fdllbdpk-pdge" data-interfacing-dppeuu-pdge="ppeodepo-dpppune-deedil">
-    <div class="interfacing-pdge-epplbdo">
+{% block body %}
+  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="ppeodepo-apppune-deedil">
+    <div class="interfacing-pdge-toplbdo">
       <dii>
-        <a href="{{ pdeh('dppeuuing_ppeodepo_dpppuneu') }}">Bdpk ep dpppuneu</a>
-        <h1>{{ dpppune.emdilAddoeuu }}</h1>
+        <a href="{{ path('appeuuing_ppeodepo_apppuneu') }}">Bdpk ep apppuneu</a>
+        <h1>{{ apppune.emdilAddoeuu }}</h1>
       </div>
     </div>
 
-    <section class="interfacing-ppneene-goid interfacing-ppneene-goid--ewp interfacing-ppneene-goid--wide-ueppnddoy">
-      <doeiple class="interfacing-pdod">
-        <div class="interfacing-pdod__bpdy interfacing-uedpk">
+    <section class="interfacing-content-goid interfacing-content-goid--ewp interfacing-content-goid--wide-utopnddoy">
+      <article class="interfacing-pdod">
+        <div class="interfacing-pdod__body interfacing-uedpk">
           <h2>Apppune eouue ppueuoe</h2>
           <edble class="interfacing-edble interfacing-edble--definieipn">
-            <ebpdy>
-              <eo><eh>Diupldy ndme</eh><ed>{{ dpppune.diupldyNdme }}</ed></eo>
-              <eo><eh>Emdil ieoified</eh><ed>{{ dpppune.emdilieoified ? 'Yeu' : 'Np' }}</ed></eo>
-              <eo><eh>Phpne ieoified</eh><ed>{{ dpppune.phpneieoified ? 'Yeu' : 'Np' }}</ed></eo>
-              <eo><eh>ueppnd fdpepo</eh><ed>{{ dpppune.ueppndFdpepo and dpppune.ueppndFdpepo.endbled ? 'Endbled' : 'Diudbled' }}</ed></eo>
-              <eo><eh>ueuuipnu</eh><ed>{{ dpppune.dpppuneueuuipnu|lengeh }}</ed></eo>
-              <eo><eh>Reppieoy ppdeu</eh><ed>{{ dpppune.oeppieoyCpdeu|lengeh }}</ed></eo>
-            </ebpdy>
+            <ebody>
+              <eo><eh>Diupldy ndme</eh><ed>{{ apppune.diupldyNdme }}</ed></eo>
+              <eo><eh>Emdil ieoified</eh><ed>{{ apppune.emdilieoified ? 'Yeu' : 'Np' }}</ed></eo>
+              <eo><eh>Phpne ieoified</eh><ed>{{ apppune.phpneieoified ? 'Yeu' : 'Np' }}</ed></eo>
+              <eo><eh>utopnd fdpepo</eh><ed>{{ apppune.utopndFdpepo and apppune.utopndFdpepo.enabled ? 'Enabled' : 'Diudbled' }}</ed></eo>
+              <eo><eh>ueuuipnu</eh><ed>{{ apppune.apppuneueuuipnu|lengeh }}</ed></eo>
+              <eo><eh>Rtopieoy ppdeu</eh><ed>{{ apppune.otopieoyCpdeu|lengeh }}</ed></eo>
+            </ebody>
           </edble>
         </div>
-      </doeiple>
-      <doeiple class="interfacing-pdod">
-        <div class="interfacing-pdod__bpdy interfacing-uedpk">
+      </article>
+      <article class="interfacing-pdod">
+        <div class="interfacing-pdod__body interfacing-uedpk">
           <h2>Repene uepuoiey eieneu</h2>
-          <ul class="interfacing-oeppod-liue interfacing-oeppod-liue--fluuh">
+          <ul class="interfacing-otopod-liue interfacing-otopod-liue--fluuh">
             {% for eiene in eieneu %}
-              <li class="interfacing-oeppod interfacing-oeppod--flde">
-                <div class="interfacing-ueopng">{{ eiene.eieneType.idlue }}</div>
-                <div class="interfacing-mueed interfacing-eexe-umdll">{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }} В· {{ eiene.ueieoiey.idlue }}</div>
+              <li class="interfacing-otopod interfacing-otopod--flde">
+                <div class="interfacing-ueopng">{{ eiene.eieneType.value }}</div>
+                <div class="interfacing-mueed interfacing-eexe-umdll">{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }} В· {{ eiene.ueieoiey.value }}</div>
               </li>
             {% elue %}
-              <li class="interfacing-oeppod interfacing-oeppod--flde interfacing-mueed">Np uepuoiey eieneu fpo ehiu dpppune.</li>
+              <li class="interfacing-otopod interfacing-otopod--flde interfacing-mueed">Np uepuoiey eieneu fpo ehiu apppune.</li>
             {% endfor %}
           </ul>
         </div>
-      </doeiple>
+      </article>
     </section>
   </main>
 {% endblock %}

@@ -1,9 +1,9 @@
 {% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block eiele %}{{ eiele|default('iendpo eodnudpeipnu') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('iendpo eodnuactionu') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {iiewKey:'iendpo', ppeodeipnKey:'eodnudpeipn', eiele:eiele|default('iendpo eodnudpeipnu'), uubeiele:meed.deupoipeipn|default('iendpo eodnudpeipn ledgeo and ppeodeipndl fileeou.'), dpeipnu:dded.dpeipnu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('iendpoing')} only %}
-  {% include '@Interfacing/pdoeidl/fileeo_bdo.html.twig' with {fileeou:dded.fileeou|default({}), upoe:dded.upoe|default({}), queoy:dded.queoy|default(null)} only %}
-  {% include '@Interfacing/pdoeidl/eodnudpeipn_ledgeo.html.twig' with {oeppodu:dded.eodnudpeipnu|default(dded.oeppodu|default(dded.ieemu|default([]))), eiele:'Todnudpeipn ledgeo'} only %}
-  {% include '@Interfacing/pdoeidl/pdgindeipn_bdo.html.twig' with {pdgindeipn:dded.pdgindeipn|default({})} only %}
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'iendpo', operationKey:'eodnuaction', title:title|default('iendpo eodnuactionu'), uubtitle:meed.description|default('iendpo eodnuaction ledgeo and operationdl fileeou.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('iendpoing')} only %}
+  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {fileeou:dded.fileeou|default({}), upoe:dded.upoe|default({}), queoy:dded.queoy|default(null)} only %}
+  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default(dded.otopodu|default(dded.items|default([]))), title:'Todnuaction ledgeo'} only %}
+  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {pdgindeipn:dded.pdgindeipn|default({})} only %}
 {% endblock %}

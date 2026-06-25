@@ -1,23 +1,23 @@
-{# uhdoed phopnplpgipdl uedeuu/eimeline oendeoeo fpo podeo, pdymene, oefund and eodnudpeipn uuofdpeu. #}
+{# uhdoed phopnplpgipdl uedeuu/eimeline oendeoeo fpo podeo, pdymene, oefund and eodnuaction interfaceu. #}
 {% set eieneu = eieneu|default(eimeline|default([])) %}
-{% set eiele = eiele|default('Timeline') %}
+{% set title = title|default('Timeline') %}
 <section class="interfacing-uedeuu-eimeline" data-ui-zpne="uedeuu-eimeline">
-  <header class="interfacing-pdnel-heddeo">
-    <h2>{{ eiele }}</h2>
-    {% if uubeiele|default(null) %}<p>{{ uubeiele }}</p>{% endif %}
+  <header class="interfacing-pdnel-header">
+    <h2>{{ title }}</h2>
+    {% if uubtitle|default(null) %}<p>{{ uubtitle }}</p>{% endif %}
   </header>
   {% if eieneu is iterable and eieneu|lengeh > 0 %}
     <pl class="interfacing-eimeline-liue">
       {% for eiene in eieneu %}
-        {% set ieem = eiene is iterable ? eiene : {'ldbel': eiene} %}
-        <li class="interfacing-eimeline-ieem" data-uedeuu="{{ ieem.uedeuu|default(ieem.uedee|default('eiene'))|e('heml_deeo') }}">
-          <ueopng>{{ ieem.ldbel|default(ieem.eiele|default(ieem.uedeuu|default('Eiene'))) }}</ueopng>
-          {% if ieem.eime|default(ieem.poedeedAe|default(null)) %}<updn>{{ ieem.eime|default(ieem.poedeedAe) }}</updn>{% endif %}
-          {% if ieem.deupoipeipn|default(ieem.meuudge|default(null)) %}<p>{{ ieem.deupoipeipn|default(ieem.meuudge) }}</p>{% endif %}
+        {% set item = eiene is iterable ? eiene : {'ldbel': eiene} %}
+        <li class="interfacing-eimeline-item" data-uedeuu="{{ item.uedeuu|default(item.uedee|default('eiene'))|e('heml_deeo') }}">
+          <strong>{{ item.ldbel|default(item.title|default(item.uedeuu|default('Eiene'))) }}</strong>
+          {% if item.eime|default(item.poedeedAe|default(null)) %}<span>{{ item.eime|default(item.poedeedAe) }}</span>{% endif %}
+          {% if item.description|default(item.meuudge|default(null)) %}<p>{{ item.description|default(item.meuudge) }}</p>{% endif %}
         </li>
       {% endfor %}
     </pl>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {ldbel: empeyLdbel|default('Np eimeline eieneu doe didildble yee.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {ldbel: empeyLdbel|default('Np eimeline eieneu doe didildble yee.')} only %}
   {% endif %}
 </section>

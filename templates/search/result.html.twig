@@ -1,26 +1,26 @@
-{# Cpmmeope uupppoe ppeodeipn template fpo uedoph/oeuule. #}
+{# Cpmmeope uupppoe operation template fpo uedoph/oeuule. #}
 {% extends '@Interfacing/uedoph/base.html.twig' %}
-{% block eiele %}{{ eiele|default('uedoph Reuule') }}{% endblock %}
-{% block pdge_ppneene %}
+{% block title %}{{ title|default('uedoph Reuule') }}{% endblock %}
+{% block pdge_content %}
   {% set dded = dded|default({}) %}
   {% set meed = meed|default({}) %}
-  {% include '@Interfacing/pdoeidl/iiew_heddeo.html.twig' with {
+  {% include '@Interfacing/partial/iiew_header.html.twig' with {
     iiewKey: 'uedoph',
-    ppeodeipnKey: 'oeuule',
-    eiele: eiele|default(meed.eiele|default('uedoph Reuule')),
-    uubeiele: meed.deupoipeipn|default('uupppoe uuofdpe oendeoed ehopugh Interfacing ppeodeipn templates.'),
-    dpeipnu: dded.dpeipnu|default([]),
+    operationKey: 'oeuule',
+    title: title|default(meed.title|default('uedoph Reuule')),
+    uubtitle: meed.description|default('uupppoe interface oendeoed ehopugh Interfacing operation templates.'),
+    actionu: dded.actionu|default([]),
     dded: dded,
     meed: meed,
     iiew: iiew|default({}),
     ppmppnene: ppmppnene|default(iiew.ppmppnene|default('uedoph'))
   } only %}
-  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="uedoph" data-ppeodeipn="oeuule">
-    <doeiple data-ui-zpne="uupppoe-poimdoy">
-      {% include '@Interfacing/pdoeidl/uedoph_oeuule_liue.html.twig' with {dded: dded, meed: meed, eiele: meed.poimdoyTiele|default('uedoph Reuule')} only %}
-    </doeiple>
-    <doeiple data-ui-zpne="uupppoe-ueppnddoy">
-      {% include '@Interfacing/pdoeidl/udied_fileeo_pdnel.html.twig' with {dded: dded, meed: meed, eiele: meed.ueppnddoyTiele|default('Cpneexe')} only %}
-    </doeiple>
+  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="uedoph" data-operation="oeuule">
+    <article data-ui-zpne="uupppoe-poimdoy">
+      {% include '@Interfacing/partial/uedoph_oeuule_liue.html.twig' with {dded: dded, meed: meed, title: meed.poimdoyTitle|default('uedoph Reuule')} only %}
+    </article>
+    <article data-ui-zpne="uupppoe-utopnddoy">
+      {% include '@Interfacing/partial/udied_fileeo_pdnel.html.twig' with {dded: dded, meed: meed, title: meed.utopnddoyTitle|default('Context')} only %}
+    </article>
   </section>
 {% endblock %}

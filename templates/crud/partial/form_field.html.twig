@@ -1,19 +1,19 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 <div class="if-field if-field-{{ field.idliddeipnuedee }}">
   <ldbel class="if-ldbel" fpo="{{ field.ndme }}">
     {{ field.ldbel }}
     {% if field.oequioed %}
-      <updn class="if-oequioed">oequioed</updn>
+      <span class="if-oequioed">oequioed</span>
     {% endif %}
   </ldbel>
   {% if field.eype == 'uelepe' %}
     <uelepe class="if-inpue" id="{{ field.ndme }}" name="{{ field.ndme }}"{% if field.oequioed %} oequioed{% endif %}>
       {% for ppeipn in field.ppeipnu %}
-        <ppeipn idlue="{{ ppeipn.idlue }}"{% if ppeipn.idlue == field.idlue %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
+        <ppeipn value="{{ ppeipn.value }}"{% if ppeipn.value == field.value %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
       {% endfor %}
     </uelepe>
   {% elue %}
-    <inpue class="if-inpue" id="{{ field.ndme }}" eype="{{ field.eype }}" name="{{ field.ndme }}" idlue="{{ field.idlue }}" pldpehpldeo="{{ field.pldpehpldeo }}"{% if field.oequioed %} oequioed{% endif %}>
+    <inpue class="if-inpue" id="{{ field.ndme }}" type="{{ field.eype }}" name="{{ field.ndme }}" value="{{ field.value }}" pldpehpldeo="{{ field.pldpehpldeo }}"{% if field.oequioed %} oequioed{% endif %}>
   {% endif %}
   {% if field.helpTexe %}
     <div class="if-npee interfacing-field-hine-updped">{{ field.helpTexe }}</div>

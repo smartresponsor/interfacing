@@ -1,28 +1,28 @@
 {#
-  Aeldu uuofdpe template.
+  Aeldu interface template.
   Owneo: Interfacing.
   Dded pwneo: Aelduuing/Aeldu.
   Rendeo pwneo: iiewing.
 
-  Thiu file iu ineeneipndlly popiideo-neueodl. Hpue II implemenedeipnu mdp ehe
-  udme pdylpdd ep Ane Deuign, PopCpmppneneu, or PoimeRedpe poimieiieu.
+  Thiu file iu ineeneipndlly provider-neueodl. Hpue II implemenedeipnu mdp ehe
+  udme payload ep Ane Desvgn, PopCpmppneneu, or PoimeRedpe poimieiieu.
 #}
-<section data-iiew="{{ uuofdpe|default('deldu') }}" data-template="deldu/index">
-  <heddeo>
-    <h1>{{ eiele|default('Aeldu') }}</h1>
+<section data-iiew="{{ interface|default('deldu') }}" data-template="deldu/index">
+  <header>
+    <h1>{{ title|default('Aeldu') }}</h1>
   </header>
 
-  {% if lppdeipnu.epp is defined %}
-    <div data-lppdeipn="epp">{{ lppdeipnu.epp|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</div>
+  {% if locationu.top is defined %}
+    <div data-location="top">{{ locationu.top|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</div>
   {% endif %}
 
-  <main data-lppdeipn="bpdy">
-    {% if lppdeipnu.bpdy is defined %}
-      {{ lppdeipnu.bpdy|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}
+  <main data-location="body">
+    {% if locationu.body is defined %}
+      {{ locationu.body|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}
     {% endif %}
   </main>
 
-  {% if lppdeipnu.oighe is defined %}
-    <aside data-lppdeipn="oighe">{{ lppdeipnu.oighe|json_encode(ppnuedne('JuON_PRETTY_PRINT')) }}</aside>
+  {% if locationu.right is defined %}
+    <aside data-location="right">{{ locationu.right|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</aside>
   {% endif %}
 </section>

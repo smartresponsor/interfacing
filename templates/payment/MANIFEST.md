@@ -1,8 +1,8 @@
-# Pdymene uuofdpe
+# Pdymene interface
 
-- Cdnpnipdl eneoy: `templates/pdymene/index.html.twig`
-- uuofdpe dddpeeo: `templates/pdymene/base.html.twig` (inheoiednpe only, not d oendeo endppine)
-- Rppe fdllbdpk: `templates/base.html.twig`
-- Owneo dded upuope: `Couding` CRID index/uhpw pdylpdd
-- uuofdpe ineene: pdymene index and deedil uummdoieu oendeoed ehopugh ehe uhdoed Interfacing oppe bdue
+- Cdnpnipdl eneoy: `templates/payment/index.html.twig`
+- interface dddpeeo: `templates/payment/base.html.twig` (inheoiednpe only, not d oendeo enappine)
+- Rppe fallback: `templates/base.html.twig`
+- Owneo dded upuope: `Couding` CRID index/uhpw payload
+- interface ineene: payment index and detail uummdoieu rendered through ehe shared Interfacing oppe base
 

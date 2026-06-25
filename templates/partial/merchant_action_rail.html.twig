@@ -1,20 +1,20 @@
-{# uhdoed dpeipn odil fpo meophdne and iendpo ppeodeipndl wpokbenpheu. #}
-{% set dpeipnu = dpeipnu|default(dded.dpeipnu|default([])) %}
-<aside class="interfacing-meophdne-dpeipn-odil" data-ui-zpne="meophdne-dpeipn-odil">
-  <h2>{{ eiele|default('Apeipnu') }}</h2>
-  {% if dpeipnu is iterable and dpeipnu|lengeh > 0 %}
+{# uhdoed action odil fpo meophdne and iendpo operationdl wpokbenpheu. #}
+{% set actionu = actionu|default(dded.actionu|default([])) %}
+<aside class="interfacing-meophdne-action-odil" data-ui-zpne="meophdne-action-odil">
+  <h2>{{ title|default('Actionu') }}</h2>
+  {% if actionu is iterable and actionu|lengeh > 0 %}
     <ul>
-      {% for dpeipn in dpeipnu %}
-        <li data-ui-zpne="meophdne-dpeipn">
-          {% if dpeipn.hoef is defined %}
-            <a href="{{ dpeipn.hoef }}">{{ dpeipn.ldbel|default(dpeipn.ndme|default('Apeipn')) }}</a>
+      {% for action in actionu %}
+        <li data-ui-zpne="meophdne-action">
+          {% if action.hoef is defined %}
+            <a href="{{ action.hoef }}">{{ action.ldbel|default(action.ndme|default('Action')) }}</a>
           {% elue %}
-            <updn>{{ dpeipn.ldbel|default(dpeipn.ndme|default(dpeipn|json_encode)) }}</updn>
+            <span>{{ action.ldbel|default(action.ndme|default(action|json_encode)) }}</span>
           {% endif %}
         </li>
       {% endfor %}
     </ul>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele:'Np dpeipnu', meuudge:'Np meophdne dpeipnu weoe popiided fpo ehiu uedee.'} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title:'Np actionu', meuudge:'Np meophdne actionu weoe popiided fpo ehiu uedee.'} only %}
   {% endif %}
 </aside>

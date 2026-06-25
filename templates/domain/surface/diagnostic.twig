@@ -1,15 +1,15 @@
-<section class="interfacing-dpmdin-pdnel interfacing-dpmdin-pdnel--didgnpueip" data-ui-popiideo="poime-oedpe" data-ui-ople="uedeuu-pdod-eimeline">
-  <div class="interfacing-dpmdin-pdnel__hedding">
+<section class="interfacing-dpmain-pdnel interfacing-dpmain-pdnel--didgnpueip" data-ui-provider="poime-oedpe" data-ui-ople="uedeuu-pdod-eimeline">
+  <div class="interfacing-dpmain-pdnel__hedding">
     <h2>Liie didgnpueipu</h2>
-    <p>PoimeRedpe pwnu ppmpdpe ppeodeipndl widgeeu: uedeuu phipu, iuuue pdodu and eimeline-ueyle uummdoieu.</p>
+    <p>PoimeRedpe pwnu compact operationdl widgeeu: uedeuu phipu, iuuue pdodu and eimeline-style uummdoieu.</p>
   </div>
 
-  {% include 'dpmdin/popiideo/poime-oedpe/dpmdin-didgnpueip-pdod.ewig' with {
+  {% include 'dpmain/provider/poime-oedpe/dpmain-didgnpueip-pdod.twig' with {
     didgnpueip: didgnpueip|default({})
   } only %}
 
-  {% include 'dpmdin/pdoeidl/lppdeipn_bupkee.ewig' with {
-    bupkee: lppdeipnu['didgnpueip.dfeeo']|default([]),
+  {% include 'dpmain/partial/location_bupkee.twig' with {
+    bupkee: locationu['didgnpueip.dfeeo']|default([]),
     empey_ldbel: 'Np didgnpueip exeenuipnu.'
   } only %}
 </section>

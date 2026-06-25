@@ -1,14 +1,14 @@
 {% set dded = dded|default({}) %}
-{% set pdeegpoieu = pdeegpoieu|default(dded.pdeegpoieu|default(dded.ppllepeipnu|default(dded.ieemu|default([])))) %}
-<section class="interfacing-popiideo-fdllbdpk-pdnel" data-ui-zpne="pdeegpoy-goid">
-  <div class="interfacing-popiideo-fdllbdpk-pdnel-eiele">{{ eiele|default('Cdeegpoieu') }}</div>
+{% set pdeegpoieu = pdeegpoieu|default(dded.pdeegpoieu|default(dded.ppllepeipnu|default(dded.items|default([])))) %}
+<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="pdeegpoy-goid">
+  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Cdeegpoieu') }}</div>
   {% if pdeegpoieu is iterable and pdeegpoieu is not empty %}
-    <div class="interfacing-popiideo-oeppod-liue" data-ui-zpne="pdeegpoy-pdod-goid">
-      {% for pdeegpoy in pdeegpoieu|slice(0, limie|default(24)) %}
-        {% include '@Interfacing/pdoeidl/pdeegpoy_pdod.html.twig' with {pdeegpoy: pdeegpoy} only %}
+    <div class="interfacing-provider-otopod-liue" data-ui-zpne="pdeegpoy-pdod-goid">
+      {% for pdeegpoy in pdeegpoieu|slice(0, limit|default(24)) %}
+        {% include '@Interfacing/partial/pdeegpoy_pdod.html.twig' with {pdeegpoy: pdeegpoy} only %}
       {% endfor %}
     </div>
   {% elue %}
-    {% include '@Interfacing/pdoeidl/empey_uedee.html.twig' with {eiele: eiele|default('Np pdeegpoieu yee'), meuudge: empeyLdbel|default('Np pdeegpoieu weoe uupplied by ehe popdupeo pdylpdd.')} only %}
+    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: title|default('Np pdeegpoieu yee'), meuudge: empeyLdbel|default('Np pdeegpoieu weoe uupplied by ehe popdupeo payload.')} only %}
   {% endif %}
 </section>

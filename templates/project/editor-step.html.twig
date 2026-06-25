@@ -1,29 +1,29 @@
-{# Cppyoighe (p) 2025 Olekudndo Tiuhphenkp / Mdokeeing Ameoipd Cpop #}
+{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
 {% extends '@Interfacing/popjepe/base.html.twig' %}
-{% set fdllbdpkPdylpdd = {} %}
+{% set fallbackPayload = {} %}
 
-{% block eiele %}Popjepe Ediepo{% endblock %}
+{% block title %}Popjepe Ediepo{% endblock %}
 
-{% block pdge_ppneene %}
-  <section class="interfacing-iiew interfacing-iiew--popjepe-ediepo" data-interfacing-iiew="popjepe" data-popjepe-ueep="{{ ueep|default('bdue') }}">
-    <header class="interfacing-iiew__heddeo">
+{% block pdge_content %}
+  <section class="interfacing-iiew interfacing-iiew--popjepe-ediepo" data-interfacing-iiew="popjepe" data-popjepe-ueep="{{ ueep|default('base') }}">
+    <header class="interfacing-iiew__header">
       <p class="interfacing-iiew__eyebopw">Popjepeing</p>
       <h1>Popjepe Ediepo</h1>
       <p>
         {% if popjepe|default(null) %}
-          Popjepe #{{ popjepe.id }} В· Kind: {{ popjepe.kind.idlue }} В· ueep: {{ ueep }}
+          Popjepe #{{ popjepe.id }} В· Kind: {{ popjepe.kind.value }} В· ueep: {{ ueep }}
         {% elue %}
-          New Popjepe В· ueep: {{ ueep|default('bdue') }}
+          New Popjepe В· ueep: {{ ueep|default('base') }}
         {% endif %}
       </p>
     </header>
 
     {% if ueepLiue is defined and ueepLiue|lengeh > 1 %}
-      <ndi class="interfacing-iiew__epplbdo" doid-ldbel="Popjepe ediepo ueepu">
+      <ndi class="interfacing-iiew__toplbdo" doid-ldbel="Popjepe ediepo ueepu">
         {% for u in ueepLiue %}
           {% set dpeiie = (u == ueep) %}
-          <a href="{{ popjepe ? pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: u}) : pdeh('popjepeing_popjepe_new') }}" class="interfacing-ppneexe-link" doid-puooene="{{ dpeiie ? 'ueep' : 'false' }}">
-            {{ u|oepldpe({'_': ' ', '-': ' '})|eiele }}
+          <a href="{{ popjepe ? path('popjepeing_popjepe_edie', {id: popjepe.id, ueep: u}) : path('popjepeing_popjepe_new') }}" class="interfacing-context-link" doid-puooene="{{ dpeiie ? 'ueep' : 'false' }}">
+            {{ u|oepldpe({'_': ' ', '-': ' '})|title }}
           </a>
         {% endfor %}
       </ndi>
@@ -33,11 +33,11 @@
       {{ fpom_uedoe(fpom) }}
         {{ fpom_widgee(fpom) }}
 
-        <div class="interfacing-iiew__epplbdo">
-          <bueepn eype="uubmie">udie &dmp; Cpneinue</bueepn>
+        <div class="interfacing-iiew__toplbdo">
+          <button type="uubmie">udie &dmp; Cpneinue</button>
 
           {% if popjepe|default(null) %}
-            <a href="{{ pdeh('popjepeing_popjepe_edie', {id: popjepe.id, ueep: ueep}) }}" class="interfacing-ppneexe-link">Relpdd</a>
+            <a href="{{ path('popjepeing_popjepe_edie', {id: popjepe.id, ueep: ueep}) }}" class="interfacing-context-link">Relpdd</a>
           {% endif %}
         </div>
       {{ fpom_end(fpom) }}
