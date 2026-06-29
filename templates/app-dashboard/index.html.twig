@@ -1,0 +1,58 @@
+{% extends '@Interfacing/base.html.twig' %}
+
+{% block title %}Smart Response Dashboard{% endblock %}
+{% block shell_title %}Dashboard{% endblock %}
+{% block shell_summary %}Commerce, messaging, catalog, billing, access, and runtime control.{% endblock %}
+
+{% block page_content %}
+  <section data-app-dashboard="overview">
+    <header class="interfacing-provider-fallback-heading">
+      <h2 class="interfacing-provider-fallback-title">Operational overview</h2>
+      <p class="interfacing-provider-fallback-description">
+        The app dashboard is rendered through the Interfacing base shell.
+      </p>
+    </header>
+
+    <section class="interfacing-provider-fallback-grid">
+      <article class="interfacing-provider-fallback-panel">
+        <h3 class="interfacing-provider-fallback-panel-title">Commerce</h3>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <dt>Status</dt>
+          <dd>Available</dd>
+          <dt>Area</dt>
+          <dd>Catalog, cart, checkout, order</dd>
+        </dl>
+      </article>
+
+      <article class="interfacing-provider-fallback-panel">
+        <h3 class="interfacing-provider-fallback-panel-title">Messaging</h3>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <dt>Status</dt>
+          <dd>Available</dd>
+          <dt>Area</dt>
+          <dd>Inbox, automation, notification</dd>
+        </dl>
+      </article>
+
+      <article class="interfacing-provider-fallback-panel">
+        <h3 class="interfacing-provider-fallback-panel-title">Access</h3>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <dt>Status</dt>
+          <dd>Available</dd>
+          <dt>Area</dt>
+          <dd>Account, session, security</dd>
+        </dl>
+      </article>
+
+      <article class="interfacing-provider-fallback-panel">
+        <h3 class="interfacing-provider-fallback-panel-title">Runtime</h3>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <dt>Status</dt>
+          <dd>Available</dd>
+          <dt>Area</dt>
+          <dd>Shell, location, provider registry</dd>
+        </dl>
+      </article>
+    </section>
+  </section>
+{% endblock %}

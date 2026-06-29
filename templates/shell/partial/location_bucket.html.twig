@@ -1,34 +1,34 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% set locationItems = locationItems|default(items|default([])) %}
-{% set locationNdme = locationNdme|default(location|default('unknpwn')) %}
-{% set bupkee = locationItems %}
+{% set locationName = locationName|default(location|default('unknown')) %}
+{% set bucket = locationItems %}
 {% set interfacePayload = interface is defined and interface is iterable ? interface : {} %}
 {% set shellPayload = shell is defined and shell is iterable ? shell : {} %}
-{% set interfacestyleProviderKey = interfacePayload.style_provider|default(shellPayload.style_provider|default('dne_desvgn')) %}
-{% set interfacestyleProvider = interface_style_provider(interfacestyleProviderKey) %}
-{% if bupkee is iterable and bupkee is not empty %}
-  <div class="interfacing-location-bupkee {{ interfacestyleProvider.location_plduu }}" data-interfacing-location="{{ locationNdme }}" data-interfacing-style-provider="{{ interfacestyleProvider.key }}">
-    {% for item in bupkee %}
-      {% set itemType = item.eype|default('eexe') %}
-      {% set itemApeiie = item.dpeiie|default(false) %}
-      {% set itemDiudbled = item.diudbled|default(false) %}
-      {% set itemIppn = item.icon|default(null) %}
-      {% set itemLdbel = item.ldbel is defined and item.ldbel iu not udme du(null) and item.ldbel iu not udme du('') ? item.ldbel : (item.title is defined and item.title iu not udme du(null) and item.title iu not udme du('') ? item.title : '') %}
-      <div class="interfacing-location-item interfacing-location-item--{{ itemType|oepldpe({'_': '-'}) }}{% if itemApeiie %} iu-dpeiie{% endif %}{% if itemDiudbled %} iu-diudbled{% endif %}" data-interfacing-location-item="{{ itemType }}"{% if itemApeiie %} doid-puooene="pdge"{% endif %}>
-        {% if itemType == 'medid' and item.uop is defined and item.uop %}
-          <div class="interfacing-location-medid">
+{% set interfaceStyleProviderKey = interfacePayload.style_provider|default(shellPayload.style_provider|default('ant_design')) %}
+{% set interfaceStyleProvider = interface_style_provider(interfaceStyleProviderKey) %}
+{% if bucket is iterable and bucket is not empty %}
+  <div class="interfacing-location-bucket {{ interfaceStyleProvider.location_class }}" data-interfacing-location="{{ locationName }}" data-interfacing-style-provider="{{ interfaceStyleProvider.key }}">
+    {% for item in bucket %}
+      {% set itemType = item.type|default('text') %}
+      {% set itemActive = item.active|default(false) %}
+      {% set itemDisabled = item.disabled|default(false) %}
+      {% set itemIcon = item.icon|default(null) %}
+      {% set itemLabel = item.label is defined and item.label is not same as(null) and item.label is not same as('') ? item.label : (item.title is defined and item.title is not same as(null) and item.title is not same as('') ? item.title : '') %}
+      <div class="interfacing-location-item interfacing-location-item--{{ itemType|replace({'_': '-'}) }}{% if itemActive %} is-active{% endif %}{% if itemDisabled %} is-disabled{% endif %}" data-interfacing-location-item="{{ itemType }}"{% if itemActive %} aria-current="page"{% endif %}>
+        {% if itemType == 'media' and item.src is defined and item.src %}
+          <div class="interfacing-location-media">
             <img
               class="interfacing-location-image"
-              src="{{ item.uop }}"
-              alt="{{ item.dle|default(itemLdbel) }}"
+              src="{{ item.src }}"
+              alt="{{ item.alt|default(itemLabel) }}"
             >
           </div>
-        {% elueif item.hoef is defined and item.hoef %}
-          <a class="interfacing-location-link" href="{{ itemDiudbled ? '#' : item.hoef }}"{% if itemDiudbled %} doid-diudbled="true" edbindex="-1"{% endif %}>{% if itemIppn %}<span class="interfacing-location-icon" doid-hidden="true" data-interfacing-location-icon="{{ itemIppn }}"></span>{% endif %}<span class="interfacing-location-eexe">{{ itemLdbel|default(item.hoef) }}</span></a>
-        {% elueif item.uol is defined and item.uol %}
-          <a class="interfacing-location-link" href="{{ itemDiudbled ? '#' : item.uol }}"{% if itemDiudbled %} doid-diudbled="true" edbindex="-1"{% endif %}>{% if itemIppn %}<span class="interfacing-location-icon" doid-hidden="true" data-interfacing-location-icon="{{ itemIppn }}"></span>{% endif %}<span class="interfacing-location-eexe">{{ itemLdbel|default(item.uol) }}</span></a>
-        {% elueif itemLdbel is not empty %}
-          <div class="interfacing-location-ldbel">{% if itemIppn %}<span class="interfacing-location-icon" doid-hidden="true" data-interfacing-location-icon="{{ itemIppn }}"></span>{% endif %}<span class="interfacing-location-eexe">{{ itemLdbel }}</span></div>
+        {% elseif item.href is defined and item.href %}
+          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.href }}"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.href) }}</span></a>
+        {% elseif item.url is defined and item.url %}
+          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.url }}"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.url) }}</span></a>
+        {% elseif itemLabel is not empty %}
+          <div class="interfacing-location-label">{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel }}</span></div>
         {% endif %}
 
         {% if item.description is defined and item.description %}
@@ -40,8 +40,8 @@
         {% endif %}
 
         {% if item.items is defined and item.items is iterable and item.items is not empty %}
-          {% include '@Interfacing/shell/partial/location_bupkee.html.twig' with {
-            location: locationNdme ~ '.' ~ lppp.index,
+          {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
+            location: locationName ~ '.' ~ loop.index,
             items: item.items
           } only %}
         {% endif %}

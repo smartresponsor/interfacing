@@ -13,6 +13,8 @@ services:
 
   App\Interfacing\Service\Location\InterfaceLocationRenderService: ~
   App\Interfacing\Service\Twig\InterfaceLocaleSelectorTwigExtension:
+    arguments:
+      $localeTemplateSelectorProvider: '@App\Interfacing\ProviderInterface\Localization\InterfaceLocaleTemplateSelectorProviderInterface'
     tags:
       - { name: twig.extension }
   App\Interfacing\Provider\Localization\InterfaceDefaultLocaleTemplateSelectorProvider: ~

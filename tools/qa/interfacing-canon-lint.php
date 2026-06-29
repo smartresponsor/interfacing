@@ -185,7 +185,7 @@ foreach ($runtimeEndpointFiles as $file) {
 }
 
 // 4. Literal Twig references must resolve inside templates/.
-$twigFiles = $allFiles('template', static fn (string $file): bool => str_ends_with($file, '.twig'));
+$twigFiles = $allFiles('templates', static fn (string $file): bool => str_ends_with($file, '.twig'));
 foreach ($twigFiles as $file) {
     $source = $read($file);
     if (!preg_match_all("/\{%\s*(?:extends|include|embed|import|from)\s+['\"]([^'\"]+)['\"]/", $source, $matches)) {
@@ -271,7 +271,7 @@ $retiredRuntimeNeedles = [
 ];
 
 $activeFiles = [];
-foreach (['src', 'config', 'template'] as $dir) {
+foreach (['src', 'config', 'templates'] as $dir) {
     $activeFiles = array_merge($activeFiles, $allFiles($dir, static fn (string $file): bool => preg_match('/\.(php|twig|ya?ml)$/', $file) === 1));
 }
 
@@ -313,6 +313,42 @@ foreach ($viewVocabularyFiles as $file) {
     foreach ($retiredViewVocabulary as $needle) {
         if (str_contains($source, $needle)) {
             $fail(sprintf('Retired surface vocabulary found in %s: %s', $file, $needle));
+        }
+    }
+}
+
+// 6c. Active documentation/templates must not retain known corruption tokens.
+$corruptionVocabularyFiles = [];
+foreach (['AGENTS.md', 'README.md', 'MANIFEST.md'] as $file) {
+    if ($exists($file)) {
+        $corruptionVocabularyFiles[] = $file;
+    }
+}
+
+foreach (['docs', 'templates'] as $dir) {
+    $corruptionVocabularyFiles = array_merge(
+        $corruptionVocabularyFiles,
+        $allFiles($dir, static fn (string $file): bool => preg_match('/\.(md|twig|ya?ml)$/', $file) === 1)
+    );
+}
+
+$knownCorruptionVocabulary = [
+    'Popiideo','popiideo','Cpneexe','ppneexe','Bdue','bdue',
+    'Runeime','runeime','Infod','infod','Demp','demp',
+    'Lppdlizdeipn','lppdlizdeipn','Cdedlpg','cdedlpg',
+    'Apeipn','apeipn','Appeuu','appeuu','Reuplieo','reuplieo',
+    'Regiseoy','regiseoy','CoudResource','CoudRpuee',
+    'oequeue','queoy','ppmpdeibiliey','depoepdeed','explipie',
+    'fdllbdpk','uhell','ineeofdpe','pdylpdd','uuofdpe','pdoeidl',
+    '<doeiple','<bueepn',' uop=',' dle=',
+];
+
+foreach (array_unique($corruptionVocabularyFiles) as $file) {
+    $source = $read($file);
+
+    foreach ($knownCorruptionVocabulary as $needle) {
+        if (str_contains($source, $needle)) {
+            $fail(sprintf('Known corruption vocabulary found in %s: %s', $file, $needle));
         }
     }
 }

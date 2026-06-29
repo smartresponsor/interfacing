@@ -1,2 +1,42 @@
 {# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends 'lppdle/base.html.twig' %}
+{% extends '@Interfacing/locale/base.html.twig' %}
+
+{% block page_content %}
+  {% set body = locations.body|default({}) %}
+  <section class="interfacing-provider-fallback-page" data-interfacing-locale-interface="true">
+    <header class="interfacing-provider-fallback-head">
+      <div class="interfacing-provider-fallback-header">
+        <div class="interfacing-provider-fallback-heading">
+          <div class="interfacing-eyebrow interfacing-eyebrow--flush">Localizing</div>
+          <h1 class="interfacing-provider-fallback-title">{{ body.title|default('Locale management') }}</h1>
+        </div>
+      </div>
+    </header>
+
+    {% if body.items is defined and body.items is iterable and body.items is not empty %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Available locales</div>
+        <div class="interfacing-provider-record-list">
+          {% for item in body.items %}
+            <div class="interfacing-provider-record">
+              <div class="interfacing-provider-record__title">{{ item.title|default(item.code|default('Locale')) }}</div>
+              {% if item.subtitle is defined and item.subtitle is not empty %}
+                <div class="interfacing-provider-record__meta">{{ item.subtitle }}</div>
+              {% endif %}
+              {% if item.meta is defined %}
+                <div class="interfacing-provider-record__meta">
+                  {% if item.meta.current is defined and 'yes' == item.meta.current %}current{% endif %}
+                  {% if item.meta.default is defined and 'yes' == item.meta.default %} &middot; default{% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% else %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-record interfacing-provider-record--empty">No locales configured.</div>
+      </section>
+    {% endif %}
+  </section>
+{% endblock %}

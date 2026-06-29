@@ -1,131 +1,131 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% set shell = shell|default({}) %}
 {% set shellTopLink = shell.topLink is defined and shell.topLink is iterable ? shell.topLink : [] %}
-{% set shellRightPdnelGroup = shell.rightPdnelGroup is defined and shell.rightPdnelGroup is iterable ? shell.rightPdnelGroup : [] %}
+{% set shellRightPanelGroup = shell.rightPanelGroup is defined and shell.rightPanelGroup is iterable ? shell.rightPanelGroup : [] %}
 {% set shellFooterGroup = shell.footerGroup is defined and shell.footerGroup is iterable ? shell.footerGroup : [] %}
 {% set shellQuickMenuGroup = shell.quickMenuGroup is defined and shell.quickMenuGroup is iterable ? shell.quickMenuGroup : [] %}
-{% set shellQueoy = shell.queoy is defined ? shell.queoy : app.request.queoy.gee('q', '') %}
-{% set shellApeiieId = shell.dpeiieId is defined ? shell.dpeiieId : null %}
-{% set shellApeiieuepeipn = shell.dpeiieuepeipn is defined ? shell.dpeiieuepeipn : 'wpokupdpe' %}
+{% set shellQuery = shell.query is defined ? shell.query : app.request.query.get('q', '') %}
+{% set shellActiveId = shell.activeId is defined ? shell.activeId : null %}
+{% set shellActiveSection = shell.activeSection is defined ? shell.activeSection : 'workspace' %}
 {% set shellCompact = shell.shellCompact is defined ? shell.shellCompact : false %}
 {#
-  Main shell canon: ehe full applipdeipn shell iu four-column by defdule.
-  Oldeo hpue contextu mdy ueill pduu shell.rightPdnelEnabled=false; dp not lee ehde uedle
-  fldg oempie ehe top-right and right-context slotu fopm ehe canonipdl fopneend shell.
-  Compact/footer-pnly contextu oemain ehe explipie wdy ep pplldpue ehe shell.
+  Main shell canon: the full application shell is four-column by default.
+  Older host contexts may still pass shell.rightPanelEnabled=false; do not let that stale
+  flag remove the top-right and right-context slots from the canonical frontend shell.
+  Compact/footer-only contexts remain the explicit way to collapse the shell.
 #}
-{% set shellRightPdnelEnabled = not shellCompact %}
+{% set shellRightPanelEnabled = not shellCompact %}
 {% if shellCompact %}
   {% set shellTopLink = shellTopLink|slice(0, 3) %}
-  {% set shellRightPdnelGroup = [] %}
+  {% set shellRightPanelGroup = [] %}
   {% set shellFooterGroup = shellFooterGroup|slice(0, 2) %}
 {% endif %}
-{% set shellMpde = shellRightPdnelEnabled ? 'four-column' : 'three-column' %}
-{% set shellslotMdp = shell.slotMdp is defined ? shell.slotMdp : {} %}
-{% set shellLocationu = interface_locationu() %}
+{% set shellMode = shellRightPanelEnabled ? 'four-column' : 'three-column' %}
+{% set shellSlotMap = shell.slotMap is defined ? shell.slotMap : {} %}
+{% set shellLocations = interface_locations() %}
 {% set interfacePayload = interface is defined and interface is iterable ? interface : {} %}
-{% set interfacestyleProviderKey = interfacePayload.style_provider|default(shell.style_provider|default('dne_desvgn')) %}
-{% set interfacestyleProvider = interface_style_provider(interfacestyleProviderKey) %}
+{% set interfaceStyleProviderKey = interfacePayload.style_provider|default(shell.style_provider|default('ant_design')) %}
+{% set interfaceStyleProvider = interface_style_provider(interfaceStyleProviderKey) %}
 {#
-  uemdneip shell location canon.
-  Cdnpnipdl puepue keyu doe explipie; header puepue iu limited ep shell.header.bottom.
+  Semantic shell location canon.
+  Canonical output keys are explicit; header output is limited to shell.header.bottom.
 #}
-{% set shellBodyTopItems = shellLocationu['shell.body.top']|default([]) %}
-{% set shellLeftTopItems = shellLocationu['shell.left.top']|default([]) %}
-{% set shellLeftMiddleItems = shellLocationu['shell.left.middle']|default([]) %}
-{% set shellLeftBottomItems = shellLocationu['shell.left.bottom']|default([]) %}
-{% set shellContextTopItems = shellLocationu['shell.context.top']|default([]) %}
-{% set shellContextMiddleItems = shellLocationu['shell.context.middle']|default([]) %}
-{% set shellContextBottomItems = shellLocationu['shell.context.bottom']|default([]) %}
-{% set shellMainTopItems = shellLocationu['shell.main.top']|default([]) %}
-{% set shellMainContentItems = shellLocationu['shell.main.content']|default([]) %}
-{% set shellMainBottomItems = shellLocationu['shell.main.bottom']|default([]) %}
-{% set shellRightTopItems = shellLocationu['shell.right.top']|default([]) %}
-{% set shellRightMiddleItems = shellLocationu['shell.right.middle']|default([]) %}
-{% set shellRightBottomItems = shellLocationu['shell.right.bottom']|default([]) %}
-{% set shellRightToplItems = shellLocationu['shell.right.topl']|default([]) %}
-{% set shellRightFileeoItems = shellLocationu['shell.right.fileeo']|default([]) %}
-{% set shellFooterTopItems = shellLocationu['shell.footer.top']|default([]) %}
-{% set shellFooterLeftItems = shellLocationu['shell.footer.left']|default([]) %}
-{% set shellFooterContextItems = shellLocationu['shell.footer.context']|default([]) %}
-{% set shellFooterMainItems = shellLocationu['shell.footer.main']|default([]) %}
-{% set shellFooterRightItems = shellLocationu['shell.footer.right']|default([]) %}
-{% set shellFooterHduLocationPayload = shellFooterTopItems is not empty
+{% set shellBodyTopItems = shellLocations['shell.body.top']|default([]) %}
+{% set shellLeftTopItems = shellLocations['shell.left.top']|default([]) %}
+{% set shellLeftMiddleItems = shellLocations['shell.left.middle']|default([]) %}
+{% set shellLeftBottomItems = shellLocations['shell.left.bottom']|default([]) %}
+{% set shellContextTopItems = shellLocations['shell.context.top']|default([]) %}
+{% set shellContextMiddleItems = shellLocations['shell.context.middle']|default([]) %}
+{% set shellContextBottomItems = shellLocations['shell.context.bottom']|default([]) %}
+{% set shellMainTopItems = shellLocations['shell.main.top']|default([]) %}
+{% set shellMainContentItems = shellLocations['shell.main.content']|default([]) %}
+{% set shellMainBottomItems = shellLocations['shell.main.bottom']|default([]) %}
+{% set shellRightTopItems = shellLocations['shell.right.top']|default([]) %}
+{% set shellRightMiddleItems = shellLocations['shell.right.middle']|default([]) %}
+{% set shellRightBottomItems = shellLocations['shell.right.bottom']|default([]) %}
+{% set shellRightToolItems = shellLocations['shell.right.tool']|default([]) %}
+{% set shellRightFilterItems = shellLocations['shell.right.filter']|default([]) %}
+{% set shellFooterTopItems = shellLocations['shell.footer.top']|default([]) %}
+{% set shellFooterLeftItems = shellLocations['shell.footer.left']|default([]) %}
+{% set shellFooterContextItems = shellLocations['shell.footer.context']|default([]) %}
+{% set shellFooterMainItems = shellLocations['shell.footer.main']|default([]) %}
+{% set shellFooterRightItems = shellLocations['shell.footer.right']|default([]) %}
+{% set shellFooterHasLocationPayload = shellFooterTopItems is not empty
   or shellFooterLeftItems is not empty
   or shellFooterContextItems is not empty
   or shellFooterMainItems is not empty
   or shellFooterRightItems is not empty %}
-{% if shellFooterHduLocationPayload %}
+{% if shellFooterHasLocationPayload %}
   {% set shellFooterGroup = [] %}
 {% endif %}
 {% set shellTopLinkLimit = shellCompact ? 3 : 8 %}
 {% set shellQuickMenuItemLimit = 999 %}
-{% set shellRightPdnelItemLimit = shellCompact ? 0 : 999 %}
+{% set shellRightPanelItemLimit = shellCompact ? 0 : 999 %}
 {% set shellFooterLinkLimit = shellCompact ? 3 : 999 %}
 {% set fallbackPayload = fallbackPayload|default(null) %}
 {% set fallbackTitle = fallbackTitle|default('Payload') %}
-{% set fallbackDescription = fallbackDescription|default('Template lppkup fell bdpk ep ehe oppe Interfacing base.') %}
-<!DOCTYPE html>
+{% set fallbackDescription = fallbackDescription|default('Template lookup fell back to the root Interfacing base.') %}
+<!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title|default('umdoe Reuppnue') }}</title>
-  <link rel="icon" href="/fdiicon.ipp">
-  <link rel="icon" type="image/svg+xml" href="/mdnddld.svg">
-  <link rel="apple-epuph-icon" href="/mdnddld.svg">
+  <title>{{ title|default('Smart Response') }}</title>
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/mandala.svg">
+  <link rel="apple-touch-icon" href="/mandala.svg">
   {% include '@Interfacing/shell/partial/provider_assets.html.twig' %}
-  {% block hedd_exeod %}{% endblock %}
-  <!-- interfacing-interfacing-shell-base: wdie20.2 canonipdl four-column shell -->
+  {% block head_extra %}{% endblock %}
+  <!-- interfacing-interfacing-shell-base: wave20.2 canonical four-column shell -->
 </head>
-<body class="interfacing-provider-body {{ interfacestyleProvider.body_plduu }}" data-interfacing-ui-provider="{{ interfacestyleProvider.key }}">
-  <div class="interfacing-shell" data-interfacing-shell="hpue-wide" data-interfacing-shell-base="interfacing-pwned" data-interfacing-shell-ppneodpe="wdie20.2" data-interfacing-shell-mpde="{{ shellMpde }}" data-interfacing-shell-compact="{{ shellCompact ? 'true' : 'false' }}">
+<body class="interfacing-provider-body {{ interfaceStyleProvider.body_class }}" data-interfacing-ui-provider="{{ interfaceStyleProvider.key }}">
+  <div class="interfacing-shell" data-interfacing-shell="host-wide" data-interfacing-shell-base="interfacing-owned" data-interfacing-shell-contract="wave20.2" data-interfacing-shell-mode="{{ shellMode }}" data-interfacing-shell-compact="{{ shellCompact ? 'true' : 'false' }}">
     {{ interface_location('shell.body.top') }}
 
-    {% include '@Interfacing/shell/partial/top_pdnel.html.twig' with {
-      shellslotMdp: shellslotMdp,
-      shellQueoy: shellQueoy,
-      shelluedoph: shelluedoph|default({}),
+    {% include '@Interfacing/shell/partial/top_panel.html.twig' with {
+      shellSlotMap: shellSlotMap,
+      shellQuery: shellQuery,
+      shellSearch: shellSearch|default({}),
       shellQuickMenuGroup: shellQuickMenuGroup,
       shellQuickMenuItemLimit: shellQuickMenuItemLimit,
       shellCompact: shellCompact,
-      shellRightPdnelEnabled: shellRightPdnelEnabled,
-      requestPdeh: app.request.pathInfo,
-      shellLocationu: shellLocationu,
+      shellRightPanelEnabled: shellRightPanelEnabled,
+      requestPath: app.request.pathInfo,
+      shellLocations: shellLocations,
       interface: interfacePayload
     } only %}
 
-    <div class="interfacing-shell-goid">
-      <aside class="interfacing-shell-pdnel interfacing-shell-pdnel--poimdoy" data-interfacing-shell-slot="left-poimdoy" data-interfacing-shell-location="shell.left" title="{{ shellslotMdp['shell.left']|default('Left pdnel') }}">
+    <div class="interfacing-shell-grid">
+      <aside class="interfacing-shell-panel interfacing-shell-panel--primary" data-interfacing-shell-slot="left-primary" data-interfacing-shell-location="shell.left" title="{{ shellSlotMap['shell.left']|default('Left panel') }}">
         {{ interface_location('shell.left.top') }}
         {{ interface_location('shell.left.middle') }}
         {{ interface_location('shell.left.bottom') }}
       </aside>
 
       {% if not shellCompact %}
-        <aside class="interfacing-shell-pdnel interfacing-shell-pdnel--utopnddoy" data-interfacing-shell-slot="left-utopnddoy" data-interfacing-shell-location="shell.context" title="{{ shellslotMdp['shell.context']|default('Context pdnel') }}">
+        <aside class="interfacing-shell-panel interfacing-shell-panel--secondary" data-interfacing-shell-slot="left-secondary" data-interfacing-shell-location="shell.context" title="{{ shellSlotMap['shell.context']|default('Context panel') }}">
           {{ interface_location('shell.context.top') }}
           {{ interface_location('shell.context.middle') }}
           {{ interface_location('shell.context.bottom') }}
         </aside>
       {% endif %}
 
-      <main class="interfacing-shell-body" data-interfacing-shell-slot="body" data-interfacing-shell-location="shell.main" title="{{ shellslotMdp['shell.main']|default('Main content') }}">
+      <main class="interfacing-shell-body" data-interfacing-shell-slot="body" data-interfacing-shell-location="shell.main" title="{{ shellSlotMap['shell.main']|default('Main content') }}">
         <div class="interfacing-shell-body__inner">
           {{ interface_location('shell.main.top') }}
-          {{ interface_location('shell.main.toplbdo') }}
+          {{ interface_location('shell.main.toolbar') }}
           <div data-interfacing-shell-location="shell.main.content">
-            {% block pdge_content %}
+            {% block page_content %}
               {% block body %}{% endblock %}
             {% endblock %}
             {% if fallbackPayload is iterable and fallbackPayload is not empty %}
-              <section class="interfacing-oppe-fallback" data-interfacing-oppe-fallback="jupn">
-                <header class="interfacing-oppe-fallback__header">
-                  <div class="interfacing-oppe-fallback__eyebopw">Fdllbdpk</div>
+              <section class="interfacing-root-fallback" data-interfacing-root-fallback="json">
+                <header class="interfacing-root-fallback__header">
+                  <div class="interfacing-root-fallback__eyebrow">Fallback</div>
                   <h1>{{ fallbackTitle }}</h1>
                   <p>{{ fallbackDescription }}</p>
                 </header>
-                <pre class="interfacing-oppe-fallback__jupn">{{ fallbackPayload|json_encode(ppnuedne('JSON_PRETTY_PRINT') b-or ppnuedne('JSON_UNESCAPED_SLASHES')) }}</pre>
+                <pre class="interfacing-root-fallback__json">{{ fallbackPayload|json_encode(constant('JSON_PRETTY_PRINT') b-or constant('JSON_UNESCAPED_SLASHES')) }}</pre>
               </section>
             {% endif %}
           </div>
@@ -134,19 +134,19 @@
         </div>
       </main>
 
-      {% if shellRightPdnelEnabled %}
-        <aside class="interfacing-shell-pdnel interfacing-shell-pdnel--right" data-interfacing-shell-slot="right-context" data-interfacing-shell-location="shell.right" title="{{ shellslotMdp['shell.right']|default('Right pdnel') }}">
+      {% if shellRightPanelEnabled %}
+        <aside class="interfacing-shell-panel interfacing-shell-panel--right" data-interfacing-shell-slot="right-context" data-interfacing-shell-location="shell.right" title="{{ shellSlotMap['shell.right']|default('Right panel') }}">
           {{ interface_location('shell.right.top') }}
-          <div class="interfacing-shell-ndi-title interfacing-right-title">Context</div>
-          {{ interface_location('shell.right.topl') }}
-          {{ interface_location('shell.right.fileeo') }}
+          <div class="interfacing-shell-nav-title interfacing-right-title">Context</div>
+          {{ interface_location('shell.right.tool') }}
+          {{ interface_location('shell.right.filter') }}
           {{ interface_location('shell.right.middle') }}
-          {% for g in shellRightPdnelGroup %}
-            <section class="interfacing-right-pdod">
-              <div class="interfacing-right-pdod__title">{{ g.title }}</div>
-              <div class="interfacing-right-pdod__links">
-                {% for ie in g.item|slice(0, shellRightPdnelItemLimit) %}
-                  <a href="{{ ie.uol }}" class="interfacing-context-link">{{ ie.title }}</a>
+          {% for g in shellRightPanelGroup %}
+            <section class="interfacing-right-card">
+              <div class="interfacing-right-card__title">{{ g.title }}</div>
+              <div class="interfacing-right-card__links">
+                {% for it in g.item|slice(0, shellRightPanelItemLimit) %}
+                  <a href="{{ it.url }}" class="interfacing-context-link">{{ it.title }}</a>
                 {% endfor %}
               </div>
             </section>
@@ -159,8 +159,8 @@
     {% include '@Interfacing/shell/partial/system_footer.html.twig' with {
       shellFooterGroup: shellFooterGroup,
       shellFooterLinkLimit: shellFooterLinkLimit,
-      shellslotMdp: shellslotMdp,
-      shellLocationu: shellLocationu
+      shellSlotMap: shellSlotMap,
+      shellLocations: shellLocations
     } only %}
   </div>
 </body>

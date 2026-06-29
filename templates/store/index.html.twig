@@ -1,2 +1,62 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends 'uepoe/iiew.html.twig' %}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set storeRows = rows|default(workbench.rows|default([])) %}
+{% set storeActions = headerActions|default(workbench.headerActions|default([])) %}
+
+{% block title %}{{ title|default('Smart Response Store') }}{% endblock %}
+{% block shell_title %}{{ title|default('Smart Response Store') }}{% endblock %}
+{% block shell_summary %}Catalog, vendors, featured offers, and commerce entry points.{% endblock %}
+
+{% block page_content %}
+  <section data-store="home" data-view="store">
+    <header class="interfacing-provider-fallback-heading">
+      <p class="interfacing-provider-fallback-description">Application store</p>
+      <h1 class="interfacing-provider-fallback-title">{{ title|default('Smart Response Store') }}</h1>
+      <p class="interfacing-provider-fallback-description">
+        Browse platform catalog sections, vendor spaces, featured commerce actions, and store interface assets.
+      </p>
+    </header>
+
+    {% if storeActions is not empty %}
+      <nav class="interfacing-provider-fallback-grid" aria-label="Store actions">
+        {% for action in storeActions %}
+          <a class="interfacing-provider-fallback-panel" href="{{ action.href|default('#') }}">
+            <h3 class="interfacing-provider-fallback-panel-title">{{ action.label|default('Open') }}</h3>
+            <dl class="interfacing-provider-fallback-definition-list">
+              <dt>Operation</dt>
+              <dd>{{ action.operation|default('index') }}</dd>
+              <dt>Status</dt>
+              <dd>{{ action.enabled|default(false) ? 'Available' : 'Disabled' }}</dd>
+            </dl>
+          </a>
+        {% endfor %}
+      </nav>
+    {% endif %}
+
+    <section class="interfacing-provider-fallback-grid" aria-label="Store sections">
+      {% for row in storeRows %}
+        <article class="interfacing-provider-fallback-panel" data-store-section="{{ row.id|default(loop.index) }}">
+          <h3 class="interfacing-provider-fallback-panel-title">{{ row.title|default('Store section') }}</h3>
+          <dl class="interfacing-provider-fallback-definition-list">
+            <dt>Route</dt>
+            <dd>{{ row.code|default('/') }}</dd>
+            <dt>Owner</dt>
+            <dd>{{ row.owner|default('App') }}</dd>
+            <dt>Status</dt>
+            <dd>{{ row.status|default('ready') }}</dd>
+          </dl>
+        </article>
+      {% else %}
+        <article class="interfacing-provider-fallback-panel">
+          <h3 class="interfacing-provider-fallback-panel-title">Featured catalog</h3>
+          <dl class="interfacing-provider-fallback-definition-list">
+            <dt>Status</dt>
+            <dd>Ready</dd>
+            <dt>Area</dt>
+            <dd>Categories, products, vendors, and promotions</dd>
+          </dl>
+        </article>
+      {% endfor %}
+    </section>
+  </section>
+{% endblock %}

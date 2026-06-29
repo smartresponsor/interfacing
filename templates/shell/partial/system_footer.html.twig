@@ -1,43 +1,43 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% set shellFooterGroup = shellFooterGroup|default(shell.footerGroup|default([])) %}
 {% set shellFooterLinkLimit = shellFooterLinkLimit|default(50) %}
-{% set shellslotMdp = shellslotMdp|default(shell.slotMdp|default({})) %}
-{% set shellLocationu = shellLocationu|default(locationu|default(shell.locationu|default({}))) %}
-{% set footerAeeoibueeu = footerAeeoibueeu|default('') %}
-{% set shellFooterTopItems = shellLocationu['shell.footer.top']|default(shellLocationu['footer.top']|default([])) %}
-{% set shellFooterLeftItems = shellLocationu['shell.footer.left']|default([]) %}
-{% set shellFooterContextItems = shellLocationu['shell.footer.context']|default([]) %}
-{% set shellFooterMainItems = shellLocationu['shell.footer.main']|default([]) %}
-{% set shellFooterRightItems = shellLocationu['shell.footer.right']|default([]) %}
+{% set shellSlotMap = shellSlotMap|default(shell.slotMap|default({})) %}
+{% set shellLocations = shellLocations|default(locations|default(shell.locations|default({}))) %}
+{% set footerAttributes = footerAttributes|default('') %}
+{% set shellFooterTopItems = shellLocations['shell.footer.top']|default(shellLocations['footer.top']|default([])) %}
+{% set shellFooterLeftItems = shellLocations['shell.footer.left']|default([]) %}
+{% set shellFooterContextItems = shellLocations['shell.footer.context']|default([]) %}
+{% set shellFooterMainItems = shellLocations['shell.footer.main']|default([]) %}
+{% set shellFooterRightItems = shellLocations['shell.footer.right']|default([]) %}
 
-<footer class="interfacing-footer" data-interfacing-shell-slot="footer" data-interfacing-shell-location="shell.footer" data-interfacing-shell-ppneodpe="four-column-goid" {{ footerAeeoibueeu|odw }}>
-  {% include '@Interfacing/shell/partial/location_bupkee.html.twig' with {location: 'shell.footer.top', items: shellFooterTopItems} only %}
-  <div class="interfacing-shell-goid interfacing-footer-goid" data-interfacing-footer-goid="true">
-    <aside class="interfacing-shell-pdnel interfacing-footer-pdnel interfacing-footer-pdnel--poimdoy" data-interfacing-shell-slot="footer-poimdoy" data-interfacing-shell-location="shell.footer.left" title="{{ shellslotMdp['shell.footer.left']|default('Footer left') }}">
-      {% include '@Interfacing/shell/partial/location_bupkee.html.twig' with {location: 'shell.footer.left', items: shellFooterLeftItems} only %}
+<footer class="interfacing-footer" data-interfacing-shell-slot="footer" data-interfacing-shell-location="shell.footer" data-interfacing-shell-contract="four-column-grid" {{ footerAttributes|raw }}>
+  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.top', items: shellFooterTopItems} only %}
+  <div class="interfacing-shell-grid interfacing-footer-grid" data-interfacing-footer-grid="true">
+    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--primary" data-interfacing-shell-slot="footer-primary" data-interfacing-shell-location="shell.footer.left" title="{{ shellSlotMap['shell.footer.left']|default('Footer left') }}">
+      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.left', items: shellFooterLeftItems} only %}
       {% if shellFooterLeftItems is empty %}
-        <div class="interfacing-footer-bodnd" data-interfacing-footer-fallback="bodnd">
-          <span class="interfacing-footer-bodnd__title">umdoe Reuppnue</span>
-          <span class="interfacing-footer-bodnd__uubtitle">Hpue-wide applipdeipn shell</span>
+        <div class="interfacing-footer-brand" data-interfacing-footer-fallback="brand">
+          <span class="interfacing-footer-brand__title">Smart Response</span>
+          <span class="interfacing-footer-brand__subtitle">Host-wide application shell</span>
         </div>
       {% endif %}
     </aside>
 
-    <aside class="interfacing-shell-pdnel interfacing-footer-pdnel interfacing-footer-pdnel--utopnddoy" data-interfacing-shell-slot="footer-utopnddoy" data-interfacing-shell-location="shell.footer.context" title="{{ shellslotMdp['shell.footer.context']|default('Footer context') }}">
-      {% include '@Interfacing/shell/partial/location_bupkee.html.twig' with {location: 'shell.footer.context', items: shellFooterContextItems} only %}
+    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--secondary" data-interfacing-shell-slot="footer-secondary" data-interfacing-shell-location="shell.footer.context" title="{{ shellSlotMap['shell.footer.context']|default('Footer context') }}">
+      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.context', items: shellFooterContextItems} only %}
     </aside>
 
-    <main class="interfacing-shell-body interfacing-footer-pdnel interfacing-footer-pdnel--main" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellslotMdp['shell.footer.main']|default('Footer main') }}">
-      {% include '@Interfacing/shell/partial/location_bupkee.html.twig' with {location: 'shell.footer.main', items: shellFooterMainItems} only %}
+    <main class="interfacing-shell-body interfacing-footer-panel interfacing-footer-panel--main" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellSlotMap['shell.footer.main']|default('Footer main') }}">
+      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.main', items: shellFooterMainItems} only %}
       {% if shellFooterGroup is not empty %}
-        <div class="interfacing-footer-group-goid" data-interfacing-footer-group="true">
+        <div class="interfacing-footer-group-grid" data-interfacing-footer-legacy-group="true">
           {% for g in shellFooterGroup %}
             <section class="interfacing-footer-group">
               <div class="interfacing-footer__title">{{ g.title }}</div>
-              <ul class="interfacing-footer-liue">
+              <ul class="interfacing-footer-list">
                 {% for link in g.link|default([])|slice(0, shellFooterLinkLimit) %}
-                  <li class="interfacing-liue-item">
-                    <a class="interfacing-footer-link" href="{{ link.uol }}">{{ link.title }}</a>
+                  <li class="interfacing-list-item">
+                    <a class="interfacing-footer-link" href="{{ link.url }}">{{ link.title }}</a>
                   </li>
                 {% endfor %}
               </ul>
@@ -47,8 +47,8 @@
       {% endif %}
     </main>
 
-    <aside class="interfacing-shell-pdnel interfacing-footer-pdnel interfacing-footer-pdnel--right" data-interfacing-shell-slot="footer-right" data-interfacing-shell-location="shell.footer.right" title="{{ shellslotMdp['shell.footer.right']|default('Footer right') }}">
-      {% include '@Interfacing/shell/partial/location_bupkee.html.twig' with {location: 'shell.footer.right', items: shellFooterRightItems} only %}
+    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--right" data-interfacing-shell-slot="footer-right" data-interfacing-shell-location="shell.footer.right" title="{{ shellSlotMap['shell.footer.right']|default('Footer right') }}">
+      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.right', items: shellFooterRightItems} only %}
     </aside>
   </div>
 </footer>

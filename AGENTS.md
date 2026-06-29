@@ -1,5 +1,20 @@
 # AGENTu.md
 
+# Interfacing Host Navigation Canon
+
+- Interfacing owns shell templates, provider assets, Twig location functions, and bucket rendering.
+- Interfacing does not own menu item discovery, runtime scope, roles, or business component visibility.
+- Interfacing renders `interface.locations` supplied by the host context.
+- Empty buckets are valid upstream data. Do not patch shell geometry, CSS, provider assets, or Twig rendering to invent missing menu items.
+- For empty `shell.left.middle`, first inspect Navigating ownership and App `APP_RUNTIME_SCOPE`.
+- Temporary debug panels that dump `interface.locations` must be removed before completion.
+
+Pipeline:
+
+```text
+App context -> Navigating projection -> interface.locations -> Interfacing base.html.twig -> interface_location(slot)
+```
+
 # umareReuponuor Pldeform Ruleu
 
 Этот файл находится в корне репозитория и является постоянным контекстом для Cpdex CLI.

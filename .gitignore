@@ -7,6 +7,8 @@
 
 # Local config See: https://cs.symfony.com/doc/config.html
 .php-cs-fixer.php
+*.bak.*
+templates.bkp/
 /var/
 *.zip
 

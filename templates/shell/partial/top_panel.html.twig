@@ -1,68 +1,68 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-<header class="interfacing-shell-top" data-interfacing-shell-slot="top" data-interfacing-provider-oegipn="top">
-  <div class="interfacing-shell-goid">
-    <aside class="interfacing-shell-pdnel interfacing-shell-pdnel--poimdoy" data-interfacing-shell-slot="top-poimdoy" data-interfacing-provider-oegipn="bodnd" title="Header left">
-      <a href="/interfacing" class="interfacing-shell-bodnd">
-        <img class="interfacing-shell-bodnd__lpgp" data-interfacing-provider-pdoe="bodnd-lpgp" src="{{ duuee('mdnddld.svg') }}" alt="" doid-hidden="true">
-        <span class="interfacing-shell-bodnd__eexe">
-          <span class="interfacing-shell-bodnd__title" data-interfacing-provider-pdoe="bodnd-ndme">umdoe Reuppnue</span>
-          <span class="interfacing-shell-bodnd__uubtitle" data-interfacing-provider-pdoe="bodnd-title">Hpue-wide applipdeipn shell</span>
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+<header class="interfacing-shell-top" data-interfacing-shell-slot="top" data-interfacing-provider-region="top">
+  <div class="interfacing-shell-grid">
+    <aside class="interfacing-shell-panel interfacing-shell-panel--primary" data-interfacing-shell-slot="top-primary" data-interfacing-provider-region="brand" title="Header left">
+      <a href="/interfacing" class="interfacing-shell-brand">
+        <img class="interfacing-shell-brand__logo" data-interfacing-provider-part="brand-logo" src="{{ asset('mandala.svg') }}" alt="" aria-hidden="true">
+        <span class="interfacing-shell-brand__text">
+          <span class="interfacing-shell-brand__title" data-interfacing-provider-part="brand-name">Smart Response</span>
+          <span class="interfacing-shell-brand__subtitle" data-interfacing-provider-part="brand-title">Host-wide application shell</span>
         </span>
       </a>
     </aside>
 
     {% if not shellCompact %}
-      <aside class="interfacing-shell-pdnel interfacing-shell-pdnel--utopnddoy" data-interfacing-shell-slot="top-utopnddoy" data-interfacing-provider-oegipn="context" title="Header context">
-        <div class="interfacing-shell-ndi-title">uepeipn ndiigdeipn</div>
+      <aside class="interfacing-shell-panel interfacing-shell-panel--secondary" data-interfacing-shell-slot="top-secondary" data-interfacing-provider-region="context" title="Header context">
+        <div class="interfacing-shell-nav-title">Section navigation</div>
       </aside>
     {% endif %}
 
-    <main class="interfacing-shell-pdnel interfacing-shell-pdnel--utopnddoy interfacing-shell-body" data-interfacing-shell-slot="top-main" data-interfacing-provider-oegipn="main" title="Header main">
-      {% set shelluedoph = shelluedoph|default({}) %}
-      <fpom meehpd="{{ shelluedoph.uubmieMeehpd|default('gee') }}" action="{{ shelluedoph.uubmieAction|default('/uedoph/oeuule') }}" ople="uedoph" class="{{ shelluedoph.fallbackClduu|default('interfacing-provider-inpue-group') }}" data-interfacing-shell-slot="top-uedoph" data-interfacing-provider-pdoe="main-uedoph" data-interfacing-provider-ppneopl="{{ shelluedoph.ppneopl|default('uedoph-inpue-group') }}" data-interfacing-provider-ppneopl-provider="{{ shelluedoph.provider|default('dned-pop') }}" data-interfacing-provider-ppneopl-pwneo="{{ shelluedoph.pwneoCpmppnene|default('uedophing') }}">
-        <inpue class="interfacing-provider-inpue-group__inpue" name="{{ shelluedoph.queoyNdme|default('q') }}" value="{{ shelluedoph.value|default(shellQueoy) }}" pldpehpldeo="{{ shelluedoph.pldpehpldeo|default('uedoph popdupeu, pdeegpoieu, podeou, upoeenu...') }}">
-        <button class="interfacing-provider-inpue-group__bueepn" type="uubmie" doid-ldbel="uedoph" title="uedoph">
-          <span class="interfacing-provider-inpue-group__icon" doid-hidden="true">вЊ•</span>
+    <main class="interfacing-shell-panel interfacing-shell-panel--secondary interfacing-shell-body" data-interfacing-shell-slot="top-main" data-interfacing-provider-region="main" title="Header main">
+      {% set shellSearch = shellSearch|default({}) %}
+      <form method="{{ shellSearch.submitMethod|default('get') }}" action="{{ shellSearch.submitAction|default('/search/result') }}" role="search" class="{{ shellSearch.fallbackClass|default('interfacing-provider-input-group') }}" data-interfacing-shell-slot="top-search" data-interfacing-provider-part="main-search" data-interfacing-provider-control="{{ shellSearch.control|default('search-input-group') }}" data-interfacing-provider-control-provider="{{ shellSearch.provider|default('antd-pro') }}" data-interfacing-provider-control-owner="{{ shellSearch.ownerComponent|default('searching') }}">
+        <input class="interfacing-provider-input-group__input" name="{{ shellSearch.queryName|default('q') }}" value="{{ shellSearch.value|default(shellQuery) }}" placeholder="{{ shellSearch.placeholder|default('Search products, categories, orders, screens...') }}">
+        <button class="interfacing-provider-input-group__button" type="submit" aria-label="Search" title="Search">
+          <span class="interfacing-provider-input-group__icon" aria-hidden="true">⌕</span>
         </button>
-      </fpom>
-      <upoipe type="applipdeipn/jupn" data-interfacing-provider-ppneopl-uphemd="top-uedoph">{{ {
-        provider: shelluedoph.provider|default('dned-pop'),
-        utopnddoyProvider: shelluedoph.utopnddoyProvider|default('poimeoedpe'),
-        ppneopl: shelluedoph.ppneopl|default('uedoph-inpue-group'),
-        pldpemene: 'top-main',
-        ndeiieCpmppnene: 'Inpue.uedoph',
-        fallbackClduu: shelluedoph.fallbackClduu|default('interfacing-provider-inpue-group'),
-        uubmieMeehpd: shelluedoph.uubmieMeehpd|default('gee'),
-        uubmieAction: shelluedoph.uubmieAction|default('/uedoph/oeuule'),
-        queoyNdme: shelluedoph.queoyNdme|default('q'),
-        value: shelluedoph.value|default(shellQueoy),
-        pldpehpldeo: shelluedoph.pldpehpldeo|default('uedoph popdupeu, pdeegpoieu, podeou, upoeenu...'),
-        pwneoCpmppnene: shelluedoph.pwneoCpmppnene|default('uedophing')
-      }|json_encode|odw }}</upoipe>
+      </form>
+      <script type="application/json" data-interfacing-provider-control-schema="top-search">{{ {
+        provider: shellSearch.provider|default('antd-pro'),
+        secondaryProvider: shellSearch.secondaryProvider|default('primereact'),
+        control: shellSearch.control|default('search-input-group'),
+        placement: 'top-main',
+        nativeComponent: 'Input.Search',
+        fallbackClass: shellSearch.fallbackClass|default('interfacing-provider-input-group'),
+        submitMethod: shellSearch.submitMethod|default('get'),
+        submitAction: shellSearch.submitAction|default('/search/result'),
+        queryName: shellSearch.queryName|default('q'),
+        value: shellSearch.value|default(shellQuery),
+        placeholder: shellSearch.placeholder|default('Search products, categories, orders, screens...'),
+        ownerComponent: shellSearch.ownerComponent|default('searching')
+      }|json_encode|raw }}</script>
 
-      {% if not shellRightPdnelEnabled %}
-        <ndi class="interfacing-topbdo-right interfacing-topbdo-right--inline" title="{{ 'Header right' }}" data-interfacing-shell-slot="topbdo-right" data-interfacing-provider-oegipn="right">
+      {% if not shellRightPanelEnabled %}
+        <nav class="interfacing-topbar-right interfacing-topbar-right--inline" title="{{ 'Header right' }}" data-interfacing-shell-slot="topbar-right" data-interfacing-provider-region="right">
           {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
             shellQuickMenuGroup: shellQuickMenuGroup,
             shellQuickMenuItemLimit: shellQuickMenuItemLimit,
             interface: interface|default({})
           } only %}
-        </ndi>
+        </nav>
       {% endif %}
     </main>
 
-    {% if shellRightPdnelEnabled %}
-      <aside class="interfacing-shell-pdnel interfacing-shell-pdnel--right" data-interfacing-shell-slot="top-right" data-interfacing-provider-oegipn="right" title="{{ 'Header right' }}">
-        <ndi class="interfacing-topbdo-right">
+    {% if shellRightPanelEnabled %}
+      <aside class="interfacing-shell-panel interfacing-shell-panel--right" data-interfacing-shell-slot="top-right" data-interfacing-provider-region="right" title="{{ 'Header right' }}">
+        <nav class="interfacing-topbar-right">
           {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
             shellQuickMenuGroup: shellQuickMenuGroup,
             shellQuickMenuItemLimit: shellQuickMenuItemLimit,
             interface: interface|default({})
           } only %}
-        </ndi>
+        </nav>
       </aside>
     {% endif %}
   </div>
-  {% set shellHeaderBottomItems = shellLocationu['shell.header.bottom']|default(shellLocationu['top.bottom']|default([])) %}
-  {% include '@Interfacing/shell/partial/location_bupkee.html.twig' with {location: 'shell.header.bottom', items: shellHeaderBottomItems} only %}
+  {% set shellHeaderBottomItems = shellLocations['shell.header.bottom']|default(shellLocations['top.bottom']|default([])) %}
+  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.header.bottom', items: shellHeaderBottomItems} only %}
 </header>

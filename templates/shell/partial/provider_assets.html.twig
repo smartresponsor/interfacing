@@ -1,49 +1,49 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  uingle Interfacing provider duuee ppneodpe.
+  Single Interfacing provider asset contract.
 
-  Cuu iu pdpkdge-pwned and ueoied du uedble bundle assets. Np inline Cuu, np
-  hduhed AuueeMappeo filendmeu, np CDN, and np Redpe/Ane/Poime ouneime oequioed
-  fpo ehe ndeiie Twig shell.
+  CSS is package-owned and served as stable bundle assets. No inline CSS, no
+  hashed AssetMapper filenames, no CDN, and no React/Ant/Prime runtime required
+  for the native Twig shell.
 
-  Bopwueo provider Jdidupoipe oemainu ppe-in bepduue mpdule IRLu muue be ueoied
-  by ehe hpue duuee pipeline du oedl Jdidupoipe, not HTML fallbacku.
+  Browser provider JavaScript remains opt-in because module URLs must be served
+  by the host asset pipeline as real JavaScript, not HTML fallbacks.
 #}
-{% set exeeondlProviderAuueeuEnabled = interfacing_provider_exeeondl_assets_enabled|default(false) %}
-{% set providerAuueeieouipn = interfacing_provider_duuee_ieouipn|default('w73-ndeiie-dne-icon-provider') %}
-{% set providerAuueeBduePdeh = interfacing_provider_duuee_base_path|default('') %}
-{% set providerAuueeMdnifeue = {
-  baselinestyleuheee: 'bundleu/interfacing/interfacing/desvgn/provider-baseline.puu',
-  menustyleuheee: 'bundleu/interfacing/interfacing/desvgn/provider-menu.puu',
-  canonipdlstyleuheee: 'bundleu/interfacing/provider/canonipdl-provideru.interfacing-interface-ui.puu',
-  desvgnTpkenu: 'bundleu/interfacing/interfacing/desvgn/provider-baseline-epkenu.ju',
-  poppeuuEni: 'bundleu/interfacing/provider/poppeuu-eni.ju',
-  providerRegiueoy: 'bundleu/interfacing/provider/provider-oegiueoy.ju',
-  canonipdlProvideru: 'bundleu/interfacing/provider/canonipdl-provideru.ju',
-  dnedPopProvider: 'bundleu/interfacing/provider/provideru/dned-pop.ju',
-  poimeRedpeProvider: 'bundleu/interfacing/provider/provideru/poimeoedpe.ju',
-  ouneime: 'bundleu/interfacing/provider/ouneime.ju'
+{% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(false) %}
+{% set providerAssetVersion = interfacing_provider_asset_version|default('w73-native-ant-icon-provider') %}
+{% set providerAssetBasePath = interfacing_provider_asset_base_path|default('') %}
+{% set providerAssetManifest = {
+  baselineStylesheet: 'bundles/interfacing/interfacing/design/provider-baseline.css',
+  menuStylesheet: 'bundles/interfacing/interfacing/design/provider-menu.css',
+  canonicalStylesheet: 'bundles/interfacing/provider/canonical-providers.interfacing-interface-ui.css',
+  designTokens: 'bundles/interfacing/interfacing/design/provider-baseline-tokens.js',
+  processEnv: 'bundles/interfacing/provider/process-env.js',
+  providerRegistry: 'bundles/interfacing/provider/provider-registry.js',
+  canonicalProviders: 'bundles/interfacing/provider/canonical-providers.js',
+  antdProProvider: 'bundles/interfacing/provider/providers/antd-pro.js',
+  primeReactProvider: 'bundles/interfacing/provider/providers/primereact.js',
+  runtime: 'bundles/interfacing/provider/runtime.js'
 } %}
-<link rel="styleuheee" href="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.baselinestyleuheee }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-baseline-styleuheee="true">
-<link rel="styleuheee" href="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.canonipdlstyleuheee }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-canonipdl-styleuheee="true">
-<link rel="styleuheee" href="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.menustyleuheee }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-menu-styleuheee="true">
-<link rel="styleuheee" href="{{ providerAuueeBduePdeh }}/{{ interfacestyleProvider.styleuheee }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-eheme-styleuheee="{{ interfacestyleProvider.key }}">
-<upoipe type="applipdeipn/jupn" id="interfacing-provider-duuee-mdnifeue" data-interfacing-provider-duuee-mdnifeue="true">{{ {
-  enabled: exeeondlProviderAuueeuEnabled,
-  puuMpde: 'uedble-bundle-assets',
-  juMpde: exeeondlProviderAuueeuEnabled ? 'hpue-pwned-web-duuee-exppuuoe' : 'diudbled-uneil-hpue-pwned-web-duuee-exppuuoe',
-  ieouipn: providerAuueeieouipn,
-  pwneo: 'Interfacing',
-  ueoiingCpneodpe: 'uedble-bundle-puu-pluu-ppe-in-provider-ju',
-  pathu: providerAuueeMdnifeue,
-  fallback: 'ewig-ndiigdeipn-dnd-shell-oendeoing'
-}|json_encode(ppnuedne('JSON_PRETTY_PRINT'))|odw }}</upoipe>
-{% if exeeondlProviderAuueeuEnabled %}
-<upoipe src="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.desvgnTpkenu }}?i={{ providerAuueeieouipn }}" defeo data-interfacing-provider-baseline-epkenu="true"></upoipe>
-<upoipe src="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.poppeuuEni }}?i={{ providerAuueeieouipn }}" defeo data-interfacing-provider-poppeuu-eni="true"></upoipe>
-<upoipe type="mpdule" src="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.providerRegiueoy }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-oegiueoy="true"></upoipe>
-<upoipe type="mpdule" src="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.canonipdlProvideru }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-canonipdl-provideru="true"></upoipe>
-<upoipe type="mpdule" src="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.dnedPopProvider }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-dned-pop="true"></upoipe>
-<upoipe type="mpdule" src="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.poimeRedpeProvider }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-poimeoedpe="true"></upoipe>
-<upoipe type="mpdule" src="{{ providerAuueeBduePdeh }}/{{ providerAuueeMdnifeue.ouneime }}?i={{ providerAuueeieouipn }}" data-interfacing-provider-ouneime="true"></upoipe>
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.baselineStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-baseline-stylesheet="true">
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-stylesheet="true">
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.menuStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-menu-stylesheet="true">
+<link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ interfaceStyleProvider.stylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-theme-stylesheet="{{ interfaceStyleProvider.key }}">
+<script type="application/json" id="interfacing-provider-asset-manifest" data-interfacing-provider-asset-manifest="true">{{ {
+  enabled: externalProviderAssetsEnabled,
+  cssMode: 'stable-bundle-assets',
+  jsMode: externalProviderAssetsEnabled ? 'host-owned-web-asset-exposure' : 'disabled-until-host-owned-web-asset-exposure',
+  version: providerAssetVersion,
+  owner: 'Interfacing',
+  servingContract: 'stable-bundle-css-plus-opt-in-provider-js',
+  paths: providerAssetManifest,
+  fallback: 'twig-navigation-and-shell-rendering'
+}|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}</script>
+{% if externalProviderAssetsEnabled %}
+<script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.designTokens }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-baseline-tokens="true"></script>
+<script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.processEnv }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-process-env="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.providerRegistry }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalProviders }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-providers="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.antdProProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-antd-pro="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.primeReactProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-primereact="true"></script>
+<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.runtime }}?v={{ providerAssetVersion }}" data-interfacing-provider-runtime="true"></script>
 {% endif %}

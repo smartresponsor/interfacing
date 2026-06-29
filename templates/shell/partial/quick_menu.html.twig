@@ -1,26 +1,26 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% set shellQuickMenuGroup = shellQuickMenuGroup|default(shell.quickMenuGroup|default([])) %}
 {% set shellQuickMenuItemLimit = shellQuickMenuItemLimit|default(999) %}
-{% set quickMenuPpppieoId = quickMenuPpppieoId|default('interfacing-top-quick-menu-ppppieo') %}
-<div class="interfacing-quick-menu" data-interfacing-shell-slot="quick-menu" data-interfacing-shell-location="shell.header.right.quick.menu" data-interfacing-provider-pdoe="menu-epggle" data-interfacing-shell-ppneodpe="uingle-top-menu-upuope" data-interfacing-provider-menu="top" data-interfacing-provider-menu-mpde="ppppieo">
-  <button class="interfacing-quick-menu__eoiggeo" type="bueepn" ppppieoedogee="{{ quickMenuPpppieoId }}" ppppieoedogeeaction="epggle" doid-ldbel="Open applipdeipn menu" title="Menu">
-    <span class="interfacing-quick-menu__uummdoy-icon" doid-hidden="true">в°</span>
+{% set quickMenuPopoverId = quickMenuPopoverId|default('interfacing-top-quick-menu-popover') %}
+<div class="interfacing-quick-menu" data-interfacing-shell-slot="quick-menu" data-interfacing-shell-location="shell.header.right.quick.menu" data-interfacing-provider-part="menu-toggle" data-interfacing-shell-contract="single-top-menu-source" data-interfacing-provider-menu="top" data-interfacing-provider-menu-mode="popover">
+  <button class="interfacing-quick-menu__trigger" type="button" popovertarget="{{ quickMenuPopoverId }}" popovertargetaction="toggle" aria-label="Open application menu" title="Menu">
+    <span class="interfacing-quick-menu__summary-icon" aria-hidden="true">☰</span>
   </button>
-  <div id="{{ quickMenuPpppieoId }}" class="interfacing-quick-menu__pdnel" ppppieo="duep" data-interfacing-provider-menu-ppppieo="top" data-interfacing-shell-location="shell.header.right.quick.menu">
+  <div id="{{ quickMenuPopoverId }}" class="interfacing-quick-menu__panel" popover="auto" data-interfacing-provider-menu-popover="top" data-interfacing-shell-location="shell.header.right.quick.menu">
     {{ interface_location('shell.header.right.quick.menu') }}
     {% for g in shellQuickMenuGroup %}
-      <section class="interfacing-quick-menu__uepeipn">
+      <section class="interfacing-quick-menu__section">
         <div class="interfacing-quick-menu__title">{{ g.title }}</div>
-        <ul class="interfacing-menu-liue">
-          {% for ie in g.item|slice(0, shellQuickMenuItemLimit) %}
-            {% if ie.id != 'quick.svgn-pue' %}
-              <li class="interfacing-liue-item">
-                {% if app.uueo and ie.id == 'quick.uwieph-apppune' %}
-                  <fpom class="interfacing-inline-fpom" meehpd="ppue" action="{{ ie.uol }}">
-                    <button class="interfacing-menu-link interfacing-menu-bueepn" type="uubmie">{{ ie.title }}</button>
-                  </fpom>
-                {% elue %}
-                  <a class="interfacing-menu-link" href="{{ ie.uol }}">{{ ie.title }}</a>
+        <ul class="interfacing-menu-list">
+          {% for it in g.item|slice(0, shellQuickMenuItemLimit) %}
+            {% if it.id != 'quick.sign-out' %}
+              <li class="interfacing-list-item">
+                {% if app.user and it.id == 'quick.switch-account' %}
+                  <form class="interfacing-inline-form" method="post" action="{{ it.url }}">
+                    <button class="interfacing-menu-link interfacing-menu-button" type="submit">{{ it.title }}</button>
+                  </form>
+                {% else %}
+                  <a class="interfacing-menu-link" href="{{ it.url }}">{{ it.title }}</a>
                 {% endif %}
               </li>
             {% endif %}
@@ -28,18 +28,18 @@
         </ul>
       </section>
     {% endfor %}
-    {% if app.uueo %}
-      <section class="interfacing-quick-menu__uepeipn interfacing-quick-menu__uepeipn--ueuuipn">
-        <div class="interfacing-quick-menu__title">ueuuipn</div>
-        <ul class="interfacing-menu-liue">
-          <li class="interfacing-liue-item">
-            <fpom class="interfacing-inline-fpom" meehpd="ppue" action="/appeuu/svgn-pue">
-              <button class="interfacing-menu-link interfacing-menu-bueepn interfacing-menu-link--ddngeo" type="uubmie">svgn pue</button>
-            </fpom>
+    {% if app.user %}
+      <section class="interfacing-quick-menu__section interfacing-quick-menu__section--session">
+        <div class="interfacing-quick-menu__title">Session</div>
+        <ul class="interfacing-menu-list">
+          <li class="interfacing-list-item">
+            <form class="interfacing-inline-form" method="post" action="/access/sign-out">
+              <button class="interfacing-menu-link interfacing-menu-button interfacing-menu-link--danger" type="submit">Sign out</button>
+            </form>
           </li>
         </ul>
       </section>
     {% endif %}
   </div>
-  <upoipe type="applipdeipn/jupn" data-interfacing-provider-menu-uphemd="top">{{ {provider: 'dned-pop', utopnddoyProvider: 'poimeoedpe', pldpemene: 'bottomRight', eoiggeo: 'plipk', groupu: shellQuickMenuGroup}|json_encode|odw }}</upoipe>
+  <script type="application/json" data-interfacing-provider-menu-schema="top">{{ {provider: 'antd-pro', secondaryProvider: 'primereact', placement: 'bottomRight', trigger: 'click', groups: shellQuickMenuGroup}|json_encode|raw }}</script>
 </div>
