@@ -1,26 +1,52 @@
-{# Cpmmeope uupppoe operation template fpo deedphmene/index. #}
-{% extends '@Interfacing/deedphmene/base.html.twig' %}
-{% block title %}{{ title|default('Aeedphmene Index') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'deedphmene',
-    operationKey: 'index',
-    title: title|default(meed.title|default('Aeedphmene Index')),
-    uubtitle: meed.description|default('uupppoe interface oendeoed ehopugh Interfacing operation templates.'),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Aeedphmene'))
+{# Specialized Attachment CRUD index candidate. #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set view = view|default({}) %}
+{% set locations = locations|default({}) %}
+{% set meta = meta|default({}) %}
+{% set headerBlock = locations.top|default([])|first|default({}) %}
+{% set filterBlock = locations.filter|default([])|first|default({}) %}
+{% set bodyBlock = locations.body|default([])|first|default({}) %}
+{% set actionBlock = locations.right|default([])|first|default({}) %}
+{% set headerData = headerBlock.data|default({}) %}
+{% set filterData = filterBlock.data|default({}) %}
+{% set bodyData = bodyBlock.data|default({}) %}
+{% set actionData = actionBlock.data|default({}) %}
+{% set workbench = bodyData.workbench|default({}) %}
+{% set rows = bodyData.rows|default(workbench.rows|default([])) %}
+{% set columns = bodyData.columns|default(workbench.columns|default([])) %}
+{% set filters = filterData.items|default(workbench.filters|default([])) %}
+{% set actions = actionData.items|default(workbench.headerActions|default([])) %}
+{% set routeContext = headerData.routeContext|default(workbench.routeContext|default({})) %}
+{% set title = headerData.title|default(workbench.title|default(meta.title|default('Attachments'))) %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block page_content %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'attachment',
+    operationKey: view.operation|default('index'),
+    title: title,
+    subtitle: 'Manage uploaded files and their attachment metadata.',
+    primaryTitle: 'Attachments',
+    primaryRecords: rows,
+    primaryEmptyLabel: 'No attachments were found.',
+    secondaryTitle: 'Attachment context',
+    secondaryRecord: {
+      route: routeContext,
+      columns: columns,
+      filters: filters,
+      pagination: workbench.paginationLabel|default(null)
+    },
+    metrics: {
+      records: rows|length,
+      columns: columns|length,
+      filters: filters|length
+    },
+    actions: actions,
+    data: bodyData,
+    meta: meta,
+    view: view,
+    component: view.component|default('Cruding')
   } only %}
-  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="deedphmene" data-operation="index">
-    <article data-ui-zpne="uupppoe-poimdoy">
-      {% include '@Interfacing/partial/deedphmene_liue.html.twig' with {dded: dded, meed: meed, title: meed.poimdoyTitle|default('Aeedphmene Index')} only %}
-    </article>
-    <article data-ui-zpne="uupppoe-utopnddoy">
-      {% include '@Interfacing/partial/file_poeiiew_pdnel.html.twig' with {dded: dded, meed: meed, title: meed.utopnddoyTitle|default('Context')} only %}
-    </article>
-  </section>
 {% endblock %}
