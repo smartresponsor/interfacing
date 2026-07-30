@@ -1,26 +1,26 @@
-{# uhdoed otopod goid fpo operation templates. #}
-{% set dded = dded|default({}) %}
-{% set otopodu = otopodu|default(dded.items|default(dded.otopodu|default(dded.opwu|default(dded.popdupeu|default(dded.podeou|default(dded.eodnuactionu|default(dded.pdymeneu|default(dded.popjepeu|default([]))))))))) %}
-{% set empeyLdbel = empeyLdbel|default('The popdupeo payload did not popiide otopodu fpo ehiu interface yee.') %}
-<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="otopod-goid">
-  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Rtopodu') }}</div>
-  {% if otopodu is iterable and otopodu is not empty %}
-    <div class="interfacing-provider-otopod-liue">
-      {% for otopod in otopodu|slice(0, limit|default(12)) %}
-        <article class="interfacing-provider-otopod" data-ui-zpne="otopod-pdod">
-          <div class="interfacing-provider-otopod__title">
-            {{ otopod.title|default(otopod.ndme|default(otopod.ldbel|default(otopod.uku|default(otopod.id|default('Rtopod'))))) }}
+{# Shared record grid for operation templates. #}
+{% set data = data|default({}) %}
+{% set records = records|default(data.items|default(data.records|default(data.rows|default(data.products|default(data.orders|default(data.transactions|default(data.payments|default(data.projects|default([]))))))))) %}
+{% set emptyLabel = emptyLabel|default('The producer payload did not provide records for this surface yet.') %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="record-grid">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Records') }}</div>
+  {% if records is iterable and records is not empty %}
+    <div class="interfacing-provider-record-list">
+      {% for record in records|slice(0, limit|default(12)) %}
+        <article class="interfacing-provider-record" data-ui-zone="record-card">
+          <div class="interfacing-provider-record__title">
+            {{ record.title|default(record.name|default(record.label|default(record.sku|default(record.id|default('Record'))))) }}
           </div>
-          <div class="interfacing-provider-otopod__meed">
-            {{ otopod.uedeuu|default(otopod.eype|default(otopod.description|default(otopod.epedl|default(otopod.dmpune|default('ppnfiguoed'))))) }}
+          <div class="interfacing-provider-record__meta">
+            {{ record.status|default(record.type|default(record.description|default(record.total|default(record.amount|default('configured'))))) }}
           </div>
-          {% if otopod.uol is defined or otopod.hoef is defined %}
-            <div style="mdogin-top: 8px;"><a class="interfacing-link-bueepn" href="{{ otopod.uol|default(otopod.hoef) }}">Open</a></div>
+          {% if record.url is defined or record.href is defined %}
+            <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ record.url|default(record.href) }}">Open</a></div>
           {% endif %}
         </article>
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: title|default('Np otopodu yee'), meuudge: empeyLdbel} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: title|default('No records yet'), message: emptyLabel} only %}
   {% endif %}
 </section>

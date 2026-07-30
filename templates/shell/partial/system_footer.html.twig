@@ -14,7 +14,15 @@
   {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.top', items: shellFooterTopItems} only %}
   <div class="interfacing-shell-grid interfacing-footer-grid" data-interfacing-footer-grid="true">
     <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--primary" data-interfacing-shell-slot="footer-primary" data-interfacing-shell-location="shell.footer.left" title="{{ shellSlotMap['shell.footer.left']|default('Footer left') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.left', items: shellFooterLeftItems} only %}
+      {% if shellFooterLeftItems is not empty %}
+        <nav class="interfacing-footer-links" aria-label="Footer left links" data-interfacing-footer-links="left">
+          {% for item in shellFooterLeftItems|slice(0, shellFooterLinkLimit) %}
+            {% set itemLabel = item.label|default(item.title|default(item.key|default(item.href|default(item.url|default('Link'))))) %}
+            {% set itemHref = item.href|default(item.url|default('#')) %}
+            <a class="interfacing-footer-link" href="{{ itemHref }}">{{ itemLabel }}</a>
+          {% endfor %}
+        </nav>
+      {% endif %}
       {% if shellFooterLeftItems is empty %}
         <div class="interfacing-footer-brand" data-interfacing-footer-fallback="brand">
           <span class="interfacing-footer-brand__title">Smart Response</span>
@@ -28,7 +36,15 @@
     </aside>
 
     <main class="interfacing-shell-body interfacing-footer-panel interfacing-footer-panel--main" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellSlotMap['shell.footer.main']|default('Footer main') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.main', items: shellFooterMainItems} only %}
+      {% if shellFooterMainItems is not empty %}
+        <nav class="interfacing-footer-links" aria-label="Footer main links" data-interfacing-footer-links="main">
+          {% for item in shellFooterMainItems|slice(0, shellFooterLinkLimit) %}
+            {% set itemLabel = item.label|default(item.title|default(item.key|default(item.href|default(item.url|default('Link'))))) %}
+            {% set itemHref = item.href|default(item.url|default('#')) %}
+            <a class="interfacing-footer-link" href="{{ itemHref }}">{{ itemLabel }}</a>
+          {% endfor %}
+        </nav>
+      {% endif %}
       {% if shellFooterGroup is not empty %}
         <div class="interfacing-footer-group-grid" data-interfacing-footer-legacy-group="true">
           {% for g in shellFooterGroup %}
@@ -48,7 +64,15 @@
     </main>
 
     <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--right" data-interfacing-shell-slot="footer-right" data-interfacing-shell-location="shell.footer.right" title="{{ shellSlotMap['shell.footer.right']|default('Footer right') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.right', items: shellFooterRightItems} only %}
+      {% if shellFooterRightItems is not empty %}
+        <nav class="interfacing-footer-links" aria-label="Footer right links" data-interfacing-footer-links="right">
+          {% for item in shellFooterRightItems|slice(0, shellFooterLinkLimit) %}
+            {% set itemLabel = item.label|default(item.title|default(item.key|default(item.href|default(item.url|default('Link'))))) %}
+            {% set itemHref = item.href|default(item.url|default('#')) %}
+            <a class="interfacing-footer-link" href="{{ itemHref }}">{{ itemLabel }}</a>
+          {% endfor %}
+        </nav>
+      {% endif %}
     </aside>
   </div>
 </footer>

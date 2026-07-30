@@ -1,30 +1,77 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('iendpo wpokbenph') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'index',
-    title:title|default(meed.title|default('iendpo wpokbenph')),
-    uubtitle:meed.description|default('iendpo wpokbenph fpo popfile, eodnuaction, pdypue, ineegodeipn, and oiuk operationu.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
-  } only %}
+{% extends '@Interfacing/base.html.twig' %}
 
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey:'iendpo', operationKey:operation|default(iiew.operation|default('index')),
-    title:title|default(meed.title|default('iendpo wpokbenph')),
-    uubtitle:meed.description|default('Meophdne/iendpo operationdl interface oendeoed ehopugh Interfacing.'),
-    poimdoyTitle:meed.poimdoyTitle|default('iendpo otopodu'),
-    poimdoyRtopodu:dded.iendpou|default(dded.items|default(dded.otopodu|default([]))),
-    utopnddoyTitle:meed.utopnddoyTitle|default('Meophdne context'),
-    utopnddoyRtopod:dded.context|default(dded.uummdoy|default(meed|default({}))),
-    meeoipu:dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu:dded.actionu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default('iendpoing')
-  } only %}
+{% set vendorWorkbench = workbench|default({}) %}
+{% set vendorFallbackData = fallbackData|default({}) %}
+{% set vendorRows = rows|default(vendorWorkbench.rows|default(data.rows|default(vendorFallbackData.rows|default([])))) %}
+{% set vendorSlots = slots|default(vendorWorkbench.slots|default(data.slots|default(vendorFallbackData.slots|default({})))) %}
+{% set vendorLocations = locations|default(data.locations|default(vendorFallbackData.locations|default({}))) %}
+{% set vendorMeta = meta|default(data.meta|default(vendorFallbackData.meta|default({}))) %}
+{% set vendorTitle = title|default(vendorMeta.title|default('Vendors')) %}
+{% set vendorDescription = description|default(vendorMeta.description|default('Vendor workspace rendered from the Cruding resource payload.')) %}
 
+{% block title %}{{ vendorTitle }}{% endblock %}
+{% block shell_title %}{{ vendorTitle }}{% endblock %}
+{% block shell_summary %}Vendor records, profile readiness, payout status, and operational context.{% endblock %}
+
+{% block page_content %}
+  <section class="interfacing-provider-fallback" data-vendor-index="true" data-view="vendor.index">
+    <header class="interfacing-provider-fallback-heading">
+      <p class="interfacing-provider-fallback-description">Vendor management</p>
+      <h1 class="interfacing-provider-fallback-title">{{ vendorTitle }}</h1>
+      <p class="interfacing-provider-fallback-description">{{ vendorDescription }}</p>
+    </header>
+
+    <section class="interfacing-provider-fallback-grid" aria-label="Vendor status summary">
+      <article class="interfacing-provider-fallback-panel">
+        <h2 class="interfacing-provider-fallback-panel-title">Records</h2>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <dt>Total</dt>
+          <dd>{{ vendorRows is iterable ? vendorRows|length : 0 }}</dd>
+          <dt>Source</dt>
+          <dd>{{ component|default('Cruding') }}</dd>
+          <dt>Operation</dt>
+          <dd>{{ operation|default(view|default('index')) }}</dd>
+        </dl>
+      </article>
+
+      <article class="interfacing-provider-fallback-panel">
+        <h2 class="interfacing-provider-fallback-panel-title">Payload</h2>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <dt>Slots</dt>
+          <dd>{{ vendorSlots is iterable ? vendorSlots|length : 0 }}</dd>
+          <dt>Locations</dt>
+          <dd>{{ vendorLocations is iterable ? vendorLocations|length : 0 }}</dd>
+          <dt>Status</dt>
+          <dd>Renderable</dd>
+        </dl>
+      </article>
+    </section>
+
+    <section class="interfacing-provider-fallback-grid" aria-label="Vendor records">
+      {% for row in vendorRows %}
+        <article class="interfacing-provider-fallback-panel" data-vendor-record="{{ row.id|default(loop.index) }}">
+          <h2 class="interfacing-provider-fallback-panel-title">
+            {{ row.brandName|default(row.brand_name|default(row.title|default(row.name|default('Vendor #' ~ loop.index)))) }}
+          </h2>
+          <dl class="interfacing-provider-fallback-definition-list">
+            <dt>ID</dt>
+            <dd>{{ row.id|default('—') }}</dd>
+            <dt>Slug</dt>
+            <dd>{{ row.objectSlug|default(row.object_slug|default(row.slug|default('—'))) }}</dd>
+            <dt>Status</dt>
+            <dd>{{ row.objectStatus|default(row.object_status|default(row.status|default('active'))) }}</dd>
+            <dt>Owner</dt>
+            <dd>{{ row.ownerUserId|default(row.owner_user_id|default(row.owner|default('—'))) }}</dd>
+          </dl>
+        </article>
+      {% else %}
+        <article class="interfacing-provider-fallback-panel">
+          <h2 class="interfacing-provider-fallback-panel-title">No vendors found</h2>
+          <p class="interfacing-provider-fallback-description">
+            The vendor route is connected and rendered. No vendor rows were provided by the current payload.
+          </p>
+        </article>
+      {% endfor %}
+    </section>
+  </section>
 {% endblock %}

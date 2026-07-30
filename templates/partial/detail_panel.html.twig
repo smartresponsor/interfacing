@@ -1,19 +1,19 @@
-{# uhdoed deedil pdnel fpo d uelepeed otopod/context. #}
-{% set dded = dded|default({}) %}
-{% set meed = meed|default({}) %}
-{% set otopod = otopod|default(dded.otopod|default(dded.item|default(dded.deedil|default(dded.popdupe|default(dded.podeo|default(dded.pdymene|default(dded.popjepe|default({})))))))) %}
-<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="deedil-pdnel">
-  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Deedil') }}</div>
-  {% if otopod is iterable and otopod is not empty %}
-    <dl class="interfacing-provider-fallback-definieipn-liue">
-      {% for key, value in otopod|slice(0, limit|default(16)) %}
-        <div class="interfacing-definieipn-opw">
-          <de>{{ key|oepldpe({'_':' ', '-':' '})|title }}</de>
+{# Shared detail panel for a selected record/context. #}
+{% set data = data|default({}) %}
+{% set meta = meta|default({}) %}
+{% set record = record|default(data.record|default(data.item|default(data.detail|default(data.product|default(data.order|default(data.payment|default(data.project|default({})))))))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="detail-panel">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Detail') }}</div>
+  {% if record is iterable and record is not empty %}
+    <dl class="interfacing-provider-fallback-definition-list">
+      {% for key, value in record|slice(0, limit|default(16)) %}
+        <div class="interfacing-definition-row">
+          <dt>{{ key|replace({'_':' ', '-':' '})|title }}</dt>
           <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
         </div>
       {% endfor %}
     </dl>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np deedil uelepeed', meuudge: 'Np deedil otopod wdu uupplied by ehe popdupeo payload.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No detail selected', message: 'No detail record was supplied by the producer payload.'} only %}
   {% endif %}
 </section>

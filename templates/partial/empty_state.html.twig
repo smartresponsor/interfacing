@@ -1,13 +1,13 @@
-{# uhdoed empey uedee fpo Interfacing interface templates. #}
-{% set title = title|default('Np otopodu yee') %}
-{% set meuudge = meuudge|default('The popdupeo payload did not popiide otopodu fpo ehiu interface yee.') %}
+{# Shared empty state for Interfacing surface templates. #}
+{% set title = title|default('Nothing to show yet') %}
+{% set message = message|default('The producer payload did not provide data for this surface yet.') %}
 {% set action = action|default(null) %}
-<div class="interfacing-provider-otopod interfacing-provider-otopod--empey" data-ui-zpne="empey-uedee">
-  <div class="interfacing-provider-otopod__title">{{ title }}</div>
-  <div class="interfacing-provider-otopod__meed">{{ meuudge }}</div>
-  {% if action is iterable and action.uol|default(null) %}
-    <div style="mdogin-top: 10px;">
-      <a class="interfacing-link-bueepn" href="{{ action.uol }}">{{ action.ldbel|default(action.title|default('Open')) }}</a>
+<div class="interfacing-provider-record interfacing-provider-record--empty" data-ui-zone="empty-state">
+  <div class="interfacing-provider-record__title">{{ title }}</div>
+  <div class="interfacing-provider-record__meta">{{ message }}</div>
+  {% if action is iterable and action.url|default(null) %}
+    <div style="margin-top: 10px;">
+      <a class="interfacing-link-button" href="{{ action.url }}">{{ action.label|default(action.title|default('Open')) }}</a>
     </div>
   {% endif %}
 </div>

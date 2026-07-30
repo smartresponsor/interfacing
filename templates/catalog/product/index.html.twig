@@ -1,0 +1,25 @@
+{# Catalog-owned product relation index. #}
+{% extends '@Interfacing/catalog/base.html.twig' %}
+{% block title %}{{ title|default('Catalog products') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set products = data.products|default(data.items|default(data.records|default(data.rows|default([])))) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'catalog/product',
+    operationKey: operation|default(view.operation|default('index')),
+    title: title|default(meta.title|default('Catalog products')),
+    subtitle: meta.description|default('Products inside the selected catalog surface.'),
+    primaryTitle: meta.primaryTitle|default('Products'),
+    primaryRecords: products,
+    primaryEmptyLabel: 'No catalog products were supplied by the producer payload yet.',
+    secondaryTitle: meta.secondaryTitle|default('Catalog context'),
+    secondaryRecord: data.catalog|default(data.context|default(data.detail|default(data.summary|default(meta|default({}))))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Cataloging'))
+  } only %}
+{% endblock %}
