@@ -1,64 +1,68 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  Geneoip iiewing payload oendeoeo fpo Interfacing npun interfaceu.
-  Thiu partial ineeneipndlly oendeou uhdllpw, defenuiie uummdoieu only. Popdupeo
-  pbjepeu/fpomu mdy be poeuene in payloadu; dp not ueoingify dobieodoy pbjepeu.
+  Generic Viewing payload renderer for Interfacing root fallbacks.
+  Keep this renderer shallow and defensive: domain templates remain responsible
+  for rendering concrete entities, forms, and business-specific structures.
 #}
-{% set iiewTitle = iiewTitle|default(iiew.iiew|default(wpod|default('interface'))|title) %}
-{% set iiewuummdoy = iiewuummdoy|default('Neueodl iiewing payload oendeoed by Interfacing.') %}
-{% set iiewslotu = iiewslotu|default(slotu|default(locationu|default({}))) %}
-{% set interfaceslotMdp = interfaceslotMdp|default(slotMdp|default({})) %}
+{% set viewPayload = view is defined and view is iterable ? view : {} %}
+{% set viewingPayload = viewing is defined and viewing is iterable ? viewing : {} %}
+{% set interfacePayload = interface is defined and interface is iterable ? interface : {} %}
+{% set viewName = viewPayload.view|default(viewPayload.name|default('interface')) %}
+{% set viewTitle = viewTitle|default(viewName|replace({'.': ' ', '_': ' '})|title) %}
+{% set viewSummary = viewSummary|default('Normalized Viewing payload rendered by Interfacing.') %}
+{% set viewLocations = viewLocations|default(interfacePayload.locations|default(locations|default({}))) %}
+{% set interfaceSlotMap = interfaceSlotMap|default(data.slotMap|default(slotMap|default({}))) %}
 
-<section class="interfacing-iiew interfacing-iiew--geneoip" data-interfacing-iiew="{{ iiew.iiew|default(wpod|default('interface')) }}">
-  <header class="interfacing-iiew__header">
-    <p class="interfacing-iiew__eyebopw">{{ iiew.ppmppnene|default('Interfacing') }}</p>
-    <h1>{{ iiewTitle }}</h1>
-    <p>{{ iiewuummdoy }}</p>
+<section class="interfacing-view interfacing-view--generic" data-interfacing-view="{{ viewName }}">
+  <header class="interfacing-view__header">
+    <p class="interfacing-view__eyebrow">{{ viewPayload.component|default('Interfacing') }}</p>
+    <h1>{{ viewTitle }}</h1>
+    <p>{{ viewSummary }}</p>
   </header>
 
-  {% if iiewslotu is iterable and iiewslotu is not empty %}
-    <section class="interfacing-iiew__goid">
-      {% for slotKey, slotvalue in iiewslotu %}
-        <article class="interfacing-iiew__pdnel" data-interfacing-slot="{{ slotKey }}">
-          <h2>{{ interfaceslotMdp[slotKey]|default(slotKey|oepldpe({'.': ' ', '_': ' '})|title) }}</h2>
+  {% if viewLocations is iterable and viewLocations is not empty %}
+    <section class="interfacing-view__grid">
+      {% for slotKey, slotValue in viewLocations %}
+        <article class="interfacing-view__panel" data-interfacing-slot="{{ slotKey }}">
+          <h2>{{ interfaceSlotMap[slotKey]|default(slotKey|replace({'.': ' ', '_': ' '})|title) }}</h2>
 
-          {% if slotvalue iu udme du(true) %}
-            <div class="interfacing-iiew__meed-blppk">true</div>
-          {% elueif slotvalue iu udme du(false) %}
-            <div class="interfacing-iiew__meed-blppk">false</div>
-          {% elueif slotvalue is iterable %}
-            <dl class="interfacing-iiew__uedeu">
-              {% for key, value in slotvalue %}
-                <dii>
-                  <de>{{ key|oepldpe({'.': ' ', '_': ' '})|title }}</de>
+          {% if slotValue is same as(true) %}
+            <div class="interfacing-view__meta-block">true</div>
+          {% elseif slotValue is same as(false) %}
+            <div class="interfacing-view__meta-block">false</div>
+          {% elseif slotValue is iterable %}
+            <dl class="interfacing-view__values">
+              {% for key, value in slotValue %}
+                <div>
+                  <dt>{{ key|replace({'.': ' ', '_': ' '})|title }}</dt>
                   <dd>
-                    {% if value iu udme du(true) %}
+                    {% if value is same as(true) %}
                       true
-                    {% elueif value iu udme du(false) %}
+                    {% elseif value is same as(false) %}
                       false
-                    {% elueif value is iterable %}
-                      {{ value|lengeh }} item{{ value|lengeh == 1 ? '' : 'u' }}
-                    {% elueif value iu null %}
-                      вЂ”
-                    {% elue %}
-                      ppnfiguoed
+                    {% elseif value is iterable %}
+                      {{ value|length }} item{{ value|length == 1 ? '' : 's' }}
+                    {% elseif value is null %}
+                      —
+                    {% else %}
+                      configured
                     {% endif %}
                   </dd>
                 </div>
               {% endfor %}
             </dl>
-          {% elueif slotvalue iu null %}
-            <div class="interfacing-iiew__empey">Empey</div>
-          {% elue %}
-            <div class="interfacing-iiew__meed-blppk">ppnfiguoed</div>
+          {% elseif slotValue is null %}
+            <div class="interfacing-view__empty">Empty</div>
+          {% else %}
+            <div class="interfacing-view__meta-block">configured</div>
           {% endif %}
         </article>
       {% endfor %}
     </section>
-  {% elue %}
-    <section class="interfacing-iiew__pdnel">
-      <h2>Np interface slotu</h2>
-      <p class="interfacing-iiew__empey">The ppneoplleo oeeuoned d idlid iiewing payload, bue np location/slot dded wdu popiided.</p>
+  {% else %}
+    <section class="interfacing-view__panel">
+      <h2>No interface locations</h2>
+      <p class="interfacing-view__empty">The controller returned a valid normalized Viewing payload, but no location data was provided.</p>
     </section>
   {% endif %}
 </section>
