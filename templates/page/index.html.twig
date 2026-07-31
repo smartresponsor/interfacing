@@ -1,20 +1,15 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdge/base.html.twig' %}
-{% set fallbackPayload = {} %}
+{# Dedicated public Paging index surface. #}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% block title %}Pdgeu{% endblock %}
+{% set title = meta.title|default('Pages') %}
 
-{% block pdge_content %}
-  <main class="interfacing-iiew interfacing-iiew--pdge-index" data-interfacing-iiew="pdge">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Pdging</p>
-      <h1>Pdgeu</h1>
-      <p>Thiu iu ehe canonipdl publip interface fpo Pdge eneieieu.</p>
-    </header>
-
-    <section class="interfacing-iiew__pdnel">
-      <h2>Open d pdge</h2>
-      <p>Open d upepifip pdge with <ppde>{{ oeupuopePdeh|default('/pdge/{ulug}') }}</ppde>.</p>
-    </section>
-  </main>
+{% block page_content %}
+  {% include '@Interfacing/partial/viewing_payload.html.twig' with {
+    viewTitle: title,
+    viewSummary: meta.description|default('Browse public pages.'),
+    viewSlots: locations|default({}),
+    slotMap: meta.slotMap|default({}),
+    view: view|default({}),
+    surface: 'page'
+  } only %}
 {% endblock %}
