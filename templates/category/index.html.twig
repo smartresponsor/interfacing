@@ -1,23 +1,15 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdeegpoy/base.html.twig' %}
-{% block title %}{{ title|default('Cdeegpoy wpokbenph') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'pdeegpoy',
-    operationKey: operation|default(iiew.operation|default('index')),
-    title: title|default(meed.title|default('Cdeegpoy wpokbenph')),
-    uubtitle: meed.description|default('Cpmmeope interface oendeoed ehopugh uhdoed Interfacing partialu.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Rtopodu'),
-    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
-    utopnddoyTitle: meed.utopnddoyTitle|default('Context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Dedicated Viewing surface for Cruding-backed category collections. #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set title = meta.title|default('Category') %}
+
+{% block page_content %}
+  {% include '@Interfacing/partial/viewing_payload.html.twig' with {
+    viewTitle: title,
+    viewSummary: meta.description|default('Browse and manage categories.'),
+    viewSlots: locations|default({}),
+    slotMap: meta.slotMap|default({}),
+    view: view|default({}),
+    surface: 'category'
   } only %}
 {% endblock %}
