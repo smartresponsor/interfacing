@@ -9,7 +9,7 @@
   Browser provider JavaScript remains opt-in because module URLs must be served
   by the host asset pipeline as real JavaScript, not HTML fallbacks.
 #}
-{% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(true) %}
+{% set externalProviderAssetsEnabled = not (shell.guestSurface|default(false)) and interfacing_provider_external_assets_enabled|default(false) %}
 {% set providerAssetVersion = interfacing_provider_asset_version|default('w86-access-recovery-form') %}
 {% set providerAssetBasePath = interfacing_provider_asset_base_path|default('') %}
 {% set providerAssetManifest = {
