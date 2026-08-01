@@ -62,6 +62,7 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
             $context['shell'] = [];
         }
 
+        $shellChromeStartedAt = hrtime(true);
         if (is_array($context['shell']) && $this->shellChromeProvider instanceof InterfaceShellChromeProviderInterface) {
             $request = $this->requestStack->getCurrentRequest();
             $context['shell'] = array_replace_recursive(
@@ -74,16 +75,25 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
             }
         }
 
+        $shellChromeMs = (hrtime(true) - $shellChromeStartedAt) / 1_000_000;
+
         if (($context['shellCompact'] ?? false) && is_array($context['shell'])) {
             $context['shell']['shellCompact'] = true;
         }
 
+        $slotDefaultsStartedAt = hrtime(true);
         if (is_array($context['shell'])) {
             $context['shell'] = $this->applyMeaningfulSlotDefaults($context['shell'], $context);
         }
+        $slotDefaultsMs = (hrtime(true) - $slotDefaultsStartedAt) / 1_000_000;
 
+        $twigStartedAt = hrtime(true);
         $response = new Response($this->twig->render($template, $context), $status);
+        $twigMs = (hrtime(true) - $twigStartedAt) / 1_000_000;
         $response->headers->set('X-Interfacing-Render-ms', number_format((hrtime(true) - $startedAt) / 1_000_000, 2, '.', ''));
+        $response->headers->set('X-Interfacing-Shell-ms', number_format($shellChromeMs, 2, '.', ''));
+        $response->headers->set('X-Interfacing-Slots-ms', number_format($slotDefaultsMs, 2, '.', ''));
+        $response->headers->set('X-Interfacing-Twig-ms', number_format($twigMs, 2, '.', ''));
 
         return $response;
     }
