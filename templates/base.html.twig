@@ -25,8 +25,7 @@
 {% set shellSlotMap = shell.slotMap is defined ? shell.slotMap : {} %}
 {% set interfacePayload = interface is defined and interface is iterable ? interface : {} %}
 {% set interfacePayloadLocations = interfacePayload.locations is defined and interfacePayload.locations is iterable ? interfacePayload.locations : {} %}
-{% set twigFunctionLocations = interface_locations() %}
-{% set shellLocations = interfacePayloadLocations is not empty ? interfacePayloadLocations : twigFunctionLocations %}
+{% set shellLocations = interfacePayloadLocations is not empty ? interfacePayloadLocations : interface_locations() %}
 {% set interfaceStyleProviderKey = interfacePayload.style_provider|default(shell.style_provider|default('ant_design')) %}
 {% set interfaceStyleProvider = interface_style_provider(interfaceStyleProviderKey) %}
 {#
