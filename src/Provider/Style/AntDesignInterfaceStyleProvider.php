@@ -30,7 +30,7 @@ final readonly class AntDesignInterfaceStyleProvider implements InterfaceStylePr
 
     public function stylesheet(): string
     {
-        return 'bundles/interfacing/provider/themes/ant-design.interface-location.css';
+        return '';
     }
 
     /**

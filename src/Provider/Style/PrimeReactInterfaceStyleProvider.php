@@ -30,7 +30,7 @@ final readonly class PrimeReactInterfaceStyleProvider implements InterfaceStyleP
 
     public function stylesheet(): string
     {
-        return 'bundles/interfacing/provider/themes/prime-react.interface-location.css';
+        return '';
     }
 
     /**
