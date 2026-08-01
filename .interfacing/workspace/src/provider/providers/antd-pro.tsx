@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { App, Card, ConfigProvider, Menu, Spin, Tag } from 'antd';
+import { App, Button, Card, ConfigProvider, Form, Input, Menu, Spin, Tag } from 'antd';
 import type { MenuProps } from 'antd';
 import { InterfacingProviderDefinition, InterfacingProviderMountContext, normalizeComponentName } from '../contract';
 import { registry } from '../registry';
@@ -42,6 +42,43 @@ function WorkbenchView({ context }: { context: InterfacingProviderMountContext }
   );
 }
 
+function AccessSignInForm({ context }: { context: InterfacingProviderMountContext }): React.ReactElement {
+  const payload = context.payload;
+  const emailName = typeof payload.emailName === 'string' ? payload.emailName : 'access_sign_in[emailAddress]';
+  const passwordName = typeof payload.passwordName === 'string' ? payload.passwordName : 'access_sign_in[plainPassword]';
+  const emailValue = typeof payload.emailValue === 'string' ? payload.emailValue : '';
+
+  return React.createElement(Form, { component: false, layout: 'vertical', requiredMark: true },
+    React.createElement(Form.Item, { label: 'Email address', required: true },
+      React.createElement(Input, {
+        name: emailName,
+        type: 'email',
+        autoComplete: 'email',
+        defaultValue: emailValue,
+        size: 'large',
+        required: true
+      })
+    ),
+    React.createElement(Form.Item, { label: 'Password', required: true },
+      React.createElement(Input.Password, {
+        name: passwordName,
+        autoComplete: 'current-password',
+        size: 'large',
+        required: true
+      })
+    ),
+    React.createElement(Button, {
+      type: 'primary',
+      htmlType: 'submit',
+      size: 'large',
+      block: true,
+      loading: false,
+      'data-access-submit': true,
+      'data-access-submitting-label': 'Signing in…'
+    }, 'Sign in')
+  );
+}
+
 function ProviderFallback({ context }: { context: InterfacingProviderMountContext }): React.ReactElement {
   return React.createElement(Card, {
     title: `AntD provider: ${context.component}`,
@@ -59,6 +96,10 @@ function renderComponent(context: InterfacingProviderMountContext): React.ReactE
     return React.createElement(NavigationMenu, { context });
   }
 
+  if (component === 'access-signin-form') {
+    return React.createElement(AccessSignInForm, { context });
+  }
+
   if (['domain-workbench', 'domain-view', 'workbench', 'provider-handoff'].includes(component)) {
     return React.createElement(WorkbenchView, { context });
   }
@@ -68,7 +109,7 @@ function renderComponent(context: InterfacingProviderMountContext): React.ReactE
 
 export const antdProProvider: InterfacingProviderDefinition = {
   provider: 'antd-pro',
-  components: ['navigation-menu', 'domain-workbench', 'domain-view', 'workbench', 'provider-handoff'],
+  components: ['navigation-menu', 'access-signin-form', 'domain-workbench', 'domain-view', 'workbench', 'provider-handoff'],
   mount(context: InterfacingProviderMountContext): void {
     const root = createRoot(context.element);
 

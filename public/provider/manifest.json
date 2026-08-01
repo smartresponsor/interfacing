@@ -35,7 +35,7 @@
     ]
   },
   "src/provider/component/antd-pro-workbench.tsx": {
-    "file": "chunks/antd-pro-workbench-BJYdBpbG.js",
+    "file": "chunks/antd-pro-workbench-kowGKD1g.js",
     "name": "antd-pro-workbench",
     "src": "src/provider/component/antd-pro-workbench.tsx",
     "isDynamicEntry": true,

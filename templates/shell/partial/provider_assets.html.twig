@@ -9,7 +9,7 @@
   Browser provider JavaScript remains opt-in because module URLs must be served
   by the host asset pipeline as real JavaScript, not HTML fallbacks.
 #}
-{% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(false) %}
+{% set externalProviderAssetsEnabled = interfacing_provider_external_assets_enabled|default(true) %}
 {% set providerAssetVersion = interfacing_provider_asset_version|default('w86-access-recovery-form') %}
 {% set providerAssetBasePath = interfacing_provider_asset_base_path|default('') %}
 {% set providerAssetManifest = {
@@ -17,7 +17,6 @@
   menuStylesheet: 'bundles/interfacing/interfacing/design/provider-menu.css',
   canonicalStylesheet: 'bundles/interfacing/provider/assets/canonical-providers.css',
   designTokens: 'bundles/interfacing/interfacing/design/provider-baseline-tokens.js',
-  processEnv: 'bundles/interfacing/provider/process-env.js',
   providerRegistry: 'bundles/interfacing/provider/provider-registry.js',
   canonicalProviders: 'bundles/interfacing/provider/canonical-providers.js',
   antdProProvider: 'bundles/interfacing/provider/providers/antd-pro.js',
@@ -42,7 +41,6 @@
 }|json_encode(constant('JSON_PRETTY_PRINT'))|raw }}</script>
 {% if externalProviderAssetsEnabled %}
 <script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.designTokens }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-baseline-tokens="true"></script>
-<script src="{{ providerAssetBasePath }}/{{ providerAssetManifest.processEnv }}?v={{ providerAssetVersion }}" defer data-interfacing-provider-process-env="true"></script>
 <script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.providerRegistry }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>
 <script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalProviders }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-providers="true"></script>
 <script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.antdProProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-antd-pro="true"></script>
