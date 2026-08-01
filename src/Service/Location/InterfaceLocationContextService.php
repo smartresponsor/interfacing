@@ -58,10 +58,20 @@ final readonly class InterfaceLocationContextService
             }
 
             $bucket = [];
+            $seen = [];
+
             foreach ($items as $item) {
-                if (\is_array($item)) {
-                    $bucket[] = $item;
+                if (!\is_array($item)) {
+                    continue;
                 }
+
+                $identity = $this->itemIdentity($item);
+                if (isset($seen[$identity])) {
+                    continue;
+                }
+
+                $seen[$identity] = true;
+                $bucket[] = $item;
             }
 
             if ([] !== $bucket) {
@@ -70,5 +80,37 @@ final readonly class InterfaceLocationContextService
         }
 
         return $normalized;
+    }
+
+    /** @param array<string, mixed> $item */
+    private function itemIdentity(array $item): string
+    {
+        foreach (['id', 'key'] as $identityKey) {
+            if (\is_string($item[$identityKey] ?? null) && '' !== trim($item[$identityKey])) {
+                return $identityKey.':'.trim($item[$identityKey]);
+            }
+        }
+
+        $target = '';
+        foreach (['href', 'url', 'path', 'action'] as $targetKey) {
+            if (\is_string($item[$targetKey] ?? null) && '' !== trim($item[$targetKey])) {
+                $target = trim($item[$targetKey]);
+                break;
+            }
+        }
+
+        $label = '';
+        foreach (['label', 'title'] as $labelKey) {
+            if (\is_string($item[$labelKey] ?? null) && '' !== trim($item[$labelKey])) {
+                $label = trim($item[$labelKey]);
+                break;
+            }
+        }
+
+        return hash('sha256', implode('|', [
+            \is_string($item['type'] ?? null) ? trim($item['type']) : '',
+            $target,
+            $label,
+        ]));
     }
 }

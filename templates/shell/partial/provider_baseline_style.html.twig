@@ -1767,6 +1767,63 @@ turbo-frame#access-signin-frame {
   }
 }
 
+/* Ant Design provider menu: compact account/navigation popover. */
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] {
+  display: grid;
+  gap: 2px;
+  padding: 4px;
+}
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-item {
+  margin: 0;
+  border-radius: 6px;
+}
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 8px 10px;
+  border-radius: 6px !important;
+  color: rgba(0, 0, 0, .88);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400 !important;
+  line-height: 1.45;
+  transition: background-color .2s, color .2s;
+}
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link:hover,
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link:focus-visible {
+  background: rgba(0, 0, 0, .04);
+  color: #1677ff;
+  outline: 0;
+}
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #595959;
+}
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-icon::before {
+  content: attr(data-interfacing-location-icon);
+  max-width: 18px;
+  overflow: hidden;
+  font-size: 0;
+}
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-icon::after {
+  content: '•';
+  font-size: 18px;
+  line-height: 1;
+}
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* --------------------------------------------------------------------------
    Provider-owned native menu polish: left/context locations only.
    This layer intentionally stays inside the existing Interfacing baseline

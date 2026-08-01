@@ -24,9 +24,9 @@
             >
           </div>
         {% elseif item.href is defined and item.href %}
-          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.href }}"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.href) }}</span></a>
+          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.href }}" data-turbo-frame="_top"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.href) }}</span></a>
         {% elseif item.url is defined and item.url %}
-          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.url }}"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.url) }}</span></a>
+          <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.url }}" data-turbo-frame="_top"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.url) }}</span></a>
         {% elseif itemLabel is not empty %}
           <div class="interfacing-location-label">{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel }}</span></div>
         {% endif %}
