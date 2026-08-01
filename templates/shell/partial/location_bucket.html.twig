@@ -5,7 +5,7 @@
 {% set interfacePayload = interface is defined and interface is iterable ? interface : {} %}
 {% set shellPayload = shell is defined and shell is iterable ? shell : {} %}
 {% set interfaceStyleProviderKey = interfacePayload.style_provider|default(shellPayload.style_provider|default('ant_design')) %}
-{% set interfaceStyleProvider = interface_style_provider(interfaceStyleProviderKey) %}
+{% set interfaceStyleProvider = interfaceStyleProvider|default(interface_style_provider(interfaceStyleProviderKey)) %}
 {% if bucket is iterable and bucket is not empty %}
   <div class="interfacing-location-bucket {{ interfaceStyleProvider.location_class }}" data-interfacing-location="{{ locationName }}" data-interfacing-style-provider="{{ interfaceStyleProvider.key }}">
     {% for item in bucket %}
@@ -42,7 +42,8 @@
         {% if item.items is defined and item.items is iterable and item.items is not empty %}
           {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
             location: locationName ~ '.' ~ loop.index,
-            items: item.items
+            items: item.items,
+            interfaceStyleProvider: interfaceStyleProvider
           } only %}
         {% endif %}
       </div>

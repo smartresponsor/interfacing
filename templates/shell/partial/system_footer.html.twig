@@ -11,7 +11,11 @@
 {% set shellFooterRightItems = shellLocations['shell.footer.right']|default([]) %}
 
 <footer class="interfacing-footer" data-interfacing-shell-slot="footer" data-interfacing-shell-location="shell.footer" data-interfacing-shell-contract="four-column-grid" {{ footerAttributes|raw }}>
-  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.top', items: shellFooterTopItems} only %}
+  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
+    location: 'shell.footer.top',
+    items: shellFooterTopItems,
+    interfaceStyleProvider: interfaceStyleProvider
+  } only %}
   <div class="interfacing-shell-grid interfacing-footer-grid" data-interfacing-footer-grid="true">
     <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--primary" data-interfacing-shell-slot="footer-primary" data-interfacing-shell-location="shell.footer.left" title="{{ shellSlotMap['shell.footer.left']|default('Footer left') }}">
       {% if shellFooterLeftItems is not empty %}
@@ -32,7 +36,11 @@
     </aside>
 
     <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--secondary" data-interfacing-shell-slot="footer-secondary" data-interfacing-shell-location="shell.footer.context" title="{{ shellSlotMap['shell.footer.context']|default('Footer context') }}">
-      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.context', items: shellFooterContextItems} only %}
+      {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
+        location: 'shell.footer.context',
+        items: shellFooterContextItems,
+        interfaceStyleProvider: interfaceStyleProvider
+      } only %}
     </aside>
 
     <main class="interfacing-shell-body interfacing-footer-panel interfacing-footer-panel--main" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellSlotMap['shell.footer.main']|default('Footer main') }}">

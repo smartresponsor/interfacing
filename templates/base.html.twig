@@ -99,7 +99,8 @@
       shellRightPanelEnabled: shellRightPanelEnabled,
       requestPath: app.request.pathInfo,
       shellLocations: shellLocations,
-      interface: interfacePayload
+      interface: interfacePayload,
+      interfaceStyleProvider: interfaceStyleProvider
     } only %}
 
     <div class="interfacing-shell-grid">
@@ -167,7 +168,8 @@
       shellFooterGroup: shellFooterGroup,
       shellFooterLinkLimit: shellFooterLinkLimit,
       shellSlotMap: shellSlotMap,
-      shellLocations: shellLocations
+      shellLocations: shellLocations,
+      interfaceStyleProvider: interfaceStyleProvider
     } only %}
   </div>
   {% endif %}

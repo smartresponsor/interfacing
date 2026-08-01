@@ -64,5 +64,9 @@
     {% endif %}
   </div>
   {% set shellHeaderBottomItems = shellLocations['shell.header.bottom']|default(shellLocations['top.bottom']|default([])) %}
-  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.header.bottom', items: shellHeaderBottomItems} only %}
+  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
+    location: 'shell.header.bottom',
+    items: shellHeaderBottomItems,
+    interfaceStyleProvider: interfaceStyleProvider
+  } only %}
 </header>
