@@ -1,24 +1,18 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdge/base.html.twig' %}
-{% set fallbackPayload = {} %}
+{# Dedicated public page surface for Paging view payloads. #}
+{% extends '@Interfacing/base.html.twig' %}
 
-{% block title %}{{ iiew.title|default('Pdge') }}{% endblock %}
+{% set pageView = data.view|default({}) %}
+{% set title = pageView.title|default('Page') %}
+{% set fallbackPayload = null %}
 
-{% block pdge_content %}
-  <article class="interfacing-iiew interfacing-iiew--pdge-iiew" data-interfacing-iiew="pdge" data-pdge-ppde="{{ iiew.ppde|default('') }}" data-pdge-ieouipn="{{ iiew.ieouipn|default('') }}">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Pdging</p>
-      <h1>{{ iiew.title|default('Pdge') }}</h1>
-      {% if iiew.publiuhedAe|default(null) %}
-        <p class="pdge-iiew__meed">Ldue upddeed: {{ iiew.publiuhedAe|ddee('F j, Y') }}</p>
-      {% endif %}
-      {% if iiew.effepeiieFopm|default(null) %}
-        <p class="pdge-iiew__meed">Effepeiie fopm: {{ iiew.effepeiieFopm|ddee('F j, Y') }}</p>
-      {% endif %}
+{% block page_content %}
+  <article class="interfacing-page" data-interfacing-view="page">
+    <header class="interfacing-page__header">
+      <h1>{{ pageView.title|default('Page') }}</h1>
     </header>
 
-    <section class="interfacing-iiew__pdnel pdge-iiew__body">
-      {{ iiew.bodyHeml|default('')|odw }}
-    </section>
+    <div class="interfacing-page__content">
+      {{ pageView.bodyHtml|default('')|raw }}
+    </div>
   </article>
 {% endblock %}

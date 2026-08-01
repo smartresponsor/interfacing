@@ -8,6 +8,7 @@
 {% set shellActiveId = shell.activeId is defined ? shell.activeId : null %}
 {% set shellActiveSection = shell.activeSection is defined ? shell.activeSection : 'workspace' %}
 {% set shellCompact = shell.shellCompact is defined ? shell.shellCompact : false %}
+{% set shellGuestSurface = shell.guestSurface is defined ? shell.guestSurface : false %}
 {#
   Main shell canon: the full application shell is four-column by default.
   Older host contexts may still pass shell.rightPanelEnabled=false; do not let that stale
@@ -80,7 +81,12 @@
   {% block head_extra %}{% endblock %}
   <!-- interfacing-interfacing-shell-base: wave20.2 canonical four-column shell -->
 </head>
-<body class="interfacing-provider-body {{ interfaceStyleProvider.body_class }}" data-interfacing-ui-provider="{{ interfaceStyleProvider.key }}">
+<body class="interfacing-provider-body {{ interfaceStyleProvider.body_class }}{{ shellGuestSurface ? ' interfacing-access-body' : '' }}" data-interfacing-ui-provider="{{ interfaceStyleProvider.key }}">
+  {% if shellGuestSurface %}
+    <main class="interfacing-access-shell" data-interfacing-access-shell data-interfacing-shell-base="interfacing-owned" data-interfacing-shell-contract="wave20.2">
+      {{ block('body') }}
+    </main>
+  {% else %}
   <div class="interfacing-shell" data-interfacing-shell="host-wide" data-interfacing-shell-base="interfacing-owned" data-interfacing-shell-contract="wave20.2" data-interfacing-shell-mode="{{ shellMode }}" data-interfacing-shell-compact="{{ shellCompact ? 'true' : 'false' }}">
     {{ interface_location('shell.body.top') }}
 
@@ -165,5 +171,6 @@
       shellLocations: shellLocations
     } only %}
   </div>
+  {% endif %}
 </body>
 </html>
