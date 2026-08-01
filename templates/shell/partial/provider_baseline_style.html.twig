@@ -183,10 +183,10 @@ body,
 [data-interfacing-shell] select:not(.ant-select-selector):not(.p-dropdown),
 [data-interfacing-shell] textarea,
 [data-interfacing-shell] button:not(.ant-btn):not(.p-button):not(.interfacing-provider-input-group__button),
-[data-interfacing-access-shell] input,
-[data-interfacing-access-shell] select,
-[data-interfacing-access-shell] textarea,
-[data-interfacing-access-shell] button,
+[data-interfacing-access-shell] input:not(.ant-input):not(.p-inputtext),
+[data-interfacing-access-shell] select:not(.ant-select-selector),
+[data-interfacing-access-shell] textarea:not(.ant-input),
+[data-interfacing-access-shell] button:not(.ant-btn):not(.ant-input-password-icon):not(.p-button),
 [data-interfacing-provider-document="true"] input,
 [data-interfacing-provider-document="true"] select,
 [data-interfacing-provider-document="true"] textarea,
@@ -203,9 +203,9 @@ body,
 [data-interfacing-shell] input:not(.ant-input):not(.p-inputtext):not(.interfacing-provider-input-group__input),
 [data-interfacing-shell] select:not(.ant-select-selector):not(.p-dropdown),
 [data-interfacing-shell] textarea,
-[data-interfacing-access-shell] input,
-[data-interfacing-access-shell] select,
-[data-interfacing-access-shell] textarea,
+[data-interfacing-access-shell] input:not(.ant-input):not(.p-inputtext),
+[data-interfacing-access-shell] select:not(.ant-select-selector),
+[data-interfacing-access-shell] textarea:not(.ant-input),
 [data-interfacing-provider-document="true"] input,
 [data-interfacing-provider-document="true"] select,
 [data-interfacing-provider-document="true"] textarea {
@@ -215,7 +215,7 @@ body,
 }
 
 [data-interfacing-shell] button:not(.ant-btn):not(.p-button):not(.interfacing-provider-input-group__button),
-[data-interfacing-access-shell] button,
+[data-interfacing-access-shell] button:not(.ant-btn):not(.ant-input-password-icon):not(.p-button),
 [data-interfacing-provider-document="true"] button {
   padding: 6px 12px !important;
   font-weight: var(--interfacing-provider-font-weight-strong) !important;
@@ -703,59 +703,6 @@ body.interfacing-access-body {
 .interfacing-form { display: grid; gap: 16px; }
 .interfacing-form-label { display: grid; gap: 6px; font-size: 13px; font-weight: var(--interfacing-provider-font-weight-strong); }
 
-[data-interfacing-access-shell] .ant-form-item,
-[data-interfacing-access-shell] .p-field {
-  display: grid;
-  gap: 7px;
-  margin: 0 !important;
-}
-
-[data-interfacing-access-shell] .ant-input.p-inputtext,
-[data-interfacing-access-shell] .ant-input {
-  width: 100%;
-  min-height: 40px !important;
-  padding: 8px 11px !important;
-  border: 1px solid #d9d9d9 !important;
-  border-radius: 6px !important;
-  background: #fff !important;
-  color: rgba(0, 0, 0, .88) !important;
-  font-size: 14px !important;
-  line-height: 1.5715 !important;
-  transition: border-color .2s, box-shadow .2s, background-color .2s;
-}
-
-[data-interfacing-access-shell] .ant-input.p-inputtext:hover,
-[data-interfacing-access-shell] .ant-input:hover {
-  border-color: #4096ff !important;
-}
-
-[data-interfacing-access-shell] .ant-input.p-inputtext:focus,
-[data-interfacing-access-shell] .ant-input:focus {
-  border-color: #1677ff !important;
-  box-shadow: 0 0 0 2px rgba(5, 145, 255, .10) !important;
-  outline: 0 !important;
-}
-
-[data-interfacing-access-shell] .ant-btn.ant-btn-primary.p-button {
-  width: 100%;
-  min-height: 40px !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #1677ff !important;
-  border-radius: 6px !important;
-  background: #1677ff !important;
-  color: #fff !important;
-  font-size: 14px !important;
-  font-weight: 400 !important;
-  box-shadow: 0 2px 0 rgba(5, 145, 255, .10) !important;
-}
-
-[data-interfacing-access-shell] .ant-btn.ant-btn-primary.p-button:hover,
-[data-interfacing-access-shell] .ant-btn.ant-btn-primary.p-button:focus-visible {
-  border-color: #4096ff !important;
-  background: #4096ff !important;
-}
 [data-interfacing-access-shell] [data-access-submit] {
   gap: 8px;
 }
