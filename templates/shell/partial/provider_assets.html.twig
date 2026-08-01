@@ -15,7 +15,7 @@
 {% set providerAssetManifest = {
   baselineStylesheet: 'bundles/interfacing/interfacing/design/provider-baseline.css',
   menuStylesheet: 'bundles/interfacing/interfacing/design/provider-menu.css',
-  canonicalStylesheet: 'bundles/interfacing/provider/canonical-providers.interfacing-interface-ui.css',
+  canonicalStylesheet: 'bundles/interfacing/provider/assets/canonical-providers.css',
   designTokens: 'bundles/interfacing/interfacing/design/provider-baseline-tokens.js',
   processEnv: 'bundles/interfacing/provider/process-env.js',
   providerRegistry: 'bundles/interfacing/provider/provider-registry.js',
@@ -27,7 +27,9 @@
 <link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.baselineStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-baseline-stylesheet="true">
 <link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-stylesheet="true">
 <link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.menuStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-menu-stylesheet="true">
+{% if interfaceStyleProvider.stylesheet is not empty %}
 <link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ interfaceStyleProvider.stylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-theme-stylesheet="{{ interfaceStyleProvider.key }}">
+{% endif %}
 <script type="application/json" id="interfacing-provider-asset-manifest" data-interfacing-provider-asset-manifest="true">{{ {
   enabled: externalProviderAssetsEnabled,
   cssMode: 'stable-bundle-assets',
