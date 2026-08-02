@@ -39,8 +39,8 @@ final class InterfaceLocationContextServiceTest extends TestCase
             'interface' => [
                 'locations' => [
                     'shell.header.right.quick.menu' => [
-                        ['type' => 'link', 'label' => 'My Vendor', 'href' => '/my/vendor/index'],
-                        ['type' => 'link', 'label' => 'My Vendor', 'href' => '/my/vendor/index'],
+                        ['key' => 'package_vendor', 'type' => 'link', 'label' => 'My Vendor', 'href' => '/my/vendor/index'],
+                        ['key' => 'host_vendor', 'type' => 'link', 'label' => 'My Vendor', 'href' => '/my/vendor/index'],
                         ['type' => 'link', 'label' => 'My Attachments', 'href' => '/my/attachment/index'],
                     ],
                 ],
