@@ -85,12 +85,6 @@ final readonly class InterfaceLocationContextService
     /** @param array<string, mixed> $item */
     private function itemIdentity(array $item): string
     {
-        foreach (['id', 'key'] as $identityKey) {
-            if (\is_string($item[$identityKey] ?? null) && '' !== trim($item[$identityKey])) {
-                return $identityKey.':'.trim($item[$identityKey]);
-            }
-        }
-
         $target = '';
         foreach (['href', 'url', 'path', 'action'] as $targetKey) {
             if (\is_string($item[$targetKey] ?? null) && '' !== trim($item[$targetKey])) {
@@ -107,8 +101,21 @@ final readonly class InterfaceLocationContextService
             }
         }
 
+        $metadata = \is_array($item['metadata'] ?? null) ? $item['metadata'] : [];
+        $method = $item['method'] ?? $metadata['http_method'] ?? 'GET';
+        $method = \is_string($method) ? strtoupper(trim($method)) : 'GET';
+
+        if ('' === $target && '' === $label) {
+            foreach (['id', 'key'] as $identityKey) {
+                if (\is_string($item[$identityKey] ?? null) && '' !== trim($item[$identityKey])) {
+                    return $identityKey.':'.trim($item[$identityKey]);
+                }
+            }
+        }
+
         return hash('sha256', implode('|', [
             \is_string($item['type'] ?? null) ? trim($item['type']) : '',
+            $method,
             $target,
             $label,
         ]));
