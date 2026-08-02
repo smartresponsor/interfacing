@@ -11,6 +11,7 @@ services:
     App\Interfacing\ProviderInterface\Style\InterfaceStyleProviderInterface:
       tags: ['interfacing.style_provider']
 
+  App\Interfacing\Service\Location\InterfaceLocationContextService: ~
   App\Interfacing\Service\Location\InterfaceLocationRenderService: ~
   App\Interfacing\Service\Rendering\InterfaceTwigRendererService: ~
   App\Interfacing\ServiceInterface\Rendering\InterfaceRendererInterface:

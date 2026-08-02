@@ -73,7 +73,7 @@ function AccessSignInForm({ context }: { context: InterfacingProviderMountContex
       size: 'large',
       block: true,
       loading: false,
-      'data-access-submit': true,
+      'data-access-submit': 'true',
       'data-access-submitting-label': 'Signing in…'
     }, 'Sign in')
   );

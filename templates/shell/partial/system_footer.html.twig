@@ -17,9 +17,33 @@
     interfaceStyleProvider: interfaceStyleProvider
   } only %}
   <div class="interfacing-shell-grid interfacing-footer-grid" data-interfacing-footer-grid="true">
-    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--primary" data-interfacing-shell-slot="footer-primary" data-interfacing-shell-location="shell.footer.left" title="{{ shellSlotMap['shell.footer.left']|default('Footer left') }}">
+    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--primary" data-interfacing-shell-slot="footer-primary" data-interfacing-shell-location="shell.footer.left" title="Download mobile applications">
+      <div class="interfacing-footer-store-badges interfacing-location-bucket {{ interfaceStyleProvider.location_class }}" aria-label="Mobile applications" data-interfacing-location="shell.footer.left.downloads" data-interfacing-style-provider="{{ interfaceStyleProvider.key }}">
+        <div class="interfacing-location-item interfacing-location-item--action" data-interfacing-location-item="action">
+          <button class="interfacing-footer-store-badge interfacing-footer-store-badge--apple interfacing-location-link" type="button" data-interfacing-store-badge="apple" aria-label="Download on the App Store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" loading="lazy">
+          </button>
+        </div>
+        <div class="interfacing-location-item interfacing-location-item--action" data-interfacing-location-item="action">
+          <button class="interfacing-footer-store-badge interfacing-footer-store-badge--google interfacing-location-link" type="button" data-interfacing-store-badge="google" aria-label="Get it on Google Play">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" loading="lazy">
+          </button>
+        </div>
+        <div class="interfacing-location-item interfacing-location-item--link" data-interfacing-location-item="link">
+          <a class="interfacing-location-link" href="https://github.com/smartresponsor" target="_blank" rel="noopener noreferrer" aria-label="Smartresponsor on GitHub">
+            <span class="interfacing-location-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.3.8-.6v-2.2c-3.4.7-4.1-1.4-4.1-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.8.1-.8.1-.8 1.2.1 1.9 1.3 1.9 1.3 1.1 1.9 2.9 1.4 3.6 1.1.1-.8.4-1.4.8-1.7-2.7-.3-5.5-1.4-5.5-6a4.7 4.7 0 0 1 1.3-3.3 4.4 4.4 0 0 1 .1-3.3s1-.3 3.4 1.3a11.8 11.8 0 0 1 6.2 0c2.4-1.6 3.4-1.3 3.4-1.3a4.4 4.4 0 0 1 .1 3.3 4.7 4.7 0 0 1 1.3 3.3c0 4.6-2.8 5.7-5.5 6 .4.4.8 1.1.8 2.2V22c0 .3.2.7.8.6A11.3 11.3 0 0 0 12 .7Z"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--secondary" data-interfacing-shell-slot="footer-secondary" data-interfacing-shell-location="shell.footer.context" title="{{ shellSlotMap['shell.footer.context']|default('Footer context') }}">
       {% if shellFooterLeftItems is not empty %}
-        <nav class="interfacing-footer-links" aria-label="Footer left links" data-interfacing-footer-links="left">
+        <nav class="interfacing-footer-links" aria-label="System links" data-interfacing-footer-links="left-moved">
           {% for item in shellFooterLeftItems|slice(0, shellFooterLinkLimit) %}
             {% set itemLabel = item.label|default(item.title|default(item.key|default(item.href|default(item.url|default('Link'))))) %}
             {% set itemHref = item.href|default(item.url|default('#')) %}
@@ -27,15 +51,6 @@
           {% endfor %}
         </nav>
       {% endif %}
-      {% if shellFooterLeftItems is empty %}
-        <div class="interfacing-footer-brand" data-interfacing-footer-fallback="brand">
-          <span class="interfacing-footer-brand__title">Smart Response</span>
-          <span class="interfacing-footer-brand__subtitle">Host-wide application shell</span>
-        </div>
-      {% endif %}
-    </aside>
-
-    <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--secondary" data-interfacing-shell-slot="footer-secondary" data-interfacing-shell-location="shell.footer.context" title="{{ shellSlotMap['shell.footer.context']|default('Footer context') }}">
       {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
         location: 'shell.footer.context',
         items: shellFooterContextItems,
@@ -83,4 +98,35 @@
       {% endif %}
     </aside>
   </div>
+  <div class="interfacing-footer-coming-soon" role="status" aria-live="polite" aria-atomic="true" hidden data-interfacing-footer-coming-soon>
+    <strong>Mobile apps are coming soon</strong>
+    <span>We’re preparing the App Store and Google Play releases.</span>
+  </div>
+  <script>
+    (() => {
+      const footer = document.currentScript.closest('.interfacing-footer');
+      if (!footer || footer.dataset.storeBadgesReady === 'true') {
+        return;
+      }
+
+      footer.dataset.storeBadgesReady = 'true';
+      const toast = footer.querySelector('[data-interfacing-footer-coming-soon]');
+      let hideTimer;
+
+      footer.addEventListener('click', (event) => {
+        const badge = event.target.closest('[data-interfacing-store-badge]');
+        if (!badge || !toast) {
+          return;
+        }
+
+        clearTimeout(hideTimer);
+        toast.hidden = false;
+        requestAnimationFrame(() => toast.classList.add('is-visible'));
+        hideTimer = window.setTimeout(() => {
+          toast.classList.remove('is-visible');
+          window.setTimeout(() => { toast.hidden = true; }, 180);
+        }, 2200);
+      });
+    })();
+  </script>
 </footer>
