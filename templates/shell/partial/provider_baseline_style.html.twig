@@ -182,7 +182,7 @@ body,
 [data-interfacing-shell] input:not(.ant-input):not(.p-inputtext):not(.interfacing-provider-input-group__input),
 [data-interfacing-shell] select:not(.ant-select-selector):not(.p-dropdown),
 [data-interfacing-shell] textarea,
-[data-interfacing-shell] button:not(.ant-btn):not(.p-button):not(.interfacing-provider-input-group__button),
+[data-interfacing-shell] button:not(.ant-btn):not(.p-button):not(.interfacing-provider-input-group__button):not(.interfacing-footer-store-badge),
 [data-interfacing-access-shell] input:not(.ant-input):not(.p-inputtext),
 [data-interfacing-access-shell] select:not(.ant-select-selector),
 [data-interfacing-access-shell] textarea:not(.ant-input),
@@ -214,7 +214,7 @@ body,
   color: var(--interfacing-provider-text-color) !important;
 }
 
-[data-interfacing-shell] button:not(.ant-btn):not(.p-button):not(.interfacing-provider-input-group__button),
+[data-interfacing-shell] button:not(.ant-btn):not(.p-button):not(.interfacing-provider-input-group__button):not(.interfacing-footer-store-badge),
 [data-interfacing-access-shell] button:not(.ant-btn):not(.ant-input-password-icon):not(.p-button),
 [data-interfacing-provider-document="true"] button {
   padding: 6px 12px !important;
@@ -619,8 +619,32 @@ body.interfacing-access-body {
 }
 
 .interfacing-footer {
-  border-top: 1px solid var(--interfacing-provider-border);
-  background: var(--interfacing-provider-surface);
+  border-top: 1px solid #4b5563;
+  background: #374151 !important;
+  color: #ffffff !important;
+  font-weight: 300 !important;
+}
+.interfacing-footer .interfacing-footer-panel,
+.interfacing-footer .interfacing-shell-panel,
+.interfacing-footer .interfacing-shell-body {
+  background: #374151 !important;
+  border-color: rgba(255, 255, 255, .14) !important;
+  color: #ffffff !important;
+}
+.interfacing-footer .interfacing-footer-link,
+.interfacing-footer .interfacing-location-label,
+.interfacing-footer .interfacing-location-text,
+.interfacing-footer .interfacing-footer__title,
+.interfacing-footer .interfacing-footer-brand__title,
+.interfacing-footer .interfacing-footer-brand__subtitle {
+  color: #ffffff !important;
+  font-weight: 300 !important;
+}
+.interfacing-footer .interfacing-footer-link:hover,
+.interfacing-footer .interfacing-footer-link:focus-visible {
+  color: #ffffff !important;
+  opacity: 1;
+  text-decoration: underline;
 }
 .interfacing-footer-grid {
   min-height: 54px;
@@ -664,6 +688,91 @@ body.interfacing-access-body {
   padding: 0;
   font-size: 12px;
   opacity: .82;
+}
+.interfacing-footer-store-badges {
+  display: grid;
+  gap: 8px;
+  align-content: center;
+  justify-items: start;
+}
+.interfacing-footer-store-badge {
+  min-height: 0 !important;
+  display: block !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  line-height: 0;
+  cursor: pointer;
+}
+.interfacing-footer-store-badge:hover,
+.interfacing-footer-store-badge:focus-visible {
+  background: transparent !important;
+  outline: 0;
+}
+.interfacing-footer-store-badge img {
+  display: block;
+  width: auto;
+  object-fit: contain;
+}
+.interfacing-footer-store-badge--apple img {
+  height: 48px;
+}
+.interfacing-footer-store-badge--google img {
+  height: 62px;
+  margin: -7px -9px;
+}
+.interfacing-footer [data-interfacing-location="shell.footer.left.downloads"] .interfacing-location-link {
+  padding: 0 !important;
+  color: #ffffff !important;
+  background: transparent !important;
+}
+.interfacing-footer [data-interfacing-location="shell.footer.left.downloads"] .interfacing-location-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+}
+.interfacing-footer [data-interfacing-location="shell.footer.left.downloads"] .interfacing-location-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  fill: currentColor;
+}
+.interfacing-footer-coming-soon {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 1400;
+  width: min(380px, calc(100vw - 40px));
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px 16px 22px;
+  border: 1px solid #d7dee8;
+  border-left: 5px solid #2563eb;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 14px 36px rgba(15, 23, 42, .22);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+.interfacing-footer-coming-soon strong {
+  font-size: 15px;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.interfacing-footer-coming-soon span {
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.interfacing-footer-coming-soon.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .interfacing-access-shell {
@@ -1955,25 +2064,61 @@ turbo-frame#access-signin-frame {
 
 .interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon,
 .interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon {
-  width: 18px;
-  min-width: 18px;
-  height: 18px;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  background: rgba(15, 23, 42, 0.06);
+  color: #475569 !important;
+  background: transparent;
+  transition: color 120ms ease, transform 120ms ease;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-link:hover .interfacing-location-icon,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-link:hover .interfacing-location-icon,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-item.is-active .interfacing-location-icon,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-item.is-active .interfacing-location-icon {
+  color: var(--interfacing-provider-accent-color, #1677ff) !important;
+  transform: translateX(1px);
 }
 
 .interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon::before,
 .interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon::before {
-  content: attr(data-interfacing-location-icon);
-  max-width: 16px;
-  overflow: hidden;
-  text-transform: uppercase;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: .02em;
+  content: none;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon svg,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg {
+  width: 20px;
+  height: 20px;
+  color: inherit !important;
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg path,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg path {
+  fill: currentColor !important;
+  stroke: none !important;
+  opacity: 1 !important;
+}
+
+.interfacing-location-icon[data-interfacing-icon-materialized="primereact"] .pi {
+  font-size: 19px;
+  line-height: 1;
 }
 
 .interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-text,

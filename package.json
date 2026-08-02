@@ -4,11 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build": "npm run ui:build",
+    "typecheck": "npm run ui:check",
     "ui:build": "vite build --config .interfacing/workspace/vite.config.ts",
     "ui:check": "tsc -p .interfacing/workspace/tsconfig.json --noEmit",
     "ui:audit": "npm audit"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.6.1",
     "@ant-design/pro-components": "^2.8.10",
     "antd": "^5.26.7",
     "primeicons": "^7.0.0",

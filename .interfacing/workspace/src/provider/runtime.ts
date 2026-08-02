@@ -1,6 +1,8 @@
 import './canonical-providers';
+import { materializeLocationIcons } from './component/location-icons';
 
 function boot(): void {
+  materializeLocationIcons(document);
   window.InterfacingProviderRegistry?.mountAll(document);
 }
 
