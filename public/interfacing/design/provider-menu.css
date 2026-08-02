@@ -49,25 +49,61 @@
 
 .interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon,
 .interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon {
-  width: 18px;
-  min-width: 18px;
-  height: 18px;
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  background: rgba(15, 23, 42, 0.06);
+  color: #475569 !important;
+  background: transparent;
+  transition: color 120ms ease, transform 120ms ease;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-link:hover .interfacing-location-icon,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-link:hover .interfacing-location-icon,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-item.is-active .interfacing-location-icon,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-item.is-active .interfacing-location-icon {
+  color: var(--interfacing-provider-accent-color, #1677ff) !important;
+  transform: translateX(1px);
 }
 
 .interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon::before,
 .interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon::before {
-  content: attr(data-interfacing-location-icon);
-  max-width: 16px;
-  overflow: hidden;
-  text-transform: uppercase;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: .02em;
+  content: none;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon svg,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg {
+  width: 20px;
+  height: 20px;
+  color: inherit !important;
+  fill: currentColor !important;
+  stroke: none !important;
+}
+
+.interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg path,
+.interfacing-shell-panel[data-interfacing-shell-location="shell.context"] .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg path {
+  fill: currentColor !important;
+  stroke: none !important;
+  opacity: 1 !important;
+}
+
+.interfacing-location-icon[data-interfacing-icon-materialized="primereact"] .pi {
+  font-size: 19px;
+  line-height: 1;
 }
 
 .interfacing-shell-panel[data-interfacing-shell-location="shell.left"] .interfacing-location-text,
@@ -286,4 +322,99 @@
 .interfacing-quick-menu__panel .interfacing-location-link--danger:focus-visible {
   color: #a8071a !important;
   background: #fff1f0 !important;
+}
+
+/* Quick menu hierarchy and native Ant Design finish. */
+.interfacing-quick-menu__panel {
+  width: min(324px, calc(100vw - 24px));
+  padding: 0 0 8px;
+  border-color: #e8e8e8;
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, .14), 0 2px 8px rgba(15, 23, 42, .08);
+}
+
+.interfacing-quick-menu__header {
+  padding: 14px 14px 13px;
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 72%);
+  border-radius: 12px 12px 0 0;
+}
+
+.interfacing-quick-menu__avatar {
+  width: 40px;
+  height: 40px;
+  flex-basis: 40px;
+  border-color: #adc6ff;
+  box-shadow: 0 0 0 3px rgba(22, 119, 255, .08);
+}
+
+.interfacing-quick-menu__eyebrow {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .09em;
+}
+
+.interfacing-quick-menu__heading {
+  font-size: 15px;
+  letter-spacing: -.01em;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] {
+  gap: 2px;
+  padding: 8px;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-item:nth-child(3) {
+  margin-top: 6px;
+  padding-top: 7px;
+  border-top: 1px solid #f0f0f0;
+  border-radius: 0;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link {
+  min-height: 44px;
+  padding: 8px 10px !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: background-color 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link:hover,
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link:focus-visible {
+  background: #f0f7ff !important;
+  transform: translateX(2px);
+}
+
+.interfacing-quick-menu__panel .interfacing-location-icon {
+  width: 30px;
+  height: 30px;
+  flex-basis: 30px;
+  border-radius: 8px;
+  background: #f5f7fa;
+  color: #475569;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-link:hover .interfacing-location-icon,
+.interfacing-quick-menu__panel .interfacing-location-link:focus-visible .interfacing-location-icon {
+  background: #e6f4ff;
+  color: #1677ff;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-icon svg,
+.interfacing-quick-menu__panel .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg {
+  width: 17px;
+  height: 17px;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg,
+.interfacing-quick-menu__panel .interfacing-location-icon[data-interfacing-icon-materialized="ant-design"] svg path {
+  fill: currentColor !important;
+  stroke: none !important;
+  opacity: 1 !important;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-link--danger .interfacing-location-icon {
+  background: #fff1f0;
+  color: #cf1322;
 }
