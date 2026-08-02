@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Tests;
 
+use App\Interfacing\Service\Location\InterfaceLocationContextService;
 use App\Interfacing\Service\Location\InterfaceLocationRenderService;
 use PHPUnit\Framework\TestCase;
 use Twig\Environment;
@@ -15,7 +16,7 @@ final class InterfaceLocationRenderServiceTest extends TestCase
 {
     public function testNavigationSlotsRenderProviderNativeMarkup(): void
     {
-        $service = new InterfaceLocationRenderService($this->twig());
+        $service = new InterfaceLocationRenderService($this->twig(), new InterfaceLocationContextService());
 
         $html = $service->render([
             'interface' => [
@@ -42,7 +43,7 @@ final class InterfaceLocationRenderServiceTest extends TestCase
 
     public function testNonNavigationSlotsKeepGenericBucketMarkup(): void
     {
-        $service = new InterfaceLocationRenderService($this->twig());
+        $service = new InterfaceLocationRenderService($this->twig(), new InterfaceLocationContextService());
 
         $html = $service->render([
             'interface' => [

@@ -11,6 +11,7 @@ final readonly class InterfaceLocationRenderService
 {
     public function __construct(
         private Environment $twig,
+        private InterfaceLocationContextService $locationContextService,
         private ?InterfaceStyleProviderRegistry $styleProviderRegistry = null,
     ) {
     }
@@ -48,8 +49,6 @@ final readonly class InterfaceLocationRenderService
      */
     public function locations(array $context): array
     {
-        $interface = \is_array($context['interface'] ?? null) ? $context['interface'] : [];
-
-        return \is_array($interface['locations'] ?? null) ? $interface['locations'] : [];
+        return $this->locationContextService->locations($context);
     }
 }
