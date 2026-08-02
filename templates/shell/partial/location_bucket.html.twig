@@ -13,6 +13,8 @@
       {% set itemActive = item.active|default(false) %}
       {% set itemDisabled = item.disabled|default(false) %}
       {% set itemIcon = item.icon|default(null) %}
+      {% set itemMetadata = item.metadata is defined and item.metadata is iterable ? item.metadata : {} %}
+      {% set itemMethod = item.method|default(itemMetadata.http_method|default('GET'))|upper %}
       {% set itemLabel = item.label is defined and item.label is not same as(null) and item.label is not same as('') ? item.label : (item.title is defined and item.title is not same as(null) and item.title is not same as('') ? item.title : '') %}
       <div class="interfacing-location-item interfacing-location-item--{{ itemType|replace({'_': '-'}) }}{% if itemActive %} is-active{% endif %}{% if itemDisabled %} is-disabled{% endif %}" data-interfacing-location-item="{{ itemType }}"{% if itemActive %} aria-current="page"{% endif %}>
         {% if itemType == 'media' and item.src is defined and item.src %}
@@ -23,6 +25,10 @@
               alt="{{ item.alt|default(itemLabel) }}"
             >
           </div>
+        {% elseif itemMethod == 'POST' and ((item.href is defined and item.href) or (item.url is defined and item.url)) %}
+          <form class="interfacing-location-form" method="post" action="{{ item.href|default(item.url) }}" data-turbo-frame="_top">
+            <button class="interfacing-location-link interfacing-location-button{% if itemMetadata.operation|default('') == 'sign_out' %} interfacing-location-link--danger{% endif %}" type="submit"{% if itemDisabled %} disabled{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"><svg viewBox="0 0 24 24"><path d="{% if 'Swap' in itemIcon %}M7 7h12m0 0-3-3m3 3-3 3M17 17H5m0 0 3-3m-3 3 3 3{% else %}M10 5H5v14h5M14 8l4 4-4 4m4-4H9{% endif %}"/></svg></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel }}</span></button>
+          </form>
         {% elseif item.href is defined and item.href %}
           <a class="interfacing-location-link" href="{{ itemDisabled ? '#' : item.href }}" data-turbo-frame="_top"{% if itemDisabled %} aria-disabled="true" tabindex="-1"{% endif %}>{% if itemIcon %}<span class="interfacing-location-icon" aria-hidden="true" data-interfacing-location-icon="{{ itemIcon }}"><svg viewBox="0 0 24 24"><path d="{% if 'Shop' in itemIcon or 'Shopping' in itemIcon %}M4 8h16l-1 12H5L4 8Zm3 0V6a5 5 0 0 1 10 0v2{% elseif 'CreditCard' in itemIcon %}M3 6h18v12H3V6Zm0 4h18M7 15h4{% elseif 'Truck' in itemIcon %}M3 6h11v11H3V6Zm11 4h4l3 3v4h-7v-7ZM7 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z{% elseif 'PaperClip' in itemIcon %}m8 12 6-6a4 4 0 1 1 6 6l-8 8a6 6 0 0 1-9-9l8-8{% elseif 'Lock' in itemIcon or 'Key' in itemIcon %}M6 10h12v10H6V10Zm3 0V7a3 3 0 0 1 6 0v3{% elseif 'Logout' in itemIcon or 'Sign' in itemIcon %}M10 5H5v14h5M14 8l4 4-4 4m4-4H9{% else %}M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-7 18a7 7 0 0 1 14 0{% endif %}"/></svg></span>{% endif %}<span class="interfacing-location-text">{{ itemLabel|default(item.href) }}</span></a>
         {% elseif item.url is defined and item.url %}
