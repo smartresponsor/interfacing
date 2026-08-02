@@ -82,3 +82,170 @@
   padding: 6px 9px;
   font-size: 12px;
 }
+
+/* Ant Design quick-menu materialization. */
+.interfacing-quick-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.interfacing-quick-menu__trigger {
+  width: 36px !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d9d9d9 !important;
+  border-radius: 6px !important;
+  background: #fff !important;
+  color: rgba(0, 0, 0, .88) !important;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, .02) !important;
+}
+
+.interfacing-quick-menu__trigger:hover,
+.interfacing-quick-menu__trigger:focus-visible {
+  color: #1677ff !important;
+  border-color: #4096ff !important;
+  outline: 0;
+}
+
+.interfacing-quick-menu__trigger-icon {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.interfacing-quick-menu__panel {
+  width: min(300px, calc(100vw - 24px));
+  margin: 0;
+  padding: 4px 0 6px;
+  overflow: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  background: #fff;
+  color: rgba(0, 0, 0, .88);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, .08), 0 3px 6px -4px rgba(0, 0, 0, .12), 0 9px 28px 8px rgba(0, 0, 0, .05);
+}
+
+.interfacing-quick-menu__panel:popover-open {
+  display: block;
+  inset: 48px 12px auto auto;
+}
+
+.interfacing-quick-menu__header {
+  display: grid;
+  gap: 1px;
+  padding: 10px 12px 9px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.interfacing-quick-menu__eyebrow {
+  color: #8c8c8c;
+  font-size: 11px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.interfacing-quick-menu__heading {
+  color: rgba(0, 0, 0, .88);
+  font-size: 14px;
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] {
+  display: grid;
+  gap: 0;
+  padding: 4px;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-item {
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 10px !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0 !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  color: rgba(0, 0, 0, .88) !important;
+  text-decoration: none;
+  text-align: left;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.45;
+  box-shadow: none !important;
+}
+
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link:hover,
+.interfacing-quick-menu__panel [data-interfacing-location="shell.header.right.quick.menu"] .interfacing-location-link:focus-visible {
+  background: rgba(0, 0, 0, .04) !important;
+  color: #1677ff !important;
+  outline: 0;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-form {
+  margin: 0;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-button {
+  cursor: pointer;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #595959;
+  background: transparent;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-icon::before,
+.interfacing-quick-menu__panel .interfacing-location-icon::after {
+  content: none !important;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-link--danger {
+  color: #cf1322 !important;
+}
+
+.interfacing-quick-menu__panel .interfacing-location-link--danger:hover,
+.interfacing-quick-menu__panel .interfacing-location-link--danger:focus-visible {
+  color: #a8071a !important;
+  background: #fff1f0 !important;
+}

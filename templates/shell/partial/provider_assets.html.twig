@@ -10,7 +10,7 @@
   by the host asset pipeline as real JavaScript, not HTML fallbacks.
 #}
 {% set externalProviderAssetsEnabled = not (shell.guestSurface|default(false)) and interfacing_provider_external_assets_enabled|default(false) %}
-{% set providerAssetVersion = interfacing_provider_asset_version|default('w86-access-recovery-form') %}
+{% set providerAssetVersion = interfacing_provider_asset_version|default('w87-ant-design-quick-menu') %}
 {% set providerAssetBasePath = interfacing_provider_asset_base_path|default('') %}
 {% set providerAssetManifest = {
   baselineStylesheet: 'bundles/interfacing/interfacing/design/provider-baseline.css',
@@ -20,7 +20,6 @@
   providerRegistry: 'bundles/interfacing/provider/provider-registry.js',
   canonicalProviders: 'bundles/interfacing/provider/canonical-providers.js',
   antdProProvider: 'bundles/interfacing/provider/providers/antd-pro.js',
-  primeReactProvider: 'bundles/interfacing/provider/providers/primereact.js',
   runtime: 'bundles/interfacing/provider/runtime.js'
 } %}
 <link rel="stylesheet" href="{{ providerAssetBasePath }}/{{ providerAssetManifest.baselineStylesheet }}?v={{ providerAssetVersion }}" data-interfacing-provider-baseline-stylesheet="true">
@@ -44,6 +43,5 @@
 <script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.providerRegistry }}?v={{ providerAssetVersion }}" data-interfacing-provider-registry="true"></script>
 <script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.canonicalProviders }}?v={{ providerAssetVersion }}" data-interfacing-provider-canonical-providers="true"></script>
 <script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.antdProProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-antd-pro="true"></script>
-<script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.primeReactProvider }}?v={{ providerAssetVersion }}" data-interfacing-provider-primereact="true"></script>
 <script type="module" src="{{ providerAssetBasePath }}/{{ providerAssetManifest.runtime }}?v={{ providerAssetVersion }}" data-interfacing-provider-runtime="true"></script>
 {% endif %}
