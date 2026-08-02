@@ -41,6 +41,37 @@ final class InterfaceLocationRenderServiceTest extends TestCase
         self::assertStringNotContainsString('ant-menu', $html);
     }
 
+    public function testPrecomputedShellLocationsOverrideRawInterfaceLocations(): void
+    {
+        $service = new InterfaceLocationRenderService($this->twig(), new InterfaceLocationContextService());
+
+        $html = $service->render([
+            'shellLocations' => [
+                'shell.left.middle' => [
+                    [
+                        'type' => 'link',
+                        'label' => 'Precomputed vendor',
+                        'href' => '/vendor/index',
+                    ],
+                ],
+            ],
+            'interface' => [
+                'locations' => [
+                    'shell.left.middle' => [
+                        [
+                            'type' => 'link',
+                            'label' => 'Raw vendor',
+                            'href' => '/vendor/raw',
+                        ],
+                    ],
+                ],
+            ],
+        ], 'shell.left.middle');
+
+        self::assertStringContainsString('Precomputed vendor', $html);
+        self::assertStringNotContainsString('Raw vendor', $html);
+    }
+
     public function testNonNavigationSlotsKeepGenericBucketMarkup(): void
     {
         $service = new InterfaceLocationRenderService($this->twig(), new InterfaceLocationContextService());

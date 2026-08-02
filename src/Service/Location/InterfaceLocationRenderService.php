@@ -49,6 +49,10 @@ final readonly class InterfaceLocationRenderService
      */
     public function locations(array $context): array
     {
+        if (\is_array($context['shellLocations'] ?? null)) {
+            return $context['shellLocations'];
+        }
+
         return $this->locationContextService->locations($context);
     }
 }
