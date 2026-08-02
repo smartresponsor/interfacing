@@ -1,13 +1,25 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% set quickMenuPopoverId = quickMenuPopoverId|default('interfacing-top-quick-menu-popover') %}
+{% set quickMenuProfileLabel = app.user ? (app.user.displayName|default(app.user.userIdentifier|default('Account'))) : 'Account' %}
+{% set quickMenuProfileInitial = quickMenuProfileLabel|trim|slice(0, 1)|upper %}
+{% set quickMenuAvatarUrl = quickMenuAvatarUrl|default('') %}
 <div class="interfacing-quick-menu" data-interfacing-shell-slot="quick-menu" data-interfacing-shell-location="shell.header.right.quick.menu" data-interfacing-provider-part="menu-toggle" data-interfacing-shell-contract="single-top-menu-source" data-interfacing-provider-menu="top" data-interfacing-provider-menu-mode="popover">
   <button class="interfacing-quick-menu__trigger" type="button" popovertarget="{{ quickMenuPopoverId }}" popovertargetaction="toggle" aria-label="Open account and application menu" aria-haspopup="menu">
     <svg class="interfacing-quick-menu__trigger-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
   </button>
   <div id="{{ quickMenuPopoverId }}" class="interfacing-quick-menu__panel" popover="auto" role="menu" aria-label="Account and application menu" data-interfacing-provider-menu-popover="top" data-interfacing-shell-location="shell.header.right.quick.menu">
     <div class="interfacing-quick-menu__header">
-      <span class="interfacing-quick-menu__eyebrow">Account</span>
-      <strong class="interfacing-quick-menu__heading">Quick access</strong>
+      <div class="interfacing-quick-menu__identity">
+        <span class="interfacing-quick-menu__eyebrow">Account</span>
+        <strong class="interfacing-quick-menu__heading">Quick access</strong>
+      </div>
+      <span class="interfacing-quick-menu__avatar" aria-label="{{ quickMenuProfileLabel }}" title="{{ quickMenuProfileLabel }}">
+        {% if quickMenuAvatarUrl is not empty %}
+          <img class="interfacing-quick-menu__avatar-image" src="{{ quickMenuAvatarUrl }}" alt="">
+        {% else %}
+          <span class="interfacing-quick-menu__avatar-initial" aria-hidden="true">{{ quickMenuProfileInitial ?: 'A' }}</span>
+        {% endif %}
+      </span>
     </div>
     {{ interface_location('shell.header.right.quick.menu') }}
   </div>
