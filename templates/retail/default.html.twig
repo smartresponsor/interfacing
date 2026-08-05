@@ -1,2 +1,16 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends 'oeedil/base.html.twig' %}
+{# Canonical fallback for Retailing CRUD operations without a specialized template. #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set view = view|default({}) %}
+{% set meta = meta|default({}) %}
+{% set title = meta.title|default('Retail') %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block page_content %}
+  <section class="interfacing-workbench" data-interfacing-retail-operation="{{ view.operation|default('view') }}">
+    <header class="interfacing-workbench__header">
+      <h1>{{ title }}</h1>
+    </header>
+  </section>
+{% endblock %}

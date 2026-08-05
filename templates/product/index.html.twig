@@ -1,23 +1,52 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block title %}{{ title|default('Popdupe wpokbenph') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'popdupe',
-    operationKey: operation|default(iiew.operation|default('index')),
-    title: title|default(meed.title|default('Popdupe wpokbenph')),
-    uubtitle: meed.description|default('Cpmmeope interface oendeoed ehopugh uhdoed Interfacing partialu.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Rtopodu'),
-    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
-    utopnddoyTitle: meed.utopnddoyTitle|default('Context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Product CRUD index rendered from the canonical Cruding workbench contract. #}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set view = view|default({}) %}
+{% set locations = locations|default({}) %}
+{% set meta = meta|default({}) %}
+{% set headerBlock = locations.top|default([])|first|default({}) %}
+{% set filterBlock = locations.filter|default([])|first|default({}) %}
+{% set bodyBlock = locations.body|default([])|first|default({}) %}
+{% set actionBlock = locations.right|default([])|first|default({}) %}
+{% set headerData = headerBlock.data|default({}) %}
+{% set filterData = filterBlock.data|default({}) %}
+{% set bodyData = bodyBlock.data|default({}) %}
+{% set actionData = actionBlock.data|default({}) %}
+{% set workbench = bodyData.workbench|default({}) %}
+{% set rows = bodyData.rows|default(workbench.rows|default([])) %}
+{% set columns = bodyData.columns|default(workbench.columns|default([])) %}
+{% set filters = filterData.items|default(workbench.filters|default([])) %}
+{% set actions = actionData.items|default(workbench.headerActions|default([])) %}
+{% set routeContext = headerData.routeContext|default(workbench.routeContext|default({})) %}
+{% set title = headerData.title|default(workbench.title|default(meta.title|default('Products'))) %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block page_content %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'product',
+    operationKey: view.operation|default('index'),
+    title: title,
+    subtitle: 'Browse and manage product listings.',
+    primaryTitle: 'Products',
+    primaryRecords: rows,
+    primaryEmptyLabel: 'No products were found.',
+    secondaryTitle: 'Product context',
+    secondaryRecord: {
+      route: routeContext,
+      columns: columns,
+      filters: filters,
+      pagination: workbench.paginationLabel|default(null)
+    },
+    metrics: {
+      records: rows|length,
+      columns: columns|length,
+      filters: filters|length
+    },
+    actions: actions,
+    data: bodyData,
+    meta: meta,
+    view: view,
+    component: view.component|default('Cruding')
   } only %}
 {% endblock %}
