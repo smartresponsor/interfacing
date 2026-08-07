@@ -1,23 +1,177 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdedlpg/base.html.twig' %}
-{% block title %}{{ title|default('Cdedlpg uepoefopne') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'pdedlpg',
-    operationKey: operation|default(iiew.operation|default('index')),
-    title: title|default(meed.title|default('Cdedlpg uepoefopne')),
-    uubtitle: meed.description|default('Cpmmeope interface oendeoed ehopugh uhdoed Interfacing partialu.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Rtopodu'),
-    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
-    utopnddoyTitle: meed.utopnddoyTitle|default('Context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
-  } only %}
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set catalogFallbackData = fallbackData|default({}) %}
+{% set catalogSlots = slots|default(data.slots|default(catalogFallbackData.slots|default({}))) %}
+{% set search = attribute(catalogSlots, 'top.search')|default({}) %}
+{% set leftPanel = attribute(catalogSlots, 'left.panel')|default({}) %}
+{% set mainBody = attribute(catalogSlots, 'main.body')|default({}) %}
+{% set rightPanel = attribute(catalogSlots, 'right.panel')|default({}) %}
+{% set pageTitle = mainBody.title|default('Marketplace') %}
+{% set pageDescription = mainBody.description|default('Browse tasks, orders, products, and services.') %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+{% block shell_title %}{{ pageTitle }}{% endblock %}
+{% block shell_summary %}{{ pageDescription }}{% endblock %}
+
+{% block page_content %}
+  <main class="interfacing-commerce-showcase" data-catalog="marketplace" data-view="catalog.index">
+    <section class="interfacing-commerce-hero-grid">
+      <header class="interfacing-commerce-hero">
+        <div>
+          <p class="interfacing-commerce-hero__eyebrow">{{ mainBody.eyebrow|default('SmartResponsor marketplace') }}</p>
+          <h1 class="interfacing-commerce-hero__title">{{ pageTitle }}</h1>
+          <p class="interfacing-commerce-hero__summary">{{ pageDescription }}</p>
+        </div>
+
+        {% if mainBody.breadcrumbs|default([]) is not empty %}
+          <nav class="interfacing-commerce-action-list" aria-label="Breadcrumbs">
+            {% for breadcrumb in mainBody.breadcrumbs %}
+              <a class="interfacing-action-link" href="{{ breadcrumb.url|default('/catalog/') }}">
+                {{ breadcrumb.title|default('Catalog') }}
+              </a>
+            {% endfor %}
+          </nav>
+        {% endif %}
+
+        <div class="interfacing-commerce-hero__bottom">
+          <div class="interfacing-commerce-stat-list" aria-label="Catalog statistics">
+            {% for stat in rightPanel.stats|default([]) %}
+              <div class="interfacing-commerce-stat">
+                <div class="interfacing-commerce-stat__value">{{ stat.value|default('0') }}</div>
+                <div class="interfacing-commerce-stat__label">{{ stat.label|default('Metric') }}</div>
+              </div>
+            {% endfor %}
+          </div>
+
+          <div class="interfacing-commerce-action-list">
+            {% for action in rightPanel.actions|default([]) %}
+              <a class="interfacing-action-link{{ loop.first ? ' interfacing-action-link--primary' : '' }}" href="{{ action.url|default('/catalog/') }}">
+                {{ action.title|default('Open') }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </header>
+
+      <aside class="interfacing-commerce-controls" aria-label="Catalog browse controls">
+        <div class="interfacing-commerce-controls__header">
+          <div>
+            <p class="interfacing-commerce-section__eyebrow">Browse</p>
+            <h2>Find what you need</h2>
+          </div>
+          <span class="interfacing-badge">Marketplace</span>
+        </div>
+
+        <form class="interfacing-commerce-search" action="{{ search.action|default('/catalog/') }}" method="{{ search.method|default('GET') }}">
+          <label for="catalog-search">Search catalog</label>
+          <div class="interfacing-provider-input-group">
+            <input
+              id="catalog-search"
+              class="interfacing-provider-input-group__input"
+              type="search"
+              name="{{ search.queryName|default('q') }}"
+              value="{{ search.query|default('') }}"
+              placeholder="{{ search.placeholder|default('Search marketplace...') }}"
+              autocomplete="off"
+            >
+            <button class="interfacing-provider-input-group__button" type="submit" aria-label="Search">⌕</button>
+          </div>
+        </form>
+
+        <nav class="interfacing-stack" aria-label="Catalog navigation">
+          {% for filter in leftPanel.filters|default([]) %}
+            <a class="interfacing-commerce-filter-link" href="{{ filter.url|default('/catalog/') }}">
+              <span>{{ filter.title|default('Catalog') }}</span>
+              <span aria-hidden="true">›</span>
+            </a>
+          {% else %}
+            <a class="interfacing-commerce-filter-link" href="/catalog/">
+              <span>All catalogs</span>
+              <span aria-hidden="true">›</span>
+            </a>
+          {% endfor %}
+        </nav>
+      </aside>
+    </section>
+
+    {% for section in mainBody.sections|default([]) %}
+      <section class="interfacing-commerce-section" data-catalog-section="{{ section.id|default(loop.index) }}">
+        <header class="interfacing-commerce-section__header">
+          <div>
+            <p class="interfacing-commerce-section__eyebrow">Marketplace</p>
+            <h2>{{ section.title|default('Catalog') }}</h2>
+            {% if section.summary|default('') is not empty %}
+              <p class="interfacing-commerce-section__summary">{{ section.summary }}</p>
+            {% endif %}
+          </div>
+        </header>
+
+        <div class="interfacing-commerce-card-grid">
+          {% for card in section.cards|default([]) %}
+            <article class="interfacing-commerce-card" data-catalog-card="{{ card.id|default(loop.index) }}" data-catalog-kind="{{ card.kind|default('category') }}">
+              <div
+                class="interfacing-commerce-card__visual"
+                {% if card.imageUrl|default(card.image|default(null)) %}
+                  style="background-image: linear-gradient(180deg, rgba(15,23,42,.10), rgba(15,23,42,.78)), url('{{ card.imageUrl|default(card.image)|e('html_attr') }}'); background-size: cover; background-position: center;"
+                {% endif %}
+              >
+                <div class="interfacing-commerce-card__visual-top">
+                  <span class="interfacing-commerce-card__accent">{{ card.eyebrow|default('Marketplace category') }}</span>
+                  <span class="interfacing-commerce-card__status">{{ card.status|default('Available') }}</span>
+                </div>
+                <div>
+                  <div class="interfacing-commerce-card__visual-title">{{ card.title|default('Catalog') }}</div>
+                  {% if card.tags|default([]) is not empty %}
+                    <div class="interfacing-tag-list">
+                      {% for tag in card.tags %}
+                        <span class="interfacing-tag">{{ tag }}</span>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="interfacing-commerce-card__body">
+                <div>
+                  <p class="interfacing-card-eyebrow">{{ card.kind|default('category')|capitalize }}</p>
+                  <h3 class="interfacing-card-title">{{ card.title|default('Catalog') }}</h3>
+                  <p class="interfacing-card-summary">{{ card.summary|default('Browse this marketplace category.') }}</p>
+                </div>
+
+                <dl class="interfacing-card-metrics">
+                  <div class="interfacing-card-metric">
+                    <dt>Available</dt>
+                    <dd>{{ card.itemCount|default('Browse') }}</dd>
+                  </div>
+                  <div class="interfacing-card-metric">
+                    <dt>Status</dt>
+                    <dd>{{ card.status|default('Available') }}</dd>
+                  </div>
+                </dl>
+
+                <footer class="interfacing-card-footer">
+                  <div>
+                    <p class="interfacing-price-note">Explore this section</p>
+                  </div>
+                  <a class="interfacing-card-action" href="{{ card.href|default('/catalog/') }}">Browse</a>
+                </footer>
+              </div>
+            </article>
+          {% else %}
+            <article class="interfacing-empty-card">
+              <h3>Nothing here yet</h3>
+              <p>New categories and marketplace listings will appear here when available.</p>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+    {% else %}
+      <section class="interfacing-commerce-section">
+        <article class="interfacing-empty-card">
+          <h2>Catalog unavailable</h2>
+          <p>The marketplace is connected, but no catalog sections were returned.</p>
+        </article>
+      </section>
+    {% endfor %}
+  </main>
 {% endblock %}
