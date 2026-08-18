@@ -2,12 +2,16 @@
 <header class="interfacing-shell-top" data-interfacing-shell-slot="top" data-interfacing-provider-region="top">
   <div class="interfacing-shell-grid">
     <aside class="interfacing-shell-panel interfacing-shell-panel--primary" data-interfacing-shell-slot="top-primary" data-interfacing-provider-region="brand" title="Header left">
-      <a href="/interfacing" class="interfacing-shell-brand">
-        <img class="interfacing-shell-brand__logo" data-interfacing-provider-part="brand-logo" src="{{ asset('mandala.svg') }}" alt="" aria-hidden="true">
-        <span class="interfacing-shell-brand__text">
-          <span class="interfacing-shell-brand__title" data-interfacing-provider-part="brand-name">Smart Response</span>
-          <span class="interfacing-shell-brand__subtitle" data-interfacing-provider-part="brand-title">Host-wide application shell</span>
-        </span>
+      <a href="{{ pageBrandHref|default('/interfacing') }}" class="interfacing-shell-brand{{ pageBrandTitle|default(null) ? ' interfacing-shell-brand--entity-page' : '' }}">
+        {% if pageBrandTitle|default(null) %}
+          <span class="interfacing-shell-brand__title" data-interfacing-provider-part="brand-name">{{ pageBrandTitle }}</span>
+        {% else %}
+          <img class="interfacing-shell-brand__logo" data-interfacing-provider-part="brand-logo" src="{{ asset('mandala.svg') }}" alt="" aria-hidden="true">
+          <span class="interfacing-shell-brand__text">
+            <span class="interfacing-shell-brand__title" data-interfacing-provider-part="brand-name">Smart Response</span>
+            <span class="interfacing-shell-brand__subtitle" data-interfacing-provider-part="brand-title">Host-wide application shell</span>
+          </span>
+        {% endif %}
       </a>
     </aside>
 
@@ -22,7 +26,10 @@
       <form method="{{ shellSearch.submitMethod|default('get') }}" action="{{ shellSearch.submitAction|default('/search/result') }}" role="search" class="{{ shellSearch.fallbackClass|default('interfacing-provider-input-group') }}" data-interfacing-shell-slot="top-search" data-interfacing-provider-part="main-search" data-interfacing-provider-control="{{ shellSearch.control|default('search-input-group') }}" data-interfacing-provider-control-provider="{{ shellSearch.provider|default('antd-pro') }}" data-interfacing-provider-control-owner="{{ shellSearch.ownerComponent|default('searching') }}">
         <input class="interfacing-provider-input-group__input" name="{{ shellSearch.queryName|default('q') }}" value="{{ shellSearch.value|default(shellQuery) }}" placeholder="{{ shellSearch.placeholder|default('Search products, categories, orders, screens...') }}">
         <button class="interfacing-provider-input-group__button" type="submit" aria-label="Search" title="Search">
-          <span class="interfacing-provider-input-group__icon" aria-hidden="true">⌕</span>
+          <svg class="interfacing-provider-input-group__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-icon="search">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.65-3.65"></path>
+          </svg>
         </button>
       </form>
       <script type="application/json" data-interfacing-provider-control-schema="top-search">{{ {
@@ -45,7 +52,9 @@
           {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
             shellQuickMenuGroup: shellQuickMenuGroup,
             shellQuickMenuItemLimit: shellQuickMenuItemLimit,
-            interface: interface|default({})
+            interface: interface|default({}),
+            quickMenuProfileLabel: quickMenuProfileLabel|default('Account'),
+            quickMenuAvatarUrl: quickMenuAvatarUrl|default('')
           } only %}
         </nav>
       {% endif %}
@@ -57,16 +66,20 @@
           {% include '@Interfacing/shell/partial/quick_menu.html.twig' with {
             shellQuickMenuGroup: shellQuickMenuGroup,
             shellQuickMenuItemLimit: shellQuickMenuItemLimit,
-            interface: interface|default({})
+            interface: interface|default({}),
+            quickMenuProfileLabel: quickMenuProfileLabel|default('Account'),
+            quickMenuAvatarUrl: quickMenuAvatarUrl|default('')
           } only %}
         </nav>
       </aside>
     {% endif %}
   </div>
-  {% set shellHeaderBottomItems = shellLocations['shell.header.bottom']|default(shellLocations['top.bottom']|default([])) %}
-  {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
-    location: 'shell.header.bottom',
-    items: shellHeaderBottomItems,
-    interfaceStyleProvider: interfaceStyleProvider
-  } only %}
+
+  {% set shellBodyTopItems = shellLocations['shell.body.top']|default([]) %}
+  {% if shellBodyTopItems is not empty %}
+    <div class="interfacing-shell-top-banner" data-interfacing-shell-location="shell.body.top">
+      {{ interface_location('shell.body.top') }}
+    </div>
+  {% endif %}
+
 </header>

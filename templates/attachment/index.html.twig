@@ -1,52 +1,28 @@
-{# Specialized Attachment CRUD index candidate. #}
+{# Attachment browser rendered from canonical Cruding rows enriched with Attaching links. #}
 {% extends '@Interfacing/base.html.twig' %}
-
-{% set view = view|default({}) %}
 {% set locations = locations|default({}) %}
-{% set meta = meta|default({}) %}
-{% set headerBlock = locations.top|default([])|first|default({}) %}
-{% set filterBlock = locations.filter|default([])|first|default({}) %}
 {% set bodyBlock = locations.body|default([])|first|default({}) %}
-{% set actionBlock = locations.right|default([])|first|default({}) %}
-{% set headerData = headerBlock.data|default({}) %}
-{% set filterData = filterBlock.data|default({}) %}
 {% set bodyData = bodyBlock.data|default({}) %}
-{% set actionData = actionBlock.data|default({}) %}
 {% set workbench = bodyData.workbench|default({}) %}
 {% set rows = bodyData.rows|default(workbench.rows|default([])) %}
-{% set columns = bodyData.columns|default(workbench.columns|default([])) %}
-{% set filters = filterData.items|default(workbench.filters|default([])) %}
-{% set actions = actionData.items|default(workbench.headerActions|default([])) %}
-{% set routeContext = headerData.routeContext|default(workbench.routeContext|default({})) %}
-{% set title = headerData.title|default(workbench.title|default(meta.title|default('Attachments'))) %}
-
-{% block title %}{{ title }}{% endblock %}
-
-{% block page_content %}
-  {% include '@Interfacing/partial/workbench.html.twig' with {
-    surfaceKey: 'attachment',
-    operationKey: view.operation|default('index'),
-    title: title,
-    subtitle: 'Manage uploaded files and their attachment metadata.',
-    primaryTitle: 'Attachments',
-    primaryRecords: rows,
-    primaryEmptyLabel: 'No attachments were found.',
-    secondaryTitle: 'Attachment context',
-    secondaryRecord: {
-      route: routeContext,
-      columns: columns,
-      filters: filters,
-      pagination: workbench.paginationLabel|default(null)
-    },
-    metrics: {
-      records: rows|length,
-      columns: columns|length,
-      filters: filters|length
-    },
-    actions: actions,
-    data: bodyData,
-    meta: meta,
-    view: view,
-    component: view.component|default('Cruding')
-  } only %}
+{% block title %}Attachments{% endblock %}
+{% block body %}
+<section class="attachment-browser" data-attachment-browser>
+  <header class="attachment-browser__header"><div><h1>Attachments</h1><p>Browse media and documents by kind and purpose.</p></div><span>{{ rows|length }} files</span></header>
+  <nav class="attachment-browser__filters" aria-label="Attachment categories">
+    {% for key, label in {all:'All',media:'Media',document:'Documents',image:'Images',avatar:'Avatars',cover:'Covers',other_image:'Other images',pdf:'PDF',spreadsheet:'Spreadsheets'} %}<button type="button" class="{{ key == 'all' ? 'is-active' : '' }}" data-attachment-filter="{{ key }}">{{ label }}</button>{% endfor %}
+  </nav>
+  <div class="attachment-browser__grid">
+    {% for row in rows %}
+      {% set type = row.type.value|default(row.type|default('attachment')) %}{% set mediaKind = row.mediaKind.value|default(row.mediaKind|default('')) %}{% set documentKind = row.documentKind.value|default(row.documentKind|default('')) %}{% set slots = row.categorySlots|default([]) %}{% set isImage = type == 'media' and mediaKind == 'image' %}{% set isAvatar = 'avatar' in slots %}{% set isCover = 'cover' in slots %}{% set name = row.title|default(row.originalName|default('Attachment ' ~ row.id|default(''))) %}{% set primary = false %}{% for link in row.attachmentLinks|default([]) %}{% if link.isPrimary|default(false) %}{% set primary = true %}{% endif %}{% endfor %}
+      <article class="attachment-card" data-attachment-card data-type="{{ type }}" data-media-kind="{{ mediaKind }}" data-document-kind="{{ documentKind }}" data-avatar="{{ isAvatar ? '1' : '0' }}" data-cover="{{ isCover ? '1' : '0' }}">
+        <button type="button" class="attachment-card__preview" data-attachment-open data-url="{{ row.downloadUrl|default('') }}" data-name="{{ name|e('html_attr') }}" data-mime="{{ row.mimeType|default('')|e('html_attr') }}">{% if isImage %}<img src="{{ row.downloadUrl }}" alt="{{ row.altText|default(name) }}" loading="lazy">{% else %}<span>{{ type == 'document' ? 'DOC' : 'FILE' }}</span>{% endif %}</button>
+        <div class="attachment-card__body"><strong>{{ name }}</strong><div class="attachment-card__badges">{% if isAvatar %}<span>Avatar</span>{% endif %}{% if isCover %}<span>Cover</span>{% endif %}{% if not isAvatar and not isCover %}<span>{{ documentKind ?: mediaKind ?: type }}</span>{% endif %}{% if primary %}<span>Primary</span>{% endif %}</div><small>{{ row.mimeType|default('Unknown file type') }}</small></div>
+      </article>
+    {% else %}<p>No attachments were found.</p>{% endfor %}
+  </div>
+  <dialog class="attachment-viewer" data-attachment-viewer><button type="button" data-attachment-close aria-label="Close">×</button><img data-attachment-viewer-image alt=""><strong data-attachment-viewer-name></strong><small data-attachment-viewer-mime></small></dialog>
+</section>
+<style>.attachment-browser{padding:18px}.attachment-browser__header{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}.attachment-browser__header h1{margin:0}.attachment-browser__header p{margin:.4rem 0 0;color:#667085}.attachment-browser__filters{display:flex;gap:8px;overflow:auto;padding-bottom:12px}.attachment-browser__filters button{border:1px solid rgba(127,127,127,.28);background:transparent;border-radius:999px;padding:7px 12px;cursor:pointer;white-space:nowrap}.attachment-browser__filters button.is-active{background:#1677ff;color:#fff;border-color:transparent}.attachment-browser__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}.attachment-card{border:1px solid rgba(127,127,127,.2);border-radius:14px;overflow:hidden;background:#fff}.attachment-card[hidden]{display:none}.attachment-card__preview{display:flex;width:100%;height:150px;border:0;padding:0;background:rgba(127,127,127,.09);align-items:center;justify-content:center;cursor:pointer}.attachment-card__preview img{width:100%;height:100%;object-fit:cover}.attachment-card__body{display:grid;gap:7px;padding:11px}.attachment-card__body strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.attachment-card__badges{display:flex;gap:5px;flex-wrap:wrap}.attachment-card__badges span{font-size:.72rem;padding:3px 7px;border-radius:999px;background:rgba(127,127,127,.12)}.attachment-viewer{max-width:min(900px,92vw);max-height:90vh;border:0;border-radius:16px;padding:14px}.attachment-viewer::backdrop{background:rgba(0,0,0,.7)}.attachment-viewer img{display:block;max-width:100%;max-height:72vh;margin:auto;object-fit:contain}.attachment-viewer>button{position:absolute;right:10px;top:8px;width:36px;height:36px;border:0;border-radius:50%;font-size:24px}.attachment-viewer strong,.attachment-viewer small{display:block;margin-top:8px}</style>
+<script>(()=>{const root=document.querySelector('[data-attachment-browser]');if(!root)return;const cards=[...root.querySelectorAll('[data-attachment-card]')];root.querySelectorAll('[data-attachment-filter]').forEach(button=>button.addEventListener('click',()=>{root.querySelectorAll('[data-attachment-filter]').forEach(item=>item.classList.toggle('is-active',item===button));const f=button.dataset.attachmentFilter;cards.forEach(card=>{const image=card.dataset.type==='media'&&card.dataset.mediaKind==='image';card.hidden=!({all:true,media:card.dataset.type==='media',document:card.dataset.type==='document',image,avatar:image&&card.dataset.avatar==='1',cover:image&&card.dataset.cover==='1',other_image:image&&card.dataset.avatar!=='1'&&card.dataset.cover!=='1',pdf:card.dataset.documentKind==='pdf',spreadsheet:card.dataset.documentKind==='spreadsheet'}[f])})}));const dialog=root.querySelector('[data-attachment-viewer]');root.querySelectorAll('[data-attachment-open]').forEach(button=>button.addEventListener('click',()=>{const image=dialog.querySelector('[data-attachment-viewer-image]');image.src=button.dataset.url;image.alt=button.dataset.name;dialog.querySelector('[data-attachment-viewer-name]').textContent=button.dataset.name;dialog.querySelector('[data-attachment-viewer-mime]').textContent=button.dataset.mime;dialog.showModal()}));dialog.querySelector('[data-attachment-close]').addEventListener('click',()=>dialog.close())})();</script>
 {% endblock %}

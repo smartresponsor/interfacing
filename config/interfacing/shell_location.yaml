@@ -4,6 +4,14 @@ status: canonical
 html_document_owner: templates/base.html.twig
 normal_rendering_path: base.html.twig
 locations:
+  shell.profile.cover:
+    label: Profile cover
+    kind: output_location
+    html: section
+  shell.profile.identity:
+    label: Profile identity
+    kind: output_location
+    html: section
   shell.body.top:
     label: Body top
     kind: output_location

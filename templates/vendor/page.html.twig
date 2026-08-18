@@ -1,0 +1,77 @@
+{% extends '@Interfacing/base.html.twig' %}
+
+{% set pageLocations = locations|default({}) %}
+{% set bodyBlock = pageLocations.body|default([])|first|default({}) %}
+{% set bodyData = bodyBlock.data|default({}) %}
+{% set pageWorkbench = bodyData.workbench|default(workbench|default({})) %}
+{% set vendorRows = bodyData.rows|default(rows|default(pageWorkbench.rows|default([]))) %}
+{% set vendor = bodyData.data|default(vendorRows|first|default(data|default({}))) %}
+{% set vendorTitle = vendor.displayName|default(vendor.title|default(vendor.brandName|default(vendor.brand_name|default('Vendor')))) %}
+{% set vendorStatus = vendor.status|default('active') %}
+{% set vendorCode = vendor.code|default('') %}
+{% set vendorAbout = vendor.about|default('Public vendor page, activity, products, services, and updates.') %}
+{% set vendorWebsite = vendor.website|default(null) %}
+{% set vendorAvatarPath = vendor.avatarPath|default(vendor.media.logoPath|default(null)) %}
+{% set vendorCoverPath = vendor.coverPath|default(vendor.media.bannerPath|default(null)) %}
+{% set vendorInitial = vendorTitle|trim|slice(0, 1)|upper %}
+
+{% block title %}{{ vendorTitle }}{% endblock %}
+
+{% block profile_cover %}
+  <div class="interfacing-vendor-profile-cover" aria-label="{{ vendorTitle }} cover"{% if vendorCoverPath %} style="background-image: linear-gradient(rgba(15,23,42,.18), rgba(15,23,42,.18)), url('{{ vendorCoverPath|e('html_attr') }}'); background-size: cover; background-position: center;"{% endif %}>
+    {% if not vendorCoverPath %}<div class="interfacing-vendor-profile-cover__pattern" aria-hidden="true"></div>{% endif %}
+  </div>
+{% endblock %}
+
+{% block profile_identity %}
+  <div class="interfacing-vendor-profile-identity">
+    <div class="interfacing-vendor-profile-avatar" aria-label="{{ vendorTitle }} profile photo">
+      {% if vendorAvatarPath %}
+        <img src="{{ vendorAvatarPath }}" alt="{{ vendorTitle }} avatar" class="interfacing-vendor-profile-avatar__image">
+      {% else %}
+        <span aria-hidden="true">{{ vendorInitial ?: 'V' }}</span>
+      {% endif %}
+    </div>
+    <div class="interfacing-vendor-profile-identity__content">
+      <p class="interfacing-vendor-profile-identity__eyebrow">Vendor profile</p>
+      <h1>{{ vendorTitle }}</h1>
+      <p class="interfacing-vendor-profile-identity__summary">{{ vendorAbout }}</p>
+      {% if vendorWebsite %}<a href="{{ vendorWebsite }}" rel="noopener noreferrer">{{ vendorWebsite }}</a>{% endif %}
+      <div class="interfacing-vendor-profile-identity__meta">
+        <span>{{ vendorStatus|capitalize }}</span>
+        {% if vendorCode is not empty %}<span>{{ vendorCode }}</span>{% endif %}
+      </div>
+    </div>
+    <div class="interfacing-vendor-profile-identity__actions">
+      <a class="interfacing-button interfacing-button-primary" href="/vendor/edit">Edit profile</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block body %}
+  <section class="interfacing-vendor-profile-feed" data-vendor-page data-view="vendor.page">
+    <header class="interfacing-vendor-profile-feed__header">
+      <div>
+        <p class="interfacing-vendor-profile-feed__eyebrow">Activity</p>
+        <h2>Vendor feed</h2>
+      </div>
+      <a class="interfacing-button interfacing-button-primary" href="/vendor/edit">Manage page</a>
+    </header>
+
+    <article class="interfacing-vendor-profile-feed__composer">
+      <div class="interfacing-vendor-profile-feed__composer-avatar" aria-hidden="true">{{ vendorInitial ?: 'V' }}</div>
+      <div>
+        <strong>Share an update</strong>
+        <p>Posts, announcements, product launches, and service updates will appear here.</p>
+      </div>
+    </article>
+
+    <section class="interfacing-vendor-profile-feed__empty" aria-label="Vendor activity feed">
+      <h3>No activity yet</h3>
+      <p>
+        The profile surface is ready. A feed provider can later project vendor posts,
+        product updates, reviews, or platform activity into this area.
+      </p>
+    </section>
+  </section>
+{% endblock %}

@@ -1,0 +1,46 @@
+{# Generic provider-aware recursive context tree. #}
+{% set treeNodes = nodes|default([]) %}
+{% set treeLabel = label|default('Context tree') %}
+{% set treeLevel = level|default(0) %}
+{% set treeTurboFrame = turboFrame|default('shell-main') %}
+{% set treeTurboAction = turboAction|default('advance') %}
+{% set treeProvider = interfaceStyleProvider|default(interface_style_provider('ant_design')) %}
+
+{% if treeLevel == 0 %}
+  <section class="interfacing-context-tree {{ treeProvider.location_class }}" data-interfacing-context-tree data-interfacing-style-provider="{{ treeProvider.key }}">
+    <header class="interfacing-shell-nav-title">{{ treeLabel }}</header>
+{% endif %}
+  <ul class="interfacing-context-tree__list interfacing-list-reset" role="tree" data-interfacing-context-tree-level="{{ treeLevel }}">
+    {% for node in treeNodes %}
+      {% set nodeChildren = node.children|default([]) %}
+      {% set nodeHasChildren = nodeChildren is iterable and nodeChildren is not empty %}
+      {% set nodeExpanded = node.expanded|default(false) %}
+      {% set nodeActive = node.active|default(false) %}
+      <li class="interfacing-context-tree__node{% if nodeActive %} is-active{% endif %}" role="treeitem" aria-level="{{ treeLevel + 1 }}">
+        {% if nodeHasChildren %}
+          <details class="interfacing-context-tree__branch"{% if nodeExpanded %} open{% endif %}>
+            <summary class="interfacing-context-tree__summary">
+              <span class="interfacing-context-tree__chevron" aria-hidden="true"></span>
+              <span class="interfacing-location-text">{{ node.label|default('Untitled') }}</span>
+            </summary>
+            {% include '@Interfacing/shell/partial/context_tree.html.twig' with {
+              nodes: nodeChildren,
+              level: treeLevel + 1,
+              turboFrame: treeTurboFrame,
+              turboAction: treeTurboAction,
+              interfaceStyleProvider: treeProvider
+            } only %}
+          </details>
+        {% elseif node.href|default(null) %}
+          <a class="interfacing-context-tree__link interfacing-location-link{% if nodeActive %} is-active{% endif %}" href="{{ node.href }}" data-turbo-frame="{{ node.turbo_frame|default(treeTurboFrame) }}" data-turbo-action="{{ node.turbo_action|default(treeTurboAction) }}">
+            <span class="interfacing-location-text">{{ node.label|default(node.href) }}</span>
+          </a>
+        {% else %}
+          <span class="interfacing-context-tree__label"><span class="interfacing-location-text">{{ node.label|default('Untitled') }}</span></span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% if treeLevel == 0 %}
+  </section>
+{% endif %}

@@ -37,7 +37,7 @@ final readonly class InterfaceTwigRendererService implements InterfaceRendererIn
             throw new \RuntimeException(sprintf('Template "%s" was not found for "%s".', $template, $templateContract::class));
         }
 
-        return $this->renderTwig($template, $context + $templateContract->toTemplateContext(), $status);
+        return $this->renderTwig($template, $context + $templateContract->toFallbackData(), $status);
     }
 
     /**

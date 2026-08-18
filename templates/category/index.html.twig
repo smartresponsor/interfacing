@@ -1,15 +1,52 @@
-{# Dedicated Viewing surface for Cruding-backed category collections. #}
+{# Specialized Category CRUD index candidate. #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set title = meta.title|default('Category') %}
+{% set view = view|default({}) %}
+{% set locations = locations|default({}) %}
+{% set meta = meta|default({}) %}
+{% set headerBlock = locations.top|default([])|first|default({}) %}
+{% set filterBlock = locations.filter|default([])|first|default({}) %}
+{% set bodyBlock = locations.body|default([])|first|default({}) %}
+{% set actionBlock = locations.right|default([])|first|default({}) %}
+{% set headerData = headerBlock.data|default({}) %}
+{% set filterData = filterBlock.data|default({}) %}
+{% set bodyData = bodyBlock.data|default({}) %}
+{% set actionData = actionBlock.data|default({}) %}
+{% set workbench = bodyData.workbench|default({}) %}
+{% set rows = bodyData.rows|default(workbench.rows|default([])) %}
+{% set columns = bodyData.columns|default(workbench.columns|default([])) %}
+{% set filters = filterData.items|default(workbench.filters|default([])) %}
+{% set actions = actionData.items|default(workbench.headerActions|default([])) %}
+{% set routeContext = headerData.routeContext|default(workbench.routeContext|default({})) %}
+{% set title = headerData.title|default(workbench.title|default(meta.title|default('Categories'))) %}
+
+{% block title %}{{ title }}{% endblock %}
 
 {% block page_content %}
-  {% include '@Interfacing/partial/viewing_payload.html.twig' with {
-    viewTitle: title,
-    viewSummary: meta.description|default('Browse and manage categories.'),
-    viewSlots: locations|default({}),
-    slotMap: meta.slotMap|default({}),
-    view: view|default({}),
-    surface: 'category'
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'category',
+    operationKey: view.operation|default('index'),
+    title: title,
+    subtitle: 'Browse and manage the canonical Cataloging category trees.',
+    primaryTitle: 'Categories',
+    primaryRecords: rows,
+    primaryEmptyLabel: 'No categories were found.',
+    secondaryTitle: 'Category context',
+    secondaryRecord: {
+      route: routeContext,
+      columns: columns,
+      filters: filters,
+      pagination: workbench.paginationLabel|default(null)
+    },
+    metrics: {
+      records: rows|length,
+      columns: columns|length,
+      filters: filters|length
+    },
+    actions: actions,
+    data: bodyData,
+    meta: meta,
+    view: view,
+    component: view.component|default('Cruding')
   } only %}
 {% endblock %}

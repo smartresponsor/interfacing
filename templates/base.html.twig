@@ -25,7 +25,22 @@
 {% set shellSlotMap = shell.slotMap is defined ? shell.slotMap : {} %}
 {% set interfacePayload = interface is defined and interface is iterable ? interface : {} %}
 {% set interfacePayloadLocations = interfacePayload.locations is defined and interfacePayload.locations is iterable ? interfacePayload.locations : {} %}
-{% set shellLocations = interfacePayloadLocations is not empty ? interfacePayloadLocations : interface_locations() %}
+{% set shellLocations = interface_locations() %}
+{% set viewContext = _view|default({}) %}
+{% set crudOperation = viewContext.operation|default(app.request.attributes.get('_crud_operation')|default('')) %}
+{% set crudResourcePath = viewContext.resourcePath|default(viewContext.surface|default(app.request.attributes.get('resourcePath')|default(app.request.attributes.get('_crud_resource_path')|default('')))) %}
+{% set resourcePageProfileTemplate = crudOperation == 'page' and crudResourcePath is not empty ? '@Interfacing/' ~ crudResourcePath ~ '/_page_profile.html.twig' : null %}
+{% set resourcePageBodyTemplate = crudOperation == 'page' and crudResourcePath is not empty ? '@Interfacing/' ~ crudResourcePath ~ '/_page_body.html.twig' : null %}
+{% set pageBodyBlock = interfacePayloadLocations.body|default([])|first|default({}) %}
+{% set pageBodyData = pageBodyBlock.data|default({}) %}
+{% set pageWorkbench = pageBodyData.workbench|default({}) %}
+{% set pageRows = pageBodyData.rows|default(pageWorkbench.rows|default([])) %}
+{% set pageEntity = pageBodyData.data|default(pageRows|first|default({})) %}
+{% set pageBrandTitle = crudOperation == 'page' and crudResourcePath == 'vendor' ? pageEntity.displayName|default(pageEntity.title|default(pageEntity.brandName|default(pageEntity.brand_name|default('Vendor')))) : null %}
+{% set pageBrandSubtitle = null %}
+{% set pageBrandHref = pageBrandTitle ? '/vendor/page' : '/interfacing' %}
+{% set quickMenuProfileLabel = shell.quickMenuProfileLabel|default(app.user ? (app.user.displayName|default(app.user.userIdentifier|default('Account'))) : 'Account') %}
+{% set quickMenuAvatarUrl = shell.quickMenuAvatarUrl|default(pageEntity.avatarPath|default(pageEntity.publicProfile.avatar.url|default(''))) %}
 {% set interfaceStyleProviderKey = interfacePayload.style_provider|default(shell.style_provider|default('ant_design')) %}
 {% set interfaceStyleProvider = interface_style_provider(interfaceStyleProviderKey) %}
 {#
@@ -77,6 +92,7 @@
   <link rel="icon" type="image/svg+xml" href="/mandala.svg">
   <link rel="apple-touch-icon" href="/mandala.svg">
   {% include '@Interfacing/shell/partial/provider_assets.html.twig' %}
+  {{ importmap('app') }}
   {% block head_extra %}{% endblock %}
   <!-- interfacing-interfacing-shell-base: wave20.2 canonical four-column shell -->
 </head>
@@ -87,7 +103,18 @@
     </main>
   {% else %}
   <div class="interfacing-shell" data-interfacing-shell="host-wide" data-interfacing-shell-base="interfacing-owned" data-interfacing-shell-contract="wave20.2" data-interfacing-shell-mode="{{ shellMode }}" data-interfacing-shell-compact="{{ shellCompact ? 'true' : 'false' }}">
-    {{ interface_location('shell.body.top') }}
+    <section class="interfacing-profile-surface" data-interfacing-profile-surface data-interfacing-shell-location="shell.profile">
+      {% if resourcePageProfileTemplate %}
+        {% include resourcePageProfileTemplate ignore missing %}
+      {% else %}
+        <div class="interfacing-profile-surface__cover" data-interfacing-shell-location="shell.profile.cover" data-interfacing-profile-content>
+          {{ interface_location('shell.profile.cover') }}
+        </div>
+        <div class="interfacing-profile-surface__identity" data-interfacing-shell-location="shell.profile.identity" data-interfacing-profile-content>
+          {{ interface_location('shell.profile.identity') }}
+        </div>
+      {% endif %}
+    </section>
 
     {% include '@Interfacing/shell/partial/top_panel.html.twig' with {
       shellSlotMap: shellSlotMap,
@@ -100,11 +127,19 @@
       requestPath: app.request.pathInfo,
       shellLocations: shellLocations,
       interface: interfacePayload,
-      interfaceStyleProvider: interfaceStyleProvider
+      interfaceStyleProvider: interfaceStyleProvider,
+      pageBrandTitle: pageBrandTitle,
+      pageBrandSubtitle: pageBrandSubtitle,
+      pageBrandHref: pageBrandHref,
+      quickMenuAvatarUrl: quickMenuAvatarUrl
     } only %}
 
+    <nav class="interfacing-shell-horizontal-panel" data-interfacing-shell-slot="header-bottom" data-interfacing-shell-location="shell.header.bottom" aria-label="Profile navigation">
+      {{ interface_location('shell.header.bottom') }}
+    </nav>
+
     <div class="interfacing-shell-grid">
-      <aside class="interfacing-shell-panel interfacing-shell-panel--primary" data-interfacing-shell-slot="left-primary" data-interfacing-shell-location="shell.left" title="{{ shellSlotMap['shell.left']|default('Left panel') }}">
+      <aside id="shell-primary-navigation" class="interfacing-shell-panel interfacing-shell-panel--primary" data-turbo-permanent data-interfacing-shell-slot="left-primary" data-interfacing-shell-location="shell.left" title="{{ shellSlotMap['shell.left']|default('Left panel') }}">
         {{ interface_location('shell.left.top') }}
         {{ interface_location('shell.left.middle') }}
         {{ interface_location('shell.left.bottom') }}
@@ -112,9 +147,13 @@
 
       {% if not shellCompact %}
         <aside class="interfacing-shell-panel interfacing-shell-panel--secondary" data-interfacing-shell-slot="left-secondary" data-interfacing-shell-location="shell.context" title="{{ shellSlotMap['shell.context']|default('Context panel') }}">
-          {{ interface_location('shell.context.top') }}
-          {{ interface_location('shell.context.middle') }}
-          {{ interface_location('shell.context.bottom') }}
+          <turbo-frame id="shell-context" data-interfacing-workspace-region="context">
+            {% block shell_context %}
+              {{ interface_location('shell.context.top') }}
+              {{ interface_location('shell.context.middle') }}
+              {{ interface_location('shell.context.bottom') }}
+            {% endblock %}
+          </turbo-frame>
         </aside>
       {% endif %}
 
@@ -122,6 +161,7 @@
         <div class="interfacing-shell-body__inner">
           {{ interface_location('shell.main.top') }}
           {{ interface_location('shell.main.toolbar') }}
+          <turbo-frame id="shell-main" data-interfacing-workspace-region="main" data-turbo-action="advance">
           <div data-interfacing-shell-location="shell.main.content">
             {% block page_content %}
               {% block body %}{% endblock %}
@@ -137,6 +177,7 @@
               </section>
             {% endif %}
           </div>
+          </turbo-frame>
           {{ interface_location('shell.main.content') }}
           {{ interface_location('shell.main.bottom') }}
         </div>

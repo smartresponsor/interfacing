@@ -1,25 +1,28 @@
 {# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% set quickMenuPopoverId = quickMenuPopoverId|default('interfacing-top-quick-menu-popover') %}
-{% set quickMenuProfileLabel = app.user ? (app.user.displayName|default(app.user.userIdentifier|default('Account'))) : 'Account' %}
+{% set quickMenuProfileLabel = quickMenuProfileLabel|default(app.user ? (app.user.displayName|default(app.user.userIdentifier|default('Account'))) : 'Account') %}
 {% set quickMenuProfileInitial = quickMenuProfileLabel|trim|slice(0, 1)|upper %}
 {% set quickMenuAvatarUrl = quickMenuAvatarUrl|default('') %}
 <div class="interfacing-quick-menu" data-interfacing-shell-slot="quick-menu" data-interfacing-shell-location="shell.header.right.quick.menu" data-interfacing-provider-part="menu-toggle" data-interfacing-shell-contract="single-top-menu-source" data-interfacing-provider-menu="top" data-interfacing-provider-menu-mode="popover">
   <button class="interfacing-quick-menu__trigger" type="button" popovertarget="{{ quickMenuPopoverId }}" popovertargetaction="toggle" aria-label="Open account and application menu" aria-haspopup="menu">
-    <svg class="interfacing-quick-menu__trigger-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    <svg class="interfacing-quick-menu__trigger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-icon="settings">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.01A1.65 1.65 0 0 0 10 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.01A1.65 1.65 0 0 0 20.91 10H21a2 2 0 1 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"></path>
+    </svg>
   </button>
   <div id="{{ quickMenuPopoverId }}" class="interfacing-quick-menu__panel" popover="auto" role="menu" aria-label="Account and application menu" data-interfacing-provider-menu-popover="top" data-interfacing-shell-location="shell.header.right.quick.menu">
     <div class="interfacing-quick-menu__header">
       <div class="interfacing-quick-menu__identity">
         <span class="interfacing-quick-menu__eyebrow">Account</span>
-        <strong class="interfacing-quick-menu__heading">Quick access</strong>
+        <strong class="interfacing-quick-menu__heading">{{ quickMenuProfileLabel }}</strong>
       </div>
-      <span class="interfacing-quick-menu__avatar" aria-label="{{ quickMenuProfileLabel }}" title="{{ quickMenuProfileLabel }}">
+      <a class="interfacing-quick-menu__avatar" href="/vendor/page" aria-label="Open {{ quickMenuProfileLabel }} profile" title="Open {{ quickMenuProfileLabel }} profile">
         {% if quickMenuAvatarUrl is not empty %}
           <img class="interfacing-quick-menu__avatar-image" src="{{ quickMenuAvatarUrl }}" alt="">
         {% else %}
           <span class="interfacing-quick-menu__avatar-initial" aria-hidden="true">{{ quickMenuProfileInitial ?: 'A' }}</span>
         {% endif %}
-      </span>
+      </a>
     </div>
     {{ interface_location('shell.header.right.quick.menu') }}
   </div>

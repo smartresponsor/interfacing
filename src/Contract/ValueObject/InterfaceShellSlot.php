@@ -6,6 +6,9 @@ namespace App\Interfacing\Contract\ValueObject;
 
 final class InterfaceShellSlot
 {
+    public const PROFILE_COVER = 'shell.profile.cover';
+    public const PROFILE_IDENTITY = 'shell.profile.identity';
+
     public const BODY_TOP = 'shell.body.top';
 
     public const LEFT_TOP = 'shell.left.top';
@@ -48,6 +51,8 @@ final class InterfaceShellSlot
     public static function all(): array
     {
         return [
+            self::PROFILE_COVER,
+            self::PROFILE_IDENTITY,
             self::BODY_TOP,
             self::LEFT_TOP,
             self::LEFT_MIDDLE,
@@ -77,6 +82,8 @@ final class InterfaceShellSlot
     public static function labelMap(): array
     {
         return [
+            self::PROFILE_COVER => 'Profile cover',
+            self::PROFILE_IDENTITY => 'Profile identity',
             self::BODY_TOP => 'Body top',
             self::LEFT_TOP => 'Left top',
             self::LEFT_MIDDLE => 'Left middle',

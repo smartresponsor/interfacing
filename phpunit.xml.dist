@@ -35,16 +35,7 @@
 
     <testsuites>
         <testsuite name="unit">
-            <directory>tests/Interfacing/Doctor</directory>
-            <directory>tests/Interfacing/Security</directory>
-            <directory>tests/Interfacing/Tenant</directory>
-            <directory>tests/Interfacing/Contract</directory>
-        </testsuite>
-        <testsuite name="integration">
-            <directory>tests/Interfacing/Query</directory>
-        </testsuite>
-        <testsuite name="functional">
-            <directory>tests/Functional</directory>
+            <directory suffix="Test.php">tests</directory>
         </testsuite>
     </testsuites>
 
