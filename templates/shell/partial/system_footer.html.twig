@@ -9,6 +9,56 @@
 {% set shellFooterContextItems = shellLocations['shell.footer.context']|default([]) %}
 {% set shellFooterMainItems = shellLocations['shell.footer.main']|default([]) %}
 {% set shellFooterRightItems = shellLocations['shell.footer.right']|default([]) %}
+{% set footerLocaleSelector = locale_selector() %}
+{% set footerSupportItems = [] %}
+{% set footerFeaturedLocaleItems = [] %}
+{% for item in shellFooterMainItems %}
+  {% if item.metadata.locale_featured|default(false) and item.metadata.locale_code|default('') is not empty %}
+    {% set footerFeaturedLocaleItems = footerFeaturedLocaleItems|merge([item]) %}
+  {% else %}
+    {% set footerSupportItems = footerSupportItems|merge([item]) %}
+  {% endif %}
+{% endfor %}
+{% if footerFeaturedLocaleItems is empty %}
+  {% set featuredLocaleLabels = {'en': 'English', 'ru': 'Русский', 'uk': 'Українська', 'fr': 'Français'} %}
+  {% for localeCode, localeLabel in featuredLocaleLabels %}
+    {% set footerFeaturedLocaleItems = footerFeaturedLocaleItems|merge([{
+      key: 'locale_' ~ localeCode,
+      label: localeLabel,
+      href: footerLocaleSelector.action ~ '?locale=' ~ localeCode,
+      metadata: {locale_code: localeCode, locale_featured: true}
+    }]) %}
+  {% endfor %}
+{% endif %}
+{% set featuredLocaleCodes = [] %}
+{% for item in footerFeaturedLocaleItems %}
+  {% set featuredLocaleCodes = featuredLocaleCodes|merge([item.metadata.locale_code]) %}
+{% endfor %}
+{% set footerOtherLocaleOptions = [] %}
+{% for option in footerLocaleSelector.options %}
+  {% if option.code not in featuredLocaleCodes %}
+    {% set footerOtherLocaleOptions = footerOtherLocaleOptions|merge([option]) %}
+  {% endif %}
+{% endfor %}
+{% if footerOtherLocaleOptions is empty %}
+  {% set fallbackOtherLocales = {
+    'es': 'Español',
+    'de': 'Deutsch',
+    'pl': 'Polski',
+    'pt': 'Português',
+    'it': 'Italiano',
+    'nl': 'Nederlands',
+    'tr': 'Türkçe',
+    'ar': 'العربية'
+  } %}
+  {% for localeCode, nativeName in fallbackOtherLocales %}
+    {% set footerOtherLocaleOptions = footerOtherLocaleOptions|merge([{
+      code: localeCode,
+      nativeName: nativeName,
+      current: footerLocaleSelector.currentLocale == localeCode
+    }]) %}
+  {% endfor %}
+{% endif %}
 
 <footer class="interfacing-footer" data-interfacing-shell-slot="footer" data-interfacing-shell-location="shell.footer" data-interfacing-shell-contract="four-column-grid" {{ footerAttributes|raw }}>
   {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {
@@ -58,15 +108,42 @@
       } only %}
     </aside>
 
-    <main class="interfacing-shell-body interfacing-footer-panel interfacing-footer-panel--main" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellSlotMap['shell.footer.main']|default('Footer main') }}">
-      {% if shellFooterMainItems is not empty %}
-        <nav class="interfacing-footer-links" aria-label="Footer main links" data-interfacing-footer-links="main">
-          {% for item in shellFooterMainItems|slice(0, shellFooterLinkLimit) %}
+    <main class="interfacing-shell-body interfacing-footer-panel interfacing-footer-panel--main ant-row" data-interfacing-shell-slot="footer-main" data-interfacing-shell-location="shell.footer.main" title="{{ shellSlotMap['shell.footer.main']|default('Footer main') }}">
+      {% if footerSupportItems is not empty %}
+        <nav class="interfacing-footer-links ant-col ant-col-8 ant-space ant-space-vertical" aria-label="Footer support links" data-interfacing-footer-links="support">
+          {% for item in footerSupportItems|slice(0, shellFooterLinkLimit) %}
             {% set itemLabel = item.label|default(item.title|default(item.key|default(item.href|default(item.url|default('Link'))))) %}
             {% set itemHref = item.href|default(item.url|default('#')) %}
             <a class="interfacing-footer-link" href="{{ itemHref }}">{{ itemLabel }}</a>
           {% endfor %}
         </nav>
+      {% endif %}
+      {% if footerFeaturedLocaleItems is not empty %}
+        <nav class="interfacing-footer-links ant-col ant-col-8 ant-space ant-space-vertical" aria-label="Featured languages" data-interfacing-footer-links="main">
+          {% for item in footerFeaturedLocaleItems|slice(0, shellFooterLinkLimit) %}
+            {% set itemLabel = item.label|default(item.title|default(item.key|default(item.href|default(item.url|default('Link'))))) %}
+            {% set itemHref = item.href|default(item.url|default('#')) %}
+            <a class="interfacing-footer-link" href="{{ itemHref }}">{{ itemLabel }}</a>
+          {% endfor %}
+        </nav>
+      {% endif %}
+      {% if footerOtherLocaleOptions is not empty %}
+        <form class="interfacing-footer-locale-selector ant-col ant-col-8 ant-form ant-form-vertical" action="{{ footerLocaleSelector.action }}" method="get" data-interfacing-locale-selector="footer">
+          {% for key, value in footerLocaleSelector.query %}
+            <input type="hidden" name="{{ key }}" value="{{ value }}">
+          {% endfor %}
+          <div class="interfacing-footer-locale-selector__label-row">
+            <label class="interfacing-footer-locale-selector__label" for="interfacing-footer-locale">Other languages</label>
+          </div>
+          <div class="interfacing-footer-locale-selector__control-row">
+            <select id="interfacing-footer-locale" class="interfacing-footer-locale-selector__select ant-select ant-select-single" name="locale" onchange="this.form.submit()">
+              <option value="">Select language</option>
+              {% for option in footerOtherLocaleOptions %}
+                <option value="{{ option.code }}"{% if option.current %} selected{% endif %}>{{ option.nativeName }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </form>
       {% endif %}
       {% if shellFooterGroup is not empty %}
         <div class="interfacing-footer-group-grid" data-interfacing-footer-legacy-group="true">

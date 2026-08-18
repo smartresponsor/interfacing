@@ -27,7 +27,7 @@ if (false === $root || !is_dir($root)) {
     exit(2);
 }
 
-$relativeFile = 'public/bundles/interfacing/interfacing/design/provider-baseline.css';
+$relativeFile = 'public/interfacing/design/provider-baseline.css';
 $file = $root.DIRECTORY_SEPARATOR.str_replace('/', DIRECTORY_SEPARATOR, $relativeFile);
 
 if (!is_file($file)) {

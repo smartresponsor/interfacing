@@ -44,3 +44,5 @@ final readonly class InterfaceViewAuditItem
     public function note(): string
     {
         return $this->note;
+    }
+}

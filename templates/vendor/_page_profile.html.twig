@@ -1,0 +1,79 @@
+{% set pageLocations = locations|default({}) %}
+{% set bodyBlock = pageLocations.body|default([])|first|default({}) %}
+{% set bodyData = bodyBlock.data|default({}) %}
+{% set pageWorkbench = bodyData.workbench|default(workbench|default({})) %}
+{% set vendorRows = bodyData.rows|default(rows|default(pageWorkbench.rows|default([]))) %}
+{% set vendor = bodyData.data|default(vendorRows|first|default(data|default({}))) %}
+{% set vendorTitle = vendor.displayName|default(vendor.title|default(vendor.brandName|default(vendor.brand_name|default('Vendor')))) %}
+{% set vendorStatus = vendor.status|default('active') %}
+{% set vendorCode = vendor.code|default('') %}
+{% set vendorAbout = vendor.about|default('Public vendor page, activity, products, services, and updates.') %}
+{% set vendorWebsite = vendor.website|default(null) %}
+{% set vendorAvatarPath = vendor.avatarPath|default(null) %}
+{% set vendorCoverPath = vendor.coverPath|default(null) %}
+{% set vendorInitial = vendorTitle|trim|slice(0, 1)|upper %}
+
+<div data-controller="vendor-profile-media"
+     data-vendor-profile-media-owner-id-value="{{ vendor.id|default('') }}"
+     data-vendor-profile-media-endpoint-value="/attachment/upload">
+<div class="interfacing-profile-surface__cover ant-card-cover" data-interfacing-shell-location="shell.profile.cover" data-interfacing-provider-control="cover" data-interfacing-provider-control-provider="antd-pro">
+  <div class="interfacing-vendor-profile-cover" data-vendor-profile-media-target="coverPreview" aria-label="{{ vendorTitle }} cover"{% if vendorCoverPath %} style="background-image: linear-gradient(rgba(15,23,42,.18), rgba(15,23,42,.18)), url('{{ vendorCoverPath|e('html_attr') }}'); background-size: cover; background-position: center;"{% endif %}>
+    {% if not vendorCoverPath %}<div class="interfacing-vendor-profile-cover__pattern" aria-hidden="true"></div>{% endif %}
+    <button type="button" class="ant-btn interfacing-vendor-profile-media-action interfacing-vendor-profile-media-action--cover" aria-label="Change cover image" title="Change cover image" data-vendor-profile-media-action data-action="vendor-profile-media#openCoverManager">
+      <svg class="interfacing-vendor-profile-media-action__icon" viewBox="0 0 1024 1024" aria-hidden="true" focusable="false" data-icon="edit">
+        <path d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.2-423.2a9.96 9.96 0 0 0 0-14.1L694.1 115.6a9.96 9.96 0 0 0-14.1 0L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687 215.7l73.3 73.3-361.9 361.9-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<div class="interfacing-profile-surface__identity ant-page-header" data-interfacing-shell-location="shell.profile.identity" data-interfacing-provider-control="page-header" data-interfacing-provider-control-provider="antd-pro">
+  <div class="interfacing-vendor-profile-identity ant-page-header-heading">
+    <div class="interfacing-vendor-profile-avatar ant-avatar ant-avatar-circle ant-avatar-image" data-vendor-profile-media-target="avatarPreview" aria-label="{{ vendorTitle }} profile photo" data-interfacing-provider-control="avatar" data-interfacing-provider-control-provider="ant-design">
+      {% if vendorAvatarPath %}
+        <img src="{{ vendorAvatarPath }}" alt="{{ vendorTitle }} avatar" class="interfacing-vendor-profile-avatar__image">
+      {% else %}
+        <span aria-hidden="true">{{ vendorInitial ?: 'V' }}</span>
+      {% endif %}
+      <button type="button" class="ant-btn interfacing-vendor-profile-media-action interfacing-vendor-profile-media-action--avatar" aria-label="Change avatar" title="Change avatar" data-vendor-profile-media-action data-action="vendor-profile-media#openAvatarManager">
+        <svg class="interfacing-vendor-profile-media-action__icon" viewBox="0 0 1024 1024" aria-hidden="true" focusable="false" data-icon="edit">
+          <path d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.2-423.2a9.96 9.96 0 0 0 0-14.1L694.1 115.6a9.96 9.96 0 0 0-14.1 0L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 0 0 9.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687 215.7l73.3 73.3-361.9 361.9-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="interfacing-vendor-profile-identity__content">
+      <p class="interfacing-vendor-profile-identity__summary">{{ vendorAbout }}</p>
+      {% if vendorWebsite %}<a href="{{ vendorWebsite }}" rel="noopener noreferrer">{{ vendorWebsite }}</a>{% endif %}
+      <div class="interfacing-vendor-profile-identity__meta">
+        <span>{{ vendorStatus|capitalize }}</span>
+        {% if vendorCode is not empty %}<span>{{ vendorCode }}</span>{% endif %}
+      </div>
+    </div>
+    <div class="interfacing-vendor-profile-identity__actions">
+      <a class="interfacing-button interfacing-button-primary" href="/vendor/edit">Edit profile</a>
+    </div>
+  </div>
+  <div class="interfacing-vendor-profile-media-status" role="status" aria-live="polite" data-vendor-profile-media-target="status"></div>
+</div>
+
+<dialog class="interfacing-vendor-media-manager ant-modal" data-vendor-profile-media-target="manager">
+  <div class="ant-modal-content">
+    <button type="button" class="ant-modal-close" aria-label="Close" data-action="vendor-profile-media#closeManager">×</button>
+    <div class="ant-modal-header">
+      <div class="ant-modal-title" data-vendor-profile-media-target="managerTitle">Manage profile image</div>
+    </div>
+    <div class="ant-modal-body">
+      <div class="ant-segmented interfacing-vendor-media-manager__tabs">
+        <button type="button" class="ant-segmented-item ant-segmented-item-selected" data-vendor-profile-media-target="uploadTab" data-action="vendor-profile-media#showUpload">Upload & edit</button>
+        <button type="button" class="ant-segmented-item" data-vendor-profile-media-target="libraryTab" data-action="vendor-profile-media#showLibrary">Media library</button>
+      </div>
+      <section data-vendor-profile-media-target="uploadPanel">
+        <div data-vendor-profile-media-target="uppy"></div>
+      </section>
+      <section hidden data-vendor-profile-media-target="libraryPanel">
+        <div class="interfacing-vendor-media-library" data-vendor-profile-media-target="library"></div>
+      </section>
+    </div>
+  </div>
+</dialog>
+</div>

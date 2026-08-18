@@ -10,7 +10,7 @@
   by the host asset pipeline as real JavaScript, not HTML fallbacks.
 #}
 {% set externalProviderAssetsEnabled = not (shell.guestSurface|default(false)) and interfacing_provider_external_assets_enabled|default(false) %}
-{% set providerAssetVersion = interfacing_provider_asset_version|default('w95-quick-menu-polish') %}
+{% set providerAssetVersion = interfacing_provider_asset_version|default('w101-canonical-provider-baseline') %}
 {% set providerAssetBasePath = interfacing_provider_asset_base_path|default('') %}
 {% set providerAssetManifest = {
   baselineStylesheet: 'bundles/interfacing/interfacing/design/provider-baseline.css',

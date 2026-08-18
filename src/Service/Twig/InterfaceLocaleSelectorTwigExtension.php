@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Service\Twig;
 
+use App\Interfacing\Contract\Localization\InterfaceLocaleTemplateSelectorOption;
 use App\Interfacing\ProviderInterface\Localization\InterfaceLocaleTemplateSelectorProviderInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Twig\Extension\AbstractExtension;
@@ -61,9 +62,9 @@ final class InterfaceLocaleSelectorTwigExtension extends AbstractExtension
             'action' => $action,
             'query' => $query,
             'options' => array_map(
-                static fn ($option): array => [
+                static fn (InterfaceLocaleTemplateSelectorOption $option): array => [
                     'code' => $option->code,
-                    'name' => $option->name,
+                    'name' => $option->nameEntity,
                     'nativeName' => $option->nativeName,
                     'current' => $option->current,
                     'default' => $option->default,
