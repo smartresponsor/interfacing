@@ -11,7 +11,7 @@ $_ENV['APP_ENV'] ??= 'test';
 $_SERVER['APP_DEBUG'] ??= '1';
 $_ENV['APP_DEBUG'] ??= '1';
 
-if (is_file(dirname(__DIR__).'/.env') && method_exists(Dotenv::class, 'bootEnv')) {
+if (is_file(dirname(__DIR__).'/.env')) {
     (new Dotenv())->bootEnv(dirname(__DIR__).'/.env');
 }
 
