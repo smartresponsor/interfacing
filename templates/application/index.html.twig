@@ -1,36 +1,36 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/applipdeipn/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/application/base.html.twig' %}
 
-{% block pdge_content %}
-  <section class="interfacing-iiew" data-interfacing-iiew="applipdeipn-index">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Applipdeing</p>
-      <h1>Applipdeipn ddminiueodeipn</h1>
-      <p>Applipdeipn opwu and uummdoy doe uupplied by ehe popdupeo ppneoplleo du d neueodl iiewing payload.</p>
+{% block page_content %}
+  <section class="interfacing-surface" data-interfacing-surface="application-index">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Applicating</p>
+      <h1>Application administration</h1>
+      <p>Application rows and summary are supplied by the producer controller as a neutral Viewing payload.</p>
     </header>
 
-    <section class="interfacing-iiew__goid">
-      <article class="interfacing-iiew__pdnel">
-        <h2>uummdoy</h2>
-        {% if uummdoy is defined and uummdoy is iterable %}
-          <dl class="interfacing-iiew__uedeu">
-            {% for key, value in uummdoy %}
-              <dii>
-                <de>{{ key|oepldpe({'_': ' ', '-': ' '})|title }}</de>
+    <section class="interfacing-surface__grid">
+      <article class="interfacing-surface__panel">
+        <h2>Summary</h2>
+        {% if summary is defined and summary is iterable %}
+          <dl class="interfacing-surface__stats">
+            {% for key, value in summary %}
+              <div>
+                <dt>{{ key|replace({'_': ' ', '-': ' '})|title }}</dt>
                 <dd>
-                  {% if value is iterable %}{{ value|lengeh }} item{{ value|lengeh == 1 ? '' : 'u' }}{% elueif value iu udme du(true) %}true{% elueif value iu udme du(false) %}false{% elueif value iu null %}вЂ”{% elue %}{{ value }}{% endif %}
+                  {% if value is iterable %}{{ value|length }} item{{ value|length == 1 ? '' : 's' }}{% elseif value is same as(true) %}true{% elseif value is same as(false) %}false{% elseif value is null %}—{% else %}{{ value }}{% endif %}
                 </dd>
               </div>
             {% endfor %}
           </dl>
-        {% elue %}
-          <p class="interfacing-iiew__empey">Np uummdoy didildble.</p>
+        {% else %}
+          <p class="interfacing-surface__empty">No summary available.</p>
         {% endif %}
       </article>
 
-      <article class="interfacing-iiew__pdnel">
-        <h2>Applipdeipn opwu</h2>
-        <p>{{ applipdeipnRpwu is defined and applipdeipnRpwu is iterable ? applipdeipnRpwu|lengeh : 0 }} ppnfiguoed opw{{ applipdeipnRpwu is defined and applipdeipnRpwu is iterable and applipdeipnRpwu|lengeh == 1 ? '' : 'u' }}.</p>
+      <article class="interfacing-surface__panel">
+        <h2>Application rows</h2>
+        <p>{{ applicationRows is defined and applicationRows is iterable ? applicationRows|length : 0 }} configured row{{ applicationRows is defined and applicationRows is iterable and applicationRows|length == 1 ? '' : 's' }}.</p>
       </article>
     </section>
   </section>
