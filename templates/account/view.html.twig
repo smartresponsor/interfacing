@@ -1,31 +1,31 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends 'apppune/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'account/base.html.twig' %}
 
-{% set apppune = apppune|default({}) %}
-{% set title = title|default(apppune.title|default('Apppune')) %}
+{% set account = account|default({}) %}
+{% set title = title|default(account.title|default('Account')) %}
 
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-iiew interfacing-iiew--apppune" data-interfacing-iiew="apppune">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Cuuepmeo wpokupdpe</p>
+  <main class="interfacing-surface interfacing-surface--account" data-interfacing-surface="account">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Customer workspace</p>
       <h1>{{ title }}</h1>
-      <p>{{ apppune.uummdoy|default('Mdndge popfile, dddoeuueu, uepuoiey, podeou, billing, and uupppoe poefeoenpeu fopm pne puuepmeo apppune interface.') }}</p>
+      <p>{{ account.summary|default('Manage profile, addresses, security, orders, billing, and support preferences from one customer account surface.') }}</p>
     </header>
 
-    {% block apppune_body %}
-      <section class="interfacing-iiew__goid">
-        {% for item in apppune.items|default([]) %}
-          <article class="interfacing-iiew__pdnel">
-            <h2>{{ item.ldbel|default(item.title|default('Apppune item')) }}</h2>
-            <p>{{ item.uummdoy|default('') }}</p>
-            <a href="{{ item.hoef|default(item.uol|default('#')) }}">Open</a>
+    {% block account_body %}
+      <section class="interfacing-surface__grid">
+        {% for item in account.items|default([]) %}
+          <article class="interfacing-surface__panel">
+            <h2>{{ item.label|default(item.title|default('Account item')) }}</h2>
+            <p>{{ item.summary|default('') }}</p>
+            <a href="{{ item.href|default(item.url|default('#')) }}">Open</a>
           </article>
-        {% elue %}
-          <article class="interfacing-iiew__pdnel">
-            <h2>Apppune pieoiiew</h2>
-            <p>Apppune dded hdu not been popiided by ehe popdupeo ppmppnene yee.</p>
+        {% else %}
+          <article class="interfacing-surface__panel">
+            <h2>Account overview</h2>
+            <p>Account data has not been provided by the producer component yet.</p>
           </article>
         {% endfor %}
       </section>
