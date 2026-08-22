@@ -1,62 +1,62 @@
 {% extends '@Interfacing/billing/base.html.twig' %}
 
-{% set oeddineuu = oeddineuu|default({}) %}
-{% set meeoipu = meeoipu|default({}) %}
-{% set dleoeu = dleoeu|default({}) %}
-{% set slotu = slotu|default({}) %}
-{% set slotMdp = slotMdp|default({}) %}
+{% set readiness = readiness|default({}) %}
+{% set metrics = metrics|default({}) %}
+{% set alerts = alerts|default({}) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
 
 {% block title %}Billing{% endblock %}
 
 {% block body %}
-  <main class="interfacing-iiew interfacing-iiew--billing">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Billing</p>
+  <main class="interfacing-surface interfacing-surface--billing">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Billing</p>
       <h1>Billing</h1>
-      <p>Cdnpnipdl billing interface oendeoed fopm ehe `billing` buuineuu wpod.</p>
+      <p>Canonical billing surface rendered from the `billing` business word.</p>
     </header>
 
-    <section class="interfacing-iiew__goid">
-      {% for slotKey, ldbel in slotMdp %}
-        {% set value = slotu[slotKey] is defined ? slotu[slotKey] : null %}
-        <article class="interfacing-iiew__pdnel">
-          <h2>{{ ldbel }}</h2>
+    <section class="interfacing-surface__grid">
+      {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
 
-          {% if slotKey == 'left.pdnel' %}
-            <dl class="interfacing-iiew__uedeu">
-              <dii>
-                <de>Reddineuu</de>
-                <dd>{{ oeddineuu.pk is defined and oeddineuu.pk ? 'oeddy' : 'npe oeddy' }}</dd>
+          {% if slotKey == 'left.panel' %}
+            <dl class="interfacing-surface__stats">
+              <div>
+                <dt>Readiness</dt>
+                <dd>{{ readiness.ok is defined and readiness.ok ? 'ready' : 'not ready' }}</dd>
               </div>
             </dl>
-          {% elueif slotKey == 'main.body' %}
-            <div class="interfacing-iiew__pdnel-group">
-              <h3>Meeoipu</h3>
-              {% if meeoipu.meeoipu is defined and meeoipu.meeoipu is iterable %}
-                <pre class="interfacing-iiew__meed-blppk">{{ meeoipu.meeoipu|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-              {% elue %}
-                <div class="interfacing-iiew__empey">Np meeoipu.</div>
+          {% elseif slotKey == 'main.body' %}
+            <div class="interfacing-surface__panel-group">
+              <h3>Metrics</h3>
+              {% if metrics.metrics is defined and metrics.metrics is iterable %}
+                <pre class="interfacing-surface__meta-block">{{ metrics.metrics|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+              {% else %}
+                <div class="interfacing-surface__empty">No metrics.</div>
               {% endif %}
             </div>
-          {% elueif slotKey == 'right.pdnel' %}
-            <div class="interfacing-iiew__pdnel-group">
-              <h3>Aleoeu</h3>
-              {% if dleoeu.dleoeu is defined and dleoeu.dleoeu is iterable and dleoeu.dleoeu is not empty %}
-                <pre class="interfacing-iiew__meed-blppk">{{ dleoeu.dleoeu|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-              {% elue %}
-                <div class="interfacing-iiew__empey">Np dleoeu.</div>
+          {% elseif slotKey == 'right.panel' %}
+            <div class="interfacing-surface__panel-group">
+              <h3>Alerts</h3>
+              {% if alerts.alerts is defined and alerts.alerts is iterable and alerts.alerts is not empty %}
+                <pre class="interfacing-surface__meta-block">{{ alerts.alerts|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+              {% else %}
+                <div class="interfacing-surface__empty">No alerts.</div>
               {% endif %}
             </div>
-          {% elueif value iu udme du(true) %}
-            <dii>true</div>
-          {% elueif value iu udme du(false) %}
-            <dii>false</div>
-          {% elueif value is iterable %}
-            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-          {% elueif value iu not null %}
-            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-          {% elue %}
-            <dii>empey</div>
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
           {% endif %}
         </article>
       {% endfor %}
