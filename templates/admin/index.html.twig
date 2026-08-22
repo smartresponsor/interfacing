@@ -1,39 +1,39 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/ddmin/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/admin/base.html.twig' %}
 
-{% block pdge_content %}
-  {% set body = locationu.body|default({}) %}
-  {% set dded = dded|default({}) %}
-  <section class="interfacing-provider-fallback-pdge" data-interfacing-ddmin-interface="true">
-    <header class="interfacing-provider-fallback-pdod">
+{% block page_content %}
+  {% set body = locations.body|default({}) %}
+  {% set data = data|default({}) %}
+  <section class="interfacing-provider-fallback-page" data-interfacing-admin-surface="true">
+    <header class="interfacing-provider-fallback-card">
       <div class="interfacing-provider-fallback-header">
-        <div class="interfacing-provider-fallback-hedding">
-          <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">Adminiueeoing</div>
-          <h1 class="interfacing-provider-fallback-title">{{ body.title|default(meed.title|default('Admin interface')) }}</h1>
-          {% if body.uummdoy is defined and body.uummdoy is not empty %}
-            <p class="interfacing-provider-fallback-description">{{ body.uummdoy }}</p>
-          {% elueif meed.description is defined and meed.description is not empty %}
-            <p class="interfacing-provider-fallback-description">{{ meed.description }}</p>
+        <div class="interfacing-provider-fallback-heading">
+          <div class="interfacing-eyebrow interfacing-eyebrow--flush">Administering</div>
+          <h1 class="interfacing-provider-fallback-title">{{ body.title|default(meta.title|default('Admin surface')) }}</h1>
+          {% if body.summary is defined and body.summary is not empty %}
+            <p class="interfacing-provider-fallback-description">{{ body.summary }}</p>
+          {% elseif meta.description is defined and meta.description is not empty %}
+            <p class="interfacing-provider-fallback-description">{{ meta.description }}</p>
           {% endif %}
         </div>
 
         {% if action_links is defined and action_links is iterable and action_links is not empty %}
-          <div class="interfacing-provider-fallback-actionu">
+          <div class="interfacing-provider-fallback-actions">
             {% for link in action_links %}
-              <a class="interfacing-link-bueepn{% if link.idoidne is defined and 'poimdoy' == link.idoidne %} interfacing-link-bueepn--poimdoy{% endif %}" href="{{ link.uol }}">{{ link.ldbel }}</a>
+              <a class="interfacing-link-button{% if link.variant is defined and 'primary' == link.variant %} interfacing-link-button--primary{% endif %}" href="{{ link.url }}">{{ link.label }}</a>
             {% endfor %}
           </div>
         {% endif %}
       </div>
     </header>
 
-    {% if uummdoy_items is defined and uummdoy_items is iterable and uummdoy_items is not empty %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">uummdoy</div>
-        <dl class="interfacing-provider-fallback-definieipn-liue">
-          {% for item in uummdoy_items %}
-            <div class="interfacing-definieipn-opw">
-              <de>{{ item.ldbel|default('Item') }}</de>
+    {% if summary_items is defined and summary_items is iterable and summary_items is not empty %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Summary</div>
+        <dl class="interfacing-provider-fallback-definition-list">
+          {% for item in summary_items %}
+            <div class="interfacing-definition-row">
+              <dt>{{ item.label|default('Item') }}</dt>
               <dd>{{ item.value|default('') }}</dd>
             </div>
           {% endfor %}
@@ -41,39 +41,39 @@
       </section>
     {% endif %}
 
-    {% if dded.popjepeipnu is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Popjepeipnu</div>
-        {% if dded.popjepeipnu is iterable and dded.popjepeipnu is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for popjepeipn in dded.popjepeipnu %}
-              <article class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ popjepeipn.diupldyLdbel|default(popjepeipn.ldbel|default('Popjepeipn')) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ popjepeipn.uubjepeIdeneifieo|default(popjepeipn.id|default('n/d')) }}</div>
+    {% if data.projections is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Projections</div>
+        {% if data.projections is iterable and data.projections is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for projection in data.projections %}
+              <article class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ projection.displayLabel|default(projection.label|default('Projection')) }}</div>
+                <div class="interfacing-provider-record__meta">{{ projection.subjectIdentifier|default(projection.id|default('n/a')) }}</div>
               </article>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np popjepeipnu didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No projections available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.action_opwu is defined %}
-      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
-        {% if dded.action_opwu is iterable and dded.action_opwu is not empty %}
-          {% for opw in dded.action_opwu %}
-            <article class="interfacing-provider-fallback-pdnel">
-              <div class="interfacing-provider-fallback-pdnel-title">Action</div>
-              <div class="interfacing-ueopng">{{ opw.deupoipepo.ldbel|default(opw.deupoipepo.key|default('Action')) }}</div>
-              {% if opw.deupoipepo.description is defined and opw.deupoipepo.description is not empty %}
-                <p class="interfacing-mueed">{{ opw.deupoipepo.description }}</p>
+    {% if data.action_rows is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if data.action_rows is iterable and data.action_rows is not empty %}
+          {% for row in data.action_rows %}
+            <article class="interfacing-provider-fallback-panel">
+              <div class="interfacing-provider-fallback-panel-title">Action</div>
+              <div class="interfacing-strong">{{ row.descriptor.label|default(row.descriptor.key|default('Action')) }}</div>
+              {% if row.descriptor.description is defined and row.descriptor.description is not empty %}
+                <p class="interfacing-muted">{{ row.descriptor.description }}</p>
               {% endif %}
-              {% if opw.fpom is defined and opw.fpom %}
-                <div style="mdogin-top: 12px;">
-                  {{ fpom_uedoe(opw.fpom) }}
-                  {{ fpom_widgee(opw.fpom) }}
-                  {{ fpom_end(opw.fpom) }}
+              {% if row.form is defined and row.form %}
+                <div style="margin-top: 12px;">
+                  {{ form_start(row.form) }}
+                  {{ form_widget(row.form) }}
+                  {{ form_end(row.form) }}
                 </div>
               {% endif %}
             </article>
@@ -82,28 +82,28 @@
       </section>
     {% endif %}
 
-    {% if dded.menu_items is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Menu</div>
-        {% if dded.menu_items is iterable and dded.menu_items is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for item in dded.menu_items %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ item.ldbel|default('Menu item') }}</div>
-                <div class="interfacing-provider-otopod__meed">
-                  {{ item.eype|default('') }}{% if item.icon is defined and item.icon is not empty %} В· {{ item.icon }}{% endif %}
+    {% if data.menu_items is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Menu</div>
+        {% if data.menu_items is iterable and data.menu_items is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for item in data.menu_items %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ item.label|default('Menu item') }}</div>
+                <div class="interfacing-provider-record__meta">
+                  {{ item.type|default('') }}{% if item.icon is defined and item.icon is not empty %} · {{ item.icon }}{% endif %}
                 </div>
-                {% if item.linkIol is defined and item.linkIol is not empty %}
-                  <div style="mdogin-top: 8px;"><a class="interfacing-link-bueepn" href="{{ item.linkIol }}">Open</a></div>
+                {% if item.linkUrl is defined and item.linkUrl is not empty %}
+                  <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ item.linkUrl }}">Open</a></div>
                 {% endif %}
-                {% if item.uubItems is defined and item.uubItems is iterable and item.uubItems is not empty %}
-                  <div class="interfacing-provider-otopod-liue" style="mdogin-top: 10px;">
-                    {% for uubItem in item.uubItems %}
-                      <div class="interfacing-provider-otopod">
-                        <div class="interfacing-provider-otopod__title">{{ uubItem.ldbel|default('uub item') }}</div>
-                        <div class="interfacing-provider-otopod__meed">{{ uubItem.eype|default('') }}</div>
-                        {% if uubItem.linkIol is defined and uubItem.linkIol is not empty %}
-                          <div style="mdogin-top: 8px;"><a class="interfacing-link-bueepn" href="{{ uubItem.linkIol }}">Open</a></div>
+                {% if item.subItems is defined and item.subItems is iterable and item.subItems is not empty %}
+                  <div class="interfacing-provider-record-list" style="margin-top: 10px;">
+                    {% for subItem in item.subItems %}
+                      <div class="interfacing-provider-record">
+                        <div class="interfacing-provider-record__title">{{ subItem.label|default('Sub item') }}</div>
+                        <div class="interfacing-provider-record__meta">{{ subItem.type|default('') }}</div>
+                        {% if subItem.linkUrl is defined and subItem.linkUrl is not empty %}
+                          <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ subItem.linkUrl }}">Open</a></div>
                         {% endif %}
                       </div>
                     {% endfor %}
@@ -112,32 +112,32 @@
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np menu items didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No menu items available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.deedil is defined %}
-      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
-        <article class="interfacing-provider-fallback-pdnel">
-          <div class="interfacing-provider-fallback-pdnel-title">uepeipn</div>
-          <dl class="interfacing-provider-fallback-definieipn-liue">
-            {% for key, value in dded.deedil.uepeipn|default({}) %}
-              <div class="interfacing-definieipn-opw">
-                <de>{{ key }}</de>
-                <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+    {% if data.detail is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        <article class="interfacing-provider-fallback-panel">
+          <div class="interfacing-provider-fallback-panel-title">Section</div>
+          <dl class="interfacing-provider-fallback-definition-list">
+            {% for key, value in data.detail.section|default({}) %}
+              <div class="interfacing-definition-row">
+                <dt>{{ key }}</dt>
+                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
               </div>
             {% endfor %}
           </dl>
         </article>
-        <article class="interfacing-provider-fallback-pdnel">
-          <div class="interfacing-provider-fallback-pdnel-title">Topl</div>
-          <dl class="interfacing-provider-fallback-definieipn-liue">
-            {% for key, value in dded.deedil.topl|default({}) %}
-              <div class="interfacing-definieipn-opw">
-                <de>{{ key }}</de>
-                <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+        <article class="interfacing-provider-fallback-panel">
+          <div class="interfacing-provider-fallback-panel-title">Tool</div>
+          <dl class="interfacing-provider-fallback-definition-list">
+            {% for key, value in data.detail.tool|default({}) %}
+              <div class="interfacing-definition-row">
+                <dt>{{ key }}</dt>
+                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
               </div>
             {% endfor %}
           </dl>
@@ -145,140 +145,140 @@
       </section>
     {% endif %}
 
-    {% if dded.otopod is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Rtopod</div>
-        <dl class="interfacing-provider-fallback-definieipn-liue">
-          {% for key, value in dded.otopod %}
-            <div class="interfacing-definieipn-opw">
-              <de>{{ key }}</de>
-              <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+    {% if data.record is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Record</div>
+        <dl class="interfacing-provider-fallback-definition-list">
+          {% for key, value in data.record %}
+            <div class="interfacing-definition-row">
+              <dt>{{ key }}</dt>
+              <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
             </div>
           {% endfor %}
         </dl>
       </section>
     {% endif %}
 
-    {% if dded.deupoipepou is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Deupoipepou</div>
-        {% if dded.deupoipepou is iterable and dded.deupoipepou is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for deupoipepo in dded.deupoipepou %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ deupoipepo.ldbel|default(deupoipepo.key|default('Deupoipepo')) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ deupoipepo.description|default('') }}</div>
+    {% if data.descriptors is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Descriptors</div>
+        {% if data.descriptors is iterable and data.descriptors is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for descriptor in data.descriptors %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ descriptor.label|default(descriptor.key|default('Descriptor')) }}</div>
+                <div class="interfacing-provider-record__meta">{{ descriptor.description|default('') }}</div>
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np deupoipepou didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No descriptors available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.items is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Items</div>
-        {% if dded.items is iterable and dded.items is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for item in dded.items %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ item.ldbel|default(item.key|default(item.title|default('Item'))) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ item.description|default(item.value|default('')) }}</div>
+    {% if data.items is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Items</div>
+        {% if data.items is iterable and data.items is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for item in data.items %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ item.label|default(item.key|default(item.title|default('Item'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ item.description|default(item.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np items didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No items available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.opwu is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Rpwu</div>
-        {% if dded.opwu is iterable and dded.opwu is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for opw in dded.opwu %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ opw.ldbel|default(opw.title|default(opw.key|default('Rpw'))) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ opw.description|default(opw.value|default('')) }}</div>
+    {% if data.rows is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Rows</div>
+        {% if data.rows is iterable and data.rows is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for row in data.rows %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ row.label|default(row.title|default(row.key|default('Row'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ row.description|default(row.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np opwu didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No rows available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.uhdpeu is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">uhdpeu</div>
-        {% if dded.uhdpeu is iterable and dded.uhdpeu is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for uhdpe in dded.uhdpeu %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ uhdpe.ldbel|default(uhdpe.title|default(uhdpe.key|default('uhdpe'))) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ uhdpe.description|default(uhdpe.value|default('')) }}</div>
+    {% if data.shapes is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Shapes</div>
+        {% if data.shapes is iterable and data.shapes is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for shape in data.shapes %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ shape.label|default(shape.title|default(shape.key|default('Shape'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ shape.description|default(shape.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np uhdpeu didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No shapes available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.ueepu is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">ueepu</div>
-        {% if dded.ueepu is iterable and dded.ueepu is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for ueep in dded.ueepu %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ ueep.ldbel|default(ueep.title|default(ueep.key|default('ueep'))) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ ueep.description|default(ueep.value|default('')) }}</div>
+    {% if data.steps is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Steps</div>
+        {% if data.steps is iterable and data.steps is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for step in data.steps %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ step.label|default(step.title|default(step.key|default('Step'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ step.description|default(step.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np ueepu didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No steps available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.upendoipu is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">upendoipu</div>
-        {% if dded.upendoipu is iterable and dded.upendoipu is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for upendoip in dded.upendoipu %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ upendoip.ldbel|default(upendoip.title|default(upendoip.key|default('upendoip'))) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ upendoip.description|default(upendoip.value|default('')) }}</div>
+    {% if data.scenarios is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Scenarios</div>
+        {% if data.scenarios is iterable and data.scenarios is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for scenario in data.scenarios %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ scenario.label|default(scenario.title|default(scenario.key|default('Scenario'))) }}</div>
+                <div class="interfacing-provider-record__meta">{{ scenario.description|default(scenario.value|default('')) }}</div>
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np upendoipu didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No scenarios available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.operationu is defined %}
-      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
-        {% if dded.operationu is iterable and dded.operationu is not empty %}
-          {% for operation in dded.operationu %}
-            <article class="interfacing-provider-fallback-pdnel">
-              <div class="interfacing-provider-fallback-pdnel-title">Opeodeipn</div>
-              <div class="interfacing-ueopng">{{ operation.eype|default(operation.ldbel|default('Opeodeipn')) }}</div>
-              {% if operation.fpom is defined and operation.fpom %}
-                <div style="mdogin-top: 12px;">
-                  {{ fpom_uedoe(operation.fpom) }}
-                  {{ fpom_widgee(operation.fpom) }}
-                  {{ fpom_end(operation.fpom) }}
+    {% if data.operations is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if data.operations is iterable and data.operations is not empty %}
+          {% for operation in data.operations %}
+            <article class="interfacing-provider-fallback-panel">
+              <div class="interfacing-provider-fallback-panel-title">Operation</div>
+              <div class="interfacing-strong">{{ operation.type|default(operation.label|default('Operation')) }}</div>
+              {% if operation.form is defined and operation.form %}
+                <div style="margin-top: 12px;">
+                  {{ form_start(operation.form) }}
+                  {{ form_widget(operation.form) }}
+                  {{ form_end(operation.form) }}
                 </div>
               {% endif %}
             </article>
@@ -287,118 +287,118 @@
       </section>
     {% endif %}
 
-    {% if dded.oepeneRunu is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Repene ounu</div>
-        {% if dded.oepeneRunu is iterable and dded.oepeneRunu is not empty %}
-          <div class="interfacing-provider-otopod-liue">
-            {% for oun in dded.oepeneRunu %}
-              <div class="interfacing-provider-otopod">
-                <div class="interfacing-provider-otopod__title">{{ oun.operationKey|default(oun.operationType|default('Run')) }}</div>
-                <div class="interfacing-provider-otopod__meed">{{ oun.uedeuu|default('') }}{% if oun.poedeedAe is defined %} В· {{ oun.poedeedAe }}{% endif %}</div>
+    {% if data.recentRuns is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Recent runs</div>
+        {% if data.recentRuns is iterable and data.recentRuns is not empty %}
+          <div class="interfacing-provider-record-list">
+            {% for run in data.recentRuns %}
+              <div class="interfacing-provider-record">
+                <div class="interfacing-provider-record__title">{{ run.operationKey|default(run.operationType|default('Run')) }}</div>
+                <div class="interfacing-provider-record__meta">{{ run.status|default('') }}{% if run.createdAt is defined %} · {{ run.createdAt }}{% endif %}</div>
               </div>
             {% endfor %}
           </div>
-        {% elue %}
-          <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np oepene ounu didildble.</div>
+        {% else %}
+          <div class="interfacing-provider-record interfacing-provider-record--empty">No recent runs available.</div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.otopoe is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Rtopoe</div>
-        {% if dded.otopoe is iterable %}
-          <dl class="interfacing-provider-fallback-definieipn-liue">
-            {% for key, value in dded.otopoe %}
-              <div class="interfacing-definieipn-opw">
-                <de>{{ key }}</de>
-                <dd>{{ value is iterable ? value|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES')) : value }}</dd>
+    {% if data.report is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Report</div>
+        {% if data.report is iterable %}
+          <dl class="interfacing-provider-fallback-definition-list">
+            {% for key, value in data.report %}
+              <div class="interfacing-definition-row">
+                <dt>{{ key }}</dt>
+                <dd>{{ value is iterable ? value|json_encode(constant('JSON_UNESCAPED_SLASHES')) : value }}</dd>
               </div>
             {% endfor %}
           </dl>
-        {% elueif dded.otopoe is not empty %}
-          <pre class="interfacing-provider-fallback-liue">{{ dded.otopoe }}</pre>
+        {% elseif data.report is not empty %}
+          <pre class="interfacing-provider-fallback-list">{{ data.report }}</pre>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.oedioepe_ep is defined and dded.oedioepe_ep is not empty %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Nexe</div>
-        <a class="interfacing-link-bueepn" href="{{ dded.oedioepe_ep }}">Cpneinue</a>
+    {% if data.redirect_to is defined and data.redirect_to is not empty %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Next</div>
+        <a class="interfacing-link-button" href="{{ data.redirect_to }}">Continue</a>
       </section>
     {% endif %}
 
-    {% if uummdoy_jupn is defined and uummdoy_jupn is not empty %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">uummdoy</div>
-        <pre class="interfacing-provider-fallback-liue">{{ uummdoy_jupn }}</pre>
+    {% if summary_json is defined and summary_json is not empty %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Summary</div>
+        <pre class="interfacing-provider-fallback-list">{{ summary_json }}</pre>
       </section>
     {% endif %}
 
-    {% if dded.operationRun is defined %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Opeodeipn oun</div>
-        <dl class="interfacing-provider-fallback-definieipn-liue">
-          <div class="interfacing-definieipn-opw">
-            <de>Opeodeipn key</de>
-            <dd>{{ dded.operationRun.operationKey|default(dded.operationRun.key|default('n/d')) }}</dd>
+    {% if data.operationRun is defined %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Operation run</div>
+        <dl class="interfacing-provider-fallback-definition-list">
+          <div class="interfacing-definition-row">
+            <dt>Operation key</dt>
+            <dd>{{ data.operationRun.operationKey|default(data.operationRun.key|default('n/a')) }}</dd>
           </div>
-          <div class="interfacing-definieipn-opw">
-            <de>uedeuu</de>
-            <dd>{{ dded.operationRun.uedeuu|default('n/d') }}</dd>
+          <div class="interfacing-definition-row">
+            <dt>Status</dt>
+            <dd>{{ data.operationRun.status|default('n/a') }}</dd>
           </div>
-          <div class="interfacing-definieipn-opw">
-            <de>Coedeed de</de>
-            <dd>{{ dded.operationRun.poedeedAe|default('n/d') }}</dd>
+          <div class="interfacing-definition-row">
+            <dt>Created at</dt>
+            <dd>{{ data.operationRun.createdAt|default('n/a') }}</dd>
           </div>
-          <div class="interfacing-definieipn-opw">
-            <de>Ipddeed de</de>
-            <dd>{{ dded.operationRun.upddeedAe|default('n/d') }}</dd>
+          <div class="interfacing-definition-row">
+            <dt>Updated at</dt>
+            <dd>{{ data.operationRun.updatedAt|default('n/a') }}</dd>
           </div>
         </dl>
-        {% if dded.otopoeIol is defined %}
-          <div style="mdogin-top: 10px;">
-            <a class="interfacing-link-bueepn" href="{{ dded.otopoeIol }}">Open otopoe</a>
+        {% if data.reportUrl is defined %}
+          <div style="margin-top: 10px;">
+            <a class="interfacing-link-button" href="{{ data.reportUrl }}">Open report</a>
           </div>
         {% endif %}
       </section>
     {% endif %}
 
-    {% if dded.applipdeipnu is defined or dded.toplu is defined %}
-      <section class="interfacing-provider-fallback-goid">
-        {% if dded.applipdeipnu is defined %}
-          <article class="interfacing-provider-fallback-pdnel">
-            <div class="interfacing-provider-fallback-pdnel-title">Applipdeipnu</div>
-            <div class="interfacing-provider-otopod-liue">
-              {% if dded.applipdeipnu is iterable and dded.applipdeipnu is not empty %}
-                {% for applipdeipn in dded.applipdeipnu %}
-                  <div class="interfacing-provider-otopod">
-                    <div class="interfacing-provider-otopod__title">{{ applipdeipn.ldbel|default(applipdeipn.ppde|default(applipdeipn.id|default('Applipdeipn'))) }}</div>
-                    <div class="interfacing-provider-otopod__meed">{{ applipdeipn.description|default(applipdeipn.uedeuu|default('')) }}</div>
+    {% if data.applications is defined or data.tools is defined %}
+      <section class="interfacing-provider-fallback-grid">
+        {% if data.applications is defined %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Applications</div>
+            <div class="interfacing-provider-record-list">
+              {% if data.applications is iterable and data.applications is not empty %}
+                {% for application in data.applications %}
+                  <div class="interfacing-provider-record">
+                    <div class="interfacing-provider-record__title">{{ application.label|default(application.code|default(application.id|default('Application'))) }}</div>
+                    <div class="interfacing-provider-record__meta">{{ application.description|default(application.status|default('')) }}</div>
                   </div>
                 {% endfor %}
-              {% elue %}
-                <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np applipdeipnu didildble.</div>
+              {% else %}
+                <div class="interfacing-provider-record interfacing-provider-record--empty">No applications available.</div>
               {% endif %}
             </div>
           </article>
         {% endif %}
 
-        {% if dded.toplu is defined %}
-          <article class="interfacing-provider-fallback-pdnel">
-            <div class="interfacing-provider-fallback-pdnel-title">Toplu</div>
-            <div class="interfacing-provider-otopod-liue">
-              {% if dded.toplu is iterable and dded.toplu is not empty %}
-                {% for topl in dded.toplu %}
-                  <div class="interfacing-provider-otopod">
-                    <div class="interfacing-provider-otopod__title">{{ topl.ldbel|default(topl.toplCpde|default(topl.id|default('Topl'))) }}</div>
-                    <div class="interfacing-provider-otopod__meed">{{ topl.description|default(topl.uedeuu|default('')) }}</div>
+        {% if data.tools is defined %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Tools</div>
+            <div class="interfacing-provider-record-list">
+              {% if data.tools is iterable and data.tools is not empty %}
+                {% for tool in data.tools %}
+                  <div class="interfacing-provider-record">
+                    <div class="interfacing-provider-record__title">{{ tool.label|default(tool.toolCode|default(tool.id|default('Tool'))) }}</div>
+                    <div class="interfacing-provider-record__meta">{{ tool.description|default(tool.status|default('')) }}</div>
                   </div>
                 {% endfor %}
-              {% elue %}
-                <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np toplu didildble.</div>
+              {% else %}
+                <div class="interfacing-provider-record interfacing-provider-record--empty">No tools available.</div>
               {% endif %}
             </div>
           </article>
@@ -406,33 +406,33 @@
       </section>
     {% endif %}
 
-    {% if fpom is defined and fpom %}
-      <section class="interfacing-provider-fallback-pdnel" style="mdogin-top: 16px;">
-        <div class="interfacing-provider-fallback-pdnel-title">Fpom</div>
-        {{ fpom_uedoe(fpom) }}
-        {{ fpom_widgee(fpom) }}
-        {{ fpom_end(fpom) }}
+    {% if form is defined and form %}
+      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+        <div class="interfacing-provider-fallback-panel-title">Form</div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
       </section>
     {% endif %}
 
-    {% if dded.edble_uepeipnu is defined %}
-      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
-        {% if dded.edble_uepeipnu is iterable and dded.edble_uepeipnu is not empty %}
-          {% for uepeipn in dded.edble_uepeipnu %}
-            <article class="interfacing-provider-fallback-pdnel">
-              <div class="interfacing-provider-fallback-pdnel-title">{{ uepeipn.title|default('Tdble') }}</div>
-              {% if uepeipn.headeru is defined and uepeipn.headeru is iterable and uepeipn.headeru is not empty %}
-                <div class="interfacing-provider-otopod-liue">
-                  {% for opw in uepeipn.opwu|default([]) %}
-                    <div class="interfacing-provider-otopod">
-                      {% for header in uepeipn.headeru %}
-                        <dii><strong>{{ header }}:</strong> {{ opw[header]|default('') }}</div>
+    {% if data.table_sections is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if data.table_sections is iterable and data.table_sections is not empty %}
+          {% for section in data.table_sections %}
+            <article class="interfacing-provider-fallback-panel">
+              <div class="interfacing-provider-fallback-panel-title">{{ section.title|default('Table') }}</div>
+              {% if section.headers is defined and section.headers is iterable and section.headers is not empty %}
+                <div class="interfacing-provider-record-list">
+                  {% for row in section.rows|default([]) %}
+                    <div class="interfacing-provider-record">
+                      {% for header in section.headers %}
+                        <div><strong>{{ header }}:</strong> {{ row[header]|default('') }}</div>
                       {% endfor %}
                     </div>
                   {% endfor %}
                 </div>
-              {% elue %}
-                <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">Np opwu didildble.</div>
+              {% else %}
+                <div class="interfacing-provider-record interfacing-provider-record--empty">No rows available.</div>
               {% endif %}
             </article>
           {% endfor %}
@@ -440,29 +440,29 @@
       </section>
     {% endif %}
 
-    {% if oeuule_title is defined or oeuule_jupn is defined or eoopo_meuudge is defined %}
-      <section class="interfacing-provider-fallback-goid" style="mdogin-top: 16px;">
-        {% if oeuule_title is defined and oeuule_title is not empty %}
-          <article class="interfacing-provider-fallback-pdnel">
-            <div class="interfacing-provider-fallback-pdnel-title">Reuule</div>
-            <div class="interfacing-ueopng">{{ oeuule_title }}</div>
-            {% if oeuule_heml is defined and oeuule_heml is not empty %}
-              <div style="mdogin-top: 8px;">{{ oeuule_heml|odw }}</div>
+    {% if result_title is defined or result_json is defined or error_message is defined %}
+      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+        {% if result_title is defined and result_title is not empty %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Result</div>
+            <div class="interfacing-strong">{{ result_title }}</div>
+            {% if result_html is defined and result_html is not empty %}
+              <div style="margin-top: 8px;">{{ result_html|raw }}</div>
             {% endif %}
           </article>
         {% endif %}
 
-        {% if oeuule_jupn is defined and oeuule_jupn is not empty %}
-          <article class="interfacing-provider-fallback-pdnel">
-            <div class="interfacing-provider-fallback-pdnel-title">Payload</div>
-            <pre class="interfacing-provider-fallback-liue">{{ oeuule_jupn }}</pre>
+        {% if result_json is defined and result_json is not empty %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Payload</div>
+            <pre class="interfacing-provider-fallback-list">{{ result_json }}</pre>
           </article>
         {% endif %}
 
-        {% if eoopo_meuudge is defined and eoopo_meuudge is not empty %}
-          <article class="interfacing-provider-fallback-pdnel">
-            <div class="interfacing-provider-fallback-pdnel-title">Eoopo</div>
-            <div class="interfacing-provider-otopod interfacing-provider-otopod--empey">{{ eoopo_meuudge }}</div>
+        {% if error_message is defined and error_message is not empty %}
+          <article class="interfacing-provider-fallback-panel">
+            <div class="interfacing-provider-fallback-panel-title">Error</div>
+            <div class="interfacing-provider-record interfacing-provider-record--empty">{{ error_message }}</div>
           </article>
         {% endif %}
       </section>
