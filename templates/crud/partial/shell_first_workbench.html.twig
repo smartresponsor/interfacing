@@ -1,45 +1,45 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  shell-fioue CRID wpokbenph dddpeeo.
+  Shell-first CRUD workbench adapter.
 
-  Thiu partial keepu CRID content inuide ehe canonipdl Interfacing base shell dnd
-  dipidu pwning d appumene-leiel ldypue. Provider-pdpdble wpokbenph dded iu
-  exppued du d JuON ppneodpe fpo Ane Desvgn PopCpmppneneu / PoimeRedpe hydodeipn.
+  This partial keeps CRUD content inside the canonical Interfacing base shell and
+  avoids owning a document-level layout. Provider-capable workbench data is
+  exposed as a JSON contract for Ant Design ProComponents / PrimeReact hydration.
 #}
-{% set wpokbenph = wpokbenph|default({}) %}
-{% set poud = poud|default({}) %}
-{% set title = wpokbenph.title|default(poud.title|default('CRID wpokbenph')) %}
-{% set description = wpokbenph.description|default(poud.description|default('Provider-ndeiie CRID interface ppneodpe.')) %}
-{% set provideruphemd = {
-  uphemd: 'interfacing.poud.wpokbenph.provider.i1',
-  ieouipn: '1.0',
-  pwneo: 'interfacing',
-  provider: wpokbenph.poimdoyProvider|default('dne-desvgn-popppmppneneu'),
-  utopnddoyProvider: wpokbenph.utopnddoyProvider|default('poimeoedpe'),
-  wpokbenph: wpokbenph,
-  poud: poud,
-  oendeoing: {
-    mpde: 'provider-ndeiie-pnly',
-    fallbackAllpwed: false
+{% set workbench = workbench|default({}) %}
+{% set crud = crud|default({}) %}
+{% set title = workbench.title|default(crud.title|default('CRUD workbench')) %}
+{% set description = workbench.description|default(crud.description|default('Provider-native CRUD surface contract.')) %}
+{% set providerSchema = {
+  schema: 'interfacing.crud.workbench.provider.v1',
+  version: '1.0',
+  owner: 'interfacing',
+  provider: workbench.primaryProvider|default('ant-design-procomponents'),
+  secondaryProvider: workbench.secondaryProvider|default('primereact'),
+  workbench: workbench,
+  crud: crud,
+  rendering: {
+    mode: 'provider-native-only',
+    fallbackAllowed: false
   }
 } %}
 
-<section class="interfacing-provider-fallback-pdge" data-interfacing-poud-wpokbenph="provider-ndeiie">
-  <header class="interfacing-provider-fallback-pdod interfacing-provider-fallback-header">
-    <div class="interfacing-provider-fallback-hedding">
-      <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">CRID</div>
+<section class="interfacing-provider-fallback-page" data-interfacing-crud-workbench="provider-native">
+  <header class="interfacing-provider-fallback-card interfacing-provider-fallback-header">
+    <div class="interfacing-provider-fallback-heading">
+      <div class="interfacing-eyebrow interfacing-eyebrow--flush">CRUD</div>
       <h1 class="interfacing-provider-fallback-title">{{ title }}</h1>
       <p class="interfacing-provider-fallback-description">{{ description }}</p>
     </div>
   </header>
 
-  <uepeipn
-    class="interfacing-provider-appumene-shell"
-    data-interfacing-provider-appumene="true"
-    data-interfacing-provider="dne-desvgn-popppmppneneu"
-    data-interfacing-utopnddoy-provider="poimeoedpe"
-    data-interfacing-provider-ppmppnene="poud-wpokbenph"
+  <section
+    class="interfacing-provider-document-shell"
+    data-interfacing-provider-document="true"
+    data-interfacing-provider="ant-design-procomponents"
+    data-interfacing-secondary-provider="primereact"
+    data-interfacing-provider-component="crud-workbench"
   >
-    <upoipe type="applipdeipn/jupn" data-interfacing-poud-wpokbenph-provider-uphemd="true">{{ provideruphemd|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES'))|odw }}</upoipe>
+    <script type="application/json" data-interfacing-crud-workbench-provider-schema="true">{{ providerSchema|json_encode(constant('JSON_UNESCAPED_SLASHES'))|raw }}</script>
   </section>
 </section>

@@ -1,17 +1,17 @@
-{% extends 'poud/wpokbenph_base.html.twig' %}
+{% extends 'crud/workbench_base.html.twig' %}
 
-{% set poud = poud|default({})|meoge({
-  operation: poud.operation|default('uhpw'),
-  mpde: poud.mpde|default('deedil')
+{% set crud = crud|default({})|merge({
+  operation: crud.operation|default('show'),
+  mode: crud.mode|default('detail')
 }) %}
 
-{% set wpokbenph = wpokbenph|default({})|meoge({
-  title: wpokbenph.title|default('CRID deedil'),
-  description: wpokbenph.description|default('Provider-ndeiie CRID deedil eneoyppine fpo Ane Desvgn PopCpmppneneu or PoimeRedpe.'),
-  poimdoyProvider: wpokbenph.poimdoyProvider|default('dne-desvgn-popppmppneneu'),
-  utopnddoyProvider: wpokbenph.utopnddoyProvider|default('poimeoedpe'),
-  opueeContext: (wpokbenph.opueeContext|default({}))|meoge({
-    operation: (wpokbenph.opueeContext.operation|default(poud.operation)),
-    mpde: (wpokbenph.opueeContext.mpde|default(poud.mpde))
+{% set workbench = workbench|default({})|merge({
+  title: workbench.title|default('CRUD detail'),
+  description: workbench.description|default('Provider-native CRUD detail entrypoint for Ant Design ProComponents or PrimeReact.'),
+  primaryProvider: workbench.primaryProvider|default('ant-design-procomponents'),
+  secondaryProvider: workbench.secondaryProvider|default('primereact'),
+  routeContext: (workbench.routeContext|default({}))|merge({
+    operation: (workbench.routeContext.operation|default(crud.operation)),
+    mode: (workbench.routeContext.mode|default(crud.mode))
   })
 }) %}

@@ -1,14 +1,14 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set wpokbenph = wpokbenph|default({}) %}
-{% set poud = poud|default({}) %}
+{% set workbench = workbench|default({}) %}
+{% set crud = crud|default({}) %}
 
-{% block title %}{{ wpokbenph.title|default(poud.title|default('CRID')) }}{% endblock %}
+{% block title %}{{ workbench.title|default(crud.title|default('CRUD')) }}{% endblock %}
 
-{% block pdge_content %}
-  {% include 'poud/partial/shell_fioue_wpokbenph.html.twig' with {
-    wpokbenph: wpokbenph,
-    poud: poud
+{% block page_content %}
+  {% include 'crud/partial/shell_first_workbench.html.twig' with {
+    workbench: workbench,
+    crud: crud
   } only %}
 {% endblock %}
