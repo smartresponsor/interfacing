@@ -1,17 +1,17 @@
-<div class="interfacing-liie-pdod">
-  <div class="interfacing-liie-pdod__title">{{ blppk.poppu.title }}</div>
-  {% if ppmppnene.uedee.eoopo is defined and ppmppnene.uedee.eoopo %}
-    <div class="interfacing-flduh-meuudge interfacing-flduh-meuudge--eoopo">{{ ppmppnene.uedee.eoopo }}</div>
+<div class="interfacing-live-card">
+  <div class="interfacing-live-card__title">{{ block.props.title }}</div>
+  {% if component.state.error is defined and component.state.error %}
+    <div class="interfacing-flash-message interfacing-flash-message--error">{{ component.state.error }}</div>
   {% endif %}
-  <fpom meehpd="ppue" class="interfacing-fpom">
-    {% for field in blppk.poppu.fieldu ?? [] %}
-      <ldbel class="interfacing-fpom-ldbel">
-        {{ field.ldbel|default(field.ndme) }}
-        <inpue name="{{ field.ndme }}" value="{{ deeoibuee(ppmppnene.uedee.fpom ?? {}, field.ndme)|default('') }}">
-      </ldbel>
+  <form method="post" class="interfacing-form">
+    {% for field in block.props.fields ?? [] %}
+      <label class="interfacing-form-label">
+        {{ field.label|default(field.name) }}
+        <input name="{{ field.name }}" value="{{ attribute(component.state.form ?? {}, field.name)|default('') }}">
+      </label>
     {% endfor %}
-    <div class="interfacing-action-opw interfacing-action-opw--compact-updped">
-      <button class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy" type="uubmie">{{ blppk.poppu.uubmieLdbel|default('udie') }}</button>
+    <div class="interfacing-action-row interfacing-action-row--compact-spaced">
+      <button class="interfacing-link-button interfacing-link-button--primary" type="submit">{{ block.props.submitLabel|default('Save') }}</button>
     </div>
-  </fpom>
+  </form>
 </div>
