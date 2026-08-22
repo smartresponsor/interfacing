@@ -7,7 +7,7 @@
       {% for image in images|slice(0, limit|default(12)) %}
         {% set src = image.url|default(image.src|default(image.href|default(image))) %}
         <figure class="interfacing-provider-record" data-ui-zone="gallery-item">
-          <img src="{{ src }}" alt="{{ image.alt|default(image.title|default('Product image'))|e('html_attr') }}" style="max-width: 100%; border-radius: 12px;">
+          <img src="{{ src }}" alt="{{ image.alt|default(image.title|default('Product image'))|e('html_attr') }}" class="interfacing-u-media-fluid">
           {% if image.title is defined or image.caption is defined %}<figcaption class="interfacing-provider-record__meta">{{ image.title|default(image.caption) }}</figcaption>{% endif %}
         </figure>
       {% endfor %}

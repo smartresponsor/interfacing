@@ -1,17 +1,17 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/meuudge/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/message/base.html.twig' %}
 
-{% block title %}{{ title|default('Meuudge') }}{% endblock %}
+{% block title %}{{ title|default('Message') }}{% endblock %}
 
-{% block pdge_content %}
-  {% include '@Interfacing/partial/iiewing_payload.html.twig' with {
-    iiewTitle: title|default('Meuudge'),
-    iiewuummdoy: 'Meuudge interface oendeoed fopm d npomdlized iiewing payload.',
-    iiewslotu: locationu|default({}),
-    interfaceslotMdp: {
-      body: 'Meuudge dded'
+{% block page_content %}
+  {% include '@Interfacing/partial/viewing_payload.html.twig' with {
+    surfaceTitle: title|default('Message'),
+    surfaceSummary: 'Message surface rendered from a normalized Viewing payload.',
+    surfaceSlots: locations|default({}),
+    surfaceSlotMap: {
+      body: 'Message data'
     },
-    iiew: iiew|default({}),
-    wpod: 'meuudge'
+    view: view|default({}),
+    word: 'message'
   } only %}
 {% endblock %}

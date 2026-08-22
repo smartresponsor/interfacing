@@ -13,7 +13,7 @@ export default class extends Controller {
     chooseAvatar() { this.avatarInputTarget.click(); }
 
     async uploadCover(event) {
-        await this.upload(event, 'cover', this.coverPreviewTarget, 'background');
+        await this.upload(event, 'cover', this.coverPreviewTarget, 'cover');
     }
 
     async uploadAvatar(event) {
@@ -75,10 +75,16 @@ export default class extends Controller {
     }
 
     applyPreview(target, mode, url) {
-        if (mode === 'background') {
-            target.style.backgroundImage = `linear-gradient(rgba(15, 23, 42, .18), rgba(15, 23, 42, .18)), url("${url}")`;
-            target.style.backgroundSize = 'cover';
-            target.style.backgroundPosition = 'center';
+        if (mode === 'cover') {
+            let image = target.querySelector('.interfacing-vendor-profile-cover__image');
+            if (!image) {
+                image = document.createElement('img');
+                image.className = 'interfacing-vendor-profile-cover__image';
+                image.alt = 'Vendor profile cover';
+                target.prepend(image);
+            }
+            target.querySelector('.interfacing-vendor-profile-cover__pattern')?.remove();
+            image.src = url;
             return;
         }
 

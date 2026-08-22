@@ -14,7 +14,7 @@
     </header>
 
     {% if body.items is defined and body.items is iterable and body.items is not empty %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Available locales</div>
         <div class="interfacing-provider-record-list">
           {% for item in body.items %}
@@ -34,7 +34,7 @@
         </div>
       </section>
     {% else %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-record interfacing-provider-record--empty">No locales configured.</div>
       </section>
     {% endif %}

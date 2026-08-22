@@ -1,26 +1,12 @@
-{# Shared surface header. Business content comes from producer payload; visual framing lives in Interfacing. #}
-{% set data = data|default({}) %}
-{% set meta = meta|default({}) %}
-{% set view = view|default({}) %}
-{% set surfaceKey = surfaceKey|default(surface|default(view.surface|default('surface'))) %}
-{% set operationKey = operationKey|default(operation|default(view.operation|default('index'))) %}
-{% set title = title|default(meta.title|default((surfaceKey ~ ' ' ~ operationKey)|replace({'-':' ', '_':' '})|title)) %}
-{% set subtitle = subtitle|default(meta.description|default('Rendered through the Viewing boundary and Interfacing surface templates.')) %}
-{% set actions = actions|default(data.actions|default([])) %}
-<header class="interfacing-provider-fallback-card" data-ui-zone="surface-header" data-surface="{{ surfaceKey|e('html_attr') }}" data-operation="{{ operationKey|e('html_attr') }}">
-  <div class="interfacing-provider-fallback-header">
-    <div class="interfacing-provider-fallback-heading">
-      <div class="interfacing-provider-fallback-eyebrow">{{ component|default(view.component|default(surfaceKey|title)) }} · {{ operationKey|replace({'-':' ', '_':' '})|title }}</div>
-      <h1 class="interfacing-provider-fallback-title">{{ title }}</h1>
-      <p class="interfacing-provider-fallback-description">{{ subtitle }}</p>
-    </div>
-    {% if actions is iterable and actions is not empty %}
-      <div class="interfacing-provider-fallback-actions" data-ui-zone="surface-actions">
-        {% for action in actions|slice(0, 4) %}
-          {% set actionUrl = action.url|default(action.href|default('#')) %}
-          <a class="interfacing-link-button{% if action.primary|default(false) %} interfacing-link-button--primary{% endif %}" href="{{ actionUrl }}">{{ action.label|default(action.title|default('Action')) }}</a>
-        {% endfor %}
-      </div>
-    {% endif %}
-  </div>
-</header>
+{# Compatibility adapter for callers that still resolve this historical filename. #}
+{% include '@Interfacing/partial/view_header.html.twig' with {
+  data: data|default({}),
+  meta: meta|default({}),
+  view: view|default({}),
+  viewKey: viewKey|default(view.view|default(view.name|default('view'))),
+  operationKey: operationKey|default(operation|default(view.operation|default('index'))),
+  title: title|default(null),
+  subtitle: subtitle|default(null),
+  actions: actions|default(data.actions|default([])),
+  component: component|default(view.component|default(null))
+} only %}

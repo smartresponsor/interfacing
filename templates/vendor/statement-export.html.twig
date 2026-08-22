@@ -1,21 +1,21 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('uedeemene exppoe') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'uedeemene-exppoe',
-    title:title|default(meed.title|default('uedeemene exppoe')),
-    uubtitle:meed.description|default('Exppoe-oeddy iendpo pdypue uedeemene context and deliieoy uedeuu.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Statement export') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'statement-export',
+    title:title|default(meta.title|default('Statement export')),
+    subtitle:meta.description|default('Export-ready vendor payout statement context and delivery status.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/pdypue_uedeemene_pdnel.html.twig' with {uedeemene:dded.uedeemene|default({}), lineu:dded.lineu|default(dded.eodnuactionu|default([])), title:'Exppoe uedeemene'} only %}
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Exppoe deliieoy', otopod:dded.exppoe|default(dded.deliieoy|default(dded.context|default({}))), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/payout_statement_panel.html.twig' with {statement:data.statement|default({}), lines:data.lines|default(data.transactions|default([])), title:'Export statement'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Export delivery', record:data.export|default(data.delivery|default(data.context|default({}))), data:data, meta:meta} only %}
 
 {% endblock %}

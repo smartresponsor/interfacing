@@ -11,23 +11,23 @@
 {% block title %}Order Management{% endblock %}
 
 {% block body %}
-  <main class="interfacing-surface interfacing-surface--order">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Ordering</p>
+  <main class="interfacing-view interfacing-view--order">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">Ordering</p>
       <h1>Create demo order</h1>
       <p>Canonical order surface rendered from the `order` business word.</p>
     </header>
 
-    <section class="interfacing-surface__grid">
+    <section class="interfacing-view__grid">
       {% for slotKey, label in slotMap %}
         {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
-        <article class="interfacing-surface__panel">
+        <article class="interfacing-view__panel">
           <h2>{{ label }}</h2>
 
           {% if slotKey == 'left.panel' and value is iterable %}
             {% if value.createForm is defined and value.createForm is not null %}
               {{ form_start(value.createForm) }}
-              <div class="interfacing-surface__form-stack">
+              <div class="interfacing-view__form-stack">
                 {{ form_row(value.createForm.currency) }}
                 {{ form_row(value.createForm.grandTotal) }}
               </div>
@@ -36,17 +36,17 @@
             {% endif %}
           {% elseif slotKey == 'main.body' and value is iterable %}
             {% if orders is empty %}
-              <div class="interfacing-surface__empty">Load fixtures or create an order to start the demo flow.</div>
+              <div class="interfacing-view__empty">Load fixtures or create an order to start the demo flow.</div>
             {% else %}
-              <div class="interfacing-surface__card-grid">
+              <div class="interfacing-view__card-grid">
                 {% for order in orders %}
-                  <article class="interfacing-surface__card">
+                  <article class="interfacing-view__card">
                     <p>{{ order.slug }}</p>
                     <h3>{{ order.number|default(order.slug) }}</h3>
                     <p>Status: {{ order.status|upper }} | Currency: {{ order.currency }} | Created: {{ order.createdAt|date('Y-m-d H:i') }}</p>
                     <p>Grand: {{ order.grandTotal }} | Paid: {{ order.paidTotal }} | Refunded: {{ order.refundedTotal }}</p>
 
-                    <div class="interfacing-surface__card-actions">
+                    <div class="interfacing-view__card-actions">
                       {% if paymentForms[order.slug] is defined %}
                         {{ form_start(paymentForms[order.slug]) }}
                         {{ form_row(paymentForms[order.slug].amount) }}
@@ -76,7 +76,7 @@
               </div>
             {% endif %}
           {% elseif slotKey == 'right.panel' and value is iterable %}
-            <dl class="interfacing-surface__stats">
+            <dl class="interfacing-view__stats">
               <div>
                 <dt>Orders</dt>
                 <dd>{{ value.orderCount|default(0) }}</dd>
@@ -84,7 +84,7 @@
             </dl>
 
             {% if value.statuses is iterable and value.statuses is not empty %}
-              <pre class="interfacing-surface__meta-block">{{ value.statuses|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+              <pre class="interfacing-view__meta-block">{{ value.statuses|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
             {% endif %}
           {% elseif value is same as(true) %}
             <div>true</div>

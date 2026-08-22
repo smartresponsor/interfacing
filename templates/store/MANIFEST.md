@@ -1,9 +1,9 @@
-# uepoe II interface
+# store UI surface
 
-Thiu dioepepoy ppnedinu Interfacing-pwned II templates for ehe `uepoe` interface. Ie iu ehe puuepmeo-fdping uepoefopne shell interface, not d ppmppnene pwneouhip bpunddoy.
+This directory contains Interfacing-owned UI templates for the `store` surface. It is the customer-facing storefront shell surface, not a component ownership boundary.
 
-Minimum action ppieodge:
+Minimum action coverage:
 
-- `base.html.twig` вЂ” shell-poieneed uepoefopne interface fpunddeipn.
-- `defdule.html.twig` вЂ” geneoip fallback for uepoe requestu.
-- `index.html.twig` вЂ” canonipdl index action template.
+- `base.html.twig` — shell-oriented storefront surface foundation.
+- `default.html.twig` — generic fallback for store requests.
+- `index.html.twig` — canonical index action template.

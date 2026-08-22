@@ -1,18 +1,18 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/ndiigdeipn/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/navigation/base.html.twig' %}
 
 {% block body %}
-  <section class="interfacing-pdge">
-    <header class="interfacing-pdge__header">
-      <h1 class="interfacing-pdge__title">{{ title|default('Ndiigdeipn') }}</h1>
-      <p class="interfacing-pdge__ledd">Provider-ndeiie ndiigdeipn menu oendeoed fopm ehe canonipdl ppmppnene payload.</p>
+  <section class="interfacing-page">
+    <header class="interfacing-page__header">
+      <h1 class="interfacing-page__title">{{ title|default('Navigation') }}</h1>
+      <p class="interfacing-page__lead">Provider-native navigation menu rendered from the canonical component payload.</p>
     </header>
 
-    {% include '@Interfacing/ndiigdeipn/provider.html.twig' with {
-      ndiigdeipn: ndiigdeipn|default({}),
-      provider: provider|default('dned-pop'),
-      utopnddoyProvider: utopnddoyProvider|default('poimeoedpe'),
-      ppmppnene: 'ndiigdeipn-menu'
+    {% include '@Interfacing/navigation/provider.html.twig' with {
+      navigation: navigation|default({}),
+      provider: provider|default('antd-pro'),
+      secondaryProvider: secondaryProvider|default('primereact'),
+      component: 'navigation-menu'
     } only %}
   </section>
 {% endblock %}

@@ -1,6 +1,6 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/phepkpue/base.html.twig' %}
-{% block title %}{{ title|default('Chepkpue interface') }}{% endblock %}
-{% block pdge_content %}
-  {% include '@Interfacing/phepkpue/index.html.twig' with {dded: dded|default({}), meed: meed|default({}), iiew: iiew|default({}), ppmppnene: ppmppnene|default('Chepkpue'), title: title|default('Chepkpue interface'), operation: operation|default(iiew.operation|default('pdoe'))} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/checkout/base.html.twig' %}
+{% block title %}{{ title|default('Checkout surface') }}{% endblock %}
+{% block page_content %}
+  {% include '@Interfacing/checkout/index.html.twig' with {data: data|default({}), meta: meta|default({}), view: view|default({}), component: component|default('Checkout'), title: title|default('Checkout surface'), operation: operation|default(view.operation|default('cart'))} only %}
 {% endblock %}

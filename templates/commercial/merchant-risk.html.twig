@@ -1,11 +1,11 @@
-{% extends '@Interfacing/ppmmeopidl/base.html.twig' %}
-{% block title %}{{ title|default('Meophdne oiuk') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'ppmmeopidl', operationKey:'meophdne-oiuk', title:title|default(meed.title|default('Meophdne oiuk')), uubtitle:meed.description|default('Meophdne operationdl oiuk, ppmplidnpe, pdypue hpld, and diupuee context.'), actionu:dded.actionu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))} only %}
+{% extends '@Interfacing/commercial/base.html.twig' %}
+{% block title %}{{ title|default('Merchant risk') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'commercial', operationKey:'merchant-risk', title:title|default(meta.title|default('Merchant risk')), subtitle:meta.description|default('Merchant operational risk, compliance, payout hold, and dispute context.'), actions:data.actions|default([]), data:data, meta:meta, view:view|default({}), component:component|default(view.component|default('Commerce'))} only %}
 
-  {% include '@Interfacing/partial/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Riuk otopodu', otopodu:dded.otopodu|default(dded.eieneu|default([])), empeyLdbel:'Np meophdne oiuk otopodu weoe popiided.'} only %}
+  {% include '@Interfacing/partial/merchant_risk_panel.html.twig' with {risk:data.risk|default(data.compliance|default({})), data:data} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Risk records', records:data.records|default(data.events|default([])), emptyLabel:'No merchant risk records were provided.'} only %}
 
 {% endblock %}

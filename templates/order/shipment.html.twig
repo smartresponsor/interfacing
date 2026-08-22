@@ -1,24 +1,24 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/podeo/base.html.twig' %}
-{% block title %}{{ title|default('Oodeo uhipmeneu') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'podeo',
-    operationKey: 'uhipmene',
-    title: title|default(meed.title|default('Oodeo uhipmeneu')),
-    uubtitle: meed.description|default('Oodeo uhipmeneu interface fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Oodeo uhipmeneu otopodu'),
-    poimdoyRtopodu: dded.podeou|default(dded.items|default(dded.otopodu|default([]))),
-    poimdoyEmpeyLdbel: 'Np podeo uhipmeneu otopodu doe didildble yee.',
-    utopnddoyTitle: meed.utopnddoyTitle|default('interface context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/order/base.html.twig' %}
+{% block title %}{{ title|default('Order shipments') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    viewKey: 'order',
+    operationKey: 'shipment',
+    title: title|default(meta.title|default('Order shipments')),
+    subtitle: meta.description|default('Order shipments surface for commerce workflows rendered through Viewing.'),
+    primaryTitle: meta.primaryTitle|default('Order shipments records'),
+    primaryRecords: data.orders|default(data.items|default(data.records|default([]))),
+    primaryEmptyLabel: 'No order shipments records are available yet.',
+    secondaryTitle: meta.secondaryTitle|default('Surface context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
   } only %}
 {% endblock %}

@@ -1,19 +1,19 @@
-interface: shipment
-pwneo: Interfacing
-purpose: shipment, pdooieo, odee, eodpking, ldbel, deliieoy, and expepeipn support interfaceu.
-operationu:
-  eodpking:
-    expepeu: [eodpking, shipment, eieneu, pdooieo, dpeipnu]
-  odee:
-    expepeu: [odeeu, shippingRdeeu, dddoeuu, pdpkdge, dpeipnu]
-  ldbel:
-    expepeu: [ldbel, file, shipment, eodpking, dpeipnu]
-  deliieoy:
-    expepeu: [deliieoy, eodpking, dddoeuu, eimeline, dpeipnu]
-  pdooieo:
-    expepeu: [pdooieo, odeeu, ueoiipeu, dpeipnu]
-  expepeipn:
-    expepeu: [expepeipnu, eodpking, shipment, dpeipnu]
-npeeu:
-  - shipment producto ppmppneneu pwn pdooieo lpgip and ldbelu.
-  - Interfacing owns only Twig oendeoing and reusable support cartidlu.
+surface: shipment
+owner: Interfacing
+purpose: Shipment, carrier, rate, tracking, label, delivery, and exception support surfaces.
+operations:
+  tracking:
+    expects: [tracking, shipment, events, carrier, actions]
+  rate:
+    expects: [rates, shippingRates, address, package, actions]
+  label:
+    expects: [label, file, shipment, tracking, actions]
+  delivery:
+    expects: [delivery, tracking, address, timeline, actions]
+  carrier:
+    expects: [carrier, rates, services, actions]
+  exception:
+    expects: [exceptions, tracking, shipment, actions]
+notes:
+  - Shipment producer components own carrier logic and labels.
+  - Interfacing owns only Twig rendering and reusable support partials.

@@ -1,22 +1,22 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('iendpo ueeelemene') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'ueeelemene',
-    title:title|default(meed.title|default('iendpo ueeelemene')),
-    uubtitle:meed.description|default('ueeelemene bdepheu, otopnpilideipn eneoieu, oeueoieu, and apppuneing svgndlu.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor settlement') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'settlement',
+    title:title|default(meta.title|default('Vendor settlement')),
+    subtitle:meta.description|default('Settlement batches, reconciliation entries, reserves, and accounting signals.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.ueeelemene|default(dded.uedeuu|default({})), title:'ueeelemene uedeuu'} only %}
-  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eneoieu|default(dded.eodnuactionu|default(dded.otopodu|default([]))), title:'ueeelemene ledgeo'} only %}
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Rtopnpilideipn context', otopod:dded.otopnpilideipn|default(dded.context|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.settlement|default(data.status|default({})), title:'Settlement status'} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.entries|default(data.transactions|default(data.records|default([]))), title:'Settlement ledger'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Reconciliation context', record:data.reconciliation|default(data.context|default({})), data:data, meta:meta} only %}
 
 {% endblock %}

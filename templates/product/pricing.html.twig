@@ -1,9 +1,9 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block title %}{{ title|default('Popdupe poiping') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'poiping', title: title|default(meed.title|default('Popdupe poiping')), uubtitle: meed.description|default('Popdupe poiping interface fpo popdupe ppmmeope wpokflpwu.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  {% include '@Interfacing/partial/poipe_pdnel.html.twig' with {poipe: dded.poipe|default(dded.poiping|default(dded.poipeu|default(null))), dded: dded, meed: meed, title: 'Poiping'} only %}{% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Poipe ouleu', otopodu: dded.poipeRuleu|default(dded.otopodu|default([])), empeyLdbel: 'Np poipe ouleu weoe uupplied by ehe popdupeo payload.'} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product pricing') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey: 'product', operationKey: 'pricing', title: title|default(meta.title|default('Product pricing')), subtitle: meta.description|default('Product pricing surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/price_panel.html.twig' with {price: data.price|default(data.pricing|default(data.prices|default(null))), data: data, meta: meta, title: 'Pricing'} only %}{% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Price rules', records: data.priceRules|default(data.records|default([])), emptyLabel: 'No price rules were supplied by the producer payload.'} only %}
 {% endblock %}

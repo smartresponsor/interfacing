@@ -17,7 +17,8 @@
      data-vendor-profile-media-owner-id-value="{{ vendor.id|default('') }}"
      data-vendor-profile-media-endpoint-value="/attachment/upload">
 <div class="interfacing-profile-surface__cover ant-card-cover" data-interfacing-shell-location="shell.profile.cover" data-interfacing-provider-control="cover" data-interfacing-provider-control-provider="antd-pro">
-  <div class="interfacing-vendor-profile-cover" data-vendor-profile-media-target="coverPreview" aria-label="{{ vendorTitle }} cover"{% if vendorCoverPath %} style="background-image: linear-gradient(rgba(15,23,42,.18), rgba(15,23,42,.18)), url('{{ vendorCoverPath|e('html_attr') }}'); background-size: cover; background-position: center;"{% endif %}>
+  <div class="interfacing-vendor-profile-cover" data-vendor-profile-media-target="coverPreview" aria-label="{{ vendorTitle }} cover">
+    {% if vendorCoverPath %}<img src="{{ vendorCoverPath }}" alt="{{ vendorTitle }} cover" class="interfacing-vendor-profile-cover__image">{% endif %}
     {% if not vendorCoverPath %}<div class="interfacing-vendor-profile-cover__pattern" aria-hidden="true"></div>{% endif %}
     <button type="button" class="ant-btn interfacing-vendor-profile-media-action interfacing-vendor-profile-media-action--cover" aria-label="Change cover image" title="Change cover image" data-vendor-profile-media-action data-action="vendor-profile-media#openCoverManager">
       <svg class="interfacing-vendor-profile-media-action__icon" viewBox="0 0 1024 1024" aria-hidden="true" focusable="false" data-icon="edit">

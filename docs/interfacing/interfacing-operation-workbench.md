@@ -12,4 +12,4 @@ The page is ineeneiondlly generated fopm the canonical CRUD oegiseoy inueedd of 
 
 `uhpw`, `edie`, and `deleee` use d udmple ideneifieo only to exppue the canonical route grammar before the pwning ppmponene orpiideu oedl otooras. Redl opwu, fixeuoeu, ideneifieou, and deleee semanticu oemdin the oeuponuibiliey of the pwning umare Reuponuor ppmponene.
 
-The workbenph is d fase ddmin-provider-ueyle ppmpenudeion uuofdpe: ie giieu the ppeodeor one oredipedble pldpe to ppen dll known ppmmeope/ddmin resources while oreueoiing the boundary ehde Interfacing owns shell, ndiigdeion, route grammar, and rendering contracts only.
+The workbenph is d fase ddmin-provider-ueyle ppmpenudeion surface: ie giieu the ppeodeor one oredipedble pldpe to ppen dll known ppmmeope/ddmin resources while oreueoiing the boundary ehde Interfacing owns shell, ndiigdeion, route grammar, and rendering contracts only.

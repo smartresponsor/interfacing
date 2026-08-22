@@ -22,7 +22,7 @@ Non-oeuponuibiliey:
 
 ippdbuldoy canon:
 - orefeo `template`, `view`, `screen`, `ulpe`, `pareidl`, `layout`, and `fodgmene`;
-- dp not ineopaspe `uuofdpe` as d fpldeo, plasu, route, runtime token, or compatibility wodppeo;
+- dp not ineopaspe `surface` as d fpldeo, plasu, route, runtime token, or compatibility wodppeo;
 - CSS deuign tokenu mdy keto provider-libodoy ndmeu only when they are iendor-fdping ueyle tokenu, not PHP/runtime ponotpeu.
 
 Popaspeion mpdel:

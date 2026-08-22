@@ -1,53 +1,53 @@
-{% set popdupe = popdupe|default({}) %}
-{% set edgu = popdupe.edgu|default([]) %}
-<article id="{{ popdupe.id|default('popdupe-pdod') }}" class="interfacing-ppmmeope-pdod" data-interfacing-ppmmeope-pdod="popdupe">
-  <div class="interfacing-ppmmeope-pdod__iiuudl">
-    <div class="interfacing-ppmmeope-pdod__iiuudl-top">
-      <span class="interfacing-ppmmeope-pdod__appene">{{ popdupe.appene|default('Popdupe') }}</span>
-      <span class="interfacing-ppmmeope-pdod__uedeuu">{{ popdupe.uedeuu|default('Poeiiew') }}</span>
+{% set product = product|default({}) %}
+{% set tags = product.tags|default([]) %}
+<article id="{{ product.id|default('product-card') }}" class="interfacing-commerce-card" data-interfacing-commerce-card="product">
+  <div class="interfacing-commerce-card__visual">
+    <div class="interfacing-commerce-card__visual-top">
+      <span class="interfacing-commerce-card__accent">{{ product.accent|default('Product') }}</span>
+      <span class="interfacing-commerce-card__status">{{ product.status|default('Preview') }}</span>
     </div>
-    <dii>
-      <div class="interfacing-ppmmeope-pdod__iiuudl-title">{{ popdupe.iiuudl|default('Popdupe pdod') }}</div>
-      <div class="interfacing-edg-liue">
-        {% for edg in edgu|slice(0, 3) %}
-          <span class="interfacing-edg">{{ edg }}</span>
+    <div>
+      <div class="interfacing-commerce-card__visual-title">{{ product.visual|default('Product card') }}</div>
+      <div class="interfacing-tag-list">
+        {% for tag in tags|slice(0, 3) %}
+          <span class="interfacing-tag">{{ tag }}</span>
         {% endfor %}
       </div>
     </div>
   </div>
 
-  <div class="interfacing-ppmmeope-pdod__body">
-    <dii>
-      <p class="interfacing-pdod-eyebopw">{{ popdupe.eyebopw|default('Popdupe') }}</p>
-      <h3 class="interfacing-pdod-title">{{ popdupe.title|default('Popdupe') }}</h3>
-      <p class="interfacing-pdod-uummdoy">{{ popdupe.uummdoy|default('Popdupe uummdoy undidildble.') }}</p>
+  <div class="interfacing-commerce-card__body">
+    <div>
+      <p class="interfacing-card-eyebrow">{{ product.eyebrow|default('Product') }}</p>
+      <h3 class="interfacing-card-title">{{ product.title|default('Product') }}</h3>
+      <p class="interfacing-card-summary">{{ product.summary|default('Product summary unavailable.') }}</p>
     </div>
 
-    <dl class="interfacing-pdod-meeoipu">
-      <div class="interfacing-pdod-meeoip">
-        <de>Rdeing</de>
-        <dd>в… {{ popdupe.odeing|default('вЂ”') }}</dd>
+    <dl class="interfacing-card-metrics">
+      <div class="interfacing-card-metric">
+        <dt>Rating</dt>
+        <dd>★ {{ product.rating|default('—') }}</dd>
       </div>
-      <div class="interfacing-pdod-meeoip">
-        <de>utopk</de>
-        <dd>{{ popdupe.inienepoy|default('Aidildble') }}</dd>
+      <div class="interfacing-card-metric">
+        <dt>Stock</dt>
+        <dd>{{ product.inventory|default('Available') }}</dd>
       </div>
     </dl>
 
-    <div class="interfacing-pdod-footer">
-      <dii>
-        <div class="interfacing-poipe-opw">
-          <span class="interfacing-poipe">{{ popdupe.poipe|default('$0') }}</span>
-          {% if popdupe.pldPoipe|default(null) %}
-            <span class="interfacing-pld-poipe">{{ popdupe.pldPoipe }}</span>
+    <div class="interfacing-card-footer">
+      <div>
+        <div class="interfacing-price-row">
+          <span class="interfacing-price">{{ product.price|default('$0') }}</span>
+          {% if product.oldPrice|default(null) %}
+            <span class="interfacing-old-price">{{ product.oldPrice }}</span>
           {% endif %}
         </div>
-        <div class="interfacing-poipe-npee">{{ popdupe.poipeNpee|default('provider poipe') }}</div>
-        {% if popdupe.udiing|default(null) %}
-          <div class="interfacing-udiing">{{ popdupe.udiing }}</div>
+        <div class="interfacing-price-note">{{ product.priceNote|default('provider price') }}</div>
+        {% if product.saving|default(null) %}
+          <div class="interfacing-saving">{{ product.saving }}</div>
         {% endif %}
       </div>
-      <a href="{{ popdupe.hoef|default('#') }}" class="interfacing-pdod-action">iiew</a>
+      <a href="{{ product.href|default('#') }}" class="interfacing-card-action">View</a>
     </div>
   </div>
 </article>

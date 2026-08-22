@@ -9,7 +9,7 @@
 
 {% block page_content %}
   {% include '@Interfacing/partial/workbench.html.twig' with {
-    surfaceKey: 'order',
+    viewKey: 'order',
     operationKey: operation|default(view.operation|default('index')),
     title: title|default(meta.title|default('Order workbench')),
     subtitle: meta.description|default('Order surface rendered through shared Interfacing partials.'),

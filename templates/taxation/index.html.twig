@@ -8,15 +8,15 @@
 {% block title %}Taxation{% endblock %}
 
 {% block body %}
-  <main class="interfacing-surface interfacing-surface--taxation">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Taxation</p>
+  <main class="interfacing-view interfacing-view--taxation">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">Taxation</p>
       <h1>Taxation Admin</h1>
       <p>Taxation operator surface rendered through Viewing and Interfacing.</p>
     </header>
 
-    <section class="interfacing-surface__grid">
-      <article class="interfacing-surface__panel">
+    <section class="interfacing-view__grid">
+      <article class="interfacing-view__panel">
         <h2>API surfaces</h2>
         <div class="interfacing-provider-record-list">
           {% for link in links %}
@@ -30,7 +30,7 @@
         </div>
       </article>
 
-      <article class="interfacing-surface__panel">
+      <article class="interfacing-view__panel">
         <h2>Metrics</h2>
         <p><a class="interfacing-link-button" href="{{ metricsUrl }}">Open metrics</a></p>
       </article>

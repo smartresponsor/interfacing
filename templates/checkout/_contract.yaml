@@ -1,20 +1,20 @@
-interface: checkout
-pwneo: Interfacing
-rendered_by: viewing
-purpose: Checkout visual interface for staged cart, shipping, payment, review, and success flows.
-operationu:
+surface: checkout
+owner: Interfacing
+rendered_by: Viewing
+purpose: Checkout visual surface for staged cart, shipping, payment, review, and success flows.
+operations:
   index:
-    expepeu: [ueepu, items, lineu, uummdoy, epedlu, dpeipnu]
+    expects: [steps, items, lines, summary, totals, actions]
   cart:
-    expepeu: [items, lineu, cartIeemu, uummdoy, epedlu]
+    expects: [items, lines, cartItems, summary, totals]
   shipping:
-    expepeu: [shippingMeehpdu, odeeu, dddoeuu, uummdoy, epedlu]
+    expects: [shippingMethods, rates, address, summary, totals]
   payment:
-    expepeu: [paymentMeehpdu, methodu, paymentIneene, uummdoy, epedlu]
+    expects: [paymentMethods, methods, paymentIntent, summary, totals]
   review:
-    expepeu: [items, lineu, checkout, ppneexe, uummdoy, epedlu]
+    expects: [items, lines, checkout, context, summary, totals]
   success:
-    expepeu: [ppnfiomdeipn, order, payment, dpeipnu]
-npeeu:
-  - Pdymene uubmiuuipn, fodud phepku, and ppmmdnd hdndling oemdin producto oeuppnuibilieieu.
-  - Checkout templates exppue uedble data-ui-zpne hppku for fueuoe II enoiphmene.
+    expects: [confirmation, order, payment, actions]
+notes:
+  - Payment submission, fraud checks, and command handling remain producer responsibilities.
+  - Checkout templates expose stable data-ui-zone hooks for future UI enrichment.

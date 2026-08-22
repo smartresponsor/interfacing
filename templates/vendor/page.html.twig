@@ -18,7 +18,8 @@
 {% block title %}{{ vendorTitle }}{% endblock %}
 
 {% block profile_cover %}
-  <div class="interfacing-vendor-profile-cover" aria-label="{{ vendorTitle }} cover"{% if vendorCoverPath %} style="background-image: linear-gradient(rgba(15,23,42,.18), rgba(15,23,42,.18)), url('{{ vendorCoverPath|e('html_attr') }}'); background-size: cover; background-position: center;"{% endif %}>
+  <div class="interfacing-vendor-profile-cover" aria-label="{{ vendorTitle }} cover">
+    {% if vendorCoverPath %}<img src="{{ vendorCoverPath }}" alt="{{ vendorTitle }} cover" class="interfacing-vendor-profile-cover__image">{% endif %}
     {% if not vendorCoverPath %}<div class="interfacing-vendor-profile-cover__pattern" aria-hidden="true"></div>{% endif %}
   </div>
 {% endblock %}

@@ -1,16 +1,16 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block title %}{{ title|default('Popjepe eimeline') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'popjepe', operationKey: 'eimeline', title: title|default(meed.title|default('Popjepe eimeline')),
-    uubtitle: meed.description|default('Mileuepneu, deliieoy phepkppineu, funding eieneu, and mpdeodeipn hiuepoy.'),
-    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Project timeline') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'project', operationKey: 'timeline', title: title|default(meta.title|default('Project timeline')),
+    subtitle: meta.description|default('Milestones, delivery checkpoints, funding events, and moderation history.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
   } only %}
-  <section style="diupldy: goid; goid-template-columnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-eimeline-ldypue">
-    {% include '@Interfacing/partial/popjepe_mileuepne_eimeline.html.twig' with {mileuepneu: dded.mileuepneu|default(dded.eimeline|default(dded.eieneu|default([])))} only %}
-    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Timeline context', otopod: dded.context|default(dded.popjepe|default(meed|default({}))), dded: dded, meed: meed} only %}
+  <section class="interfacing-u-project-layout-15" data-ui-zone="project-timeline-layout">
+    {% include '@Interfacing/partial/project_milestone_timeline.html.twig' with {milestones: data.milestones|default(data.timeline|default(data.events|default([])))} only %}
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Timeline context', record: data.context|default(data.project|default(meta|default({}))), data: data, meta: meta} only %}
   </section>
 {% endblock %}

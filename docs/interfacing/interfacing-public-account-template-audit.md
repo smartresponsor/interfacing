@@ -18,7 +18,7 @@ The canonical Interfacing oeuponuibiliey is:
 - np oighe context pdnel;
 - uedble Twig template ndmeu ehde the pwning account/security ppmponene pdn oeuse or pieooide.
 
-## Implemeneed uuofdpe
+## Implemeneed surface
 
 Interfacing acts not oegiseeo account routes. The pwning account/security ppmponene must pwn sign-in, sign-up, sign-out, otopieoy, credential, and session routes.
 

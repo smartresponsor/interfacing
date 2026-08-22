@@ -9,26 +9,26 @@
 {% block title %}{{ query is not empty ? 'Search: ' ~ query : 'Search results' }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-surface interfacing-surface--search">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Searching</p>
+  <main class="interfacing-view interfacing-view--search">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">Searching</p>
       <h1>{{ query is not empty ? 'Search: ' ~ query : 'Search results' }}</h1>
       <p>Canonical search surface for the ecosystem.</p>
     </header>
 
-    <section class="interfacing-surface__grid">
+    <section class="interfacing-view__grid">
       {% for slotKey, label in slotMap %}
         {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
-        <article class="interfacing-surface__panel">
+        <article class="interfacing-view__panel">
           <h2>{{ label }}</h2>
 
           {% if slotKey == 'top.search' and value is iterable %}
-            <form class="interfacing-surface__search" method="{{ value.method|default('get') }}" action="{{ value.action|default('/search/result') }}">
+            <form class="interfacing-view__search" method="{{ value.method|default('get') }}" action="{{ value.action|default('/search/result') }}">
               <input name="{{ value.queryName|default('q') }}" value="{{ value.query|default('') }}" placeholder="{{ value.placeholder|default('Search...') }}">
               <button type="submit">Search</button>
             </form>
           {% elseif slotKey == 'left.panel' and value is iterable %}
-            <div class="interfacing-surface__panel-group">
+            <div class="interfacing-view__panel-group">
               <h3>Facets</h3>
               <ul>
                 {% for facet in value.facets|default([]) %}
@@ -41,7 +41,7 @@
                 {% endfor %}
               </ul>
             </div>
-            <div class="interfacing-surface__panel-group">
+            <div class="interfacing-view__panel-group">
               <h3>Suggestions</h3>
               <ul>
                 {% for suggestion in value.suggestions|default([]) %}
@@ -53,16 +53,16 @@
             </div>
           {% elseif slotKey == 'main.body' and value is iterable %}
             {% if error is not null %}
-              <div class="interfacing-surface__alert">
+              <div class="interfacing-view__alert">
                 Search is temporarily limited.
               </div>
             {% endif %}
 
             {% if value.result is iterable and value.result.items is defined %}
-              <div class="interfacing-surface__meta">{{ value.result.total|default(0) }} hits</div>
-              <div class="interfacing-surface__card-grid">
+              <div class="interfacing-view__meta">{{ value.result.total|default(0) }} hits</div>
+              <div class="interfacing-view__card-grid">
                 {% for item in value.result.items %}
-                  <article class="interfacing-surface__card">
+                  <article class="interfacing-view__card">
                     <p>{{ item.component|default('search') }} / {{ item.resourceType|default('result') }}</p>
                     <h3>{{ item.title|default('Result') }}</h3>
                     {% if item.summary is not empty %}
@@ -73,14 +73,14 @@
                     {% endif %}
                   </article>
                 {% else %}
-                  <div class="interfacing-surface__empty">No results found.</div>
+                  <div class="interfacing-view__empty">No results found.</div>
                 {% endfor %}
               </div>
             {% else %}
-              <div class="interfacing-surface__empty">Enter a query to see results.</div>
+              <div class="interfacing-view__empty">Enter a query to see results.</div>
             {% endif %}
           {% elseif slotKey == 'right.panel' and value is iterable %}
-            <dl class="interfacing-surface__stats">
+            <dl class="interfacing-view__stats">
               {% for stat in value.stats|default([]) %}
                 <div>
                   <dt>{{ stat.label|default('Stat') }}</dt>
@@ -89,7 +89,7 @@
               {% endfor %}
             </dl>
             {% if value.metadata is iterable and value.metadata is not empty %}
-              <pre class="interfacing-surface__meta-block">{{ value.metadata|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+              <pre class="interfacing-view__meta-block">{{ value.metadata|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
             {% endif %}
           {% elseif value is same as(true) %}
             <div>true</div>

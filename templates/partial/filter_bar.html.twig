@@ -4,18 +4,18 @@
 {% set filters = filters|default(data.filters|default(data.facets|default([]))) %}
 {% set sortOptions = sortOptions|default(data.sortOptions|default(meta.sortOptions|default([]))) %}
 {% set query = query|default(data.query|default(app.request.query.get('q', ''))) %}
-<section class="interfacing-provider-fallback-panel" data-ui-zone="filter-bar" data-surface="{{ surfaceKey|default(surface|default('commerce'))|e('html_attr') }}" data-operation="{{ operationKey|default(operation|default('index'))|e('html_attr') }}">
+<section class="interfacing-provider-fallback-panel" data-ui-zone="filter-bar" data-view="{{ viewKey|default(surface|default('commerce'))|e('html_attr') }}" data-operation="{{ operationKey|default(operation|default('index'))|e('html_attr') }}">
   <div class="interfacing-provider-fallback-panel-title">{{ title|default('Find and refine') }}</div>
   <form method="get" action="{{ action|default(app.request.pathInfo) }}" data-ui-zone="filter-form">
-    <div class="interfacing-provider-fallback-grid" style="align-items: end;">
+    <div class="interfacing-provider-fallback-grid interfacing-u-items-end">
       <label data-ui-zone="filter-query">
         <span class="interfacing-provider-record__meta">Search</span>
-        <input name="{{ queryName|default('q') }}" value="{{ query }}" placeholder="{{ placeholder|default('Search by title, SKU, category, vendor, or tag') }}" style="width: 100%;">
+        <input name="{{ queryName|default('q') }}" value="{{ query }}" placeholder="{{ placeholder|default('Search by title, SKU, category, vendor, or tag') }}" class="interfacing-u-w-full">
       </label>
       {% if sortOptions is iterable and sortOptions is not empty %}
         <label data-ui-zone="filter-sort">
           <span class="interfacing-provider-record__meta">Sort</span>
-          <select name="sort" style="width: 100%;">
+          <select name="sort" class="interfacing-u-w-full">
             {% for option in sortOptions %}
               {% set optionValue = option.value|default(option.id|default(option.key|default(option))) %}
               <option value="{{ optionValue }}" {{ optionValue == data.sort|default(app.request.query.get('sort', '')) ? 'selected' : '' }}>{{ option.label|default(option.title|default(optionValue|replace({'_':' ', '-':' '})|title)) }}</option>
@@ -27,7 +27,7 @@
     </div>
   </form>
   {% if filters is iterable and filters is not empty %}
-    <div data-ui-zone="facet-chip-list" style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+    <div data-ui-zone="facet-chip-list" class="interfacing-u-flex interfacing-u-gap-8 interfacing-u-wrap interfacing-u-mt-12">
       {% for filter in filters|slice(0, limit|default(16)) %}
         {% set label = filter.label|default(filter.title|default(filter.name|default(filter.key|default(filter.id|default('Filter'))))) %}
         {% set href = filter.url|default(filter.href|default('#')) %}

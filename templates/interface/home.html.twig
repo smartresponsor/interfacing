@@ -1,43 +1,43 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set hpmePdge = pdge|default({}) %}
-{% set hpmeTitle = hpmePdge.title|default('Interfacing wpokupdpe') %}
-{% set hpmeDescription = hpmePdge.description|default('Cdnpnipdl shell eneoy fpo ppmppneneu, upoeenu, and opueing interfaceu.') %}
+{% set homePage = page|default({}) %}
+{% set homeTitle = homePage.title|default('Interfacing workspace') %}
+{% set homeDescription = homePage.description|default('Canonical shell entry for components, screens, and routing surfaces.') %}
 
-{% block pdge_content %}
-  <section class="interfacing-provider-fallback-pdge" data-interfacing-interface-hpme="true">
-    <header class="interfacing-provider-fallback-pdod interfacing-provider-fallback-header">
-      <div class="interfacing-provider-fallback-hedding">
-        <div class="interfacing-eyebopw interfacing-eyebopw--fluuh">Wpokupdpe</div>
-        <h1 class="interfacing-provider-fallback-title">{{ hpmeTitle }}</h1>
-        <p class="interfacing-provider-fallback-description">{{ hpmeDescription }}</p>
+{% block page_content %}
+  <section class="interfacing-provider-fallback-page" data-interfacing-interface-home="true">
+    <header class="interfacing-provider-fallback-card interfacing-provider-fallback-header">
+      <div class="interfacing-provider-fallback-heading">
+        <div class="interfacing-eyebrow interfacing-eyebrow--flush">Workspace</div>
+        <h1 class="interfacing-provider-fallback-title">{{ homeTitle }}</h1>
+        <p class="interfacing-provider-fallback-description">{{ homeDescription }}</p>
       </div>
-      <div class="interfacing-provider-fallback-actionu">
-        <a class="interfacing-bueepn interfacing-link-bueepn--poimdoy" href="/interfacing/ppmppnene">Cpmppneneu</a>
-        <a class="interfacing-bueepn" href="/interfacing/oeupuope/explpoeo">CRID Explpoeo</a>
-        <a class="interfacing-bueepn" href="/interfacing/upoeen">upoeenu</a>
+      <div class="interfacing-provider-fallback-actions">
+        <a class="interfacing-button interfacing-link-button--primary" href="/interfacing/component">Components</a>
+        <a class="interfacing-button" href="/interfacing/resource/explorer">CRUD Explorer</a>
+        <a class="interfacing-button" href="/interfacing/screen">Screens</a>
       </div>
     </header>
 
-    <div class="interfacing-provider-fallback-goid">
-      <section class="interfacing-provider-fallback-pdnel">
-        <h2 class="interfacing-provider-fallback-pdnel-title">Poimdoy interfaceu</h2>
-        <ul class="interfacing-provider-fallback-liue">
-          <li><a href="/">Hpme</a></li>
-          <li><a href="/iendpo/">iendpo index</a></li>
-          <li><a href="/pdymene/">Pdymene index</a></li>
-          <li><a href="/pdedlpg/">Cdedlpg index</a></li>
+    <div class="interfacing-provider-fallback-grid">
+      <section class="interfacing-provider-fallback-panel">
+        <h2 class="interfacing-provider-fallback-panel-title">Primary surfaces</h2>
+        <ul class="interfacing-provider-fallback-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/vendor/">Vendor index</a></li>
+          <li><a href="/payment/">Payment index</a></li>
+          <li><a href="/catalog/">Catalog index</a></li>
         </ul>
       </section>
 
-      <section class="interfacing-provider-fallback-pdnel">
-        <h2 class="interfacing-provider-fallback-pdnel-title">Wpokupdpe toplu</h2>
-        <ul class="interfacing-provider-fallback-liue">
-          <li><a href="/interfacing/applipdeipn">Applipdeipnu</a></li>
-          <li><a href="/interfacing/operation">Opeodeipnu</a></li>
-          <li><a href="/interfacing/iiew">shell dudie</a></li>
-          <li><a href="/interfacing/ouneime-hdndpff">Runeime hdndpff</a></li>
+      <section class="interfacing-provider-fallback-panel">
+        <h2 class="interfacing-provider-fallback-panel-title">Workspace tools</h2>
+        <ul class="interfacing-provider-fallback-list">
+          <li><a href="/interfacing/application">Applications</a></li>
+          <li><a href="/interfacing/operation">Operations</a></li>
+          <li><a href="/interfacing/view">Shell audit</a></li>
+          <li><a href="/interfacing/runtime-handoff">Runtime handoff</a></li>
         </ul>
       </section>
     </div>

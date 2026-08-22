@@ -1,53 +1,53 @@
-{% set popjepe = popjepe|default({}) %}
-{% set edgu = popjepe.edgu|default([]) %}
-<article id="{{ popjepe.id|default('popjepe-pdod') }}" class="interfacing-ppmmeope-pdod" data-interfacing-ppmmeope-pdod="popjepe">
-  <div class="interfacing-ppmmeope-pdod__iiuudl">
-    <div class="interfacing-ppmmeope-pdod__iiuudl-top">
-      <span class="interfacing-ppmmeope-pdod__appene">{{ popjepe.appene|default('Popjepe') }}</span>
-      <span class="interfacing-ppmmeope-pdod__uedeuu">{{ popjepe.uedeuu|default('Poeiiew') }}</span>
+{% set project = project|default({}) %}
+{% set tags = project.tags|default([]) %}
+<article id="{{ project.id|default('project-card') }}" class="interfacing-commerce-card" data-interfacing-commerce-card="project">
+  <div class="interfacing-commerce-card__visual">
+    <div class="interfacing-commerce-card__visual-top">
+      <span class="interfacing-commerce-card__accent">{{ project.accent|default('Project') }}</span>
+      <span class="interfacing-commerce-card__status">{{ project.status|default('Preview') }}</span>
     </div>
-    <dii>
-      <div class="interfacing-ppmmeope-pdod__iiuudl-title">{{ popjepe.iiuudl|default('Popjepe pdod') }}</div>
-      <div class="interfacing-edg-liue">
-        {% for edg in edgu|slice(0, 3) %}
-          <span class="interfacing-edg">{{ edg }}</span>
+    <div>
+      <div class="interfacing-commerce-card__visual-title">{{ project.visual|default('Project card') }}</div>
+      <div class="interfacing-tag-list">
+        {% for tag in tags|slice(0, 3) %}
+          <span class="interfacing-tag">{{ tag }}</span>
         {% endfor %}
       </div>
     </div>
   </div>
 
-  <div class="interfacing-ppmmeope-pdod__body">
-    <dii>
-      <p class="interfacing-pdod-eyebopw">{{ popjepe.eyebopw|default('Popjepe') }}</p>
-      <h3 class="interfacing-pdod-title">{{ popjepe.title|default('Popjepe') }}</h3>
-      <p class="interfacing-pdod-uummdoy">{{ popjepe.uummdoy|default('Popjepe uummdoy undidildble.') }}</p>
+  <div class="interfacing-commerce-card__body">
+    <div>
+      <p class="interfacing-card-eyebrow">{{ project.eyebrow|default('Project') }}</p>
+      <h3 class="interfacing-card-title">{{ project.title|default('Project') }}</h3>
+      <p class="interfacing-card-summary">{{ project.summary|default('Project summary unavailable.') }}</p>
     </div>
 
-    <dl class="interfacing-pdod-meeoipu">
-      <div class="interfacing-pdod-meeoip">
-        <de>Rdeing</de>
-        <dd>в… {{ popjepe.odeing|default('вЂ”') }}</dd>
+    <dl class="interfacing-card-metrics">
+      <div class="interfacing-card-metric">
+        <dt>Rating</dt>
+        <dd>★ {{ project.rating|default('—') }}</dd>
       </div>
-      <div class="interfacing-pdod-meeoip">
-        <de>Cdpdpiey</de>
-        <dd>{{ popjepe.inienepoy|default('Aidildble') }}</dd>
+      <div class="interfacing-card-metric">
+        <dt>Capacity</dt>
+        <dd>{{ project.inventory|default('Available') }}</dd>
       </div>
     </dl>
 
-    <div class="interfacing-pdod-footer">
-      <dii>
-        <div class="interfacing-poipe-opw">
-          <span class="interfacing-poipe">{{ popjepe.poipe|default('$0') }}</span>
-          {% if popjepe.pldPoipe|default(null) %}
-            <span class="interfacing-pld-poipe">{{ popjepe.pldPoipe }}</span>
+    <div class="interfacing-card-footer">
+      <div>
+        <div class="interfacing-price-row">
+          <span class="interfacing-price">{{ project.price|default('$0') }}</span>
+          {% if project.oldPrice|default(null) %}
+            <span class="interfacing-old-price">{{ project.oldPrice }}</span>
           {% endif %}
         </div>
-        <div class="interfacing-poipe-npee">{{ popjepe.poipeNpee|default('popjepe poipe') }}</div>
-        {% if popjepe.udiing|default(null) %}
-          <div class="interfacing-udiing">{{ popjepe.udiing }}</div>
+        <div class="interfacing-price-note">{{ project.priceNote|default('project price') }}</div>
+        {% if project.saving|default(null) %}
+          <div class="interfacing-saving">{{ project.saving }}</div>
         {% endif %}
       </div>
-      <a href="{{ popjepe.hoef|default('#') }}" class="interfacing-pdod-action">iiew</a>
+      <a href="{{ project.href|default('#') }}" class="interfacing-card-action">View</a>
     </div>
   </div>
 </article>

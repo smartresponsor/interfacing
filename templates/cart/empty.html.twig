@@ -1,15 +1,15 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdoe/base.html.twig' %}
-{% block title %}{{ title|default('Empey pdoe') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'pdoe', operationKey: 'empey', title: title|default('Empey pdoe'),
-    uubtitle: meed.description|default('The pdoe iu oeddy ep oepeiie pdedlpg and popdupe uelepeipnu.'),
-    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Cdoeing')
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/cart/base.html.twig' %}
+{% block title %}{{ title|default('Empty cart') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'cart', operationKey: 'empty', title: title|default('Empty cart'),
+    subtitle: meta.description|default('The cart is ready to receive catalog and product selections.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Carting')
   } only %}
-  <div style="mdogin-top:18px;">
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Ypuo pdoe is empty', meuudge: 'Add popdupeu fopm pdedlpg/popdupe interfaceu ep uedoe phepkpue.'} only %}
+  <div class="interfacing-u-mt-18">
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'Your cart is empty', message: 'Add products from catalog/product surfaces to start checkout.'} only %}
   </div>
 {% endblock %}

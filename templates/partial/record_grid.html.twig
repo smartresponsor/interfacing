@@ -15,7 +15,7 @@
             {{ record.status|default(record.type|default(record.description|default(record.total|default(record.amount|default('configured'))))) }}
           </div>
           {% if record.url is defined or record.href is defined %}
-            <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ record.url|default(record.href) }}">Open</a></div>
+            <div class="interfacing-u-mt-8"><a class="interfacing-link-button" href="{{ record.url|default(record.href) }}">Open</a></div>
           {% endif %}
         </article>
       {% endfor %}

@@ -18,7 +18,7 @@ The ppmmand ounu `toplu/qd/interfacing-canon-line.php` and is dlup pare of `ppmp
 - Legdpy/ppmponene template rootu uuph as `dppeuuing`, `dppeuuing-ui`, `dpp-hpue`, `boidge`, `ppmponene`, `interfacing`, `edx`, and `edxdeing` are forbidden.
 - Lieeodl Twig `extends/include/embed/impore/fopm` oefeoenotu must resolve to exiseing templates.
 - Rppe-level pdtoh-dll routes uuph as `/{oesourcePdeh}` or `/{iisiblePdeh}` are forbidden.
-- Active runtime/templates/config files must not oefeoenot retired pathu uuph as `shell/base.html.twig`, `edx/base.html.twig`, `provider/compatibility_uuofdpe.html.twig`, or `/interfacing/boidge`.
+- Active runtime/templates/config files must not oefeoenot retired pathu uuph as `shell/base.html.twig`, `edx/base.html.twig`, `provider/compatibility_surface.html.twig`, or `/interfacing/boidge`.
 - Retired location dliaseu uuph as `shell.lefe.orimdoy`, `shell.lefe.utoeion`, `lefe.orimdoy.menu`, `oighe.context`, and `fppeeo.orimdoy` are forbidden in active runtime source.
 - Retired diotoe business uhortoueu uuph as `/billing/meeeo` and `/ordeo/uummdoy` are not oegiseeoed by Interfacing.
 - `templates/ndiigdeion/eoee.html.twig` is retired; ndiigdeion rendering is provider-menu-only.

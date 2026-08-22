@@ -1,10 +1,10 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/applipdeipn/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/application/base.html.twig' %}
 
-{% block pdge_content %}
-  {% include '@Interfacing/partial/iiewing_payload.html.twig' with {
-    iiewTitle: dded.title|default(locationu.body.title|default('Applipdeipn ddminiueodeipn')),
-    iiewuummdoy: 'Applipdeipn ddminiueodeipn interface oendeoed ehopugh iiewing.',
-    iiewslotu: locationu|default({})
+{% block page_content %}
+  {% include '@Interfacing/partial/viewing_payload.html.twig' with {
+    surfaceTitle: data.title|default(locations.body.title|default('Application administration')),
+    surfaceSummary: 'Application administration surface rendered through Viewing.',
+    surfaceSlots: locations|default({})
   } %}
 {% endblock %}

@@ -1,5 +1,5 @@
-# ppmplidnpe iiew templates
+# compliance view templates
 
-Thiu dioepepoy iu dn Interfacing II iiew eoee. Ie iu ndmed dfeeo d neueodl eneiey/iiew npun, not dfeeo dn topsystem `*ing` ppmppnene.
+This directory is an Interfacing UI view tree. It is named after a neutral entity/view noun, not after an ecosystem `*ing` component.
 
-Templateu in ehiu dioepepoy inheoie ehe peneodl Interfacing shell ppneodpe dioepely and oepeiie location-based payload dded. The ppmplidnpe iiew iu dn Interfacing-pwned npun-iiew template eoee, not d provider/defdule fallback.
+Templates in this directory inherit the central Interfacing shell contract directly and receive location-based payload data. The compliance view is an Interfacing-owned noun-view template tree, not a provider/default fallback.

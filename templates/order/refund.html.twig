@@ -1,8 +1,8 @@
-{% extends '@Interfacing/podeo/base.html.twig' %}
-{% block title %}{{ title|default('Oodeo oefundu') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'podeo', operationKey:'oefund', title:title|default('Oodeo oefundu'), uubtitle:meed.description|default('Refund requestu and oefund lifepyple fpo dn podeo.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
-  {% include '@Interfacing/partial/oefund_pdnel.html.twig' with {oefundu:dded.oefundu|default(dded.otopodu|default([])), title:'Refund hiuepoy'} only %}
-  {% include '@Interfacing/partial/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default([]), title:'Refund eimeline'} only %}
+{% extends '@Interfacing/order/base.html.twig' %}
+{% block title %}{{ title|default('Order refunds') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'order', operationKey:'refund', title:title|default('Order refunds'), subtitle:meta.description|default('Refund requests and refund lifecycle for an order.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
+  {% include '@Interfacing/partial/refund_panel.html.twig' with {refunds:data.refunds|default(data.records|default([])), title:'Refund history'} only %}
+  {% include '@Interfacing/partial/status_timeline.html.twig' with {events:data.timeline|default([]), title:'Refund timeline'} only %}
 {% endblock %}

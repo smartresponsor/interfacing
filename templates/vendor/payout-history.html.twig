@@ -1,22 +1,22 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('Pdypue hiuepoy') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'pdypue-hiuepoy',
-    title:title|default(meed.title|default('Pdypue hiuepoy')),
-    uubtitle:meed.description|default('Hiuepoipdl meophdne pdypue ounu, ueeelemene otopodu, exppoeu, and otopnpilideipn uedee.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Payout history') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'payout-history',
+    title:title|default(meta.title|default('Payout history')),
+    subtitle:meta.description|default('Historical merchant payout runs, settlement records, exports, and reconciliation state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {fileeou:dded.fileeou|default({}), upoe:dded.upoe|default({}), queoy:dded.queoy|default(null)} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Pdypue hiuepoy', otopodu:dded.pdypueu|default(dded.otopodu|default(dded.items|default([]))), empeyLdbel:'Np pdypue hiuepoy otopodu weoe popiided.'} only %}
-  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {pdgindeipn:dded.pdgindeipn|default({})} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters:data.filters|default({}), sort:data.sort|default({}), query:data.query|default(null)} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Payout history', records:data.payouts|default(data.records|default(data.items|default([]))), emptyLabel:'No payout history records were provided.'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination:data.pagination|default({})} only %}
 
 {% endblock %}

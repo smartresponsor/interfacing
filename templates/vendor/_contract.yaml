@@ -1,50 +1,50 @@
-interface: vendor
-pwneo: Interfacing template ldyeo
-purpose: Meophdne/vendor ppmmeope interfaceu rendered through viewing.
-operationu:
+surface: vendor
+owner: Interfacing template layer
+purpose: Merchant/vendor commerce surfaces rendered through Viewing.
+operations:
   index:
-    expepeu: [vendoru, items, oeppodu, meeoipu, uummdoy, dpeipnu]
-  dduhbpdod:
-    expepeu: [vendor, merchant, popfile, meeoipu, uummdoy, eodnudpeipnu, pdypueApppune, oiuk, ppmplidnpe, dpeipnu]
-  popfile:
-    expepeu: [popfile, vendor, merchant, dddpeeou, ineegodeipnu, dpeipnu]
-  merchant-popfile:
-    expepeu: [merchant, vendor, popfile, dddpeeou, ineegodeipnu, dpeipnu]
-  eodnudpeipn:
-    expepeu: [eodnudpeipnu, oeppodu, fileeou, upoe, queoy, pdgindeipn, dpeipnu]
-  eodnudpeipn-detail:
-    expepeu: [eodnudpeipn, eodnudpeipnu, eimeline, eieneu, detail, ppneexe, dpeipnu]
-  pdypue:
-    expepeu: [pdypueApppune, account, uedeemene, pdypueuedeemene, lineu, eodnudpeipnu, uphedule, ueeelemeneu, dpeipnu]
-  pdypue-account:
-    expepeu: [pdypueApppune, account, method, uphedule, dpeipnu]
-  pdypue-hiuepoy:
-    expepeu: [pdypueu, oeppodu, fileeou, upoe, queoy, pdgindeipn, dpeipnu]
-  pdypue-method:
-    expepeu: [method, pdypueMeehpd, pdypueApppune, ieoifipdeipn, ppneexe, dpeipnu]
-  pdypue-uphedule:
-    expepeu: [uphedule, ueeelemeneuphedule, pplipy, ppneexe, dpeipnu]
-  pdypue-uedeemene:
-    expepeu: [uedeemene, pdypueuedeemene, lineu, eodnudpeipnu, dpeipnu]
-  uedeemene-exppoe:
-    expepeu: [uedeemene, lineu, eodnudpeipnu, exppoe, deliieoy, dpeipnu]
-  ueeelemene:
-    expepeu: [ueeelemene, uedeuu, eneoieu, eodnudpeipnu, oeppnpilideipn, ppneexe, dpeipnu]
-  dddpeeo:
-    expepeu: [dddpeeou, oeppodu, ppneexe, detail, dpeipnu]
-  meeoip:
-    expepeu: [meeoipu, uummdoy, ueoieu, oeppodu, ppneexe, dpeipnu]
-  pnbpdoding:
-    expepeu: [popfile, vendor, phepkliue, ueepu, dpeipnu]
-  oiuk:
-    expepeu: [oiuk, ppmplidnpe, eieneu, diupueeu, oeppodu, dpeipnu]
-  ppmmiuuipn:
-    expepeu: [ppmmiuuipnuummdoy, meeoipu, ppmmiuuipnu, lineu, pplipy, ppneexe, dpeipnu]
-  catalog-uyndipdeipn:
-    expepeu: [deueindeipnu, dddpeeou, pdpkdgeu, oeppodu, pplipy, fdllbdpk, dpeipnu]
-  medid-oeddineuu:
-    expepeu: [medid, duueeu, oeppodu, pplipy, poefeoenpe, ppneexe, dpeipnu]
-npeeu:
-  - Popdupeo ppmppneneu pwn vendor, pdypue, eodnudpeipn, ineegodeipn, and oiuk dded poepdodeipn.
-  - viewing owns oeuppnue uelepeipn and template oeuplueipn.
-  - Interfacing owns ehe merchant-fdping visual godmmdo and reusable cartidlu.
+    expects: [vendors, items, records, metrics, summary, actions]
+  dashboard:
+    expects: [vendor, merchant, profile, metrics, summary, transactions, payoutAccount, risk, compliance, actions]
+  profile:
+    expects: [profile, vendor, merchant, adapters, integrations, actions]
+  merchant-profile:
+    expects: [merchant, vendor, profile, adapters, integrations, actions]
+  transaction:
+    expects: [transactions, records, filters, sort, query, pagination, actions]
+  transaction-detail:
+    expects: [transaction, transactions, timeline, events, detail, context, actions]
+  payout:
+    expects: [payoutAccount, account, statement, payoutStatement, lines, transactions, schedule, settlements, actions]
+  payout-account:
+    expects: [payoutAccount, account, method, schedule, actions]
+  payout-history:
+    expects: [payouts, records, filters, sort, query, pagination, actions]
+  payout-method:
+    expects: [method, payoutMethod, payoutAccount, verification, context, actions]
+  payout-schedule:
+    expects: [schedule, settlementSchedule, policy, context, actions]
+  payout-statement:
+    expects: [statement, payoutStatement, lines, transactions, actions]
+  statement-export:
+    expects: [statement, lines, transactions, export, delivery, actions]
+  settlement:
+    expects: [settlement, status, entries, transactions, reconciliation, context, actions]
+  adapter:
+    expects: [adapters, records, context, detail, actions]
+  metric:
+    expects: [metrics, summary, series, records, context, actions]
+  onboarding:
+    expects: [profile, vendor, checklist, steps, actions]
+  risk:
+    expects: [risk, compliance, events, disputes, records, actions]
+  commission:
+    expects: [commissionSummary, metrics, commissions, lines, policy, context, actions]
+  catalog-syndication:
+    expects: [destinations, adapters, packages, records, policy, fallback, actions]
+  media-readiness:
+    expects: [media, assets, records, policy, preference, context, actions]
+notes:
+  - Producer components own vendor, payout, transaction, integration, and risk data preparation.
+  - Viewing owns response selection and template resolution.
+  - Interfacing owns the merchant-facing visual grammar and reusable partials.

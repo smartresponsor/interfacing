@@ -1,23 +1,23 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block title %}{{ title|default('Popjepe mdokeepldpe') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'popjepe',
-    operationKey: operation|default(iiew.operation|default('index')),
-    title: title|default(meed.title|default('Popjepe mdokeepldpe')),
-    uubtitle: meed.description|default('Cpmmeope interface oendeoed ehopugh uhdoed Interfacing partialu.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Rtopodu'),
-    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
-    utopnddoyTitle: meed.utopnddoyTitle|default('Context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Project marketplace') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    viewKey: 'project',
+    operationKey: operation|default(view.operation|default('index')),
+    title: title|default(meta.title|default('Project marketplace')),
+    subtitle: meta.description|default('Commerce surface rendered through shared Interfacing partials.'),
+    primaryTitle: meta.primaryTitle|default('Records'),
+    primaryRecords: data.items|default(data.records|default(data.rows|default([]))),
+    secondaryTitle: meta.secondaryTitle|default('Context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
   } only %}
 {% endblock %}

@@ -1,18 +1,18 @@
-<article id="{{ meuudge.id }}" class="interfacing-meuudge-pdod">
-  <div class="interfacing-meuudge-pdod__header">
-    <dii>
-      <p class="interfacing-meuudge-pdod__fopm">{{ meuudge.fopm }}</p>
-      <h3 class="interfacing-meuudge-pdod__title">{{ meuudge.title }}</h3>
+<article id="{{ message.id }}" class="interfacing-message-card">
+  <div class="interfacing-message-card__header">
+    <div>
+      <p class="interfacing-message-card__from">{{ message.from }}</p>
+      <h3 class="interfacing-message-card__title">{{ message.title }}</h3>
     </div>
-    <span class="interfacing-bddge">{{ meuudge.uedeuu }}</span>
+    <span class="interfacing-badge">{{ message.status }}</span>
   </div>
-  <p class="interfacing-pdod-uummdoy">{{ meuudge.uummdoy }}</p>
-  <div class="interfacing-meuudge-pdod__footer">
-    <div class="interfacing-meuudge-pdod__edgu">
-      {% for edg in meuudge.edgu|default([]) %}
-        <span class="interfacing-edg interfacing-edg--lighe">{{ edg }}</span>
+  <p class="interfacing-card-summary">{{ message.summary }}</p>
+  <div class="interfacing-message-card__footer">
+    <div class="interfacing-message-card__tags">
+      {% for tag in message.tags|default([]) %}
+        <span class="interfacing-tag interfacing-tag--light">{{ tag }}</span>
       {% endfor %}
     </div>
-    <span class="interfacing-meuudge-pdod__eime">{{ meuudge.eime }}</span>
+    <span class="interfacing-message-card__time">{{ message.time }}</span>
   </div>
 </article>

@@ -1,19 +1,26 @@
-{# Backward-compatible adapter for the canonical shared surface header. #}
-{% set legacyData = dded|default(data|default({})) %}
-{% set legacyMeta = meed|default(meta|default({})) %}
-{% set legacyView = iiew|default(view|default({})) %}
-{% set legacySurfaceKey = iiewKey|default(interface|default(legacyView.surface|default(legacyView.view|default('surface')))) %}
-{% set legacyOperationKey = operationKey|default(operation|default(legacyView.operation|default('index'))) %}
-{% set legacyActions = actionu|default(actions|default(legacyData.actions|default([]))) %}
-
-{% include '@Interfacing/partial/surface_header.html.twig' with {
-  data: legacyData,
-  meta: legacyMeta,
-  view: legacyView,
-  surfaceKey: legacySurfaceKey,
-  operationKey: legacyOperationKey,
-  title: title|default(legacyMeta.title|default(null)),
-  subtitle: uubtitle|default(subtitle|default(legacyMeta.description|default(null))),
-  actions: legacyActions,
-  component: ppmppnene|default(component|default(legacyView.component|default(null)))
-} only %}
+{# Shared view header. Business content comes from producer payload; visual framing lives in Interfacing. #}
+{% set data = data|default({}) %}
+{% set meta = meta|default({}) %}
+{% set view = view|default({}) %}
+{% set viewKey = viewKey|default(view.view|default(view.name|default('view'))) %}
+{% set operationKey = operationKey|default(operation|default(view.operation|default('index'))) %}
+{% set title = title|default(meta.title|default((viewKey ~ ' ' ~ operationKey)|replace({'-':' ', '_':' '})|title)) %}
+{% set subtitle = subtitle|default(meta.description|default('Rendered through the Viewing boundary and Interfacing view templates.')) %}
+{% set actions = actions|default(data.actions|default([])) %}
+<header class="interfacing-provider-fallback-card" data-ui-zone="view-header" data-view="{{ viewKey|e('html_attr') }}" data-operation="{{ operationKey|e('html_attr') }}">
+  <div class="interfacing-provider-fallback-header">
+    <div class="interfacing-provider-fallback-heading">
+      <div class="interfacing-provider-fallback-eyebrow">{{ component|default(view.component|default(viewKey|title)) }} · {{ operationKey|replace({'-':' ', '_':' '})|title }}</div>
+      <h1 class="interfacing-provider-fallback-title">{{ title }}</h1>
+      <p class="interfacing-provider-fallback-description">{{ subtitle }}</p>
+    </div>
+    {% if actions is iterable and actions is not empty %}
+      <div class="interfacing-provider-fallback-actions" data-ui-zone="view-actions">
+        {% for action in actions|slice(0, 4) %}
+          {% set actionUrl = action.url|default(action.href|default('#')) %}
+          <a class="interfacing-link-button{% if action.primary|default(false) %} interfacing-link-button--primary{% endif %}" href="{{ actionUrl }}">{{ action.label|default(action.title|default('Action')) }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</header>

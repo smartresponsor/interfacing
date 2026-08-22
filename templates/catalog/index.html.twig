@@ -34,7 +34,7 @@
 
 {% block page_content %}
   {% include '@Interfacing/partial/workbench.html.twig' with {
-    surfaceKey: 'catalog',
+    viewKey: 'catalog',
     operationKey: view.operation|default('index'),
     title: title,
     subtitle: 'Catalog roots such as Services, Products, and Projects.',

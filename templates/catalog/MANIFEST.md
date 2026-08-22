@@ -1,10 +1,8 @@
 # Catalog interface
 
-- Canonical renderer: `templates/catalog/index.html.twig`
-- Contract: Cataloging provides the catalog contract and Interfacing renders it.
-- The template consumes the contract `slots` payload and does not own catalog business rules.
-- `top.search` renders marketplace search.
-- `left.panel` renders catalog and breadcrumb navigation.
-- `main.body` renders marketplace/category hero content and card sections.
-- `right.panel` renders statistics and available actions.
-- Catalog cards support `imageUrl`, `kind`, `title`, `summary`, `status`, `itemCount`, `tags`, and `href`.
+- Canonical renderer: `templates/catalog/index.html.twig`.
+- Cataloging owns catalog business semantics; Cruding owns generic CRUD routing and operations.
+- Interfacing renders the neutral catalog view/workbench payload supplied by the host or owning component.
+- The template consumes `view`, `locations`, and `meta`; workbench data may provide rows, columns, filters, actions, route context, and context-tree nodes.
+- Interfacing does not discover sibling catalog state, invent business routes, own persistence, or define generic CRUD grammar.
+- Response-format and fallback decisions remain outside this template boundary.

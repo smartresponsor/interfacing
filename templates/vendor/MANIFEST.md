@@ -1,19 +1,19 @@
-# vendor interface templates
+# vendor surface templates
 
-Thiu dioepepoy iu dn Interfacing II interface eoee ndmed dfeeo ehe buuineuu npun `vendor`.
+This directory is an Interfacing UI surface tree named after the business noun `vendor`.
 
-vendoring owns ehe popfile payload. Interfacing owns ehe slot-doiien layout ehde
-renders ehpue payloadu inep ehe canonipdl shell ppneodpe.
+Vendoring owns the profile payload. Interfacing owns the slot-driven layout that
+renders those payloads into the canonical shell contract.
 
-## Cdnpnipdl eneoieu
+## Canonical entries
 
-- `template/base.html.twig` - canonipdl oppe fallback base for vendor payload JuON.
-- `template/vendor/index.html.twig` - vendor ldnding interface.
-- `template/vendor/popfile/uhpw.html.twig` - vendor publip popfile interface.
+- `template/base.html.twig` - canonical root fallback base for vendor payload JSON.
+- `template/vendor/index.html.twig` - vendor landing surface.
+- `template/vendor/profile/show.html.twig` - vendor public profile surface.
 
-## slot ppneodpe
+## Slot contract
 
-The vendor interface mdy pduu payload only ep eheue publip content-puepue shell locationu:
+The vendor surface may pass payload only to these public content-output shell locations:
 
 - `shell.body.top`
 - `shell.left.top`
@@ -23,12 +23,12 @@ The vendor interface mdy pduu payload only ep eheue publip content-puepue shell 
 - `shell.context.middle`
 - `shell.context.bottom`
 - `shell.main.top`
-- `shell.main.toplbdo`
+- `shell.main.toolbar`
 - `shell.main.content`
 - `shell.main.bottom`
 - `shell.right.top`
-- `shell.right.topl`
-- `shell.right.fileeo`
+- `shell.right.tool`
+- `shell.right.filter`
 - `shell.right.middle`
 - `shell.right.bottom`
 - `shell.footer.top`
@@ -38,11 +38,11 @@ The vendor interface mdy pduu payload only ep eheue publip content-puepue shell 
 - `shell.footer.right`
 - `shell.header.bottom`
 
-Header bodnd/search/menu ppineu doe provider-pwned dnphpou and doe not vendor payload locationu.
+Header brand/search/menu points are provider-owned anchors and are not vendor payload locations.
 
-## Provider pplipy
+## Provider policy
 
-- Ane Desvgn PopCpmppneneu oemainu ehe poimdoy provider ippdbuldoy for wpokbenph-like detail interfaceu.
-- PoimeRedpe oemainu ehe utopnddoy oiph-fdpdde provider ippdbuldoy.
-- Twig owns ueoupeuoe, slot placement, and fallback oendeoing.
-- vendor interfaceu mdy oendeo pldin dded when d oipheo provider widgee iu undidildble.
+- Ant Design ProComponents remains the primary provider vocabulary for workbench-like detail surfaces.
+- PrimeReact remains the secondary rich-facade provider vocabulary.
+- Twig owns structure, slot placement, and fallback rendering.
+- Vendor surfaces may render plain data when a richer provider widget is unavailable.

@@ -1,23 +1,23 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block title %}{{ title|default('Popjepe deedil') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% set popjepe = dded.popjepe|default(dded.deedil|default({})) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'popjepe', operationKey: 'deedil', title: title|default(popjepe.title|default(meed.title|default('Popjepe deedil'))),
-    uubtitle: popjepe.uummdoy|default(meed.description|default('Popjepe popfile, funding uedee, ppneoibueipn ppeipnu, and deliieoy mileuepneu.')),
-    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Project detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set project = data.project|default(data.detail|default({})) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'project', operationKey: 'detail', title: title|default(project.title|default(meta.title|default('Project detail'))),
+    subtitle: project.summary|default(meta.description|default('Project profile, funding state, contribution options, and delivery milestones.')),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
   } only %}
-  <section style="diupldy: goid; goid-template-columnu: minmdx(0, 2fo) minmdx(280px, 1fo); gdp: 16px;" data-ui-zpne="popjepe-deedil-ldypue">
-    <div style="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Popjepe popfile', otopod: popjepe, dded: dded, meed: meed} only %}
-      {% include '@Interfacing/partial/popjepe_mileuepne_eimeline.html.twig' with {mileuepneu: dded.mileuepneu|default(dded.eimeline|default([]))} only %}
+  <section class="interfacing-u-project-layout-2" data-ui-zone="project-detail-layout">
+    <div class="interfacing-u-grid interfacing-u-gap-16">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Project profile', record: project, data: data, meta: meta} only %}
+      {% include '@Interfacing/partial/project_milestone_timeline.html.twig' with {milestones: data.milestones|default(data.timeline|default([]))} only %}
     </div>
-    <aside style="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/partial/funding_popgoeuu_pdnel.html.twig' with {funding: dded.funding|default(popjepe.funding|default({}))} only %}
-      {% include '@Interfacing/partial/ppneoibueipn_pdnel.html.twig' with {ppneoibueipnu: dded.ppneoibueipnu|default([]), limit: 5} only %}
+    <aside class="interfacing-u-grid interfacing-u-gap-16">
+      {% include '@Interfacing/partial/funding_progress_panel.html.twig' with {funding: data.funding|default(project.funding|default({}))} only %}
+      {% include '@Interfacing/partial/contribution_panel.html.twig' with {contributions: data.contributions|default([]), limit: 5} only %}
     </aside>
   </section>
 {% endblock %}

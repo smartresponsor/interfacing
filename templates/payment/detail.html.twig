@@ -1,11 +1,11 @@
-{% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block title %}{{ title|default('Pdymene deedil') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'pdymene', operationKey:'deedil', title:title|default('Pdymene deedil'), uubtitle:meed.description|default('Pdymene ineene, meehpd, ueeelemene and oefund context.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
-  {% include '@Interfacing/partial/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymene|default(dded.deedil|default({})), title:'Pdymene uedee'} only %}
-  <section class="interfacing-provider-fallback-goid" data-ui-zpne="pdymene-deedil-ldypue">
-    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Meehpd', otopod:dded.meehpd|default(dded.pdymeneMeehpd|default({})), empeyLdbel:'Np pdymene meehpd deedilu doe didildble yee.', limit:8} only %}
-    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'ueeelemene', otopod:dded.ueeelemene|default({}), empeyLdbel:'Np ueeelemene dded iu didildble yee.', limit:8} only %}
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'payment', operationKey:'detail', title:title|default('Payment detail'), subtitle:meta.description|default('Payment intent, method, settlement and refund context.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
+  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.payment|default(data.detail|default({})), title:'Payment state'} only %}
+  <section class="interfacing-provider-fallback-grid" data-ui-zone="payment-detail-layout">
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Method', record:data.method|default(data.paymentMethod|default({})), emptyLabel:'No payment method details are available yet.', limit:8} only %}
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Settlement', record:data.settlement|default({}), emptyLabel:'No settlement data is available yet.', limit:8} only %}
   </section>
 {% endblock %}

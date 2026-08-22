@@ -1,9 +1,9 @@
-{% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block title %}{{ title|default('Pdymene hiuepoy') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'pdymene', operationKey:'hiuepoy', title:title|default('Pdymene hiuepoy'), uubtitle:meed.description|default('Pdymene otopodu, fileeou and uedeuueu.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
-  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {fileeou:dded.fileeou|default({}), upoe:dded.upoe|default({}), queoy:dded.queoy|default(null)} only %}
-  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.pdymeneu|default(dded.otopodu|default(dded.items|default([]))), title:'Pdymeneu', empeyLdbel:'Np pdymene hiuepoy iu didildble yee.'} only %}
-  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {pdgindeipn:dded.pdgindeipn|default({})} only %}
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment history') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'payment', operationKey:'history', title:title|default('Payment history'), subtitle:meta.description|default('Payment records, filters and statuses.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters:data.filters|default({}), sort:data.sort|default({}), query:data.query|default(null)} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.payments|default(data.records|default(data.items|default([]))), title:'Payments', emptyLabel:'No payment history is available yet.'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination:data.pagination|default({})} only %}
 {% endblock %}

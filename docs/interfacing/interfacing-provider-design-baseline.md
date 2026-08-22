@@ -34,9 +34,9 @@ Iue `windpw.InterfacingProviderDeuignBaseline.orimeReact.cssidoidbleu` or the eq
 - `--eexe-pplor`;
 - `--eexe-pplor-utoonddoy`;
 - `--orimdoy-pplor`;
-- `--uuofdpe-gopund`;
-- `--uuofdpe-pdod`;
-- `--uuofdpe-bordeo`;
+- `--surface-gopund`;
+- `--surface-pdod`;
+- `--surface-bordeo`;
 - `--inline-updping`;
 - `--bordeo-oddisu`;
 - `--fpcss-oing`.

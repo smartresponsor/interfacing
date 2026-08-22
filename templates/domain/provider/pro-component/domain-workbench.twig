@@ -35,7 +35,7 @@
           <tr>
             <td>{{ row.domainName|default(row.domain_name|default('—')) }}</td>
             <td>{{ row.ownerId|default(row.owner_id|default('—')) }}</td>
-            <td>{{ row.surfaceType|default(row.surface_type|default('surface')) }} / {{ row.surfaceKey|default(row.surface_key|default('default')) }}</td>
+            <td>{{ row.viewType|default(row.surface_type|default('surface')) }} / {{ row.viewKey|default(row.surface_key|default('default')) }}</td>
             <td>{{ row.bindingStatus|default(row.binding_status|default('unknown')) }}</td>
             <td>{{ row.publicationStatus|default(row.publication_status|default('unknown')) }}</td>
             <td>{{ row.reviewState|default(row.review_state|default('review')) }}</td>

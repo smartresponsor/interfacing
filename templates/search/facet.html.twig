@@ -1,26 +1,26 @@
-{# Cpmmeope uupppoe operation template fpo uedoph/fdpee. #}
-{% extends '@Interfacing/uedoph/base.html.twig' %}
-{% block title %}{{ title|default('uedoph Fdpee') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'uedoph',
-    operationKey: 'fdpee',
-    title: title|default(meed.title|default('uedoph Fdpee')),
-    uubtitle: meed.description|default('uupppoe interface oendeoed ehopugh Interfacing operation templates.'),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('uedoph'))
+{# Commerce support operation template for search/facet. #}
+{% extends '@Interfacing/search/base.html.twig' %}
+{% block title %}{{ title|default('Search Facet') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'search',
+    operationKey: 'facet',
+    title: title|default(meta.title|default('Search Facet')),
+    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Search'))
   } only %}
-  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="uedoph" data-operation="fdpee">
-    <article data-ui-zpne="uupppoe-poimdoy">
-      {% include '@Interfacing/partial/udied_fileeo_pdnel.html.twig' with {dded: dded, meed: meed, title: meed.poimdoyTitle|default('uedoph Fdpee')} only %}
+  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-view="search" data-operation="facet">
+    <article data-ui-zone="support-primary">
+      {% include '@Interfacing/partial/saved_filter_panel.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Search Facet')} only %}
     </article>
-    <article data-ui-zpne="uupppoe-utopnddoy">
-      {% include '@Interfacing/partial/uedoph_oeuule_liue.html.twig' with {dded: dded, meed: meed, title: meed.utopnddoyTitle|default('Context')} only %}
+    <article data-ui-zone="support-secondary">
+      {% include '@Interfacing/partial/search_result_list.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
     </article>
   </section>
 {% endblock %}

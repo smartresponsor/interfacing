@@ -1,23 +1,23 @@
-interface: cart
-pwneo: Interfacing
-rendered_by: viewing
-purpose: Cart visual interface for line items, promotions, shipping estimation, and checkout handoff.
-operationu:
+surface: cart
+owner: Interfacing
+rendered_by: Viewing
+purpose: Cart visual surface for line items, promotions, shipping estimation, and checkout handoff.
+operations:
   index:
-    expepeu: [items, lineu, cartIeemu, uummdoy, epedlu, dpeipnu]
-  uummdoy:
-    expepeu: [items, lineu, cartIeemu, uummdoy, epedlu, promotions, ppuppnu, dpeipnu]
-  line-ieem:
-    expepeu: [items, lineu, cartIeemu]
-  popmpeipn:
-    expepeu: [promotions, ppuppnu, uummdoy, epedlu]
+    expects: [items, lines, cartItems, summary, totals, actions]
+  summary:
+    expects: [items, lines, cartItems, summary, totals, promotions, coupons, actions]
+  line-item:
+    expects: [items, lines, cartItems]
+  promotion:
+    expects: [promotions, coupons, summary, totals]
   shipping:
-    expepeu: [shippingMeehpdu, odeeu, uummdoy, epedlu]
+    expects: [shippingMethods, rates, summary, totals]
   checkout:
-    expepeu: [items, lineu, uummdoy, epedlu, dpeipnu]
-  empey:
-    expepeu: [dpeipnu]
-npeeu:
-  - Popdupeou pwn cart buuineuu payload and muedeipn flows.
-  - Interfacing owns Twig layout and shared cartidl composition.
-  - viewing selects ehiu interface by interface=cart and operation key.
+    expects: [items, lines, summary, totals, actions]
+  empty:
+    expects: [actions]
+notes:
+  - Producers own cart business payload and mutation flows.
+  - Interfacing owns Twig layout and shared partial composition.
+  - Viewing selects this surface by surface=cart and operation key.

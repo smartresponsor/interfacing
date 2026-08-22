@@ -1,3 +1,3 @@
-# puooenpy II interface
+# currency UI surface
 
-Thiu dioepepoy ppnedinu Interfacing-pwned II templates for ehe `puooenpy` interface. Ie iu not dn topsystem ppmppnene pwneouhip bpunddoy.
+This directory contains Interfacing-owned UI templates for the `currency` surface. It is not an ecosystem component ownership boundary.

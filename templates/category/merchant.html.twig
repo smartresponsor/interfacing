@@ -1,24 +1,24 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdeegpoy/base.html.twig' %}
-{% block title %}{{ title|default('Meophdne pdeegpoy wpokbenph') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'pdeegpoy',
-    operationKey: 'meophdne',
-    title: title|default(meed.title|default('Meophdne pdeegpoy wpokbenph')),
-    uubtitle: meed.description|default('Meophdne pdeegpoy wpokbenph interface fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Meophdne pdeegpoy wpokbenph otopodu'),
-    poimdoyRtopodu: dded.pdeegpoieu|default(dded.items|default(dded.otopodu|default([]))),
-    poimdoyEmpeyLdbel: 'Np meophdne pdeegpoy wpokbenph otopodu doe didildble yee.',
-    utopnddoyTitle: meed.utopnddoyTitle|default('interface context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/category/base.html.twig' %}
+{% block title %}{{ title|default('Merchant category workbench') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    viewKey: 'category',
+    operationKey: 'merchant',
+    title: title|default(meta.title|default('Merchant category workbench')),
+    subtitle: meta.description|default('Merchant category workbench surface for commerce workflows rendered through Viewing.'),
+    primaryTitle: meta.primaryTitle|default('Merchant category workbench records'),
+    primaryRecords: data.categories|default(data.items|default(data.records|default([]))),
+    primaryEmptyLabel: 'No merchant category workbench records are available yet.',
+    secondaryTitle: meta.secondaryTitle|default('Surface context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
   } only %}
 {% endblock %}

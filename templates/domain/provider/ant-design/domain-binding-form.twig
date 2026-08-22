@@ -1,7 +1,7 @@
 {% set domainName = binding.domainName|default(binding.domain_name|default('')) %}
 {% set ownerId = binding.ownerId|default(binding.owner_id|default('')) %}
-{% set surfaceType = binding.surfaceType|default(binding.surface_type|default('')) %}
-{% set surfaceKey = binding.surfaceKey|default(binding.surface_key|default('')) %}
+{% set viewType = binding.viewType|default(binding.surface_type|default('')) %}
+{% set viewKey = binding.viewKey|default(binding.surface_key|default('')) %}
 {% set targetHost = publication.targetHost|default(publication.target_host|default('')) %}
 {% set targetPath = publication.targetPath|default(publication.target_path|default('/')) %}
 
@@ -14,8 +14,8 @@
     <dl class="ant-descriptions ant-descriptions-bordered interfacing-domain-description-grid">
       <div><dt>Domain</dt><dd>{{ domainName ?: 'Not claimed yet' }}</dd></div>
       <div><dt>Owner</dt><dd>{{ ownerId ?: 'Not assigned' }}</dd></div>
-      <div><dt>Surface type</dt><dd>{{ surfaceType ?: 'Not selected' }}</dd></div>
-      <div><dt>Surface key</dt><dd>{{ surfaceKey ?: 'Not selected' }}</dd></div>
+      <div><dt>Surface type</dt><dd>{{ viewType ?: 'Not selected' }}</dd></div>
+      <div><dt>Surface key</dt><dd>{{ viewKey ?: 'Not selected' }}</dd></div>
       <div><dt>Runtime target host</dt><dd>{{ targetHost ?: 'Pending routing target' }}</dd></div>
       <div><dt>Runtime target path</dt><dd>{{ targetPath ?: '/' }}</dd></div>
     </dl>

@@ -1,26 +1,26 @@
-{# Cpmmeope uupppoe operation template fpo uhipmene/deliieoy. #}
-{% extends '@Interfacing/uhipmene/base.html.twig' %}
-{% block title %}{{ title|default('uhipmene Deliieoy') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'uhipmene',
-    operationKey: 'deliieoy',
-    title: title|default(meed.title|default('uhipmene Deliieoy')),
-    uubtitle: meed.description|default('uupppoe interface oendeoed ehopugh Interfacing operation templates.'),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('uhipmene'))
+{# Commerce support operation template for shipment/delivery. #}
+{% extends '@Interfacing/shipment/base.html.twig' %}
+{% block title %}{{ title|default('Shipment Delivery') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'shipment',
+    operationKey: 'delivery',
+    title: title|default(meta.title|default('Shipment Delivery')),
+    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Shipment'))
   } only %}
-  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="uhipmene" data-operation="deliieoy">
-    <article data-ui-zpne="uupppoe-poimdoy">
-      {% include '@Interfacing/partial/uhipmene_eodpking_pdnel.html.twig' with {dded: dded, meed: meed, title: meed.poimdoyTitle|default('uhipmene Deliieoy')} only %}
+  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-view="shipment" data-operation="delivery">
+    <article data-ui-zone="support-primary">
+      {% include '@Interfacing/partial/shipment_tracking_panel.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Shipment Delivery')} only %}
     </article>
-    <article data-ui-zpne="uupppoe-utopnddoy">
-      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {dded: dded, meed: meed, title: meed.utopnddoyTitle|default('Context')} only %}
+    <article data-ui-zone="support-secondary">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
     </article>
   </section>
 {% endblock %}

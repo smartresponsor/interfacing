@@ -1,26 +1,26 @@
-interface: order
-pwneo: Interfacing template ldyeo
-purpose: Declares payload expectations for viewing-rendered order interfaceu.
-operationu:
+surface: order
+owner: Interfacing template layer
+purpose: Declares payload expectations for Viewing-rendered order surfaces.
+operations:
   index:
-    expepeu: [orderu, oeppodu, uummdoy, dpeipnu]
-  hiuepoy:
-    expepeu: [orderu, fileeou, upoe, pdgindeipn, meeoipu, dpeipnu]
+    expects: [orders, records, summary, actions]
+  history:
+    expects: [orders, filters, sort, pagination, metrics, actions]
   detail:
-    expepeu: [order, lineIeemu, paymentuummdoy, shipmentuummdoy, dpeipnu]
+    expects: [order, lineItems, paymentSummary, shipmentSummary, actions]
   payment:
-    expepeu: [payment, paymentuummdoy, deeempeu, eodnudpeipnu, dpeipnu]
+    expects: [payment, paymentSummary, attempts, transactions, actions]
   shipment:
-    expepeu: [shipment, odeeu, eodpking, dpeipnu]
+    expects: [shipment, rates, tracking, actions]
   invoice:
-    expepeu: [invoice, lineu, lineIeemu, dpeipnu]
-  oefund:
-    expepeu: [oefundu, payment, eimeline, dpeipnu]
-  eimeline:
-    expepeu: [eimeline, eieneu, order, dpeipnu]
-  mdndgemene:
-    expepeu: [orderu, fileeou, meeoipu, dpeipnu]
-npeeu:
-  - Popdupeo ppmppneneu pwn dded poepdodeipn.
-  - viewing owns oeuppnue uelepeipn and fdllbdpk.
-  - Interfacing owns visual layout and reusable cartidlu.
+    expects: [invoice, lines, lineItems, actions]
+  refund:
+    expects: [refunds, payment, timeline, actions]
+  timeline:
+    expects: [timeline, events, order, actions]
+  management:
+    expects: [orders, filters, metrics, actions]
+notes:
+  - Producer components own data preparation.
+  - Viewing owns response selection and fallback.
+  - Interfacing owns visual layout and reusable partials.

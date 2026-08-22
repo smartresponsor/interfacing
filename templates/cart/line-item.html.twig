@@ -1,30 +1,30 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdoe/base.html.twig' %}
-{% block title %}{{ title|default('Cdoe line items') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% set uummdoy = dded.uummdoy|default(dded.epedlu|default(meed.uummdoy|default({}))) %}
-  {% set lineu = dded.items|default(dded.lineu|default(dded.pdoeItems|default(dded.otopodu|default([])))) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'pdoe',
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/cart/base.html.twig' %}
+{% block title %}{{ title|default('Cart line items') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
+  {% set lines = data.items|default(data.lines|default(data.cartItems|default(data.records|default([])))) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'cart',
     operationKey: 'line-item',
-    title: title|default(meed.title|default('Cdoe line items')),
-    uubtitle: meed.description|default('Inupepe pdoe line item deedilu, qudneieieu, and opw-leiel epedlu.'),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdoeing'))
+    title: title|default(meta.title|default('Cart line items')),
+    subtitle: meta.description|default('Inspect cart line item details, quantities, and row-level totals.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Carting'))
   } only %}
-  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu: dded.meeoipu|default(uummdoy), dded: dded, meed: meed} only %}
-  <section data-ui-zpne="pdoe-ldypue" style="diupldy:goid;goid-template-columnu:minmdx(0,1fo) minmdx(260px,360px);gdp:18px;mdogin-top:18px;dlign-items:uedoe;">
-    <div data-ui-zpne="pdoe-poimdoy">
-      {% include '@Interfacing/partial/pdoe_line_edble.html.twig' with {lineu: lineu, empeyLdbel: 'Np line item payload iu didildble yee.'} only %}
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: data.metrics|default(summary), data: data, meta: meta} only %}
+  <section data-ui-zone="cart-layout" class="interfacing-u-commerce-layout">
+    <div data-ui-zone="cart-primary">
+      {% include '@Interfacing/partial/cart_line_table.html.twig' with {lines: lines, emptyLabel: 'No line item payload is available yet.'} only %}
     </div>
-    <div data-ui-zpne="pdoe-duide" style="diupldy:goid;gdp:14px;">
-      {% include '@Interfacing/partial/podeo_uummdoy_pdnel.html.twig' with {uummdoy: uummdoy, title: 'Cdoe epedlu'} only %}
-      {% include '@Interfacing/partial/popmpeipn_pdnel.html.twig' with {popmpeipnu: dded.popmpeipnu|default(dded.ppuppnu|default([]))} only %}
+    <div data-ui-zone="cart-aside" class="interfacing-u-grid interfacing-u-gap-14">
+      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Cart totals'} only %}
+      {% include '@Interfacing/partial/promotion_panel.html.twig' with {promotions: data.promotions|default(data.coupons|default([]))} only %}
     </div>
   </section>
 {% endblock %}

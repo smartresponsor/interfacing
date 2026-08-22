@@ -1,14 +1,14 @@
 {# Contribution summary/list panel for project-commerce surfaces. #}
 {% set contributions = contributions|default(records|default(items|default([]))) %}
-<section class="interfacing-contribution-panel" data-ui-zone="contribution-panel" style="border: 1px solid #d9d9d9; border-radius: 14px; padding: 16px; background: #fff;">
-  <h2 style="margin: 0 0 12px; font-size: 1.1rem;">{{ title|default('Contributions') }}</h2>
+<section class="interfacing-contribution-panel interfacing-u-panel-card" data-ui-zone="contribution-panel">
+  <h2 class="interfacing-u-section-heading">{{ title|default('Contributions') }}</h2>
   {% if contributions is iterable and contributions|length > 0 %}
-    <div style="display: grid; gap: 10px;">
+    <div class="interfacing-u-grid interfacing-u-gap-10">
       {% for contribution in contributions|slice(0, limit|default(8)) %}
-        <article style="display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid #f2f4f7; padding-bottom: 10px;">
+        <article class="interfacing-u-list-row">
           <div>
             <strong>{{ contribution.title|default(contribution.name|default(contribution.contributor|default('Contribution'))) }}</strong>
-            <p style="margin: 4px 0 0; color: #667085;">{{ contribution.summary|default(contribution.status|default('Contribution record')) }}</p>
+            <p class="interfacing-u-muted-copy-compact">{{ contribution.summary|default(contribution.status|default('Contribution record')) }}</p>
           </div>
           <span>{{ contribution.amount|default(contribution.value|default('')) }}</span>
         </article>

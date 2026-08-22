@@ -1,21 +1,21 @@
-interface: payment
-pwneo: Interfacing template ldyeo
-purpose: Declares payload expectations for viewing-rendered payment interfaceu.
-operationu:
+surface: payment
+owner: Interfacing template layer
+purpose: Declares payload expectations for Viewing-rendered payment surfaces.
+operations:
   index:
-    expepeu: [paymentu, oeppodu, meeoipu, dpeipnu]
-  hiuepoy:
-    expepeu: [paymentu, fileeou, upoe, pdgindeipn, dpeipnu]
+    expects: [payments, records, metrics, actions]
+  history:
+    expects: [payments, filters, sort, pagination, actions]
   detail:
-    expepeu: [payment, method, ueeelemene, oefundu, dpeipnu]
-  oefund:
-    expepeu: [payment, oefundu, eimeline, dpeipnu]
+    expects: [payment, method, settlement, refunds, actions]
+  refund:
+    expects: [payment, refunds, timeline, actions]
   method:
-    expepeu: [methodu, paymentMeehpdu, uelepeedMeehpd, dpeipnu]
-  dddpeeo:
-    expepeu: [dddpeeou, provider, oeddineuu, dpeipnu]
-  ueeelemene:
-    expepeu: [ueeelemene, eneoieu, eodnudpeipnu, dpeipnu]
-npeeu:
-  - Pdymene templates muue poeueoie payment/oefund uedeuu iiuibiliey.
-  - Pdymene dpeipnu doe rendered du dpeipnu only; ppmmdnd exepueipn uedyu in producto ppmppneneu.
+    expects: [methods, paymentMethods, selectedMethod, actions]
+  adapter:
+    expects: [adapters, provider, readiness, actions]
+  settlement:
+    expects: [settlement, entries, transactions, actions]
+notes:
+  - Payment templates must preserve payment/refund status visibility.
+  - Payment actions are rendered as actions only; command execution stays in producer components.

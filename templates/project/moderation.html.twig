@@ -5,20 +5,20 @@
 {% block title %}Projecting Moderation{% endblock %}
 
 {% block page_content %}
-  <section class="interfacing-surface interfacing-surface--project-moderation" data-interfacing-surface="project">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Projecting</p>
+  <section class="interfacing-view interfacing-view--project-moderation" data-interfacing-view="project">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">Projecting</p>
       <h1>Projecting Moderation</h1>
       <p>Queue place: <code>onhold</code>. Approve moves a project toward active publication; reject moves it back to draft.</p>
     </header>
 
     {% if pending is empty %}
-      <section class="interfacing-surface__panel">
+      <section class="interfacing-view__panel">
         <h2>No pending projects</h2>
-        <p class="interfacing-surface__empty">No projects are currently waiting in the moderation queue.</p>
+        <p class="interfacing-view__empty">No projects are currently waiting in the moderation queue.</p>
       </section>
     {% else %}
-      <section class="interfacing-surface__panel">
+      <section class="interfacing-view__panel">
         <table>
           <thead>
           <tr>
@@ -39,7 +39,7 @@
               <td>{{ p.status }}</td>
               <td>{{ p.updatedAt ? p.updatedAt|date('c') : '' }}</td>
               <td>
-                <form method="post" action="/ops/projecting/moderation/{{ p.id }}/decide" class="interfacing-surface__toolbar">
+                <form method="post" action="/ops/projecting/moderation/{{ p.id }}/decide" class="interfacing-view__toolbar">
                   <input type="hidden" name="actor" value="ops" />
                   <select name="decision" required>
                     <option value="approve">approve</option>

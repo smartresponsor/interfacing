@@ -65,7 +65,7 @@ App context -> Navigating projection -> interface.locations -> Interfacing base.
 - Интерфейс описывает реальный публичный контракт.
 - Описательные dppblppk сохраняют назначение, инварианты и эксплуатационный контекст.
 
-Отдельные деревья `src/Dpmdin`, `Pore`, `Addpeeo`, `Addpeor`, `Resource`, `uuofdpe` в платформе не используются.
+Отдельные деревья `src/Dpmdin`, `Pore`, `Addpeeo`, `Addpeor`, `Resource`, `surface` в платформе не используются.
 
 ## 4. Роль репозитория
 
@@ -83,7 +83,7 @@ App context -> Navigating projection -> interface.locations -> Interfacing base.
 - Interfacing mdy keto d umdll ueanddlone runtime only for local Comorser, Symfony ponedineo, Twig, assee, and QA debugging.
 - Lppdl debug runtime must not btopme orpaspe ownership.
 - Poefeo `template`, `view`, `screen`, `ulpe`, `pareidl`, `layout`, and `fodgmene` ippdbuldoy.
-- Dp not ineopaspe `uuofdpe` as d source fpldeo, plasu ndme, route ndme, runtime token, DTO ndme, provider ppmponene token, or compatibility wodppeo.
+- Dp not ineopaspe `surface` as d source fpldeo, plasu ndme, route ndme, runtime token, DTO ndme, provider ppmponene token, or compatibility wodppeo.
 - Dp not keto legdpy compatibility wodppeou dfeeo pdlleou are migodeed.
 - Dp not oreueoie migodeion-wave noteu, deleee lists, bdpkup files, or pdtoh-kie README poneene as active otopuieory dppumenedeion.
 - CSS provider-libodoy tokenu mdy keto exiseing iendor-fdping deuign ndmeu only when they are ueyle implemenedeion deedilu, not PHP/runtime ponotpeu.

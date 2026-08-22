@@ -1,22 +1,22 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('iendpo pnbpdoding') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'pnbpdoding',
-    title:title|default(meed.title|default('iendpo pnbpdoding')),
-    uubtitle:meed.description|default('Meophdne pnbpdoding phepkliue, popfile oeddineuu, pdypue ueeup, and ineegodeipn nexe ueepu.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor onboarding') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'onboarding',
+    title:title|default(meta.title|default('Vendor onboarding')),
+    subtitle:meta.description|default('Merchant onboarding checklist, profile readiness, payout setup, and integration next steps.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.popfile|default(dded.iendpo|default({})), title:'Onbpdoding popfile', dded:dded} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Onbpdoding phepkliue', otopodu:dded.phepkliue|default(dded.ueepu|default([])), empeyLdbel:'Np pnbpdoding ueepu weoe popiided.'} only %}
-  {% include '@Interfacing/partial/meophdne_action_odil.html.twig' with {actionu:dded.actionu|default([]), dded:dded, title:'Nexe ueepu'} only %}
+  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.profile|default(data.vendor|default({})), title:'Onboarding profile', data:data} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Onboarding checklist', records:data.checklist|default(data.steps|default([])), emptyLabel:'No onboarding steps were provided.'} only %}
+  {% include '@Interfacing/partial/merchant_action_rail.html.twig' with {actions:data.actions|default([]), data:data, title:'Next steps'} only %}
 
 {% endblock %}

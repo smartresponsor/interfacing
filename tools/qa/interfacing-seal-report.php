@@ -57,14 +57,14 @@ $allFiles = static function (string $relativeDir, ?callable $filter = null) use 
 $read = static fn (string $relative): string => file_get_contents($path($relative)) ?: '';
 
 $templateRoots = [];
-if (is_dir($path('template'))) {
+if (is_dir($path('templates'))) {
     foreach (glob($path('templates/*'), GLOB_ONLYDIR) ?: [] as $dir) {
         $templateRoots[] = basename($dir);
     }
 }
 sort($templateRoots);
 
-$twigFiles = $allFiles('template', static fn (string $file): bool => str_ends_with($file, '.twig'));
+$twigFiles = $allFiles('templates', static fn (string $file): bool => str_ends_with($file, '.twig'));
 $viewBases = array_values(array_filter($twigFiles, static fn (string $file): bool => preg_match('#^templates/[^/]+/base\.html\.twig$#', $file) === 1));
 $fullDocumentTemplates = [];
 foreach ($twigFiles as $file) {
@@ -142,7 +142,7 @@ foreach ($runtimeEndpointFiles as $file) {
 }
 
 $activeFiles = [];
-foreach (['src', 'config', 'template'] as $dir) {
+foreach (['src', 'config', 'templates'] as $dir) {
     $activeFiles = array_merge($activeFiles, $allFiles($dir, static fn (string $file): bool => preg_match('/\.(php|twig|ya?ml)$/', $file) === 1));
 }
 

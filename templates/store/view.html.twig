@@ -7,23 +7,23 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-surface interfacing-surface--store" data-interfacing-surface="store">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Storefront</p>
+  <main class="interfacing-view interfacing-view--store" data-interfacing-view="store">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">Storefront</p>
       <h1>{{ title }}</h1>
       <p>{{ store.summary|default('Browse products, categories, carts, orders, payments, shipments, and customer services from the storefront surface.') }}</p>
     </header>
 
     {% block store_body %}
-      <section class="interfacing-surface__grid">
+      <section class="interfacing-view__grid">
         {% for item in store.items|default([]) %}
-          <article class="interfacing-surface__panel">
+          <article class="interfacing-view__panel">
             <h2>{{ item.label|default(item.title|default('Store item')) }}</h2>
             <p>{{ item.summary|default('') }}</p>
             <a href="{{ item.href|default(item.url|default('#')) }}">Open</a>
           </article>
         {% else %}
-          <article class="interfacing-surface__panel">
+          <article class="interfacing-view__panel">
             <h2>Store overview</h2>
             <p>Storefront data has not been provided by the producer component yet.</p>
           </article>

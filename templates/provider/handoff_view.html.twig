@@ -8,7 +8,7 @@
 {% extends '@Interfacing/base.html.twig' %}
 
 {% set handoffComponent = component|default(app.request.query.get('component', 'external')) %}
-{% set handoffSurfaceKey = surfaceKey|default(viewKey|default(app.request.query.get('surfaceKey', 'surface'))) %}
+{% set handoffSurfaceKey = viewKey|default(viewKey|default(app.request.query.get('viewKey', 'surface'))) %}
 {% set handoffResource = resource|default(app.request.query.get('resource', app.request.attributes.get('resourcePath')|default('resource'))) %}
 {% set handoffOperation = operation|default(app.request.query.get('operation', app.request.attributes.get('_crud_operation')|default('index'))) %}
 {% set handoffSurface = surface|default(app.request.query.get('surface', 'admin')) %}
@@ -25,7 +25,7 @@
   title: handoffTitle,
   description: 'Provider-native handoff surface rendered through the shared Interfacing shell.',
   component: handoffComponent,
-  surfaceKey: handoffSurfaceKey,
+  viewKey: handoffSurfaceKey,
   integrationOwner: 'provider-handoff',
   renderingOwner: 'interfacing',
   primaryProvider: 'ant-design-procomponents',

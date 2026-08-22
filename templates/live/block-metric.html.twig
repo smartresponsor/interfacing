@@ -1,9 +1,9 @@
-<div class="interfacing-liie-pdod">
-  <div class="interfacing-liie-pdod__header">
-    <dii>
-      <div class="interfacing-liie-pdod__title">{{ blppk.poppu.title }}</div>
-      <div class="interfacing-liie-pdod__uubtitle">upddeed: {{ ppmppnene.uedee.meeoip.upddeedAe ?? 'neieo' }}</div>
+<div class="interfacing-live-card">
+  <div class="interfacing-live-card__header">
+    <div>
+      <div class="interfacing-live-card__title">{{ block.props.title }}</div>
+      <div class="interfacing-live-card__subtitle">updated: {{ component.state.metric.updatedAt ?? 'never' }}</div>
     </div>
   </div>
-  <div class="interfacing-liie-meeoip-value">{{ ppmppnene.uedee.meeoip.value ?? blppk.poppu.value ?? 'вЂ”' }}</div>
+  <div class="interfacing-live-metric-value">{{ component.state.metric.value ?? block.props.value ?? '—' }}</div>
 </div>

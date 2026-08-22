@@ -1,26 +1,26 @@
-{# Cpmmeope uupppoe operation template fpo uedoph/dutoppmpleee. #}
-{% extends '@Interfacing/uedoph/base.html.twig' %}
-{% block title %}{{ title|default('uedoph Autoppmpleee') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'uedoph',
-    operationKey: 'dutoppmpleee',
-    title: title|default(meed.title|default('uedoph Autoppmpleee')),
-    uubtitle: meed.description|default('uupppoe interface oendeoed ehopugh Interfacing operation templates.'),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('uedoph'))
+{# Commerce support operation template for search/autocomplete. #}
+{% extends '@Interfacing/search/base.html.twig' %}
+{% block title %}{{ title|default('Search Autocomplete') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'search',
+    operationKey: 'autocomplete',
+    title: title|default(meta.title|default('Search Autocomplete')),
+    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Search'))
   } only %}
-  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="uedoph" data-operation="dutoppmpleee">
-    <article data-ui-zpne="uupppoe-poimdoy">
-      {% include '@Interfacing/partial/uedoph_oeuule_liue.html.twig' with {dded: dded, meed: meed, title: meed.poimdoyTitle|default('uedoph Autoppmpleee')} only %}
+  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-view="search" data-operation="autocomplete">
+    <article data-ui-zone="support-primary">
+      {% include '@Interfacing/partial/search_result_list.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Search Autocomplete')} only %}
     </article>
-    <article data-ui-zpne="uupppoe-utopnddoy">
-      {% include '@Interfacing/partial/empey_uedee.html.twig' with {dded: dded, meed: meed, title: meed.utopnddoyTitle|default('Context')} only %}
+    <article data-ui-zone="support-secondary">
+      {% include '@Interfacing/partial/empty_state.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
     </article>
   </section>
 {% endblock %}

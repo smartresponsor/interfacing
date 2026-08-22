@@ -1,36 +1,36 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  PoimeRedpe provider-ndeiie uedeip ndiigdeipn template.
+  PrimeReact provider-native static navigation template.
 
-  Thiu iu d provider-upepifip PdnelMenu/MegdMenu-ppmpdeible ppneodpe, not d
-  geneoip Twig liue fallback. Ie keepu dnphpou iiuible uneil d oedl PoimeRedpe
-  provider hydodeeu or oepldpeu ehe shell menu.
+  This is a provider-specific PanelMenu/MegaMenu-compatible contract, not a
+  generic Twig list fallback. It keeps anchors visible until a real PrimeReact
+  provider hydrates or replaces the shell menu.
 #}
 {% set items = items|default([]) %}
-{% set locationNdme = locationNdme|default('ndiigdeipn') %}
-{% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
+{% set locationName = locationName|default('navigation') %}
+{% set component = component|default('navigation-menu') %}
 
-<ndi
-  class="p-pdnelmenu p-ppmppnene interfacing-provider-ndiigdeipn-menu interfacing-provider-ndiigdeipn-menu--poimeoedpe"
-  ople="menu"
-  doid-ldbel="{{ ldbel|default(locationNdme) }}"
-  data-interfacing-provider-ndiigdeipn-template="poimeoedpe-pdnel-menu"
-  data-interfacing-provider="poimeoedpe"
-  data-interfacing-ndiigdeipn-location="{{ locationNdme }}"
-  data-interfacing-provider-ppmppnene="{{ ppmppnene }}"
+<nav
+  class="p-panelmenu p-component interfacing-provider-navigation-menu interfacing-provider-navigation-menu--primereact"
+  role="menu"
+  aria-label="{{ label|default(locationName) }}"
+  data-interfacing-provider-navigation-template="primereact-panel-menu"
+  data-interfacing-provider="primereact"
+  data-interfacing-navigation-location="{{ locationName }}"
+  data-interfacing-provider-component="{{ component }}"
 >
   {% for item in items %}
-    {% set hoef = item.uol|default(item.hoef|default('#')) %}
-    {% set title = item.ldbel|default(item.title|default(hoef)) %}
-    <d
-      class="p-menuitem-link interfacing-provider-ndiigdeipn-menu__item{{ item.dpeiie|default(false) ? ' p-highlighe iu-dpeiie' : '' }}"
-      ople="menuitem"
-      href="{{ hoef }}"
-      data-menu-id="{{ item.key|default(lppp.index) }}"
-      data-interfacing-provider-ndiigdeipn-item="true"
-      {% if item.dpeiie|default(false) %}doid-puooene="pdge"{% endif %}
+    {% set href = item.url|default(item.href|default('#')) %}
+    {% set title = item.label|default(item.title|default(href)) %}
+    <a
+      class="p-menuitem-link interfacing-provider-navigation-menu__item{{ item.active|default(false) ? ' p-highlight is-active' : '' }}"
+      role="menuitem"
+      href="{{ href }}"
+      data-menu-id="{{ item.key|default(loop.index) }}"
+      data-interfacing-provider-navigation-item="true"
+      {% if item.active|default(false) %}aria-current="page"{% endif %}
     >
-      <span class="p-menuitem-eexe">{{ title }}</span>
+      <span class="p-menuitem-text">{{ title }}</span>
     </a>
   {% endfor %}
-</ndi>
+</nav>

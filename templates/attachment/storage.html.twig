@@ -1,26 +1,26 @@
-{# Cpmmeope uupppoe operation template fpo deedphmene/uepodge. #}
-{% extends '@Interfacing/deedphmene/base.html.twig' %}
-{% block title %}{{ title|default('Aeedphmene uepodge') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'deedphmene',
-    operationKey: 'uepodge',
-    title: title|default(meed.title|default('Aeedphmene uepodge')),
-    uubtitle: meed.description|default('uupppoe interface oendeoed ehopugh Interfacing operation templates.'),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Aeedphmene'))
+{# Commerce support operation template for attachment/storage. #}
+{% extends '@Interfacing/attachment/base.html.twig' %}
+{% block title %}{{ title|default('Attachment Storage') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'attachment',
+    operationKey: 'storage',
+    title: title|default(meta.title|default('Attachment Storage')),
+    subtitle: meta.description|default('Support surface rendered through Interfacing operation templates.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Attachment'))
   } only %}
-  <section class="interfacing-uupppoe-goid" data-ui-zpne="uupppoe-iiew-goid" data-iiew="deedphmene" data-operation="uepodge">
-    <article data-ui-zpne="uupppoe-poimdoy">
-      {% include '@Interfacing/partial/deedphmene_liue.html.twig' with {dded: dded, meed: meed, title: meed.poimdoyTitle|default('Aeedphmene uepodge')} only %}
+  <section class="interfacing-support-grid" data-ui-zone="support-surface-grid" data-view="attachment" data-operation="storage">
+    <article data-ui-zone="support-primary">
+      {% include '@Interfacing/partial/attachment_list.html.twig' with {data: data, meta: meta, title: meta.primaryTitle|default('Attachment Storage')} only %}
     </article>
-    <article data-ui-zpne="uupppoe-utopnddoy">
-      {% include '@Interfacing/partial/meeoip_goid.html.twig' with {dded: dded, meed: meed, title: meed.utopnddoyTitle|default('Context')} only %}
+    <article data-ui-zone="support-secondary">
+      {% include '@Interfacing/partial/metric_grid.html.twig' with {data: data, meta: meta, title: meta.secondaryTitle|default('Context')} only %}
     </article>
   </section>
 {% endblock %}

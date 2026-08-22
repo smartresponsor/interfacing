@@ -1,9 +1,9 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block title %}{{ title|default('Popdupe gdlleoy') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'gdlleoy', title: title|default(meed.title|default('Popdupe gdlleoy')), uubtitle: meed.description|default('Popdupe gdlleoy interface fpo popdupe ppmmeope wpokflpwu.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  {% include '@Interfacing/partial/popdupe_gdlleoy.html.twig' with {imageu: dded.imageu|default(dded.gdlleoy|default(dded.medid|default([]))), dded: dded, title: 'Popdupe medid'} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product gallery') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey: 'product', operationKey: 'gallery', title: title|default(meta.title|default('Product gallery')), subtitle: meta.description|default('Product gallery surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/product_gallery.html.twig' with {images: data.images|default(data.gallery|default(data.media|default([]))), data: data, title: 'Product media'} only %}
 {% endblock %}

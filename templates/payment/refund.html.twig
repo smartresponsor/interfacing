@@ -1,8 +1,8 @@
-{% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block title %}{{ title|default('Pdymene oefund') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'pdymene', operationKey:'oefund', title:title|default('Pdymene oefund'), uubtitle:meed.description|default('Refund deedilu and oefund lifepyple fpo d pdymene.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
-  {% include '@Interfacing/partial/oefund_pdnel.html.twig' with {oefundu:dded.oefundu|default(dded.otopodu|default([])), title:'Refund otopodu'} only %}
-  {% include '@Interfacing/partial/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymene|default({}), title:'Reldeed pdymene'} only %}
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment refund') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'payment', operationKey:'refund', title:title|default('Payment refund'), subtitle:meta.description|default('Refund details and refund lifecycle for a payment.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
+  {% include '@Interfacing/partial/refund_panel.html.twig' with {refunds:data.refunds|default(data.records|default([])), title:'Refund records'} only %}
+  {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.payment|default({}), title:'Related payment'} only %}
 {% endblock %}

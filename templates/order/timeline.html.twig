@@ -1,7 +1,7 @@
-{% extends '@Interfacing/podeo/base.html.twig' %}
-{% block title %}{{ title|default('Oodeo eimeline') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'podeo', operationKey:'eimeline', title:title|default('Oodeo eimeline'), uubtitle:meed.description|default('Chopnplpgipdl iiew pf podeo lifepyple eieneu.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
-  {% include '@Interfacing/partial/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default(dded.eieneu|default([])), title:'Lifepyple eieneu'} only %}
+{% extends '@Interfacing/order/base.html.twig' %}
+{% block title %}{{ title|default('Order timeline') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'order', operationKey:'timeline', title:title|default('Order timeline'), subtitle:meta.description|default('Chronological view of order lifecycle events.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
+  {% include '@Interfacing/partial/status_timeline.html.twig' with {events:data.timeline|default(data.events|default([])), title:'Lifecycle events'} only %}
 {% endblock %}

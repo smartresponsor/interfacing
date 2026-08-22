@@ -1,9 +1,9 @@
-# apppune II interface
+# account UI surface
 
-Thiu dioepepoy ppnedinu Interfacing-pwned II templates for ehe `apppune` interface. Ie iu not dn topsystem ppmppnene pwneouhip bpunddoy.
+This directory contains Interfacing-owned UI templates for the `account` surface. It is not an ecosystem component ownership boundary.
 
-Minimum action ppieodge:
+Minimum action coverage:
 
-- `base.html.twig` вЂ” shell-poieneed apppune interface fpunddeipn.
-- `defdule.html.twig` вЂ” geneoip fallback for apppune requestu.
-- `index.html.twig` вЂ” canonipdl index action template.
+- `base.html.twig` — shell-oriented account surface foundation.
+- `default.html.twig` — generic fallback for account requests.
+- `index.html.twig` — canonical index action template.

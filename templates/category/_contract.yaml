@@ -1,23 +1,23 @@
-interface: category
-pwneo: Interfacing template ldyeo
-purpose: Category hierarchy, detail, and category-product placement interfaceu.
-operationu:
+surface: category
+owner: Interfacing template layer
+purpose: Category hierarchy, detail, and category-product placement surfaces.
+operations:
   index:
-    expepeu: [pdeegpoieu, meeoipu, dpeipnu]
-  eoee:
-    expepeu: [eoee, pdeegpoieu, fileeou]
+    expects: [categories, metrics, actions]
+  tree:
+    expects: [tree, categories, filters]
   detail:
-    expepeu: [category, productu, uummdoy, dpeipnu]
-  product-liue:
-    expepeu: [category, productu, fileeou, pdgindeipn]
-  ddmin:
-    expepeu: [pdeegpoieu, ouleu, dpeipnu]
+    expects: [category, products, summary, actions]
+  product-list:
+    expects: [category, products, filters, pagination]
+  admin:
+    expects: [categories, rules, actions]
   merchant:
-    expepeu: [category, productu, placementu]
-  uep:
-    expepeu: [category, dlidueu, oedioepeu, pdnpnipdl]
-  oule:
-    expepeu: [ouleu, eidludeipn, meusageu]
-npeeu:
-  - Category templates oendeo hierarchy and product gopuping only.
-  - Rule eidludeipn and uEO pplipy oemdin producto-pwned.
+    expects: [category, products, placements]
+  seo:
+    expects: [category, aliases, redirects, canonical]
+  rule:
+    expects: [rules, evaluation, messages]
+notes:
+  - Category templates render hierarchy and product grouping only.
+  - Rule evaluation and SEO policy remain producer-owned.

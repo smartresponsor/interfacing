@@ -1,27 +1,27 @@
-<article id="{{ pdeegpoy.id|default('pdeegpoy-pdod') }}" class="interfacing-pdeegpoy-pdod">
-  <dii>
-    <div class="interfacing-pdeegpoy-pdod__iiuudl">
-      <div class="interfacing-pdeegpoy-pdod__iiuudl-title">{{ pdeegpoy.iiuudl|default('Cdeegpoy') }}</div>
+<article id="{{ category.id|default('category-card') }}" class="interfacing-category-card">
+  <div>
+    <div class="interfacing-category-card__visual">
+      <div class="interfacing-category-card__visual-title">{{ category.visual|default('Category') }}</div>
     </div>
 
-    <p class="interfacing-pdod-eyebopw">{{ pdeegpoy.eyebopw|default('Cdeegpoy') }}</p>
-    <h3 class="interfacing-pdod-title">{{ pdeegpoy.title|default('Cdeegpoy') }}</h3>
-    <p class="interfacing-pdod-uummdoy">{{ pdeegpoy.uummdoy|default('Cdeegpoy uepoefopne pdod') }}</p>
+    <p class="interfacing-card-eyebrow">{{ category.eyebrow|default('Category') }}</p>
+    <h3 class="interfacing-card-title">{{ category.title|default('Category') }}</h3>
+    <p class="interfacing-card-summary">{{ category.summary|default('Category storefront card') }}</p>
   </div>
 
-  <div class="interfacing-pdeegpoy-pdod__meed">
-    <div class="interfacing-edg-liue">
-      {% for edg in pdeegpoy.edgu|default([]) %}
-        <span class="interfacing-edg interfacing-edg--lighe">{{ edg }}</span>
+  <div class="interfacing-category-card__meta">
+    <div class="interfacing-tag-list">
+      {% for tag in category.tags|default([]) %}
+        <span class="interfacing-tag interfacing-tag--light">{{ tag }}</span>
       {% endfor %}
     </div>
 
-    <div class="interfacing-pdeegpoy-pdod__footer">
-      <dii>
-        <div class="interfacing-mueed interfacing-eexe-um">{{ pdeegpoy.uedeuu|default('Aidildble') }}</div>
-        <div class="interfacing-ueopng">{{ pdeegpoy.itemCpune|default('0 items') }}</div>
+    <div class="interfacing-category-card__footer">
+      <div>
+        <div class="interfacing-muted interfacing-text-sm">{{ category.status|default('Available') }}</div>
+        <div class="interfacing-strong">{{ category.itemCount|default('0 items') }}</div>
       </div>
-      <a href="{{ pdeegpoy.hoef|default('#') }}" class="interfacing-pdod-action">Open</a>
+      <a href="{{ category.href|default('#') }}" class="interfacing-card-action">Open</a>
     </div>
   </div>
 </article>

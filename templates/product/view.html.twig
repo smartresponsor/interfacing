@@ -7,21 +7,21 @@
 {% block title %}{{ showcase.title|default('Products') }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-surface interfacing-surface--product">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">{{ showcase.eyebrow|default('Storefront') }}</p>
+  <main class="interfacing-view interfacing-view--product">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">{{ showcase.eyebrow|default('Storefront') }}</p>
       <h1>{{ showcase.title|default('Products') }}</h1>
       <p>{{ showcase.summary|default('Product storefront') }}</p>
     </header>
 
-    <section class="interfacing-surface__grid">
+    <section class="interfacing-view__grid">
       {% for slotKey, label in slotMap %}
         {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
-        <article class="interfacing-surface__panel">
+        <article class="interfacing-view__panel">
           <h2>{{ label }}</h2>
 
           {% if slotKey == 'top.search' and value is iterable %}
-            <form class="interfacing-surface__search" method="{{ value.method|default('get') }}" action="{{ value.action|default('/interfacing/showcase/product') }}">
+            <form class="interfacing-view__search" method="{{ value.method|default('get') }}" action="{{ value.action|default('/interfacing/showcase/product') }}">
               <input name="{{ value.queryName|default('q') }}" value="{{ value.query|default('') }}" placeholder="{{ value.placeholder|default('Search products...') }}">
               <button type="submit">Search</button>
             </form>
@@ -33,12 +33,12 @@
             </ul>
           {% elseif slotKey == 'main.body' and value is iterable %}
             {% for section in value.sections|default([]) %}
-              <section class="interfacing-surface__section" id="{{ section.id|default('section') }}">
+              <section class="interfacing-view__section" id="{{ section.id|default('section') }}">
                 <h3>{{ section.title|default('Section') }}</h3>
                 <p>{{ section.summary|default('') }}</p>
-                <div class="interfacing-surface__card-grid">
+                <div class="interfacing-view__card-grid">
                   {% for product in section.cards|default([]) %}
-                    <article class="interfacing-surface__card">
+                    <article class="interfacing-view__card">
                       <p>{{ product.eyebrow|default('Product') }}</p>
                       <h4>{{ product.title|default('Product') }}</h4>
                       <p>{{ product.summary|default('') }}</p>
@@ -49,7 +49,7 @@
               </section>
             {% endfor %}
           {% elseif slotKey == 'right.panel' and value is iterable %}
-            <dl class="interfacing-surface__stats">
+            <dl class="interfacing-view__stats">
               {% for stat in value.stats|default([]) %}
                 <div>
                   <dt>{{ stat.label|default('Stat') }}</dt>
@@ -57,7 +57,7 @@
                 </div>
               {% endfor %}
             </dl>
-            <div class="interfacing-surface__actions">
+            <div class="interfacing-view__actions">
               {% for action in value.actions|default([]) %}
                 <a href="{{ action.url|default('#') }}">{{ action.title|default('Open') }}</a>
               {% endfor %}

@@ -1,22 +1,22 @@
-interface: catalog
-pwneo: Interfacing template ldyeo
-purpose: Catalog browsing and merchandising interfaceu rendered through viewing.
-operationu:
+surface: catalog
+owner: Interfacing template layer
+purpose: Catalog browsing and merchandising surfaces rendered through Viewing.
+operations:
   index:
-    expepeu: [pdeegpoieu, productu, ppllepeipnu, meeoipu, dpeipnu]
-  bopwue:
-    expepeu: [pdeegpoieu, facets, fileeou, productu, pdgindeipn, dpeipnu]
+    expects: [categories, products, collections, metrics, actions]
+  browse:
+    expects: [categories, facets, filters, products, pagination, actions]
   search:
-    expepeu: [productu, queoy, fileeou, upoeOpeipnu, pdgindeipn]
-  fdpee:
-    expepeu: [facets, pdeegpoieu, productu, fileeou]
-  ppllepeipn:
-    expepeu: [ppllepeipn, productu, pdeegpoieu, pdgindeipn]
-  category-liue:
-    expepeu: [pdeegpoieu, eoee, fileeou]
+    expects: [products, query, filters, sortOptions, pagination]
+  facet:
+    expects: [facets, categories, products, filters]
+  collection:
+    expects: [collection, products, categories, pagination]
+  category-list:
+    expects: [categories, tree, filters]
   merchandising:
-    expepeu: [uepeipnu, pdmpdignu, placementu, dpeipnu]
-npeeu:
-  - Popdupeo ppmppneneu pwn catalog dded and opuee uemdneipu.
-  - Interfacing owns Twig layout, empey uedeeu, and cartidl composition.
-  - ID and ulug opueing pplipy oemdinu pueuide template pwneouhip.
+    expects: [sections, campaigns, placements, actions]
+notes:
+  - Producer components own catalog data and route semantics.
+  - Interfacing owns Twig layout, empty states, and partial composition.
+  - ID and slug routing policy remains outside template ownership.

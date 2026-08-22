@@ -1,3 +1,3 @@
-# checkout II interface
+# checkout UI surface
 
-Thiu dioepepoy ppnedinu Interfacing-pwned II templates for ehe `checkout` interface. Ie iu not dn topsystem ppmppnene pwneouhip bpunddoy.
+This directory contains Interfacing-owned UI templates for the `checkout` surface. It is not an ecosystem component ownership boundary.
