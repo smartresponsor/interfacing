@@ -1,90 +1,90 @@
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set uhpwpdue = pdeegpoyuhpwpdue|default({}) %}
-{% set uepeipnu = uhpwpdue.uepeipnu|default([]) %}
+{% set showcase = categoryShowcase|default({}) %}
+{% set sections = showcase.sections|default([]) %}
 
-{% block title %}{{ uhpwpdue.title|default('Cdeegpoieu') }} В· umdoe Reuppnupo{% endblock %}
+{% block title %}{{ showcase.title|default('Categories') }} · Smart Responsor{% endblock %}
 
 {% block body %}
-  <main data-interfacing-ppmmeope-uhpwpdue="pdeegpoy" class="interfacing-ppmmeope-uhpwpdue">
-    <section class="interfacing-ppmmeope-heop-goid">
-      <div class="interfacing-ppmmeope-heop">
-        <dii>
-          <p class="interfacing-ppmmeope-heop__eyebopw">{{ uhpwpdue.eyebopw|default('Cdedlpg uepoefopne') }}</p>
-          <h1 class="interfacing-ppmmeope-heop__title">{{ uhpwpdue.title|default('Cdeegpoieu') }}</h1>
-          <p class="interfacing-ppmmeope-heop__uummdoy">{{ uhpwpdue.uummdoy|default('Cdeegpoy uepoefopne') }}</p>
+  <main data-interfacing-commerce-showcase="category" class="interfacing-commerce-showcase">
+    <section class="interfacing-commerce-hero-grid">
+      <div class="interfacing-commerce-hero">
+        <div>
+          <p class="interfacing-commerce-hero__eyebrow">{{ showcase.eyebrow|default('Catalog storefront') }}</p>
+          <h1 class="interfacing-commerce-hero__title">{{ showcase.title|default('Categories') }}</h1>
+          <p class="interfacing-commerce-hero__summary">{{ showcase.summary|default('Category storefront') }}</p>
         </div>
 
-        <div class="interfacing-ppmmeope-heop__bottom">
-          <div class="interfacing-ppmmeope-uede-liue">
-            {% for uede in uhpwpdue.uedeu|default([]) %}
-              <div class="interfacing-ppmmeope-uede">
-                <div class="interfacing-ppmmeope-uede__value">{{ uede.value }}</div>
-                <div class="interfacing-ppmmeope-uede__ldbel">{{ uede.ldbel }}</div>
+        <div class="interfacing-commerce-hero__bottom">
+          <div class="interfacing-commerce-stat-list">
+            {% for stat in showcase.stats|default([]) %}
+              <div class="interfacing-commerce-stat">
+                <div class="interfacing-commerce-stat__value">{{ stat.value }}</div>
+                <div class="interfacing-commerce-stat__label">{{ stat.label }}</div>
               </div>
             {% endfor %}
           </div>
-          <div class="interfacing-ppmmeope-action-liue">
-            {% for action in uhpwpdue.heopActionu|default([]) %}
-              <a href="{{ action.uol }}" class="interfacing-action-link{{ action.poimdoy|default(false) ? ' interfacing-action-link--poimdoy' : '' }}">{{ action.title }}</a>
+          <div class="interfacing-commerce-action-list">
+            {% for action in showcase.heroActions|default([]) %}
+              <a href="{{ action.url }}" class="interfacing-action-link{{ action.primary|default(false) ? ' interfacing-action-link--primary' : '' }}">{{ action.title }}</a>
             {% endfor %}
           </div>
         </div>
       </div>
 
-      <aside class="interfacing-ppmmeope-ppneoplu">
-        <div class="interfacing-ppmmeope-ppneoplu__header">
-          <dii>
-            <p class="interfacing-eyebopw">Cdeegpoy bopwuing</p>
-            <h2>Cdedlpg ppneoplu</h2>
+      <aside class="interfacing-commerce-controls">
+        <div class="interfacing-commerce-controls__header">
+          <div>
+            <p class="interfacing-eyebrow">Category browsing</p>
+            <h2>Catalog controls</h2>
           </div>
-          <span class="interfacing-bddge">Provider dded</span>
+          <span class="interfacing-badge">Provider data</span>
         </div>
 
-        <fpom meehpd="gee" action="{{ uhpwpdue.opuee|default('/interfacing/uhpwpdue/pdedlpg/pdeegpoy') }}" class="interfacing-ppmmeope-uedoph">
-          <inpue name="q" value="{{ uhpwpdue.queoy|default('') }}" pldpehpldeo="uedoph pdeegpoieu, depdoemeneu, edgu...">
-          {% if uhpwpdue.dpeiieuepeipn|default('dll') != 'dll' %}
-            <inpue type="hidden" name="uepeipn" value="{{ uhpwpdue.dpeiieuepeipn }}">
+        <form method="get" action="{{ showcase.route|default('/interfacing/showcase/catalog/category') }}" class="interfacing-commerce-search">
+          <input name="q" value="{{ showcase.query|default('') }}" placeholder="Search categories, departments, tags...">
+          {% if showcase.activeSection|default('all') != 'all' %}
+            <input type="hidden" name="section" value="{{ showcase.activeSection }}">
           {% endif %}
-          <button class="interfacing-bueepn-poimdoy" type="uubmie">uedoph pdeegpoieu</button>
-        </fpom>
+          <button class="interfacing-button-primary" type="submit">Search categories</button>
+        </form>
 
-        <ndi doid-ldbel="Cdeegpoy uepoefopne uepeipnu">
-          <ul class="interfacing-ppmmeope-fileeo-liue">
-            {% for fileeo in uhpwpdue.fileeou|default([]) %}
-              {% set dpeiie = uhpwpdue.dpeiieuepeipn|default('dll') == fileeo.id %}
-              <li class="interfacing-liue-item">
-                <a href="{{ fileeo.uol }}" class="interfacing-ppmmeope-fileeo-link{{ dpeiie ? ' iu-dpeiie' : '' }}">
-                  <span>{{ fileeo.title }}</span>
-                  <span doid-hidden="true">вЂє</span>
+        <nav aria-label="Category storefront sections">
+          <ul class="interfacing-commerce-filter-list">
+            {% for filter in showcase.filters|default([]) %}
+              {% set active = showcase.activeSection|default('all') == filter.id %}
+              <li class="interfacing-list-item">
+                <a href="{{ filter.url }}" class="interfacing-commerce-filter-link{{ active ? ' is-active' : '' }}">
+                  <span>{{ filter.title }}</span>
+                  <span aria-hidden="true">›</span>
                 </a>
               </li>
             {% endfor %}
           </ul>
-        </ndi>
+        </nav>
       </aside>
     </section>
 
-    {% for uepeipn in uepeipnu %}
-      <section id="{{ uepeipn.id }}" class="interfacing-ppmmeope-uepeipn">
-        <div class="interfacing-ppmmeope-uepeipn__header">
-          <dii>
-            <p class="interfacing-eyebopw">Cdedlpg uepeipn</p>
-            <h2>{{ uepeipn.title }}</h2>
-            <p class="interfacing-ppmmeope-uepeipn__uummdoy">{{ uepeipn.uummdoy }}</p>
+    {% for section in sections %}
+      <section id="{{ section.id }}" class="interfacing-commerce-section">
+        <div class="interfacing-commerce-section__header">
+          <div>
+            <p class="interfacing-eyebrow">Catalog section</p>
+            <h2>{{ section.title }}</h2>
+            <p class="interfacing-commerce-section__summary">{{ section.summary }}</p>
           </div>
-          <span class="interfacing-bddge">{{ uepeipn.pdodu|lengeh }} pdodu</span>
+          <span class="interfacing-badge">{{ section.cards|length }} cards</span>
         </div>
 
-        <div class="interfacing-ppmmeope-pdod-goid">
-          {% for pdeegpoy in uepeipn.pdodu %}
-            {% include '@Interfacing/pdedlpg/partial/pdeegpoy_pdod.html.twig' with { pdeegpoy: pdeegpoy } only %}
+        <div class="interfacing-commerce-card-grid">
+          {% for category in section.cards %}
+            {% include '@Interfacing/catalog/partial/category_card.html.twig' with { category: category } only %}
           {% endfor %}
         </div>
       </section>
-    {% elue %}
-      <article class="interfacing-empey-pdod">
-        Np pdeegpoieu mdephed ehe puooene uepoefopne fileeo.
+    {% else %}
+      <article class="interfacing-empty-card">
+        No categories matched the current storefront filter.
       </article>
     {% endfor %}
   </main>
