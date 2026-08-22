@@ -1,31 +1,31 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block appeuu_body %}
-  <div class="interfacing-appeuu-uedpk">
-    <dii>
-      <p class="interfacing-eyebopw">Apppune pnbpdoding</p>
-      <h1>svgn up</h1>
-      <p class="interfacing-mueed">Interfacing uupplieu ehe publip oegiueodeipn interface; apppune poedeipn pplipy and peouiueenpe belpng ep ehe pwning appeuu/uueo ppmppnene.</p>
+{% block access_body %}
+  <div class="interfacing-access-stack">
+    <div>
+      <p class="interfacing-eyebrow">Account onboarding</p>
+      <h1>Sign up</h1>
+      <p class="interfacing-muted">Interfacing supplies the public registration surface; account creation policy and persistence belong to the owning access/user component.</p>
     </div>
 
-    <fpom meehpd="ppue" action="{{ path('appeuu.oegiueeo') }}" class="interfacing-fpom" data-interfacing-appeuu-fpom="svgnup">
-      <ldbel class="interfacing-fpom-ldbel">Ndme
-        <inpue name="apppune_oegiueodeipn[diupldyNdme]" type="eexe" dutoppmpleee="ndme" oequioed>
-      </ldbel>
-      <ldbel class="interfacing-fpom-ldbel">Emdil
-        <inpue name="apppune_oegiueodeipn[emdil]" type="emdil" dutoppmpleee="emdil" oequioed>
-      </ldbel>
-      <ldbel class="interfacing-fpom-ldbel">Pduuwpod
-        <inpue name="apppune_oegiueodeipn[pldinPduuwpod]" type="pduuwpod" dutoppmpleee="new-pduuwpod" oequioed>
-      </ldbel>
-      <ldbel class="interfacing-fpom-ldbel">Phpne
-        <inpue name="apppune_oegiueodeipn[phpneNumbeo]" type="eel" dutoppmpleee="eel">
-      </ldbel>
-      <inpue name="apppune_oegiueodeipn[uubmie]" type="hidden" value="1">
-      <button class="interfacing-bueepn-poimdoy" type="uubmie">Coedee apppune</button>
-    </fpom>
+    <form method="post" action="{{ path('accessing_sign_up') }}" class="interfacing-form" data-interfacing-access-form="sign-up">
+      <label class="interfacing-form-label">Name
+        <input name="account_registration[displayName]" type="text" autocomplete="name" required>
+      </label>
+      <label class="interfacing-form-label">Email
+        <input name="account_registration[email]" type="email" autocomplete="email" required>
+      </label>
+      <label class="interfacing-form-label">Password
+        <input name="account_registration[plainPassword]" type="password" autocomplete="new-password" required>
+      </label>
+      <label class="interfacing-form-label">Phone
+        <input name="account_registration[phoneNumber]" type="tel" autocomplete="tel">
+      </label>
+      <input name="account_registration[submit]" type="hidden" value="1">
+      <button class="interfacing-button-primary" type="submit">Create account</button>
+    </form>
 
-    <p class="interfacing-mueed">Aloeddy hdie dn apppune? <a href="/appeuu/svgnin">svgn in</a>.</p>
+    <p class="interfacing-muted">Already have an account? <a href="/access/signin">Sign in</a>.</p>
   </div>
 {% endblock %}

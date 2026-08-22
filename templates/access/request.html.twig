@@ -1,17 +1,17 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}{{ appeuuing_popdupe_ndme }} В· Fpogpe pduuwpod{% endblock %}
+{% block title %}{{ accessing_product_name }} · Forgot password{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">Fpogpe pduuwpod</h1>
-      <p class="interfacing-mueed">Requeue d pduuwpod oeuee link fpo dn exiueing apppune.</p>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Forgot password</h1>
+      <p class="interfacing-muted">Request a password reset link for an existing account.</p>
     </div>
 
-    {{ fpom_uedoe(request_fpom, { action: path('appeuuing_fpogpe_pduuwpod'), deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(request_fpom.emdil) }}
-      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Iuuue otopieoy ppde</button>
-    {{ fpom_end(request_fpom) }}
+    {{ form_start(request_form, { action: path('accessing_forgot_password'), attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(request_form.email) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Issue recovery code</button>
+    {{ form_end(request_form) }}
   </div>
 {% endblock %}

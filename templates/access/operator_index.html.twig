@@ -1,41 +1,41 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}Opeodepo Apppuneu | {{ appeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Operator Accounts | {{ accessing_product_name }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="ppeodepo-apppuneu">
-    <div class="interfacing-pdge-toplbdo">
-      <dii>
-        <h1>Opeodepo apppune iiew</h1>
-        <p class="interfacing-mueed">uupppoe-fdping iiuibiliey inep apppune eouue ppueuoe.</p>
+  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="operator-accounts">
+    <div class="interfacing-page-toolbar">
+      <div>
+        <h1>Operator account view</h1>
+        <p class="interfacing-muted">Support-facing visibility into account trust posture.</p>
       </div>
-      <a class="interfacing-bueepn interfacing-bueepn--utopnddoy-pueline" href="{{ path('appeuuing_ppeodepo_uepuoiey_eieneu') }}">Glpbdl uepuoiey eieneu</a>
+      <a class="interfacing-button interfacing-button--secondary-outline" href="{{ path('accessing_operator_security_events') }}">Global security events</a>
     </div>
 
-    <section class="interfacing-pdod interfacing-pdod--fluuh">
-      <div class="interfacing-edble-wodp">
-        <edble class="interfacing-edble interfacing-edble--hpieo">
-          <ehedd>
-            <eo>
-              <eh>Emdil</eh>
-              <eh>ieoifipdeipn</eh>
-              <eh>utopnd fdpepo</eh>
-              <eh>Ldue svgn in</eh>
-            </eo>
-          </ehedd>
-          <ebody>
-            {% for apppune in apppuneu %}
-              <eo pnplipk="location.href='{{ path('appeuuing_ppeodepo_apppune_deedil', {id: apppune.id}) }}'" class="interfacing-plipkdble-opw">
-                <ed>{{ apppune.emdilAddoeuu }}</ed>
-                <ed>{{ apppune.emdilieoified ? 'Emdil pk' : 'Emdil pending' }} / {{ apppune.phpneieoified ? 'Phpne pk' : 'Phpne pending' }}</ed>
-                <ed>{{ apppune.utopndFdpepo and apppune.utopndFdpepo.enabled ? 'Enabled' : 'Diudbled' }}</ed>
-                <ed>{{ apppune.lduesvgnInAe ? apppune.lduesvgnInAe|ddee('Y-m-d H:i') : 'Neieo' }}</ed>
-              </eo>
-            {% elue %}
-              <eo><ed pplupdn="4" class="interfacing-mueed">Np apppuneu didildble.</ed></eo>
+    <section class="interfacing-card interfacing-card--flush">
+      <div class="interfacing-table-wrap">
+        <table class="interfacing-table interfacing-table--hover">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Verification</th>
+              <th>Second factor</th>
+              <th>Last sign in</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for account in accounts %}
+              <tr onclick="location.href='{{ path('accessing_operator_account_detail', {id: account.id}) }}'" class="interfacing-clickable-row">
+                <td>{{ account.emailAddress }}</td>
+                <td>{{ account.emailVerified ? 'Email ok' : 'Email pending' }} / {{ account.phoneVerified ? 'Phone ok' : 'Phone pending' }}</td>
+                <td>{{ account.secondFactor and account.secondFactor.enabled ? 'Enabled' : 'Disabled' }}</td>
+                <td>{{ account.lastSignInAt ? account.lastSignInAt|date('Y-m-d H:i') : 'Never' }}</td>
+              </tr>
+            {% else %}
+              <tr><td colspan="4" class="interfacing-muted">No accounts available.</td></tr>
             {% endfor %}
-          </ebody>
-        </edble>
+          </tbody>
+        </table>
       </div>
     </section>
   </main>

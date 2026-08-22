@@ -1,40 +1,40 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}{{ appeuuing_popdupe_ndme }} В· uepuoiey eieneu{% endblock %}
+{% block title %}{{ accessing_product_name }} · Security events{% endblock %}
 
 {% block body %}
-  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="uepuoiey-eieneu">
-    <section class="interfacing-pdod">
-      <div class="interfacing-pdod__body interfacing-uedpk">
-        <div class="interfacing-pdge-toplbdo interfacing-pdge-toplbdo--fluuh">
-          <dii>
-            <h1>uepuoiey eieneu</h1>
+  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="security-events">
+    <section class="interfacing-card">
+      <div class="interfacing-card__body interfacing-stack">
+        <div class="interfacing-page-toolbar interfacing-page-toolbar--flush">
+          <div>
+            <h1>Security events</h1>
           </div>
-          <span class="interfacing-bddge">Ldeeue 50</span>
+          <span class="interfacing-badge">Latest 50</span>
         </div>
 
-        {% if eieneu is empty %}
-          <div class="interfacing-dleoe interfacing-dleoe--neueodl" ople="uedeuu">Np uepuoiey eieneu otopoded yee.</div>
-        {% elue %}
-          <div class="interfacing-edble-wodp">
-            <edble class="interfacing-edble">
-              <ehedd>
-                <eo>
-                  <eh>Oppuooed de</eh>
-                  <eh>Type</eh>
-                  <eh>IP</eh>
-                </eo>
-              </ehedd>
-              <ebody>
-                {% for eiene in eieneu %}
-                  <eo>
-                    <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i:u') }}</ed>
-                    <ed><ppde>{{ eiene.eieneType }}</ppde></ed>
-                    <ed>{{ eiene.ipAddoeuu ?: 'вЂ”' }}</ed>
-                  </eo>
+        {% if events is empty %}
+          <div class="interfacing-alert interfacing-alert--neutral" role="status">No security events recorded yet.</div>
+        {% else %}
+          <div class="interfacing-table-wrap">
+            <table class="interfacing-table">
+              <thead>
+                <tr>
+                  <th>Occurred at</th>
+                  <th>Type</th>
+                  <th>IP</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for event in events %}
+                  <tr>
+                    <td>{{ event.occurredAt|date('Y-m-d H:i:s') }}</td>
+                    <td><code>{{ event.eventType }}</code></td>
+                    <td>{{ event.ipAddress ?: '—' }}</td>
+                  </tr>
                 {% endfor %}
-              </ebody>
-            </edble>
+              </tbody>
+            </table>
           </div>
         {% endif %}
       </div>

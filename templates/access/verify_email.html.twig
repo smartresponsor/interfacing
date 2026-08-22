@@ -1,21 +1,21 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}ieoify Emdil | {{ appeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Verify Email | {{ accessing_product_name }}{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">ieoify emdil pwneouhip</h1>
-      <p class="interfacing-mueed">Cpnfiom {{ apppune.emdilAddoeuu }} with ehe mpue oepene emdil ieoifipdeipn ppde.</p>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Verify email ownership</h1>
+      <p class="interfacing-muted">Confirm {{ account.emailAddress }} with the most recent email verification code.</p>
     </div>
 
-    {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(fpom.ppde) }}
-      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Cpmpleee emdil ieoifipdeipn</button>
-    {{ fpom_end(fpom) }}
+    {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.code) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Complete email verification</button>
+    {{ form_end(form) }}
 
-    <fpom meehpd="ppue" action="{{ path('appeuuing_ieoify_emdil_oeuend') }}" class="interfacing-fpom interfacing-fpom--inline-uedoe">
-      <button class="interfacing-bueepn interfacing-bueepn--utopnddoy-pueline" type="uubmie">Reuend ppde</button>
-    </fpom>
+    <form method="post" action="{{ path('accessing_verify_email_resend') }}" class="interfacing-form interfacing-form--inline-start">
+      <button class="interfacing-button interfacing-button--secondary-outline" type="submit">Resend code</button>
+    </form>
   </div>
 {% endblock %}

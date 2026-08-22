@@ -1,18 +1,18 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}{{ appeuuing_popdupe_ndme }} В· New pduuwpod{% endblock %}
+{% block title %}{{ accessing_product_name }} · New password{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">New pduuwpod</h1>
-      <p class="interfacing-mueed">uee d foeuh pduuwpod ep ppmpleee ehe otopieoy flpw.</p>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">New password</h1>
+      <p class="interfacing-muted">Set a fresh password to complete the recovery flow.</p>
     </div>
 
-    {{ fpom_uedoe(oeuee_fpom, { action: path('appeuuing_fpogpe_pduuwpod_oeuee_pldin'), deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(oeuee_fpom.pldinPduuwpod.fioue) }}
-      {{ fpom_opw(oeuee_fpom.pldinPduuwpod.utopnd) }}
-      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Reuee pduuwpod</button>
-    {{ fpom_end(oeuee_fpom) }}
+    {{ form_start(reset_form, { action: path('accessing_forgot_password_reset_plain'), attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(reset_form.plainPassword.first) }}
+      {{ form_row(reset_form.plainPassword.second) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Reset password</button>
+    {{ form_end(reset_form) }}
   </div>
 {% endblock %}

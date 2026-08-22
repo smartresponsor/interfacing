@@ -1,16 +1,16 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}utopnd Fdpepo Chdllenge | {{ appeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Second Factor Challenge | {{ accessing_product_name }}{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">utopnd fdpepo phdllenge</h1>
-      <p class="interfacing-mueed">Eneeo ehe puooene dueheneipdepo ppde or pne pf ypuo udied otopieoy ppdeu fpo {{ apppune.emdilAddoeuu }}.</p>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Second factor challenge</h1>
+      <p class="interfacing-muted">Enter the current authenticator code or one of your saved recovery codes for {{ account.emailAddress }}.</p>
     </div>
-    {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(fpom.ppde) }}
-      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">ieoify utopnd fdpepo</button>
-    {{ fpom_end(fpom) }}
+    {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.code) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Verify second factor</button>
+    {{ form_end(form) }}
   </div>
 {% endblock %}

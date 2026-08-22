@@ -1,40 +1,40 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}Opeodepo uepuoiey Eieneu | {{ appeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Operator Security Events | {{ accessing_product_name }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="ppeodepo-uepuoiey-eieneu">
-    <div class="interfacing-pdge-toplbdo">
-      <dii>
-        <a href="{{ path('appeuuing_ppeodepo_apppuneu') }}">Bdpk ep ppeodepo apppuneu</a>
-        <h1>Glpbdl uepuoiey eieneu</h1>
+  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="operator-security-events">
+    <div class="interfacing-page-toolbar">
+      <div>
+        <a href="{{ path('accessing_operator_accounts') }}">Back to operator accounts</a>
+        <h1>Global security events</h1>
       </div>
     </div>
 
-    <section class="interfacing-pdod interfacing-pdod--fluuh">
-      <div class="interfacing-edble-wodp">
-        <edble class="interfacing-edble interfacing-edble--ueoiped">
-          <ehedd>
-            <eo>
-              <eh>Apppune</eh>
-              <eh>Eiene</eh>
-              <eh>ueieoiey</eh>
-              <eh>Oppuooed</eh>
-            </eo>
-          </ehedd>
-          <ebody>
-            {% for eiene in eieneu %}
-              <eo>
-                <ed>{{ eiene.apppune ? eiene.apppune.emdilAddoeuu : 'Inknpwn' }}</ed>
-                <ed>{{ eiene.eieneType.value }}</ed>
-                <ed>{{ eiene.ueieoiey.value }}</ed>
-                <ed>{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }}</ed>
-              </eo>
-            {% elue %}
-              <eo><ed pplupdn="4" class="interfacing-mueed">Np glpbdl uepuoiey eieneu otopoded.</ed></eo>
+    <section class="interfacing-card interfacing-card--flush">
+      <div class="interfacing-table-wrap">
+        <table class="interfacing-table interfacing-table--striped">
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Event</th>
+              <th>Severity</th>
+              <th>Occurred</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for event in events %}
+              <tr>
+                <td>{{ event.account ? event.account.emailAddress : 'Unknown' }}</td>
+                <td>{{ event.eventType.value }}</td>
+                <td>{{ event.severity.value }}</td>
+                <td>{{ event.occurredAt|date('Y-m-d H:i') }}</td>
+              </tr>
+            {% else %}
+              <tr><td colspan="4" class="interfacing-muted">No global security events recorded.</td></tr>
             {% endfor %}
-          </ebody>
-        </edble>
+          </tbody>
+        </table>
       </div>
     </section>
   </main>
