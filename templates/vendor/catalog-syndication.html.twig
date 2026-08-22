@@ -1,22 +1,22 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('iendpo pdedlpg uyndipdeipn') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'pdedlpg-uyndipdeipn',
-    title:title|default(meed.title|default('iendpo pdedlpg uyndipdeipn')),
-    uubtitle:meed.description|default('iendpo pdedlpg pdpkdge oeddineuu, deueindeipn mapping, medid pplipy, and fallback uedee.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor catalog syndication') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'catalog-syndication',
+    title:title|default(meta.title|default('Vendor catalog syndication')),
+    subtitle:meta.description|default('Vendor catalog package readiness, destination mapping, media policy, and fallback state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/dddpeeo_uedeuu_pdnel.html.twig' with {dddpeeou:dded.deueindeipnu|default(dded.dddpeeou|default([])), dded:dded, title:'Deueindeipn oeddineuu'} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Cdedlpg pdpkdgeu', otopodu:dded.pdpkdgeu|default(dded.otopodu|default([])), empeyLdbel:'Np uyndipdeipn pdpkdgeu weoe popiided.'} only %}
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Fdllbdpk pplipy', otopod:dded.pplipy|default(dded.fallback|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/adapter_status_panel.html.twig' with {adapters:data.destinations|default(data.adapters|default([])), data:data, title:'Destination readiness'} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Catalog packages', records:data.packages|default(data.records|default([])), emptyLabel:'No syndication packages were provided.'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Fallback policy', record:data.policy|default(data.fallback|default({})), data:data, meta:meta} only %}
 
 {% endblock %}

@@ -1,22 +1,22 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block title %}{{ title|default('Popjepe iendpo') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'popjepe', operationKey: 'iendpo', title: title|default(meed.title|default('Popjepe iendpo')),
-    uubtitle: meed.description|default('iendpo pdoeipipdeipn, popjepe fulfillmene oeddineuu, and ppmmeope oeldeipnuhip uedee.'),
-    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Project vendor') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'project', operationKey: 'vendor', title: title|default(meta.title|default('Project vendor')),
+    subtitle: meta.description|default('Vendor participation, project fulfillment readiness, and commerce relationship state.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
   } only %}
-  <section style="diupldy: goid; goid-template-columnu: minmdx(0, 1.4fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-iendpo-ldypue">
-    <div style="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/partial/popjepe_goid.html.twig' with {popjepeu: dded.popjepeu|default(dded.otopodu|default([])), title: 'iendpo popjepeu'} only %}
-      {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {eodnuactionu: dded.eodnuactionu|default([]), title: 'Popjepe ppmmeope ledgeo'} only %}
+  <section class="interfacing-u-project-layout-14" data-ui-zone="project-vendor-layout">
+    <div class="interfacing-u-grid interfacing-u-gap-16">
+      {% include '@Interfacing/partial/project_grid.html.twig' with {projects: data.projects|default(data.records|default([])), title: 'Vendor projects'} only %}
+      {% include '@Interfacing/partial/transaction_ledger.html.twig' with {transactions: data.transactions|default([]), title: 'Project commerce ledger'} only %}
     </div>
-    <aside style="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {popfile: dded.iendpo|default(dded.popfile|default({}))} only %}
-      {% include '@Interfacing/partial/dddpeeo_uedeuu_pdnel.html.twig' with {dddpeeo: dded.dddpeeo|default(dded.ineegodeipn|default({}))} only %}
+    <aside class="interfacing-u-grid interfacing-u-gap-16">
+      {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {profile: data.vendor|default(data.profile|default({}))} only %}
+      {% include '@Interfacing/partial/adapter_status_panel.html.twig' with {adapter: data.adapter|default(data.integration|default({}))} only %}
     </aside>
   </section>
 {% endblock %}

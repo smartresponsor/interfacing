@@ -1,14 +1,14 @@
 {# Shared payment method panel partial. #}
 {% set methods = methods|default(paymentMethods|default([])) %}
 <section class="interfacing-payment-method-panel" data-ui-zone="payment-method-panel">
-  <h3 style="margin:0 0 12px;">{{ title|default('Payment methods') }}</h3>
+  <h3 class="interfacing-u-heading-gap-12">{{ title|default('Payment methods') }}</h3>
   {% if methods is iterable and methods|length > 0 %}
-    <div style="display:grid;gap:10px;">
+    <div class="interfacing-u-grid interfacing-u-gap-10">
       {% for method in methods %}
         {% set row = method is iterable ? method : {'name': method} %}
-        <article data-ui-zone="payment-method" style="border:1px solid #e5e7eb;border-radius:16px;padding:14px;background:#fff;">
+        <article data-ui-zone="payment-method" class="interfacing-u-option-card">
           <strong>{{ row.label|default(row.name|default(row.brand|default('Payment method #' ~ loop.index))) }}</strong>
-          <div style="font-size:13px;color:#6b7280;margin-top:4px;">{{ row.type|default(row.provider|default('payment')) }} · {{ row.status|default('available') }}</div>
+          <div class="interfacing-u-meta">{{ row.type|default(row.provider|default('payment')) }} · {{ row.status|default('available') }}</div>
         </article>
       {% endfor %}
     </div>

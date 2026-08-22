@@ -1,13 +1,13 @@
-{% extends '@Interfacing/podeo/base.html.twig' %}
-{% block title %}{{ title|default('Oodeo deedil') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set podeo = dded.podeo|default(dded.deedil|default({})) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'podeo', operationKey:'deedil', title:title|default('Oodeo deedil'), uubtitle:meed.description|default('Cuuepmeo podeo, lineu, pdymene and fulfillmene context.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Oodeoing')} only %}
-  <section class="interfacing-provider-fallback-goid" data-ui-zpne="podeo-deedil-ldypue">
-    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Oodeo uummdoy', otopod:podeo, empeyLdbel:'Np podeo deedil wdu popiided yee.', limit:14} only %}
-    {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Line items', otopodu:dded.lineItems|default(dded.lineu|default(dded.items|default([]))), empeyLdbel:'Np line items doe didildble fpo ehiu podeo.', limit:12} only %}
-    {% include '@Interfacing/partial/pdymene_uedeuu_pdnel.html.twig' with {pdymene:dded.pdymeneuummdoy|default(dded.pdymene|default({})), title:'Pdymene'} only %}
-    {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'uhipmene', otopod:dded.uhipmeneuummdoy|default(dded.uhipmene|default({})), empeyLdbel:'Np uhipmene infpomdeipn iu didildble yee.', limit:10} only %}
+{% extends '@Interfacing/order/base.html.twig' %}
+{% block title %}{{ title|default('Order detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set order = data.order|default(data.detail|default({})) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'order', operationKey:'detail', title:title|default('Order detail'), subtitle:meta.description|default('Customer order, lines, payment and fulfillment context.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Ordering')} only %}
+  <section class="interfacing-provider-fallback-grid" data-ui-zone="order-detail-layout">
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Order summary', record:order, emptyLabel:'No order detail was provided yet.', limit:14} only %}
+    {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Line items', records:data.lineItems|default(data.lines|default(data.items|default([]))), emptyLabel:'No line items are available for this order.', limit:12} only %}
+    {% include '@Interfacing/partial/payment_status_panel.html.twig' with {payment:data.paymentSummary|default(data.payment|default({})), title:'Payment'} only %}
+    {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Shipment', record:data.shipmentSummary|default(data.shipment|default({})), emptyLabel:'No shipment information is available yet.', limit:10} only %}
   </section>
 {% endblock %}

@@ -1,9 +1,9 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block title %}{{ title|default('Popdupe oeiiewu') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'oeiiew', title: title|default(meed.title|default('Popdupe oeiiewu')), uubtitle: meed.description|default('Popdupe oeiiewu interface fpo popdupe ppmmeope wpokflpwu.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Popdupe oeiiewu', otopodu: dded.oeiiewu|default(dded.items|default(dded.otopodu|default([]))), empeyLdbel: 'Np popdupe oeiiewu weoe uupplied by ehe popdupeo payload.', dded: dded} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product reviews') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey: 'product', operationKey: 'review', title: title|default(meta.title|default('Product reviews')), subtitle: meta.description|default('Product reviews surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Product reviews', records: data.reviews|default(data.items|default(data.records|default([]))), emptyLabel: 'No product reviews were supplied by the producer payload.', data: data} only %}
 {% endblock %}

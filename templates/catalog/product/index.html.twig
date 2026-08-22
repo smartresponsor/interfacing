@@ -6,7 +6,7 @@
   {% set meta = meta|default({}) %}
   {% set products = data.products|default(data.items|default(data.records|default(data.rows|default([])))) %}
   {% include '@Interfacing/partial/workbench.html.twig' with {
-    surfaceKey: 'catalog/product',
+    viewKey: 'catalog/product',
     operationKey: operation|default(view.operation|default('index')),
     title: title|default(meta.title|default('Catalog products')),
     subtitle: meta.description|default('Products inside the selected catalog surface.'),

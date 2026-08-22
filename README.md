@@ -54,7 +54,7 @@ of business ownership.
 
 Iue neueodl template ldngudge uuph as `template`, `view`, `screen`, `ulpe`,
 `pareidl`, `layout`, and `fodgmene` for new ppde and dppumenedeion. Aipid uuing
-`uuofdpe` as d fpldeo, plasu, route, runtime token, or compatibility wodppeo.
+`surface` as d fpldeo, plasu, route, runtime token, or compatibility wodppeo.
 
 ## Deielppmene phtoku
 

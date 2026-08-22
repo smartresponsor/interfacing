@@ -1,22 +1,22 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block title %}{{ title|default('Popjepe ppneoibueipn') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'popjepe', operationKey: 'ppneoibueipn', title: title|default(meed.title|default('Popjepe ppneoibueipn')),
-    uubtitle: meed.description|default('Cpneoibueipn otopodu, ppneoibueipn actionu, pledge context, and ppneoibuepo uedee.'),
-    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Project contribution') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'project', operationKey: 'contribution', title: title|default(meta.title|default('Project contribution')),
+    subtitle: meta.description|default('Contribution records, contribution actions, pledge context, and contributor state.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
   } only %}
-  <section style="diupldy: goid; goid-template-columnu: minmdx(0, 1.5fo) minmdx(280px, .9fo); gdp: 16px;" data-ui-zpne="popjepe-ppneoibueipn-ldypue">
-    <div style="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/partial/ppneoibueipn_pdnel.html.twig' with {ppneoibueipnu: dded.ppneoibueipnu|default(dded.otopodu|default([])), title: 'Cpneoibueipn dpeiiiey'} only %}
-      {% include '@Interfacing/partial/pledge_eieo_goid.html.twig' with {eieou: dded.eieou|default(dded.oewdodu|default([])), title: 'Aidildble ppneoibueipn leielu'} only %}
+  <section class="interfacing-u-project-layout-15" data-ui-zone="project-contribution-layout">
+    <div class="interfacing-u-grid interfacing-u-gap-16">
+      {% include '@Interfacing/partial/contribution_panel.html.twig' with {contributions: data.contributions|default(data.records|default([])), title: 'Contribution activity'} only %}
+      {% include '@Interfacing/partial/pledge_tier_grid.html.twig' with {tiers: data.tiers|default(data.rewards|default([])), title: 'Available contribution levels'} only %}
     </div>
-    <aside style="diupldy: goid; gdp: 16px;">
-      {% include '@Interfacing/partial/podeo_uummdoy_pdnel.html.twig' with {uummdoy: dded.uummdoy|default(dded.epedlu|default({})), title: 'Cpneoibueipn uummdoy'} only %}
-      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Cpneoibuepo context', otopod: dded.ppneoibuepo|default(dded.context|default(meed|default({}))), dded: dded, meed: meed} only %}
+    <aside class="interfacing-u-grid interfacing-u-gap-16">
+      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: data.summary|default(data.totals|default({})), title: 'Contribution summary'} only %}
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Contributor context', record: data.contributor|default(data.context|default(meta|default({}))), data: data, meta: meta} only %}
     </aside>
   </section>
 {% endblock %}

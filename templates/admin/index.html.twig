@@ -28,7 +28,7 @@
     </header>
 
     {% if summary_items is defined and summary_items is iterable and summary_items is not empty %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Summary</div>
         <dl class="interfacing-provider-fallback-definition-list">
           {% for item in summary_items %}
@@ -42,7 +42,7 @@
     {% endif %}
 
     {% if data.projections is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Projections</div>
         {% if data.projections is iterable and data.projections is not empty %}
           <div class="interfacing-provider-record-list">
@@ -60,7 +60,7 @@
     {% endif %}
 
     {% if data.action_rows is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-grid interfacing-u-mt-16">
         {% if data.action_rows is iterable and data.action_rows is not empty %}
           {% for row in data.action_rows %}
             <article class="interfacing-provider-fallback-panel">
@@ -70,7 +70,7 @@
                 <p class="interfacing-muted">{{ row.descriptor.description }}</p>
               {% endif %}
               {% if row.form is defined and row.form %}
-                <div style="margin-top: 12px;">
+                <div class="interfacing-u-mt-12">
                   {{ form_start(row.form) }}
                   {{ form_widget(row.form) }}
                   {{ form_end(row.form) }}
@@ -83,7 +83,7 @@
     {% endif %}
 
     {% if data.menu_items is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Menu</div>
         {% if data.menu_items is iterable and data.menu_items is not empty %}
           <div class="interfacing-provider-record-list">
@@ -94,16 +94,16 @@
                   {{ item.type|default('') }}{% if item.icon is defined and item.icon is not empty %} · {{ item.icon }}{% endif %}
                 </div>
                 {% if item.linkUrl is defined and item.linkUrl is not empty %}
-                  <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ item.linkUrl }}">Open</a></div>
+                  <div class="interfacing-u-mt-8"><a class="interfacing-link-button" href="{{ item.linkUrl }}">Open</a></div>
                 {% endif %}
                 {% if item.subItems is defined and item.subItems is iterable and item.subItems is not empty %}
-                  <div class="interfacing-provider-record-list" style="margin-top: 10px;">
+                  <div class="interfacing-provider-record-list interfacing-u-mt-10">
                     {% for subItem in item.subItems %}
                       <div class="interfacing-provider-record">
                         <div class="interfacing-provider-record__title">{{ subItem.label|default('Sub item') }}</div>
                         <div class="interfacing-provider-record__meta">{{ subItem.type|default('') }}</div>
                         {% if subItem.linkUrl is defined and subItem.linkUrl is not empty %}
-                          <div style="margin-top: 8px;"><a class="interfacing-link-button" href="{{ subItem.linkUrl }}">Open</a></div>
+                          <div class="interfacing-u-mt-8"><a class="interfacing-link-button" href="{{ subItem.linkUrl }}">Open</a></div>
                         {% endif %}
                       </div>
                     {% endfor %}
@@ -119,7 +119,7 @@
     {% endif %}
 
     {% if data.detail is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-grid interfacing-u-mt-16">
         <article class="interfacing-provider-fallback-panel">
           <div class="interfacing-provider-fallback-panel-title">Section</div>
           <dl class="interfacing-provider-fallback-definition-list">
@@ -146,7 +146,7 @@
     {% endif %}
 
     {% if data.record is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Record</div>
         <dl class="interfacing-provider-fallback-definition-list">
           {% for key, value in data.record %}
@@ -160,7 +160,7 @@
     {% endif %}
 
     {% if data.descriptors is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Descriptors</div>
         {% if data.descriptors is iterable and data.descriptors is not empty %}
           <div class="interfacing-provider-record-list">
@@ -178,7 +178,7 @@
     {% endif %}
 
     {% if data.items is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Items</div>
         {% if data.items is iterable and data.items is not empty %}
           <div class="interfacing-provider-record-list">
@@ -196,7 +196,7 @@
     {% endif %}
 
     {% if data.rows is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Rows</div>
         {% if data.rows is iterable and data.rows is not empty %}
           <div class="interfacing-provider-record-list">
@@ -214,7 +214,7 @@
     {% endif %}
 
     {% if data.shapes is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Shapes</div>
         {% if data.shapes is iterable and data.shapes is not empty %}
           <div class="interfacing-provider-record-list">
@@ -232,7 +232,7 @@
     {% endif %}
 
     {% if data.steps is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Steps</div>
         {% if data.steps is iterable and data.steps is not empty %}
           <div class="interfacing-provider-record-list">
@@ -250,7 +250,7 @@
     {% endif %}
 
     {% if data.scenarios is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Scenarios</div>
         {% if data.scenarios is iterable and data.scenarios is not empty %}
           <div class="interfacing-provider-record-list">
@@ -268,14 +268,14 @@
     {% endif %}
 
     {% if data.operations is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-grid interfacing-u-mt-16">
         {% if data.operations is iterable and data.operations is not empty %}
           {% for operation in data.operations %}
             <article class="interfacing-provider-fallback-panel">
               <div class="interfacing-provider-fallback-panel-title">Operation</div>
               <div class="interfacing-strong">{{ operation.type|default(operation.label|default('Operation')) }}</div>
               {% if operation.form is defined and operation.form %}
-                <div style="margin-top: 12px;">
+                <div class="interfacing-u-mt-12">
                   {{ form_start(operation.form) }}
                   {{ form_widget(operation.form) }}
                   {{ form_end(operation.form) }}
@@ -288,7 +288,7 @@
     {% endif %}
 
     {% if data.recentRuns is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Recent runs</div>
         {% if data.recentRuns is iterable and data.recentRuns is not empty %}
           <div class="interfacing-provider-record-list">
@@ -306,7 +306,7 @@
     {% endif %}
 
     {% if data.report is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Report</div>
         {% if data.report is iterable %}
           <dl class="interfacing-provider-fallback-definition-list">
@@ -324,21 +324,21 @@
     {% endif %}
 
     {% if data.redirect_to is defined and data.redirect_to is not empty %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Next</div>
         <a class="interfacing-link-button" href="{{ data.redirect_to }}">Continue</a>
       </section>
     {% endif %}
 
     {% if summary_json is defined and summary_json is not empty %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Summary</div>
         <pre class="interfacing-provider-fallback-list">{{ summary_json }}</pre>
       </section>
     {% endif %}
 
     {% if data.operationRun is defined %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Operation run</div>
         <dl class="interfacing-provider-fallback-definition-list">
           <div class="interfacing-definition-row">
@@ -359,7 +359,7 @@
           </div>
         </dl>
         {% if data.reportUrl is defined %}
-          <div style="margin-top: 10px;">
+          <div class="interfacing-u-mt-10">
             <a class="interfacing-link-button" href="{{ data.reportUrl }}">Open report</a>
           </div>
         {% endif %}
@@ -407,7 +407,7 @@
     {% endif %}
 
     {% if form is defined and form %}
-      <section class="interfacing-provider-fallback-panel" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-panel interfacing-u-mt-16">
         <div class="interfacing-provider-fallback-panel-title">Form</div>
         {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -416,7 +416,7 @@
     {% endif %}
 
     {% if data.table_sections is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-grid interfacing-u-mt-16">
         {% if data.table_sections is iterable and data.table_sections is not empty %}
           {% for section in data.table_sections %}
             <article class="interfacing-provider-fallback-panel">
@@ -441,13 +441,13 @@
     {% endif %}
 
     {% if result_title is defined or result_json is defined or error_message is defined %}
-      <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;">
+      <section class="interfacing-provider-fallback-grid interfacing-u-mt-16">
         {% if result_title is defined and result_title is not empty %}
           <article class="interfacing-provider-fallback-panel">
             <div class="interfacing-provider-fallback-panel-title">Result</div>
             <div class="interfacing-strong">{{ result_title }}</div>
             {% if result_html is defined and result_html is not empty %}
-              <div style="margin-top: 8px;">{{ result_html|raw }}</div>
+              <div class="interfacing-u-mt-8">{{ result_html|raw }}</div>
             {% endif %}
           </article>
         {% endif %}

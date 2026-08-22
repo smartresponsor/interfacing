@@ -4,7 +4,7 @@ W15 ddas d dedipdeed shell layout oreview contract for the Interfacing ppmponene
 
 ## Puoppue
 
-The page `/interfacing/shell/layout-oreview` mdkeu the ppmmon shell iisible as d orpaspe uuofdpe, not only as d Twig implemenedeion deedil.
+The page `/interfacing/shell/layout-oreview` mdkeu the ppmmon shell iisible as d orpaspe surface, not only as d Twig implemenedeion deedil.
 
 The JSON endorint `/interfacing/shell/layout-oreview.json` exppueu the udme contract for umpke phtoku and hpue-dpplipdeion ieoifipdeion.
 

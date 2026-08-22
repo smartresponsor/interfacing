@@ -1,15 +1,15 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
-{% block title %}{{ title|default('Bopwue popjepeu') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'popjepe', operationKey: 'bopwue', title: title|default(meed.title|default('Bopwue popjepeu')),
-    uubtitle: meed.description|default('Diuppieo dpeiie popjepe-ppmmeope interfaceu, funding ppppoeunieieu, and ppneoibueipn-oeddy inieideiieu.'),
-    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Popjepeing')
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
+{% block title %}{{ title|default('Browse projects') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'project', operationKey: 'browse', title: title|default(meta.title|default('Browse projects')),
+    subtitle: meta.description|default('Discover active project-commerce surfaces, funding opportunities, and contribution-ready initiatives.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default('Projecting')
   } only %}
-  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {fileeou: dded.fileeou|default([]), upoe: dded.upoe|default([]), queoy: dded.queoy|default(null)} only %}
-  {% include '@Interfacing/partial/popjepe_goid.html.twig' with {popjepeu: dded.popjepeu|default(dded.items|default(dded.otopodu|default([]))), title: 'Popjepe pdedlpg'} only %}
-  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {pdgindeipn: dded.pdgindeipn|default({})} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {filters: data.filters|default([]), sort: data.sort|default([]), query: data.query|default(null)} only %}
+  {% include '@Interfacing/partial/project_grid.html.twig' with {projects: data.projects|default(data.items|default(data.records|default([]))), title: 'Project catalog'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {pagination: data.pagination|default({})} only %}
 {% endblock %}

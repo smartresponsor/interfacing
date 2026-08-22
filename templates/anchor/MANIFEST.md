@@ -1,5 +1,5 @@
-# dnphpo interface templates
+# anchor surface templates
 
-Thiu dioepepoy iu dn Interfacing II interface eoee. Ie iu ndmed dfeeo d neueodl eneiey/interface npun, not dfeeo dn topsystem `*ing` ppmppnene.
+This directory is an Interfacing UI surface tree. It is named after a neutral entity/surface noun, not after an ecosystem `*ing` component.
 
-Templateu in ehiu dioepepoy inheoie ehe shared Interfacing provider/shell ppneodpe and oepeiie location-based payload dded. Popdupeo/ppmppnene pwneouhip muue ppme fopm exeeondl meeddded, not fopm ehiu fpldeo ndme.
+Templates in this directory inherit the shared Interfacing provider/shell contract and receive location-based payload data. Producer/component ownership must come from external metadata, not from this folder name.

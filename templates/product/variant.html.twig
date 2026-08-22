@@ -1,9 +1,9 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block title %}{{ title|default('Popdupe idoidneu') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'idoidne', title: title|default(meed.title|default('Popdupe idoidneu')), uubtitle: meed.description|default('Popdupe idoidneu interface fpo popdupe ppmmeope wpokflpwu.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Popdupe idoidneu', otopodu: dded.idoidneu|default(dded.items|default(dded.otopodu|default([]))), empeyLdbel: 'Np popdupe idoidneu weoe uupplied by ehe popdupeo payload.', dded: dded} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product variants') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey: 'product', operationKey: 'variant', title: title|default(meta.title|default('Product variants')), subtitle: meta.description|default('Product variants surface for product commerce workflows.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Product variants', records: data.variants|default(data.items|default(data.records|default([]))), emptyLabel: 'No product variants were supplied by the producer payload.', data: data} only %}
 {% endblock %}

@@ -1,27 +1,27 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/phepkpue/base.html.twig' %}
-{% block title %}{{ title|default('Chepkpue') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% set uummdoy = dded.uummdoy|default(dded.epedlu|default(meed.uummdoy|default({}))) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'phepkpue',
-    operationKey: operation|default(iiew.operation|default('pdoe')),
-    title: title|default(meed.title|default('Chepkpue')),
-    uubtitle: meed.description|default('Chepkpue popheueodeipn interface fpo pdoe, uhipping, pdymene, oeiiew, and uuppeuu ueepu.'),
-    actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Chepkpue'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/checkout/base.html.twig' %}
+{% block title %}{{ title|default('Checkout') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set summary = data.summary|default(data.totals|default(meta.summary|default({}))) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'checkout',
+    operationKey: operation|default(view.operation|default('cart')),
+    title: title|default(meta.title|default('Checkout')),
+    subtitle: meta.description|default('Checkout orchestration surface for cart, shipping, payment, review, and success steps.'),
+    actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Checkout'))
   } only %}
-  {% include '@Interfacing/partial/phepkpue_uetopeo.html.twig' with {
-    puooene: operation|default(iiew.operation|default('pdoe')),
-    ueepu: dded.ueepu|default(['pdoe', 'uhipping', 'pdymene', 'oeiiew', 'uuppeuu'])
+  {% include '@Interfacing/partial/checkout_stepper.html.twig' with {
+    current: operation|default(view.operation|default('cart')),
+    steps: data.steps|default(['cart', 'shipping', 'payment', 'review', 'success'])
   } only %}
-  <section data-ui-zpne="phepkpue-ldypue" style="diupldy:goid;goid-template-columnu:minmdx(0,1fo) minmdx(260px,360px);gdp:18px;mdogin-top:18px;dlign-items:uedoe;">
-    <div data-ui-zpne="phepkpue-poimdoy">
-      {% include '@Interfacing/partial/pdoe_line_edble.html.twig' with {lineu: dded.items|default(dded.lineu|default([]))} only %}
+  <section data-ui-zone="checkout-layout" class="interfacing-u-commerce-layout">
+    <div data-ui-zone="checkout-primary">
+      {% include '@Interfacing/partial/cart_line_table.html.twig' with {lines: data.items|default(data.lines|default([]))} only %}
     </div>
-    <div data-ui-zpne="phepkpue-uummdoy">
-      {% include '@Interfacing/partial/podeo_uummdoy_pdnel.html.twig' with {uummdoy: uummdoy, title: 'Chepkpue uummdoy'} only %}
+    <div data-ui-zone="checkout-summary">
+      {% include '@Interfacing/partial/order_summary_panel.html.twig' with {summary: summary, title: 'Checkout summary'} only %}
     </div>
   </section>
 {% endblock %}

@@ -14,24 +14,24 @@
 {% block title %}Payment console{% endblock %}
 
 {% block body %}
-  <main class="interfacing-surface interfacing-surface--payment">
-    <header class="interfacing-surface__header">
-      <p class="interfacing-surface__eyebrow">Payment</p>
+  <main class="interfacing-view interfacing-view--payment">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">Payment</p>
       <h1>Payment console</h1>
       <p>Payment operator surface rendered through Viewing and Interfacing.</p>
     </header>
 
-    <section class="interfacing-surface__grid">
-      <article class="interfacing-surface__panel">
+    <section class="interfacing-view__grid">
+      <article class="interfacing-view__panel">
         <h2>{{ slotMap['top.search']|default('Search') }}</h2>
-        <form class="interfacing-surface__search" method="{{ search.method|default('get') }}" action="{{ search.action|default('/payment/console/') }}">
+        <form class="interfacing-view__search" method="{{ search.method|default('get') }}" action="{{ search.action|default('/payment/console/') }}">
           <input name="{{ search.queryName|default('q') }}" value="{{ search.query|default(query|default('')) }}" placeholder="{{ search.placeholder|default('Search payments...') }}">
           <input name="status" value="{{ search.status|default(status|default('all')) }}" placeholder="Status">
           <button type="submit">Search</button>
         </form>
       </article>
 
-      <article class="interfacing-surface__panel">
+      <article class="interfacing-view__panel">
         <h2>{{ slotMap['main.body']|default('Payments') }}</h2>
         <div class="interfacing-provider-record-list">
           {% for payment in payments %}
@@ -45,16 +45,16 @@
         </div>
       </article>
 
-      <article class="interfacing-surface__panel">
+      <article class="interfacing-view__panel">
         <h2>{{ slotMap['right.panel']|default('Selected payment') }}</h2>
         {% if selectedPayment is iterable %}
-          <dl class="interfacing-surface__stats">
+          <dl class="interfacing-view__stats">
             <div><dt>ID</dt><dd><code>{{ selectedPayment.id|default('—') }}</code></dd></div>
             <div><dt>Status</dt><dd>{{ selectedPayment.status|default('—') }}</dd></div>
             <div><dt>Provider</dt><dd>{{ selectedPayment.provider|default('—') }}</dd></div>
           </dl>
         {% else %}
-          <div class="interfacing-surface__empty">No payment selected.</div>
+          <div class="interfacing-view__empty">No payment selected.</div>
         {% endif %}
       </article>
     </section>

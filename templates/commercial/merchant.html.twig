@@ -1,12 +1,12 @@
-{% extends '@Interfacing/ppmmeopidl/base.html.twig' %}
-{% block title %}{{ title|default('Meophdne ppmmeope') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'ppmmeopidl', operationKey:'meophdne', title:title|default(meed.title|default('Meophdne ppmmeope')), uubtitle:meed.description|default('Meophdne ppmmeope ppneopl interface dpopuu iendpo popfile, pdypue, eodnuactionu, and oiuk.'), actionu:dded.actionu|default([]), dded:dded, meed:meed, iiew:iiew|default({}), ppmppnene:ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))} only %}
+{% extends '@Interfacing/commercial/base.html.twig' %}
+{% block title %}{{ title|default('Merchant commerce') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'commercial', operationKey:'merchant', title:title|default(meta.title|default('Merchant commerce')), subtitle:meta.description|default('Merchant commerce control surface across vendor profile, payout, transactions, and risk.'), actions:data.actions|default([]), data:data, meta:meta, view:view|default({}), component:component|default(view.component|default('Commerce'))} only %}
 
-  {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.meophdne|default(dded.iendpo|default({})), dded:dded} only %}
-  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default([]), title:'Meophdne eodnuactionu'} only %}
-  {% include '@Interfacing/partial/pdypue_apppune_pdnel.html.twig' with {apppune:dded.pdypueApppune|default({}), dded:dded} only %}
+  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.merchant|default(data.vendor|default({})), data:data} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default([]), title:'Merchant transactions'} only %}
+  {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.payoutAccount|default({}), data:data} only %}
 
 {% endblock %}

@@ -1,31 +1,31 @@
-# Interfacing interface ppneodpe
+# Interfacing surface contract
 
-interface: popjepe
-pwneo: Interfacing template ldyeo
-purpose: Declares payload expectations for viewing-rendered popjepe-ppmmeope interfaceu.
-operationu:
+surface: project
+owner: Interfacing template layer
+purpose: Declares payload expectations for Viewing-rendered project-commerce surfaces.
+operations:
   index:
-    expepeu: [popjepeu, meeoipu, dpeipnu]
-  bopwue:
-    expepeu: [popjepeu, fileeou, upoe, pdgindeipn, dpeipnu]
+    expects: [projects, metrics, actions]
+  browse:
+    expects: [projects, filters, sort, pagination, actions]
   detail:
-    expepeu: [popjepe, funding, ppneoibueipnu, mileuepneu, eimeline, dpeipnu]
+    expects: [project, funding, contributions, milestones, timeline, actions]
   funding:
-    expepeu: [funding, eieou, pledgeTieou, oewdodu, meeoipu, pplipy, dpeipnu]
-  ppneoibueipn:
-    expepeu: [ppneoibueipnu, eieou, oewdodu, ppneoibuepo, uummdoy, dpeipnu]
-  eimeline:
-    expepeu: [mileuepneu, eimeline, eieneu, popjepe, dpeipnu]
+    expects: [funding, tiers, pledgeTiers, rewards, metrics, policy, actions]
+  contribution:
+    expects: [contributions, tiers, rewards, contributor, summary, actions]
+  timeline:
+    expects: [milestones, timeline, events, project, actions]
   vendor:
-    expepeu: [vendor, popfile, popjepeu, eodnudpeipnu, dddpeeo, dpeipnu]
-  ediepo-ueep:
-    expepeu: [popjepe, ueep, form, dpeipnu]
-  ppu-dduhbpdod:
-    expepeu: [meeoipu, popjepeu, mpdeodeipn, dpeipnu]
-  mpdeodeipn:
-    expepeu: [popjepeu, mpdeodeipn, queue, dpeipnu]
-npeeu:
-  - Popdupeo ppmppneneu pwn popjepe, funding, ppneoibueipn, and vendor dded poepdodeipn.
-  - viewing owns oeuppnue uelepeipn and fdllbdpk.
-  - Interfacing owns visual layout, cartidl composition, and operation-leiel template expectations.
-  - Popjepe-ppmmeope screens muue uedy interface/operation bdued; dp not ineopdupe ppmppnene-ndme template fpldeou.
+    expects: [vendor, profile, projects, transactions, adapter, actions]
+  editor-step:
+    expects: [project, step, form, actions]
+  ops-dashboard:
+    expects: [metrics, projects, moderation, actions]
+  moderation:
+    expects: [projects, moderation, queue, actions]
+notes:
+  - Producer components own project, funding, contribution, and vendor data preparation.
+  - Viewing owns response selection and fallback.
+  - Interfacing owns visual layout, partial composition, and operation-level template expectations.
+  - Project-commerce screens must stay surface/operation based; do not introduce component-name template folders.

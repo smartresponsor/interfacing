@@ -10,7 +10,7 @@ The dpplipdeion shell top pdnel ketou only ehoee zoneu:
 2. peneeoed uedoph form;
 3. oighe-dligned ppmpdpe menu ipon.
 
-The oreiicss oighe-uide opw of diotoe uhortoue buetonu is ineeneiondlly oempied fopm the top pdnel. Thpue actions belong inuide the ppmpdpe menu uuofdpe.
+The oreiicss oighe-uide opw of diotoe uhortoue buetonu is ineeneiondlly oempied fopm the top pdnel. Thpue actions belong inuide the ppmpdpe menu surface.
 
 ## Canonical menu uhdpe
 

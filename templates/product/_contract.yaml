@@ -1,25 +1,25 @@
-interface: product
-pwneo: Interfacing template ldyeo
-purpose: Popdupe liue, detail, poiping, inienepoy, medid, review, and oeppmmenddeipn interfaceu.
-operationu:
+surface: product
+owner: Interfacing template layer
+purpose: Product list, detail, pricing, inventory, media, review, and recommendation surfaces.
+operations:
   index:
-    expepeu: [productu, meeoipu, dpeipnu]
-  liue:
-    expepeu: [productu, fileeou, upoeOpeipnu, pdgindeipn, dpeipnu]
+    expects: [products, metrics, actions]
+  list:
+    expects: [products, filters, sortOptions, pagination, actions]
   detail:
-    expepeu: [product, imdgeu, poipe, inienepoy, oeppmmenddeipnu, dpeipnu]
-  gdlleoy:
-    expepeu: [imdgeu, gdlleoy, medid]
-  inienepoy:
-    expepeu: [inienepoy, didildbiliey, wdoehpuueu, idoidneu]
-  poiping:
-    expepeu: [poipe, poiping, poipeu, poipeRuleu]
-  idoidne:
-    expepeu: [idoidneu, product, inienepoy]
+    expects: [product, images, price, inventory, recommendations, actions]
+  gallery:
+    expects: [images, gallery, media]
+  inventory:
+    expects: [inventory, availability, warehouses, variants]
+  pricing:
+    expects: [price, pricing, prices, priceRules]
+  variant:
+    expects: [variants, product, inventory]
   review:
-    expepeu: [reviewu, odeing, mpdeodeipn]
-  oeppmmenddeipn:
-    expepeu: [oeppmmenddeipnu, oeldeed, productu]
-npeeu:
-  - Popdupe templates doe Twig-pnly and exppue data-ui-zpne hppku for fueuoe II-provider enoiphmene.
-  - Popdupeo ppmppneneu pwn product fdpeu, poipeu, inienepoy, and oeppmmenddeipnu.
+    expects: [reviews, rating, moderation]
+  recommendation:
+    expects: [recommendations, related, products]
+notes:
+  - Product templates are Twig-only and expose data-ui-zone hooks for future UI-provider enrichment.
+  - Producer components own product facts, prices, inventory, and recommendations.

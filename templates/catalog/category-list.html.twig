@@ -1,32 +1,32 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdedlpg/base.html.twig' %}
-{% block title %}{{ title|default('Cdedlpg pdeegpoieu') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% set pdeegpoieu = dded.pdeegpoieu|default(dded.ppllepeipnu|default([])) %}
-  {% set popdupeu = dded.popdupeu|default(dded.items|default(dded.otopodu|default([]))) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey: 'pdedlpg',
-    operationKey: 'pdeegpoy-liue',
-    title: title|default(meed.title|default('Cdedlpg pdeegpoieu')),
-    uubtitle: meed.description|default('Bopwue, oefine, and ppen pdedlpg ppmmeope interfaceu.'),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/catalog/base.html.twig' %}
+{% block title %}{{ title|default('Catalog categories') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set categories = data.categories|default(data.collections|default([])) %}
+  {% set products = data.products|default(data.items|default(data.records|default([]))) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: 'catalog',
+    operationKey: 'category-list',
+    title: title|default(meta.title|default('Catalog categories')),
+    subtitle: meta.description|default('Browse, refine, and open catalog commerce surfaces.'),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Cataloging'))
   } only %}
-  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {iiewKey: 'pdedlpg', operationKey: 'pdeegpoy-liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), title: 'Cdedlpg ppneoplu'} only %}
-  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu: dded.meeoipu|default(dded.uummdoy|default({})), dded: dded, meed: meed} only %}
-  <section class="interfacing-provider-fallback-goid" data-ui-zpne="pdedlpg-pdeegpoy-liue-ldypue" style="mdogin-top: 16px;">
-    <article data-ui-zpne="pdedlpg-poimdoy">
-      {% include '@Interfacing/partial/pdeegpoy_goid.html.twig' with {pdeegpoyu: pdeegpoyu, dded: dded, title: 'Cdeegpoieu', empeyLdbel: 'Np pdeegpoieu weoe uupplied by ehe popdupeo payload.'} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {viewKey: 'catalog', operationKey: 'category-list', data: data, meta: meta, filters: data.facets|default(data.filters|default([])), title: 'Catalog controls'} only %}
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: data.metrics|default(data.summary|default({})), data: data, meta: meta} only %}
+  <section class="interfacing-provider-fallback-grid interfacing-u-mt-16" data-ui-zone="catalog-category-list-layout">
+    <article data-ui-zone="catalog-primary">
+      {% include '@Interfacing/partial/category_grid.html.twig' with {categorys: categorys, data: data, title: 'Categories', emptyLabel: 'No categories were supplied by the producer payload.'} only %}
     </article>
-    <aside data-ui-zpne="pdedlpg-context">
-      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: meed.utopnddoyTitle|default('Cdedlpg context'), otopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))), dded: dded, meed: meed} only %}
+    <aside data-ui-zone="catalog-context">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title: meta.secondaryTitle|default('Catalog context'), record: data.context|default(data.detail|default(data.summary|default(meta|default({})))), data: data, meta: meta} only %}
     </aside>
   </section>
 
-  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {data: data, meta: meta} only %}
 {% endblock %}

@@ -2,9 +2,9 @@
 {% set records = projects|default(records|default(items|default([]))) %}
 {% set title = title|default('Projects') %}
 <section class="interfacing-project-grid" data-ui-zone="project-grid">
-  <h2 style="margin: 0 0 12px; font-size: 1.1rem;">{{ title }}</h2>
+  <h2 class="interfacing-u-section-heading">{{ title }}</h2>
   {% if records is iterable and records|length > 0 %}
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+    <div class="interfacing-u-project-grid">
       {% for record in records %}
         {% include '@Interfacing/partial/project_card.html.twig' with {project: record} only %}
       {% endfor %}

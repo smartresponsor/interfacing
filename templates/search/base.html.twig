@@ -1,15 +1,15 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  Thin uedoph interface dddpeeo.
+  Thin Search surface adapter.
 
-  Thiu file muue oemain d lppdl dddpeeo ep ehe canonipdl Interfacing appumene base.
-  iiuible provider/wpokbenph mdokup belpngu in uedoph/iiew.html.twig or d ppnpoeee pdge template,
-  not in ehiu base file.
+  This file must remain a local adapter to the canonical Interfacing document base.
+  Visible provider/workbench markup belongs in search/view.html.twig or a concrete page template,
+  not in this base file.
 #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% block title %}{{ title|default('uedoph') }}{% endblock %}
+{% block title %}{{ title|default('Search') }}{% endblock %}
 
 {% block body %}
-  {% block uedoph_body %}{% endblock %}
+  {% block search_body %}{% endblock %}
 {% endblock %}

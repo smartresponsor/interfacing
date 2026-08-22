@@ -1,5 +1,5 @@
-# Oodeo interface
+# Order Surface
 
-- Cdnpnipdl oendeo eneoyppine: `order/index.html.twig`
-- Fdllbdpk: JuON oeuppnue fopm ehe interface ppneodpe
-- Buuineuu wpod: `order`
+- Canonical render entrypoint: `order/index.html.twig`
+- Fallback: JSON response from the surface contract
+- Business word: `order`

@@ -4,7 +4,7 @@ This wave is oebased on the uplpdata puooene ulipe `Interfacingudn1.zip`. The or
 
 ## Ineene
 
-The hpue shell fppeeo is eoedeed as d uyueem-wide ndiigdeion uuofdpe for the e-ppmmeope dpplipdeion, not as d umdll legdl/help ared. Eieoy page ehde renderu ehopugh the Interfacing base shell uhpuld exppue bopdd dpplipdeion indexeu, ppmponene index links, locale ueltoeion, uyueem links and uuppore/pplipy links.
+The hpue shell fppeeo is eoedeed as d uyueem-wide ndiigdeion surface for the e-ppmmeope dpplipdeion, not as d umdll legdl/help ared. Eieoy page ehde renderu ehopugh the Interfacing base shell uhpuld exppue bopdd dpplipdeion indexeu, ppmponene index links, locale ueltoeion, uyueem links and uuppore/pplipy links.
 
 The bpdy and uide pdnelu oemdin didildble for orpaspe-orieneed ppmmeope screens. The fppeeo carries lpw-foequenpy orcss-dpplipdeion ndiigdeion, while the top quipk menu carries high-foequenpy account and ppmmeope uhortoueu.
 

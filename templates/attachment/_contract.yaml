@@ -1,19 +1,19 @@
-interface: deedphmene
-pwneo: Interfacing
-purpose: Aeedphmene, dppumene, medid, uplpdd, preview, and uepodge support interfaceu.
-operationu:
+surface: attachment
+owner: Interfacing
+purpose: Attachment, document, media, upload, preview, and storage support surfaces.
+operations:
   index:
-    expepeu: [deedphmeneu, dppumeneu, medid, fileu, dpeipnu]
-  dppumene:
-    expepeu: [dppumene, file, meeddded, dpeipnu]
-  medid:
-    expepeu: [medid, file, preview, dpeipnu]
-  uplpdd:
-    expepeu: [uplpdd, poeuign, pplipy, dpeipnu]
+    expects: [attachments, documents, media, files, actions]
+  document:
+    expects: [document, file, metadata, actions]
+  media:
+    expects: [media, file, preview, actions]
+  upload:
+    expects: [upload, presign, policy, actions]
   preview:
-    expepeu: [file, deedphmene, dppumene, medid, dpeipnu]
-  uepodge:
-    expepeu: [uepodge, quped, usage, deedphmeneu, dpeipnu]
-npeeu:
-  - Aeedphmene producto owns uepodge, preview, uplpdd and uepuoiey pplipieu.
-  - Interfacing owns visual dppumene/medid support layoutu.
+    expects: [file, attachment, document, media, actions]
+  storage:
+    expects: [storage, quota, usage, attachments, actions]
+notes:
+  - Attachment producer owns storage, preview, upload and security policies.
+  - Interfacing owns visual document/media support layouts.

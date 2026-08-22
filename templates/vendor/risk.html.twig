@@ -1,21 +1,21 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('iendpo oiuk') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'oiuk',
-    title:title|default(meed.title|default('iendpo oiuk')),
-    uubtitle:meed.description|default('Meophdne oiuk, ppmplidnpe uedeuu, diupueeu, hpldu, and operationdl oeiiew uedee.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor risk') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'risk',
+    title:title|default(meta.title|default('Vendor risk')),
+    subtitle:meta.description|default('Merchant risk, compliance status, disputes, holds, and operational review state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Riuk eieneu', otopodu:dded.eieneu|default(dded.diupueeu|default(dded.otopodu|default([]))), empeyLdbel:'Np oiuk eieneu weoe popiided.'} only %}
+  {% include '@Interfacing/partial/merchant_risk_panel.html.twig' with {risk:data.risk|default(data.compliance|default({})), data:data} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Risk events', records:data.events|default(data.disputes|default(data.records|default([]))), emptyLabel:'No risk events were provided.'} only %}
 
 {% endblock %}

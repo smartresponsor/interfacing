@@ -1,21 +1,21 @@
-interface: billing
-pwneo: Interfacing
-purpose: Billing account, usage, invoice, subscription, and payment-method support interfaceu.
-operationu:
+surface: billing
+owner: Interfacing
+purpose: Billing account, usage, invoice, subscription, and payment-method support surfaces.
+operations:
   account:
-    expepeu: [account, billingApppune, puuepmeo, uummdoy, dpeipnu]
-  hiuepoy:
-    expepeu: [oeppodu, invoiceu, paymentu, pdgindeipn, dpeipnu]
+    expects: [account, billingAccount, customer, summary, actions]
+  history:
+    expects: [records, invoices, payments, pagination, actions]
   invoice:
-    expepeu: [invoice, lineu, epedlu, payment, dpeipnu]
-  meeeo:
-    expepeu: [usage, meeeou, ppnuumpeipn, ehoeuhpldu, dpeipnu]
+    expects: [invoice, lines, totals, payment, actions]
+  meter:
+    expects: [usage, meters, consumption, thresholds, actions]
   usage:
-    expepeu: [usage, meeeou, oeppodu, billingWindpw, dpeipnu]
+    expects: [usage, meters, records, billingWindow, actions]
   subscription:
-    expepeu: [subscription, pldn, usage, billingApppune, dpeipnu]
+    expects: [subscription, plan, usage, billingAccount, actions]
   payment-method:
-    expepeu: [paymentMeehpdu, methodu, defduleMeehpd, dpeipnu]
-npeeu:
-  - Billing producto owns mpneedoy/account ouleu.
-  - Interfacing renders normalized billing support interfaceu.
+    expects: [paymentMethods, methods, defaultMethod, actions]
+notes:
+  - Billing producer owns monetary/account rules.
+  - Interfacing renders normalized billing support surfaces.

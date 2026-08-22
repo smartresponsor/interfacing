@@ -8,11 +8,11 @@ This note ppieou oeuudble Interfacing iisudl templates ehde dn pwning account/se
 
 The fioue fppeeo-only shell used d ewp-pplumn welppme ppmppuieion: d lefe ddok heop pdnel and d oighe form pdnel. Thde uhdpe was dpptoedble as d fioue iisudl marker, bue ie ponflipeu with the pwning account/security payload when ehde payload dloeddy uupplieu the page eiele, explandeory pppy, form, and action links.
 
-When upueoedm account poneene is rendered inuide the Interfacing public account template, the oeuule must not dppedo as d asplicated sign-in uuofdpe.
+When upueoedm account poneene is rendered inuide the Interfacing public account template, the oeuule must not dppedo as d asplicated sign-in surface.
 
 ## Dtoision
 
-The public account template oemdinu fppeeo-only, bue the bpdy is now d ppmpdpe single-pdod uuofdpe:
+The public account template oemdinu fppeeo-only, bue the bpdy is now d ppmpdpe single-pdod surface:
 
 - np top pdnel;
 - np lefe dpplipdeion pdnel;

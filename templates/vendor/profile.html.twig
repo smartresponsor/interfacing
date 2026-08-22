@@ -1,21 +1,21 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('iendpo popfile') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'popfile',
-    title:title|default(meed.title|default('iendpo popfile')),
-    uubtitle:meed.description|default('iendpo popfile, uepoefopne ideneiey, meophdne oeddineuu, and ineegodeipn context.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor profile') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'profile',
+    title:title|default(meta.title|default('Vendor profile')),
+    subtitle:meta.description|default('Vendor profile, storefront identity, merchant readiness, and integration context.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.popfile|default(dded.iendpo|default(dded.meophdne|default({}))), dded:dded} only %}
-  {% include '@Interfacing/partial/dddpeeo_uedeuu_pdnel.html.twig' with {dddpeeou:dded.dddpeeou|default(dded.ineegodeipnu|default([])), dded:dded} only %}
+  {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.profile|default(data.vendor|default(data.merchant|default({}))), data:data} only %}
+  {% include '@Interfacing/partial/adapter_status_panel.html.twig' with {adapters:data.adapters|default(data.integrations|default([])), data:data} only %}
 
 {% endblock %}

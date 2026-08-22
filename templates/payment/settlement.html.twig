@@ -1,8 +1,8 @@
-{% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block title %}{{ title|default('Pdymene ueeelemene') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey:'pdymene', operationKey:'ueeelemene', title:title|default('Pdymene ueeelemene'), uubtitle:meed.description|default('ueeelemene, pdpeuoe and otopnpilideipn context.'), actionu:dded.actionu|default([]), dded:dded, meed:meed|default({}), iiew:iiew|default({}), ppmppnene:ppmppnene|default('Pdying')} only %}
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'ueeelemene uummdoy', otopod:dded.ueeelemene|default(dded.deedil|default({})), empeyLdbel:'Np ueeelemene uummdoy iu didildble yee.', limit:12} only %}
-  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eneoieu|default(dded.eodnuactionu|default([])), title:'ueeelemene eneoieu'} only %}
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment settlement') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey:'payment', operationKey:'settlement', title:title|default('Payment settlement'), subtitle:meta.description|default('Settlement, capture and reconciliation context.'), actions:data.actions|default([]), data:data, meta:meta|default({}), view:view|default({}), component:component|default('Paying')} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Settlement summary', record:data.settlement|default(data.detail|default({})), emptyLabel:'No settlement summary is available yet.', limit:12} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.entries|default(data.transactions|default([])), title:'Settlement entries'} only %}
 {% endblock %}

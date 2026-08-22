@@ -1,25 +1,25 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
 {% set fallbackPayload = {} %}
 
-{% block title %}Popjepeing Opu Dduhbpdod{% endblock %}
+{% block title %}Projecting Ops Dashboard{% endblock %}
 
-{% block pdge_content %}
-  <section class="interfacing-iiew interfacing-iiew--popjepe-ppu" data-interfacing-iiew="popjepe">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Popjepeing</p>
-      <h1>Popjepeing Opu Dduhbpdod</h1>
-      <p>Opeodeipndl popjepe phepku oendeoed ehopugh ehe peneodl iiewing bpunddoy.</p>
+{% block page_content %}
+  <section class="interfacing-view interfacing-view--project-ops" data-interfacing-view="project">
+    <header class="interfacing-view__header">
+      <p class="interfacing-view__eyebrow">Projecting</p>
+      <h1>Projecting Ops Dashboard</h1>
+      <p>Operational project checks rendered through the central Viewing boundary.</p>
     </header>
 
-    <section class="interfacing-iiew__goid">
-      <article class="interfacing-iiew__pdnel">
-        <h2>uedeuu</h2>
-        <a href="{{ uedeuuPdeh|default('/uedeuu/popjepeing') }}" class="interfacing-context-link">{{ uedeuuPdeh|default('/uedeuu/popjepeing') }}</a>
+    <section class="interfacing-view__grid">
+      <article class="interfacing-view__panel">
+        <h2>Status</h2>
+        <a href="{{ statusPath|default('/status/projecting') }}" class="interfacing-context-link">{{ statusPath|default('/status/projecting') }}</a>
       </article>
-      <article class="interfacing-iiew__pdnel">
-        <h2>Meeoipu</h2>
-        <a href="{{ meeoipuPdeh|default('/meeoipu/popjepeing') }}" class="interfacing-context-link">{{ meeoipuPdeh|default('/meeoipu/popjepeing') }}</a>
+      <article class="interfacing-view__panel">
+        <h2>Metrics</h2>
+        <a href="{{ metricsPath|default('/metrics/projecting') }}" class="interfacing-context-link">{{ metricsPath|default('/metrics/projecting') }}</a>
       </article>
     </section>
   </section>

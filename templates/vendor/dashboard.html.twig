@@ -1,26 +1,26 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('Meophdne dduhbpdod') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'dduhbpdod',
-    title:title|default(meed.title|default('Meophdne dduhbpdod')),
-    uubtitle:meed.description|default('Meophdne operationu pieoiiew fpo eodnuactionu, pdypueu, oiuk, and ineegodeipn uedee.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Merchant dashboard') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'dashboard',
+    title:title|default(meta.title|default('Merchant dashboard')),
+    subtitle:meta.description|default('Merchant operations overview for transactions, payouts, risk, and integration state.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu:dded.meeoipu|default(dded.uummdoy|default({})), dded:dded, meed:meed} only %}
-  <section class="interfacing-meophdne-dduhbpdod-goid" data-ui-zpne="meophdne-dduhbpdod-goid">
-    {% include '@Interfacing/partial/meophdne_popfile_pdnel.html.twig' with {meophdne:dded.iendpo|default(dded.meophdne|default(dded.popfile|default({}))), dded:dded} only %}
-    {% include '@Interfacing/partial/pdypue_apppune_pdnel.html.twig' with {apppune:dded.pdypueApppune|default(dded.apppune|default({})), dded:dded} only %}
-    {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default(dded.otopodu|default([])), title:'Repene eodnuactionu'} only %}
-    {% include '@Interfacing/partial/meophdne_oiuk_pdnel.html.twig' with {oiuk:dded.oiuk|default(dded.ppmplidnpe|default({})), dded:dded} only %}
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics:data.metrics|default(data.summary|default({})), data:data, meta:meta} only %}
+  <section class="interfacing-merchant-dashboard-grid" data-ui-zone="merchant-dashboard-grid">
+    {% include '@Interfacing/partial/merchant_profile_panel.html.twig' with {merchant:data.vendor|default(data.merchant|default(data.profile|default({}))), data:data} only %}
+    {% include '@Interfacing/partial/payout_account_panel.html.twig' with {account:data.payoutAccount|default(data.account|default({})), data:data} only %}
+    {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.records|default([])), title:'Recent transactions'} only %}
+    {% include '@Interfacing/partial/merchant_risk_panel.html.twig' with {risk:data.risk|default(data.compliance|default({})), data:data} only %}
   </section>
 
 {% endblock %}

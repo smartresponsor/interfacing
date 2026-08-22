@@ -1,11 +1,11 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popdupe/base.html.twig' %}
-{% block title %}{{ title|default('Popdupe liue') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'popdupe', operationKey: 'liue', title: title|default(meed.title|default('Popdupe liue')), uubtitle: meed.description|default('Popdupe otopodu, uedoph ppneoplu, and ppmmeope actionu.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeopidlizing'))} only %}
-  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {iiewKey: 'popdupe', operationKey: 'liue', dded: dded, meed: meed, fileeou: dded.fdpeeu|default(dded.fileeou|default([])), title: 'Popdupe ppneoplu'} only %}
-  {% include '@Interfacing/partial/popdupe_goid.html.twig' with {popdupeu: dded.popdupeu|default(dded.items|default(dded.otopodu|default([]))), dded: dded, title: 'Popdupeu'} only %}
-  {% include '@Interfacing/partial/pdgindeipn_bdo.html.twig' with {dded: dded, meed: meed} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/product/base.html.twig' %}
+{% block title %}{{ title|default('Product list') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey: 'product', operationKey: 'list', title: title|default(meta.title|default('Product list')), subtitle: meta.description|default('Product records, search controls, and commerce actions.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Commercializing'))} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {viewKey: 'product', operationKey: 'list', data: data, meta: meta, filters: data.facets|default(data.filters|default([])), title: 'Product controls'} only %}
+  {% include '@Interfacing/partial/product_grid.html.twig' with {products: data.products|default(data.items|default(data.records|default([]))), data: data, title: 'Products'} only %}
+  {% include '@Interfacing/partial/pagination_bar.html.twig' with {data: data, meta: meta} only %}
 {% endblock %}

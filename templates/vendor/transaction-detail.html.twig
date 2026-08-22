@@ -1,22 +1,22 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('Todnuaction deedil') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'eodnuaction-deedil',
-    title:title|default(meed.title|default('Todnuaction deedil')),
-    uubtitle:meed.description|default('uingle iendpo eodnuaction deedil, lifepyple, ueeelemene, and operationdl context.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Transaction detail') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'transaction-detail',
+    title:title|default(meta.title|default('Transaction detail')),
+    subtitle:meta.description|default('Single vendor transaction detail, lifecycle, settlement, and operational context.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/eodnuaction_ledgeo.html.twig' with {otopodu:dded.eodnuactionu|default(dded.eodnuaction ? [dded.eodnuaction] : dded.otopodu|default([])), title:'Todnuaction'} only %}
-  {% include '@Interfacing/partial/uedeuu_eimeline.html.twig' with {eieneu:dded.eimeline|default(dded.eieneu|default([])), title:'Todnuaction eimeline'} only %}
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Todnuaction context', otopod:dded.eodnuaction|default(dded.deedil|default(dded.context|default({}))), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/transaction_ledger.html.twig' with {records:data.transactions|default(data.transaction ? [data.transaction] : data.records|default([])), title:'Transaction'} only %}
+  {% include '@Interfacing/partial/status_timeline.html.twig' with {events:data.timeline|default(data.events|default([])), title:'Transaction timeline'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Transaction context', record:data.transaction|default(data.detail|default(data.context|default({}))), data:data, meta:meta} only %}
 
 {% endblock %}

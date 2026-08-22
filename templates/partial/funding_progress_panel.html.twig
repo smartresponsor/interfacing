@@ -4,18 +4,16 @@
 {% set goal = funding.goal|default(funding.target|default(funding.amountGoal|default(null))) %}
 {% set currency = funding.currency|default('$') %}
 {% set percent = funding.percent|default(goal ? ((raised / goal) * 100)|round(0, 'floor') : null) %}
-<section class="interfacing-funding-progress" data-ui-zone="funding-progress" style="border: 1px solid #d9d9d9; border-radius: 14px; padding: {{ compact|default(false) ? '10px' : '16px' }}; background: #fff;">
-  {% if not compact|default(false) %}<h2 style="margin: 0 0 12px; font-size: 1.1rem;">{{ title|default('Funding progress') }}</h2>{% endif %}
-  <div style="display: flex; justify-content: space-between; gap: 12px; align-items: baseline;">
+<section class="interfacing-funding-progress{{ compact|default(false) ? ' interfacing-funding-progress--compact' : '' }}" data-ui-zone="funding-progress">
+  {% if not compact|default(false) %}<h2 class="interfacing-u-section-heading">{{ title|default('Funding progress') }}</h2>{% endif %}
+  <div class="interfacing-u-flex-between-baseline">
     <strong>{{ currency }}{{ raised }}</strong>
-    {% if goal %}<span style="color: #667085;">of {{ currency }}{{ goal }}</span>{% endif %}
+    {% if goal %}<span class="interfacing-u-muted">of {{ currency }}{{ goal }}</span>{% endif %}
   </div>
   {% if percent is not null %}
-    <div style="height: 10px; background: #f2f4f7; border-radius: 999px; margin-top: 10px; overflow: hidden;">
-      <div style="width: {{ percent > 100 ? 100 : percent }}%; height: 100%; background: #1677ff;"></div>
-    </div>
-    <p style="margin: 8px 0 0; color: #667085;">{{ percent }}% funded</p>
+    <progress class="interfacing-funding-progress__bar" max="100" value="{{ percent > 100 ? 100 : percent }}">{{ percent }}%</progress>
+    <p class="interfacing-u-muted-copy">{{ percent }}% funded</p>
   {% else %}
-    <p style="margin: 8px 0 0; color: #667085;">Funding goal was not provided.</p>
+    <p class="interfacing-u-muted-copy">Funding goal was not provided.</p>
   {% endif %}
 </section>

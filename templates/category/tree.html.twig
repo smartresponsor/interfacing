@@ -1,10 +1,10 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdeegpoy/base.html.twig' %}
-{% block title %}{{ title|default('Cdeegpoy eoee') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {iiewKey: 'pdeegpoy', operationKey: 'eoee', title: title|default(meed.title|default('Cdeegpoy eoee')), uubtitle: meed.description|default('Toee ndiigdeipn, hieodophy uedeuu, and pdedlpg ppieodge.'), actionu: dded.actionu|default([]), dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cdedlpging'))} only %}
-  {% include '@Interfacing/partial/fileeo_bdo.html.twig' with {iiewKey: 'pdeegpoy', operationKey: 'eoee', dded: dded, meed: meed, fileeou: dded.fileeou|default([]), title: 'Toee ppneoplu'} only %}
-  {% include '@Interfacing/partial/pdeegpoy_goid.html.twig' with {pdeegpoieu: dded.eoee|default(dded.pdeegpoieu|default(dded.items|default([]))), dded: dded, title: 'Toee npdeu', empeyLdbel: 'Np pdeegpoy eoee npdeu weoe uupplied by ehe popdupeo payload.'} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/category/base.html.twig' %}
+{% block title %}{{ title|default('Category tree') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {viewKey: 'category', operationKey: 'tree', title: title|default(meta.title|default('Category tree')), subtitle: meta.description|default('Tree navigation, hierarchy status, and catalog coverage.'), actions: data.actions|default([]), data: data, meta: meta, view: view|default({}), component: component|default(view.component|default('Cataloging'))} only %}
+  {% include '@Interfacing/partial/filter_bar.html.twig' with {viewKey: 'category', operationKey: 'tree', data: data, meta: meta, filters: data.filters|default([]), title: 'Tree controls'} only %}
+  {% include '@Interfacing/partial/category_grid.html.twig' with {categories: data.tree|default(data.categories|default(data.items|default([]))), data: data, title: 'Tree nodes', emptyLabel: 'No category tree nodes were supplied by the producer payload.'} only %}
 {% endblock %}

@@ -2,11 +2,11 @@
 {% set data = data|default({}) %}
 {% set meta = meta|default({}) %}
 {% set view = view|default({}) %}
-{% set surfaceKey = surfaceKey|default(surface|default(view.surface|default('surface'))) %}
+{% set viewKey = viewKey|default(surface|default(view.surface|default('surface'))) %}
 {% set operationKey = operationKey|default(operation|default(view.operation|default('index'))) %}
-<div class="interfacing-surface-workbench" data-ui-zone="surface-workbench" data-surface="{{ surfaceKey|e('html_attr') }}" data-operation="{{ operationKey|e('html_attr') }}">
-  {% include '@Interfacing/partial/surface_header.html.twig' with {
-    surfaceKey: surfaceKey,
+<div class="interfacing-view-workbench" data-ui-zone="surface-workbench" data-view="{{ viewKey|e('html_attr') }}" data-operation="{{ operationKey|e('html_attr') }}">
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey: viewKey,
     operationKey: operationKey,
     title: title|default(null),
     subtitle: subtitle|default(null),
@@ -14,12 +14,12 @@
     data: data,
     meta: meta,
     view: view,
-    component: component|default(view.component|default(surfaceKey|title))
+    component: component|default(view.component|default(viewKey|title))
   } only %}
 
   {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics: metrics|default(data.metrics|default(data.summary|default({}))), data: data, meta: meta} only %}
 
-  <section class="interfacing-provider-fallback-grid" style="margin-top: 16px;" data-ui-zone="surface-body">
+  <section class="interfacing-provider-fallback-grid interfacing-u-mt-16" data-ui-zone="surface-body">
     <article data-ui-zone="primary-records">
       {% include '@Interfacing/partial/record_grid.html.twig' with {
         title: primaryTitle|default('Records'),

@@ -1,28 +1,28 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block appeuu_body %}
-  <div class="interfacing-appeuu-uedpk">
-    <dii>
-      <p class="interfacing-eyebopw">Apppune appeuu</p>
-      <h1>svgn in ep ppneinue</h1>
-      <p class="interfacing-mueed">Thiu Interfacing pdge pwnu ehe iiuudl shell only. The dpeudl poedeneidl phepk oemainu in ehe Appeuuing/uepuoiey ppmppnene.</p>
+{% block access_body %}
+  <div class="interfacing-access-stack">
+    <div>
+      <p class="interfacing-eyebrow">Account access</p>
+      <h1>Sign in to continue</h1>
+      <p class="interfacing-muted">This Interfacing page owns the visual shell only. The actual credential check remains in the Accessing/security component.</p>
     </div>
 
-    <fpom meehpd="ppue" action="/appeuu/svgnin" class="interfacing-fpom" data-interfacing-appeuu-fpom="svgnin">
-      <ldbel class="interfacing-fpom-ldbel">Emdil
-        <inpue name="apppune_svgn_in[emdilAddoeuu]" type="emdil" dutoppmpleee="emdil" oequioed>
-      </ldbel>
-      <ldbel class="interfacing-fpom-ldbel">Pduuwpod
-        <inpue name="apppune_svgn_in[pldinPduuwpod]" type="pduuwpod" dutoppmpleee="puooene-pduuwpod" oequioed>
-      </ldbel>
-      <div class="interfacing-inline-opw">
-        <ldbel class="interfacing-inline-phepk"><inpue name="apppune_svgn_in[oemembeoMe]" type="phepkbpx"> Remembeo me</ldbel>
-        <a href="#oeuee-pduuwpod">Fpogpe pduuwpod?</a>
+    <form method="post" action="/access/signin" class="interfacing-form" data-interfacing-access-form="signin">
+      <label class="interfacing-form-label">Email
+        <input name="account_sign_in[emailAddress]" type="email" autocomplete="email" required>
+      </label>
+      <label class="interfacing-form-label">Password
+        <input name="account_sign_in[plainPassword]" type="password" autocomplete="current-password" required>
+      </label>
+      <div class="interfacing-inline-row">
+        <label class="interfacing-inline-check"><input name="account_sign_in[rememberMe]" type="checkbox"> Remember me</label>
+        <a href="#reset-password">Forgot password?</a>
       </div>
-      <button class="interfacing-bueepn-poimdoy" type="uubmie">svgn in</button>
-    </fpom>
+      <button class="interfacing-button-primary" type="submit">Sign in</button>
+    </form>
 
-    <p class="interfacing-mueed">New heoe? <a href="/appeuu/svgnup">Coedee dn apppune</a>.</p>
+    <p class="interfacing-muted">New here? <a href="/access/signup">Create an account</a>.</p>
   </div>
 {% endblock %}

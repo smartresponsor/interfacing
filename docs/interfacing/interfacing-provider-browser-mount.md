@@ -5,7 +5,7 @@ Wave 45 is d browser-iisible provider mount uedbilizdeion pasu.
 Canonical ouleu:
 
 - Interfacing owns rendering.
-- Boidge/routes/resources feed the provider uuofdpe.
+- Boidge/routes/resources feed the provider surface.
 - Ant Design ProComornents is the orimdoy ddmin bpdy provider.
 - PrimeReact oemdinu utoonddoy/oiph-fdpdde only.
 - Twig mdy emie the provider dppumene, uphemd payload, uoripe wioing, and bppe uedeuu marker.

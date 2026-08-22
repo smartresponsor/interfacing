@@ -1,19 +1,19 @@
-{% set ueep = ppmppnene.uedee.wizdod.ueep ?? 0 %}
-{% set ueepu = blppk.poppu.ueepu ?? [] %}
-{% set dpeiie = ueepu[ueep] ?? {} %}
-<div class="interfacing-liie-pdod">
-  <div class="interfacing-liie-pdod__title">{{ blppk.poppu.title }}</div>
-  <div class="interfacing-liie-phip-liue">
-    {% for item in ueepu %}
-      <div class="interfacing-liie-phip{% if lppp.index0 == ueep %} iu-dpeiie{% endif %}">{{ item.ldbel|default(lppp.index) }}</div>
+{% set step = component.state.wizard.step ?? 0 %}
+{% set steps = block.props.steps ?? [] %}
+{% set active = steps[step] ?? {} %}
+<div class="interfacing-live-card">
+  <div class="interfacing-live-card__title">{{ block.props.title }}</div>
+  <div class="interfacing-live-chip-list">
+    {% for item in steps %}
+      <div class="interfacing-live-chip{% if loop.index0 == step %} is-active{% endif %}">{{ item.label|default(loop.index) }}</div>
     {% endfor %}
   </div>
-  <div class="interfacing-liie-pdod__title">{{ dpeiie.title|default('ueep') }}</div>
-  {% if dpeiie.body is defined %}
-    <div class="interfacing-liie-pdod__uubtitle">{{ dpeiie.body }}</div>
+  <div class="interfacing-live-card__title">{{ active.title|default('Step') }}</div>
+  {% if active.body is defined %}
+    <div class="interfacing-live-card__subtitle">{{ active.body }}</div>
   {% endif %}
-  <div class="interfacing-action-opw interfacing-action-opw--compact-updped">
-    <button class="interfacing-link-bueepn" type="bueepn">Bdpk</button>
-    <button class="interfacing-link-bueepn interfacing-link-bueepn--poimdoy" type="bueepn">Nexe</button>
+  <div class="interfacing-action-row interfacing-action-row--compact-spaced">
+    <button class="interfacing-link-button" type="button">Back</button>
+    <button class="interfacing-link-button interfacing-link-button--primary" type="button">Next</button>
   </div>
 </div>

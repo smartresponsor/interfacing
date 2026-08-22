@@ -6,7 +6,7 @@
   <div class="interfacing-provider-record__title">{{ title }}</div>
   <div class="interfacing-provider-record__meta">{{ message }}</div>
   {% if action is iterable and action.url|default(null) %}
-    <div style="margin-top: 10px;">
+    <div class="interfacing-u-mt-10">
       <a class="interfacing-link-button" href="{{ action.url }}">{{ action.label|default(action.title|default('Open')) }}</a>
     </div>
   {% endif %}

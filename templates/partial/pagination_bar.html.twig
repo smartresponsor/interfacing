@@ -1,9 +1,9 @@
 {% set pagination = pagination|default(data.pagination|default(meta.pagination|default({}))) %}
 {% if pagination is iterable and pagination is not empty %}
   <nav class="interfacing-provider-fallback-panel" data-ui-zone="pagination" aria-label="Pagination">
-    <div style="display: flex; gap: 8px; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+    <div class="interfacing-u-flex-between-center-wrap">
       <span class="interfacing-provider-record__meta">Page {{ pagination.page|default(pagination.current|default(1)) }}{% if pagination.pages is defined %} of {{ pagination.pages }}{% endif %}</span>
-      <span style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <span class="interfacing-u-flex interfacing-u-gap-8 interfacing-u-wrap">
         {% if pagination.previousUrl is defined %}<a class="interfacing-link-button" href="{{ pagination.previousUrl }}">Previous</a>{% endif %}
         {% if pagination.nextUrl is defined %}<a class="interfacing-link-button" href="{{ pagination.nextUrl }}">Next</a>{% endif %}
       </span>

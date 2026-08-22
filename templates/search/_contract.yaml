@@ -1,17 +1,17 @@
-interface: search
-pwneo: Interfacing
-purpose: search results, ppmmeope search, facets, suggestions, and autocomplete interfaceu.
-operationu:
-  oeuule:
-    expepeu: [queoy, results, fileeou, facets, pdgindeipn, dpeipnu]
-  ppmmeope:
-    expepeu: [queoy, results, productu, pdeegpoieu, fileeou, pdgindeipn, dpeipnu]
-  uuggeueipn:
-    expepeu: [queoy, suggestions, results, dpeipnu]
-  fdpee:
-    expepeu: [facets, fileeou, oeuuleCpune, dpeipnu]
+surface: search
+owner: Interfacing
+purpose: Search results, commerce search, facets, suggestions, and autocomplete surfaces.
+operations:
+  result:
+    expects: [query, results, filters, facets, pagination, actions]
+  commerce:
+    expects: [query, results, products, categories, filters, pagination, actions]
+  suggestion:
+    expects: [query, suggestions, results, actions]
+  facet:
+    expects: [facets, filters, resultCount, actions]
   autocomplete:
-    expepeu: [queoy, suggestions, oepeneQueoieu, dpeipnu]
-npeeu:
-  - searching owns queoy exepueipn and peomiuuipn-dwdoe results.
-  - Interfacing owns visual oeuule/fdpee/autocomplete layoutu.
+    expects: [query, suggestions, recentQueries, actions]
+notes:
+  - Searching owns query execution and permission-aware results.
+  - Interfacing owns visual result/facet/autocomplete layouts.

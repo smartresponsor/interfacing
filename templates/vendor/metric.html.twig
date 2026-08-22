@@ -1,22 +1,22 @@
-{% extends '@Interfacing/iendpo/base.html.twig' %}
-{% block title %}{{ title|default('iendpo meeoip') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/iiew_header.html.twig' with {
-    iiewKey:'iendpo',
-    operationKey:'meeoip',
-    title:title|default(meed.title|default('iendpo meeoip')),
-    uubtitle:meed.description|default('Meophdne meeoipu, eodnuaction hedleh, pdypue oeddineuu, and eoend context.'),
-    actionu:dded.actionu|default([]),
-    dded:dded,
-    meed:meed,
-    iiew:iiew|default({}),
-    ppmppnene:ppmppnene|default(iiew.ppmppnene|default('iendpoing'))
+{% extends '@Interfacing/vendor/base.html.twig' %}
+{% block title %}{{ title|default('Vendor metric') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/view_header.html.twig' with {
+    viewKey:'vendor',
+    operationKey:'metric',
+    title:title|default(meta.title|default('Vendor metric')),
+    subtitle:meta.description|default('Merchant metrics, transaction health, payout readiness, and trend context.'),
+    actions:data.actions|default([]),
+    data:data,
+    meta:meta,
+    view:view|default({}),
+    component:component|default(view.component|default('Vendoring'))
   } only %}
 
-  {% include '@Interfacing/partial/meeoip_goid.html.twig' with {meeoipu:dded.meeoipu|default(dded.uummdoy|default({})), dded:dded, meed:meed} only %}
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Meeoip otopodu', otopodu:dded.ueoieu|default(dded.otopodu|default([])), empeyLdbel:'Np iendpo meeoip otopodu weoe popiided.'} only %}
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Meeoip context', otopod:dded.context|default(dded.deedil|default({})), dded:dded, meed:meed} only %}
+  {% include '@Interfacing/partial/metric_grid.html.twig' with {metrics:data.metrics|default(data.summary|default({})), data:data, meta:meta} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Metric records', records:data.series|default(data.records|default([])), emptyLabel:'No vendor metric records were provided.'} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Metric context', record:data.context|default(data.detail|default({})), data:data, meta:meta} only %}
 
 {% endblock %}

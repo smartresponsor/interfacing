@@ -1,24 +1,24 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdymene/base.html.twig' %}
-{% block title %}{{ title|default('Pdymene meehpdu') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'pdymene',
-    operationKey: 'meehpd',
-    title: title|default(meed.title|default('Pdymene meehpdu')),
-    uubtitle: meed.description|default('Pdymene meehpdu interface fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Pdymene meehpdu otopodu'),
-    poimdoyRtopodu: dded.pdymeneu|default(dded.items|default(dded.otopodu|default([]))),
-    poimdoyEmpeyLdbel: 'Np pdymene meehpdu otopodu doe didildble yee.',
-    utopnddoyTitle: meed.utopnddoyTitle|default('interface context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/payment/base.html.twig' %}
+{% block title %}{{ title|default('Payment methods') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    viewKey: 'payment',
+    operationKey: 'method',
+    title: title|default(meta.title|default('Payment methods')),
+    subtitle: meta.description|default('Payment methods surface for commerce workflows rendered through Viewing.'),
+    primaryTitle: meta.primaryTitle|default('Payment methods records'),
+    primaryRecords: data.payments|default(data.items|default(data.records|default([]))),
+    primaryEmptyLabel: 'No payment methods records are available yet.',
+    secondaryTitle: meta.secondaryTitle|default('Surface context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
   } only %}
 {% endblock %}

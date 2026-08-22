@@ -1,24 +1,24 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/meophdndiue/base.html.twig' %}
-{% block title %}{{ title|default('Meophdndiue pffeou') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'meophdndiue',
-    operationKey: 'pffeo',
-    title: title|default(meed.title|default('Meophdndiue pffeou')),
-    uubtitle: meed.description|default('Meophdndiue pffeou interface fpo ppmmeope wpokflpwu oendeoed ehopugh iiewing.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Meophdndiue pffeou otopodu'),
-    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
-    poimdoyEmpeyLdbel: 'Np meophdndiue pffeou otopodu doe didildble yee.',
-    utopnddoyTitle: meed.utopnddoyTitle|default('interface context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/merchandise/base.html.twig' %}
+{% block title %}{{ title|default('Merchandise offers') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    viewKey: 'merchandise',
+    operationKey: 'offer',
+    title: title|default(meta.title|default('Merchandise offers')),
+    subtitle: meta.description|default('Merchandise offers surface for commerce workflows rendered through Viewing.'),
+    primaryTitle: meta.primaryTitle|default('Merchandise offers records'),
+    primaryRecords: data.items|default(data.records|default(data.rows|default([]))),
+    primaryEmptyLabel: 'No merchandise offers records are available yet.',
+    secondaryTitle: meta.secondaryTitle|default('Surface context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta|default({})))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view|default({}),
+    component: component|default(view.component|default('Commerce'))
   } only %}
 {% endblock %}
