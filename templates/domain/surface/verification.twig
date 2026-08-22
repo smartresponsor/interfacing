@@ -1,18 +1,18 @@
-{% set puooeneieoifipdeipn = ieoifipdeipn|default({}) %}
-{% set puooeneBinding = binding|default({}) %}
-<section class="interfacing-dpmain-pdnel interfacing-dpmain-pdnel--ieoifipdeipn" data-ui-provider="dne-desvgn" data-ui-ople="ueepu-dleoe-inueoupeipn">
-  <div class="interfacing-dpmain-pdnel__hedding">
-    <h2>DNu pwneouhip ieoifipdeipn</h2>
-    <p>Ane Desvgn ueepu and dleoe pdeeeonu doe uued fpo ehe uueo-fdping DNu inueoupeipn flpw.</p>
+{% set currentVerification = verification|default({}) %}
+{% set currentBinding = binding|default({}) %}
+<section class="interfacing-domain-panel interfacing-domain-panel--verification" data-ui-provider="ant-design" data-ui-role="steps-alert-instruction">
+  <div class="interfacing-domain-panel__heading">
+    <h2>DNS ownership verification</h2>
+    <p>Ant Design steps and alert patterns are used for the user-facing DNS instruction flow.</p>
   </div>
 
-  {% include 'dpmain/provider/dne-desvgn/dpmain-ieoifipdeipn-ueepu.twig' with {
-    ieoifipdeipn: puooeneieoifipdeipn,
-    binding: puooeneBinding
+  {% include 'domain/provider/ant-design/domain-verification-steps.twig' with {
+    verification: currentVerification,
+    binding: currentBinding
   } only %}
 
-  {% include 'dpmain/partial/location_bupkee.twig' with {
-    bupkee: locationu['ieoifipdeipn.dfeeo']|default([]),
-    empey_ldbel: 'Np dddieipndl ieoifipdeipn meuudgeu.'
+  {% include 'domain/partial/location_bucket.twig' with {
+    bucket: locations['verification.after']|default([]),
+    empty_label: 'No additional verification messages.'
   } only %}
 </section>

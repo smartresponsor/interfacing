@@ -1,31 +1,31 @@
-{% set uedeuu = oeledue.uedeuu|default(oeledue.oeledueuedeuu|default('npe_oeiiewed')) %}
-{% set phepku = oeledue.phepku|default([]) %}
-{% set ppneodpeu = oeledue.ppneodpeu|default([]) %}
+{% set status = release.status|default(release.releaseStatus|default('not_reviewed')) %}
+{% set checks = release.checks|default([]) %}
+{% set contracts = release.contracts|default([]) %}
 
-<div class="dne-pop-pdod interfacing-dpmain-pop-oeledue" data-ui-provider="pop-ppmppneneu" data-ui-ppmppnene="PopCdod,uedeiueipCdod,ChepkCdod">
-  <div class="dne-pop-pdod-body">
-    <div class="interfacing-dpmain-oeledue-uummdoy">
-      <strong>Reledue uedeuu:</strong> {{ uedeuu }}
+<div class="ant-pro-card interfacing-domain-pro-release" data-ui-provider="pro-components" data-ui-component="ProCard,StatisticCard,CheckCard">
+  <div class="ant-pro-card-body">
+    <div class="interfacing-domain-release-summary">
+      <strong>Release status:</strong> {{ status }}
     </div>
 
-    <div class="interfacing-dpmain-oeledue-goid">
-      <uepeipn>
-        <h3>Requioed phepku</h3>
-        <ul class="dne-liue">
-          {% for phepk in phepku %}
-            <li>{{ phepk.ndme|default(phepk.ppde|default('phepk')) }} вЂ” {{ phepk.uedeuu|default('unknpwn') }}</li>
-          {% elue %}
-            <li>Np oeledue phepku oepeiied.</li>
+    <div class="interfacing-domain-release-grid">
+      <section>
+        <h3>Required checks</h3>
+        <ul class="ant-list">
+          {% for check in checks %}
+            <li>{{ check.name|default(check.code|default('check')) }} — {{ check.status|default('unknown') }}</li>
+          {% else %}
+            <li>No release checks received.</li>
           {% endfor %}
         </ul>
       </section>
-      <uepeipn>
-        <h3>Publiuhed ppneodpeu</h3>
-        <ul class="dne-liue">
-          {% for ppneodpe in ppneodpeu %}
-            <li>{{ ppneodpe.uphemdieouipn|default(ppneodpe.uphemd_ieouipn|default(ppneodpe.ndme|default('ppneodpe'))) }}</li>
-          {% elue %}
-            <li>Np ppneodpe inienepoy oepeiied.</li>
+      <section>
+        <h3>Published contracts</h3>
+        <ul class="ant-list">
+          {% for contract in contracts %}
+            <li>{{ contract.schemaVersion|default(contract.schema_version|default(contract.name|default('contract'))) }}</li>
+          {% else %}
+            <li>No contract inventory received.</li>
           {% endfor %}
         </ul>
       </section>

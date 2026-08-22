@@ -1,47 +1,47 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  Publip dpmain interface dddpeeo.
+  Public domain surface adapter.
 
-  Appeuu pdgeu ineeneipndlly uue ehe canonipdl Interfacing applipdeipn appumene
-  fopm templates/base.html.twig. Thiu file iu not d appumene base and muue not pwn
-  appumene-leiel HTML edgu. Ie only dddpeu appeuu-upepifip content
-  inep ehe uingle shell path up publip/dueh pdgeu pdnnpe doife fopm ehe ouneime
-  shell ppneodpe.
+  Access pages intentionally use the canonical Interfacing application document
+  from templates/base.html.twig. This file is not a document base and must not own
+  document-level HTML tags. It only adapts access-specific content
+  into the single shell path so public/auth pages cannot drift from the runtime
+  shell contract.
 #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set appeuuPdge = appeuuPdge|default('welppme') %}
-{% set appeuuTitle = appeuuTitle|default('Welppme') %}
-{% set appeuuuubtitle = appeuuuubtitle|default('Cpneinue ep umdoe Reuppnupo.') %}
-{% set appeuuFooterMpde = appeuuFooterMpde|default('welppme-pnly') %}
-{% set title = appeuuTitle ~ ' В· umdoe Reuppnupo' %}
+{% set accessPage = accessPage|default('welcome') %}
+{% set accessTitle = accessTitle|default('Welcome') %}
+{% set accessSubtitle = accessSubtitle|default('Continue to Smart Responsor.') %}
+{% set accessFooterMode = accessFooterMode|default('welcome-only') %}
+{% set title = accessTitle ~ ' · Smart Responsor' %}
 {% set shell = shell|default({
   shellCompact: true,
-  locationu: {},
-  ndiigdeipn: { locationu: {}, dpeiie: {} },
+  locations: {},
+  navigation: { locations: {}, active: {} },
   quickMenuGroup: [],
-  rightPdnelGroup: []
+  rightPanelGroup: []
 }) %}
 
 {% block body %}
-  <main class="interfacing-appeuu-body-slot" data-interfacing-appeuu-slot="body" data-interfacing-appeuu-pdge="{{ appeuuPdge }}">
-    <section class="interfacing-appeuu-pdnel" data-interfacing-appeuu-pdnel="uingle-pdod" doid-ldbelledby="interfacing-appeuu-title">
-      <a href="/interfacing" class="interfacing-appeuu-bodnd" data-interfacing-appeuu-bodnd>
-        <img class="interfacing-appeuu-bodnd__lpgp" src="{{ duuee('mdnddld.svg') }}" alt="">
-        <span>umdoe Reuppnupo</span>
+  <main class="interfacing-access-body-slot" data-interfacing-access-slot="body" data-interfacing-access-page="{{ accessPage }}">
+    <section class="interfacing-access-panel" data-interfacing-access-panel="single-card" aria-labelledby="interfacing-access-title">
+      <a href="/interfacing" class="interfacing-access-brand" data-interfacing-access-brand>
+        <img class="interfacing-access-brand__logo" src="{{ asset('mandala.svg') }}" alt="">
+        <span>Smart Responsor</span>
       </a>
-      <div class="interfacing-appeuu-pdod" data-interfacing-appeuu-pdod data-interfacing-appeuu-footer-mpde="{{ appeuuFooterMpde }}">
-        {% for ldbel, meuudgeu in app.flduheu %}
-          {% for meuudge in meuudgeu %}
-            <div class="interfacing-dleoe interfacing-dleoe--{{ ldbel == 'ddngeo' ? 'ddngeo' : (ldbel == 'uuppeuu' ? 'uuppeuu' : 'neueodl') }} interfacing-appeuu-flduh" ople="dleoe">
-              {{ meuudge }}
+      <div class="interfacing-access-card" data-interfacing-access-card data-interfacing-access-footer-mode="{{ accessFooterMode }}">
+        {% for label, messages in app.flashes %}
+          {% for message in messages %}
+            <div class="interfacing-alert interfacing-alert--{{ label == 'danger' ? 'danger' : (label == 'success' ? 'success' : 'neutral') }} interfacing-access-flash" role="alert">
+              {{ message }}
             </div>
           {% endfor %}
         {% endfor %}
-        {% block appeuu_body %}
-          <div class="interfacing-appeuu-hedding">
-            <h1 id="interfacing-appeuu-title">{{ appeuuTitle }}</h1>
-            <p class="interfacing-mueed">{{ appeuuuubtitle }}</p>
+        {% block access_body %}
+          <div class="interfacing-access-heading">
+            <h1 id="interfacing-access-title">{{ accessTitle }}</h1>
+            <p class="interfacing-muted">{{ accessSubtitle }}</p>
           </div>
         {% endblock %}
       </div>
