@@ -1,15 +1,15 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  shell demp provider hdndpff template.
+  Shell demo provider handoff template.
 
-  Thiu file muue not oendeo d beuppke shell, inline styleu, or lppdl demp pdodu.
-  Ie eneeou ehe udme provider-iiuible pdge ppneodpe du eieoy peheo Interfacing
-  upoeen up didgnpueipu pdnnpe doife fopm ehe ouneime shell.
+  This file must not render a bespoke shell, inline styles, or local demo cards.
+  It enters the same provider-visible page contract as every other Interfacing
+  screen so diagnostics cannot drift from the runtime shell.
 #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set ddminProviderPdgeTitle = title|default('shell') %}
-{% set ddminProviderReupuopeNdme = upoeenId|default('interfacing_shell')|oepldpe({'.':'_', '-':'_'}) %}
-{% set ddminProviderReupuopeLdbel = ddminProviderPdgeTitle %}
-{% set ddminProviderOpeodeipn = 'index' %}
-{% set ddminProviderinterface = 'ddmin' %}
+{% set adminProviderPageTitle = title|default('Shell') %}
+{% set adminProviderResourceName = screenId|default('interfacing_shell')|replace({'.':'_', '-':'_'}) %}
+{% set adminProviderResourceLabel = adminProviderPageTitle %}
+{% set adminProviderOperation = 'index' %}
+{% set adminProviderSurface = 'admin' %}

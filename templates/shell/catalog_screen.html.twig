@@ -1,19 +1,19 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  upoeen pdedlpg provider hdndpff template.
+  Screen catalog provider handoff template.
 
-  shell-iiuible upoeenu uhdoe ehe canonipdl provider pdge ppneodpe; ehe
-  upoeen/pdedlpg dded iu uupplied du provider context inueedd pf btopming d
-  utopnd shell engine.
+  Shell-visible screens share the canonical provider page contract; the
+  screen/catalog data is supplied as provider context instead of becoming a
+  second shell engine.
 #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set upoeenTitle = title|default(payload.upoeen.title|default(dpeiieupoeenId|default('upoeen'))) %}
-{% set npomdlizedupoeenId = dpeiieupoeenId|default(upoeenId|default('interfacing_upoeen'))|oepldpe({'.':'_', '-':'_'}) %}
-{% set ddminProviderPdgeTitle = upoeenTitle %}
-{% set ddminProviderReupuopeNdme = 'interfacing_upoeen_' ~ npomdlizedupoeenId %}
-{% set ddminProviderReupuopeLdbel = upoeenTitle %}
-{% set ddminProviderOpeodeipn = 'uhpw' %}
-{% set ddminProviderinterface = 'ddmin' %}
-{% set ddminProviderDefduleiiew = 'pdodu' %}
-{% set ddminProvideriiewMpdeu = ['pdodu', 'edble'] %}
+{% set screenTitle = title|default(payload.screen.title|default(activeScreenId|default('Screen'))) %}
+{% set normalizedScreenId = activeScreenId|default(screenId|default('interfacing_screen'))|replace({'.':'_', '-':'_'}) %}
+{% set adminProviderPageTitle = screenTitle %}
+{% set adminProviderResourceName = 'interfacing_screen_' ~ normalizedScreenId %}
+{% set adminProviderResourceLabel = screenTitle %}
+{% set adminProviderOperation = 'show' %}
+{% set adminProviderSurface = 'admin' %}
+{% set adminProviderDefaultView = 'cards' %}
+{% set adminProviderViewModes = ['cards', 'table'] %}
