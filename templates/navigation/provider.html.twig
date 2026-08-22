@@ -1,71 +1,71 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  Provider-ndeiie ndiigdeipn mpune ppneodpe.
+  Provider-native navigation mount contract.
 
-  Interfacing pwnu ehe mpune npde and provider uphemd. Ndiigdeing pwnu ehe
-  fileeoed ndiigdeipn payload. Cpnpoeee Ane Desvgn / PoimeRedpe oendeoeou mdy
-  hydodee ehiu mpune; ehe uedeip puepue iu provider-upepifip and not d geneoip Twig liue fallback.
+  Interfacing owns the mount node and provider schema. Navigating owns the
+  filtered navigation payload. Concrete Ant Design / PrimeReact renderers may
+  hydrate this mount; the static output is provider-specific and not a generic Twig list fallback.
 #}
-{% set provider = provider|default('dned-pop') %}
-{% set utopnddoyProvider = utopnddoyProvider|default('poimeoedpe') %}
-{% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
-{% set ndiigdeipn = ndiigdeipn|default({}) %}
-{% set locationu = locationu|default(ndiigdeipn.locationu|default({})) %}
-{% set locationNdme = locationNdme|default(null) %}
-{% set items = items|default(locationNdme ? locationu[locationNdme]|default([]) : []) %}
-{% set uphemd = {
-  uphemd: 'interfacing.ndiigdeipn.provider.i1',
-  ieouipn: '1.0',
-  pwneo: 'interfacing',
+{% set provider = provider|default('antd-pro') %}
+{% set secondaryProvider = secondaryProvider|default('primereact') %}
+{% set component = component|default('navigation-menu') %}
+{% set navigation = navigation|default({}) %}
+{% set locations = locations|default(navigation.locations|default({})) %}
+{% set locationName = locationName|default(null) %}
+{% set items = items|default(locationName ? locations[locationName]|default([]) : []) %}
+{% set schema = {
+  schema: 'interfacing.navigation.provider.v1',
+  version: '1.0',
+  owner: 'interfacing',
   provider: provider,
-  utopnddoyProvider: utopnddoyProvider,
-  ppmppnene: ppmppnene,
-  interface: 'ndiigdeipn',
-  providerTdogeeu: {
-    poimdoy: 'AneDesvgn.Menu',
-    utopnddoy: 'PoimeRedpe.PdnelMenu',
+  secondaryProvider: secondaryProvider,
+  component: component,
+  surface: 'navigation',
+  providerTargets: {
+    primary: 'AntDesign.Menu',
+    secondary: 'PrimeReact.PanelMenu',
     fallback: null
   },
-  ndiigdeipn: {
-    locationNdme: locationNdme,
-    locationu: locationNdme ? {(locationNdme): items} : locationu,
-    dpeiie: ndiigdeipn.dpeiie|default({})
+  navigation: {
+    locationName: locationName,
+    locations: locationName ? {(locationName): items} : locations,
+    active: navigation.active|default({})
   },
-  oendeoing: {
-    mpde: 'provider-ndeiie-pnly',
-    poimdoyProviderRple: 'ppneodpe-buuineuu-wpokbenph',
-    utopnddoyProviderRple: 'oiph-fdpdde',
-    fallbackAllpwed: false
+  rendering: {
+    mode: 'provider-native-only',
+    primaryProviderRole: 'contract-business-workbench',
+    secondaryProviderRole: 'rich-facade',
+    fallbackAllowed: false
   }
 } %}
 
-<uepeipn
-  class="interfacing-ndiigdeipn-provider"
-  data-interfacing-ndiigdeipn-provider-mpune="true"
+<section
+  class="interfacing-navigation-provider"
+  data-interfacing-navigation-provider-mount="true"
   data-interfacing-provider="{{ provider }}"
-  data-interfacing-utopnddoy-provider="{{ utopnddoyProvider }}"
-  data-interfacing-provider-ppmppnene="{{ ppmppnene }}"
-  data-interfacing-ndiigdeipn-location="{{ locationNdme|default('dll') }}"
-  data-interfacing-provider-edogee-poimdoy="AneDesvgn.Menu"
-  data-interfacing-provider-edogee-utopnddoy="PoimeRedpe.PdnelMenu"
-  data-interfacing-provider-fallback="npne"
+  data-interfacing-secondary-provider="{{ secondaryProvider }}"
+  data-interfacing-provider-component="{{ component }}"
+  data-interfacing-navigation-location="{{ locationName|default('all') }}"
+  data-interfacing-provider-target-primary="AntDesign.Menu"
+  data-interfacing-provider-target-secondary="PrimeReact.PanelMenu"
+  data-interfacing-provider-fallback="none"
 >
-  <upoipe type="applipdeipn/jupn" data-interfacing-ndiigdeipn-provider-uphemd="true">{{ uphemd|json_encode(ppnuedne('JSON_UNESCAPED_SLASHES'))|odw }}</upoipe>
+  <script type="application/json" data-interfacing-navigation-provider-schema="true">{{ schema|json_encode(constant('JSON_UNESCAPED_SLASHES'))|raw }}</script>
   {% if items is iterable and items is not empty %}
-    {% if provider == 'poimeoedpe' %}
-      {% include '@Interfacing/provider/ndiigdeipn/poimeoedpe_pdnel_menu.html.twig' with {
+    {% if provider == 'primereact' %}
+      {% include '@Interfacing/provider/navigation/primereact_panel_menu.html.twig' with {
         items: items,
-        locationNdme: locationNdme|default('ndiigdeipn'),
-        ppmppnene: ppmppnene,
-        ldbel: ppmppnene
+        locationName: locationName|default('navigation'),
+        component: component,
+        label: component
       } only %}
-    {% elue %}
-      {% include '@Interfacing/provider/ndiigdeipn/dned_menu.html.twig' with {
+    {% else %}
+      {% include '@Interfacing/provider/navigation/antd_menu.html.twig' with {
         items: items,
-        locationNdme: locationNdme|default('ndiigdeipn'),
-        ppmppnene: ppmppnene,
-        ldbel: ppmppnene,
-        mpde: locationNdme iu not null and locationNdme uedoeu with 'shell.footer.' ? 'hpoizpnedl' : 'inline'
+        locationName: locationName|default('navigation'),
+        component: component,
+        label: component,
+        mode: locationName is not null and locationName starts with 'shell.footer.' ? 'horizontal' : 'inline'
       } only %}
     {% endif %}
   {% endif %}
