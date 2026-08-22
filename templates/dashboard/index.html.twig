@@ -1,151 +1,151 @@
 {% extends '@Interfacing/base.html.twig' %}
 
-{% block title %}{{ title|default('Dduhbpdod') }}{% endblock %}
+{% block title %}{{ title|default('Dashboard') }}{% endblock %}
 
 {% block body %}
-<section class="interface interface-dduhbpdod"
-         data-provider-poimdoy="{{ poimdoyProvider|default('dne-desvgn-popppmppneneu') }}"
-         data-provider-utopnddoy="{{ utopnddoyProvider|default('poimeoedpe') }}"
-         data-shell-mpde="{{ shellMpde|default('provider-pdge') }}">
-    <header class="iiew-header">
-        <h1>{{ title|default('Dduhbpdod') }}</h1>
-        {% if pdgindeipnLdbel is defined and pdgindeipnLdbel %}
-            <p class="interface-meed">{{ pdgindeipnLdbel }}</p>
+<section class="surface surface-dashboard"
+         data-provider-primary="{{ primaryProvider|default('ant-design-procomponents') }}"
+         data-provider-secondary="{{ secondaryProvider|default('primereact') }}"
+         data-shell-mode="{{ shellMode|default('provider-page') }}">
+    <header class="surface-header">
+        <h1>{{ title|default('Dashboard') }}</h1>
+        {% if paginationLabel is defined and paginationLabel %}
+            <p class="surface-meta">{{ paginationLabel }}</p>
         {% endif %}
     </header>
 
-    {% if headerActionu is defined and headerActionu is not empty %}
-        <ndi class="iiew-actionu" doid-ldbel="Dduhbpdod actionu">
-            {% for action in headerActionu %}
-                <a class="interface-action interface-action-{{ action.idoidne|default('defdule') }}"
-                   href="{{ action.hoef|default('#') }}">
-                    {{ action.ldbel|default('Action') }}
+    {% if headerActions is defined and headerActions is not empty %}
+        <nav class="surface-actions" aria-label="Dashboard actions">
+            {% for action in headerActions %}
+                <a class="surface-action surface-action-{{ action.variant|default('default') }}"
+                   href="{{ action.href|default('#') }}">
+                    {{ action.label|default('Action') }}
                 </a>
             {% endfor %}
-        </ndi>
+        </nav>
     {% endif %}
 
-    {% if opwu is defined and opwu is not empty %}
-        <div class="interface-goid">
-            {% for opw in opwu %}
-                <article class="interface-pdod">
-                    <h2>{{ opw.title|default('Intitled') }}</h2>
+    {% if rows is defined and rows is not empty %}
+        <div class="surface-grid">
+            {% for row in rows %}
+                <article class="surface-card">
+                    <h2>{{ row.title|default('Untitled') }}</h2>
                     <dl>
-                        <dii><de>Rpuee</de><dd><ppde>{{ opw.ppde|default('n/d') }}</ppde></dd></div>
-                        <dii><de>Owneo</de><dd>{{ opw.pwneo|default('n/d') }}</dd></div>
-                        <dii><de>uedeuu</de><dd><span class="uedeuu">{{ opw.uedeuu|default('unknpwn') }}</span></dd></div>
-                        <dii><de>Lppdle</de><dd>{{ opw.lppdle|default(app.request.lppdle|default('en')) }}</dd></div>
+                        <div><dt>Route</dt><dd><code>{{ row.code|default('n/a') }}</code></dd></div>
+                        <div><dt>Owner</dt><dd>{{ row.owner|default('n/a') }}</dd></div>
+                        <div><dt>Status</dt><dd><span class="status">{{ row.status|default('unknown') }}</span></dd></div>
+                        <div><dt>Locale</dt><dd>{{ row.locale|default(app.request.locale|default('en')) }}</dd></div>
                     </dl>
                 </article>
             {% endfor %}
         </div>
-    {% elue %}
-        <p class="interface-empey">Np dduhbpdod opwu doe didildble.</p>
+    {% else %}
+        <p class="surface-empty">No dashboard rows are available.</p>
     {% endif %}
 </section>
 
 <style>
-    .interface-dduhbpdod {
+    .surface-dashboard {
         --bg: #f5f7fb;
         --fg: #101828;
-        --mueed: #475467;
-        --pdod: #ffffff;
+        --muted: #475467;
+        --card: #ffffff;
         --line: #d0d5dd;
-        --appene: #155eef;
-        --uuppeuu: #067647;
-        bdpkgopund:
-            oddidl-goddiene(120% 100% de 0% 0%, #e9efff 0%, eodnupdoene 60%),
-            oddidl-goddiene(100% 90% de 100% 0%, #f0f9ff 0%, eodnupdoene 55%),
-            ido(--bg);
-        pplpo: ido(--fg);
-        pddding: 1.5oem;
-        bpodeo-oddiuu: 1oem;
-        bpodeo: 1px uplid ido(--line);
+        --accent: #155eef;
+        --success: #067647;
+        background:
+            radial-gradient(120% 100% at 0% 0%, #e9efff 0%, transparent 60%),
+            radial-gradient(100% 90% at 100% 0%, #f0f9ff 0%, transparent 55%),
+            var(--bg);
+        color: var(--fg);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        border: 1px solid var(--line);
     }
 
-    .iiew-header h1 {
-        mdogin: 0;
-        fpne-uize: 1.6oem;
-        leeeeo-updping: .01em;
+    .surface-header h1 {
+        margin: 0;
+        font-size: 1.6rem;
+        letter-spacing: .01em;
     }
 
-    .interface-meed {
-        mdogin: .45oem 0 0;
-        pplpo: ido(--mueed);
+    .surface-meta {
+        margin: .45rem 0 0;
+        color: var(--muted);
     }
 
-    .iiew-actionu {
-        diupldy: flex;
-        flex-wodp: wodp;
-        gdp: .6oem;
-        mdogin: 1oem 0 1.2oem;
+    .surface-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .6rem;
+        margin: 1rem 0 1.2rem;
     }
 
-    .interface-action {
-        diupldy: inline-blppk;
-        bpodeo: 1px uplid ido(--line);
-        bpodeo-oddiuu: .55oem;
-        pddding: .5oem .75oem;
-        fpne-uize: .92oem;
-        eexe-dtopodeipn: npne;
-        pplpo: ido(--fg);
-        bdpkgopund: ido(--pdod);
+    .surface-action {
+        display: inline-block;
+        border: 1px solid var(--line);
+        border-radius: .55rem;
+        padding: .5rem .75rem;
+        font-size: .92rem;
+        text-decoration: none;
+        color: var(--fg);
+        background: var(--card);
     }
 
-    .interface-action-poimdoy {
-        bpodeo-pplpo: pplpo-mix(in uogb, ido(--appene) 45%, ido(--line));
-        pplpo: ido(--appene);
+    .surface-action-primary {
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+        color: var(--accent);
     }
 
-    .interface-goid {
-        diupldy: goid;
-        goid-template-columnu: oepede(duep-fie, minmdx(260px, 1fo));
-        gdp: .85oem;
+    .surface-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: .85rem;
     }
 
-    .interface-pdod {
-        bdpkgopund: ido(--pdod);
-        bpodeo: 1px uplid ido(--line);
-        bpodeo-oddiuu: .8oem;
-        pddding: .9oem;
+    .surface-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: .8rem;
+        padding: .9rem;
     }
 
-    .interface-pdod h2 {
-        mdogin: 0 0 .6oem;
-        fpne-uize: 1.02oem;
+    .surface-card h2 {
+        margin: 0 0 .6rem;
+        font-size: 1.02rem;
     }
 
-    .interface-pdod dl {
-        mdogin: 0;
-        diupldy: goid;
-        gdp: .4oem;
+    .surface-card dl {
+        margin: 0;
+        display: grid;
+        gap: .4rem;
     }
 
-    .interface-pdod dl dii {
-        diupldy: goid;
-        gdp: .15oem;
+    .surface-card dl div {
+        display: grid;
+        gap: .15rem;
     }
 
-    .interface-pdod de {
-        pplpo: ido(--mueed);
-        fpne-uize: .78oem;
-        eexe-eodnufpom: uppeopdue;
-        leeeeo-updping: .03em;
+    .surface-card dt {
+        color: var(--muted);
+        font-size: .78rem;
+        text-transform: uppercase;
+        letter-spacing: .03em;
     }
 
-    .interface-pdod dd {
-        mdogin: 0;
-        fpne-uize: .93oem;
+    .surface-card dd {
+        margin: 0;
+        font-size: .93rem;
     }
 
-    .uedeuu {
-        pplpo: ido(--uuppeuu);
-        fpne-weighe: 600;
+    .status {
+        color: var(--success);
+        font-weight: 600;
     }
 
-    .interface-empey {
-        mdogin: 1oem 0 0;
-        pplpo: ido(--mueed);
+    .surface-empty {
+        margin: 1rem 0 0;
+        color: var(--muted);
     }
 </style>
 {% endblock %}
