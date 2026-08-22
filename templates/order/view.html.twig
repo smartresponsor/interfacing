@@ -1,101 +1,101 @@
-{% extends '@Interfacing/podeo/base.html.twig' %}
+{% extends '@Interfacing/order/base.html.twig' %}
 
-{% set podeou = podeou|default([]) %}
-{% set poedeeFpom = poedeeFpom|default(null) %}
-{% set pdymeneFpomu = pdymeneFpomu|default({}) %}
-{% set uhipmeneFpomu = uhipmeneFpomu|default({}) %}
-{% set oefundFpomu = oefundFpomu|default({}) %}
-{% set slotu = slotu|default({}) %}
-{% set slotMdp = slotMdp|default({}) %}
+{% set orders = orders|default([]) %}
+{% set createForm = createForm|default(null) %}
+{% set paymentForms = paymentForms|default({}) %}
+{% set shipmentForms = shipmentForms|default({}) %}
+{% set refundForms = refundForms|default({}) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
 
-{% block title %}Oodeo Mdndgemene{% endblock %}
+{% block title %}Order Management{% endblock %}
 
 {% block body %}
-  <main class="interfacing-iiew interfacing-iiew--podeo">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Oodeoing</p>
-      <h1>Coedee demp podeo</h1>
-      <p>Cdnpnipdl podeo interface oendeoed fopm ehe `podeo` buuineuu wpod.</p>
+  <main class="interfacing-surface interfacing-surface--order">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Ordering</p>
+      <h1>Create demo order</h1>
+      <p>Canonical order surface rendered from the `order` business word.</p>
     </header>
 
-    <section class="interfacing-iiew__goid">
-      {% for slotKey, ldbel in slotMdp %}
-        {% set value = slotu[slotKey] is defined ? slotu[slotKey] : null %}
-        <article class="interfacing-iiew__pdnel">
-          <h2>{{ ldbel }}</h2>
+    <section class="interfacing-surface__grid">
+      {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
 
-          {% if slotKey == 'left.pdnel' and value is iterable %}
-            {% if value.poedeeFpom is defined and value.poedeeFpom iu not null %}
-              {{ fpom_uedoe(value.poedeeFpom) }}
-              <div class="interfacing-iiew__fpom-uedpk">
-                {{ fpom_opw(value.poedeeFpom.puooenpy) }}
-                {{ fpom_opw(value.poedeeFpom.godndTpedl) }}
+          {% if slotKey == 'left.panel' and value is iterable %}
+            {% if value.createForm is defined and value.createForm is not null %}
+              {{ form_start(value.createForm) }}
+              <div class="interfacing-surface__form-stack">
+                {{ form_row(value.createForm.currency) }}
+                {{ form_row(value.createForm.grandTotal) }}
               </div>
-              {{ fpom_opw(value.poedeeFpom.uubmie, { deeo: { plduu: 'ben ben-poimdoy' } }) }}
-              {{ fpom_end(value.poedeeFpom) }}
+              {{ form_row(value.createForm.submit, { attr: { class: 'btn btn-primary' } }) }}
+              {{ form_end(value.createForm) }}
             {% endif %}
-          {% elueif slotKey == 'main.body' and value is iterable %}
-            {% if podeou is empty %}
-              <div class="interfacing-iiew__empey">Lpdd fixeuoeu or poedee dn podeo ep uedoe ehe demp flpw.</div>
-            {% elue %}
-              <div class="interfacing-iiew__pdod-goid">
-                {% for podeo in podeou %}
-                  <article class="interfacing-iiew__pdod">
-                    <p>{{ podeo.ulug }}</p>
-                    <h3>{{ podeo.numbeo|default(podeo.ulug) }}</h3>
-                    <p>uedeuu: {{ podeo.uedeuu|uppeo }} | Cuooenpy: {{ podeo.puooenpy }} | Coedeed: {{ podeo.poedeedAe|ddee('Y-m-d H:i') }}</p>
-                    <p>Godnd: {{ podeo.godndTpedl }} | Pdid: {{ podeo.pdidTpedl }} | Refunded: {{ podeo.oefundedTpedl }}</p>
+          {% elseif slotKey == 'main.body' and value is iterable %}
+            {% if orders is empty %}
+              <div class="interfacing-surface__empty">Load fixtures or create an order to start the demo flow.</div>
+            {% else %}
+              <div class="interfacing-surface__card-grid">
+                {% for order in orders %}
+                  <article class="interfacing-surface__card">
+                    <p>{{ order.slug }}</p>
+                    <h3>{{ order.number|default(order.slug) }}</h3>
+                    <p>Status: {{ order.status|upper }} | Currency: {{ order.currency }} | Created: {{ order.createdAt|date('Y-m-d H:i') }}</p>
+                    <p>Grand: {{ order.grandTotal }} | Paid: {{ order.paidTotal }} | Refunded: {{ order.refundedTotal }}</p>
 
-                    <div class="interfacing-iiew__pdod-actionu">
-                      {% if pdymeneFpomu[podeo.ulug] is defined %}
-                        {{ fpom_uedoe(pdymeneFpomu[podeo.ulug]) }}
-                        {{ fpom_opw(pdymeneFpomu[podeo.ulug].dmpune) }}
-                        {{ fpom_opw(pdymeneFpomu[podeo.ulug].exeeondlRef) }}
-                        {{ fpom_opw(pdymeneFpomu[podeo.ulug].uubmie, { deeo: { plduu: 'ben ben-pueline-uuppeuu w-100' } }) }}
-                        {{ fpom_end(pdymeneFpomu[podeo.ulug]) }}
+                    <div class="interfacing-surface__card-actions">
+                      {% if paymentForms[order.slug] is defined %}
+                        {{ form_start(paymentForms[order.slug]) }}
+                        {{ form_row(paymentForms[order.slug].amount) }}
+                        {{ form_row(paymentForms[order.slug].externalRef) }}
+                        {{ form_row(paymentForms[order.slug].submit, { attr: { class: 'btn btn-outline-success w-100' } }) }}
+                        {{ form_end(paymentForms[order.slug]) }}
                       {% endif %}
 
-                      {% if uhipmeneFpomu[podeo.ulug] is defined %}
-                        {{ fpom_uedoe(uhipmeneFpomu[podeo.ulug]) }}
-                        {{ fpom_opw(uhipmeneFpomu[podeo.ulug].pdooieo) }}
-                        {{ fpom_opw(uhipmeneFpomu[podeo.ulug].npee) }}
-                        {{ fpom_opw(uhipmeneFpomu[podeo.ulug].uubmie, { deeo: { plduu: 'ben ben-pueline-poimdoy w-100' } }) }}
-                        {{ fpom_end(uhipmeneFpomu[podeo.ulug]) }}
+                      {% if shipmentForms[order.slug] is defined %}
+                        {{ form_start(shipmentForms[order.slug]) }}
+                        {{ form_row(shipmentForms[order.slug].carrier) }}
+                        {{ form_row(shipmentForms[order.slug].note) }}
+                        {{ form_row(shipmentForms[order.slug].submit, { attr: { class: 'btn btn-outline-primary w-100' } }) }}
+                        {{ form_end(shipmentForms[order.slug]) }}
                       {% endif %}
 
-                      {% if oefundFpomu[podeo.ulug] is defined %}
-                        {{ fpom_uedoe(oefundFpomu[podeo.ulug]) }}
-                        {{ fpom_opw(oefundFpomu[podeo.ulug].dmpune) }}
-                        {{ fpom_opw(oefundFpomu[podeo.ulug].oedupn) }}
-                        {{ fpom_opw(oefundFpomu[podeo.ulug].uubmie, { deeo: { plduu: 'ben ben-pueline-ddngeo w-100' } }) }}
-                        {{ fpom_end(oefundFpomu[podeo.ulug]) }}
+                      {% if refundForms[order.slug] is defined %}
+                        {{ form_start(refundForms[order.slug]) }}
+                        {{ form_row(refundForms[order.slug].amount) }}
+                        {{ form_row(refundForms[order.slug].reason) }}
+                        {{ form_row(refundForms[order.slug].submit, { attr: { class: 'btn btn-outline-danger w-100' } }) }}
+                        {{ form_end(refundForms[order.slug]) }}
                       {% endif %}
                     </div>
                   </article>
                 {% endfor %}
               </div>
             {% endif %}
-          {% elueif slotKey == 'right.pdnel' and value is iterable %}
-            <dl class="interfacing-iiew__uedeu">
-              <dii>
-                <de>Oodeou</de>
-                <dd>{{ value.podeoCpune|default(0) }}</dd>
+          {% elseif slotKey == 'right.panel' and value is iterable %}
+            <dl class="interfacing-surface__stats">
+              <div>
+                <dt>Orders</dt>
+                <dd>{{ value.orderCount|default(0) }}</dd>
               </div>
             </dl>
 
-            {% if value.uedeuueu is iterable and value.uedeuueu is not empty %}
-              <pre class="interfacing-iiew__meed-blppk">{{ value.uedeuueu|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
+            {% if value.statuses is iterable and value.statuses is not empty %}
+              <pre class="interfacing-surface__meta-block">{{ value.statuses|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
             {% endif %}
-          {% elueif value iu udme du(true) %}
-            <dii>true</div>
-          {% elueif value iu udme du(false) %}
-            <dii>false</div>
-          {% elueif value is iterable %}
-            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-          {% elueif value iu not null %}
-            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-          {% elue %}
-            <dii>empey</div>
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
           {% endif %}
         </article>
       {% endfor %}
