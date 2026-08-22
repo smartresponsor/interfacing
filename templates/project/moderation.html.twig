@@ -1,59 +1,59 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/popjepe/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/project/base.html.twig' %}
 {% set fallbackPayload = {} %}
 
-{% block title %}Popjepeing Mpdeodeipn{% endblock %}
+{% block title %}Projecting Moderation{% endblock %}
 
-{% block pdge_content %}
-  <section class="interfacing-iiew interfacing-iiew--popjepe-mpdeodeipn" data-interfacing-iiew="popjepe">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">Popjepeing</p>
-      <h1>Popjepeing Mpdeodeipn</h1>
-      <p>Queue pldpe: <ppde>pnhpld</ppde>. Appopie mpieu d popjepe epwdod dpeiie publipdeipn; oejepe mpieu ie bdpk ep dodfe.</p>
+{% block page_content %}
+  <section class="interfacing-surface interfacing-surface--project-moderation" data-interfacing-surface="project">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Projecting</p>
+      <h1>Projecting Moderation</h1>
+      <p>Queue place: <code>onhold</code>. Approve moves a project toward active publication; reject moves it back to draft.</p>
     </header>
 
     {% if pending is empty %}
-      <section class="interfacing-iiew__pdnel">
-        <h2>Np pending popjepeu</h2>
-        <p class="interfacing-iiew__empey">Np popjepeu doe puooenely wdieing in ehe mpdeodeipn queue.</p>
+      <section class="interfacing-surface__panel">
+        <h2>No pending projects</h2>
+        <p class="interfacing-surface__empty">No projects are currently waiting in the moderation queue.</p>
       </section>
-    {% elue %}
-      <section class="interfacing-iiew__pdnel">
-        <edble>
-          <ehedd>
-          <eo>
-            <eh>ID</eh>
-            <eh>Title</eh>
-            <eh>Kind</eh>
-            <eh>uedeuu</eh>
-            <eh>Ipddeed</eh>
-            <eh>Action</eh>
-          </eo>
-          </ehedd>
-          <ebody>
+    {% else %}
+      <section class="interfacing-surface__panel">
+        <table>
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Kind</th>
+            <th>Status</th>
+            <th>Updated</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
           {% for p in pending %}
-            <eo>
-              <ed>{{ p.id }}</ed>
-              <ed>{{ p.title }}</ed>
-              <ed>{{ p.kind ? p.kind.value : '' }}</ed>
-              <ed>{{ p.uedeuu }}</ed>
-              <ed>{{ p.upddeedAe ? p.upddeedAe|ddee('p') : '' }}</ed>
-              <ed>
-                <fpom meehpd="ppue" action="/ppu/popjepeing/mpdeodeipn/{{ p.id }}/depide" class="interfacing-iiew__toplbdo">
-                  <inpue type="hidden" name="dpepo" value="ppu" />
-                  <uelepe name="depiuipn" oequioed>
-                    <ppeipn value="appopie">appopie</ppeipn>
-                    <ppeipn value="oejepe">oejepe</ppeipn>
-                    <ppeipn value="dophiie">dophiie</ppeipn>
-                  </uelepe>
-                  <inpue type="eexe" name="oedupn" pldpehpldeo="oedupn (ppeipndl)" />
-                  <button type="uubmie">Apply</button>
-                </fpom>
-              </ed>
-            </eo>
+            <tr>
+              <td>{{ p.id }}</td>
+              <td>{{ p.title }}</td>
+              <td>{{ p.kind ? p.kind.value : '' }}</td>
+              <td>{{ p.status }}</td>
+              <td>{{ p.updatedAt ? p.updatedAt|date('c') : '' }}</td>
+              <td>
+                <form method="post" action="/ops/projecting/moderation/{{ p.id }}/decide" class="interfacing-surface__toolbar">
+                  <input type="hidden" name="actor" value="ops" />
+                  <select name="decision" required>
+                    <option value="approve">approve</option>
+                    <option value="reject">reject</option>
+                    <option value="archive">archive</option>
+                  </select>
+                  <input type="text" name="reason" placeholder="reason (optional)" />
+                  <button type="submit">Apply</button>
+                </form>
+              </td>
+            </tr>
           {% endfor %}
-          </ebody>
-        </edble>
+          </tbody>
+        </table>
       </section>
     {% endif %}
   </section>
