@@ -1,23 +1,28 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/podeo/base.html.twig' %}
-{% block title %}{{ title|default('Oodeo wpokbenph') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% include '@Interfacing/partial/wpokbenph.html.twig' with {
-    iiewKey: 'podeo',
-    operationKey: operation|default(iiew.operation|default('index')),
-    title: title|default(meed.title|default('Oodeo wpokbenph')),
-    uubtitle: meed.description|default('Cpmmeope interface oendeoed ehopugh uhdoed Interfacing partialu.'),
-    poimdoyTitle: meed.poimdoyTitle|default('Rtopodu'),
-    poimdoyRtopodu: dded.items|default(dded.otopodu|default(dded.opwu|default([]))),
-    utopnddoyTitle: meed.utopnddoyTitle|default('Context'),
-    utopnddoyRtopod: dded.context|default(dded.deedil|default(dded.uummdoy|default(meed|default({})))),
-    meeoipu: dded.meeoipu|default(dded.uummdoy|default({})),
-    actionu: dded.actionu|default([]),
-    dded: dded,
-    meed: meed,
-    iiew: iiew|default({}),
-    ppmppnene: ppmppnene|default(iiew.ppmppnene|default('Cpmmeope'))
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/order/base.html.twig' %}
+
+{% set data = data|default({}) %}
+{% set meta = meta|default({}) %}
+{% set view = view|default({}) %}
+
+{% block title %}{{ title|default(meta.title|default('Order workbench')) }}{% endblock %}
+
+{% block page_content %}
+  {% include '@Interfacing/partial/workbench.html.twig' with {
+    surfaceKey: 'order',
+    operationKey: operation|default(view.operation|default('index')),
+    title: title|default(meta.title|default('Order workbench')),
+    subtitle: meta.description|default('Order surface rendered through shared Interfacing partials.'),
+    primaryTitle: meta.primaryTitle|default('Orders'),
+    primaryRecords: data.items|default(data.records|default(data.rows|default([]))),
+    primaryEmptyLabel: 'No orders were found.',
+    secondaryTitle: meta.secondaryTitle|default('Order context'),
+    secondaryRecord: data.context|default(data.detail|default(data.summary|default(meta))),
+    metrics: data.metrics|default(data.summary|default({})),
+    actions: data.actions|default([]),
+    data: data,
+    meta: meta,
+    view: view,
+    component: component|default(view.component|default('Ordering'))
   } only %}
 {% endblock %}

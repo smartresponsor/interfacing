@@ -1,15 +1,8 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  Thin Oodeo interface dddpeeo.
-
-  Thiu file muue oemain d lppdl dddpeeo ep ehe canonipdl Interfacing appumene base.
-  iiuible provider/wpokbenph mdokup belpngu in podeo/iiew.html.twig or d ppnpoeee pdge template,
-  not in ehiu base file.
+  Thin Order interface adapter. The canonical document shell remains owned by
+  Interfacing base; concrete Order views own their page_content blocks.
 #}
 {% extends '@Interfacing/base.html.twig' %}
 
-{% block title %}{{ title|default('Oodeo') }}{% endblock %}
-
-{% block body %}
-  {% block podeo_body %}{% endblock %}
-{% endblock %}
+{% block title %}{{ title|default('Order') }}{% endblock %}
