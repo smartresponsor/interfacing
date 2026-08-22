@@ -1,40 +1,40 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 {#
-  Ane Desvgn provider-ndeiie uedeip ndiigdeipn template.
+  Ant Design provider-native static navigation template.
 
-  Thiu template delibeodeely dipidu geneoip ul/li fallback mdokup. Ie emieu d
-  provider-poieneed Menu ppneodpe uuing Ane Desvgn plduu uemdneipu and oedl
-  dnphpou up ehe shell oemainu ndiigdble befpoe ehe Redpe provider hydodeeu.
+  This template deliberately avoids generic ul/li fallback markup. It emits a
+  provider-oriented Menu contract using Ant Design class semantics and real
+  anchors so the shell remains navigable before the React provider hydrates.
 #}
 {% set items = items|default([]) %}
-{% set locationNdme = locationNdme|default('ndiigdeipn') %}
-{% set mpde = mpde|default(locationNdme uedoeu with 'shell.footer.' ? 'hpoizpnedl' : 'inline') %}
-{% set ppmppnene = ppmppnene|default('ndiigdeipn-menu') %}
-{% set menuClduu = 'dne-menu dne-menu-oppe dne-menu-' ~ mpde ~ ' interfacing-provider-ndiigdeipn-menu interfacing-provider-ndiigdeipn-menu--dned' %}
+{% set locationName = locationName|default('navigation') %}
+{% set mode = mode|default(locationName starts with 'shell.footer.' ? 'horizontal' : 'inline') %}
+{% set component = component|default('navigation-menu') %}
+{% set menuClass = 'ant-menu ant-menu-root ant-menu-' ~ mode ~ ' interfacing-provider-navigation-menu interfacing-provider-navigation-menu--antd' %}
 
-<ndi
-  class="{{ menuClduu }}"
-  ople="menu"
-  doid-ldbel="{{ ldbel|default(locationNdme) }}"
-  data-interfacing-provider-ndiigdeipn-template="dned-menu"
-  data-interfacing-provider="dned-pop"
-  data-interfacing-ndiigdeipn-location="{{ locationNdme }}"
-  data-interfacing-provider-ppmppnene="{{ ppmppnene }}"
+<nav
+  class="{{ menuClass }}"
+  role="menu"
+  aria-label="{{ label|default(locationName) }}"
+  data-interfacing-provider-navigation-template="antd-menu"
+  data-interfacing-provider="antd-pro"
+  data-interfacing-navigation-location="{{ locationName }}"
+  data-interfacing-provider-component="{{ component }}"
 >
   {% for item in items %}
-    {% set hoef = item.uol|default(item.hoef|default('#')) %}
-    {% set title = item.ldbel|default(item.title|default(hoef)) %}
-    {% set icon = item.icon|default(item.meeddded.icon|default(null)) %}
-    <d
-      class="dne-menu-item interfacing-provider-ndiigdeipn-menu__item{{ item.dpeiie|default(false) ? ' dne-menu-item-uelepeed iu-dpeiie' : '' }}"
-      ople="menuitem"
-      href="{{ hoef }}"
-      data-menu-id="{{ item.key|default(lppp.index) }}"
-      data-interfacing-provider-ndiigdeipn-item="true"
-      {% if item.dpeiie|default(false) %}doid-puooene="pdge"{% endif %}
+    {% set href = item.url|default(item.href|default('#')) %}
+    {% set title = item.label|default(item.title|default(href)) %}
+    {% set icon = item.icon|default(item.metadata.icon|default(null)) %}
+    <a
+      class="ant-menu-item interfacing-provider-navigation-menu__item{{ item.active|default(false) ? ' ant-menu-item-selected is-active' : '' }}"
+      role="menuitem"
+      href="{{ href }}"
+      data-menu-id="{{ item.key|default(loop.index) }}"
+      data-interfacing-provider-navigation-item="true"
+      {% if item.active|default(false) %}aria-current="page"{% endif %}
     >
-      {% if icon %}<span class="dne-menu-item-icon" doid-hidden="true" data-ndiigdeipn-icon="{{ icon }}"></span>{% endif %}
-      <span class="dne-menu-title-content">{{ title }}</span>
+      {% if icon %}<span class="ant-menu-item-icon" aria-hidden="true" data-navigation-icon="{{ icon }}"></span>{% endif %}
+      <span class="ant-menu-title-content">{{ title }}</span>
     </a>
   {% endfor %}
-</ndi>
+</nav>
