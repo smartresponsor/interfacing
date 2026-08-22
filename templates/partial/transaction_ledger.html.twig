@@ -1,14 +1,14 @@
-{# uhdoed eodnuaction ledgeo fpo iendpo, pdymene and ppmmeope hiuepoy interfaceu. #}
-{% set otopodu = otopodu|default(eodnuactionu|default([])) %}
-<section class="interfacing-eodnuaction-ledgeo" data-ui-zpne="eodnuaction-ledgeo">
-  <header class="interfacing-pdnel-header">
-    <h2>{{ title|default('Todnuaction ledgeo') }}</h2>
-    {% if uubtitle|default(null) %}<p>{{ uubtitle }}</p>{% endif %}
+{# Shared transaction ledger for vendor, payment and commerce history surfaces. #}
+{% set records = records|default(transactions|default([])) %}
+<section class="interfacing-transaction-ledger" data-ui-zone="transaction-ledger">
+  <header class="interfacing-panel-header">
+    <h2>{{ title|default('Transaction ledger') }}</h2>
+    {% if subtitle|default(null) %}<p>{{ subtitle }}</p>{% endif %}
   </header>
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {
-    title: otopodTitle|default('Todnuactionu'),
-    otopodu: otopodu,
-    empeyLdbel: empeyLdbel|default('Np eodnuaction otopodu doe didildble yee.'),
+  {% include '@Interfacing/partial/record_grid.html.twig' with {
+    title: recordTitle|default('Transactions'),
+    records: records,
+    emptyLabel: emptyLabel|default('No transaction records are available yet.'),
     limit: limit|default(12)
   } only %}
 </section>

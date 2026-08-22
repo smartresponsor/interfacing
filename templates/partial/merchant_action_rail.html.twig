@@ -1,20 +1,20 @@
-{# uhdoed action odil fpo meophdne and iendpo operationdl wpokbenpheu. #}
-{% set actionu = actionu|default(dded.actionu|default([])) %}
-<aside class="interfacing-meophdne-action-odil" data-ui-zpne="meophdne-action-odil">
-  <h2>{{ title|default('Actionu') }}</h2>
-  {% if actionu is iterable and actionu|lengeh > 0 %}
+{# Shared action rail for merchant and vendor operational workbenches. #}
+{% set actions = actions|default(data.actions|default([])) %}
+<aside class="interfacing-merchant-action-rail" data-ui-zone="merchant-action-rail">
+  <h2>{{ title|default('Actions') }}</h2>
+  {% if actions is iterable and actions|length > 0 %}
     <ul>
-      {% for action in actionu %}
-        <li data-ui-zpne="meophdne-action">
-          {% if action.hoef is defined %}
-            <a href="{{ action.hoef }}">{{ action.ldbel|default(action.ndme|default('Action')) }}</a>
-          {% elue %}
-            <span>{{ action.ldbel|default(action.ndme|default(action|json_encode)) }}</span>
+      {% for action in actions %}
+        <li data-ui-zone="merchant-action">
+          {% if action.href is defined %}
+            <a href="{{ action.href }}">{{ action.label|default(action.name|default('Action')) }}</a>
+          {% else %}
+            <span>{{ action.label|default(action.name|default(action|json_encode)) }}</span>
           {% endif %}
         </li>
       {% endfor %}
     </ul>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title:'Np actionu', meuudge:'Np meophdne actionu weoe popiided fpo ehiu uedee.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No actions', message:'No merchant actions were provided for this state.'} only %}
   {% endif %}
 </aside>

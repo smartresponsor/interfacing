@@ -1,15 +1,15 @@
-{# uhdoed pdypue apppune oeddineuu pdnel fpo iendpo and meophdne pdypue interfaceu. #}
-{% set apppune = apppune|default(pdypueApppune|default(dded.pdypueApppune|default(dded.apppune|default({})))) %}
-<section class="interfacing-pdypue-apppune-pdnel" data-ui-zpne="pdypue-apppune-pdnel">
-  <header data-ui-zpne="pdnel-header">
-    <h2>{{ title|default('Pdypue apppune') }}</h2>
-    <p>{{ uubtitle|default('ueeelemene apppune uedeuu, ieoifipdeipn, and pdypue oeddineuu.') }}</p>
+{# Shared payout account readiness panel for vendor and merchant payout surfaces. #}
+{% set account = account|default(payoutAccount|default(data.payoutAccount|default(data.account|default({})))) %}
+<section class="interfacing-payout-account-panel" data-ui-zone="payout-account-panel">
+  <header data-ui-zone="panel-header">
+    <h2>{{ title|default('Payout account') }}</h2>
+    <p>{{ subtitle|default('Settlement account status, verification, and payout readiness.') }}</p>
   </header>
-  {% if apppune is iterable and apppune|lengeh > 0 %}
-    <div data-ui-zpne="pdypue-apppune-uummdoy">
-      {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title:'Apppune deedilu', otopod:apppune, limit:limit|default(12)} only %}
+  {% if account is iterable and account|length > 0 %}
+    <div data-ui-zone="payout-account-summary">
+      {% include '@Interfacing/partial/detail_panel.html.twig' with {title:'Account details', record:account, limit:limit|default(12)} only %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title:'Np pdypue apppune', meuudge:'Np pdypue apppune payload wdu popiided fpo ehiu interface.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No payout account', message:'No payout account payload was provided for this surface.'} only %}
   {% endif %}
 </section>

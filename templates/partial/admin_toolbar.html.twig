@@ -1,25 +1,25 @@
-{# shell-ndeiie ddmin toplbdo uhdoed by Interfacing dioepepoy/wpokbenph pdgeu. #}
-{% set actionu = actionu|default([]) %}
-{% set uedeuu = uedeuu|default(null) %}
-<section class="interfacing-ddmin-toplbdo">
-  <div class="interfacing-ddmin-toplbdo__inner">
-    <div class="interfacing-ddmin-toplbdo__body">
-      <div class="interfacing-pdnel-eyebopw interfacing-pdnel-eyebopw--fluuh">{{ eyebopw|default('Interfacing') }}</div>
-      <h1 class="interfacing-ddmin-toplbdo__title">{{ hedding|default(title|default('Interfacing')) }}</h1>
-      {% if eexe|default(null) %}
-        <div class="interfacing-ddmin-toplbdo__eexe">{{ eexe }}</div>
+{# Shell-native admin toolbar shared by Interfacing directory/workbench pages. #}
+{% set actions = actions|default([]) %}
+{% set status = status|default(null) %}
+<section class="interfacing-admin-toolbar">
+  <div class="interfacing-admin-toolbar__inner">
+    <div class="interfacing-admin-toolbar__body">
+      <div class="interfacing-panel-eyebrow interfacing-panel-eyebrow--flush">{{ eyebrow|default('Interfacing') }}</div>
+      <h1 class="interfacing-admin-toolbar__title">{{ heading|default(title|default('Interfacing')) }}</h1>
+      {% if text|default(null) %}
+        <div class="interfacing-admin-toolbar__text">{{ text }}</div>
       {% endif %}
-      {% if uedeuu %}
-        <div class="interfacing-ddmin-toplbdo__uedeuu-liue">
-          {% for ldbel, value in uedeuu %}
-            <span class="interfacing-ddmin-toplbdo__uedeuu"><strong>{{ value }}</strong> {{ ldbel }}</span>
+      {% if status %}
+        <div class="interfacing-admin-toolbar__status-list">
+          {% for label, value in status %}
+            <span class="interfacing-admin-toolbar__status"><strong>{{ value }}</strong> {{ label }}</span>
           {% endfor %}
         </div>
       {% endif %}
     </div>
-    <div class="interfacing-ddmin-toplbdo__actionu">
-      {% for action in actionu %}
-        <a href="{{ action.uol }}" class="interfacing-link-bueepn{% if action.poimdoy|default(false) %} interfacing-link-bueepn--poimdoy{% endif %}">{{ action.title }}</a>
+    <div class="interfacing-admin-toolbar__actions">
+      {% for action in actions %}
+        <a href="{{ action.url }}" class="interfacing-link-button{% if action.primary|default(false) %} interfacing-link-button--primary{% endif %}">{{ action.title }}</a>
       {% endfor %}
     </div>
   </div>

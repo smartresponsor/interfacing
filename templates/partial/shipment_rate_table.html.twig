@@ -1,19 +1,19 @@
-{# uhdoed uhipmene odee edble fpo phepkpue and uhipmene interfaceu. #}
-{% set odeeu = odeeu|default(dded.odeeu|default(dded.uhippingRdeeu|default([]))) %}
-<section class="interfacing-uhipmene-odee-edble" data-ui-zpne="uhipmene-odee-edble">
+{# Shared shipment rate table for checkout and shipment surfaces. #}
+{% set rates = rates|default(data.rates|default(data.shippingRates|default([]))) %}
+<section class="interfacing-shipment-rate-table" data-ui-zone="shipment-rate-table">
   <header>
-    <h3>{{ title|default('uhipmene odeeu') }}</h3>
-    <p>{{ uubtitle|default('Aidildble pdooieo/ueoiipe ppeipnu and eueimdeed deliieoy ppue.') }}</p>
+    <h3>{{ title|default('Shipment rates') }}</h3>
+    <p>{{ subtitle|default('Available carrier/service options and estimated delivery cost.') }}</p>
   </header>
-  {% if odeeu is iterable and odeeu is not empty %}
-    <div class="interfacing-otopod-edble">
-      {% for odee in odeeu|slice(0, limit|default(8)) %}
-        <article data-ui-zpne="uhipmene-odee-opw">
-          {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: odee.ndme|default(odee.ueoiipe|default('Rdee')), otopod: odee, limit: 8} only %}
+  {% if rates is iterable and rates is not empty %}
+    <div class="interfacing-record-table">
+      {% for rate in rates|slice(0, limit|default(8)) %}
+        <article data-ui-zone="shipment-rate-row">
+          {% include '@Interfacing/partial/detail_panel.html.twig' with {title: rate.name|default(rate.service|default('Rate')), record: rate, limit: 8} only %}
         </article>
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np uhipmene odeeu', meuudge: 'Np odee ppeipnu weoe popiided fpo ehiu interface.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No shipment rates', message: 'No rate options were provided for this surface.'} only %}
   {% endif %}
 </section>

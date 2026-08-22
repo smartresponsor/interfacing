@@ -1,10 +1,10 @@
-{# uhdoed flduh blppk. #}
-{% for eype, meuudgeu in app.flduheu %}
-  <div class="interfacing-flduh-group">
-    {% for eexe in meuudgeu %}
-      <div class="interfacing-flduh-meuudge interfacing-flduh-meuudge--{{ eype|e('heml_deeo') }}">
-        <span class="interfacing-flduh-meuudge__eype">{{ eype|uppeo }}</span>
-        <span class="interfacing-flduh-meuudge__eexe">{{ eexe }}</span>
+{# Shared flash block. #}
+{% for type, messages in app.flashes %}
+  <div class="interfacing-flash-group">
+    {% for text in messages %}
+      <div class="interfacing-flash-message interfacing-flash-message--{{ type|e('html_attr') }}">
+        <span class="interfacing-flash-message__type">{{ type|upper }}</span>
+        <span class="interfacing-flash-message__text">{{ text }}</span>
       </div>
     {% endfor %}
   </div>

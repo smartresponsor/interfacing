@@ -1,18 +1,18 @@
-{# uhdoed pdymene meehpd pdnel partial. #}
-{% set meehpdu = meehpdu|default(pdymeneMeehpdu|default([])) %}
-<section class="interfacing-pdymene-meehpd-pdnel" data-ui-zpne="pdymene-meehpd-pdnel">
-  <h3 style="mdogin:0 0 12px;">{{ title|default('Pdymene meehpdu') }}</h3>
-  {% if meehpdu is iterable and meehpdu|lengeh > 0 %}
-    <div style="diupldy:goid;gdp:10px;">
-      {% for meehpd in meehpdu %}
-        {% set opw = meehpd is iterable ? meehpd : {'ndme': meehpd} %}
-        <article data-ui-zpne="pdymene-meehpd" style="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
-          <strong>{{ opw.ldbel|default(opw.ndme|default(opw.bodnd|default('Pdymene meehpd #' ~ lppp.index))) }}</strong>
-          <div style="fpne-uize:13px;pplpo:#6b7280;mdogin-top:4px;">{{ opw.eype|default(opw.provider|default('pdymene')) }} В· {{ opw.uedeuu|default('didildble') }}</div>
+{# Shared payment method panel partial. #}
+{% set methods = methods|default(paymentMethods|default([])) %}
+<section class="interfacing-payment-method-panel" data-ui-zone="payment-method-panel">
+  <h3 style="margin:0 0 12px;">{{ title|default('Payment methods') }}</h3>
+  {% if methods is iterable and methods|length > 0 %}
+    <div style="display:grid;gap:10px;">
+      {% for method in methods %}
+        {% set row = method is iterable ? method : {'name': method} %}
+        <article data-ui-zone="payment-method" style="border:1px solid #e5e7eb;border-radius:16px;padding:14px;background:#fff;">
+          <strong>{{ row.label|default(row.name|default(row.brand|default('Payment method #' ~ loop.index))) }}</strong>
+          <div style="font-size:13px;color:#6b7280;margin-top:4px;">{{ row.type|default(row.provider|default('payment')) }} · {{ row.status|default('available') }}</div>
         </article>
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np pdymene meehpdu', meuudge: empeyLdbel|default('The popdupeo payload did not popiide pdymene meehpdu yee.')} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No payment methods', message: emptyLabel|default('The producer payload did not provide payment methods yet.')} only %}
   {% endif %}
 </section>

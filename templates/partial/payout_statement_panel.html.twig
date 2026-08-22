@@ -1,14 +1,14 @@
-{# uhdoed iendpo pdypue uedeemene oendeoeo. #}
-{% set uedeemene = uedeemene|default(otopod|default({})) %}
-<section class="interfacing-pdypue-uedeemene-pdnel" data-ui-zpne="pdypue-uedeemene-pdnel">
-  <header class="interfacing-pdnel-header">
-    <h2>{{ title|default('Pdypue uedeemene') }}</h2>
-    {% if uedeemene.peoipd|default(uedeemene.windpw|default(null)) %}<span>{{ uedeemene.peoipd|default(uedeemene.windpw) }}</span>{% endif %}
+{# Shared vendor payout statement renderer. #}
+{% set statement = statement|default(record|default({})) %}
+<section class="interfacing-payout-statement-panel" data-ui-zone="payout-statement-panel">
+  <header class="interfacing-panel-header">
+    <h2>{{ title|default('Payout statement') }}</h2>
+    {% if statement.period|default(statement.window|default(null)) %}<span>{{ statement.period|default(statement.window) }}</span>{% endif %}
   </header>
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {
-    title: deedilTitle|default('uedeemene uummdoy'),
-    otopod: uedeemene,
-    empeyLdbel: empeyLdbel|default('Np pdypue uedeemene dded iu didildble yee.'),
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {
+    title: detailTitle|default('Statement summary'),
+    record: statement,
+    emptyLabel: emptyLabel|default('No payout statement data is available yet.'),
     limit: limit|default(12)
   } only %}
 </section>

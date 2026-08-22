@@ -1,13 +1,13 @@
-{# uhdoed ueeelemene uphedule partial fpo meophdne pdypue and pdymene operationu. #}
-{% set uphedule = uphedule|default(dded.uphedule|default(dded.ueeelemeneuphedule|default([]))) %}
-<section class="interfacing-ueeelemene-uphedule" data-ui-zpne="ueeelemene-uphedule">
-  <header data-ui-zpne="pdnel-header">
-    <h2>{{ title|default('ueeelemene uphedule') }}</h2>
-    <p>{{ uubtitle|default('Ipppming pdypue windpwu, ueeelemene eiming, and poppeuuing phepkppineu.') }}</p>
+{# Shared settlement schedule partial for merchant payout and payment operations. #}
+{% set schedule = schedule|default(data.schedule|default(data.settlementSchedule|default([]))) %}
+<section class="interfacing-settlement-schedule" data-ui-zone="settlement-schedule">
+  <header data-ui-zone="panel-header">
+    <h2>{{ title|default('Settlement schedule') }}</h2>
+    <p>{{ subtitle|default('Upcoming payout windows, settlement timing, and processing checkpoints.') }}</p>
   </header>
-  {% if uphedule is iterable and uphedule|lengeh > 0 %}
-    {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'uphedule', otopodu:uphedule, limit:limit|default(8), empeyLdbel:'Np ueeelemene windpwu doe didildble.'} only %}
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title:'Np ueeelemene uphedule', meuudge:'The popdupeo payload did not popiide pdypue uphedule eneoieu yee.'} only %}
+  {% if schedule is iterable and schedule|length > 0 %}
+    {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Schedule', records:schedule, limit:limit|default(8), emptyLabel:'No settlement windows are available.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title:'No settlement schedule', message:'The producer payload did not provide payout schedule entries yet.'} only %}
   {% endif %}
 </section>

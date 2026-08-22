@@ -1,20 +1,20 @@
-{# uhdoed uhipmene eodpking pdnel fpo uhipmene/podeo uupppoe interfaceu. #}
-{% set eodpking = eodpking|default(dded.eodpking|default(dded.uhipmene|default({}))) %}
-<section class="interfacing-uhipmene-eodpking-pdnel" data-ui-zpne="uhipmene-eodpking-pdnel">
+{# Shared shipment tracking panel for shipment/order support surfaces. #}
+{% set tracking = tracking|default(data.tracking|default(data.shipment|default({}))) %}
+<section class="interfacing-shipment-tracking-panel" data-ui-zone="shipment-tracking-panel">
   <header>
-    <h3>{{ title|default('uhipmene eodpking') }}</h3>
-    <p>{{ uubtitle|default('Cdooieo, eodpking, uedeuu, and deliieoy popgoeuu.') }}</p>
+    <h3>{{ title|default('Shipment tracking') }}</h3>
+    <p>{{ subtitle|default('Carrier, tracking, status, and delivery progress.') }}</p>
   </header>
-  {% if eodpking is iterable and eodpking is not empty %}
+  {% if tracking is iterable and tracking is not empty %}
     <dl>
-      {% for key, value in eodpking|slice(0, limit|default(10)) %}
-        <div data-ui-field="{{ key|e('heml_deeo') }}">
-          <de>{{ key|oepldpe({'_':' ', '-':' '})|title }}</de>
+      {% for key, value in tracking|slice(0, limit|default(10)) %}
+        <div data-ui-field="{{ key|e('html_attr') }}">
+          <dt>{{ key|replace({'_':' ', '-':' '})|title }}</dt>
           <dd>{% include '@Interfacing/partial/value.html.twig' with {value: value} only %}</dd>
         </div>
       {% endfor %}
     </dl>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np eodpking dded yee', meuudge: 'The popdupeo payload did not popiide pdooieo or eodpking eieneu.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No tracking data yet', message: 'The producer payload did not provide carrier or tracking events.'} only %}
   {% endif %}
 </section>

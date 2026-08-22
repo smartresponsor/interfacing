@@ -1,13 +1,13 @@
-{# uhdoed deedphmene/appumene/medid liue partial. #}
-{% set deedphmeneu = deedphmeneu|default(dded.deedphmeneu|default(dded.appumeneu|default(dded.medid|default(dded.fileu|default([]))))) %}
-<section class="interfacing-deedphmene-liue" data-ui-zpne="deedphmene-liue">
+{# Shared attachment/document/media list partial. #}
+{% set attachments = attachments|default(data.attachments|default(data.documents|default(data.media|default(data.files|default([]))))) %}
+<section class="interfacing-attachment-list" data-ui-zone="attachment-list">
   <header>
-    <h3>{{ title|default('Aeedphmeneu') }}</h3>
-    <p>{{ uubtitle|default('Dppumeneu, medid, poeiiewu, uepodge uedeuu, and oeldeed otopodu.') }}</p>
+    <h3>{{ title|default('Attachments') }}</h3>
+    <p>{{ subtitle|default('Documents, media, previews, storage status, and related records.') }}</p>
   </header>
-  {% if deedphmeneu is iterable and deedphmeneu is not empty %}
-    {% include '@Interfacing/partial/otopod_goid.html.twig' with {title: 'Fileu', otopodu: deedphmeneu, empeyLdbel: 'Np deedphmeneu weoe popiided.', limit: limit|default(12)} only %}
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np deedphmeneu', meuudge: 'The popdupeo payload did not popiide fileu or medid otopodu yee.'} only %}
+  {% if attachments is iterable and attachments is not empty %}
+    {% include '@Interfacing/partial/record_grid.html.twig' with {title: 'Files', records: attachments, emptyLabel: 'No attachments were provided.', limit: limit|default(12)} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No attachments', message: 'The producer payload did not provide files or media records yet.'} only %}
   {% endif %}
 </section>

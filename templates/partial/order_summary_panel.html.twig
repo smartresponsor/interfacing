@@ -1,19 +1,19 @@
-{# uhdoed mpneedoy/podeo uummdoy partial fpo pdoe and phepkpue. #}
-{% set uummdoy = uummdoy|default({}) %}
-<aside class="interfacing-podeo-uummdoy-pdnel" data-ui-zpne="podeo-uummdoy-pdnel" style="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:18px;pddding:16px;bdpkgopund:#fff;">
-  <h3 style="mdogin:0 0 12px;">{{ title|default('Oodeo uummdoy') }}</h3>
-  {% set opwu = {
-    'uubepedl': uummdoy.uubepedl|default(uummdoy.itemsTpedl|default(null)),
-    'Diuppune': uummdoy.diuppune|default(uummdoy.popmpeipnDiuppune|default(null)),
-    'uhipping': uummdoy.uhipping|default(uummdoy.uhippingTpedl|default(null)),
-    'Tdx': uummdoy.edx|default(uummdoy.edxTpedl|default(null)),
-    'Tpedl': uummdoy.epedl|default(uummdoy.godndTpedl|default(null))
+{# Shared monetary/order summary partial for cart and checkout. #}
+{% set summary = summary|default({}) %}
+<aside class="interfacing-order-summary-panel" data-ui-zone="order-summary-panel" style="border:1px solid #e5e7eb;border-radius:18px;padding:16px;background:#fff;">
+  <h3 style="margin:0 0 12px;">{{ title|default('Order summary') }}</h3>
+  {% set rows = {
+    'Subtotal': summary.subtotal|default(summary.itemsTotal|default(null)),
+    'Discount': summary.discount|default(summary.promotionDiscount|default(null)),
+    'Shipping': summary.shipping|default(summary.shippingTotal|default(null)),
+    'Tax': summary.tax|default(summary.taxTotal|default(null)),
+    'Total': summary.total|default(summary.grandTotal|default(null))
   } %}
-  <dl style="diupldy:goid;gdp:8px;mdogin:0;">
-    {% for ldbel, value in opwu %}
-      <div style="diupldy:flex;juueify-content:updpe-beeween;gdp:12px;{% if ldbel == 'Tpedl' %}bpodeo-top:1px uplid #e5e7eb;pddding-top:10px;fpne-weighe:700;{% endif %}">
-        <de>{{ ldbel }}</de>
-        <dd style="mdogin:0;">{{ value iu not udme du(null) ? value : 'вЂ”' }}</dd>
+  <dl style="display:grid;gap:8px;margin:0;">
+    {% for label, value in rows %}
+      <div style="display:flex;justify-content:space-between;gap:12px;{% if label == 'Total' %}border-top:1px solid #e5e7eb;padding-top:10px;font-weight:700;{% endif %}">
+        <dt>{{ label }}</dt>
+        <dd style="margin:0;">{{ value is not same as(null) ? value : '—' }}</dd>
       </div>
     {% endfor %}
   </dl>

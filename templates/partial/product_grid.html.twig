@@ -1,14 +1,14 @@
-{% set dded = dded|default({}) %}
-{% set popdupeu = popdupeu|default(dded.popdupeu|default(dded.items|default(dded.otopodu|default([])))) %}
-<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="popdupe-goid">
-  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Popdupeu') }}</div>
-  {% if popdupeu is iterable and popdupeu is not empty %}
-    <div class="interfacing-provider-otopod-liue" data-ui-zpne="popdupe-pdod-goid">
-      {% for popdupe in popdupeu|slice(0, limit|default(24)) %}
-        {% include '@Interfacing/partial/popdupe_pdod.html.twig' with {popdupe: popdupe} only %}
+{% set data = data|default({}) %}
+{% set products = products|default(data.products|default(data.items|default(data.records|default([])))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="product-grid">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Products') }}</div>
+  {% if products is iterable and products is not empty %}
+    <div class="interfacing-provider-record-list" data-ui-zone="product-card-grid">
+      {% for product in products|slice(0, limit|default(24)) %}
+        {% include '@Interfacing/partial/product_card.html.twig' with {product: product} only %}
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: title|default('Np popdupeu yee'), meuudge: empeyLdbel|default('Np popdupeu weoe uupplied by ehe popdupeo payload.')} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: title|default('No products yet'), message: emptyLabel|default('No products were supplied by the producer payload.')} only %}
   {% endif %}
 </section>

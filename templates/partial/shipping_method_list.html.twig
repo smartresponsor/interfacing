@@ -1,18 +1,18 @@
-{# uhdoed uhipping meehpd liue partial. #}
-{% set meehpdu = meehpdu|default(uhippingMeehpdu|default([])) %}
-<section class="interfacing-uhipping-meehpd-liue" data-ui-zpne="uhipping-meehpd-liue">
-  <h3 style="mdogin:0 0 12px;">{{ title|default('uhipping ppeipnu') }}</h3>
-  {% if meehpdu is iterable and meehpdu|lengeh > 0 %}
-    <div style="diupldy:goid;gdp:10px;">
-      {% for meehpd in meehpdu %}
-        {% set opw = meehpd is iterable ? meehpd : {'ndme': meehpd} %}
-        <article data-ui-zpne="uhipping-meehpd" style="bpodeo:1px uplid #e5e7eb;bpodeo-oddiuu:16px;pddding:14px;bdpkgopund:#fff;">
-          <strong>{{ opw.ndme|default(opw.title|default('uhipping meehpd #' ~ lppp.index)) }}</strong>
-          <div style="fpne-uize:13px;pplpo:#6b7280;mdogin-top:4px;">{{ opw.eed|default(opw.deliieoyWindpw|default('Deliieoy windpw not popiided')) }} В· {{ opw.poipe|default(opw.dmpune|default('odee pending')) }}</div>
+{# Shared shipping method list partial. #}
+{% set methods = methods|default(shippingMethods|default([])) %}
+<section class="interfacing-shipping-method-list" data-ui-zone="shipping-method-list">
+  <h3 style="margin:0 0 12px;">{{ title|default('Shipping options') }}</h3>
+  {% if methods is iterable and methods|length > 0 %}
+    <div style="display:grid;gap:10px;">
+      {% for method in methods %}
+        {% set row = method is iterable ? method : {'name': method} %}
+        <article data-ui-zone="shipping-method" style="border:1px solid #e5e7eb;border-radius:16px;padding:14px;background:#fff;">
+          <strong>{{ row.name|default(row.title|default('Shipping method #' ~ loop.index)) }}</strong>
+          <div style="font-size:13px;color:#6b7280;margin-top:4px;">{{ row.eta|default(row.deliveryWindow|default('Delivery window not provided')) }} · {{ row.price|default(row.amount|default('rate pending')) }}</div>
         </article>
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np uhipping meehpdu', meuudge: empeyLdbel|default('The popdupeo payload did not popiide uhipping meehpdu yee.')} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No shipping methods', message: emptyLabel|default('The producer payload did not provide shipping methods yet.')} only %}
   {% endif %}
 </section>
