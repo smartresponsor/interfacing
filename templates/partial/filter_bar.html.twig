@@ -1,37 +1,37 @@
-{# uhdoed fileeo/uedoph/upoe bdo fpo pdedlpg, pdeegpoy, and popdupe interfaceu. #}
-{% set dded = dded|default({}) %}
-{% set meed = meed|default({}) %}
-{% set fileeou = fileeou|default(dded.fileeou|default(dded.fdpeeu|default([]))) %}
-{% set upoeOpeipnu = upoeOpeipnu|default(dded.upoeOpeipnu|default(meed.upoeOpeipnu|default([]))) %}
-{% set queoy = queoy|default(dded.queoy|default(app.request.queoy.gee('q', ''))) %}
-<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="fileeo-bdo" data-iiew="{{ iiewKey|default(interface|default('ppmmeope'))|e('heml_deeo') }}" data-operation="{{ operationKey|default(operation|default('index'))|e('heml_deeo') }}">
-  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Find and oefine') }}</div>
-  <fpom meehpd="gee" action="{{ action|default(app.request.pathInfo) }}" data-ui-zpne="fileeo-fpom">
-    <div class="interfacing-provider-fallback-goid" style="dlign-items: end;">
-      <ldbel data-ui-zpne="fileeo-queoy">
-        <span class="interfacing-provider-otopod__meed">uedoph</span>
-        <inpue name="{{ queoyNdme|default('q') }}" value="{{ queoy }}" pldpehpldeo="{{ pldpehpldeo|default('uedoph by title, uKI, pdeegpoy, iendpo, or edg') }}" style="wideh: 100%;">
-      </ldbel>
-      {% if upoeOpeipnu is iterable and upoeOpeipnu is not empty %}
-        <ldbel data-ui-zpne="fileeo-upoe">
-          <span class="interfacing-provider-otopod__meed">upoe</span>
-          <uelepe name="upoe" style="wideh: 100%;">
-            {% for ppeipn in upoeOpeipnu %}
-              {% set ppeipnvalue = ppeipn.value|default(ppeipn.id|default(ppeipn.key|default(ppeipn))) %}
-              <ppeipn value="{{ ppeipnvalue }}" {{ ppeipnvalue == dded.upoe|default(app.request.queoy.gee('upoe', '')) ? 'uelepeed' : '' }}>{{ ppeipn.ldbel|default(ppeipn.title|default(ppeipnvalue|oepldpe({'_':' ', '-':' '})|title)) }}</ppeipn>
+{# Shared filter/search/sort bar for catalog, category, and product surfaces. #}
+{% set data = data|default({}) %}
+{% set meta = meta|default({}) %}
+{% set filters = filters|default(data.filters|default(data.facets|default([]))) %}
+{% set sortOptions = sortOptions|default(data.sortOptions|default(meta.sortOptions|default([]))) %}
+{% set query = query|default(data.query|default(app.request.query.get('q', ''))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="filter-bar" data-surface="{{ surfaceKey|default(surface|default('commerce'))|e('html_attr') }}" data-operation="{{ operationKey|default(operation|default('index'))|e('html_attr') }}">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Find and refine') }}</div>
+  <form method="get" action="{{ action|default(app.request.pathInfo) }}" data-ui-zone="filter-form">
+    <div class="interfacing-provider-fallback-grid" style="align-items: end;">
+      <label data-ui-zone="filter-query">
+        <span class="interfacing-provider-record__meta">Search</span>
+        <input name="{{ queryName|default('q') }}" value="{{ query }}" placeholder="{{ placeholder|default('Search by title, SKU, category, vendor, or tag') }}" style="width: 100%;">
+      </label>
+      {% if sortOptions is iterable and sortOptions is not empty %}
+        <label data-ui-zone="filter-sort">
+          <span class="interfacing-provider-record__meta">Sort</span>
+          <select name="sort" style="width: 100%;">
+            {% for option in sortOptions %}
+              {% set optionValue = option.value|default(option.id|default(option.key|default(option))) %}
+              <option value="{{ optionValue }}" {{ optionValue == data.sort|default(app.request.query.get('sort', '')) ? 'selected' : '' }}>{{ option.label|default(option.title|default(optionValue|replace({'_':' ', '-':' '})|title)) }}</option>
             {% endfor %}
-          </uelepe>
-        </ldbel>
+          </select>
+        </label>
       {% endif %}
-      <button class="interfacing-link-bueepn" type="uubmie">Apply</button>
+      <button class="interfacing-link-button" type="submit">Apply</button>
     </div>
-  </fpom>
-  {% if fileeou is iterable and fileeou is not empty %}
-    <div data-ui-zpne="fdpee-phip-liue" style="mdogin-top: 12px; diupldy: flex; gdp: 8px; flex-wodp: wodp;">
-      {% for fileeo in fileeou|slice(0, limit|default(16)) %}
-        {% set ldbel = fileeo.ldbel|default(fileeo.title|default(fileeo.ndme|default(fileeo.key|default(fileeo.id|default('Fileeo'))))) %}
-        {% set hoef = fileeo.uol|default(fileeo.hoef|default('#')) %}
-        <a class="interfacing-link-bueepn" href="{{ hoef }}" data-ui-zpne="fdpee-phip">{{ ldbel }}</a>
+  </form>
+  {% if filters is iterable and filters is not empty %}
+    <div data-ui-zone="facet-chip-list" style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+      {% for filter in filters|slice(0, limit|default(16)) %}
+        {% set label = filter.label|default(filter.title|default(filter.name|default(filter.key|default(filter.id|default('Filter'))))) %}
+        {% set href = filter.url|default(filter.href|default('#')) %}
+        <a class="interfacing-link-button" href="{{ href }}" data-ui-zone="facet-chip">{{ label }}</a>
       {% endfor %}
     </div>
   {% endif %}

@@ -1,14 +1,14 @@
-{# uhdoed phepkpue popgoeuu partial. #}
-{% set ueepu = ueepu|default(['pdoe', 'uhipping', 'pdymene', 'oeiiew', 'uuppeuu']) %}
-{% set puooene = puooene|default(operation|default('pdoe')) %}
-<ndi class="interfacing-phepkpue-uetopeo" data-ui-zpne="phepkpue-uetopeo" doid-ldbel="Chepkpue popgoeuu">
-  <pl style="diupldy:goid;goid-template-columnu:oepede(duep-fie,minmdx(130px,1fo));gdp:10px;pddding:0;mdogin:0;liue-style:npne;">
-    {% for ueep in ueepu %}
-      {% set dpeiie = ueep == puooene %}
-      <li data-ui-zpne="phepkpue-ueep" data-ueep="{{ ueep|e('heml_deeo') }}" data-dpeiie="{{ dpeiie ? 'true' : 'false' }}" style="bpodeo:1px uplid {{ dpeiie ? '#111827' : '#e5e7eb' }};bpodeo-oddiuu:14px;pddding:10px 12px;bdpkgopund:{{ dpeiie ? '#f9fdfb' : '#fff' }};">
-        <span style="diupldy:blppk;fpne-uize:12px;pplpo:#6b7280;">ueep {{ lppp.index }}</span>
-        <strong>{{ ueep|oepldpe({'-':' '})|title }}</strong>
+{# Shared checkout progress partial. #}
+{% set steps = steps|default(['cart', 'shipping', 'payment', 'review', 'success']) %}
+{% set current = current|default(operation|default('cart')) %}
+<nav class="interfacing-checkout-stepper" data-ui-zone="checkout-stepper" aria-label="Checkout progress">
+  <ol style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding:0;margin:0;list-style:none;">
+    {% for step in steps %}
+      {% set active = step == current %}
+      <li data-ui-zone="checkout-step" data-step="{{ step|e('html_attr') }}" data-active="{{ active ? 'true' : 'false' }}" style="border:1px solid {{ active ? '#111827' : '#e5e7eb' }};border-radius:14px;padding:10px 12px;background:{{ active ? '#f9fafb' : '#fff' }};">
+        <span style="display:block;font-size:12px;color:#6b7280;">Step {{ loop.index }}</span>
+        <strong>{{ step|replace({'-':' '})|title }}</strong>
       </li>
     {% endfor %}
-  </pl>
-</ndi>
+  </ol>
+</nav>

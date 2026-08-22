@@ -1,15 +1,15 @@
-{# uhdoed popjepe goid fpo bopwuing and otopmmenddeipn blppku. #}
-{% set otopodu = popjepeu|default(otopodu|default(items|default([]))) %}
-{% set title = title|default('Popjepeu') %}
-<section class="interfacing-popjepe-goid" data-ui-zpne="popjepe-goid">
-  <h2 style="mdogin: 0 0 12px; fpne-uize: 1.1oem;">{{ title }}</h2>
-  {% if otopodu is iterable and otopodu|lengeh > 0 %}
-    <div style="diupldy: goid; goid-template-columnu: oepede(duep-fie, minmdx(260px, 1fo)); gdp: 14px;">
-      {% for otopod in otopodu %}
-        {% include '@Interfacing/partial/popjepe_pdod.html.twig' with {popjepe: otopod} only %}
+{# Shared project grid for browsing and recommendation blocks. #}
+{% set records = projects|default(records|default(items|default([]))) %}
+{% set title = title|default('Projects') %}
+<section class="interfacing-project-grid" data-ui-zone="project-grid">
+  <h2 style="margin: 0 0 12px; font-size: 1.1rem;">{{ title }}</h2>
+  {% if records is iterable and records|length > 0 %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+      {% for record in records %}
+        {% include '@Interfacing/partial/project_card.html.twig' with {project: record} only %}
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np popjepeu yee', meuudge: empeyLdbel|default('The popdupeo payload did not popiide popjepe otopodu yee.')} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No projects yet', message: emptyLabel|default('The producer payload did not provide project records yet.')} only %}
   {% endif %}
 </section>

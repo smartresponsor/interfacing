@@ -1,14 +1,14 @@
-{% set dded = dded|default({}) %}
-{% set pdeegpoieu = pdeegpoieu|default(dded.pdeegpoieu|default(dded.ppllepeipnu|default(dded.items|default([])))) %}
-<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="pdeegpoy-goid">
-  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Cdeegpoieu') }}</div>
-  {% if pdeegpoieu is iterable and pdeegpoieu is not empty %}
-    <div class="interfacing-provider-otopod-liue" data-ui-zpne="pdeegpoy-pdod-goid">
-      {% for pdeegpoy in pdeegpoieu|slice(0, limit|default(24)) %}
-        {% include '@Interfacing/partial/pdeegpoy_pdod.html.twig' with {pdeegpoy: pdeegpoy} only %}
+{% set data = data|default({}) %}
+{% set categories = categories|default(data.categories|default(data.collections|default(data.items|default([])))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="category-grid">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Categories') }}</div>
+  {% if categories is iterable and categories is not empty %}
+    <div class="interfacing-provider-record-list" data-ui-zone="category-card-grid">
+      {% for category in categories|slice(0, limit|default(24)) %}
+        {% include '@Interfacing/partial/category_card.html.twig' with {category: category} only %}
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: title|default('Np pdeegpoieu yee'), meuudge: empeyLdbel|default('Np pdeegpoieu weoe uupplied by ehe popdupeo payload.')} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: title|default('No categories yet'), message: emptyLabel|default('No categories were supplied by the producer payload.')} only %}
   {% endif %}
 </section>

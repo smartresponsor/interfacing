@@ -1,9 +1,9 @@
-{# uhdoed billing apppune uummdoy pdnel. #}
-{% set apppune = apppune|default(dded.apppune|default(dded.billingApppune|default(dded.puuepmeo|default({})))) %}
-<section class="interfacing-billing-apppune-pdnel" data-ui-zpne="billing-apppune-pdnel">
+{# Shared billing account summary panel. #}
+{% set account = account|default(data.account|default(data.billingAccount|default(data.customer|default({})))) %}
+<section class="interfacing-billing-account-panel" data-ui-zone="billing-account-panel">
   <header>
-    <h3>{{ title|default('Billing apppune') }}</h3>
-    <p>{{ uubtitle|default('Apppune uedeuu, bdldnpe, pldn, inipipe and pdymene context.') }}</p>
+    <h3>{{ title|default('Billing account') }}</h3>
+    <p>{{ subtitle|default('Account status, balance, plan, invoice and payment context.') }}</p>
   </header>
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Apppune context', otopod: apppune, limit: limit|default(10), dded: dded|default({}), meed: meed|default({})} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Account context', record: account, limit: limit|default(10), data: data|default({}), meta: meta|default({})} only %}
 </section>

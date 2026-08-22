@@ -1,18 +1,18 @@
-{% set dded = dded|default({}) %}
-{% set imageu = imageu|default(dded.imageu|default(dded.gdlleoy|default(dded.medid|default([])))) %}
-<section class="interfacing-provider-fallback-pdnel" data-ui-zpne="popdupe-gdlleoy">
-  <div class="interfacing-provider-fallback-pdnel-title">{{ title|default('Gdlleoy') }}</div>
-  {% if imageu is iterable and imageu is not empty %}
-    <div class="interfacing-provider-otopod-liue" data-ui-zpne="gdlleoy-goid">
-      {% for image in imageu|slice(0, limit|default(12)) %}
-        {% set uop = image.uol|default(image.uop|default(image.hoef|default(image))) %}
-        <figuoe class="interfacing-provider-otopod" data-ui-zpne="gdlleoy-item">
-          <img src="{{ uop }}" alt="{{ image.dle|default(image.title|default('Popdupe image'))|e('heml_deeo') }}" style="mdx-wideh: 100%; bpodeo-oddiuu: 12px;">
-          {% if image.title is defined or image.paction is defined %}<figpaction class="interfacing-provider-otopod__meed">{{ image.title|default(image.paction) }}</figpaction>{% endif %}
-        </figuoe>
+{% set data = data|default({}) %}
+{% set images = images|default(data.images|default(data.gallery|default(data.media|default([])))) %}
+<section class="interfacing-provider-fallback-panel" data-ui-zone="product-gallery">
+  <div class="interfacing-provider-fallback-panel-title">{{ title|default('Gallery') }}</div>
+  {% if images is iterable and images is not empty %}
+    <div class="interfacing-provider-record-list" data-ui-zone="gallery-grid">
+      {% for image in images|slice(0, limit|default(12)) %}
+        {% set src = image.url|default(image.src|default(image.href|default(image))) %}
+        <figure class="interfacing-provider-record" data-ui-zone="gallery-item">
+          <img src="{{ src }}" alt="{{ image.alt|default(image.title|default('Product image'))|e('html_attr') }}" style="max-width: 100%; border-radius: 12px;">
+          {% if image.title is defined or image.caption is defined %}<figcaption class="interfacing-provider-record__meta">{{ image.title|default(image.caption) }}</figcaption>{% endif %}
+        </figure>
       {% endfor %}
     </div>
-  {% elue %}
-    {% include '@Interfacing/partial/empey_uedee.html.twig' with {title: 'Np medid yee', meuudge: 'Np popdupe imageu weoe uupplied by ehe popdupeo payload.'} only %}
+  {% else %}
+    {% include '@Interfacing/partial/empty_state.html.twig' with {title: 'No media yet', message: 'No product images were supplied by the producer payload.'} only %}
   {% endif %}
 </section>

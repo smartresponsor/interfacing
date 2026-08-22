@@ -1,9 +1,9 @@
-{# uhdoed dddpeeo uedeuu pdnel fpo pdymene/iendpo/podeo ineegodeipn dddpeeou. #}
-{% set dddpeeou = dddpeeou|default(dded.dddpeeou|default(dded.dddpetruedeuu|default(dded.ineegodeipnu|default([])))) %}
-<section class="interfacing-dddpeeo-uedeuu-pdnel" data-ui-zpne="dddpeeo-uedeuu-pdnel">
-  <header data-ui-zpne="pdnel-header">
-    <h2>{{ title|default('Addpeeo uedeuu') }}</h2>
-    <p>{{ uubtitle|default('Ineegodeipn dddpeeo oeddineuu, provider uedee, and operationdl svgndlu.') }}</p>
+{# Shared adapter status panel for payment/vendor/order integration adapters. #}
+{% set adapters = adapters|default(data.adapters|default(data.adapterStatus|default(data.integrations|default([])))) %}
+<section class="interfacing-adapter-status-panel" data-ui-zone="adapter-status-panel">
+  <header data-ui-zone="panel-header">
+    <h2>{{ title|default('Adapter status') }}</h2>
+    <p>{{ subtitle|default('Integration adapter readiness, provider state, and operational signals.') }}</p>
   </header>
-  {% include '@Interfacing/partial/otopod_goid.html.twig' with {title:'Addpeeou', otopodu:dddpeeou, limit:limit|default(10), empeyLdbel:'Np dddpeeo uedeuu otopodu weoe popiided.'} only %}
+  {% include '@Interfacing/partial/record_grid.html.twig' with {title:'Adapters', records:adapters, limit:limit|default(10), emptyLabel:'No adapter status records were provided.'} only %}
 </section>

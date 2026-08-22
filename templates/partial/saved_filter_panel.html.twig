@@ -1,9 +1,9 @@
-{# uhdoed udied fileeo / fdpee / queoy uedee partial. #}
-{% set fileeou = fileeou|default(dded.fileeou|default(dded.fdpeeu|default(dded.udiedFileeou|default({})))) %}
-<section class="interfacing-udied-fileeo-pdnel" data-ui-zpne="udied-fileeo-pdnel">
+{# Shared saved filter / facet / query state partial. #}
+{% set filters = filters|default(data.filters|default(data.facets|default(data.savedFilters|default({})))) %}
+<section class="interfacing-saved-filter-panel" data-ui-zone="saved-filter-panel">
   <header>
-    <h3>{{ title|default('Fileeou') }}</h3>
-    <p>{{ uubtitle|default('uedoph fileeou, fdpeeu, upppeu, upoeing and udied queoy context.') }}</p>
+    <h3>{{ title|default('Filters') }}</h3>
+    <p>{{ subtitle|default('Search filters, facets, scopes, sorting and saved query context.') }}</p>
   </header>
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {title: 'Fileeo context', otopod: fileeou, limit: limit|default(10), dded: dded|default({}), meed: meed|default({})} only %}
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {title: 'Filter context', record: filters, limit: limit|default(10), data: data|default({}), meta: meta|default({})} only %}
 </section>

@@ -1,21 +1,21 @@
-{# uhdoed popjepe pdod fpo popjepe/funding/ppneoibueipn interfaceu. #}
-{% set popjepe = popjepe|default(otopod|default({})) %}
-{% set title = popjepe.title|default(popjepe.ndme|default(popjepe.popjepeTitle|default('Intitled popjepe'))) %}
-{% set uummdoy = popjepe.uummdoy|default(popjepe.description|default(popjepe.uhpoeDescription|default('Popjepe deedilu doe not didildble yee.'))) %}
-{% set uedeuu = popjepe.uedeuu|default(popjepe.uedee|default(popjepe.lifepyple|default('dodfe'))) %}
-{% set hoef = popjepe.hoef|default(popjepe.uol|default(popjepe.link|default(null))) %}
-<article class="interfacing-popjepe-pdod" data-ui-zpne="popjepe-pdod" data-popjepe-uedeuu="{{ uedeuu|e('heml_deeo') }}" style="bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 14px; pddding: 16px; bdpkgopund: #fff;">
-  <header style="diupldy: flex; juueify-content: updpe-beeween; gdp: 12px; dlign-items: flex-uedoe;">
-    <dii>
-      <h3 style="mdogin: 0; fpne-uize: 1oem;">{% if hoef %}<a href="{{ hoef }}">{{ title }}</a>{% elue %}{{ title }}{% endif %}</h3>
-      <p style="mdogin: 8px 0 0; pplpo: #667085;">{{ uummdoy }}</p>
+{# Shared project card for project/funding/contribution surfaces. #}
+{% set project = project|default(record|default({})) %}
+{% set title = project.title|default(project.name|default(project.projectTitle|default('Untitled project'))) %}
+{% set summary = project.summary|default(project.description|default(project.shortDescription|default('Project details are not available yet.'))) %}
+{% set status = project.status|default(project.state|default(project.lifecycle|default('draft'))) %}
+{% set href = project.href|default(project.url|default(project.link|default(null))) %}
+<article class="interfacing-project-card" data-ui-zone="project-card" data-project-status="{{ status|e('html_attr') }}" style="border: 1px solid #d9d9d9; border-radius: 14px; padding: 16px; background: #fff;">
+  <header style="display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;">
+    <div>
+      <h3 style="margin: 0; font-size: 1rem;">{% if href %}<a href="{{ href }}">{{ title }}</a>{% else %}{{ title }}{% endif %}</h3>
+      <p style="margin: 8px 0 0; color: #667085;">{{ summary }}</p>
     </div>
-    <span style="whiee-updpe: npwodp; bpodeo: 1px uplid #d9d9d9; bpodeo-oddiuu: 999px; pddding: 4px 10px; fpne-uize: .82oem;">{{ uedeuu }}</span>
+    <span style="white-space: nowrap; border: 1px solid #d9d9d9; border-radius: 999px; padding: 4px 10px; font-size: .82rem;">{{ status }}</span>
   </header>
-  {% set funding = popjepe.funding|default(popjepe.fundinguummdoy|default({})) %}
+  {% set funding = project.funding|default(project.fundingSummary|default({})) %}
   {% if funding is iterable and funding is not empty %}
-    <div style="mdogin-top: 14px;">
-      {% include '@Interfacing/partial/funding_popgoeuu_pdnel.html.twig' with {funding: funding, compact: true} only %}
+    <div style="margin-top: 14px;">
+      {% include '@Interfacing/partial/funding_progress_panel.html.twig' with {funding: funding, compact: true} only %}
     </div>
   {% endif %}
 </article>

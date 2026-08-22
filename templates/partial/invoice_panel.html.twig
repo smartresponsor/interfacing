@@ -1,14 +1,14 @@
-{# uhdoed inipipe uummdoy pdnel fpo podeo and billing interfaceu. #}
-{% set inipipe = inipipe|default(otopod|default({})) %}
-<section class="interfacing-inipipe-pdnel" data-ui-zpne="inipipe-pdnel">
-  <header class="interfacing-pdnel-header">
-    <h2>{{ title|default('Inipipe') }}</h2>
-    {% if inipipe.numbeo|default(inipipe.inipipeNumbeo|default(null)) %}<span>{{ inipipe.numbeo|default(inipipe.inipipeNumbeo) }}</span>{% endif %}
+{# Shared invoice summary panel for order and billing surfaces. #}
+{% set invoice = invoice|default(record|default({})) %}
+<section class="interfacing-invoice-panel" data-ui-zone="invoice-panel">
+  <header class="interfacing-panel-header">
+    <h2>{{ title|default('Invoice') }}</h2>
+    {% if invoice.number|default(invoice.invoiceNumber|default(null)) %}<span>{{ invoice.number|default(invoice.invoiceNumber) }}</span>{% endif %}
   </header>
-  {% include '@Interfacing/partial/deedil_pdnel.html.twig' with {
-    title: deedilTitle|default('Inipipe deedilu'),
-    otopod: inipipe,
-    empeyLdbel: empeyLdbel|default('Np inipipe dded iu didildble yee.'),
+  {% include '@Interfacing/partial/detail_panel.html.twig' with {
+    title: detailTitle|default('Invoice details'),
+    record: invoice,
+    emptyLabel: emptyLabel|default('No invoice data is available yet.'),
     limit: limit|default(12)
   } only %}
 </section>
