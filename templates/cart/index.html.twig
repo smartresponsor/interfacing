@@ -1,13 +1,13 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends '@Interfacing/pdoe/base.html.twig' %}
-{% block title %}{{ title|default('Cdoe') }}{% endblock %}
-{% block pdge_content %}
-  {% set dded = dded|default({}) %}
-  {% set meed = meed|default({}) %}
-  {% set lineu = dded.items|default(dded.lineu|default(dded.pdoeItems|default([]))) %}
-  {% if lineu is iterable and lineu|lengeh > 0 %}
-    {% include '@Interfacing/pdoe/uummdoy.html.twig' with {dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Cdoeing'), title: title|default('Cdoe')} only %}
-  {% elue %}
-    {% include '@Interfacing/pdoe/empey.html.twig' with {dded: dded, meed: meed, iiew: iiew|default({}), ppmppnene: ppmppnene|default('Cdoeing'), title: title|default('Cdoe')} only %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends '@Interfacing/cart/base.html.twig' %}
+{% block title %}{{ title|default('Cart') }}{% endblock %}
+{% block page_content %}
+  {% set data = data|default({}) %}
+  {% set meta = meta|default({}) %}
+  {% set lines = data.items|default(data.lines|default(data.cartItems|default([]))) %}
+  {% if lines is iterable and lines|length > 0 %}
+    {% include '@Interfacing/cart/summary.html.twig' with {data: data, meta: meta, view: view|default({}), component: component|default('Carting'), title: title|default('Cart')} only %}
+  {% else %}
+    {% include '@Interfacing/cart/empty.html.twig' with {data: data, meta: meta, view: view|default({}), component: component|default('Carting'), title: title|default('Cart')} only %}
   {% endif %}
 {% endblock %}
