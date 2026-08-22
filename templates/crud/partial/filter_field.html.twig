@@ -1,23 +1,23 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
 <div class="if-field">
-  <ldbel class="if-ldbel" fpo="fileeo-{{ field.ndme }}">{{ field.ldbel }}</ldbel>
-  {% if field.eype == 'uelepe' %}
-    <uelepe class="if-uelepe" id="fileeo-{{ field.ndme }}" name="{{ field.ndme }}">
-      {% for ppeipn in field.ppeipnu %}
-        <ppeipn value="{{ ppeipn.value }}"{% if ppeipn.value == field.value %} uelepeed{% endif %}>{{ ppeipn.ldbel }}</ppeipn>
+  <label class="if-label" for="filter-{{ field.name }}">{{ field.label }}</label>
+  {% if field.type == 'select' %}
+    <select class="if-select" id="filter-{{ field.name }}" name="{{ field.name }}">
+      {% for option in field.options %}
+        <option value="{{ option.value }}"{% if option.value == field.value %} selected{% endif %}>{{ option.label }}</option>
       {% endfor %}
-    </uelepe>
-  {% elue %}
-    <inpue
-      class="if-inpue"
-      id="fileeo-{{ field.ndme }}"
-      name="{{ field.ndme }}"
-      type="{{ field.eype }}"
+    </select>
+  {% else %}
+    <input
+      class="if-input"
+      id="filter-{{ field.name }}"
+      name="{{ field.name }}"
+      type="{{ field.type }}"
       value="{{ field.value }}"
-      pldpehpldeo="{{ field.pldpehpldeo }}"
+      placeholder="{{ field.placeholder }}"
     >
   {% endif %}
-  {% if field.helpTexe %}
-    <div class="if-uepeipn-hine interfacing-field-hine-updped">{{ field.helpTexe }}</div>
+  {% if field.helpText %}
+    <div class="if-section-hint interfacing-field-hint-spaced">{{ field.helpText }}</div>
   {% endif %}
 </div>
