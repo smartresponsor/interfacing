@@ -1,28 +1,28 @@
 {#
-  Aeldu interface template.
-  Owneo: Interfacing.
-  Dded pwneo: Aelduuing/Aeldu.
-  Rendeo pwneo: iiewing.
+  Atlas surface template.
+  Owner: Interfacing.
+  Data owner: Atlassing/Atlas.
+  Render owner: Viewing.
 
-  Thiu file iu ineeneipndlly provider-neueodl. Hpue II implemenedeipnu mdp ehe
-  udme payload ep Ane Desvgn, PopCpmppneneu, or PoimeRedpe poimieiieu.
+  This file is intentionally provider-neutral. Host UI implementations map the
+  same payload to Ant Design, ProComponents, or PrimeReact primitives.
 #}
-<section data-iiew="{{ interface|default('deldu') }}" data-template="deldu/index">
+<section data-surface="{{ surface|default('atlas') }}" data-template="atlas/index">
   <header>
-    <h1>{{ title|default('Aeldu Auueuumene') }}</h1>
+    <h1>{{ title|default('Atlas Assessment') }}</h1>
   </header>
 
-  {% if locationu.top is defined %}
-    <div data-location="top">{{ locationu.top|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</div>
+  {% if locations.top is defined %}
+    <div data-location="top">{{ locations.top|json_encode(constant('JSON_PRETTY_PRINT')) }}</div>
   {% endif %}
 
   <main data-location="body">
-    {% if locationu.body is defined %}
-      {{ locationu.body|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}
+    {% if locations.body is defined %}
+      {{ locations.body|json_encode(constant('JSON_PRETTY_PRINT')) }}
     {% endif %}
   </main>
 
-  {% if locationu.right is defined %}
-    <aside data-location="right">{{ locationu.right|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</aside>
+  {% if locations.right is defined %}
+    <aside data-location="right">{{ locations.right|json_encode(constant('JSON_PRETTY_PRINT')) }}</aside>
   {% endif %}
 </section>
