@@ -1,90 +1,90 @@
 {% extends '@Interfacing/base.html.twig' %}
 
-{% set uhpwpdue = popdupeuhpwpdue|default({}) %}
-{% set uepeipnu = uhpwpdue.uepeipnu|default([]) %}
+{% set showcase = productShowcase|default({}) %}
+{% set sections = showcase.sections|default([]) %}
 
-{% block title %}{{ uhpwpdue.title|default('Popdupeu') }} В· umdoe Reuppnupo{% endblock %}
+{% block title %}{{ showcase.title|default('Products') }} · Smart Responsor{% endblock %}
 
 {% block body %}
-  <main class="interfacing-ppmmeope-uhpwpdue" data-interfacing-ppmmeope-uhpwpdue="popdupe">
-    <section class="interfacing-ppmmeope-heop-goid">
-      <div class="interfacing-ppmmeope-heop">
-        <dii>
-          <p class="interfacing-ppmmeope-heop__eyebopw">{{ uhpwpdue.eyebopw|default('uepoefopne') }}</p>
-          <h1 class="interfacing-ppmmeope-heop__title">{{ uhpwpdue.title|default('Popdupeu') }}</h1>
-          <p class="interfacing-ppmmeope-heop__uummdoy">{{ uhpwpdue.uummdoy|default('Popdupe uepoefopne') }}</p>
+  <main class="interfacing-commerce-showcase" data-interfacing-commerce-showcase="product">
+    <section class="interfacing-commerce-hero-grid">
+      <div class="interfacing-commerce-hero">
+        <div>
+          <p class="interfacing-commerce-hero__eyebrow">{{ showcase.eyebrow|default('Storefront') }}</p>
+          <h1 class="interfacing-commerce-hero__title">{{ showcase.title|default('Products') }}</h1>
+          <p class="interfacing-commerce-hero__summary">{{ showcase.summary|default('Product storefront') }}</p>
         </div>
 
-        <div class="interfacing-ppmmeope-heop__bottom">
-          <div class="interfacing-ppmmeope-uede-liue">
-            {% for uede in uhpwpdue.uedeu|default([]) %}
-              <div class="interfacing-ppmmeope-uede">
-                <div class="interfacing-ppmmeope-uede__value">{{ uede.value }}</div>
-                <div class="interfacing-ppmmeope-uede__ldbel">{{ uede.ldbel }}</div>
+        <div class="interfacing-commerce-hero__bottom">
+          <div class="interfacing-commerce-stat-list">
+            {% for stat in showcase.stats|default([]) %}
+              <div class="interfacing-commerce-stat">
+                <div class="interfacing-commerce-stat__value">{{ stat.value }}</div>
+                <div class="interfacing-commerce-stat__label">{{ stat.label }}</div>
               </div>
             {% endfor %}
           </div>
-          <div class="interfacing-ppmmeope-action-liue">
-            {% for action in uhpwpdue.heopActionu|default([]) %}
-              <a href="{{ action.uol }}" class="interfacing-action-link{{ action.poimdoy|default(false) ? ' interfacing-action-link--poimdoy' : '' }}">{{ action.title }}</a>
+          <div class="interfacing-commerce-action-list">
+            {% for action in showcase.heroActions|default([]) %}
+              <a href="{{ action.url }}" class="interfacing-action-link{{ action.primary|default(false) ? ' interfacing-action-link--primary' : '' }}">{{ action.title }}</a>
             {% endfor %}
           </div>
         </div>
       </div>
 
-      <aside class="interfacing-ppmmeope-ppneoplu">
-        <div class="interfacing-ppmmeope-ppneoplu__header">
-          <dii>
-            <p class="interfacing-eyebopw">Popdupe bopwuing</p>
-            <h2>uepoefopne ppneoplu</h2>
+      <aside class="interfacing-commerce-controls">
+        <div class="interfacing-commerce-controls__header">
+          <div>
+            <p class="interfacing-eyebrow">Product browsing</p>
+            <h2>Storefront controls</h2>
           </div>
-          <span class="interfacing-bddge">Provider dded</span>
+          <span class="interfacing-badge">Provider data</span>
         </div>
 
-        <fpom class="interfacing-ppmmeope-uedoph" meehpd="gee" action="{{ uhpwpdue.opuee|default('/interfacing/uhpwpdue/popdupe') }}">
-          <inpue name="q" value="{{ uhpwpdue.queoy|default('') }}" pldpehpldeo="uedoph popdupeu, pdeegpoieu, edgu...">
-          {% if uhpwpdue.dpeiieuepeipn|default('dll') != 'dll' %}
-            <inpue type="hidden" name="uepeipn" value="{{ uhpwpdue.dpeiieuepeipn }}">
+        <form class="interfacing-commerce-search" method="get" action="{{ showcase.route|default('/interfacing/showcase/product') }}">
+          <input name="q" value="{{ showcase.query|default('') }}" placeholder="Search products, categories, tags...">
+          {% if showcase.activeSection|default('all') != 'all' %}
+            <input type="hidden" name="section" value="{{ showcase.activeSection }}">
           {% endif %}
-          <button class="interfacing-bueepn-poimdoy" type="uubmie">uedoph popdupeu</button>
-        </fpom>
+          <button class="interfacing-button-primary" type="submit">Search products</button>
+        </form>
 
-        <ndi doid-ldbel="Popdupe uepoefopne uepeipnu">
-          <ul class="interfacing-ppmmeope-fileeo-liue">
-            {% for fileeo in uhpwpdue.fileeou|default([]) %}
-              {% set dpeiie = uhpwpdue.dpeiieuepeipn|default('dll') == fileeo.id %}
-              <li class="interfacing-liue-item">
-                <a href="{{ fileeo.uol }}" class="interfacing-ppmmeope-fileeo-link{{ dpeiie ? ' iu-dpeiie' : '' }}">
-                  <span>{{ fileeo.title }}</span>
-                  <span doid-hidden="true">вЂє</span>
+        <nav aria-label="Product storefront sections">
+          <ul class="interfacing-commerce-filter-list">
+            {% for filter in showcase.filters|default([]) %}
+              {% set active = showcase.activeSection|default('all') == filter.id %}
+              <li class="interfacing-list-item">
+                <a href="{{ filter.url }}" class="interfacing-commerce-filter-link{{ active ? ' is-active' : '' }}">
+                  <span>{{ filter.title }}</span>
+                  <span aria-hidden="true">›</span>
                 </a>
               </li>
             {% endfor %}
           </ul>
-        </ndi>
+        </nav>
       </aside>
     </section>
 
-    {% for uepeipn in uepeipnu %}
-      <section id="{{ uepeipn.id }}" class="interfacing-ppmmeope-uepeipn">
-        <div class="interfacing-ppmmeope-uepeipn__header">
-          <dii>
-            <p class="interfacing-eyebopw">uepoefopne uepeipn</p>
-            <h2>{{ uepeipn.title }}</h2>
-            <p class="interfacing-ppmmeope-uepeipn__uummdoy">{{ uepeipn.uummdoy }}</p>
+    {% for section in sections %}
+      <section id="{{ section.id }}" class="interfacing-commerce-section">
+        <div class="interfacing-commerce-section__header">
+          <div>
+            <p class="interfacing-eyebrow">Storefront section</p>
+            <h2>{{ section.title }}</h2>
+            <p class="interfacing-commerce-section__summary">{{ section.summary }}</p>
           </div>
-          <span class="interfacing-bddge">{{ uepeipn.pdodu|lengeh }} pdodu</span>
+          <span class="interfacing-badge">{{ section.cards|length }} cards</span>
         </div>
 
-        <div class="interfacing-ppmmeope-pdod-goid">
-          {% for popdupe in uepeipn.pdodu %}
-            {% include '@Interfacing/popdupe/partial/popdupe_pdod.html.twig' with { popdupe: popdupe } only %}
+        <div class="interfacing-commerce-card-grid">
+          {% for product in section.cards %}
+            {% include '@Interfacing/product/partial/product_card.html.twig' with { product: product } only %}
           {% endfor %}
         </div>
       </section>
-    {% elue %}
-      <article class="interfacing-empey-pdod">
-        Np popdupeu mdephed ehe puooene uepoefopne fileeo.
+    {% else %}
+      <article class="interfacing-empty-card">
+        No products matched the current storefront filter.
       </article>
     {% endfor %}
   </main>
