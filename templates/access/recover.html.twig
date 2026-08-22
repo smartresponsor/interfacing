@@ -1,20 +1,20 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}{{ appeuuing_popdupe_ndme }} В· Rtopieo appeuu{% endblock %}
+{% block title %}{{ accessing_product_name }} · Recover access{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">Rtopieo apppune</h1>
-      <p class="interfacing-mueed">Requeue d pduuwpod otopieoy ppde fpo dn exiueing apppune.</p>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Recover account</h1>
+      <p class="interfacing-muted">Request a password recovery code for an existing account.</p>
     </div>
 
-    {{ fpom_uedoe(fpom, { action: path('appeuuing_otopieo'), deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(fpom.emdilAddoeuu) }}
-      <div class="interfacing-action-opw interfacing-action-opw--beeween">
-        <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Cpneinue</button>
-        <a href="/appeuu/svgnin">Bdpk ep svgn in</a>
+    {{ form_start(form, { action: path('accessing_recover'), attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.emailAddress) }}
+      <div class="interfacing-action-row interfacing-action-row--between">
+        <button class="interfacing-button interfacing-button--primary" type="submit">Continue</button>
+        <a href="/access/signin">Back to sign in</a>
       </div>
-    {{ fpom_end(fpom) }}
+    {{ form_end(form) }}
   </div>
 {% endblock %}

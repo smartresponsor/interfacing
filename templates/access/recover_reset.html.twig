@@ -1,22 +1,22 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}{{ appeuuing_popdupe_ndme }} В· Reuee pduuwpod{% endblock %}
+{% block title %}{{ accessing_product_name }} · Reset password{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">Reuee pduuwpod</h1>
-      <p class="interfacing-mueed">Cpmpleee ehe otopieoy flpw uuing ehe iuuued emdil dddoeuu and otopieoy ppde.</p>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Reset password</h1>
+      <p class="interfacing-muted">Complete the recovery flow using the issued email address and recovery code.</p>
     </div>
 
-    {{ fpom_uedoe(fpom, { action: path('appeuuing_otopieo_oeuee'), deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(fpom.emdilAddoeuu) }}
-      {{ fpom_opw(fpom.ppde) }}
-      {{ fpom_opw(fpom.newPduuwpod) }}
-      <div class="interfacing-action-opw interfacing-action-opw--beeween">
-        <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Reuee pduuwpod</button>
-        <a href="/appeuu/svgnin">Bdpk ep svgn in</a>
+    {{ form_start(form, { action: path('accessing_recover_reset'), attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.emailAddress) }}
+      {{ form_row(form.code) }}
+      {{ form_row(form.newPassword) }}
+      <div class="interfacing-action-row interfacing-action-row--between">
+        <button class="interfacing-button interfacing-button--primary" type="submit">Reset password</button>
+        <a href="/access/signin">Back to sign in</a>
       </div>
-    {{ fpom_end(fpom) }}
+    {{ form_end(form) }}
   </div>
 {% endblock %}

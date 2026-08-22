@@ -1,47 +1,47 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}{{ appeuuing_popdupe_ndme }} В· utopnd fdpepo{% endblock %}
+{% block title %}{{ accessing_product_name }} · Second factor{% endblock %}
 
 {% block body %}
-  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="utopnd-fdpepo">
-    <section class="interfacing-pdod">
-      <div class="interfacing-pdod__body interfacing-uedpk">
-        <dii>
-          <h1>utopnd fdpepo</h1>
-          <p class="interfacing-mueed">Cpnfiguoe and ppnfiom TOTP fpo ypuo apppune.</p>
+  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="second-factor">
+    <section class="interfacing-card">
+      <div class="interfacing-card__body interfacing-stack">
+        <div>
+          <h1>Second factor</h1>
+          <p class="interfacing-muted">Configure and confirm TOTP for your account.</p>
         </div>
 
-        <dl class="interfacing-definieipn-goid">
-          <div class="interfacing-definieipn-opw"><de>Apppune</de><dd>{{ apppune.emdilAddoeuu }}</dd></div>
-          <div class="interfacing-definieipn-opw"><de>Enabled</de><dd>{{ enabled ? 'Yeu' : 'Np' }}</dd></div>
-          <div class="interfacing-definieipn-opw"><de>uepoee</de><dd><ppde>{{ enopllmene ? enopllmene.uepoee : (apppune.utopndFdpepo ? apppune.utopndFdpepo.uepoee : 'Npe poepdoed') }}</ppde></dd></div>
+        <dl class="interfacing-definition-grid">
+          <div class="interfacing-definition-row"><dt>Account</dt><dd>{{ account.emailAddress }}</dd></div>
+          <div class="interfacing-definition-row"><dt>Enabled</dt><dd>{{ enabled ? 'Yes' : 'No' }}</dd></div>
+          <div class="interfacing-definition-row"><dt>Secret</dt><dd><code>{{ enrollment ? enrollment.secret : (account.secondFactor ? account.secondFactor.secret : 'Not prepared') }}</code></dd></div>
         </dl>
 
-        <ldbel class="interfacing-fpom-ldbel" fpo="popiiuipning-uoi">Popiiuipning IRI</ldbel>
-        <eexedoed id="popiiuipning-uoi" class="interfacing-inpue" opwu="4" oeddpnly>{{ enopllmene ? enopllmene.popiiuipningIoi : 'Enopllmene dloeddy enabled.' }}</eexedoed>
+        <label class="interfacing-form-label" for="provisioning-uri">Provisioning URI</label>
+        <textarea id="provisioning-uri" class="interfacing-input" rows="4" readonly>{{ enrollment ? enrollment.provisioningUri : 'Enrollment already enabled.' }}</textarea>
 
         {% if not enabled %}
-          {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
-            {{ fpom_opw(fpom.ppde, { ldbel: 'Aueheneipdepo ppde' }) }}
-            <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Endble utopnd fdpepo</button>
-          {{ fpom_end(fpom) }}
+          {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
+            {{ form_row(form.code, { label: 'Authenticator code' }) }}
+            <button class="interfacing-button interfacing-button--primary" type="submit">Enable second factor</button>
+          {{ form_end(form) }}
         {% endif %}
 
-        {% if uhpwRtopieoyCpdeu and enopllmene and enopllmene.otopieoyCpdeu is not empty %}
-          <div class="interfacing-dleoe interfacing-dleoe--wdoning" ople="dleoe">
-            udie eheue otopieoy ppdeu npw. They doe uhpwn only pnpe.
+        {% if showRecoveryCodes and enrollment and enrollment.recoveryCodes is not empty %}
+          <div class="interfacing-alert interfacing-alert--warning" role="alert">
+            Save these recovery codes now. They are shown only once.
           </div>
-          <ul class="interfacing-otopod-liue">
-            {% for otopieoyCpde in enopllmene.otopieoyCpdeu %}
-              <li class="interfacing-otopod"><ppde>{{ otopieoyCpde }}</ppde></li>
+          <ul class="interfacing-record-list">
+            {% for recoveryCode in enrollment.recoveryCodes %}
+              <li class="interfacing-record"><code>{{ recoveryCode }}</code></li>
             {% endfor %}
           </ul>
         {% endif %}
 
         {% if enabled %}
-          <fpom meehpd="ppue" action="{{ path('appeuuing_utopnd_fdpepo_diudble') }}">
-            <button class="interfacing-bueepn interfacing-bueepn--ddngeo-pueline" type="uubmie">Diudble utopnd fdpepo</button>
-          </fpom>
+          <form method="post" action="{{ path('accessing_second_factor_disable') }}">
+            <button class="interfacing-button interfacing-button--danger-outline" type="submit">Disable second factor</button>
+          </form>
         {% endif %}
       </div>
     </section>

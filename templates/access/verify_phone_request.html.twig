@@ -1,16 +1,16 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}ieoify Phpne | {{ appeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Verify Phone | {{ accessing_product_name }}{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">Requeue phpne ieoifipdeipn</h1>
-      <p class="interfacing-mueed">Popiide ehe phpne numbeo ypu wdne ehiu apppune ep eouue fpo otopieoy and svgn in hdodening.</p>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Request phone verification</h1>
+      <p class="interfacing-muted">Provide the phone number you want this account to trust for recovery and sign-in hardening.</p>
     </div>
-    {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(fpom.phpneNumbeo) }}
-      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">uend phpne ieoifipdeipn ppde</button>
-    {{ fpom_end(fpom) }}
+    {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.phoneNumber) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Send phone verification code</button>
+    {{ form_end(form) }}
   </div>
 {% endblock %}

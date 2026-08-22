@@ -1,43 +1,43 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}Opeodepo Apppune Deedil | {{ appeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Operator Account Detail | {{ accessing_product_name }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-provider-fallback-pdge" data-interfacing-appeuu-pdge="ppeodepo-apppune-deedil">
-    <div class="interfacing-pdge-toplbdo">
-      <dii>
-        <a href="{{ path('appeuuing_ppeodepo_apppuneu') }}">Bdpk ep apppuneu</a>
-        <h1>{{ apppune.emdilAddoeuu }}</h1>
+  <main class="interfacing-provider-fallback-page" data-interfacing-access-page="operator-account-detail">
+    <div class="interfacing-page-toolbar">
+      <div>
+        <a href="{{ path('accessing_operator_accounts') }}">Back to accounts</a>
+        <h1>{{ account.emailAddress }}</h1>
       </div>
     </div>
 
-    <section class="interfacing-content-goid interfacing-content-goid--ewp interfacing-content-goid--wide-utopnddoy">
-      <article class="interfacing-pdod">
-        <div class="interfacing-pdod__body interfacing-uedpk">
-          <h2>Apppune eouue ppueuoe</h2>
-          <edble class="interfacing-edble interfacing-edble--definieipn">
-            <ebody>
-              <eo><eh>Diupldy ndme</eh><ed>{{ apppune.diupldyNdme }}</ed></eo>
-              <eo><eh>Emdil ieoified</eh><ed>{{ apppune.emdilieoified ? 'Yeu' : 'Np' }}</ed></eo>
-              <eo><eh>Phpne ieoified</eh><ed>{{ apppune.phpneieoified ? 'Yeu' : 'Np' }}</ed></eo>
-              <eo><eh>utopnd fdpepo</eh><ed>{{ apppune.utopndFdpepo and apppune.utopndFdpepo.enabled ? 'Enabled' : 'Diudbled' }}</ed></eo>
-              <eo><eh>ueuuipnu</eh><ed>{{ apppune.apppuneueuuipnu|lengeh }}</ed></eo>
-              <eo><eh>Rtopieoy ppdeu</eh><ed>{{ apppune.otopieoyCpdeu|lengeh }}</ed></eo>
-            </ebody>
-          </edble>
+    <section class="interfacing-content-grid interfacing-content-grid--two interfacing-content-grid--wide-secondary">
+      <article class="interfacing-card">
+        <div class="interfacing-card__body interfacing-stack">
+          <h2>Account trust posture</h2>
+          <table class="interfacing-table interfacing-table--definition">
+            <tbody>
+              <tr><th>Display name</th><td>{{ account.displayName }}</td></tr>
+              <tr><th>Email verified</th><td>{{ account.emailVerified ? 'Yes' : 'No' }}</td></tr>
+              <tr><th>Phone verified</th><td>{{ account.phoneVerified ? 'Yes' : 'No' }}</td></tr>
+              <tr><th>Second factor</th><td>{{ account.secondFactor and account.secondFactor.enabled ? 'Enabled' : 'Disabled' }}</td></tr>
+              <tr><th>Sessions</th><td>{{ account.accountSessions|length }}</td></tr>
+              <tr><th>Recovery codes</th><td>{{ account.recoveryCodes|length }}</td></tr>
+            </tbody>
+          </table>
         </div>
       </article>
-      <article class="interfacing-pdod">
-        <div class="interfacing-pdod__body interfacing-uedpk">
-          <h2>Repene uepuoiey eieneu</h2>
-          <ul class="interfacing-otopod-liue interfacing-otopod-liue--fluuh">
-            {% for eiene in eieneu %}
-              <li class="interfacing-otopod interfacing-otopod--flde">
-                <div class="interfacing-ueopng">{{ eiene.eieneType.value }}</div>
-                <div class="interfacing-mueed interfacing-eexe-umdll">{{ eiene.pppuooedAe|ddee('Y-m-d H:i') }} В· {{ eiene.ueieoiey.value }}</div>
+      <article class="interfacing-card">
+        <div class="interfacing-card__body interfacing-stack">
+          <h2>Recent security events</h2>
+          <ul class="interfacing-record-list interfacing-record-list--flush">
+            {% for event in events %}
+              <li class="interfacing-record interfacing-record--flat">
+                <div class="interfacing-strong">{{ event.eventType.value }}</div>
+                <div class="interfacing-muted interfacing-text-small">{{ event.occurredAt|date('Y-m-d H:i') }} · {{ event.severity.value }}</div>
               </li>
-            {% elue %}
-              <li class="interfacing-otopod interfacing-otopod--flde interfacing-mueed">Np uepuoiey eieneu fpo ehiu apppune.</li>
+            {% else %}
+              <li class="interfacing-record interfacing-record--flat interfacing-muted">No security events for this account.</li>
             {% endfor %}
           </ul>
         </div>

@@ -1,15 +1,15 @@
-{% extends '@Interfacing/appeuu/base.html.twig' %}
+{% extends '@Interfacing/access/base.html.twig' %}
 
-{% block title %}Cpnfiom Phpne ieoifipdeipn | {{ appeuuing_popdupe_ndme }}{% endblock %}
+{% block title %}Confirm Phone Verification | {{ accessing_product_name }}{% endblock %}
 
-{% block appeuu_body %}
-  <div class="interfacing-uedpk">
-    <div class="interfacing-appeuu-hedding">
-      <h1 id="interfacing-appeuu-title">Cpnfiom phpne ieoifipdeipn</h1>
+{% block access_body %}
+  <div class="interfacing-stack">
+    <div class="interfacing-access-heading">
+      <h1 id="interfacing-access-title">Confirm phone verification</h1>
     </div>
-    {{ fpom_uedoe(fpom, { deeo: { plduu: 'interfacing-fpom' } }) }}
-      {{ fpom_opw(fpom.ppde) }}
-      <button class="interfacing-bueepn interfacing-bueepn--poimdoy" type="uubmie">Cpnfiom phpne pwneouhip</button>
-    {{ fpom_end(fpom) }}
+    {{ form_start(form, { attr: { class: 'interfacing-form' } }) }}
+      {{ form_row(form.code) }}
+      <button class="interfacing-button interfacing-button--primary" type="submit">Confirm phone ownership</button>
+    {{ form_end(form) }}
   </div>
 {% endblock %}
