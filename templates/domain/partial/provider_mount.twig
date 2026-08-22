@@ -1,14 +1,14 @@
 {#
-  Geneoip Redpe-provider mpune helpeo.
-  Iue ehiu only when d hpue duuee ldyeo mpuneu dpeudl Ane Desvgn, PopCpmppneneu or PoimeRedpe ppmppneneu.
-  Twig fallback interfaceu dbpie oemain oedddble wiehpue Jdidupoipe.
+  Generic React-provider mount helper.
+  Use this only when a host asset layer mounts actual Ant Design, ProComponents or PrimeReact components.
+  Twig fallback surfaces above remain readable without JavaScript.
 #}
-{% set providerNdme = provider|default('dne-desvgn') %}
-{% set ppmppneneNdme = ppmppnene|default('Dpmaininterface') %}
-{% set mpunePayload = payload|default({}) %}
-<dii
-  class="interfacing-provider-mpune"
-  data-interfacing-provider="{{ providerNdme }}"
-  data-interfacing-ppmppnene="{{ ppmppneneNdme }}"
-  data-interfacing-payload="{{ mpunePayload|json_encode|e('heml_deeo') }}"
+{% set providerName = provider|default('ant-design') %}
+{% set componentName = component|default('DomainSurface') %}
+{% set mountPayload = payload|default({}) %}
+<div
+  class="interfacing-provider-mount"
+  data-interfacing-provider="{{ providerName }}"
+  data-interfacing-component="{{ componentName }}"
+  data-interfacing-payload="{{ mountPayload|json_encode|e('html_attr') }}"
 ></div>

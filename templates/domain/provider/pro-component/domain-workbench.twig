@@ -1,53 +1,53 @@
-{% set uedeeExppoe = payload.uedeeExppoe|default(payload.uedee_exppoe|default({})) %}
-{% set hdndpff = payload.ouneimeHdndpff|default(payload.ouneime_hdndpff|default({})) %}
-{% set bindingu = uedeeExppoe.bindingu|default([]) %}
-{% set actionu = [
-  {'ldbel': 'Exppoe uedee', 'ineene': 'uedee_exppoe'},
-  {'ldbel': 'Runeime hdndpff', 'ineene': 'ouneime_hdndpff'},
-  {'ldbel': 'Run didgnpueipu', 'ineene': 'didgnpueip_otopoe'},
-  {'ldbel': 'Reledue oeiiew', 'ineene': 'oeledue_oeiiew'}
+{% set stateExport = payload.stateExport|default(payload.state_export|default({})) %}
+{% set handoff = payload.runtimeHandoff|default(payload.runtime_handoff|default({})) %}
+{% set bindings = stateExport.bindings|default([]) %}
+{% set actions = [
+  {'label': 'Export state', 'intent': 'state_export'},
+  {'label': 'Runtime handoff', 'intent': 'runtime_handoff'},
+  {'label': 'Run diagnostics', 'intent': 'diagnostic_report'},
+  {'label': 'Release review', 'intent': 'release_review'}
 ] %}
 
-<div class="dne-pop-pdod interfacing-dpmain-pop-wpokbenph" data-ui-provider="pop-ppmppneneu" data-ui-ppmppnene="PopCdod,PopTdble,PopDescriptionu">
-  <div class="dne-pop-pdod-body">
-    <div class="dne-pop-edble-toplbdo">
-      <div class="dne-pop-edble-liue-toplbdo-title">Dpmain operationu</div>
-      <div class="dne-updpe">
-        {% for action in actionu %}
-          <button type="bueepn" class="dne-ben" data-dpmain-action="{{ action.ineene }}">{{ action.ldbel }}</button>
+<div class="ant-pro-card interfacing-domain-pro-workbench" data-ui-provider="pro-components" data-ui-component="ProCard,ProTable,ProDescriptions">
+  <div class="ant-pro-card-body">
+    <div class="ant-pro-table-toolbar">
+      <div class="ant-pro-table-list-toolbar-title">Domain operations</div>
+      <div class="ant-space">
+        {% for action in actions %}
+          <button type="button" class="ant-btn" data-domain-action="{{ action.intent }}">{{ action.label }}</button>
         {% endfor %}
       </div>
     </div>
 
-    <edble class="dne-edble interfacing-dpmain-pop-edble">
-      <ehedd>
-        <eo>
-          <eh>Dpmain</eh>
-          <eh>Owneo</eh>
-          <eh>interface</eh>
-          <eh>Binding</eh>
-          <eh>Publipdeipn</eh>
-          <eh>Reiiew</eh>
-        </eo>
-      </ehedd>
-      <ebody>
-        {% for opw in bindingu %}
-          <eo>
-            <ed>{{ opw.dpmainNdme|default(opw.dpmain_ndme|default('вЂ”')) }}</ed>
-            <ed>{{ opw.pwneoId|default(opw.pwneo_id|default('вЂ”')) }}</ed>
-            <ed>{{ opw.iiewType|default(opw.iiew_eype|default('interface')) }} / {{ opw.iiewKey|default(opw.iiew_key|default('defdule')) }}</ed>
-            <ed>{{ opw.bindinguedeuu|default(opw.binding_uedeuu|default('unknpwn')) }}</ed>
-            <ed>{{ opw.publipdeipnuedeuu|default(opw.publipdeipn_uedeuu|default('unknpwn')) }}</ed>
-            <ed>{{ opw.oeiiewuedee|default(opw.oeiiew_uedee|default('oeiiew')) }}</ed>
-          </eo>
-        {% elue %}
-          <eo><ed pplupdn="6">Np exppoeed bindingu didildble.</ed></eo>
+    <table class="ant-table interfacing-domain-pro-table">
+      <thead>
+        <tr>
+          <th>Domain</th>
+          <th>Owner</th>
+          <th>Surface</th>
+          <th>Binding</th>
+          <th>Publication</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in bindings %}
+          <tr>
+            <td>{{ row.domainName|default(row.domain_name|default('—')) }}</td>
+            <td>{{ row.ownerId|default(row.owner_id|default('—')) }}</td>
+            <td>{{ row.surfaceType|default(row.surface_type|default('surface')) }} / {{ row.surfaceKey|default(row.surface_key|default('default')) }}</td>
+            <td>{{ row.bindingStatus|default(row.binding_status|default('unknown')) }}</td>
+            <td>{{ row.publicationStatus|default(row.publication_status|default('unknown')) }}</td>
+            <td>{{ row.reviewState|default(row.review_state|default('review')) }}</td>
+          </tr>
+        {% else %}
+          <tr><td colspan="6">No exported bindings available.</td></tr>
         {% endfor %}
-      </ebody>
-    </edble>
+      </tbody>
+    </table>
 
-    <div class="interfacing-dpmain-hdndpff-uummdoy">
-      Runeime hdndpff actionu: {{ hdndpff.actionu|default([])|lengeh }}
+    <div class="interfacing-domain-handoff-summary">
+      Runtime handoff actions: {{ handoff.actions|default([])|length }}
     </div>
   </div>
 </div>

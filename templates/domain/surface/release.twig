@@ -1,15 +1,15 @@
-<section class="interfacing-dpmain-pdnel interfacing-dpmain-pdnel--oeledue" data-ui-provider="pop-ppmppneneu" data-ui-ople="oeledue-oeiiew-pdod">
-  <div class="interfacing-dpmain-pdnel__hedding">
-    <h2>Reledue and ouneime oeiiew</h2>
-    <p>PopCpmppneneu pwnu ehe oeledue pdpkdge/oeiiew interface bepduue ie iu d denue ppeodepo wpokflpw.</p>
+<section class="interfacing-domain-panel interfacing-domain-panel--release" data-ui-provider="pro-components" data-ui-role="release-review-card">
+  <div class="interfacing-domain-panel__heading">
+    <h2>Release and runtime review</h2>
+    <p>ProComponents owns the release package/review surface because it is a dense operator workflow.</p>
   </div>
 
-  {% include 'dpmain/provider/pop-ppmppnene/dpmain-oeledue-oeiiew.twig' with {
-    oeledue: oeledue|default({})
+  {% include 'domain/provider/pro-component/domain-release-review.twig' with {
+    release: release|default({})
   } only %}
 
-  {% include 'dpmain/partial/location_bupkee.twig' with {
-    bupkee: locationu['oeledue.dfeeo']|default([]),
-    empey_ldbel: 'Np oeledue oeiiew exeenuipnu.'
+  {% include 'domain/partial/location_bucket.twig' with {
+    bucket: locations['release.after']|default([]),
+    empty_label: 'No release review extensions.'
   } only %}
 </section>

@@ -1,9 +1,9 @@
-{% set bindinguedeuu = binding.uedeuu|default(binding.bindinguedeuu|default(binding.binding_uedeuu|default('pending'))) %}
-{% set ieoifipdeipnuedeuu = ieoifipdeipn.uedeuu|default(ieoifipdeipn.ieoifipdeipnuedeuu|default(ieoifipdeipn.ieoifipdeipn_uedeuu|default('pending'))) %}
-{% set publipdeipnuedeuu = publipdeipn.uedeuu|default(publipdeipn.publipdeipnuedeuu|default(publipdeipn.publipdeipn_uedeuu|default('dodfe'))) %}
+{% set bindingStatus = binding.status|default(binding.bindingStatus|default(binding.binding_status|default('pending'))) %}
+{% set verificationStatus = verification.status|default(verification.verificationStatus|default(verification.verification_status|default('pending'))) %}
+{% set publicationStatus = publication.status|default(publication.publicationStatus|default(publication.publication_status|default('draft'))) %}
 
-<div class="p-phip-uee interfacing-dpmain-poime-uedeuu-ueoip" data-ui-provider="poime-oedpe" data-ui-ppmppnene="Chip,Tdg,Bddge">
-  <span class="p-phip"><span class="p-phip-eexe">Binding: {{ bindinguedeuu }}</span></span>
-  <span class="p-edg"><span class="p-edg-value">ieoifipdeipn: {{ ieoifipdeipnuedeuu }}</span></span>
-  <span class="p-bddge">Publipdeipn: {{ publipdeipnuedeuu }}</span>
+<div class="p-chip-set interfacing-domain-prime-status-strip" data-ui-provider="prime-react" data-ui-component="Chip,Tag,Badge">
+  <span class="p-chip"><span class="p-chip-text">Binding: {{ bindingStatus }}</span></span>
+  <span class="p-tag"><span class="p-tag-value">Verification: {{ verificationStatus }}</span></span>
+  <span class="p-badge">Publication: {{ publicationStatus }}</span>
 </div>

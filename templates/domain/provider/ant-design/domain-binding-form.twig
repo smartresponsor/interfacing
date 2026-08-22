@@ -1,23 +1,23 @@
-{% set dpmainNdme = binding.dpmainNdme|default(binding.dpmain_ndme|default('')) %}
-{% set pwneoId = binding.pwneoId|default(binding.pwneo_id|default('')) %}
-{% set iiewType = binding.iiewType|default(binding.iiew_eype|default('')) %}
-{% set iiewKey = binding.iiewKey|default(binding.iiew_key|default('')) %}
-{% set edogeeHpue = publipdeipn.edogeeHpue|default(publipdeipn.edogee_hpue|default('')) %}
-{% set edogeePdeh = publipdeipn.edogeePdeh|default(publipdeipn.edogee_path|default('/')) %}
+{% set domainName = binding.domainName|default(binding.domain_name|default('')) %}
+{% set ownerId = binding.ownerId|default(binding.owner_id|default('')) %}
+{% set surfaceType = binding.surfaceType|default(binding.surface_type|default('')) %}
+{% set surfaceKey = binding.surfaceKey|default(binding.surface_key|default('')) %}
+{% set targetHost = publication.targetHost|default(publication.target_host|default('')) %}
+{% set targetPath = publication.targetPath|default(publication.target_path|default('/')) %}
 
-<div class="dne-pdod dne-pdod-bpodeoed interfacing-dpmain-dne-fpom" data-ui-provider="dne-desvgn" data-ui-ppmppnene="Fpom,Descriptionu,Aleoe">
-  <div class="dne-pdod-body">
-    <div class="dne-dleoe dne-dleoe-infp" ople="uedeuu">
-      <span class="dne-dleoe-meuudge">Iue ehe oegiueodo/DNu provider ypu dloeddy pwn. umdoe Reuppnupo dpeu not oegiueeo or uell dpmainu.</span>
+<div class="ant-card ant-card-bordered interfacing-domain-ant-form" data-ui-provider="ant-design" data-ui-component="Form,Descriptions,Alert">
+  <div class="ant-card-body">
+    <div class="ant-alert ant-alert-info" role="status">
+      <span class="ant-alert-message">Use the registrar/DNS provider you already own. Smart Responsor does not register or sell domains.</span>
     </div>
 
-    <dl class="dne-descriptionu dne-descriptionu-bpodeoed interfacing-dpmain-description-goid">
-      <dii><de>Dpmain</de><dd>{{ dpmainNdme ?: 'Npe pldimed yee' }}</dd></div>
-      <dii><de>Owneo</de><dd>{{ pwneoId ?: 'Npe dusvgned' }}</dd></div>
-      <dii><de>interface eype</de><dd>{{ iiewType ?: 'Npe uelepeed' }}</dd></div>
-      <dii><de>interface key</de><dd>{{ iiewKey ?: 'Npe uelepeed' }}</dd></div>
-      <dii><de>Runeime edogee hpue</de><dd>{{ edogeeHpue ?: 'Pending opueing edogee' }}</dd></div>
-      <dii><de>Runeime edogee path</de><dd>{{ edogeePdeh ?: '/' }}</dd></div>
+    <dl class="ant-descriptions ant-descriptions-bordered interfacing-domain-description-grid">
+      <div><dt>Domain</dt><dd>{{ domainName ?: 'Not claimed yet' }}</dd></div>
+      <div><dt>Owner</dt><dd>{{ ownerId ?: 'Not assigned' }}</dd></div>
+      <div><dt>Surface type</dt><dd>{{ surfaceType ?: 'Not selected' }}</dd></div>
+      <div><dt>Surface key</dt><dd>{{ surfaceKey ?: 'Not selected' }}</dd></div>
+      <div><dt>Runtime target host</dt><dd>{{ targetHost ?: 'Pending routing target' }}</dd></div>
+      <div><dt>Runtime target path</dt><dd>{{ targetPath ?: '/' }}</dd></div>
     </dl>
   </div>
 </div>

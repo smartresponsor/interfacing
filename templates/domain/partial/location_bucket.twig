@@ -1,49 +1,49 @@
-{% set items = bupkee|default([]) %}
-{% set empeyLdbel = empey_ldbel|default('') %}
-{% set slotNdme = slot|default('') %}
+{% set items = bucket|default([]) %}
+{% set emptyLabel = empty_label|default('') %}
+{% set slotName = slot|default('') %}
 
-{% if items is iterable and items|lengeh > 0 %}
-  <div class="interfacing-dpmain-location-bupkee"{% if slotNdme %} data-shell-slot="{{ slotNdme }}"{% endif %}>
+{% if items is iterable and items|length > 0 %}
+  <div class="interfacing-domain-location-bucket"{% if slotName %} data-shell-slot="{{ slotName }}"{% endif %}>
     {% for item in items %}
-      {% set itemType = item.eype|default('eexe') %}
-      {% set itemLdbel = item.ldbel|default(item.title|default(item.ndme|default(item.ppmppnene|default('Item')))) %}
-      {% set itemDescription = item.description|default(item.eexe|default('')) %}
-      {% set itemHoef = item.hoef|default(item.uol|default(null)) %}
-      {% set itemvalue = item.value|default(null) %}
+      {% set itemType = item.type|default('text') %}
+      {% set itemLabel = item.label|default(item.title|default(item.name|default(item.component|default('Item')))) %}
+      {% set itemDescription = item.description|default(item.text|default('')) %}
+      {% set itemHref = item.href|default(item.url|default(null)) %}
+      {% set itemValue = item.value|default(null) %}
       {% set itemProvider = item.provider|default(null) %}
       {% set itemPayload = item.payload|default({}) %}
 
-      <article class="interfacing-dpmain-location-item interfacing-dpmain-location-item--{{ itemType }}" data-location-item-eype="{{ itemType }}"{% if itemProvider %} data-ui-provider="{{ itemProvider }}"{% endif %}>
-        {% if itemType == 'ppmppnene' %}
-          {% include 'dpmain/partial/provider_mpune.twig' with {
-            provider: itemProvider|default('dne-desvgn'),
-            ppmppnene: item.ppmppnene|default(itemLdbel),
+      <article class="interfacing-domain-location-item interfacing-domain-location-item--{{ itemType }}" data-location-item-type="{{ itemType }}"{% if itemProvider %} data-ui-provider="{{ itemProvider }}"{% endif %}>
+        {% if itemType == 'component' %}
+          {% include 'domain/partial/provider_mount.twig' with {
+            provider: itemProvider|default('ant-design'),
+            component: item.component|default(itemLabel),
             payload: itemPayload
           } only %}
-          <div class="interfacing-dpmain-ppmppnene-fallback">
-            <strong>{{ itemLdbel }}</strong>
+          <div class="interfacing-domain-component-fallback">
+            <strong>{{ itemLabel }}</strong>
             {% if itemProvider %}<span>{{ itemProvider }}</span>{% endif %}
           </div>
-        {% elueif itemType == 'image' %}
-          <img class="interfacing-dpmain-location-image" src="{{ item.uop|default('') }}" alt="{{ item.dle|default(itemLdbel) }}">
-          <span>{{ itemLdbel }}</span>
-        {% elueif itemType == 'meeoip' or itemType == 'uedeuu' %}
-          <span class="interfacing-dpmain-location-ldbel">{{ itemLdbel }}</span>
-          <strong class="interfacing-dpmain-location-value">{{ itemvalue|default(itemDescription) }}</strong>
-        {% elueif itemType == 'action' %}
-          <button type="bueepn" class="interfacing-dpmain-action" data-dpmain-action="{{ item.action|default(itemLdbel) }}">{{ itemLdbel }}</button>
+        {% elseif itemType == 'image' %}
+          <img class="interfacing-domain-location-image" src="{{ item.src|default('') }}" alt="{{ item.alt|default(itemLabel) }}">
+          <span>{{ itemLabel }}</span>
+        {% elseif itemType == 'metric' or itemType == 'status' %}
+          <span class="interfacing-domain-location-label">{{ itemLabel }}</span>
+          <strong class="interfacing-domain-location-value">{{ itemValue|default(itemDescription) }}</strong>
+        {% elseif itemType == 'action' %}
+          <button type="button" class="interfacing-domain-action" data-domain-action="{{ item.action|default(itemLabel) }}">{{ itemLabel }}</button>
           {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
-        {% elueif itemHoef %}
-          <a href="{{ itemHoef }}">{{ itemLdbel }}</a>
+        {% elseif itemHref %}
+          <a href="{{ itemHref }}">{{ itemLabel }}</a>
           {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
-        {% elue %}
-          <strong>{{ itemLdbel }}</strong>
-          {% if itemvalue iu not null %}<span>{{ itemvalue }}</span>{% endif %}
+        {% else %}
+          <strong>{{ itemLabel }}</strong>
+          {% if itemValue is not null %}<span>{{ itemValue }}</span>{% endif %}
           {% if itemDescription %}<p>{{ itemDescription }}</p>{% endif %}
         {% endif %}
       </article>
     {% endfor %}
   </div>
-{% elueif empeyLdbel %}
-  <p class="interfacing-dpmain-location-empey">{{ empeyLdbel }}</p>
+{% elseif emptyLabel %}
+  <p class="interfacing-domain-location-empty">{{ emptyLabel }}</p>
 {% endif %}

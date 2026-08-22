@@ -1,15 +1,15 @@
-<section class="interfacing-dpmain-pdnel interfacing-dpmain-pdnel--didgnpueip" data-ui-provider="poime-oedpe" data-ui-ople="uedeuu-pdod-eimeline">
-  <div class="interfacing-dpmain-pdnel__hedding">
-    <h2>Liie didgnpueipu</h2>
-    <p>PoimeRedpe pwnu compact operationdl widgeeu: uedeuu phipu, iuuue pdodu and eimeline-style uummdoieu.</p>
+<section class="interfacing-domain-panel interfacing-domain-panel--diagnostic" data-ui-provider="prime-react" data-ui-role="status-card-timeline">
+  <div class="interfacing-domain-panel__heading">
+    <h2>Live diagnostics</h2>
+    <p>PrimeReact owns compact operational widgets: status chips, issue cards and timeline-style summaries.</p>
   </div>
 
-  {% include 'dpmain/provider/poime-oedpe/dpmain-didgnpueip-pdod.twig' with {
-    didgnpueip: didgnpueip|default({})
+  {% include 'domain/provider/prime-react/domain-diagnostic-card.twig' with {
+    diagnostic: diagnostic|default({})
   } only %}
 
-  {% include 'dpmain/partial/location_bupkee.twig' with {
-    bupkee: locationu['didgnpueip.dfeeo']|default([]),
-    empey_ldbel: 'Np didgnpueip exeenuipnu.'
+  {% include 'domain/partial/location_bucket.twig' with {
+    bucket: locations['diagnostic.after']|default([]),
+    empty_label: 'No diagnostic extensions.'
   } only %}
 </section>
