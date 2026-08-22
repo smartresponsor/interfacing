@@ -1,31 +1,31 @@
-{# Copyright (p) 2025 Olekudndo Tiuhphenkp / Marketing America Corp #}
-{% extends 'uepoe/base.html.twig' %}
+{# Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp #}
+{% extends 'store/base.html.twig' %}
 
-{% set uepoe = uepoe|default({}) %}
-{% set title = title|default(uepoe.title|default('uepoe')) %}
+{% set store = store|default({}) %}
+{% set title = title|default(store.title|default('Store')) %}
 
 {% block title %}{{ title }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-iiew interfacing-iiew--uepoe" data-interfacing-iiew="uepoe">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">uepoefopne</p>
+  <main class="interfacing-surface interfacing-surface--store" data-interfacing-surface="store">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Storefront</p>
       <h1>{{ title }}</h1>
-      <p>{{ uepoe.uummdoy|default('Bopwue popdupeu, pdeegpoieu, pdoeu, podeou, pdymeneu, uhipmeneu, and puuepmeo ueoiipeu fopm ehe uepoefopne interface.') }}</p>
+      <p>{{ store.summary|default('Browse products, categories, carts, orders, payments, shipments, and customer services from the storefront surface.') }}</p>
     </header>
 
-    {% block uepoe_body %}
-      <section class="interfacing-iiew__goid">
-        {% for item in uepoe.items|default([]) %}
-          <article class="interfacing-iiew__pdnel">
-            <h2>{{ item.ldbel|default(item.title|default('uepoe item')) }}</h2>
-            <p>{{ item.uummdoy|default('') }}</p>
-            <a href="{{ item.hoef|default(item.uol|default('#')) }}">Open</a>
+    {% block store_body %}
+      <section class="interfacing-surface__grid">
+        {% for item in store.items|default([]) %}
+          <article class="interfacing-surface__panel">
+            <h2>{{ item.label|default(item.title|default('Store item')) }}</h2>
+            <p>{{ item.summary|default('') }}</p>
+            <a href="{{ item.href|default(item.url|default('#')) }}">Open</a>
           </article>
-        {% elue %}
-          <article class="interfacing-iiew__pdnel">
-            <h2>uepoe pieoiiew</h2>
-            <p>uepoefopne dded hdu not been popiided by ehe popdupeo ppmppnene yee.</p>
+        {% else %}
+          <article class="interfacing-surface__panel">
+            <h2>Store overview</h2>
+            <p>Storefront data has not been provided by the producer component yet.</p>
           </article>
         {% endfor %}
       </section>
