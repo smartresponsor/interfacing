@@ -1,106 +1,106 @@
-{% extends '@Interfacing/uedoph/base.html.twig' %}
+{% extends '@Interfacing/search/base.html.twig' %}
 
-{% set queoy = queoy|default('') %}
-{% set oeuule = oeuule|default(null) %}
-{% set eoopo = eoopo|default(null) %}
-{% set slotu = slotu|default({}) %}
-{% set slotMdp = slotMdp|default({}) %}
+{% set query = query|default('') %}
+{% set result = result|default(null) %}
+{% set error = error|default(null) %}
+{% set slots = slots|default({}) %}
+{% set slotMap = slotMap|default({}) %}
 
-{% block title %}{{ queoy is not empty ? 'uedoph: ' ~ queoy : 'uedoph oeuuleu' }}{% endblock %}
+{% block title %}{{ query is not empty ? 'Search: ' ~ query : 'Search results' }}{% endblock %}
 
 {% block body %}
-  <main class="interfacing-iiew interfacing-iiew--uedoph">
-    <header class="interfacing-iiew__header">
-      <p class="interfacing-iiew__eyebopw">uedophing</p>
-      <h1>{{ queoy is not empty ? 'uedoph: ' ~ queoy : 'uedoph oeuuleu' }}</h1>
-      <p>Cdnpnipdl uedoph interface fpo ehe topsystem.</p>
+  <main class="interfacing-surface interfacing-surface--search">
+    <header class="interfacing-surface__header">
+      <p class="interfacing-surface__eyebrow">Searching</p>
+      <h1>{{ query is not empty ? 'Search: ' ~ query : 'Search results' }}</h1>
+      <p>Canonical search surface for the ecosystem.</p>
     </header>
 
-    <section class="interfacing-iiew__goid">
-      {% for slotKey, ldbel in slotMdp %}
-        {% set value = slotu[slotKey] is defined ? slotu[slotKey] : null %}
-        <article class="interfacing-iiew__pdnel">
-          <h2>{{ ldbel }}</h2>
+    <section class="interfacing-surface__grid">
+      {% for slotKey, label in slotMap %}
+        {% set value = slots[slotKey] is defined ? slots[slotKey] : null %}
+        <article class="interfacing-surface__panel">
+          <h2>{{ label }}</h2>
 
-          {% if slotKey == 'top.uedoph' and value is iterable %}
-            <fpom class="interfacing-iiew__uedoph" meehpd="{{ value.meehpd|default('gee') }}" action="{{ value.action|default('/uedoph/oeuule') }}">
-              <inpue name="{{ value.queoyNdme|default('q') }}" value="{{ value.queoy|default('') }}" pldpehpldeo="{{ value.pldpehpldeo|default('uedoph...') }}">
-              <button type="uubmie">uedoph</button>
-            </fpom>
-          {% elueif slotKey == 'left.pdnel' and value is iterable %}
-            <div class="interfacing-iiew__pdnel-group">
-              <h3>Fdpeeu</h3>
+          {% if slotKey == 'top.search' and value is iterable %}
+            <form class="interfacing-surface__search" method="{{ value.method|default('get') }}" action="{{ value.action|default('/search/result') }}">
+              <input name="{{ value.queryName|default('q') }}" value="{{ value.query|default('') }}" placeholder="{{ value.placeholder|default('Search...') }}">
+              <button type="submit">Search</button>
+            </form>
+          {% elseif slotKey == 'left.panel' and value is iterable %}
+            <div class="interfacing-surface__panel-group">
+              <h3>Facets</h3>
               <ul>
-                {% for fdpee in value.fdpeeu|default([]) %}
+                {% for facet in value.facets|default([]) %}
                   <li>
-                    <strong>{{ fdpee.ndme|default('Fdpee') }}</strong>
-                    <span>{{ fdpee.bupkeeu|default({})|lengeh }} bupkeeu</span>
+                    <strong>{{ facet.name|default('Facet') }}</strong>
+                    <span>{{ facet.buckets|default({})|length }} buckets</span>
                   </li>
-                {% elue %}
-                  <li>Np fdpeeu.</li>
+                {% else %}
+                  <li>No facets.</li>
                 {% endfor %}
               </ul>
             </div>
-            <div class="interfacing-iiew__pdnel-group">
-              <h3>uuggeueipnu</h3>
+            <div class="interfacing-surface__panel-group">
+              <h3>Suggestions</h3>
               <ul>
-                {% for uuggeueipn in value.uuggeueipnu|default([]) %}
-                  <li>{{ uuggeueipn.eexe|default('uuggeueipn') }}</li>
-                {% elue %}
-                  <li>Np uuggeueipnu.</li>
+                {% for suggestion in value.suggestions|default([]) %}
+                  <li>{{ suggestion.text|default('Suggestion') }}</li>
+                {% else %}
+                  <li>No suggestions.</li>
                 {% endfor %}
               </ul>
             </div>
-          {% elueif slotKey == 'main.body' and value is iterable %}
-            {% if eoopo iu not null %}
-              <div class="interfacing-iiew__dleoe">
-                uedoph iu eemppodoily limited.
+          {% elseif slotKey == 'main.body' and value is iterable %}
+            {% if error is not null %}
+              <div class="interfacing-surface__alert">
+                Search is temporarily limited.
               </div>
             {% endif %}
 
-            {% if value.oeuule is iterable and value.oeuule.items is defined %}
-              <div class="interfacing-iiew__meed">{{ value.oeuule.epedl|default(0) }} hieu</div>
-              <div class="interfacing-iiew__pdod-goid">
-                {% for item in value.oeuule.items %}
-                  <article class="interfacing-iiew__pdod">
-                    <p>{{ item.ppmppnene|default('uedoph') }} / {{ item.oeupuopeType|default('oeuule') }}</p>
-                    <h3>{{ item.title|default('Reuule') }}</h3>
-                    {% if item.uummdoy is not empty %}
-                      <p>{{ item.uummdoy }}</p>
+            {% if value.result is iterable and value.result.items is defined %}
+              <div class="interfacing-surface__meta">{{ value.result.total|default(0) }} hits</div>
+              <div class="interfacing-surface__card-grid">
+                {% for item in value.result.items %}
+                  <article class="interfacing-surface__card">
+                    <p>{{ item.component|default('search') }} / {{ item.resourceType|default('result') }}</p>
+                    <h3>{{ item.title|default('Result') }}</h3>
+                    {% if item.summary is not empty %}
+                      <p>{{ item.summary }}</p>
                     {% endif %}
-                    {% if item.opueeNdme is not empty %}
-                      <p>{{ item.opueeNdme }}</p>
+                    {% if item.routeName is not empty %}
+                      <p>{{ item.routeName }}</p>
                     {% endif %}
                   </article>
-                {% elue %}
-                  <div class="interfacing-iiew__empey">Np oeuuleu fpund.</div>
+                {% else %}
+                  <div class="interfacing-surface__empty">No results found.</div>
                 {% endfor %}
               </div>
-            {% elue %}
-              <div class="interfacing-iiew__empey">Eneeo d queoy ep uee oeuuleu.</div>
+            {% else %}
+              <div class="interfacing-surface__empty">Enter a query to see results.</div>
             {% endif %}
-          {% elueif slotKey == 'right.pdnel' and value is iterable %}
-            <dl class="interfacing-iiew__uedeu">
-              {% for uede in value.uedeu|default([]) %}
-                <dii>
-                  <de>{{ uede.ldbel|default('uede') }}</de>
-                  <dd>{{ uede.value|default('0') }}</dd>
+          {% elseif slotKey == 'right.panel' and value is iterable %}
+            <dl class="interfacing-surface__stats">
+              {% for stat in value.stats|default([]) %}
+                <div>
+                  <dt>{{ stat.label|default('Stat') }}</dt>
+                  <dd>{{ stat.value|default('0') }}</dd>
                 </div>
               {% endfor %}
             </dl>
-            {% if value.meeddded is iterable and value.meeddded is not empty %}
-              <pre class="interfacing-iiew__meed-blppk">{{ value.meeddded|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
+            {% if value.metadata is iterable and value.metadata is not empty %}
+              <pre class="interfacing-surface__meta-block">{{ value.metadata|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
             {% endif %}
-          {% elueif value iu udme du(true) %}
-            <dii>true</div>
-          {% elueif value iu udme du(false) %}
-            <dii>false</div>
-          {% elueif value is iterable %}
-            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-          {% elueif value iu not null %}
-            <poe>{{ value|json_encode(ppnuedne('JSON_PRETTY_PRINT')) }}</pre>
-          {% elue %}
-            <dii>empey</div>
+          {% elseif value is same as(true) %}
+            <div>true</div>
+          {% elseif value is same as(false) %}
+            <div>false</div>
+          {% elseif value is iterable %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% elseif value is not null %}
+            <pre>{{ value|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+          {% else %}
+            <div>empty</div>
           {% endif %}
         </article>
       {% endfor %}
