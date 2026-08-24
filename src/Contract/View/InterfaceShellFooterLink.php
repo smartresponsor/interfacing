@@ -10,6 +10,7 @@ final class InterfaceShellFooterLink implements InterfaceShellFooterLinkInterfac
         private readonly string $title,
         private readonly string $url,
     ) {
+        self::assertSafeUrl($this->url);
     }
 
     public function title(): string
@@ -32,4 +33,5 @@ final class InterfaceShellFooterLink implements InterfaceShellFooterLinkInterfac
         if (null !== $scheme && false !== $scheme && '' !== $scheme && !in_array(strtolower($scheme), ['http', 'https', 'mailto', 'tel'], true)) {
             throw new \InvalidArgumentException('InterfaceShellFooterLink url uses an unsupported scheme.');
         }
-    }}
+    }
+}

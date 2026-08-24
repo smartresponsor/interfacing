@@ -23,10 +23,7 @@ final class InterfaceShellNavItem implements InterfaceShellNavItemInterface
             throw new \InvalidArgumentException('InterfaceShellNavItem id must be non-empty.');
         }
         $this->group = '' !== trim($this->group) ? trim($this->group) : 'tool';
-        $this->url = trim($this->url);
-        if ('' === $this->url) {
-            throw new \InvalidArgumentException('InterfaceShellNavItem url must be non-empty.');
-        }
+        $this->url = self::assertSafeUrl($this->url, 'InterfaceShellNavItem');
         $this->order = max(-100000, min(100000, $this->order));
     }
 
@@ -77,4 +74,5 @@ final class InterfaceShellNavItem implements InterfaceShellNavItemInterface
             throw new \InvalidArgumentException($owner.' url uses an unsupported scheme.');
         }
         return $url;
-    }}
+    }
+}
