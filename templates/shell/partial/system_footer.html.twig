@@ -3,14 +3,13 @@
 {% set shellFooterLinkLimit = shellFooterLinkLimit|default(50) %}
 {% set shellSlotMap = shellSlotMap|default(shell.slotMap|default({})) %}
 {% set shellLocations = shellLocations|default(locations|default(shell.locations|default({}))) %}
-{% set footerAttributes = footerAttributes|default('') %}
 {% set shellFooterTopItems = shellLocations['shell.footer.top']|default(shellLocations['footer.top']|default([])) %}
 {% set shellFooterLeftItems = shellLocations['shell.footer.left']|default([]) %}
 {% set shellFooterContextItems = shellLocations['shell.footer.context']|default([]) %}
 {% set shellFooterMainItems = shellLocations['shell.footer.main']|default([]) %}
 {% set shellFooterRightItems = shellLocations['shell.footer.right']|default([]) %}
 
-<footer class="interfacing-footer" data-interfacing-shell-slot="footer" data-interfacing-shell-location="shell.footer" data-interfacing-shell-contract="four-column-grid" {{ footerAttributes|raw }}>
+<footer class="interfacing-footer" data-interfacing-shell-slot="footer" data-interfacing-shell-location="shell.footer" data-interfacing-shell-contract="four-column-grid">
   {% include '@Interfacing/shell/partial/location_bucket.html.twig' with {location: 'shell.footer.top', items: shellFooterTopItems} only %}
   <div class="interfacing-shell-grid interfacing-footer-grid" data-interfacing-footer-grid="true">
     <aside class="interfacing-shell-panel interfacing-footer-panel interfacing-footer-panel--primary" data-interfacing-shell-slot="footer-primary" data-interfacing-shell-location="shell.footer.left" title="{{ shellSlotMap['shell.footer.left']|default('Footer left') }}">
