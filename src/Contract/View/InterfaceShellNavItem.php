@@ -23,10 +23,7 @@ final class InterfaceShellNavItem implements InterfaceShellNavItemInterface
             throw new \InvalidArgumentException('InterfaceShellNavItem id must be non-empty.');
         }
         $this->group = '' !== trim($this->group) ? trim($this->group) : 'tool';
-        $this->url = trim($this->url);
-        if ('' === $this->url) {
-            throw new \InvalidArgumentException('InterfaceShellNavItem url must be non-empty.');
-        }
+        $this->url = self::assertSafeUrl($this->url, 'InterfaceShellNavItem');
         $this->order = max(-100000, min(100000, $this->order));
     }
 
@@ -58,5 +55,24 @@ final class InterfaceShellNavItem implements InterfaceShellNavItemInterface
     public function order(): int
     {
         return $this->order;
+    }
+
+    private static function assertSafeUrl(string $url, string $owner): string
+    {
+        $url = trim($url);
+        if ('' === $url) {
+            throw new \InvalidArgumentException($owner.' url must be non-empty.');
+        }
+        if (1 === preg_match('/[\x00-\x1F\x7F]/', $url)) {
+            throw new \InvalidArgumentException($owner.' url contains control characters.');
+        }
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        if (null === $scheme || false === $scheme || '' === $scheme) {
+            return $url;
+        }
+        if (!in_array(strtolower($scheme), ['http', 'https', 'mailto', 'tel'], true)) {
+            throw new \InvalidArgumentException($owner.' url uses an unsupported scheme.');
+        }
+        return $url;
     }
 }

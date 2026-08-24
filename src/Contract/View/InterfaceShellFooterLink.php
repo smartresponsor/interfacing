@@ -10,6 +10,7 @@ final class InterfaceShellFooterLink implements InterfaceShellFooterLinkInterfac
         private readonly string $title,
         private readonly string $url,
     ) {
+        self::assertSafeUrl($this->url);
     }
 
     public function title(): string
@@ -20,5 +21,17 @@ final class InterfaceShellFooterLink implements InterfaceShellFooterLinkInterfac
     public function url(): string
     {
         return $this->url;
+    }
+
+    private static function assertSafeUrl(string $url): void
+    {
+        $url = trim($url);
+        if ('' === $url || 1 === preg_match('/[\x00-\x1F\x7F]/', $url)) {
+            throw new \InvalidArgumentException('InterfaceShellFooterLink url must be a non-empty safe URL.');
+        }
+        $scheme = parse_url($url, PHP_URL_SCHEME);
+        if (null !== $scheme && false !== $scheme && '' !== $scheme && !in_array(strtolower($scheme), ['http', 'https', 'mailto', 'tel'], true)) {
+            throw new \InvalidArgumentException('InterfaceShellFooterLink url uses an unsupported scheme.');
+        }
     }
 }
