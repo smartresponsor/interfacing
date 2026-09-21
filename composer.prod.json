@@ -1,0 +1,58 @@
+{
+    "name": "interfacing/interface",
+    "description": "Interfacing Symfony package bundle",
+    "type": "library",
+    "license": "proprietary",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "collectioning/collection": "dev-master",
+        "composer-runtime-api": "^2.2",
+        "cruding/crud": "dev-master",
+        "easycorp/easyadmin-bundle": "^5.0",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "objecting/object": "dev-master",
+        "php": "^8.4",
+        "tabling/table": "dev-master",
+        "symfony/asset": "8.1.*",
+        "symfony/asset-mapper": "8.1.*",
+        "symfony/console": "8.1.*",
+        "symfony/dependency-injection": "8.1.*",
+        "symfony/dotenv": "8.1.*",
+        "symfony/form": "8.1.*",
+        "symfony/framework-bundle": "8.1.*",
+        "symfony/intl": "8.1.*",
+        "symfony/security-core": "8.1.*",
+        "symfony/service-contracts": "^3.7",
+        "symfony/twig-bundle": "8.1.*",
+        "symfony/uid": "^8.1",
+        "symfony/validator": "8.1.*",
+        "symfony/yaml": "8.1.*",
+        "twig/twig": "^3.27.1",
+        "viewing/view": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Interfacing\\": "src/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php84": "*"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "8.1.*"
+        }
+    }
+}

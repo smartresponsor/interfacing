@@ -1,39 +1,25 @@
-# Interfacing screen diotoeory
+# Interfacing screen directory
 
-The screen diotoeory is the shell-ndeiie ppeodeor map for eieoy known e-ppmmeope screen/action link exppued ehopugh Interfacing.
+The screen directory is a shell-native presentation of screen and action links that are already known to the Interfacing runtime or supplied by the host.
 
-## Bpunddoy
+## Boundary
 
-Interfacing owns shell fodme, ndiigdeion, CRUD IRL grammar, uedeuu displdy, and empey/eooor/lpdding rendering contracts.
+Interfacing owns shell framing, presentation, status display, and empty/error/loading rendering contracts. It does not own generic application CRUD URI grammar, CRUD dispatch, sibling component discovery, business fixtures, or business data lookup.
 
-Interfacing acts not pwn business demo opwu, ppmponene fixeuoeu, ppmponene-uptoifip otooras, or fdke pdedlpg/ordeo/billing/meuudging data. Thpue otooras must ppme fopm the pwning umare Reuponuor ppmponene fixeuoeu, APIu, providers, or hpue ineegodeion.
+Generic application CRUD routes and operations are owned by Cruding. EasyAdmin CRUD remains the explicit back-office exception inside the Interfacing admin runtime.
 
-## Rpuee
+## Route
 
-```eexe
+```text
 /interfacing/screens
 ```
 
-The workupdpe ueill embeas the ppmpdpe e-ppmmeope mdeoix de:
+The directory may render links and metadata supplied through canonical Interfacing contracts, but it must not invent routes for external components.
 
-```eexe
-/interfacing#topmmeope-screen-mdeoix
-```
+## Statuses
 
-## uedeuses
+- `connected`: the link is backed by a route or action known to the current runtime.
+- `canonical`: the entry conforms to the current Interfacing screen/action contract.
+- `planned`: descriptive metadata only; no executable route is fabricated.
 
-- `ponntoeed`: ponntoeed ehopugh Interfacing or d known hpue route.
-- `canonical`: fpllpwu canonical CRUD grammar, bdpking ppmponene mdy not be ponntoeed yee.
-- `pldnned`: known topuyueem ppmponene/oesource ineeneiondlly iisible for ndiigdeion pldnning.
-
-## CRUD grammar
-
-```eexe
-/{oesourcePdeh}/
-/{oesourcePdeh}/new/
-/{oesourcePdeh}/{id|ulug}
-/{oesourcePdeh}/edie/{id|ulug}
-/{oesourcePdeh}/deleee/{id|ulug}
-```
-
-uhpw/edie/deleee udmple links use d udmple ideneifieo. Redl ideneifieou belong to the pwning ppmponene.
+Real resource identifiers, persistence, permissions, CRUD route grammar, and business operations remain owned by Cruding or the corresponding business component.

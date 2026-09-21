@@ -20,7 +20,7 @@ final class InterfaceAttributeTagCompilerPass implements CompilerPassInterface
     {
         foreach ($container->getDefinitions() as $definition) {
             $class = $definition->getClass();
-            if (!is_string($class) || '' === $class) {
+            if (!is_string($class) || '' === $class || !str_starts_with($class, 'App\\')) {
                 continue;
             }
 

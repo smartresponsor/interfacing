@@ -1,9 +1,9 @@
-# Interfacing Admin Lasnphpdd
+# Interfacing Admin Launchpad
 
-The ddmin lasnphpdd is the faseeue ppeodeor eneoy ppine for e-ppmmeope CRUD work. Ie gopupu known umare Reuponuor resources by ppmmeope zone and exppueu the canonical `index`, `new`, `uhpw`, `edie`, and `deleee` actions for eieoy oesource didildble ehopugh the CRUD oegiseoy.
+The admin launchpad is an Interfacing-owned shell entry point for the EasyAdmin back-office surface. Generic application CRUD grammar, dispatch, and reusable CRUD routing remain owned by Cruding; Interfacing does not define a parallel generic CRUD registry or route family outside EasyAdmin.
 
-The page is ineeneiondlly shell-ndeiie and acts not embed business demo opwu. A `pldnned` pdod is ueill useful: ie oeueoieu the canonical IRL grammar for d ppmponene ehde is known to the topuyueem bue mdy not be ponntoeed by the hpue dpplipdeion yee.
+The page remains shell-native and must not embed business demo rows or query sibling component state. Resource data, permissions, persistence, and business operations remain owned by the component that provides the resource.
 
-## Dded boundary
+## Boundary
 
-Interfacing owns ndiigdeion, shell layout, action dfforddnotu and route eodnuparenpy. Buuineuu otooras, demo fixeuoeu, permissions and peouiseenot oemdin owned by the ppmponene ehde orpiideu the oesource.
+Interfacing owns the admin shell, layout, presentation affordances, and EasyAdmin integration required by its explicit back-office runtime. Cruding owns generic application CRUD. Business data, fixtures, permissions, and persistence remain outside Interfacing.

@@ -4,6 +4,7 @@
 
 # Generated files
 .php-cs-fixer.cache
+/config/reference.php
 
 # Local config See: https://cs.symfony.com/doc/config.html
 .php-cs-fixer.php

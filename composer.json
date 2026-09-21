@@ -3,13 +3,18 @@
     "description":  "Interfacing Symfony package bundle",
     "type":  "library",
     "license":  "proprietary",
-    "minimum-stability":  "stable",
+    "minimum-stability":  "dev",
     "prefer-stable":  true,
     "require":  {
+                    "collectioning/collection":  "dev-master",
                     "composer-runtime-api":  "^2.2",
+                    "cruding/crud":  "dev-master",
+                    "easycorp/easyadmin-bundle":  "^5.5.1",
                     "ext-ctype":  "*",
                     "ext-iconv":  "*",
+                    "objecting/object":  "dev-master",
                     "php":  "^8.4",
+                    "tabling/table":  "dev-master",
                     "symfony/uid":  "^8.1",
                     "symfony/service-contracts":  "^3.7",
                     "symfony/asset":  "8.1.*",
@@ -24,15 +29,45 @@
                     "symfony/twig-bundle":  "8.1.*",
                     "symfony/validator":  "8.1.*",
                     "symfony/yaml":  "8.1.*",
-                    "twig/twig":  "^3.27.1"
+                    "twig/twig":  "^3.27.1",
+                    "viewing/view":  "dev-master"
                 },
+    "repositories":  [
+                         {
+                           "type": "path",
+                           "url": "../Objecting",
+                           "options": {"symlink": true, "versions": {"objecting/object": "dev-master"}}
+                         },
+                         {
+                           "type": "path",
+                           "url": "../Collectioning",
+                           "options": {"symlink": true, "versions": {"collectioning/collection": "dev-master"}}
+                         },
+                         {
+                           "type": "path",
+                           "url": "../Tabling",
+                           "options": {"symlink": true, "versions": {"tabling/table": "dev-master"}}
+                         },
+                         {
+                           "type": "path",
+                           "url": "../Cruding",
+                           "options": {"symlink": true, "versions": {"cruding/crud": "dev-master"}}
+                         },
+                         {
+                           "type": "path",
+                           "url": "../Viewing",
+                           "options": {"symlink": true, "versions": {"viewing/view": "dev-master"}}
+                         }
+                       ],
     "require-dev":  {
                         "friendsofphp/php-cs-fixer":  "^3.95.4",
                         "phpstan/extension-installer":  "^1.4.3",
                         "phpstan/phpstan":  "^2.2.2",
                         "phpstan/phpstan-phpunit":  "^2.0.16",
                         "phpstan/phpstan-symfony":  "^2.0.19",
-                        "phpunit/phpunit":  "^11.5.55"
+                        "phpunit/phpunit":  "^11.5.55",
+                        "symfony/panther":  "^2.4",
+                        "symfony/test-pack":  "^1.2"
                     },
     "autoload":  {
                      "psr-4":  {
@@ -61,6 +96,7 @@
                    "sort-packages":  true
                },
     "scripts":  {
+                    "validate:prod":  "composer validate --strict --no-check-all composer.prod.json",
                     "lint":  "php tools/qa/php-lint.php",
                     "lint:yaml":  "php bin/console lint:yaml config src tests --parse-tags",
                     "lint:container":  "php bin/console lint:container",
@@ -70,6 +106,10 @@
                     "stan":  "phpstan analyse --memory-limit=1G",
                     "serve:dev":  "php -S 127.0.0.1:8000 -t public public/router.php",
                     "test":  "phpunit",
+                    "test:coverage":  [
+                                            "@php -r \"if (!is_dir('var/coverage')) { mkdir('var/coverage', 0777, true); }\"",
+                                            "@php -d xdebug.mode=coverage vendor/bin/phpunit --path-coverage --coverage-text=var/coverage/summary.txt"
+                                        ],
                     "test:unit":  "phpunit --testsuite unit",
                     "test:integration":  "phpunit --testsuite integration",
                     "test:functional":  "phpunit --testsuite functional",

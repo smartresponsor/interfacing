@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run ui:build",
+    "test:e2e": "playwright test",
     "typecheck": "npm run ui:check",
     "ui:build": "vite build --config .interfacing/workspace/vite.config.ts",
     "ui:check": "tsc -p .interfacing/workspace/tsconfig.json --noEmit",
@@ -20,6 +21,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "@vitejs/plugin-react": "^4.5.2",
     "typescript": "^5.8.3",
     "vite": "^6.3.5"
