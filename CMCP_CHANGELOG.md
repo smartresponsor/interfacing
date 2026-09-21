@@ -84,3 +84,13 @@
 - `npm run build`: PASS; Vite reports only a non-blocking large-chunk performance warning.
 - `npm audit --audit-level=moderate`: PASS, 0 vulnerabilities.
 - Full Twig lint was attempted through both the declared Composer script and direct Symfony Console execution; both exceeded the Console MCP transport timeout. No Twig lint failure was observed, but this gate cannot be claimed as executed successfully in this run.
+
+### Integration closure
+
+- Created and retained preservation branch `checkpoint/interfacing-rc-pre-rebase-20260920` before history integration.
+- Rebased all 58 local commits onto current `origin/master`; no commits were skipped.
+- Resolved `templates/catalog/index.html.twig` in favor of the neutral Cruding workbench contract, preserving the current Interfacing boundary and eliminating the upstream marketplace-specific/inline-style variant.
+- Resolved `templates/catalog/MANIFEST.md` to the current Cataloging/Cruding/Viewing/Interfacing responsibility split.
+- Re-ran Composer validation, PHPUnit (9 tests / 20 assertions), Canon lint/seal, PHPStan (0 errors / 302 files), CS check (0/305 fixable), YAML lint (17 valid files), container lint, TypeScript typecheck, npm audit (0 vulnerabilities), and provider build reproducibility checks after rebase.
+- Published rebased `master` to `origin`; post-fetch branch state was clean and synchronized (`ahead 0`, `behind 0`).
+- Local materialized `.gating/` tooling is excluded only through `.git/info/exclude`; tracked repository ignore policy was not changed for it.
