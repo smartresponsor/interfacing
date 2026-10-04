@@ -1,135 +1,173 @@
 {
-    "name":  "interfacing/interface",
-    "description":  "Interfacing Symfony package bundle",
-    "type":  "library",
-    "license":  "proprietary",
-    "minimum-stability":  "dev",
-    "prefer-stable":  true,
-    "require":  {
-                    "collectioning/collection":  "dev-master",
-                    "composer-runtime-api":  "^2.2",
-                    "cruding/crud":  "dev-master",
-                    "easycorp/easyadmin-bundle":  "^5.5.1",
-                    "ext-ctype":  "*",
-                    "ext-iconv":  "*",
-                    "objecting/object":  "dev-master",
-                    "php":  "^8.4",
-                    "tabling/table":  "dev-master",
-                    "symfony/uid":  "^8.1",
-                    "symfony/service-contracts":  "^3.7",
-                    "symfony/asset":  "8.1.*",
-                    "symfony/asset-mapper":  "8.1.*",
-                    "symfony/console":  "8.1.*",
-                    "symfony/dependency-injection":  "8.1.*",
-                    "symfony/dotenv":  "8.1.*",
-                    "symfony/framework-bundle":  "8.1.*",
-                    "symfony/form":  "8.1.*",
-                    "symfony/intl":  "8.1.*",
-                    "symfony/security-core":  "8.1.*",
-                    "symfony/twig-bundle":  "8.1.*",
-                    "symfony/validator":  "8.1.*",
-                    "symfony/yaml":  "8.1.*",
-                    "twig/twig":  "^3.27.1",
-                    "viewing/view":  "dev-master"
-                },
-    "repositories":  [
-                         {
-                           "type": "vcs",
-                           "url": "git@github.com:smartresponsor/objecting.git"
-                         },
-                         {
-                           "type": "vcs",
-                           "url": "git@github.com:smartresponsor/collectioning.git"
-                         },
-                         {
-                           "type": "vcs",
-                           "url": "git@github.com:smartresponsor/tabling-.git"
-                         },
-                         {
-                           "type": "path",
-                           "url": "../Cruding",
-                           "options": {"symlink": true, "versions": {"cruding/crud": "dev-master"}}
-                         },
-                         {
-                           "type": "path",
-                           "url": "../Viewing",
-                           "options": {"symlink": true, "versions": {"viewing/view": "dev-master"}}
-                         }
-                       ],
-    "require-dev":  {
-                        "friendsofphp/php-cs-fixer":  "^3.95.4",
-                        "phpstan/extension-installer":  "^1.4.3",
-                        "phpstan/phpstan":  "^2.2.2",
-                        "phpstan/phpstan-phpunit":  "^2.0.16",
-                        "phpstan/phpstan-symfony":  "^2.0.19",
-                        "phpunit/phpunit":  "^11.5.55",
-                        "symfony/panther":  "^2.4",
-                        "symfony/test-pack":  "^1.2"
-                    },
-    "autoload":  {
-                     "psr-4":  {
-                                    "App\\Interfacing\\":  "src/"
-                                }
-                  },
-    "autoload-dev":  {
-                         "psr-4":  {
-                                       "App\\Interfacing\\Tests\\":  "tests/"
-                                   }
-                     },
-    "replace":  {
-                    "symfony/polyfill-ctype":  "*",
-                    "symfony/polyfill-iconv":  "*",
-                    "symfony/polyfill-php84":  "*"
-                },
-    "config":  {
-                   "allow-plugins":  {
-                                         "phpstan/extension-installer":  true
-                                     },
-                   "bump-after-update":  true,
-                   "optimize-autoloader":  true,
-                   "preferred-install":  {
-                                             "*":  "dist"
-                                         },
-                   "sort-packages":  true
-               },
-    "scripts":  {
-                    "validate:prod":  "composer validate --strict --no-check-all composer.prod.json",
-                    "lint":  "php tools/qa/php-lint.php",
-                    "lint:yaml":  "php bin/console lint:yaml config src tests --parse-tags",
-                    "lint:container":  "php bin/console lint:container",
-                    "lint:twig":  "php bin/console lint:twig templates",
-                    "cs:check":  "php-cs-fixer fix --dry-run --diff --verbose",
-                    "cs:fix":  "php-cs-fixer fix --verbose",
-                    "stan":  "phpstan analyse --memory-limit=1G",
-                    "serve:dev":  "php -S 127.0.0.1:8000 -t public public/router.php",
-                    "test":  "phpunit",
-                    "test:coverage":  [
-                                            "@php -r \"if (!is_dir('var/coverage')) { mkdir('var/coverage', 0777, true); }\"",
-                                            "@php -d xdebug.mode=coverage vendor/bin/phpunit --path-coverage --coverage-text=var/coverage/summary.txt"
-                                        ],
-                    "test:unit":  "phpunit --testsuite unit",
-                    "test:integration":  "phpunit --testsuite integration",
-                    "test:functional":  "phpunit --testsuite functional",
-                    "fixtures:load":  "php bin/console doctrine:fixtures:load --no-interaction",
-                    "db:migrate":  "php bin/console doctrine:migrations:migrate --no-interaction",
-                    "pipeline:local:full":  [
-                                                "@lint",
-                                                "@lint:yaml",
-                                                "@lint:container",
-                                                "@lint:twig",
-                                                "@canon:interfacing",
-                                                "@canon:interfacing:seal",
-                                                "@cs:check",
-                                                "@stan",
-                                                "@test"
-                                            ],
-                    "canon:interfacing":  "php tools/qa/interfacing-canon-lint.php",
-                    "canon:interfacing:seal":  "php tools/qa/interfacing-seal-report.php"
-                },
-    "extra":  {
-                  "symfony":  {
-                                  "allow-contrib":  true,
-                                  "require":  "8.1.*"
-                              }
-              }
+  "name": "interfacing/interface",
+  "description": "Interfacing Symfony package bundle",
+  "type": "library",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "collectioning/collection": "dev-master",
+    "composer-runtime-api": "^2.2",
+    "cruding/crud": "dev-master",
+    "easycorp/easyadmin-bundle": "^5.5.1",
+    "ext-ctype": "*",
+    "ext-iconv": "*",
+    "objecting/object": "dev-master",
+    "php": "^8.4",
+    "tabling/table": "dev-master",
+    "symfony/uid": "^8.1",
+    "symfony/service-contracts": "^3.7",
+    "symfony/asset": "8.1.*",
+    "symfony/asset-mapper": "8.1.*",
+    "symfony/console": "8.1.*",
+    "symfony/dependency-injection": "8.1.*",
+    "symfony/dotenv": "8.1.*",
+    "symfony/framework-bundle": "8.1.*",
+    "symfony/form": "8.1.*",
+    "symfony/intl": "8.1.*",
+    "symfony/security-core": "8.1.*",
+    "symfony/twig-bundle": "8.1.*",
+    "symfony/validator": "8.1.*",
+    "symfony/yaml": "8.1.*",
+    "twig/twig": "^3.27.1",
+    "viewing/view": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:smartresponsor/objecting.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:smartresponsor/collectioning.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:smartresponsor/tabling-.git"
+    },
+    {
+      "type": "path",
+      "url": "../Cruding",
+      "options": {
+        "symlink": true,
+        "versions": {
+          "cruding/crud": "dev-master"
+        }
+      }
+    },
+    {
+      "type": "path",
+      "url": "../Viewing",
+      "options": {
+        "symlink": true,
+        "versions": {
+          "viewing/view": "dev-master"
+        }
+      }
+    },
+    {
+      "type": "path",
+      "url": "../Gating",
+      "options": {
+        "symlink": true,
+        "versions": {
+          "gating/gate": "dev-master"
+        }
+      }
+    },
+    {
+      "type": "path",
+      "url": "../Interfacing",
+      "options": {
+        "symlink": true,
+        "versions": {
+          "interfacing/interface": "dev-master"
+        }
+      }
+    }
+  ],
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.95.4",
+    "phpstan/extension-installer": "^1.4.3",
+    "phpstan/phpstan": "^2.2.2",
+    "phpstan/phpstan-phpunit": "^2.0.16",
+    "phpstan/phpstan-symfony": "^2.0.19",
+    "phpunit/phpunit": "^11.5.55",
+    "symfony/panther": "^2.4",
+    "symfony/test-pack": "^1.2",
+    "gating/gate": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\Interfacing\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "App\\Interfacing\\Tests\\": "tests/"
+    }
+  },
+  "replace": {
+    "symfony/polyfill-ctype": "*",
+    "symfony/polyfill-iconv": "*",
+    "symfony/polyfill-php84": "*"
+  },
+  "config": {
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    },
+    "bump-after-update": true,
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "validate:prod": "composer validate --strict --no-check-all composer.prod.json",
+    "lint": "php tools/qa/php-lint.php",
+    "lint:yaml": "php bin/console lint:yaml config src tests --parse-tags",
+    "lint:container": "php bin/console lint:container",
+    "lint:twig": "php bin/console lint:twig templates",
+    "cs:check": "php-cs-fixer fix --dry-run --diff --verbose",
+    "cs:fix": "php-cs-fixer fix --verbose",
+    "stan": "phpstan analyse --memory-limit=1G",
+    "serve:dev": "php -S 127.0.0.1:8000 -t public public/router.php",
+    "test": "phpunit",
+    "test:coverage": [
+      "@php -r \"if (!is_dir('var/coverage')) { mkdir('var/coverage', 0777, true); }\"",
+      "@php -d xdebug.mode=coverage vendor/bin/phpunit --path-coverage --coverage-text=var/coverage/summary.txt"
+    ],
+    "test:unit": "phpunit --testsuite unit",
+    "test:integration": "phpunit --testsuite integration",
+    "test:functional": "phpunit --testsuite functional",
+    "fixtures:load": "php bin/console doctrine:fixtures:load --no-interaction",
+    "db:migrate": "php bin/console doctrine:migrations:migrate --no-interaction",
+    "pipeline:local:full": [
+      "@lint",
+      "@lint:yaml",
+      "@lint:container",
+      "@lint:twig",
+      "@canon:interfacing",
+      "@canon:interfacing:seal",
+      "@cs:check",
+      "@stan",
+      "@test"
+    ],
+    "canon:interfacing": "php tools/qa/interfacing-canon-lint.php",
+    "canon:interfacing:seal": "php tools/qa/interfacing-seal-report.php",
+    "gate": "@php vendor/bin/gating check --target=.",
+    "quality": [
+      "@cs:check",
+      "@stan",
+      "@test",
+      "@gate"
+    ]
+  },
+  "extra": {
+    "symfony": {
+      "allow-contrib": true,
+      "require": "8.1.*"
+    }
+  }
 }
