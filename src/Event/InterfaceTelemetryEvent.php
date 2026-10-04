@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-// Copyright (c) 2025 Oleksandr Tishchenko / Marketing America Corp
+namespace App\Interfacing\Event;
 
-namespace App\Interfacing\Contract\Telemetry;
-
+/**
+ * Carries one immutable telemetry measurement emitted by Interfacing runtime surfaces.
+ */
 final class InterfaceTelemetryEvent
 {
     /** @param array<string,string|int|float|bool> $tag */

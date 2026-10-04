@@ -6,8 +6,8 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Emitter\Telemetry;
 
-use App\Interfacing\Contract\Telemetry\InterfaceTelemetryEvent;
 use App\Interfacing\EmitterInterface\Telemetry\InterfaceTelemetryEmitterInterface;
+use App\Interfacing\Event\InterfaceTelemetryEvent;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 final class InterfaceSymfonyEventTelemetryEmitter implements InterfaceTelemetryEmitterInterface

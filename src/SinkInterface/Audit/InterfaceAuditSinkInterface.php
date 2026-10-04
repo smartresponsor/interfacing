@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\SinkInterface\Audit;
 
-use App\Interfacing\Contract\Audit\InterfaceAuditEvent;
+use App\Interfacing\Event\InterfaceAuditEvent;
 
 interface InterfaceAuditSinkInterface
 {

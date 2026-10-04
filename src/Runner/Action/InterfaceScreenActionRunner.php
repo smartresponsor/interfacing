@@ -7,10 +7,10 @@ namespace App\Interfacing\Runner\Action;
 use App\Interfacing\CatalogInterface\InterfaceActionEndpointCatalogInterface;
 use App\Interfacing\Contract\Action\InterfaceActionRequest;
 use App\Interfacing\Contract\Action\InterfaceActionResult;
-use App\Interfacing\Contract\Telemetry\InterfaceTelemetryEvent;
 use App\Interfacing\Contract\ValueObject\InterfaceActionId;
 use App\Interfacing\Contract\ValueObject\InterfaceScreenId;
 use App\Interfacing\EmitterInterface\Telemetry\InterfaceTelemetryEmitterInterface;
+use App\Interfacing\Event\InterfaceTelemetryEvent;
 
 final class InterfaceScreenActionRunner
 {

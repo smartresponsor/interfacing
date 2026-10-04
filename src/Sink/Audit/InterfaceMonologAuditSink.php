@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\Sink\Audit;
 
-use App\Interfacing\Contract\Audit\InterfaceAuditEvent;
+use App\Interfacing\Event\InterfaceAuditEvent;
 use App\Interfacing\SinkInterface\Audit\InterfaceAuditSinkInterface;
 use Psr\Log\LoggerInterface;
 

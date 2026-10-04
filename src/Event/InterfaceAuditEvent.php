@@ -2,8 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Interfacing\Contract\Audit;
+namespace App\Interfacing\Event;
 
+use App\Interfacing\Contract\Audit\InterfaceAuditEventType;
+
+/**
+ * Carries an immutable audit event emitted by Interfacing runtime surfaces.
+ */
 final readonly class InterfaceAuditEvent
 {
     /**

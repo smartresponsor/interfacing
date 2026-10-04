@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace App\Interfacing\EmitterInterface\Telemetry;
 
-use App\Interfacing\Contract\Telemetry\InterfaceTelemetryEvent;
+use App\Interfacing\Event\InterfaceTelemetryEvent;
 
 interface InterfaceTelemetryEmitterInterface
 {
