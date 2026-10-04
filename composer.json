@@ -67,6 +67,16 @@
     },
     {
       "type": "path",
+      "url": "../Failing",
+      "options": {
+        "symlink": true,
+        "versions": {
+          "failing/failure": "dev-master"
+        }
+      }
+    },
+    {
+      "type": "path",
       "url": "../Gating",
       "options": {
         "symlink": true,
